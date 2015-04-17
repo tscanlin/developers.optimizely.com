@@ -1,14 +1,22 @@
-/* Notes:
-   - gulp/tasks/browserify.js handles js recompiling with watchify
-   - gulp/tasks/browserSync.js watches and reloads compiled files
-*/
+var gulp         = require('gulp');
+var path         = require('path');
+var handleErrors = require('../util/handleErrors');
+var paths        = require('../config').paths;
 
-var gulp     = require('gulp');
-var config   = require('../config');
+gulp.task('watch', ['browser-sync'], function() {
+  // Watch task for images
+  gulp.watch(path.join(paths.src + paths.img, '**/*'), ['images'])
+    .on('error', handleErrors);
 
-gulp.task('watch', ['watchify','browserSync'], function() {
-  gulp.watch(config.sass.src,   ['sass']);
-  gulp.watch(config.images.src, ['images']);
-  gulp.watch(config.markup.src, ['markup']);
-  // Watchify will watch and recompile our JS, so no need to gulp.watch it
+  // Watch task for sass
+  gulp.watch(path.join(paths.src + paths.scss, '**/*.scss'), ['sass'])
+    .on('error', handleErrors);
+
+  // Watch task for js
+  gulp.watch(path.join(paths.src + paths.js, '**/*.js'), ['browserify'])
+    .on('error', handleErrors);
+
+  // Watch tasks for html
+  gulp.watch(path.join(paths.src + paths.layouts, '**/*.html'), ['html-templates'])
+    .on('error', handleErrors);
 });

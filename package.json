@@ -24,14 +24,19 @@
   "homepage": "https://github.com/optimizely/developers.optimizely.com",
   "devDependencies": {
     "browser-sync": "^2.2.1",
+    "browserify": "^9.0.8",
     "del": "^1.1.1",
     "gulp": "^3.8.10",
-    "gulp-changed": "^1.1.1",
+    "gulp-changed": "^1.2.1",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-swig": "^0.7.4",
     "marked": "^0.3.3",
+    "require-dir": "^0.3.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.1.1",
     "zero-static-html-engine": "git+ssh://git@github.com:tomgenoni/zero-static-html-engine.git"
   }
 }
