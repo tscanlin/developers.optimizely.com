@@ -1,2 +1,10 @@
+// Add compass & LEGO dependencies
+@import '../../../node_modules/compass-mixins/lib/compass';
+@import '../../../node_modules/lego/src/scss/core/core-variables';
+@import '../../../node_modules/lego/src/scss/core/core-partials';
+
+// Base styles
 @import 'base/reset';
 @import 'base/main';
+
+@import 'layout';
