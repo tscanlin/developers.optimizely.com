@@ -1,0 +1,83 @@
+// Desktop Styles
+
+h1,
+.alpha {
+  font-size: map-get($font-size, alpha);
+  line-height: 1.1;
+}
+
+h2,
+.beta {
+  font-size: map-get($font-size, beta);
+  line-height: 1.1;
+}
+
+h3,
+.gamma {
+  font-size: map-get($font-size, gamma);
+  line-height: 1.2;
+}
+
+h4,
+.delta {
+  font-size: map-get($font-size, delta);
+  line-height: 1.2;
+}
+
+h5,
+.epsilon {
+  font-size: map-get($font-size, epsilon);
+  line-height: 1.2;
+}
+
+h6,
+.zeta {
+  font-size: map-get($font-size, zeta);
+}
+
+h1 {
+  margin-bottom: spacer(2);
+}
+
+h2 {
+  margin-bottom: spacer(2);
+}
+
+h3 {
+  margin-bottom: spacer(1.5);
+}
+
+h4 {
+  margin-bottom: spacer(1);
+}
+
+h5 {
+  margin-bottom: spacer(1.5);
+  font-weight: map-get($font-weight, bold);
+}
+
+h6 {
+  margin-bottom: spacer(0.5);
+  font-weight: map-get($font-weight, bold);
+  text-transform: none;
+}
+
+.milli {
+  font-size: map-get($font-size, milli);
+}
+
+.micro {
+  font-size: map-get($font-size, micro);
+}
+
+.giga {
+  font-size: map-get($font-size, giga);
+}
+
+.mega {
+  font-size: map-get($font-size, mega);
+}
+
+.kilo {
+  font-size: map-get($font-size, kilo);
+}

@@ -1,10 +1,23 @@
 // Add compass & LEGO dependencies
+// Temporary to get Lego to work
 @import '../../../node_modules/compass-mixins/lib/compass';
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
 @import '../../../node_modules/lego/src/scss/core/core-variables';
 @import '../../../node_modules/lego/src/scss/core/core-partials';
+@import 'desktop';
+
 
 // Base styles
-@import 'base/reset';
-@import 'base/main';
-
+@import 'base';
 @import 'layout';
+
+// Trumps (These should go last)
+@import '../../../node_modules/lego/src/scss/core/partials/trumps/background';
+@import '../../../node_modules/lego/src/scss/core/partials/trumps/layout';
+@import '../../../node_modules/lego/src/scss/core/partials/trumps/margin';
+@import '../../../node_modules/lego/src/scss/core/partials/trumps/padding';
+@import '../../../node_modules/lego/src/scss/core/partials/trumps/type';
+@import '../../../node_modules/lego/src/scss/core/partials/trumps/sizing';

@@ -1,19 +1,85 @@
-{% include '_head.html' {
-  page: "index"
-}%}
+{%
+  include '_head.html'
+  {
+    page: "index"
+  }
+%}
 
   {% include '_header.html' %}
 
   <main>
-    <div class="content">
-      <h1>ZERO</h1>
-      <p class="muted">A minimal static HTML engine using Gulp. </p>
-      <img src="/assets/img/zero.svg" height="120" alt="" class="logo">
+    <div class="hero text--center height-300 soft-quad">
+      <h1 class="kilo push-double">Optimizely Developers</h1>
+      <h2 class="gamma">Build on the world's #1 experience optimization platform.</h2>
 
-      <div class="default-message">
-        This is the default page you should see at http://localhost:3000.<br />Edit files in <b>_scss</b>, <b>_templates</b>, <b>_partials</b>, or <b>assets</b> to see instant changes.
+      <!-- <div class="cta soft-quad--top"> -->
+        <a class="lego-button lego-button--brand push-quad" href="#">Get Started</a>
+      <!-- </div> -->
+    </div>
+
+
+
+    <div class="width-4-5 anchor--middle">
+      <h3 class="text--center push-triple">Documentation</h3>
+
+      <div class="lego-grid">
+        <div class="lego-grid__cell width-1-4 text--center">
+          <a class="link--dark" href="#">
+            <img src="http://placehold.it/100x100" class="img--circle display--inline-block push">
+            <h4>Javascript API</h4>
+            <p>Customize Optimizely's behavior on web pages. You can control how
+              Optimizely buckets users into variations, integrate custom analytics
+              tools, or manually activate experiments.</p>
+          </a>
+        </div>
+        <div class="lego-grid__cell width-1-4 text--center">
+          <a class="link--dark" href="#">
+            <img src="http://placehold.it/100x100" class="img--circle display--inline-block push">
+            <h4>REST API</h4>
+            <p>Manage your Optimizely experiments programmatically. You can modify
+              projects, experiments, and variations from your own code. This makes
+              it easy to create and start experiments directly from a
+              content-management system.</p>
+          </a>
+        </div>
+        <div class="lego-grid__cell width-1-4 text--center">
+          <a class="link--dark" href="#">
+            <img src="http://placehold.it/100x100" class="img--circle display--inline-block push">
+            <h4>iOS SDK</h4>
+            <p>Create and run experiments in your iOS app. Use our code-free
+              Visual Editor as well as Live Variables and Code Blocks to optimize
+              your app. Straightforward SDK integration with CocoaPods support.</p>
+          </a>
+        </div>
+        <div class="lego-grid__cell width-1-4 text--center">
+          <a class="link--dark" href="#">
+            <img src="http://placehold.it/100x100" class="img--circle display--inline-block push">
+            <h4>Android SDK</h4>
+            <p>Create and run experiments in your Android app. Use our code-free
+              Visual Editor as well as Live Variables and Code Blocks to optimize
+              your app. Straightforward SDK integration with Gradle support.</p>
+          </a>
+        </div>
+        <!-- <div class="lego-grid__cell width-1-4 text--center">
+          <img src="http://placehold.it/100x100" class="img--circle display--inline-block">
+          <div>Code Samples</div>
+        </div> -->
       </div>
+    </div>
 
+    <div class="width-4-5 anchor--middle">
+      <h3 class="text--center push-triple">Get Started</h3>
+
+      <div class="lego-grid">
+        <div class="lego-grid__cell width-1-2 text--center">
+          <img src="http://placehold.it/100x100" class="display--inline-block">
+          <div>For Customers</div>
+        </div>
+        <div class="lego-grid__cell width-1-2 text--center">
+          <img src="http://placehold.it/100x100" class="display--inline-block">
+          <div>For Partners</div>
+        </div>
+      </div>
     </div>
   </main>
 

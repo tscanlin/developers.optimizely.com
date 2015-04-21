@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/tzhang/Library/Developer/Shared/Documentation/DocSets/com.optimizely.Optimizely.docset
+Time: 2015-02-27 19:03:45 +0000

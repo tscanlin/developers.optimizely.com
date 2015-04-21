@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
+    <id>http://www.optimizely.com/Optimizely/Optimizely.atom/20150227110346</id>
+    <title type="text">Optimizely Documentation</title>
+    <rights>Copyright © 2015 Optimizely. All rights reserved.</rights>
+    <link rel="self" href="http://www.optimizely.com/Optimizely/Optimizely.atom"></link>
+    <docset:publisherName>Optimizely</docset:publisherName>
+    <docset:publisherID>com.optimizely.documentation</docset:publisherID>
+    <updated>2015-02-27T11:03:46-08:00</updated>
+    <entry>
+        <id>tag:www.optimizely.com,2015-02-27:com.optimizely.Optimizely/1.0.0</id>
+        <title type="text">Optimizely Documentation</title>
+        <updated>2015-02-27T11:03:46-08:00</updated>
+        <content type="text">Optimizely Documentation (v1.0.0)</content>
+        <link rel="enclosure" type="application/octet-stream" href="http:/www.optimizely.com/Optimizely/com.optimizely.Optimizely-1.0.xar" length="131190"></link>
+        <docset:identifier>com.optimizely.Optimizely</docset:identifier>
+        <docset:version>1.0.0</docset:version>
+        <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>
+    </entry>
+</feed>
