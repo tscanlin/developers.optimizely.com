@@ -3,5 +3,5 @@ var del          = require('del');
 var paths        = require('../config').paths;
 
 gulp.task('clean', function(cb) {
-  del(paths.build, cb);
+  return del(paths.build, cb);
 });

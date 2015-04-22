@@ -38,9 +38,9 @@ js: |
 
 To create a variation, we first generate the variation code. We use a template based on the Wordpress theme, and then we drop in the values for our variation. The result would be:
 
-{% highlight js %}
+```javascript
 $(".post-27 .entry-title a").text("Alternate Title #1");
-{% endhighlight %}
+```
 
 Once we've generated this variation code, we include it in the `js_component` parameter of our API request. We also add a variation title and weight.
 

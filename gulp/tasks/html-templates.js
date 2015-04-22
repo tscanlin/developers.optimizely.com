@@ -9,13 +9,12 @@ var opts = {
   setup: function(swig) {
     swig.setDefaults({
       cache: false,
-      loader: swig.loaders.fs(paths.src + paths.partials) //.fs(__dirname + '/src/partials/') // Set partial path root.
+      loader: swig.loaders.fs(paths.src)
     });
   }
 };
 
 gulp.task('html-templates', function () {
-  console.log(paths.layouts);
   return gulp.src([
       path.join(paths.src + paths.layouts, '**/*.html')
     ])
