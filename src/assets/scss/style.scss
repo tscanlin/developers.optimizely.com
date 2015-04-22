@@ -14,6 +14,8 @@
 @import 'base';
 @import 'layout';
 
+@import 'syntax';
+
 // Trumps (These should go last)
 @import '../../../node_modules/lego/src/scss/core/partials/trumps/background';
 @import '../../../node_modules/lego/src/scss/core/partials/trumps/layout';

@@ -25,6 +25,7 @@
   "homepage": "https://github.com/optimizely/developers.optimizely.com",
   "dependencies": {
     "compass-mixins": "^0.12.3",
+    "highlight.js": "^8.5.0",
     "lego": "git+ssh://git@github.com:optimizely/lego.git"
   },
   "devDependencies": {

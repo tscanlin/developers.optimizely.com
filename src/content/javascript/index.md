@@ -41,7 +41,7 @@ window['optimizely'] = window['optimizely'] || [];
 
 Optimizely function calls can be made using JavaScript or a query parameter, `optimizely_function_name=value`. The JavaScript API is used when the function should be called as part of your application, such as when activating a manual activation mode experiment. The query parameters are used most often for testing and debugging purposes. A common example is to opt a visitor out of Optimizely tracking by loading the URL with the query parameter `optimizely_opt_out=true`. The URL might look like this:
 
-```
+```text
 http://www.example.com/page.html?optimizely_opt_out=true
 ```
 
