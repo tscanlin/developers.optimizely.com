@@ -1,7 +1,7 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../config').paths;
+var paths        = require('../../config').paths;
 
 gulp.task('browser-sync', function() {
   browserSync({

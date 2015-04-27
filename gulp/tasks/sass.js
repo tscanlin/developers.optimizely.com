@@ -4,7 +4,7 @@ var browserSync  = require('browser-sync');
 var sourcemaps   = require('gulp-sourcemaps');
 var path         = require('path');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../config').paths;
+var paths        = require('../../config').paths;
 // var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function () {

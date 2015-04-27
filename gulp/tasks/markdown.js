@@ -7,7 +7,7 @@ var tap          = require('gulp-tap');
 var util         = require('gulp-util');
 var path         = require('path');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../config').paths;
+var paths        = require('../../config').paths;
 
 swig.setDefaults({
   cache: false,

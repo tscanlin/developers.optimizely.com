@@ -15,7 +15,13 @@ var paths = {
   content: 'content/',
   layouts: 'layouts/',
   partials: 'partials/',
-  templates: 'templates/'
+  templates: 'templates/',
+
+  android: 'android/',
+  ios: 'ios/',
+  javascript: 'javascript/',
+  rest: 'rest/',
+  samples: 'samples/',
 };
 
 module.exports = {

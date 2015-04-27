@@ -4,7 +4,7 @@ var changed      = require('gulp-changed');
 var browserSync  = require('browser-sync');
 var path         = require('path');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../config').paths;
+var paths        = require('../../config').paths;
 
 gulp.task('images', function() {
   return gulp.src([

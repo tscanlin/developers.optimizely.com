@@ -3,7 +3,7 @@ var swig         = require('gulp-swig');
 var browserSync  = require('browser-sync');
 var path         = require('path');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../config').paths;
+var paths        = require('../../config').paths;
 
 var opts = {
   setup: function(swig) {
