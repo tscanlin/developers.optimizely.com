@@ -15,10 +15,23 @@ swig.setDefaults({
   loader: swig.loaders.fs(paths.src)
 });
 
-// Use markdown with swig.
+// Use markdown with swig (as a filter and a tag).
 markedSwig.useFilter(swig);
 markedSwig.useTag(swig);
 
+// Add stringify filter to swig.
+// From: https://github.com/paularmstrong/swig/issues/582
+function filter_stringify(input) {
+  return JSON.stringify(input);
+}
+filter_stringify.safe = true;
+swig.setFilter('stringify', filter_stringify );
+
+// Add swig-highlight for code highlighting
+require('swig-highlight').apply(swig);
+// swig.setTag('highlight', swig-hl.parse, swig-hl.compile, swig-hl.ends, swig-hl.block);
+
+// Gulp task
 gulp.task('markdown', function () {
   return gulp.src([
       path.join(paths.src + paths.content, '**/*.md')
@@ -28,7 +41,8 @@ gulp.task('markdown', function () {
     // markdown in a property called 'body'.
     .pipe(tap(function(file, t) {
       var json = JSON.parse(file.contents.toString());
-      json.fileName = path.basename(file.path);
+      var fileName = path.basename(file.path);
+      json.fileName = fileName.replace(/\.[^/.]+$/, ""); // Get the file name without the extension.
       var template = json.template || 'default';
       var tpl = swig.compileFile(paths.templates + template + '.html');
       file.contents = new Buffer(tpl(json), 'utf8');

@@ -2,13 +2,13 @@
   <section>
     <div class="sidebyside">
       <!-- Left column -->
-      <div class="explanation {% if fileName == "0-intro.md" %}intro{% endif %}">
+      <div class="explanation {% if fileName == "0-intro" %}intro{% endif %}">
 
         <!-- Anchor link -->
         {% if anchor %}<a name="{{anchor}}"></a>{% endif %}
 
         <!-- Title -->
-        {% if fileName == "0-intro.md" %}
+        {% if fileName == "0-intro" %}
           <h2>{{title}}</h2>
         {% else %}
           <h3>{{title}}</h3>
@@ -39,62 +39,54 @@
           <!-- Example request -->
           {% if endpoint %}
             <h4>Example Request</h4>
-            {% marked %}
-            ```bash
-              curl \
-                -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
-                -H "Content-Type: application/json" \
-                -d '{{ request }}' \{% endif %}
-                {% if type %}-X {{type}} {% endif %}"{{site.experiment_api.baseurl}}{{ endpoint }}"
-            ```
-            {% endmarked %}
+<pre>
+  {% highlight 'bash' %}
+    curl \
+      -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
+      -H "Content-Type: application/json" \
+      -d '{{ request | stringify }}' \{% endif %}
+      {% if type %}-X {{type}} {% endif %}"https://www.optimizelyapis.com/experiment/v1/{{ endpoint }}"
+  {% endhighlight %}
+</pre>
           {% endif %}
 
           <!-- Example response -->
           {% if response %}
             <h4>Example Response</h4>
-            {% marked %}
-            ```json
-              {{ response }}
-            ```
-            {% endmarked %}
+            <pre>
+              {% highlight 'json' %}
+                {{ response | safe }}
+              {% endhighlight %}
+            </pre>
           {% endif %}
 
 
           {% if html %}
             <h4>Example HTML</h4>
-            {% marked %}
-            ```html
+            {% highlight 'html' %}
               {{ html }}
-            ```
-            {% endmarked %}
+            {% endhighlight %}
           {% endif %}
 
           {% if js %}
             <h4>Example Javascript</h4>
-            {% marked %}
-            ```js
+            {% highlight 'js' %}
               {{ js }}
-            ```
-            {% endmarked %}
+            {% endhighlight %}
           {% endif %}
 
           {% if request_url %}
             <h4>Example URL</h4>
-            {% marked %}
-            ```bbcode
+            {% highlight 'bash' %}
               {{ request_url }}
-            ```
-            {% endmarked %}
+            {% endhighlight %}
           {% endif %}
 
           {% if curl %}
             <h4>Example Request</h4>
-            {% marked %}
-            ```bbcode
+            {% highlight 'bash' %}
               {{ curl }}
-            ```
-            {% endmarked %}
+            {% endhighlight %}
           {% endif %}
         </div>
         <div class="tab-pane interactive">
