@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Delete a variation
 anchor: delete-variation
 type: DELETE

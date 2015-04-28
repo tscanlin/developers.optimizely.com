@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Getting Started
 anchor: getting-started
 ---

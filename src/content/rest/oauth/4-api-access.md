@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Authentication
 anchor: authentication
 curl: |

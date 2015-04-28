@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: variations/859611685
 endpoint_prefix: variations/
 endpoint_option: 859611685

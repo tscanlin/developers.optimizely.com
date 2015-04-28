@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: projects/1234/dimensions
 endpoint_prefix: projects/
 endpoint_option: 1234
@@ -12,10 +13,10 @@ request:
   description: Description of my dimension
 response: |
   {
-    "name": "My Dimension", 
-    "last_modified": "2015-01-01T00:00:00.000000Z", 
-    "client_api_name": "my_dimension_api_name", 
-    "project_id": 1234, 
+    "name": "My Dimension",
+    "last_modified": "2015-01-01T00:00:00.000000Z",
+    "client_api_name": "my_dimension_api_name",
+    "project_id": 1234,
     "id": 5678,
     "description": "Description of my dimension"
   }

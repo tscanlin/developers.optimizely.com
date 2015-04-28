@@ -1,7 +1,6 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
 var swig         = require('swig');
-var markedSwig   = require('swig-marked');
 var markdown     = require('gulp-markdown-to-json');
 var rename       = require('gulp-rename');
 var tap          = require('gulp-tap');
@@ -15,10 +14,6 @@ swig.setDefaults({
   loader: swig.loaders.fs(paths.src)
 });
 
-// Use markdown with swig.
-markedSwig.useFilter(swig);
-markedSwig.useTag(swig);
-
 gulp.task('markdown', function () {
   return gulp.src([
       path.join(paths.src + paths.content, '**/*.md')
@@ -28,8 +23,7 @@ gulp.task('markdown', function () {
     // markdown in a property called 'body'.
     .pipe(tap(function(file, t) {
       var json = JSON.parse(file.contents.toString());
-      json.fileName = path.basename(file.path);
-      var template = json.template || 'default';
+      var template = json.layout || 'default';
       var tpl = swig.compileFile(paths.templates + template + '.html');
       file.contents = new Buffer(tpl(json), 'utf8');
     }))

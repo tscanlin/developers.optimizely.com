@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: projects/1234/experiments/
 endpoint_prefix: projects/
 endpoint_option: 1234

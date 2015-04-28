@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: experiments/1234/schedules
 endpoint_prefix: experiments/
 endpoint_option: 1234
@@ -9,23 +10,23 @@ anchor: list-schedules-for-experiment
 response: |
   [
     {
-      "status": "ACTIVE", 
-      "start_time": "2015-01-01T08:00:00Z", 
-      "stop_time": null, 
+      "status": "ACTIVE",
+      "start_time": "2015-01-01T08:00:00Z",
+      "stop_time": null,
       "experiment_id": 1234,
       "id": 5678
     },
     {
-      "status": "INACTIVE", 
-      "start_time": "2015-01-01T08:00:00Z", 
-      "stop_time": "2015-01-02T08:00:00Z", 
+      "status": "INACTIVE",
+      "start_time": "2015-01-01T08:00:00Z",
+      "stop_time": "2015-01-02T08:00:00Z",
       "experiment_id": 1234,
       "id": 5677
     },
      {
-      "status": "INACTIVE", 
-      "start_time": null, 
-      "stop_time": "2015-01-01T08:00:00Z", 
+      "status": "INACTIVE",
+      "start_time": null,
+      "stop_time": "2015-01-01T08:00:00Z",
       "experiment_id": 1234,
       "id": 5676
     }

@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Authorization
 anchor: authorization
 fields:
@@ -26,4 +27,3 @@ We recommend you use the <b>Connect with Optimizely</b> button below, which you 
 </div><br>
 
 Users can revoke your application's access to their data at any time in their <a target="_blank" href="https://www.optimizely.com/accountsettings/access">API Access</a> settings.
-

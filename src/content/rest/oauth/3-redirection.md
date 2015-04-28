@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Redirection
 anchor: redirection
 fields:

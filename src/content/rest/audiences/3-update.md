@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: audiences/568
 endpoint_prefix: audiences/
 endpoint_option: 568

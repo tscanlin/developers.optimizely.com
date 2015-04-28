@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: List variations in experiment
 type: GET
 anchor: list-variation

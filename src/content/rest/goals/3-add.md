@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Add or remove a goal
 anchor: add-remove-goal
 ---

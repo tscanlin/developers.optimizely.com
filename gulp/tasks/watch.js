@@ -25,4 +25,6 @@ gulp.task('watch', ['browser-sync'], function() {
     .on('error', handleErrors);
   gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['html-templates', 'markdown'])
     .on('error', handleErrors);
+  gulp.watch(path.join(paths.src + paths.templates, '**/*.html'), ['html-templates', 'markdown'])
+    .on('error', handleErrors);
 });

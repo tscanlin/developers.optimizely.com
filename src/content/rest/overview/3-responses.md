@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Response Codes
 anchor: response-codes
 ---

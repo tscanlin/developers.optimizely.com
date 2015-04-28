@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: goals/1234
 endpoint_prefix: goals/
 endpoint_option: 1234

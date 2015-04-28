@@ -1,7 +1,7 @@
 ---
-layout: twocol-docs
+layout: twocol
 title: "Optimizely REST API"
-categories: 
+categories:
 - overview
 - oauth
 - projects

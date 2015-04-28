@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Delete a project
 anchor: delete-project
 ---

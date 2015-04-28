@@ -1,5 +1,5 @@
 ---
-layout: default
+template: default
 title: "Optimizely Javascript API"
 ---
 

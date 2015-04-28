@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Delete an audience
 anchor: delete-audience
 ---

@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Audiences
 anchor: audiences
 ---

@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Schedules
 anchor: schedules
 ---

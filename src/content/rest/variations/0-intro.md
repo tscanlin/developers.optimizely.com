@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Variations
 anchor: variations
 ---

@@ -1,5 +1,5 @@
 ---
-layout: default
+template: default
 title: "Optimizely iOS SDK Quickstart Guide"
 ---
 ## Getting Started
@@ -22,11 +22,11 @@ Link to [Optimizely Class Reference Documentation](http://developers.optimizely.
 
 To create an iOS project, select "Create New Project" in the [Optimizely Dashboard](https://www.optimizely.com/dashboard):
 
-   <img src="create-project.png" alt="Drawing" style="width: 80%;"/>
+   <img src="/assets/img/ios/create-project.png" alt="Drawing" style="width: 80%;"/>
 
 <a name="project-code"></a>Once you've created a project, please take a look at the `Settings` tab to find your project ID and API key which you will use during installation:
 
-![Project Code Dialog](project-code.png)
+<img src="/assets/img/ios/project-code.png" alt="Project Code Dialog">
 
 ### <a name="installation"></a> Step 2: SDK Integration
 To use Optimizely's iOS SDK you must first integrate the SDK into your app. You can either install the Optimizely SDK using [CocoaPods](#cocoapods) (recommended) or via [Manual Installation](#manualinstall).  Our SDK supports iOS 7.0 and above.  We have partial support of Swift with [limited functionality](https://help.optimizely.com/hc/en-us/articles/201893400#swift).
@@ -109,11 +109,11 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
    4. Add `optly{PROJECT_ID}` to "URL Schemes."  Your Project ID is available at the bottom of the <a href="#project-code">Project Code</a> dialog box. For instance, if your Project ID is `123456`, your URL Scheme would be `optly123456`.
       Once completed, your `URL Scheme` should look like this:
-      <img src="project-plist.png" alt="Drawing" style="width: 100%; padding-bottom:10px;"/>
+      <img src="/assets/img/ios/project-plist.png" alt="Drawing" style="width: 100%; padding-bottom:10px;"/>
 
    5. <a name="urllinkgenerate"></a>Once you run your app in DEBUG mode with the SDK installed, you should see the image below in your [Optimizely Dashboard](https://www.optimizely.com/dashboard).  Once the SDK is detected, the Create Experiment button will appear, and you can continue to Step 4 to create your experiment.
 
-          <img src="editor-follow-link2.png" alt="Drawing" style="width: 80%;"/>
+          <img src="/assets/img/ios/editor-follow-link2.png" alt="Drawing" style="width: 80%;"/>
 
    6. <a name="editliveappstore"></a>(Optional) By default, you will not be able to connect your app to the Optimizely editor once your app is live in the App Store.  If you would like to enable Edit Mode when the app is live, you can add the following line of code before `startOptimizelyWithAPIToken`:
 
@@ -260,7 +260,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 1. Load your application and connect in edit mode.
 2. Navigate to the variables section of the editor.
-<img src="editor-variablestab.png" alt="Drawing" style="width: 100%;"/>
+<img src="/assets/img/ios/editor-variablestab.png" alt="Drawing" style="width: 100%;"/>
 3. The editor will allow you to modify the variable value for different variations.
 4. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
 
@@ -409,7 +409,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 1. Load your application and connect in edit mode.
 2. Navigate to the Code Blocks section of the editor.
-<img src="editor-codeblocks.png" alt="Drawing" style="width: 100%;"/>
+<img src="/assets/img/ios/editor-codeblocks.png" alt="Drawing" style="width: 100%;"/>
 3. The editor will display your Code Blocks.  Use the drop down to select the desired Code Block for this variation.
 4. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
 

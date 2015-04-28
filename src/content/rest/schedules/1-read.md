@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: schedules/1234
 endpoint_prefix: schedules/
 endpoint_option: 1234
@@ -13,9 +14,9 @@ fields:
   id: ID of the schedule.
 response: |
   {
-    "status": "ACTIVE", 
-    "start_time": "2015-01-01T08:00:00Z", 
-    "stop_time": null, 
+    "status": "ACTIVE",
+    "start_time": "2015-01-01T08:00:00Z",
+    "stop_time": null,
     "experiment_id": 5678,
     "id": 1234
   }

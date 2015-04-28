@@ -1,4 +1,5 @@
 ---
+template: twocol
 type: DELETE
 endpoint: goals/1234
 endpoint_prefix: goals/

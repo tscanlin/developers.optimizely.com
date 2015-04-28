@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Change Log
 anchor: changes
 ---

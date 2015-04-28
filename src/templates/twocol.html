@@ -1,0 +1,107 @@
+  <!-- Row -->
+  <section>
+    <div class="sidebyside">
+      <!-- Left column -->
+      <div class="explanation {% if fileName == "0-intro.md" %}intro{% endif %}">
+
+        <!-- Anchor link -->
+        {% if anchor %}<a name="{{anchor}}"></a>{% endif %}
+
+        <!-- Title -->
+        {% if fileName == "0-intro.md" %}
+          <h2>{{title}}</h2>
+        {% else %}
+          <h3>{{title}}</h3>
+        {% endif %}
+
+        <!-- Endpoint -->
+        {% if type and endpoint %}
+          <pre>{{ type }} {{ endpoint }}</pre>
+        {% endif %}
+
+        <!-- Description -->
+        {{ body | safe }}
+
+        <!-- Arguments -->
+        {% if fields %}
+          <h4>Definitions</h4>
+          <table class="table">
+          {% for key, f in fields %}
+            <tr><td align="left"><b>{{ key }}</b></td><td class="desc">{{ f | marked }}</td></tr>
+          {% endfor %}
+          </table>
+        {% endif %}
+      </div>
+
+      <!-- Right column -->
+      <div class="sample{% if file == "intro.md" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %} tab-content">
+        <div class="tab-pane active curl">
+          <!-- Example request -->
+          {% if endpoint %}
+            <h4>Example Request</h4>
+            {% marked %}
+            ```bash
+              curl \
+                -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
+                -H "Content-Type: application/json" \
+                -d '{{ request }}' \{% endif %}
+                {% if type %}-X {{type}} {% endif %}"{{site.experiment_api.baseurl}}{{ endpoint }}"
+            ```
+            {% endmarked %}
+          {% endif %}
+
+          <!-- Example response -->
+          {% if response %}
+            <h4>Example Response</h4>
+            {% marked %}
+            ```json
+              {{ response }}
+            ```
+            {% endmarked %}
+          {% endif %}
+
+
+          {% if html %}
+            <h4>Example HTML</h4>
+            {% marked %}
+            ```html
+              {{ html }}
+            ```
+            {% endmarked %}
+          {% endif %}
+
+          {% if js %}
+            <h4>Example Javascript</h4>
+            {% marked %}
+            ```js
+              {{ js }}
+            ```
+            {% endmarked %}
+          {% endif %}
+
+          {% if request_url %}
+            <h4>Example URL</h4>
+            {% marked %}
+            ```bbcode
+              {{ request_url }}
+            ```
+            {% endmarked %}
+          {% endif %}
+
+          {% if curl %}
+            <h4>Example Request</h4>
+            {% marked %}
+            ```bbcode
+              {{ curl }}
+            ```
+            {% endmarked %}
+          {% endif %}
+        </div>
+        <div class="tab-pane interactive">
+          {% if endpoint and type == "GET" %}
+            {# include sandbox.html #}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>

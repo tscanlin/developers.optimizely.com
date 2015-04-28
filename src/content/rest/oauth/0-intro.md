@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: OAuth 2.0
 anchor: oauth
 ---

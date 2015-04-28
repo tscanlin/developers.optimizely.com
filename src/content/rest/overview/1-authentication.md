@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Authentication
 endpoint: "projects/"
 anchor: authentication

@@ -1,4 +1,5 @@
 ---
+template: twocol
 endpoint: projects/1234/
 endpoint_prefix: projects/
 endpoint_option: 1234
@@ -13,7 +14,7 @@ fields:
   project_javascript: The JavaScript code which runs before Optimizely on all pages, **regardless** of whether or not there is a running experiment.
   enable_force_variation: Set to `true` to enable the [force variation parameter](https://help.optimizely.com/hc/en-us/articles/202480860#force_variations)
   exclude_disabled_experiments: Set to `true` to [remove paused and draft experiments](https://help.optimizely.com/hc/en-us/articles/202480860#draft_pause) from the snippet
-  exclude_names: Set to `true` to [mask descriptive names](https://help.optimizely.com/hc/en-us/articles/202480860#masking_descriptive_names) 
+  exclude_names: Set to `true` to [mask descriptive names](https://help.optimizely.com/hc/en-us/articles/202480860#masking_descriptive_names)
   ip_filtering: The same string that you'll find in Optimizely under Project Settings > IP Filtering, or `null` if it's not set.
   socket_token: The token used to identify your mobile app to Optimizely
 response: |

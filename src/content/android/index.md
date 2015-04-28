@@ -1,5 +1,5 @@
 ---
-layout: default
+template: default
 title: "Optimizely Android SDK Quickstart Guide"
 ---
 ## Getting Started
@@ -25,7 +25,7 @@ To use Optimizely for Android you must first integrate the SDK into your app. Yo
 
 **We strongly recommend using a version control system (such as [Git](http://git-scm.com/)) and checking in your app before installing Optimizely.**
 
-#### <a name="gradle"></a> Using Gradle 
+#### <a name="gradle"></a> Using Gradle
 
 Your project must be set up to build with Gradle. Refer to [Gradle Getting Started](http://developer.android.com/sdk/installing/studio-build.html) if you haven't yet configured your project to work with Gradle.
 
@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-#### <a name="maven"></a> Using Maven 
+#### <a name="maven"></a> Using Maven
 
 0. Your project must be set up to build with Maven. Refer to [Maven in 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) guide if you haven't yet configured your project to work with Maven.
 
@@ -92,23 +92,23 @@ The Optimizely SDK depends on:
 ##### Eclipse
  If you are using ADT (Eclipse), copy the dependencies and Optimizely.jar to your `libs/` folder inside your project:
 
-  <img src="eclipse-libs.png" alt="Eclipse Project Structure" style="width: 40%;"/>
+  <img src="/assets/img/android/eclipse-libs.png" alt="Eclipse Project Structure" style="width: 40%;"/>
 
  Then right-click on each dependency jar as well as Optimizely.jar and select `Build Path > Add to Build Path`:
 
-  <img src="eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
+  <img src="/assets/img/android/eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
 
 ##### IntelliJ IDEA
 If you are using IntelliJ with the Android plugin, add each dependency jar and Optimizely.jar as a library dependency for your app module:
 
 Under Project Structure > Libraries click the `+` button.
-  <img src="ij-add-library.png" alt="IntelliJ Module Library Step 1" style="width: 80%;"/>
+  <img src="/assets/img/android/ij-add-library.png" alt="IntelliJ Module Library Step 1" style="width: 80%;"/>
 
 Select the Optimizely.jar library (you may wish to copy the jar into your project before this step).
-  <img src="ij-locate-optimizely.png" alt="IntelliJ Module Library Step 2" style="width: 80%;"/>
+  <img src="/assets/img/android/ij-locate-optimizely.png" alt="IntelliJ Module Library Step 2" style="width: 80%;"/>
 
 Select your application module as a target for the library.
-  <img src="ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
+  <img src="/assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
 
 ##### Android Studio
 If you are using Android Studio, please see the [Gradle](#gradle) configuration above.
@@ -117,12 +117,12 @@ If you are using Android Studio, please see the [Gradle](#gradle) configuration 
 
 To create an Android project, select "New Project" from the left drawer in your [Optimizely Home](https://www.optimizely.com/projects/):
 
-   <img src="create-project.png" alt="Create Project Dialog" style="width: 80%;"/>
+   <img src="/assets/img/android/create-project.png" alt="Create Project Dialog" style="width: 80%;"/>
 
 
 <a name="project-code"></a>Once you've created a project, please take a look at the `Implementation` section under the `Settings` tab to find your project ID and API key which you will use during integration:
 
-![Project Code Dialog](project-code.png)
+<img src="/assets/img/android/project-code.png" alt="Project Code Dialog">
 
 ### <a name="apitoken"></a> Step 3: Activate Optimizely
 Now, you're ready to add some code so your app can connect with your Optimizely account.
@@ -134,13 +134,13 @@ Open the Java source file corresponding to your app's main activity (the one dec
   ```
 
 Add the following to the end of your main activity's `onCreate()` function. The code can be copied from your `Implementation Settings`, which you can find by selecting on the appropriate Android Project in your [Optimizely Home](https://www.optimizely.com/projects).  For more details, you can refer back to [Step 2: Create an Android project](#accountcreation).  
-  
+
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    
+
     // more create logic
 
     // You can find the following code snippet in your project code.
@@ -158,8 +158,8 @@ Optimizely needs to connect to the internet to allow you to use our online edito
 
 At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background. You will see your project overview display light up, allowing you to create an experiment:
 
-   <img src="sdk-detected.png", style="width: 70%"/>
-  
+   <img src="/assets/img/android/sdk-detected.png", style="width: 70%"/>
+
 ### <a name="createexperiment"></a> Step 4: Create an Experiment
 
 After creating an Android project and installing the SDK, click the `Create Experiment` button in the upper right hand side of your project overview.
@@ -173,7 +173,7 @@ The Optimizely Android SDK identifies Views within your application using the st
 #### <a name="preview"></a> Preview Mode
 Preview mode allows you to force your app into a certain variation for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, select your desired variation, open the variation settings drawer, and click `Preview`
 
-<img src="preview-mode.png" alt="Enter Preview Mode" />
+<img src="/assets/img/android/preview-mode.png" alt="Enter Preview Mode" />
 
 #### Pre-launch Checklist
 
@@ -188,13 +188,13 @@ Now that you've created an experiment and successfully installed the Optimizely 
     - Optimizely tracks unique visitors, so that we make sure that the same user sees the same experience.  If you would like to check that you are getting a random experience, you will need to delete the app to be counted as a new visitor.
     - By default, Optimizely sends network calls every 2 minutes or upon backgrounding. (You can find more details about modifying the SDK network settings [here](#networksettings)). In order to check that your event data is being updated in the Optimizely Results Page as expected, you can either:
        1. Trigger events in the app and keep the app foregrounded for 2 minutes
-       2. Background the app so that events are sent to our servers.                        
+       2. Background the app so that events are sent to our servers.
 
 4. Once you've checked all these steps, you're ready to release to the play store!
 
 ## <a name="custom configuration"></a> Custom Configuration
 
-### <a name="variables"></a> Register Live Variables 
+### <a name="variables"></a> Register Live Variables
 
 Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables are declared as static variables in your code and then can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new stylings. Live variables must be declared as static variables in your app in order for the Optimizely Editor to detect them.
 
@@ -223,7 +223,7 @@ import com.optimizely.Optimizely;
 public class GameUtils {
   private static World makeNewWorld() {
       double gravity = Optimizely.floatVariable("Gravity", 9.8).get();
-    
+
       // Use gravity here...
   }
 }
@@ -234,7 +234,7 @@ You're now ready to edit your live variables using the Optimizely web editor:
 0. Make sure you have not called `Optimizely.setEditGestureEnabled(false)`.
 1. Load your application and draw a large circle to connect in edit mode.
 2. Navigate to the variables section of the editor.
-<img src="editor-variablestab.png" alt="Live Variables Tab"/>
+<img src="/assets/img/android/editor-variablestab.png" alt="Live Variables Tab"/>
 3. The editor will allow you to modify the variable value for different variations.  
 4. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
 
@@ -252,8 +252,8 @@ public class CommerceActivity extends Activity {
   private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlockWithBranchNames("CheckoutFlow", "shortCheckout", "longCheckout");
 
   private void checkout {
-    // This line defines Code Blocks "shortCheckout", "longCheckout", and a 
-    // default block that is executed in the case that the experiment is 
+    // This line defines Code Blocks "shortCheckout", "longCheckout", and a
+    // default block that is executed in the case that the experiment is
     // not activated.
     checkoutFlow.execute(new DefaultCodeBlock() {
             @Override
@@ -283,13 +283,13 @@ You're now ready to implement your experiment using the Optimizely web editor:
 0. Make sure you have not called `Optimizely.setEditGestureEnabled(false)`.
 1. Load your application and draw a large circle to connect in edit mode.
 2. Navigate to the Code Blocks section of the editor.
-<img src="editor-codeblocks.png" alt="Code Blocks Tab"/>
+<img src="/assets/img/android/editor-codeblocks.png" alt="Code Blocks Tab"/>
 3. The editor will display your Code Blocks.  Use the drop down to select the desired Code Block for this variation.  
 4. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](#preview) prior to going live with the experiment.
-  
+
 For more details, please see the [Code Blocks API Reference](help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
-### Custom Goals <a name="customgoals"></a> 
+### Custom Goals <a name="customgoals"></a>
 Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal. The first step occurs in the web editor. Click "Goals", then "New Goal", and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal. In order to track this goal, send this same string as a parameter to
 
 ```java
@@ -305,7 +305,7 @@ private void userDidSwipeTask() {
 }
 ```
 
-### Revenue Goal <a name="revenuegoal"></a> 
+### Revenue Goal <a name="revenuegoal"></a>
 The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add Saved Goal", and select "Revenue." In order to track this goal, use the revenue API by passing an integer number of cents:
 
 ```java
@@ -326,11 +326,11 @@ For example, to create the Custom Tag `"returning_customer"` with a value of `"t
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    
+
     // more create logic
     Optimizely.setCustomTag("returning_customer", "true");
     Optimizely.startOptimizely("<API Token>", getApplication());
-}    
+}
 ```
 
 Make sure to call `setCustomTag` prior to `startOptimizely`.
@@ -346,7 +346,7 @@ You can also access the experiments and variations active for a given user direc
 
 ## Advanced Configuration
 
-### <a name="networksettings"></a> Network Settings 
+### <a name="networksettings"></a> Network Settings
 There are only two instances when the Optimizely Android SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, the config file is automatically downloaded every 2 minutes. Event tracking data is automatically uploaded whenever the user leaves a screen of your application (on every `Activity.onPause`). The Optimizely Android SDK allows you to customize how often these network calls are made by:
 
 1. Customizing the 2 minute interval
@@ -359,7 +359,7 @@ For example, to set the data file download to 5 minutes (300,000ms):
 The second option is to turn off the automatic event sends and manually make network calls. Calling `Optimizely.setAutomaticEventSending(false);` will disable the automatic sending of events. You will need to send events manually using `Optimizely.dispatchEvents()` in order to collect experiment results.
 
 ```java
-Optimizely.setAutomaticEventSending(false); 
+Optimizely.setAutomaticEventSending(false);
 ```
 
 To manually send events, in the appropriate function (e.g. where you make other network calls or after a custom event goal is triggered):
@@ -438,7 +438,7 @@ A: The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/
 # Gson specific classes
 -keep class sun.misc.Unsafe { *; }
 #-keep class com.google.gson.stream.** { *; }
- 
+
 # Classes that will be serialized/deserialized over Gson
 -keep class com.optimizely.JSON.** { *; }
 
@@ -452,7 +452,7 @@ A: The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/
 
 A: The Optimizely SDK only requires the [INTERNET](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET) permission.
 
-## <a name="troubleshooting"></a>Troubleshooting 
+## <a name="troubleshooting"></a>Troubleshooting
 
 **<a name="cantseeappineditor"></a>Q: My device is running the app but I can't see it in the editor.**
 
@@ -465,4 +465,3 @@ A: Optimizely works with many 3rd party SDKs. If we encounter specific 3rd party
 ## <a name="uninstall"></a>Uninstalling Optimizely
 
 If you installed via Maven or Gradle, simply remove the dependency on Optimizely. If you installed manually, you need to delete Optimizely.jar from your app.
-

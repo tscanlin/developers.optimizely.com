@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Changes and Deprecation
 anchor: changes-deprecation
 ---
