@@ -21,10 +21,10 @@ gulp.task('watch', ['browser-sync'], function() {
     .on('error', handleErrors);
   // gulp.watch(path.join(paths.src + paths.pages, '**/*.html'), ['html-templates'])
   //   .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.content, '**/*.md'), ['markdown'])
+  gulp.watch(path.join(paths.src + paths.content, '**/*.md'), ['concat'])
     .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['html-templates', 'markdown'])
+  gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['html-templates', 'concat'])
     .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.templates, '**/*.html'), ['html-templates', 'markdown'])
+  gulp.watch(path.join(paths.src + paths.templates, '**/*.html'), ['html-templates', 'concat'])
     .on('error', handleErrors);
 });
