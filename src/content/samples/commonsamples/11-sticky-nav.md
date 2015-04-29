@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Sticky navigation bar
 anchor: commonsamples-sticky-nav
 js: |
@@ -28,8 +29,4 @@ js: |
 
 ---
 
-This JavaScript will make one element's position fixed once the visitor scrolls below its original position. 
-
-
-
-
+This JavaScript will make one element's position fixed once the visitor scrolls below its original position.

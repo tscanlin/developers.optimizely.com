@@ -1,4 +1,5 @@
 ---
+template: twocol
 type: GET
 endpoint: experiments/1234/results
 title: Get results

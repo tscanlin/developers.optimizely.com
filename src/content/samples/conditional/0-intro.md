@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Conditional Activation
 anchor: conditional
 js: |
@@ -46,4 +47,4 @@ If the code entered **does not** evaluate to a function type, it will be checked
 #### Callback Function
 If the code entered **is** a function, Optimizely will assume it is of the form shown here and call it immediately, passing an `activate` function and an `options` object. Rather than returning a value, your code should call `activate()` when it is ready, leveraging `options.isActive` and `options.experimentId` if needed. Note that because this function is called immediately when the Optimizely snippet loads, any functions or variables referenced here should be available/defined at the time they are used.
 
-**Note:** No matter which method is used, remember that this is only an activation condition. Visitors must still meet URL and Audience targeting to actually be bucketed into the experiment. 
+**Note:** No matter which method is used, remember that this is only an activation condition. Visitors must still meet URL and Audience targeting to actually be bucketed into the experiment.

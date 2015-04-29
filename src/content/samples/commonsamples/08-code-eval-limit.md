@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Execute code for X visits
 anchor: commonsamples-code-eval-limit
 js: |
@@ -6,7 +7,7 @@ js: |
   /*
    * Usage
    *   The following allows you to set a limit on the number of times a code block will execute for any given visitor.  
-   * 
+   *
    */
 
    // the number of times the code should execute for a given visitor
@@ -15,7 +16,7 @@ js: |
    var days = 180;
    // name of the cookie we use as the counter
    var cookieName = 'counterCookie';
-   
+
    // function to fetch cookie values
    var getCookie = function(name) {
      var match = document.cookie.match(name+'=([^;]*)');
@@ -43,10 +44,10 @@ js: |
      setCookie(cookieName, numberPops, window.location.hostname, days);
    }
 
-   if (getCookie(cookieName) <= limit) { 
+   if (getCookie(cookieName) <= limit) {
     // INSERT code to evaluate HERE
    }
-   
+
 ---
 
 This JavaScript will let you execute code a certain number of times within an experiment.  

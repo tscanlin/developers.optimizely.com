@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Poll for element
 anchor: commonsamples-poll-for-element
 js: |
@@ -13,7 +14,7 @@ js: |
      }
      else {
        setTimeout(pollForElement, 50);
-     }   
+     }
    };
    pollForElement();
 ---

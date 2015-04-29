@@ -1,4 +1,5 @@
 ---
+template: twocol
 type: GET
 endpoint: projects/
 title: Connect a project

@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Redirect - Keep hash parameter
 anchor: commonsamples-keep hash
 js: |
@@ -18,7 +19,7 @@ js: |
   if (window.location.hash) {
     _optly.redir.hash = window.location.hash;
   }
-  window.location.replace(_optly.redir.href); 
+  window.location.replace(_optly.redir.href);
 
 ---
 

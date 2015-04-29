@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Set Cookie
 anchor: commonsamples-set-cookie
 js: |
@@ -10,7 +11,7 @@ js: |
     *  @param {String} value - The value of the cookie.
     *  @param {String} domain - The domain on which this cookie should be set and can be read.
     *  @param {Float} age - The number of days the cookie should last.
-    *   
+    *
     */
 
     var setCookie = function(name, value, domain, age) {

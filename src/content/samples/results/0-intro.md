@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Getting Results via API
 anchor: results
 ---

@@ -1,7 +1,7 @@
 ---
-layout: twocol-codesample
+template: default
 title: "Code Samples"
-categories: 
+sections:
 - ajax
 - cms
 - dmp

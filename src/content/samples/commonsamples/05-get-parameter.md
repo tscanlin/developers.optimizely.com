@@ -1,11 +1,12 @@
 ---
+template: twocol
 title: Get query parameter value
 anchor: commonsamples-get-parameter
 js: |
   /*
    * Usage
    *    This function takes a query parameter name and returns its value.  
-   *	
+   *
    *  @param {String} name - The name of the query parameter, whose value you want returned.
    */
 

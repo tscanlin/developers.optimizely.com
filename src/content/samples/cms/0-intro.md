@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Wordpress Headline Testing
 anchor: wordpress
 ---

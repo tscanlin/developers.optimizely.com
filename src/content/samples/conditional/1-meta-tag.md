@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Polling - Meta Tag Data
 anchor: conditional-activation-meta-tag
 html: |

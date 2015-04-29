@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Create variations
 js: |
   function createVariation(experiment, index, newTitle, weight) {

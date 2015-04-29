@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Calling the API
 js: |
   OptimizelyAPI.prototype.call = function(type, endpoint, data, callback) {

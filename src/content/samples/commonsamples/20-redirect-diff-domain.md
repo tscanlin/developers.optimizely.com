@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Redirect - Same path on different domain
 anchor: commonsamples-diff domain
 js: |

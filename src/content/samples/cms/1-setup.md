@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Connect a project
 html: |
   <h3>Enter Your API Token</h3>
@@ -10,17 +11,17 @@ html: |
   </select>
 js: |
   $("button#connect_optimizely").click(function() {
-    
+
     $("#project_id").html("<option>Loading projects...</option>");
-    
+
     // Authenticate and send the request
     optly = new OptimizelyAPI($("#token").val());
     optly.get('projects/', function(response) {
-      
+
       $("#project_id").empty();
 
       $.each(response, function(key, val) {
-        $("#project_id").append("<option value='" + val.id + "'>" + val.project_name + "</option>"); 
+        $("#project_id").append("<option value='" + val.id + "'>" + val.project_name + "</option>");
       });
 
     });

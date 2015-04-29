@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Load external JavaScript
 anchor: commonsamples-external-js
 js: |
@@ -22,13 +23,13 @@ js: |
              fileRef.onreadystatechange = null;
              callback();
            }
-         }; 
+         };
        } else {  // Non-IE
          fileRef.onload = function(){
            callback();
          };
        }
-     } 
+     }
 
      fileRef.setAttribute('src', location);
      document.head.appendChild(fileRef);

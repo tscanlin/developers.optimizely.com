@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Create an experiment
 html: |
   <h1>Variation #1</h1>
@@ -24,7 +25,7 @@ js: |
   function onExperimentCreated(experiment) {
 
     var variations = $('.optimizely_variation').filter(function(){return $(this).val().length > 0})
-    
+
     // Set variation weights
     var numVariations = variations.length + 1;
     var variationWeight = Math.floor(10000 / numVariations);

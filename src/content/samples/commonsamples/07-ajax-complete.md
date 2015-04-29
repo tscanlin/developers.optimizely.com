@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: .ajaxComplete()
 anchor: commonsamples-ajax-complete
 js: |
@@ -23,4 +24,3 @@ js: |
 This JavaScript will apply variation code whenever an AJAX request is complete.  In this example, we also require that the request URL contain the sub-string "/shopping-cart".  Please see [the official jQuery documentation](http://api.jquery.com/ajaxcomplete/) for more details on this method.
 
 Please note that the .ajaxComplete() method is not included in the trimmed version of jQuery loaded with the Optimizely by default.  A library defining this method must be loaded before the snippet to use this code.
-

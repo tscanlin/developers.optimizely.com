@@ -1,11 +1,12 @@
 ---
+template: twocol
 title: Get off-line conversion parameters
 anchor: commonsamples-get-conversion-info
 js: |
   /*
    * Usage
    *    Loops through the Optimizely Data Object to return the information necessary to construct the off-line conversions URL.  
-   *	
+   *
    */
 
    // grab the endUserID from the Optimizely Cookie

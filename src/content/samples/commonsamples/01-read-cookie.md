@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Read Cookie
 anchor: commonsamples-read-cookie
 js: |

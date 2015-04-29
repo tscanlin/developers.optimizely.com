@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Function - Button Click
 anchor: conditional-activation-button-click
 js: |

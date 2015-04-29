@@ -1,4 +1,5 @@
 ---
+template: twocol
 type: GET
 endpoint: projects/1234/experiments
 title: List experiments

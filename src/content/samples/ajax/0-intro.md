@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: API Calls with AJAX
 anchor: ajax
 ---

@@ -1,7 +1,7 @@
 ---
-layout: twocol
+template: default
 title: "Optimizely REST API"
-categories:
+sections:
 - overview
 - oauth
 - projects

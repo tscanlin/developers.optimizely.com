@@ -1,14 +1,15 @@
 ---
-title: Change page title 
+template: twocol
+title: Change page title
 anchor: commonsamples-browserTab-test
 js: |
 
   /*
    * Usage
    *   The following code will modify the title of the browser tab on the "blur" event and change it back to the original on the "focus" event.
-   * 
+   *
    */
-   
+
    // store the original tab title
    var origTitle = document.title;
 
@@ -21,7 +22,7 @@ js: |
    function newTitle() {
      document.title = 'HELLO WORLD';
    }
-   
+
    // bind functions to blur and focus events
    window.onblur = newTitle;
    window.onfocus = oldTitle;

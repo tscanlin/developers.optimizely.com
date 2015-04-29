@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Polling - DOM Element
 anchor: conditional-activation-dom-element
 js: |

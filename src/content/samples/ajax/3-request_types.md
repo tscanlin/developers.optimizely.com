@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Request types
 anchor: ajax-request-types
 js: |

@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Assign visitors
 js: |
   window['optimizely'] = window['optimizely'] || [];

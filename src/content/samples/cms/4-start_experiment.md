@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Start the experiment
 js: |
   function startExperiment(experiment) {

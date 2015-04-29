@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Function - Angular Page Change
 anchor: conditional-activation-angular-page-change
 js: |

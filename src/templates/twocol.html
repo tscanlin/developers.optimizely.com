@@ -36,64 +36,79 @@
       <!-- Right column -->
       <div class="sample{% if file == "intro.md" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %} tab-content">
         <div class="tab-pane active curl">
-          <!-- Example request -->
-          {% if endpoint %}
-            <h4>Example Request</h4>
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- Example request -->
+{% if endpoint %}
+<h4>Example Request</h4>
 <pre>
-  {% highlight 'bash' %}
-    curl \
-      -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
-      -H "Content-Type: application/json" \
-      -d '{{ request | stringify }}' \{% endif %}
-      {% if type %}-X {{type}} {% endif %}"https://www.optimizelyapis.com/experiment/v1/{{ endpoint }}"
-  {% endhighlight %}
+{% highlight 'bash' %}
+curl \
+  -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
+  -H "Content-Type: application/json" \
+  -d '{{ request | stringify }}' \{% endif %}
+  {% if type %}-X {{type}} {% endif %}"https://www.optimizelyapis.com/experiment/v1/{{ endpoint }}"
+{% endhighlight %}
 </pre>
-          {% endif %}
+{% endif %}
 
-          <!-- Example response -->
-          {% if response %}
-            <h4>Example Response</h4>
-            <pre>
-              {% highlight 'json' %}
-                {{ response | safe }}
-              {% endhighlight %}
-            </pre>
-          {% endif %}
+<!-- Example response -->
+{% if response %}
+<h4>Example Response</h4>
+<pre>
+{% highlight 'json' %}
+{{ response | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
 
+<!-- Example HTML -->
+{% if html %}
+<h4>Example HTML</h4>
+<pre>
+{% highlight 'html' %}
+{{ html | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
 
-          {% if html %}
-            <h4>Example HTML</h4>
-            {% highlight 'html' %}
-              {{ html }}
-            {% endhighlight %}
-          {% endif %}
+<!-- Example JS -->
+{% if js %}
+<h4>Example Javascript</h4>
+<pre>
+{% highlight 'js' %}
+{{ js | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
 
-          {% if js %}
-            <h4>Example Javascript</h4>
-            {% highlight 'js' %}
-              {{ js }}
-            {% endhighlight %}
-          {% endif %}
+<!-- Example URL -->
+{% if request_url %}
+<h4>Example URL</h4>
+<pre>
+{% highlight 'bash' %}
+{{ request_url | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
 
-          {% if request_url %}
-            <h4>Example URL</h4>
-            {% highlight 'bash' %}
-              {{ request_url }}
-            {% endhighlight %}
-          {% endif %}
+<!-- Example Request -->
+{% if curl %}
+<h4>Example Request</h4>
+<pre>
+{% highlight 'bash' %}
+{{ curl | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
 
-          {% if curl %}
-            <h4>Example Request</h4>
-            {% highlight 'bash' %}
-              {{ curl }}
-            {% endhighlight %}
-          {% endif %}
         </div>
-        <div class="tab-pane interactive">
+        <!-- <div class="tab-pane interactive">
           {% if endpoint and type == "GET" %}
             {# include sandbox.html #}
           {% endif %}
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

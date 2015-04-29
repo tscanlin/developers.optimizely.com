@@ -1,4 +1,5 @@
 ---
+template: twocol
 title: Initialization
 js: |
   OptimizelyAPI = function(token) {

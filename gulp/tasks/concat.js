@@ -1,7 +1,10 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
 var swig         = require('swig');
+var markedSwig   = require('swig-marked');
 var markdown     = require('gulp-markdown-to-json');
+var fs           = require('fs');
+var glob         = require('glob');
 var rename       = require('gulp-rename');
 var tap          = require('gulp-tap');
 var util         = require('gulp-util');
@@ -14,16 +17,52 @@ swig.setDefaults({
   loader: swig.loaders.fs(paths.src)
 });
 
-gulp.task('markdown', function () {
+// Use markdown with swig (as a filter and a tag).
+markedSwig.useFilter(swig);
+markedSwig.useTag(swig);
+
+// Add stringify filter to swig.
+// From: https://github.com/paularmstrong/swig/issues/582
+function filter_stringify(input) {
+  return JSON.stringify(input);
+}
+filter_stringify.safe = true;
+swig.setFilter('stringify', filter_stringify );
+
+// Add swig-highlight for code highlighting
+require('swig-highlight').apply(swig);
+
+
+// Gulp task
+gulp.task('concat', ['markdown'], function (cb) {
   return gulp.src([
-      path.join(paths.src + paths.content, '**/*.md')
+      path.join(paths.src + paths.content, '**/index.concat')
     ])
     .pipe(markdown())
     // This produces a JSON object with the front-matter and the HTML for the
     // markdown in a property called 'body'.
     .pipe(tap(function(file, t) {
       var json = JSON.parse(file.contents.toString());
-      var template = json.layout || 'default';
+      var template = json.template || 'default';
+
+      var fileName = path.basename(file.path);
+      json.fileName = fileName.replace(/\.[^/.]+$/, ""); // Get the file name without the extension.
+
+      // TODO: Note that this current implementation does not support infinite nesting.
+      var pathArray = file.path.split('/');
+      var parentFolder = pathArray[pathArray.length - 2] + '/';
+
+      // Get the html from the build directory for the different sections.
+      var concatHtml = '';
+      var sections = json.sections;
+      sections.forEach(function(section) {
+        var filesArray = glob.sync(paths.build + parentFolder + section + '/*.html');
+        filesArray.forEach(function(file) {
+          concatHtml += fs.readFileSync(file).toString();
+        });
+      });
+
+      json.body = concatHtml;
       var tpl = swig.compileFile(paths.templates + template + '.html');
       file.contents = new Buffer(tpl(json), 'utf8');
     }))

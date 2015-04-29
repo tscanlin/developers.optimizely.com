@@ -1,7 +1,8 @@
 var gulp = require('gulp');
 
 gulp.task('default', [
-  'markdown',
+  // 'markdown',
+  'concat',
   'html-templates',
   'sass',
   'browserify',
