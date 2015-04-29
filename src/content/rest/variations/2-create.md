@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: experiments/854484703/variations/
 endpoint_prefix: experiments/
 endpoint_option: 854484703

@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Read Cookie
 anchor: commonsamples-read-cookie
 js: |

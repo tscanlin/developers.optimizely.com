@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: variations/859611684
 endpoint_prefix: variations/
 endpoint_option: 859611684

@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Conditional Activation
 anchor: conditional
 js: |

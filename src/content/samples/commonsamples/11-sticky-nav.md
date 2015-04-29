@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Sticky navigation bar
 anchor: commonsamples-sticky-nav
 js: |

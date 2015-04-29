@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Assign visitors
 js: |
   window['optimizely'] = window['optimizely'] || [];

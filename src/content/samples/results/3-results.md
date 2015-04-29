@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 type: GET
 endpoint: experiments/1234/results
 title: Get results

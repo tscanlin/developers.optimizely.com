@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Initialization
 js: |
   OptimizelyAPI = function(token) {

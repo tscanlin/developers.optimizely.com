@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Response Codes
 anchor: response-codes
 ---

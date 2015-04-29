@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Authorization
 anchor: authorization
 fields:

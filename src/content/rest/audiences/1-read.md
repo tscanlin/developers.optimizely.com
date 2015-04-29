@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: audiences/567/
 endpoint_prefix: audiences/
 endpoint_option: 567

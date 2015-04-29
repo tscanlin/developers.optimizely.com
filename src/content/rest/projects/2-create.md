@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: projects/
 endpoint_prefix: projects/
 type: POST

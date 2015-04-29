@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Function - AJAX Response
 anchor: conditional-activation-ajax-complete
 js: |

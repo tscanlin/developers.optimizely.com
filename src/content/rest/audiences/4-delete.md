@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Delete an audience
 anchor: delete-audience
 ---

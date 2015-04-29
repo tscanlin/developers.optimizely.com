@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Create an experiment
 html: |
   <h1>Variation #1</h1>

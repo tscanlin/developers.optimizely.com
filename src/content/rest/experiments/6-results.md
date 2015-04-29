@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: experiments/1234/results
 endpoint_prefix: experiments/
 endpoint_option: 1234

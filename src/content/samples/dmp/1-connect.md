@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 type: GET
 endpoint: projects/
 title: Connect a project

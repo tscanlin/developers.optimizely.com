@@ -1,5 +1,5 @@
 ---
-template: default
+template: page-main
 title: "Optimizely Android SDK Quickstart Guide"
 ---
 ## Getting Started

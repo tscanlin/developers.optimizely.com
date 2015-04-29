@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Execute code for X visits
 anchor: commonsamples-code-eval-limit
 js: |

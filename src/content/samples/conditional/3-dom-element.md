@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Polling - DOM Element
 anchor: conditional-activation-dom-element
 js: |

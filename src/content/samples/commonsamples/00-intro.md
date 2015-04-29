@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Custom Experiment Setups
 anchor: commoncode
 js: |

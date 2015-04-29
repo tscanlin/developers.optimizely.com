@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Load external JavaScript
 anchor: commonsamples-external-js
 js: |

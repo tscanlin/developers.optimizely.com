@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: dimensions/1234
 endpoint_prefix: dimensions/
 endpoint_option: 15

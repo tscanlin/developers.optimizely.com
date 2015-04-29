@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Request types
 anchor: ajax-request-types
 js: |

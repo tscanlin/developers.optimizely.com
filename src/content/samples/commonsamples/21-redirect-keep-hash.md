@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Redirect - Keep hash parameter
 anchor: commonsamples-keep hash
 js: |

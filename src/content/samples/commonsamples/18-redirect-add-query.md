@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Redirect - Add query parameter to URL
 anchor: commonsamples-add query param
 js: |

@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Authentication
 endpoint: "projects/"
 anchor: authentication

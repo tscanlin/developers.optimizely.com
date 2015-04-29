@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Get off-line conversion parameters
 anchor: commonsamples-get-conversion-info
 js: |

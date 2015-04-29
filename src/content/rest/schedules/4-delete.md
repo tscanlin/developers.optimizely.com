@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: schedules/1234
 endpoint_prefix: schedules/
 endpoint_option: 1234

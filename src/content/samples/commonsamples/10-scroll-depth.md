@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Scroll depth
 anchor: commonsamples-scroll-depth
 js: |

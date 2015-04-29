@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Getting Started
 anchor: getting-started
 ---

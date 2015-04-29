@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Request Types
 anchor: request-types
 js: |

@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Get query parameter value
 anchor: commonsamples-get-parameter
 js: |

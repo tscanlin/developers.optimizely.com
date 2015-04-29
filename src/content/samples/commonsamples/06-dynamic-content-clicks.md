@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Track clicks on dynamic content
 anchor: commonsamples-dynamic--content-clicks
 js: |

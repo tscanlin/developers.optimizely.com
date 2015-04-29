@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Creating Audiences via API
 anchor: dmp
 ---

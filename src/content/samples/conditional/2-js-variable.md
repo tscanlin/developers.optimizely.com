@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Polling - JavaScript Variable
 anchor: conditional-activation-js-variable
 js: |

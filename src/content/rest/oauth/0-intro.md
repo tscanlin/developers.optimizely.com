@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: OAuth 2.0
 anchor: oauth
 ---

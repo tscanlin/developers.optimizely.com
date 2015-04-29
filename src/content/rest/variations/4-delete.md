@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Delete a variation
 anchor: delete-variation
 type: DELETE

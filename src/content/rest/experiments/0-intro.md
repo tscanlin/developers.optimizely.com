@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Experiments
 anchor: experiments
 ---

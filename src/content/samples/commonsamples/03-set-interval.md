@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Poll for element
 anchor: commonsamples-poll-for-element
 js: |

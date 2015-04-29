@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Add or remove a goal
 anchor: add-remove-goal
 ---

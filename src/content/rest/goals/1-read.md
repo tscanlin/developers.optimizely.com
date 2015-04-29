@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 endpoint: goals/543071054/
 endpoint_prefix: goals/
 endpoint_option: 543071054

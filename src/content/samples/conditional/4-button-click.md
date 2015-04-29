@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Function - Button Click
 anchor: conditional-activation-button-click
 js: |

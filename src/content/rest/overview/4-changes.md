@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Changes and Deprecation
 anchor: changes-deprecation
 ---

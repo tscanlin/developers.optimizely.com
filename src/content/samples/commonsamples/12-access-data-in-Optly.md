@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Access data on page
 anchor: commonsamples-data-access
 js: |

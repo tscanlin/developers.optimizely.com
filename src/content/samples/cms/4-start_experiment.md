@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Start the experiment
 js: |
   function startExperiment(experiment) {

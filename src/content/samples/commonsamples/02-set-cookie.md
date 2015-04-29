@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: Set Cookie
 anchor: commonsamples-set-cookie
 js: |

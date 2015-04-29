@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 type: DELETE
 endpoint: goals/1234
 endpoint_prefix: goals/

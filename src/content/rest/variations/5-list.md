@@ -1,5 +1,5 @@
 ---
-template: twocol
+template: sidebyside
 title: List variations in experiment
 type: GET
 anchor: list-variation
