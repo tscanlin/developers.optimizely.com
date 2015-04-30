@@ -3,6 +3,7 @@ var src = './src/';
 var assets = 'assets/';
 
 var paths = {
+  // Used by gulp tasks to build / compile pages and assets.
   src: src,
   build: build,
 
@@ -13,15 +14,34 @@ var paths = {
   css: assets + 'css/',
 
   content: 'content/',
-  layouts: 'layouts/',
+  pages: 'pages/',
   partials: 'partials/',
   templates: 'templates/',
 
-  android: 'android/',
-  ios: 'ios/',
-  javascript: 'javascript/',
-  rest: 'rest/',
-  samples: 'samples/',
+
+  // Used in the UI to build the navigation.
+  navigation: {
+    rest: {
+      path: '/rest/',
+      title: 'REST API'
+    },
+    javascript: {
+      path: '/javascript/',
+      title: 'Javascript API'
+    },
+    ios: {
+      path: '/ios/',
+      title: 'iOS SDK'
+    },
+    android: {
+      path: '/android/',
+      title: 'Android SDK'
+    },
+    samples: {
+      path: '/samples/',
+      title: 'Code Samples'
+    }
+  },
 };
 
 module.exports = {

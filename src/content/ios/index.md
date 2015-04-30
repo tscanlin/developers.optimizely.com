@@ -1,5 +1,5 @@
 ---
-template: page-main
+template: page-sidebar
 title: "Optimizely iOS SDK Quickstart Guide"
 ---
 ## Getting Started

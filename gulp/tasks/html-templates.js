@@ -9,14 +9,17 @@ var opts = {
   setup: function(swig) {
     swig.setDefaults({
       cache: false,
-      loader: swig.loaders.fs(paths.src)
+      loader: swig.loaders.fs(paths.src),
+      locals: {
+        paths: paths
+      }
     });
   }
 };
 
 gulp.task('html-templates', function () {
   return gulp.src([
-      path.join(paths.src + paths.layouts, '**/*.html')
+      path.join(paths.src + paths.pages, '**/*.html')
     ])
     .pipe(swig(opts))
     .on('error', handleErrors)

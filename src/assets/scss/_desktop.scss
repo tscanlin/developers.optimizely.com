@@ -1,5 +1,25 @@
 // Desktop Styles
 
+$layout-width: (
+  body                : 1120px,
+  data-sidebar        : 370px,
+  single-column       : 640px,
+  narrow-column       : 480px,
+  reading             : 800px,
+  project-drawer      : 270px
+);
+
+// Pulled from Lego desktop.
+.max-width--page {
+  width: 100%; // Needed because flex children won't fill space by default.
+  max-width: map-get($layout-width, body);
+}
+
+.max-width--reading {
+  max-width: map-get($layout-width, reading);
+}
+
+
 h1,
 .alpha {
   font-size: map-get($font-size, alpha);

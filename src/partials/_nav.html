@@ -1,0 +1,7 @@
+  <nav class="sidebar soft-double">
+    <ul class="lego-nav lego-nav--stacked delta">
+      {% for key, item in paths.navigation %}
+        <li class="push--bottom"><a href="{{ item.path }}index.html">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>

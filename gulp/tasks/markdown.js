@@ -13,7 +13,10 @@ var paths        = require('../../config').paths;
 // Swig config.
 swig.setDefaults({
   cache: false,
-  loader: swig.loaders.fs(paths.src)
+  loader: swig.loaders.fs(paths.src),
+  locals: {
+    paths: paths
+  }
 });
 
 // Use markdown with swig (as a filter and a tag).
