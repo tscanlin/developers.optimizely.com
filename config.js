@@ -2,6 +2,22 @@ var build = './build/';
 var src = './src/';
 var assets = 'assets/';
 
+// Sections for each navigation item.
+var NAV_SECTIONS = {
+  guide: {
+    path: 'guide/',
+    title: 'Guide'
+  },
+  api: {
+    path: 'api/',
+    title: 'API Documentation'
+  },
+  examples: {
+    path: 'examples/',
+    title: 'Examples'
+  }
+};
+
 var paths = {
   // Used by gulp tasks to build / compile pages and assets.
   src: src,
@@ -23,19 +39,23 @@ var paths = {
   navigation: {
     rest: {
       path: '/rest/',
-      title: 'REST API'
+      title: 'REST API',
+      sections: NAV_SECTIONS
     },
     javascript: {
       path: '/javascript/',
-      title: 'Javascript API'
+      title: 'Javascript API',
+      sections: NAV_SECTIONS
     },
     ios: {
       path: '/ios/',
-      title: 'iOS SDK'
+      title: 'iOS SDK',
+      sections: NAV_SECTIONS
     },
     android: {
       path: '/android/',
-      title: 'Android SDK'
+      title: 'Android SDK',
+      sections: NAV_SECTIONS
     },
     samples: {
       path: '/samples/',

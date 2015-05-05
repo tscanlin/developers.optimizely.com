@@ -1,0 +1,31 @@
+// Navigation classes.
+
+.nav {
+  & > .lego-nav > li > ul {
+    border-left: 2px solid map-get($ui-color, brand);
+  }
+
+  li {
+    margin-bottom: 3px;
+  }
+}
+
+.is-collapsed {
+
+}
+
+// .lego-disclose__content {
+//   display: block;
+//   max-height: 0;
+//   overflow: hidden;
+// }
+//
+// .lego-disclose__item--active > .lego-disclose__content {
+//   // Note: If there are a ton of conditions under a disclose this number may
+//   // need to get bumped up.
+//   max-height: 1000px;
+// }
+//
+// .targeting-transition {
+//   transition: all 0.3s ease;
+// }

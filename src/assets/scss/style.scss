@@ -8,6 +8,8 @@
 @import '../../../node_modules/lego/src/scss/core/core-variables';
 @import '../../../node_modules/lego/src/scss/core/core-partials';
 @import 'desktop';
+
+// Variables
 $new-brand-dark: #00415d;
 
 // Base styles
@@ -15,6 +17,7 @@ $new-brand-dark: #00415d;
 @import 'layout';
 
 // Module styles
+@import 'nav';
 @import 'syntax';
 
 // Trumps (These should go last)

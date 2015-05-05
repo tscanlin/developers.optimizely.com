@@ -15,7 +15,7 @@
 }
 
 // Main layout classes.
-$sidebar-width: 250px;
+$sidebar-width: 300px;
 
 .header {
   // position: fixed;
@@ -26,7 +26,7 @@ $sidebar-width: 250px;
   position: relative;
 }
 
-.sidebar {
+#nav {
   background-color: $new-brand-dark;
   position: absolute;
   top: 0;
@@ -39,6 +39,10 @@ $sidebar-width: 250px;
   a {
     color: white;
   }
+
+  &.fixed {
+    position: fixed;
+  }
 }
 
 .content {
@@ -50,4 +54,10 @@ $sidebar-width: 250px;
   // background-color: map-get($ui-color, brand-dark);
   background-color: $new-brand-dark;
   color: white;
+  height: 350px;
+  padding: 70px;
+
+  h1, h2 {
+    color: white;
+  }
 }

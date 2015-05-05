@@ -4,8 +4,8 @@
 
 {% include 'partials/_header.html' %}
 
-  <main class="max-width--reading anchor--middle">
-    <div>{{ body | safe }}</div>
+  <main id="main" class="main max-width--reading anchor--middle">
+    <div id="content" class="content">{{ body | safe }}</div>
   </main>
 
 {% include 'partials/_footer.html' %}
