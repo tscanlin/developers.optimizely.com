@@ -77,7 +77,7 @@ examples: |
     <div class="sidebyside">
       <div class="explanation">
         <h3>{{ c.title }}{% if meta.warning %} <em>(deprecated)</em>{% endif %}</h3>
-        {% if meta.warning %}<div class="alert alert-warning">{{ meta.warning }}</div>{% endif %}
+        {% if meta.warning %}<div class="lego-attention lego-attention--warning push--bottom">{{ meta.warning }}</div>{% endif %}
         <ul>
 
           <li><b>type</b>: <code>{{type}}</code>

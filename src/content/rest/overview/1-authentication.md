@@ -4,7 +4,7 @@ title: Authentication
 endpoint: "projects/"
 anchor: authentication
 ---
-<div class="alert alert-warning">Visit <a target="_blank" href="http://www.optimizely.com/tokens">optimizely.com/tokens</a> to generate an API token.</div>
+<div class="lego-attention lego-attention--warning push--bottom">Visit <a target="_blank" href="http://www.optimizely.com/tokens">optimizely.com/tokens</a> to generate an API token.</div>
 
 Every API request needs to be authenticated. To authenticate, use a token generated from the link above in the request header, as shown in the example to the right. All API request examples in this documentation use the same header.
 

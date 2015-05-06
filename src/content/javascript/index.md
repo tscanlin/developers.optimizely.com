@@ -207,7 +207,7 @@ window['optimizely'].push(["setUserId", myHashedEmail]);
 
 *This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
 
-<div class="alert alert-warning">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
+<div class="lego-attention lego-attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
 
 ### Visitor Opt Out
 
@@ -298,7 +298,7 @@ window['optimizely'].push(["trackEvent", "purchase", {"revenue": 2395}]);
 <a name="segments"></a>
 ### Visitor Segments
 
-<div class="alert alert-warning">Visitor Segments assigned through the API have been deprecated and replaced by <a href="#dimensions">Dimensions</a>. For backwards compatibility, these API calls will continue to work for existing segments, but you should transition your code to use dimensions instead. <a href="{{site.paths.rest}}#audiences">Learn more</a>.</div>
+<div class="lego-attention lego-attention--warning push--bottom">Visitor Segments assigned through the API have been deprecated and replaced by <a href="#dimensions">Dimensions</a>. For backwards compatibility, these API calls will continue to work for existing segments, but you should transition your code to use dimensions instead. <a href="{{site.paths.rest}}#audiences">Learn more</a>.</div>
 
 Accounts with segmentation enabled can add visitors to visitor segments through the API. To do so, first navigate to the dashboard page. Then find your visitor segment's API identifier by clicking through the information in the visitor segment dialog. The API identifier is automatically generated when you first create the visitor segment, but can be changed later.
 
