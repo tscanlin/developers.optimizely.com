@@ -13,6 +13,16 @@ body {
   font-size: map-get($font-size, base);
 }
 
+// Color the headings.
 h1, h2, h3, h4, h5, h6 {
   color: $new-brand-dark;
+}
+
+// Improve spacing.
+h2 {
+  margin-top: 35px;
+}
+
+h3, h4 {
+  margin-top: 30px;
 }

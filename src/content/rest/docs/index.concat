@@ -1,5 +1,5 @@
 ---
-template: page-sidebar
+template: page-sidebar--full
 title: "Optimizely REST API"
 sections:
 - overview

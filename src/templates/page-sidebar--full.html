@@ -1,0 +1,17 @@
+{%
+  include 'partials/_head.html'
+%}
+
+{% include 'partials/_header.html' %}
+
+  <main id="main" class="main">
+    {% include 'partials/_nav.html' %}
+
+    <div id="content" class="content soft-double">
+      {{ body | safe }}
+    </div>
+  </main>
+
+{% include 'partials/_footer.html' %}
+
+{% include 'partials/_foot.html' %}

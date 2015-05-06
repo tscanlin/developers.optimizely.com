@@ -8,9 +8,9 @@ var NAV_SECTIONS = {
     path: 'guide/',
     title: 'Guide'
   },
-  api: {
-    path: 'api/',
-    title: 'API Documentation'
+  docs: {
+    path: 'docs/',
+    title: 'Docs'
   },
   examples: {
     path: 'examples/',

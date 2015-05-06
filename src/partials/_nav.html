@@ -3,7 +3,7 @@
     <ul class="lego-nav lego-nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
         <li class="push--bottom">
-          <a href="{{ item.path }}index.html">{{ item.title }}</a>
+          <a class="expand" href="#0">{{ item.title }}</a>
           <ul class="lego-nav lego-nav--stacked epsilon soft--left push--left">
             {% for sub_key, section in item.sections %}
               <li>

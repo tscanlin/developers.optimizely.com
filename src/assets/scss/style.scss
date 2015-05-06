@@ -1,5 +1,5 @@
 // Add compass & LEGO dependencies
-// Temporary to get Lego to work
+// Temporary to get Lego to work until it works with libsass natively.
 @import '../../../node_modules/compass-mixins/lib/compass';
 @function tint($color, $percent) {
   @return mix(#fff, $color, $percent);

@@ -51,15 +51,17 @@ gulp.task('concat', ['markdown'], function (cb) {
       var fileName = path.basename(file.path);
       json.fileName = fileName.replace(/\.[^/.]+$/, ""); // Get the file name without the extension.
 
-      // TODO: Note that this current implementation does not support infinite nesting.
-      var pathArray = file.path.split('/');
-      var parentFolder = pathArray[pathArray.length - 2] + '/';
+      // Split on the content path since that is the root.
+      var relativePath = file.path.split(paths.content)[1];
+      // Remove the filename from it.
+      relativePath = relativePath.split(fileName).join('');
 
-      // Get the html from the build directory for the different sections.
+      // Get the html from the build directory for the different sections. These
+      // sections are specified in the front-matter of the index.concat files.
       var concatHtml = '';
       var sections = json.sections;
       sections.forEach(function(section) {
-        var filesArray = glob.sync(paths.build + parentFolder + section + '/*.html');
+        var filesArray = glob.sync(paths.build + relativePath + section + '/*.html');
         filesArray.forEach(function(file) {
           concatHtml += fs.readFileSync(file).toString();
         });
