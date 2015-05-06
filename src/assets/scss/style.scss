@@ -20,6 +20,10 @@ $new-brand-dark: #00415d;
 @import 'nav';
 @import 'syntax';
 
+// State styles
+@import 'state';
+@import 'hacks';
+
 // Trumps (These should go last)
 @import '../../../node_modules/lego/src/scss/core/partials/trumps/background';
 @import '../../../node_modules/lego/src/scss/core/partials/trumps/layout';

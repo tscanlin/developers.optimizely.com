@@ -50,6 +50,12 @@ gulp.task('markdown', function () {
       var fileName = path.basename(file.path);
       json.fileName = fileName.replace(/\.[^/.]+$/, ""); // Get the file name without the extension.
 
+      // Split on the content path since that is the root.
+      var relativePath = file.path.split(paths.content)[1];
+      // Remove the filename from it.
+      relativePath = relativePath.split(fileName).join('');
+      json.relativePath = relativePath;
+
       var tpl = swig.compileFile(paths.templates + template + '.html');
       file.contents = new Buffer(tpl(json), 'utf8');
     }))

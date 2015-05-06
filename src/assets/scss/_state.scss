@@ -1,0 +1,11 @@
+// State classes.
+
+.collapsible {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.is-collapsed {
+  max-height: 0;
+}

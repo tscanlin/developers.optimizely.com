@@ -55,6 +55,7 @@ gulp.task('concat', ['markdown'], function (cb) {
       var relativePath = file.path.split(paths.content)[1];
       // Remove the filename from it.
       relativePath = relativePath.split(fileName).join('');
+      json.relativePath = relativePath;
 
       // Get the html from the build directory for the different sections. These
       // sections are specified in the front-matter of the index.concat files.
