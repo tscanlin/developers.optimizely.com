@@ -56,6 +56,10 @@ gulp.task('markdown', function () {
       relativePath = relativePath.split(fileName).join('');
       json.relativePath = relativePath;
 
+      // topPath for expanding sections.
+      var topPath = '/' + relativePath.split('/')[0] + '/';
+      json.topPath = topPath;
+
       var tpl = swig.compileFile(paths.templates + template + '.html');
       file.contents = new Buffer(tpl(json), 'utf8');
     }))

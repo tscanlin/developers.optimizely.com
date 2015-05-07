@@ -1,4 +1,10 @@
-// State classes.
+// Hack classes.
+
+.content {
+  & > h2:first-child {
+    margin-top: 0;
+  }
+}
 
 .sample {
   background-color: #F3F8FB;
