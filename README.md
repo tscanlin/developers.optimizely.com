@@ -1,26 +1,22 @@
 # developers.optimizely.com
 New developer documentation website (in progress) it will become - http://developers.optimizely.com/
 
+### Prerequisites:
+- have node.js installed
+- have github access and git setup properly
 
-Prerequisites:
-have node.js installed
-have github access and git setup properly
-
-
-To install:
+### To install:
 ```
 npm update
 npm install
 ```
 
-
-To run:
+### To run:
 ```
 npm run gulp
 ```
 
-
-Troubleshooting:
+### Troubleshooting:
 
 If npm install throws an error mentioning browserify then run:
 ```
