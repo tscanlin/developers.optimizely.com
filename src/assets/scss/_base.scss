@@ -9,13 +9,18 @@ html {
 }
 
 body {
-  font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
-  font-size: map-get($font-size, base);
+  // font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+  // font-size: map-get($font-size, base);
+  font-size: 13px; // using the same font-size as current docs.
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 // Color the headings.
 h1, h2, h3, h4, h5, h6 {
   color: $new-brand-dark;
+  font-weight: 300;
 }
 
 // Improve spacing.
@@ -25,4 +30,8 @@ h2 {
 
 h3, h4 {
   margin-top: 30px;
+}
+
+p {
+  margin-bottom: 20px;
 }

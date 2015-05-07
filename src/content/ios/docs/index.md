@@ -113,7 +113,7 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
    5. <a name="urllinkgenerate"></a>Once you run your app in DEBUG mode with the SDK installed, you should see the image below in your [Optimizely Dashboard](https://www.optimizely.com/dashboard).  Once the SDK is detected, the Create Experiment button will appear, and you can continue to Step 4 to create your experiment.
 
-          <img src="/assets/img/ios/editor-follow-link2.png" alt="Drawing" style="width: 80%;"/>
+        <img src="/assets/img/ios/editor-follow-link2.png" alt="Drawing" style="width: 80%;"/>
 
    6. <a name="editliveappstore"></a>(Optional) By default, you will not be able to connect your app to the Optimizely editor once your app is live in the App Store.  If you would like to enable Edit Mode when the app is live, you can add the following line of code before `startOptimizelyWithAPIToken`:
 

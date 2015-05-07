@@ -60,7 +60,6 @@ function updateSidebar() {
   var top = document.documentElement.scrollTop || body.scrollTop;
   var headerHeight = header.offsetHeight;
 
-  console.log(top, headerHeight, nav)
   if (top > headerHeight) {
     nav.className = 'fixed';
   }

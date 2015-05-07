@@ -1,14 +1,14 @@
 <nav id="nav">
   <div class="nav">
-    <ul class="lego-nav lego-nav--stacked soft-double delta">
+    <ul class="unstyled lego-nav lego-nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
         <li class="push--bottom">
           <a class="main-section" href="{{ item.path }}"{% if item.path !== '/samples/' %} data-collapser{% endif %}>{{ item.title }}</a>
-          <ul class="lego-nav lego-nav--stacked epsilon soft--left push--left collapsible{% if item.path !== topPath %} is-collapsed{% endif %}">
+          <ul class="unstyled lego-nav lego-nav--stacked epsilon soft--left push--left collapsible{% if item.path !== topPath %} is-collapsed{% endif %}">
             {% for sub_key, section in item.sections %}
               <li>
                 <a href="{{ item.path }}{{ section.path }}index.html">{{ section.title }}</a>
-                <ul class="lego-nav lego-nav--stacked quickjump">
+                <ul class="unstyled lego-nav lego-nav--stacked quickjump">
                 </ul>
               </li>
             {% endfor %}
