@@ -10,7 +10,7 @@ SDK Download [ZIP](http://github.com/optimizely/Optimizely-iOS-SDK/zipball/maste
 ## Optimizely Class Reference
 Link to [Optimizely Class Reference Documentation](http://developers.optimizely.com/ios/help/html/index.html)
 
-## <a name="custom configuration"></a> Custom Configuration
+## <a name="custom configuration"></a> Customize Your Variations
 
 ### <a name="tag your views"></a> Visual Editor Configuration
 
@@ -105,66 +105,6 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 For more details, please see the [Live Variables API Reference](help/html/Classes/Optimizely.html#task_Live%20Variables)
 
-### <a name="analytics"></a> Analytics Integrations
-
-Optimizely integrates with popular analytics frameworks to allow you to slice and dice your experiment results. The integration sends information about the experiment and variation a user is bucketed into.  Currently we support the following frameworks in our iOS SDK:
-
-- [Mixpanel](help/html/Classes/Optimizely.html#//api/name/activateMixpanelIntegration)
-- [Google Analytics](https://help.optimizely.com/hc/en-us/articles/204628347)
-
-*Note: You must instantiate your analytics SDK in `application:didFinishLaunchingWithOptions:` before calling `startOptimizelyWithAPIToken` and enabling any integrations.*
-
-You can also access experiments and variations that a user has visited directly using the `[Optimizely sharedInstance].visitedExperiments` property and pass that data to internal or other analytics frameworks.  You can pass the values of `[Optimizely sharedInstance].visitedExperiments.experimentName` and `[Optimizely sharedInstance].visitedExperiments.variationName` to your analytics tool.  You can learn more about the [allExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/allExperiments) and [visitedExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/visitedExperiments) properties via our API reference.
-
-### <a name="networksettings"></a> Network Settings
-There are only two instances when the Optimizely iOS SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, network calls are automatically made every 2 minutes.  The Optimizely iOS SDK allows you to customize how often these network calls are made by:
-
-1. Customizing the 2 minute interval
-2. By turning off automatic sending of events and allowing you to sending events manually.
-
-The first option is to customize the interval for how often you want network calls to be made. To adjust the interval in seconds, you can use the [dispatchInterval](help/html/Classes/Optimizely.html#//api/name/dispatchInterval) method, which should be called prior to `startOptimizely` at the beginning of your `application:didFinishLaunchingWithOptions:` method:
-
- ```objective-c
-    // Configure a network call to be made every minute
-    [Optimizely sharedInstance].dispatchInterval = 60;
-
-    [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
-  ```
-
-The second option is to turn off the interval and manually make network calls.  Setting `dispatchInterval` to 0 or a negative value will disable the automatic sending of events. You will need to send events manually using [dispatch](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/dispatch), which is also when the config file will be downloaded.
-
-To turn off the automatic sending of events, you can set the value of [dispatchInterval](help/html/Classes/Optimizely.html#//api/name/dispatchInterval) to 0 at the beginning of your `application:didFinishLaunchingWithOptions:` method:
-
- ```objective-c
-
-#ifdef DEBUG
-    [Optimizely enableEditor];
-#endif
-
-    // Configure a network call to be made every minute
-    [Optimizely sharedInstance].dispatchInterval = 0;
-
-    [Optimizely sharedInstance].shouldReloadExperimentsOnForegrounding = YES;
-    [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
-  ```
-
-To manually send events, in the appropriate function (e.g. where you make other network calls or after a custom event goal is triggered):
-
-```objective-c
-- (void)userDidSwipeTask:(id)sender {
-    [Optimizely trackEvent:@"User Deleted Task"];
-
-    // Dispatch events to the network
-    [Optimizely dispatch];
-
-    //The rest of your handler
-}
-```
-
-## <a name="advancedtesting"></a> Advanced Testing Features
-
-For additional information about any of the experimental approaches below, see the full [API Documentation](http://developers.optimizely.com/ios/help/html/index.html).
-
 ### <a name="codeblocks"></a> Code Blocks
 
 Code Blocks allow developers to create variations that execute different code paths.  For example, one use case might be to test various checkout flows.   In order to create a Code Block, first define a corresponding `OptimizelyCodeBlocksKey` as follows:
@@ -254,46 +194,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 For more details, please see the [Code Blocks API Reference](help/html/Classes/Optimizely.html#//api/name/codeBlocksWithKey:blockOne:defaultBlock:)
 
-### <a name="revenuegoal"></a> Revenue
-The revenue goal allows you to [track revenue](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
-
-1. Add the tracking code to your app, you can add this tracking call by adding the code below:
-
-      ```objective-c
-      [Optimizely trackRevenue:(NSNumber *)];
-      ```
-
-      For example, if we wanted a goal for users that completed a purchase, and you could make the tracking call in your purchaseConfirmation method where `price` is the variable that holds the dollar amount that has been spent:
-
-      ```objective-c
-      - (void)purchaseConfirmation:(id)sender {
-          [Optimizely trackRevenue:price*100];
-          //The rest of your handler
-      }
-      ```
-
-2. To create an experiment that tracks revenue, click Goals -> Saved Goal -> Select "Total Revenue" from the drop-down.
-
-### <a name="customgoals"></a> Custom Goals
-Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal.
-
-1. In order to track this goal, send this same string as a parameter to:
-
-      ```objective-c
-      [Optimizely trackEvent:(NSString *)];
-      ```
-
-2. To create an experiment that tracks custom goals, open the Optimizely editor, click "Goals," then "New Goal," and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal.  You should enter in the same string used in your trackEvent method call in the previous step.
-
-      For example, if we wanted a goal for users deleting a task with a swipe, we might create a custom goal "User Deleted Task" and then call [trackEvent](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/trackEvent:) with this string in our event handler as follows:
-
-      ```objective-c
-      - (void)userDidSwipeTask:(id)sender {
-          [Optimizely trackEvent:@"User Deleted Task"];
-          //The rest of your handler
-      }
-      ```
-      For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
+## <a name="targeting"></a> Custom Targeting
 
 ### Universal User ID (Beta) <a name="uuid"></a>
 
@@ -343,48 +244,111 @@ For example, here's an use case where the user logs in, the developer sets a log
       [Optimizely refreshExperiments];
 }
 ```
+## <a name="goaltracking"></a> Goal Tracking
 
-### Notifications <a name="Notifications"></a>
-Optimizely provides a couple NSNotificationCenter notifications for developers to observe.  Some use cases for implementing a notification include debugging and a way to interact with your other analytics tools.
+For additional information about any of the experimental approaches below, see the full [API Documentation](http://developers.optimizely.com/ios/help/html/index.html).
 
-`OptimizelyExperimentVisitedNotification` is triggered when an experiment is viewed by the user. The userInfo in the notification will have metadata which includes experiment Id, variation Id, experiment description and variation description for the experiment that was visited..
+### <a name="revenuegoal"></a> Revenue
+The revenue goal allows you to [track revenue](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
 
-`OptimizelyGoalTriggeredNotification` is triggered when an Optimizely goal is tracked and a conversion is counted. The user info in the notification will list the experiment IDs for which this was counted as a conversion.
+1. Add the tracking code to your app, you can add this tracking call by adding the code below:
 
-`OptimizelyNewDataFileLoadedNotification` is triggered when an application resumes from foregrouding and a new experiment datafile is applied. This notification only triggers in Normal Mode, and not in Edit Mode.
+      ```objective-c
+      [Optimizely trackRevenue:(NSNumber *)];
+      ```
 
-The following sample shows how to register for a notification:
+      For example, if we wanted a goal for users that completed a purchase, and you could make the tracking call in your purchaseConfirmation method where `price` is the variable that holds the dollar amount that has been spent:
+
+      ```objective-c
+      - (void)purchaseConfirmation:(id)sender {
+          [Optimizely trackRevenue:price*100];
+          //The rest of your handler
+      }
+      ```
+
+2. To create an experiment that tracks revenue, click Goals -> Saved Goal -> Select "Total Revenue" from the drop-down.
+
+### <a name="trackevent"></a> Track Event
+Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal.
+
+1. In order to track this goal, send this same string as a parameter to:
+
+      ```objective-c
+      [Optimizely trackEvent:(NSString *)];
+      ```
+
+2. To create an experiment that tracks custom goals, open the Optimizely editor, click "Goals," then "New Goal," and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal.  You should enter in the same string used in your trackEvent method call in the previous step.
+
+      For example, if we wanted a goal for users deleting a task with a swipe, we might create a custom goal "User Deleted Task" and then call [trackEvent](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/trackEvent:) with this string in our event handler as follows:
+
+      ```objective-c
+      - (void)userDidSwipeTask:(id)sender {
+          [Optimizely trackEvent:@"User Deleted Task"];
+          //The rest of your handler
+      }
+      ```
+      For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
+
+## Advanced Configuration
+
+### <a name="analytics"></a> Analytics Integrations
+
+Optimizely integrates with popular analytics frameworks to allow you to slice and dice your experiment results. The integration sends information about the experiment and variation a user is bucketed into.  Currently we support the following frameworks in our iOS SDK:
+
+- [Mixpanel](help/html/Classes/Optimizely.html#//api/name/activateMixpanelIntegration)
+- [Google Analytics](https://help.optimizely.com/hc/en-us/articles/204628347)
+
+*Note: You must instantiate your analytics SDK in `application:didFinishLaunchingWithOptions:` before calling `startOptimizelyWithAPIToken` and enabling any integrations.*
+
+You can also access experiments and variations that a user has visited directly using the `[Optimizely sharedInstance].visitedExperiments` property and pass that data to internal or other analytics frameworks.  You can pass the values of `[Optimizely sharedInstance].visitedExperiments.experimentName` and `[Optimizely sharedInstance].visitedExperiments.variationName` to your analytics tool.  You can learn more about the [allExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/allExperiments) and [visitedExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/visitedExperiments) properties via our API reference.
+
+### <a name="networksettings"></a> Network Settings
+There are only two instances when the Optimizely iOS SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, network calls are automatically made every 2 minutes.  The Optimizely iOS SDK allows you to customize how often these network calls are made by:
+
+1. Customizing the 2 minute interval
+2. By turning off automatic sending of events and allowing you to sending events manually.
+
+The first option is to customize the interval for how often you want network calls to be made. To adjust the interval in seconds, you can use the [dispatchInterval](help/html/Classes/Optimizely.html#//api/name/dispatchInterval) method, which should be called prior to `startOptimizely` at the beginning of your `application:didFinishLaunchingWithOptions:` method:
+
+ ```objective-c
+    // Configure a network call to be made every minute
+    [Optimizely sharedInstance].dispatchInterval = 60;
+
+    [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
+  ```
+
+The second option is to turn off the interval and manually make network calls.  Setting `dispatchInterval` to 0 or a negative value will disable the automatic sending of events. You will need to send events manually using [dispatch](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/dispatch), which is also when the config file will be downloaded.
+
+To turn off the automatic sending of events, you can set the value of [dispatchInterval](help/html/Classes/Optimizely.html#//api/name/dispatchInterval) to 0 at the beginning of your `application:didFinishLaunchingWithOptions:` method:
+
+ ```objective-c
+
+#ifdef DEBUG
+    [Optimizely enableEditor];
+#endif
+
+    // Configure a network call to be made every minute
+    [Optimizely sharedInstance].dispatchInterval = 0;
+
+    [Optimizely sharedInstance].shouldReloadExperimentsOnForegrounding = YES;
+    [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
+  ```
+
+To manually send events, in the appropriate function (e.g. where you make other network calls or after a custom event goal is triggered):
 
 ```objective-c
--(void)registerForOptimizelyNotifications {
+- (void)userDidSwipeTask:(id)sender {
+    [Optimizely trackEvent:@"User Deleted Task"];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-		selector:@selector(experimentDidGetViewed:)
-			name:OptimizelyExperimentVisitedNotification object:nil];
+    // Dispatch events to the network
+    [Optimizely dispatch];
 
+    //The rest of your handler
 }
 ```
 
-### Experiment Data Object <a name="experimentdata"></a>
-Optimizely's Experiment Object will provide information about what part of the experiment lifecycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited.
 
-Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](http://developers.optimizely.com/ios/help/html/Classes/OptimizelyExperimentData.html).
-
-Sample usage of how this data looks is listed below:
-
- ```objective-c
-for (OptimizelyExperimentData *data in [Optimizely sharedInstance].allExperiments) {
-// Lists all running, paused, and draft experiments
-        NSLog(@"All Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long) data.visitedCount);
-
-}
-
-for (OptimizelyExperimentData *data in [Optimizely sharedInstance].visitedExperiments) {
-// Lists all experiments that a user has visited
-        NSLog(@"Visited Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long)data.visitedCount);
-
-}
-  ```
+  
 ## Optimizely Debug <a name="debug"></a>
 ### Subscribe to NSNotifications <a name="Notifications"></a>
 Optimizely provides a couple NSNotificationCenter notifications for developers to observe.  Some use cases for implementing a notification include debugging and a way to interact with your other analytics tools.

@@ -2,7 +2,10 @@
 template: page-sidebar
 title: "Optimizely Android SDK Docs"
 ---
-## <a name="custom configuration"></a> Custom Configuration
+## Optimizely Class Reference Documentation
+Link to [Optimizely Class Reference Documentation](/android/help/reference/packages.html)
+
+## <a name="custom configuration"></a> Customize Your Variations
 
 ### <a name="variables"></a> Register Live Variables
 
@@ -99,7 +102,9 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 For more details, please see the [Code Blocks API Reference](help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
-### Custom Goals <a name="customgoals"></a>
+## <a name="targeting"></a> Custom Targeting
+
+### Track Event <a name="customgoals"></a>
 Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal. The first step occurs in the web editor. Click "Goals", then "New Goal", and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal. In order to track this goal, send this same string as a parameter to
 
 ```java
@@ -124,6 +129,8 @@ private void userCompletedPurchase() {
     //The rest of your handler
 }
 ```
+
+## <a name="goaltracking"></a> Goal Tracking
 
 ### Custom Tags <a name="customtags"></a>
 Custom Tags allow you to target users based on variables and attributes before Optimizely starts. You will be able to run your experiment and target visitors based on those custom attributes, effectively **only** bucketing those who meet your targeting conditions.

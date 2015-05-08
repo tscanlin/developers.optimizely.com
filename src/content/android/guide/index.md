@@ -5,8 +5,6 @@ title: "Optimizely Android SDK Guide"
 
 ## Android SDK Guide
 
-## Getting Started
-
 ### <a name="Key Documentation"></a> Key Documentation
 [Releases](https://github.com/optimizely/Optimizely-Android-SDK/)
 
