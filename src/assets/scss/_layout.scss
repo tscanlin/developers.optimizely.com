@@ -37,10 +37,6 @@ $sidebar-width: 300px;
   width: $sidebar-width;
   z-index: 1;
 
-  a {
-    color: white;
-  }
-
   &.fixed {
     position: fixed;
   }

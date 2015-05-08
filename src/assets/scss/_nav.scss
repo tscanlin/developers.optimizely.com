@@ -1,8 +1,16 @@
 // Navigation classes.
 
 .nav {
-  & > .lego-nav > li > ul {
-    border-left: 2px solid map-get($ui-color, brand);
+  // & > .lego-nav > li > ul {
+  //   border-left: 2px solid map-get($ui-color, brand);
+  // }
+
+  a {
+    color: white;
+  }
+
+  .active {
+    color: map-get($ui-color, brand-light);
   }
 
   li {
