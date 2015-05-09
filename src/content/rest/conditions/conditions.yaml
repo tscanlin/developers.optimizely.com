@@ -1,0 +1,823 @@
+# Requirements of various Dimension classes. Additional validation may be defined in dimensions.py
+# The first instance of each key below is annotated with its meaning.
+
+browser: # should match _condition_type property of the class
+  # Label for the documentation
+  title: Browser or Device
+  help_text: "Adds visitors if they're using a certain browser or mobile device."
+  # Fields which are acceptable within the API
+  fields:
+    value:
+      required: true
+      # value -> label for allowed values. If not present, any value is allowed.
+      # May not be combined with disallowed_values (see below)
+      values:
+        - value: mobile
+          text: Any mobile browser
+          group: Mobile
+        - value: android
+          text: Android (any browser)
+          group: Mobile
+        - value: blackberry
+          text: Blackberry (any browser)
+          group: Mobile
+        - value: ipad
+          text: iPad (any browser)
+          group: Mobile
+        - value: iphone
+          text: iPhone (any browser)
+          group: Mobile
+        - value: 'windows phone'
+          text: Windows Phone (any browser)
+          group: Mobile
+        - value: ff2
+          text: Firefox 2
+          group: Firefox
+        - value: ff3
+          text: Firefox 3
+          group: Firefox
+        - value: ff4
+          text: Firefox 4
+          group: Firefox
+        - value: ff
+          text: Firefox (any Desktop version)
+          group: Firefox
+        - value: ie6
+          text: Internet Explorer 6
+          group: Internet Explorer
+          deprecated: yes
+        - value: ie7
+          text: Internet Explorer 7
+          group: Internet Explorer
+          deprecated: yes
+        - value: ie8
+          text: Internet Explorer 8
+          group: Internet Explorer
+        - value: ie9
+          text: Internet Explorer 9
+          group: Internet Explorer
+        - value: ie10
+          text: Internet Explorer 10
+          group: Internet Explorer
+        - value: ie11
+          text: Internet Explorer 11
+          group: Internet Explorer
+        - value: safari3
+          text: Safari 3
+          group: Safari (Desktop)
+        - value: safari4
+          text: Safari 4
+          group: Safari (Desktop)
+        - value: safari5
+          text: Safari 5
+          group: Safari (Desktop)
+        - value: safari6
+          text: Safari 6
+          group: Safari (Desktop)
+        - value: safari7
+          text: Safari 7
+          group: Safari (Desktop)
+        - value: safari8
+          text: Safari 8
+          group: Safari (Desktop)
+        - value: gc
+          text: Google Chrome
+          group: Other
+        - value: opera
+          text: Opera
+          group: Other
+  # Required permission to use this condition type
+  permission_required: browser-or-device-targeting
+  # If have this feature, add "deprecated" verbiage
+  deprecated_by: platform-targeting
+browser_version:
+  title: Browser / Version
+  help_text: Adds visitors if they are using a certain browser.
+  fields:
+    value:
+      required: true
+      values:
+        - value: ff
+          text: Firefox (any version)
+          group: Firefox
+        - value: ie
+          text: Internet Explorer (any version)
+          group: Internet Explorer
+        - value: ie8
+          text: Internet Explorer 8
+          group: Internet Explorer
+        - value: ie9
+          text: Internet Explorer 9
+          group: Internet Explorer
+        - value: ie10
+          text: Internet Explorer 10
+          group: Internet Explorer
+        - value: ie11
+          text: Internet Explorer 11
+          group: Internet Explorer
+        - value: safari
+          text: Safari (any version)
+          group: Safari
+        - value: safari6
+          text: Safari 6
+          group: Safari
+        - value: safari7
+          text: Safari 7
+          group: Safari
+        - value: safari8
+          text: Safari 8
+          group: Safari
+        - value: gc
+          text: Google Chrome
+          group: Other
+        - value: opera
+          text: Opera
+          group: Other
+        - value: ucbrowser
+          text: UC Browser
+          group: Other
+  permission_required: platform-targeting
+campaign:
+  title: Ad Campaign
+  help_text: Adds visitors who came from an ad campaign with a certain utm_campaign parameter.
+  fields:
+    value:
+      required: false
+      disallowed_values:
+        - none # This is the sentinel value for lack of a campaign
+    match_type:
+      required: true
+      values:
+        - value: exists
+          text: has any value
+        - value: exact
+          text: equals
+        - value: substring
+          text: contains
+        - value: regex
+          text: matches
+  # Required permission to use this condition type
+  permission_required: ad-campaign-targeting
+cookies:
+  title: Cookie
+  help_text: Adds visitors if they have a certain cookie, or if that cookie is set to a certain value.
+  fields:
+    name:
+      required: true
+    value:
+      required: false
+    match_type:
+      required: true
+      values:
+        - value: exists
+          text: has any value
+        - value: exact
+          text: equals
+        - value: substring
+          text: contains
+        - value: regex
+          text: matches
+  # Required permission to use this condition type
+  permission_required: cookie
+code:
+  title: Custom Javascript
+  help_text: Adds visitors if the Javascript code (like "myVariable == 10") evaluates to true.
+  fields:
+    value:
+      required: true
+  # Required permission to use this condition type
+  permission_required: custom-javascript
+custom_dimension:
+  title: Dimension
+  fields:
+    name:
+      required: true
+    value:
+      required: false
+custom_tag:
+  title: Custom Tags
+  help_text: "Adds visitors based on custom information you've \"tagged\" on a visitor via the Javascript API."
+  fields:
+    name:
+      required: true
+    value:
+      required: false
+    match_type:
+      required: true
+      values:
+        - value: exists
+          text: has any value
+        - value: exact
+          text: equals
+        - value: substring
+          text: contains
+        - value: regex
+          text: matches
+  # Required permission to use this condition type
+  permission_required: custom-tags
+device:
+  title: Device
+  help_text: Adds visitors using a specific device model/type.
+  fields:
+    value:
+      required: true
+      values:
+        - value: iphone
+          text: iPhone
+        - value: ipad
+          text: iPad
+        - value: mobile
+          text: Other mobile phone
+        - value: tablet
+          text: Other tablet
+        - value: desktop
+          text: Desktop/Laptop
+  permission_required: platform-targeting
+event:
+  title: Custom Event
+  help_text: Adds visitors who triggered a goal with a certain custom event name recently.
+  fields:
+    name:
+      required: true
+  # Required permission to use this condition type
+  permission_required: custom-event
+first_session:
+  title: New/Returning Session
+  help_text: Adds visitors who are in their first session at your site.
+has_ppid:
+  title: Has Universal User ID
+  help_text: Adds visitors if they have/does not have a Universal User ID.
+ip:
+  title: IP Address
+  help_text: Adds visitors if they match a certain IP address pattern.
+  fields:
+    value:
+      required: true
+    # value -> label for acceptable match types. If not present, no match types are acceptable.
+    match_type:
+      required: true
+      values:
+        - value: exact
+          text: Exact match
+        - value: regex
+          text: Regular expression match
+        - value: cidr
+          text: CIDR Notation (subnet/mask)
+        - value: prefix
+          text: Prefix match
+  permission_required: geotargeting
+language:
+  title: Language
+  help_text: "Adds visitors if they have a certain preferred language choice (like \"en-us\") set in their browser."
+  fields:
+    value:
+      required: true
+      placeholder: Select a language
+      values:
+        # Put Arabic first so "Common" group is first
+        - value: ar
+          text: Arabic - any
+          group: Common
+        - value: af
+          text: Afrikaans
+          group: A
+        - value: sq
+          text: Albanian
+          group: A
+        - value: ar-dz
+          text: Arabic - Algeria
+          group: A
+        - value: ar-bh
+          text: Arabic - Bahrain
+          group: A
+        - value: ar-eg
+          text: Arabic - Egypt
+          group: A
+        - value: ar-iq
+          text: Arabic - Iraq
+          group: A
+        - value: ar-jo
+          text: Arabic - Jordan
+          group: A
+        - value: ar-kw
+          text: Arabic - Kuwait
+          group: A
+        - value: ar-lb
+          text: Arabic - Lebanon
+          group: A
+        - value: ar-ly
+          text: Arabic - Libya
+          group: A
+        - value: ar-ma
+          text: Arabic - Morocco
+          group: A
+        - value: ar-om
+          text: Arabic - Oman
+          group: A
+        - value: ar-sa
+          text: Arabic - Saudi Arabia
+          group: A
+        - value: ar-sy
+          text: Arabic - Syria
+          group: A
+        - value: ar-qa
+          text: Arabic - Qatar
+          group: A
+        - value: ar-tn
+          text: Arabic - Tunisia
+          group: A
+        - value: ar-ae
+          text: Arabic - U.A.E.
+          group: A
+        - value: ar-ye
+          text: Arabic - Yemen
+          group: A
+        - value: eu
+          text: Basque
+          group: B
+        - value: be
+          text: Belarusian
+          group: B
+        - value: bg
+          text: Bulgarian
+          group: B
+        - value: ca
+          text: Catalan
+          group: C
+        - value: zh
+          text: Chinese - any
+          group: Common
+        - value: zh-hk
+          text: Chinese - Hong Kong
+          group: C
+        - value: zh-cn
+          text: Chinese - PRC
+          group: C
+        - value: zh-sg
+          text: Chinese - Singapore
+          group: C
+        - value: zh-tw
+          text: Chinese - Taiwan
+          group: C
+        - value: hr
+          text: Croatian
+          group: C
+        - value: cs
+          text: Czech
+          group: C
+        - value: da
+          text: Danish
+          group: Common
+        - value: nl
+          text: Dutch - any
+          group: Common
+        - value: nl-be
+          text: Dutch - Belgian
+          group: D
+        - value: en
+          text: English - any
+          group: Common
+        - value: en-au
+          text: English - Australian
+          group: E
+        - value: en-bz
+          text: English - Belize
+          group: E
+        - value: en-gb
+          text: English - British
+          group: E
+        - value: en-ca
+          text: English - Canadian
+          group: E
+        - value: en-ie
+          text: English - Ireland
+          group: E
+        - value: en-jm
+          text: English - Jamaica
+          group: E
+        - value: en-nz
+          text: English - New Zealand
+          group: E
+        - value: en-za
+          text: English - South Africa
+          group: E
+        - value: en-tt
+          text: English - Trinidad
+          group: E
+        - value: en-us
+          text: English - United States
+          group: E
+        - value: et
+          text: Estonian
+          group: E
+        - value: fa
+          text: Farsi
+          group: F
+        - value: fi
+          text: Finnish
+          group: Common
+        - value: fr
+          text: French - any
+          group: Common
+        - value: fr-be
+          text: French - Belgian
+          group: F
+        - value: fr-ca
+          text: French - Canadian
+          group: F
+        - value: fr-lu
+          text: French - Luxembourg
+          group: F
+        - value: fr-ch
+          text: French - Swiss
+          group: F
+        - value: gd
+          text: Gaelic - any
+          group: G
+        - value: de
+          text: German - any
+          group: G
+        - value: de-at
+          text: German - Austrian
+          group: G
+        - value: de-li
+          text: German - Liechtenstein
+          group: G
+        - value: de-lu
+          text: German - Luxembourg
+          group: G
+        - value: de-ch
+          text: German - Swiss
+          group: G
+        - value: el
+          text: Greek
+          group: G
+        - value: he
+          text: Hebrew
+          group: H
+        - value: hi
+          text: Hindi
+          group: Common
+        - value: hu
+          text: Hungarian
+          group: H
+        - value: is
+          text: Icelandic
+          group: I
+        - value: in
+          text: Indonesian
+          group: I
+        - value: it
+          text: Italian - any
+          group: I
+        - value: it-ch
+          text: Italian - Swiss
+          group: I
+        - value: ja
+          text: Japanese
+          group: Common
+        - value: ko
+          text: Korean
+          group: K
+        - value: ko
+          text: Korean - Johab
+          group: K
+        - value: lv
+          text: Latvian
+          group: L
+        - value: lt
+          text: Lithuanian
+          group: L
+        - value: ms
+          text: Malaysian
+          group: M
+        - value: mt
+          text: Maltese
+          group: M
+        - value: 'no'
+          text: Norwegian
+          group: Common
+        - value: pl
+          text: Polish
+          group: P
+        - value: pt
+          text: Portuguese - any
+          group: Common
+        - value: pt-br
+          text: Portuguese - Brazil
+          group: P
+        - value: ro
+          text: Romanian - any
+          group: R
+        - value: ro-mo
+          text: Romanian - Moldavia
+          group: R
+        - value: ru
+          text: Russian - any
+          group: Common
+        - value: ru-mo
+          text: Russian - Moldavia
+          group: R
+        - value: sr
+          text: Serbian
+          group: S
+        - value: sk
+          text: Slovak
+          group: S
+        - value: sl
+          text: Slovenian
+          group: S
+        - value: sb
+          text: Sorbian
+          group: S
+        - value: es
+          text: Spanish - any
+          group: Common
+        - value: es-ar
+          text: Spanish - Argentina
+          group: S
+        - value: es-bo
+          text: Spanish - Bolivia
+          group: S
+        - value: es-c
+          text: Spanish - Chile
+          group: S
+        - value: es-co
+          text: Spanish - Colombia
+          group: S
+        - value: es-cr
+          text: Spanish - Costa Rica
+          group: S
+        - value: es-do
+          text: Spanish - Dominican Republic
+          group: S
+        - value: es-ec
+          text: Spanish - Ecuador
+          group: S
+        - value: es-sv
+          text: Spanish - El Salvador
+          group: S
+        - value: es-gt
+          text: Spanish - Guatemala
+          group: S
+        - value: es-hn
+          text: Spanish - Honduras
+          group: S
+        - value: es-mx
+          text: Spanish - Mexican
+          group: S
+        - value: es-ni
+          text: Spanish - Nicaragua
+          group: S
+        - value: es-pa
+          text: Spanish - Panama
+          group: S
+        - value: es-py
+          text: Spanish - Paraguay
+          group: S
+        - value: es-pe
+          text: Spanish - Peru
+          group: S
+        - value: es-pr
+          text: Spanish - Puerto Rico
+          group: S
+        - value: es-uy
+          text: Spanish - Uruguay
+          group: S
+        - value: es-ve
+          text: Spanish - Venezuela
+          group: S
+        - value: sx
+          text: Sutu
+          group: S
+        - value: sv
+          text: Swedish - any
+          group: Common
+        - value: sv-fi
+          text: Swedish - Finland
+          group: S
+        - value: th
+          text: Thai
+          group: T
+        - value: ts
+          text: Tsonga
+          group: T
+        - value: tn
+          text: Tswana
+          group: T
+        - value: tr
+          text: Turkish
+          group: T
+        - value: uk
+          text: Ukrainian
+          group: U
+        - value: ur
+          text: Urdu
+          group: U
+        - value: vi
+          text: Vietnamese
+          group: V
+        - value: xh
+          text: Xhosa
+          group: X
+        - value: ji
+          text: Yiddish
+          group: Y
+        - value: zu
+          text: Zulu
+          group: Z
+list:
+  title: List Membership
+  help_text: "Adds visitors based on the lists you have uploaded."
+  fields:
+    name:
+      required: true
+    value:
+      required: false
+  permission_required: list-targeting
+location:
+  title: Location
+  help_text: Adds visitors based on their city, country, state, or region. Also known as Geotargeting.
+  fields:
+    value:
+      required: true
+      # For acceptable values see models.geotargeting
+  permission_required: geotargeting
+platform:
+  title: Platform / OS
+  help_text: Adds visitors on a specific platform/OS.
+  fields:
+    value:
+      required: true
+      values:
+        - value: mobile
+          text: Any mobile platform
+          group: Any
+        - value: desktop
+          text: Any desktop platform
+          group: Any
+        - value: ios
+          text: iOS (any version)
+          group: iOS
+        - value: ios_6
+          text: iOS 6
+          group: iOS
+        - value: ios_7
+          text: iOS 7
+          group: iOS
+        - value: ios_8
+          text: iOS 8
+          group: iOS
+        - value: android
+          text: Android (any version)
+          group: Android
+        - value: android_2.3
+          text: Gingerbread (2.3)
+          group: Android
+        - value: android_4
+          text: Ice Cream Sandwich (4.0)
+          group: Android
+        - value: android_4.1_4.3
+          text: Jellybean (4.1-4.3)
+          group: Android
+        - value: android_4.4
+          text: KitKat (4.4)
+          group: Android
+        - value: android_5
+          text: Lollipop (5.0)
+          group: Android
+        - value: 'windows phone'
+          text: Windows Phone (any version)
+          group: Other Mobile
+        - value: blackberry
+          text: Blackberry
+          group: Other Mobile
+        - value: windows
+          text: Windows (any desktop version)
+          group: Windows
+        - value: windows_7
+          text: Windows 7
+          group: Windows
+        - value: windows_8
+          text: Windows 8
+          group: Windows
+        - value: windows_8.1
+          text: Windows 8.1
+          group: Windows
+        - value: mac os
+          text: OS X (any version)
+          group: OS X
+        - value: mac os_10.6
+          text: Snow Leopard (10.6)
+          group: OS X
+        - value: mac os_10.7
+          text: Lion (10.7)
+          group: OS X
+        - value: mac os_10.8
+          text: Mountain Lion (10.8)
+          group: OS X
+        - value: mac os_10.9
+          text: Mavericks (10.9)
+          group: OS X
+        - value: mac os_10.10
+          text: Yosemite (10.10)
+          group: OS X
+        - value: linux
+          text: Linux (any distro)
+          group: Other
+  permission_required: platform-targeting
+query:
+  title: Query Parameters
+  help_text: Adds visitors if the URL has a parameter with a matching value.
+  fields:
+    name:
+      required: true
+    value:
+      required: false
+    match_type:
+      required: true
+      values:
+        - value: exists
+          text: has any value
+        - value: exact
+          text: equals
+        - value: substring
+          text: contains
+        - value: regex
+          text: matches
+  # Required permission to use this condition type
+  permission_required: query-parameters
+referrer:
+  title: Referrer URL
+  help_text: "Adds visitors if they just came from a certain URL (like \"facebook.com\")."
+  fields:
+    value:
+      required: true
+    match_type:
+      required: true
+      values:
+        - value: simple
+          text: Simple match (hostname/path only)
+        - value: exact
+          text: Exact match
+        - value: substring
+          text: Substring match
+        - value: regex
+          text: Regular expression match
+  # Required permission to use this condition type
+  permission_required: referrer-url
+source_type:
+  title: Traffic Source
+  help_text: Adds visitors based on their traffic source (direct, referrer, search, or campaign).
+  fields:
+    value:
+      required: true
+      values:
+        - value: direct
+          text: Direct
+        - value: search
+          text: Search
+        - value: referral
+          text: Referral
+        - value: campaign
+          text: Campaign
+  permission_required: source-targeting
+third_party_dimension:
+  title: Third Party Dimension
+  fields:
+    name:
+      required: true
+    value:
+      required: true
+time_and_day:
+  title: Time/Day of Visit
+  help_text: Adds people who visit during a certain time of the day or week.
+  fields:
+    value:
+      required: true
+  permission_required: time-and-day-targeting
+uploaded_data_dimension:
+  title: Uploaded Data Dimension
+  help_text: Uploaded Data Dimension
+  fields:
+    name:
+      required: true
+    value:
+      required: true
+  permission_required: uploaded-data-dimension
+visitor:
+  title: New or Returning Visitor
+  help_text: "Adds visitors if they've visited a page with your Optimizely Snippet before."
+  # If true, hide from "Possible Conditions" in condition UI and prevent saving in API
+  hidden: true
+  fields:
+    value:
+      required: true
+      values:
+        # TODO: all is an acceptable value but it's not in the template (lack of value)
+        - value: new
+          text: New
+        - value: returning
+          text: Returning
+  # Required permission to use this condition type
+  permission_required: new-or-returning-visitor

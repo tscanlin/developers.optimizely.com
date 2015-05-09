@@ -1,6 +1,5 @@
 // Base
-html,
-body {
+html {
   height: 100%;
 }
 
@@ -14,6 +13,7 @@ body {
   // font-size: map-get($font-size, base);
   font-size: 13px; // using the same font-size as current docs.
   font-weight: 300;
+  height: auto;
   line-height: 1.5;
 }
 

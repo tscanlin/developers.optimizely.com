@@ -8,7 +8,7 @@
             {% for sub_key, section in item.sections %}
               <li>
                 <a class="section{% if item.path + section.path === '/' + relativePath %} active{% endif %}" href="{{ item.path }}{{ section.path }}index.html">{{ section.title }}</a>
-                <ul class="unstyled lego-nav lego-nav--stacked quickjump">
+                <ul class="unstyled lego-nav lego-nav--stacked toc">
                 </ul>
               </li>
             {% endfor %}
