@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "build": "gulp",
-    "deploy": "npm run build && git-directory-deploy --directory build/",
+    "deploy": "npm run build && git-directory-deploy --directory build",
+    "git-directory-deploy": "git-directory-deploy",
     "gulp": "gulp",
     "clean": "gulp clean",
     "test": "gulp test"
