@@ -30,6 +30,7 @@ var paths = {
   css: assets + 'css/',
 
   content: 'content/',
+  files: 'files/',
   pages: 'pages/',
   partials: 'partials/',
   templates: 'templates/',
