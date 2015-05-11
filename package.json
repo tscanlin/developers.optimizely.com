@@ -4,6 +4,8 @@
   "description": "developer documentation for optimizely",
   "main": "gulpfile.js",
   "scripts": {
+    "build": "gulp",
+    "deploy": "npm run build && git-directory-deploy --directory build/",
     "gulp": "gulp",
     "clean": "gulp clean",
     "test": "gulp test"
@@ -32,6 +34,7 @@
     "browser-sync": "^2.2.1",
     "browserify": "^10.1.2",
     "del": "^1.1.1",
+    "git-directory-deploy": "^1.1.0",
     "glob": "^5.0.5",
     "grunt": "^0.4.5",
     "gulp": "^3.8.10",
