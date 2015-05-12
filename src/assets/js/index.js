@@ -2,25 +2,12 @@
 hljs.initHighlightingOnLoad();
 
 var smoothScroll = require('smooth-scroll');
-smoothScroll.init({
-  easing: 'easeInOutCubic',
-  offset: 20,
-  speed: 1000,
-  updateURL: true,
-  callbackBefore: function(toggle, anchor) {
-    console.log(toggle, anchor);
-    debugger;
-  },
-  callbackAfter: function(toggle, anchor) {
-    console.log(toggle, anchor);
-    debugger;
-  }
-});
 
 // window.root = window;
 // smoothScroll.animateScroll( null, '#change-log' );
 
 var each = [].forEach;
+var some = [].some;
 
 // Document elements.
 var body = document.body;
@@ -29,7 +16,7 @@ var nav = document.getElementById('nav');
 var content = document.getElementById('content');
 
 var toc = document.querySelector('.active + .toc');
-var headings = document.querySelectorAll('h2, h3');
+var headings = content.querySelectorAll('h2, h3');
 var collapsers = document.querySelectorAll('[data-collapser]');
 
 var IS_COLLAPSED_CLASS = 'is-collapsed';
@@ -59,21 +46,19 @@ each.call(headings, function(heading, i) {
   }
 
   if (toc && i === (headings.length - 1)) {
-    // console.log(i, smoothScroll);
-    // smoothScroll.init({
-    //   easing: 'easeInOutCubic',
-    //   offset: 20,
-    //   speed: 1000,
-    //   updateURL: true,
-    //   callbackBefore: function(toggle, anchor) {
-    //     console.log(toggle, anchor);
-    //     debugger;
-    //   },
-    //   callbackAfter: function(toggle, anchor) {
-    //     console.log(toggle, anchor);
-    //     debugger;
-    //   }
-    // });
+    console.log(i, smoothScroll);
+    smoothScroll.init({
+      easing: 'easeInOutCubic',
+      offset: 20,
+      speed: 500,
+      updateURL: true,
+      // callbackBefore: function(toggle, anchor) {
+      //   console.log(toggle, anchor);
+      // },
+      // callbackAfter: function(toggle, anchor) {
+      //   console.log(toggle, anchor);
+      // }
+    });
   }
 });
 
@@ -85,7 +70,7 @@ function makeLink(heading) {
   a.textContent = heading.textContent;
   a.setAttribute('data-scroll', '');
   a.setAttribute('href', '#' + heading.id);
-  a.setAttribute('class', 'quickjump__link soft--left');
+  a.setAttribute('class', 'toc-link soft--left');
   item.appendChild(a);
   return item;
 }
@@ -99,14 +84,41 @@ function updateSidebar() {
   var headerHeight = header.offsetHeight;
 
   if (nav) {
+    // Fix the nav on scroll.
     if (top > headerHeight) {
       nav.className = 'fixed';
     }
     else {
       nav.className = '';
     }
+
+    // Highlight the toc based on scroll position.
+    // var bodyScrollTop = ;
+    var tocLinks = toc.querySelectorAll('.toc-link');
+    var headingsOffset = 30;
+    some.call(headings, function(heading, i) {
+      if (heading.offsetTop > body.scrollTop - headingsOffset) {
+        var index = i ? i - 1 : 0; // Don't allow negative index value.
+        var id = headings[index].id;
+
+        each.call(tocLinks, function(tocLink) {
+          tocLink.classList.remove('active');
+        });
+
+        var activeTocLink = toc.querySelector('.toc-link[href="#' + id + '"]');
+        activeTocLink.classList.add('active');
+
+        return heading;
+      }
+    });
+
+
+    // offsetTop
+    // toc, body
   }
 }
+
+
 
 
 
