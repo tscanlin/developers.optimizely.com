@@ -2,10 +2,6 @@
 hljs.initHighlightingOnLoad();
 
 var smoothScroll = require('smooth-scroll');
-
-// window.root = window;
-// smoothScroll.animateScroll( null, '#change-log' );
-
 var each = [].forEach;
 var some = [].some;
 
@@ -15,20 +11,20 @@ var header = document.getElementById('header');
 var nav = document.getElementById('nav');
 var content = document.getElementById('content');
 
+// Selectors.
 var toc = document.querySelector('.active + .toc');
 var headings = content.querySelectorAll('h2, h3');
 var collapsers = document.querySelectorAll('[data-collapser]');
 
+// Classes.
 var IS_COLLAPSED_CLASS = 'is-collapsed';
 
-// var topPath = '/' + window.location.pathname.split('/')[1] + '/';
 
-
-// TOC STUFF
+// Build Table of Contents Links.
 var subGroup, lastHeading;
 // Iterate over headings.
 each.call(headings, function(heading, i) {
-  // If the page has the toc container.
+  // If the page has the toc container the build the toc.
   if (toc && headings.length > 0) {
     if (heading.nodeName === 'H2') {
       toc.appendChild(makeLink(heading));
@@ -45,19 +41,13 @@ each.call(headings, function(heading, i) {
     }
   }
 
+  // Init smooth scroll when toc is built.
   if (toc && i === (headings.length - 1)) {
-    console.log(i, smoothScroll);
     smoothScroll.init({
       easing: 'easeInOutCubic',
       offset: 20,
       speed: 500,
       updateURL: true,
-      // callbackBefore: function(toggle, anchor) {
-      //   console.log(toggle, anchor);
-      // },
-      // callbackAfter: function(toggle, anchor) {
-      //   console.log(toggle, anchor);
-      // }
     });
   }
 });
@@ -94,7 +84,6 @@ function updateSidebar() {
 
     if (toc) {
       // Highlight the toc based on scroll position.
-      // var bodyScrollTop = ;
       var tocLinks = toc.querySelectorAll('.toc-link');
       var collapsibleLists = toc.querySelectorAll('ul.collapsible');
       var headingsOffset = 30;
@@ -123,9 +112,12 @@ function updateSidebar() {
       var activeTocLink = toc.querySelector('.toc-link.toc-link--' + topHeader.nodeName + '[href="#' + topHeader.id + '"]');
       activeTocLink.classList.add('active');
 
+      // Collapse the other collapsible lists.
       each.call(collapsibleLists, function(collapsibleList) {
         collapsibleList.classList.add(IS_COLLAPSED_CLASS);
       });
+
+      // Expand the active link's collapsible list.
       var parentList = activeTocLink.parentNode.parentNode;
       if (parentList.classList.contains(IS_COLLAPSED_CLASS)) {
         parentList.classList.remove(IS_COLLAPSED_CLASS);
@@ -133,7 +125,6 @@ function updateSidebar() {
     }
   }
 }
-
 
 
 // Make pseudo directive for collapsible sections.
