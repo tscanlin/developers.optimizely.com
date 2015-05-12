@@ -37,7 +37,7 @@ each.call(headings, function(heading, i) {
     else if (heading.nodeName === 'H3') {
       if (lastHeading.nodeName === 'H2') {
         subGroup = document.createElement('ul');
-        subGroup.setAttribute('class', 'unstyled soft--left');
+        subGroup.setAttribute('class', 'unstyled soft--left collapsible ' + IS_COLLAPSED_CLASS);
         toc.appendChild(subGroup);
       }
       subGroup.appendChild(makeLink(heading));
@@ -70,7 +70,7 @@ function makeLink(heading) {
   a.textContent = heading.textContent;
   a.setAttribute('data-scroll', '');
   a.setAttribute('href', '#' + heading.id);
-  a.setAttribute('class', 'toc-link soft--left');
+  a.setAttribute('class', 'soft--left toc-link toc-link--' + heading.nodeName);
   item.appendChild(a);
   return item;
 }
@@ -92,33 +92,47 @@ function updateSidebar() {
       nav.className = '';
     }
 
-    // Highlight the toc based on scroll position.
-    // var bodyScrollTop = ;
-    var tocLinks = toc.querySelectorAll('.toc-link');
-    var headingsOffset = 30;
-    some.call(headings, function(heading, i) {
-      if (heading.offsetTop > body.scrollTop - headingsOffset) {
-        var index = i ? i - 1 : 0; // Don't allow negative index value.
-        var id = headings[index].id;
+    if (toc) {
+      // Highlight the toc based on scroll position.
+      // var bodyScrollTop = ;
+      var tocLinks = toc.querySelectorAll('.toc-link');
+      var collapsibleLists = toc.querySelectorAll('ul.collapsible');
+      var headingsOffset = 30;
+      var topHeader;
+      // Using some instead of each so that we can escape early.
+      some.call(headings, function(heading, i) {
+        if (heading.offsetTop > body.scrollTop - headingsOffset) {
+          // Don't allow negative index value.
+          var index = (i === 0) ? i : i - 1;
+          topHeader = headings[index];
+          return true;
+        }
+        // This allows scrolling for the last heading on the page.
+        else if (i === headings.length - 1) {
+          topHeader = headings[headings.length - 1];
+          return true;
+        }
+      });
 
-        each.call(tocLinks, function(tocLink) {
-          tocLink.classList.remove('active');
-        });
+      // Remove the active class from the other tocLinks.
+      each.call(tocLinks, function(tocLink) {
+        tocLink.classList.remove('active');
+      });
 
-        var activeTocLink = toc.querySelector('.toc-link[href="#' + id + '"]');
-        activeTocLink.classList.add('active');
+      // Add the active class to the active tocLink.
+      var activeTocLink = toc.querySelector('.toc-link.toc-link--' + topHeader.nodeName + '[href="#' + topHeader.id + '"]');
+      activeTocLink.classList.add('active');
 
-        return heading;
+      each.call(collapsibleLists, function(collapsibleList) {
+        collapsibleList.classList.add(IS_COLLAPSED_CLASS);
+      });
+      var parentList = activeTocLink.parentNode.parentNode;
+      if (parentList.classList.contains(IS_COLLAPSED_CLASS)) {
+        parentList.classList.remove(IS_COLLAPSED_CLASS);
       }
-    });
-
-
-    // offsetTop
-    // toc, body
+    }
   }
 }
-
-
 
 
 

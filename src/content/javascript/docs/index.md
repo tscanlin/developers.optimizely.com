@@ -11,7 +11,7 @@ Check out our [Technology Partners](http://optimizely.com/partners/technology) p
 
 The Optimizely Javascript API has two parts:
 
-### API Function Call
+### API Function Calls
 
 The Optimizely API function calls are used to direct Optimizely to take specific actions.
 
