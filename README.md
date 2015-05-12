@@ -18,7 +18,8 @@ npm run gulp
 
 ### To deploy
 ```
-# IMPORTANT: Make sure you have pulled the latest changes from the master branch and have the site running locally, then run:
+# IMPORTANT: Make sure you have pulled the latest changes from the master branch
+# AND have the site running locally, then run:
 npm run deploy
 ```
 
