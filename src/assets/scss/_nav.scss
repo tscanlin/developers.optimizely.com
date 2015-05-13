@@ -17,4 +17,9 @@
     padding-top: 3px;
     padding-bottom: 3px;
   }
+
+  .main-section + .lego-nav {
+    border-left: 2px solid map-get($ui-color, brand);
+    margin-left: 5px;
+  }
 }

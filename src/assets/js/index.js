@@ -138,7 +138,11 @@ function updateSidebar() {
       else {
         activeList = activeTocLink.parentNode.parentNode;
       }
-      activeList.classList.remove(IS_COLLAPSED_CLASS);
+
+      // activeList may not exist if the H2 doesn't have any sub-sections.
+      if (activeList) {
+        activeList.classList.remove(IS_COLLAPSED_CLASS);
+      }
     }
   }
 }
