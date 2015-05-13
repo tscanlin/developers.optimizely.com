@@ -13,11 +13,13 @@ var content = document.getElementById('content');
 
 // Selectors.
 var toc = document.querySelector('.active + .toc');
-var headings = content.querySelectorAll('h2, h3');
 var collapsers = document.querySelectorAll('[data-collapser]');
+var headings = content.querySelectorAll('h2, h3');
+var tocLinks; // = toc.querySelectorAll('.toc-link');
 
 // Classes.
 var IS_COLLAPSED_CLASS = 'is-collapsed';
+var ANIMATION_DURATION = 500;
 
 
 // Build Table of Contents Links.
@@ -46,9 +48,11 @@ each.call(headings, function(heading, i) {
     smoothScroll.init({
       easing: 'easeInOutCubic',
       offset: 20,
-      speed: 500,
+      speed: ANIMATION_DURATION,
       updateURL: true,
     });
+
+    tocLinks = toc.querySelectorAll('.toc-link');
   }
 });
 
@@ -69,6 +73,7 @@ function makeLink(heading) {
 window.addEventListener('scroll', updateSidebar);
 window.addEventListener('resize', updateSidebar);
 
+var highlight = true;
 function updateSidebar() {
   var top = document.documentElement.scrollTop || body.scrollTop;
   var headerHeight = header.offsetHeight;
@@ -82,9 +87,8 @@ function updateSidebar() {
       nav.className = '';
     }
 
-    if (toc) {
+    if (toc && highlight) {
       // Highlight the toc based on scroll position.
-      var tocLinks = toc.querySelectorAll('.toc-link');
       var collapsibleLists = toc.querySelectorAll('ul.collapsible');
       var headingsOffset = 30;
       var topHeader;
@@ -118,13 +122,30 @@ function updateSidebar() {
       });
 
       // Expand the active link's collapsible list.
-      var parentList = activeTocLink.parentNode.parentNode;
-      if (parentList.classList.contains(IS_COLLAPSED_CLASS)) {
-        parentList.classList.remove(IS_COLLAPSED_CLASS);
+      // NOTE: Right now this only supports two levels.
+      var activeList;
+      if (activeTocLink.classList.contains('toc-link--H2')) {
+        activeList = activeTocLink.parentNode.nextElementSibling;
       }
+      else {
+        activeList = activeTocLink.parentNode.parentNode;
+      }
+      activeList.classList.remove(IS_COLLAPSED_CLASS);
     }
   }
 }
+
+
+// Bind to tocLink clicks to temporarily disable highlighting
+// while smoothScroll is animating.
+each.call(tocLinks, function(tocLink) {
+  tocLink.addEventListener('click', function(e) {
+    highlight = false;
+    window.setTimeout(function() {
+      highlight = true;
+    }, ANIMATION_DURATION);
+  });
+});
 
 
 // Make pseudo directive for collapsible sections.
