@@ -44,6 +44,11 @@ $sidebar-width: 300px;
 
 .content {
   margin-left: $sidebar-width;
+  min-height: 700px;
+}
+
+.main.has-nav + .footer {
+  margin-left: $sidebar-width;
 }
 
 .hero {

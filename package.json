@@ -28,7 +28,8 @@
   "dependencies": {
     "compass-mixins": "^0.12.3",
     "highlight.js": "^8.5.0",
-    "lego": "git+ssh://git@github.com:optimizely/lego.git"
+    "lego": "git+ssh://git@github.com:optimizely/lego.git",
+    "smooth-scroll": "git://github.com/cferdinandi/smooth-scroll"
   },
   "devDependencies": {
     "browser-sync": "^2.2.1",
@@ -52,7 +53,6 @@
     "swig-highlight": "^0.2.0",
     "swig-marked": "0.0.1",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.1.1",
-    "zero-static-html-engine": "git+ssh://git@github.com:tomgenoni/zero-static-html-engine.git"
+    "watchify": "^3.1.1"
   }
 }

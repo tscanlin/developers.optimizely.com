@@ -1,6 +1,7 @@
 ---
 template: sidebyside
 title: Initialization
+anchor: initialization
 js: |
   OptimizelyAPI = function(token) {
     this.outstandingRequests = 0;

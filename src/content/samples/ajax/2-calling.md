@@ -1,6 +1,7 @@
 ---
 template: sidebyside
 title: Calling the API
+anchor: calling-the-api
 js: |
   OptimizelyAPI.prototype.call = function(type, endpoint, data, callback) {
 

@@ -1,0 +1,163 @@
+campaign: 
+  usage: "Will match if the `utm_campaign` query parameter matches `value` according to `match_type`. If you don't provide a match type, it will default to `exact` if a value is provided or `exists` if a value is not provided."
+  example: |
+    {
+      "type": "campaign",
+      "match_type": "exact",
+      "value": "campaign_name"
+    }
+
+browser:
+  usage: "For visitors on PC's, this is their browser. For visitors on mobile, this is their device or operating system."
+  example: |
+    {
+      "type": "browser",
+      "value": "ie10"
+    }
+  warning: "This condition has been replaced by: \"Browser / Version\", \"Device\", and \"Platform / OS\"."
+
+browser_version:
+  usage: "Represents the browser the visitor is using. You may target all browsers in a family (e.g. \"safari\") or only a specific version, for supported browsers."
+  example: |
+    {
+      "type": "browser_version",
+      "value": "ie10"
+    }
+
+cookies: 
+  usage: "Will match if cookie `name` matches `value` according to `match_type`. If you don't provide a match type, it will default to `exact` if a value is provided or `exists` if a value is not provided."
+  example: |
+    {
+      "type": "cookies",
+      "name": "my_cookie",
+      "value": "chocolate .*",
+      "match_type": "regex"
+    }
+
+device:
+  usage: "The specific device, or device type, the visitor is using."
+  example: |
+    {
+      "type": "device",
+      "value": "ipad"
+    }
+
+event: 
+  usage: Will match if the visitor triggered the goal with event name `name`.
+  example: |
+    {
+      "type": "event",
+      "name": "event_name"
+    }
+
+code:
+  usage: Will match if the Javascript code in `value` evaluates to a truthy value.
+  example: |
+    {
+      "type": "code",
+      "value": "myVariable == true"
+    }
+
+custom_tag:
+  usage: "Will match if the custom tag `name` matches `value` according to `match_type`. If you don't provide a match type, it will default to `exact` if a value is provided or `exists` if a value is not provided."
+  example: |
+    {
+      "type": "custom_tag",
+      "name": "continent",
+      "value": "America", // Would match "North America" or "South America"
+      "match_type": "substring"
+    }
+
+custom_dimension:
+  usage: You can build audiences out of your own <a href="https://help.optimizely.com/hc/en-us/articles/200040865-Dimensions-formerly-Segments-Capturing-visitor-data" target="_blank">custom dimensions</a> by providing the dimension's name (not ID) in the `name` parameter.
+  example: |
+    {
+      "type": "custom_dimension",
+      "name": "whatever",
+      "value": "1234"
+    }
+
+ip: 
+  usage: Will match if the visitor's IP matches `value` according to the match type.
+  example: |
+    {
+      "type": "ip",
+      "match_type": "exact",
+      "value": "1.2.3.4"
+    }
+
+language:
+  usage: Will match visitors based on their browser's preferred language setting.
+  example: |
+    {
+      "type": "language",
+      "value": "af"
+    }
+
+location:
+   usage: Will geotarget visitors based on their location. You can find the full list of location codes [in this 58MB CSV file](/rest/location-values.csv), where the first column is the `value` and the second is a human-readable name.
+   example: |
+    {
+      "type": "location",
+      "value": "US|CA|SANFRANCISCO"
+    }
+
+first_session:
+  usage: Will match if the visitor is new to your site in this session. To target returning visitors, use `["not"...]`.
+  example: |
+    {
+      "type": "first_session"
+    }
+
+platform: 
+  usage: Mobile or desktop platform (OS) the visitor is using.
+  example: |
+    {
+      "type": "platform",
+      "value": "windows"
+    }
+
+query:
+  usage: "Will match if the query parameter `name` equals `value`. according to `match_type`. If you don't provide a match type, it will default to `exact` if a value is provided or `exists` if a value is not provided."
+  example: |
+    {
+      "type": "query",
+      "name": "my_parameter",
+      "value": "my_value",
+      "match_type": "exact"
+    }
+
+referrer:
+  usage: Will match visitors who came from a URL that matches `value` according to `match_type`.
+  example: |
+    {
+      "type": "source_type",
+      "value": "referral"
+    }
+
+source_type:
+  usage: ""
+  example: |
+    {
+      "type": "source_type",
+      "value": "referral"
+    }
+
+time_and_day:
+  usage: |
+    Will match visitors who come during certain days of the week, and certain times within those days. The `value` takes the form `START_END_DAYS`, where the start and end are 24-hour times in the form `hh:mm` like `14:30` for 2:30pm. Use `00:00_23:59` to target the full day.
+    For days, provide a comma separated list of lowercase days of the week like `saturday,sunday`. You must provide at least one day. To target the full week, use `monday,tuesday,wednesday,thursday,friday,saturday,sunday`.
+    Putting this together, to target just weekday mornings, you could provide `value: '06:00_11:00_monday,tuesday,wednesday,thursday,friday'`.
+  example: |
+    {
+      "type": "time_and_day",
+      "value": "07:00_11:00_monday,tuesday,wednesday,thursday,friday"
+    }
+
+source_type:
+  usage: ""
+  example: |
+    {
+      "type": "source_type",
+      "value": "referral"
+    }
