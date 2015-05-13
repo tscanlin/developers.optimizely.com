@@ -28,19 +28,27 @@ var subGroup, lastHeading;
 each.call(headings, function(heading, i) {
   // If the page has the toc container the build the toc.
   if (toc && headings.length > 0) {
-    if (heading.nodeName === 'H2') {
-      toc.appendChild(makeLink(heading));
-      lastHeading = heading;
-    }
-    else if (heading.nodeName === 'H3') {
-      if (lastHeading.nodeName === 'H2') {
+    if (lastHeading) {
+      var lastHeadingLevel = +lastHeading.nodeName.split('H').join('');
+      var currentHeadingLevel = +heading.nodeName.split('H').join('');
+      if (currentHeadingLevel > lastHeadingLevel) {
         subGroup = document.createElement('ul');
         subGroup.setAttribute('class', 'unstyled soft--left collapsible ' + IS_COLLAPSED_CLASS);
         toc.appendChild(subGroup);
       }
-      subGroup.appendChild(makeLink(heading));
-      lastHeading = heading;
+      else if (currentHeadingLevel < lastHeadingLevel) {
+        subGroup = undefined;
+      }
     }
+
+    if (!subGroup) {
+      toc.appendChild(makeLink(heading));
+    }
+    else {
+      subGroup.appendChild(makeLink(heading));
+    }
+
+    lastHeading = heading;
   }
 
   // Init smooth scroll when toc is built.
