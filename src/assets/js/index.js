@@ -14,7 +14,7 @@ var content = document.getElementById('content');
 // Selectors.
 var toc = document.querySelector('.active + .toc');
 var collapsers = document.querySelectorAll('[data-collapser]');
-var headings = content.querySelectorAll('h2, h3');
+var headings = document.querySelectorAll('h2, h3');
 var tocLinks; // = toc.querySelectorAll('.toc-link');
 
 // Classes.
@@ -138,14 +138,16 @@ function updateSidebar() {
 
 // Bind to tocLink clicks to temporarily disable highlighting
 // while smoothScroll is animating.
-each.call(tocLinks, function(tocLink) {
-  tocLink.addEventListener('click', function(e) {
-    highlight = false;
-    window.setTimeout(function() {
-      highlight = true;
-    }, ANIMATION_DURATION);
+if (tocLinks) {
+  each.call(tocLinks, function(tocLink) {
+    tocLink.addEventListener('click', function(e) {
+      highlight = false;
+      window.setTimeout(function() {
+        highlight = true;
+      }, ANIMATION_DURATION);
+    });
   });
-});
+}
 
 
 // Make pseudo directive for collapsible sections.
