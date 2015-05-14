@@ -19,7 +19,7 @@ var tocLinks; // = toc.querySelectorAll('.toc-link');
 
 // Classes.
 var IS_COLLAPSED_CLASS = 'is-collapsed';
-var ANIMATION_DURATION = 500;
+var ANIMATION_DURATION = 300;
 
 
 // Build Table of Contents Links.
