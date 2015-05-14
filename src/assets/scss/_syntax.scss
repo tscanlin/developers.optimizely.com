@@ -164,6 +164,16 @@ Ported by Fabrício Tavares de Oliveira
 
 
 // Custom styling.
+code {
+  background: #F3F8FB;
+  border: 1px solid #D8E1F1;
+  border-radius: 2px;
+  color: #1D1D1D;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
 pre code {
   display: block;
   background: #F3F8FB;
