@@ -15,22 +15,38 @@
 }
 
 // Main layout classes.
+$header-height: 51px;
 $sidebar-width: 300px;
 
 .header {
-  // position: fixed;
+  position: fixed;
+  background-color: white;
+  padding: 10px 20px;
+  top: 0;
   width: 100%;
+  z-index: 1;
+
+  .header-links {
+    margin-top: 6px;
+  }
 }
 
 .main {
+  margin-top: $header-height;
   min-height: 100%;
   position: relative;
 }
 
+.mb-100 {
+  margin-bottom: 100vh;
+}
+
 #nav {
   background-color: $new-brand-dark;
-  position: absolute;
-  top: 0;
+  // position: absolute;
+  position: fixed;
+  // top: 0;
+  top: $header-height;
   bottom: 0;
   left: 0;
   overflow-y: auto;
