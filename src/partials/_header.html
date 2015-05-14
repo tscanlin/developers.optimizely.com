@@ -5,7 +5,7 @@
 
     <div class="display--inline-block vertical-align--top soft--top">
       <ul class="unstyled lego-nav">
-        <li><a href="#">Overview</a></li>
+        <li><a href="/overview">Overview</a></li>
         <li class="position--relative">
           <a href="/rest/docs" data-collapser>
             Documentation
@@ -13,7 +13,7 @@
           </a>
           <ul class="unstyled width-1 lego-nav lego-nav--stacked dropdown collapsible is-collapsed">
             {% for key, item in paths.navigation %}
-              {% if item.path !== '/samples/' %}
+              {% if item.path !== '/samples/' && item.path !== '/overview/' %}
                 <li class="push-half">
                   <a href="{{ item.path }}docs/">{{ item.title }}</a>
                 </li>

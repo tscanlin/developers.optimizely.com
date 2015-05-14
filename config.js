@@ -38,6 +38,10 @@ var paths = {
 
   // Used in the UI to build the navigation.
   navigation: {
+    overview: {
+      path: '/overview/',
+      title: 'Overview'
+    },
     rest: {
       path: '/rest/',
       title: 'REST API',
@@ -45,7 +49,7 @@ var paths = {
     },
     javascript: {
       path: '/javascript/',
-      title: 'Javascript API',
+      title: 'JS API',
       sections: NAV_SECTIONS
     },
     ios: {
