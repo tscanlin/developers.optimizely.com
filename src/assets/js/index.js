@@ -20,7 +20,8 @@ var tocLinks; // = toc.querySelectorAll('.toc-link');
 // Classes.
 var IS_COLLAPSED_CLASS = 'is-collapsed';
 var ANIMATION_DURATION = 300;
-var HEADER_HEIGHT = 50;
+// No header offset needed because of the ::before pseudo element on headers.
+var HEADER_OFFSET = 0;
 
 
 // Build Table of Contents Links.
@@ -56,7 +57,7 @@ each.call(headings, function(heading, i) {
   if (toc && i === (headings.length - 1)) {
     smoothScroll.init({
       easing: 'easeInOutCubic',
-      offset: HEADER_HEIGHT + 10, // was 20
+      offset: HEADER_OFFSET,
       speed: ANIMATION_DURATION,
       updateURL: true,
     });
@@ -99,7 +100,7 @@ function updateSidebar() {
     if (toc && highlight) {
       // Highlight the toc based on scroll position.
       var collapsibleLists = toc.querySelectorAll('ul.collapsible');
-      var headingsOffset = HEADER_HEIGHT - 20; // was 30 (effectively negative 30)
+      var headingsOffset = HEADER_OFFSET - 30;
       var topHeader;
       // Using some instead of each so that we can escape early.
       some.call(headings, function(heading, i) {

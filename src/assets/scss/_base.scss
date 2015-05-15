@@ -19,10 +19,21 @@ body {
   line-height: 1.7;
 }
 
+$header-offset: 60px;
+
 // Color the headings.
 h1, h2, h3, h4, h5, h6 {
   color: $new-brand-dark;
   font-weight: 300;
+
+  // Fix for fixed header and anchors.
+  &::before {
+    display: block;
+    content: " ";
+    height: $header-offset; // Give height of your fixed element.
+    margin-top: -$header-offset; // Give negative margin of your fixed element.
+    visibility: hidden;
+  }
 }
 
 // Improve spacing.
