@@ -13,48 +13,84 @@
       <h2 class="gamma">Build on the world's #1 experience optimization platform.</h2>
 
       <div class="push-quad">
-        <a class="lego-button lego-button--brand" href="#">Learn More</a>
+        <a class="lego-button lego-button--brand" href="{{ paths.navigation.overview.path }}">Learn More</a>
       </div>
     </div>
 
-    <div>
-      <h2 class="text--center push-quad">Documentation</h3>
+    <div class="soft-quad">
+      <h2 class="text--center push-quad--bottom flush--top">Documentation</h3>
 
       <div class="max-width--large anchor--middle">
         <div class="lego-grid">
           <div class="lego-grid__cell width-1-4 text--center">
-            <a class="link--dark" href="#">
+            <a class="link--dark display--block" href="{{ paths.navigation.rest.path + paths.navigation.rest.sections.docs.path }}">
               <img src="assets/img/rest-icon.svg" class="img--circle display--inline-block">
-              <h4>REST API</h4>
-              <p>Manage your Optimizely projects using code.</p>
+              <h4 class="push-double--top">{{ paths.navigation.rest.title }}</h4>
+              <p class="push-half--bottom">Manage your Optimizely projects using code.</p>
             </a>
+            <div>
+              <a href="{{ paths.navigation.rest.path + paths.navigation.rest.sections.guide.path }}">
+                {{ paths.navigation.rest.sections.guide.title }}
+              </a>
+              <span> | </span>
+              <a href="{{ paths.navigation.rest.path + paths.navigation.rest.sections.examples.path }}">
+                {{ paths.navigation.rest.sections.examples.title }}
+              </a>
+            </div>
           </div>
           <div class="lego-grid__cell width-1-4 text--center">
-            <a class="link--dark" href="#">
+            <a class="link--dark display--block" href="{{ paths.navigation.javascript.path + paths.navigation.javascript.sections.docs.path }}">
               <img src="assets/img/js-icon.svg" class="img--circle display--inline-block">
-              <h4>JS API</h4>
-              <p>Customize the behavior of Optimizely on web pages.</p>
+              <h4 class="push-double--top">{{ paths.navigation.javascript.title }}</h4>
+              <p class="push-half--bottom">Customize the behavior of Optimizely on web pages.</p>
             </a>
+            <div>
+              <a href="{{ paths.navigation.javascript.path + paths.navigation.javascript.sections.guide.path }}">
+                {{ paths.navigation.javascript.sections.guide.title }}
+              </a>
+              <span> | </span>
+              <a href="{{ paths.navigation.javascript.path + paths.navigation.javascript.sections.examples.path }}">
+                {{ paths.navigation.javascript.sections.examples.title }}
+              </a>
+            </div>
           </div>
           <div class="lego-grid__cell width-1-4 text--center">
-            <a class="link--dark" href="#">
+            <a class="link--dark display--block" href="{{ paths.navigation.ios.path + paths.navigation.ios.sections.docs.path }}">
               <img src="assets/img/iOS-icon.svg" class="img--circle display--inline-block">
-              <h4>iOS SDK</h4>
-              <p>Create and run experiments in your iOS app.</p>
+              <h4 class="push-double--top">{{ paths.navigation.ios.title }}</h4>
+              <p class="push-half--bottom">Create and run experiments in your iOS app.</p>
             </a>
+            <div>
+              <a href="{{ paths.navigation.ios.path + paths.navigation.ios.sections.guide.path }}">
+                {{ paths.navigation.ios.sections.guide.title }}
+              </a>
+              <span> | </span>
+              <a href="{{ paths.navigation.ios.path + paths.navigation.ios.sections.examples.path }}">
+                {{ paths.navigation.ios.sections.examples.title }}
+              </a>
+            </div>
           </div>
           <div class="lego-grid__cell width-1-4 text--center">
-            <a class="link--dark" href="#">
+            <a class="link--dark display--block" href="{{ paths.navigation.android.path + paths.navigation.android.sections.docs.path }}">
               <img src="assets/img/android-icon.svg" class="img--circle display--inline-block">
-              <h4>Android SDK</h4>
-              <p>Create and run experiments in your Android app.</p>
+              <h4 class="push-double--top">{{ paths.navigation.android.title }}</h4>
+              <p class="push-half--bottom">Create and run experiments in your Android app.</p>
             </a>
+            <div>
+              <a href="{{ paths.navigation.android.path + paths.navigation.android.sections.guide.path }}">
+                {{ paths.navigation.android.sections.guide.title }}
+              </a>
+              <span> | </span>
+              <a href="{{ paths.navigation.android.path + paths.navigation.android.sections.examples.path }}">
+                {{ paths.navigation.android.sections.examples.title }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="background--super-dark push-double--top soft-quad">
+    <div class="background--super-dark soft-quad">
       <h2 class="text--center push-quad--bottom flush--top">Discover the full power of Optimizely</h3>
 
       <div class="lego-grid max-width--large anchor--middle">
@@ -71,26 +107,26 @@
       </div>
     </div>
 
-    <div class="max-width--large anchor--middle push-double--bottom">
-      <h2 class="text--center push-quad--top push--bottom">Solutions for developers</h3>
+    <div class="max-width--large anchor--middle soft-quad--ends soft-double--bottom">
+      <h2 class="text--center flush--top push--bottom">Solutions for developers</h3>
 
       <div class="lego-grid">
         <div class="lego-grid__cell width-1-3 text--center">
           <a class="link--dark" href="#">
             <h4>Integrate with your CMS</h4>
-            <p>Learn how to build an optimization solution in your content management system, so content editors can run experiments without ever logging into Optimizely.</p>
+            <p class="flush">Learn how to build an optimization solution in your content management system, so content editors can run experiments without ever logging into Optimizely.</p>
           </a>
         </div>
         <div class="lego-grid__cell width-1-3 text--center">
           <a class="link--dark" href="#">
             <h4> Experiment in your mobile app</h4>
-            <p>Learn how to install the Optimizely iOS and Android SDKs, which allow you to easily run A/B tests in your app without having to submit updates.</p>
+            <p class="flush">Learn how to install the Optimizely iOS and Android SDKs, which allow you to easily run A/B tests in your app without having to submit updates.</p>
           </a>
         </div>
         <div class="lego-grid__cell width-1-3 text--center">
           <a class="link--dark" href="#">
             <h4>Create audiences through the API</h4>
-            <p>Learn how to send custom audiences to Optimizely, so you can easily target experiments and personalized experiences to your most valuable customers.</p>
+            <p class="flush">Learn how to send custom audiences to Optimizely, so you can easily target experiments and personalized experiences to your most valuable customers.</p>
           </a>
         </div>
       </div>
@@ -98,19 +134,19 @@
         <div class="lego-grid__cell width-1-3 text--center">
           <a class="link--dark" href="#">
             <h4>Pull data into internal reports</h4>
-            <p>Learn how to get full access to Optimizely Stats Engine, so you can view the performance of your experiments in the tool of your choice.</p>
+            <p class="flush">Learn how to get full access to Optimizely Stats Engine, so you can view the performance of your experiments in the tool of your choice.</p>
           </a>
         </div>
         <div class="lego-grid__cell width-1-3 text--center">
           <a class="link--dark" href="#">
             <h4>Conditionally activate experiments</h4>
-            <p>Learn how to override Optimizely's default bucketing behavior, so you can customize when your experiments activate in web pages and mobile apps.
+            <p class="flush">Learn how to override Optimizely's default bucketing behavior, so you can customize when your experiments activate in web pages and mobile apps.
           </a>
         </div>
         <div class="lego-grid__cell width-1-3 text--center">
           <a class="link--dark" href="#">
             <h4>Track visitors and events</h4>
-            <p>Learn how to track all the visitor information you care about, so you can better target experiences and segment your Optimizely reports.</p>
+            <p class="flush">Learn how to track all the visitor information you care about, so you can better target experiences and segment your Optimizely reports.</p>
           </a>
         </div>
       </div>
