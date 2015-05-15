@@ -1,8 +1,7 @@
 // Object classes.
 
 .dropdown {
-  background-color: white;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
   margin-top: 2px;
   position: absolute;
   z-index: 1;
@@ -28,4 +27,3 @@
 		border: solid 1px rgba(0, 149, 231, 1);
 	}
 }
-
