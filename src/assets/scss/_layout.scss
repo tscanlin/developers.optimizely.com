@@ -1,4 +1,4 @@
-// Utility layout class.
+// Utility layout classes.
 .justify {
   font-size: 0;
   text-align: justify;
@@ -14,10 +14,11 @@
   }
 }
 
-// Main layout classes.
+// Layout variables.
 $header-height: 44px;
 $sidebar-width: 300px;
 
+// Main layout classes.
 .header {
   position: fixed;
   background-color: white;
