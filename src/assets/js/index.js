@@ -102,7 +102,7 @@ function updateSidebar() {
       var topHeader;
       // Using some instead of each so that we can escape early.
       some.call(headings, function(heading, i) {
-        if (heading.offsetTop > body.scrollTop + headingsOffset) {
+        if (heading.offsetTop > top + headingsOffset) {
           // Don't allow negative index value.
           var index = (i === 0) ? i : i - 1;
           topHeader = headings[index];
