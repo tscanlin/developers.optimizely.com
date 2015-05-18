@@ -50,6 +50,11 @@ p {
   margin-bottom: 20px;
 }
 
+em, b, strong {
+  font-style: normal;
+  font-weight: 700;
+}
+
 .table {
   tr {
     border-top: 1px solid map-get($ui-color, base);
