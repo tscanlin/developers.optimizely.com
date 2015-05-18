@@ -65,6 +65,8 @@ What's an experiment, variation, dimension, audience, etc.? Explain everything i
 
 What are the different parts of the Optimizely architecture? How does Optimizely deliver content through the CDN to the client? How does Optimizely receive data from the client? How do the REST API, JS API, iOS SDK, and Android SDK fit into this?
 
+<img src="../../assets/img/optimizely-architecture.png">
+
 ### Configuration
 
 Below are some of the key integration points for developers to customize the behavior of Optimizely.
