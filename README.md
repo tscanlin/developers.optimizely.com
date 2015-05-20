@@ -25,6 +25,11 @@ npm run deploy
 
 ### Troubleshooting
 
+If you get an error during `npm install` or `npm run gulp` mentioning `lego`, then run:
+```
+cd node_modules && git clone git@github.com:optimizely/lego.git
+```
+
 If npm install throws an error mentioning browserify then run:
 ```
 npm install --save-dev browserify
