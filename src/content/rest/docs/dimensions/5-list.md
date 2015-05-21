@@ -35,4 +35,4 @@ response: |
     }
   ]
 ---
-Get a list of all the dimensions in a project.
+Get a list of all the custom dimensions in a project.
