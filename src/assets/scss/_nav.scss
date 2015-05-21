@@ -12,7 +12,7 @@
   }
 
   .active {
-    color: map-get($ui-color, brand-light);
+    color: map-fetch($color, ui brand-light);
   }
 
   li {
@@ -21,7 +21,7 @@
   }
 
   .main-section + .lego-nav {
-    border-left: 2px solid map-get($ui-color, brand);
+    border-left: 2px solid map-fetch($color, ui brand);
     margin-left: 5px;
   }
 }

@@ -5,9 +5,20 @@
   @return mix(#fff, $color, $percent);
 }
 
-@import '../../../node_modules/lego/src/scss/core/core-variables';
-@import '../../../node_modules/lego/src/scss/core/core-partials';
-@import 'desktop';
+// # LEGO
+// ## Core functions and mixins
+@import '../../../node_modules/lego/src/core/partials/elements/functions';
+@import '../../../node_modules/lego/src/core/partials/elements/mixins';
+// ## Core polyfills
+@import '../../../node_modules/lego/src/core/core-polyfills';
+// ## Core variables
+@import '../../../node_modules/lego/src/core/core-variables';
+// ## Core partials
+@import '../../../node_modules/lego/src/core/core-partials';
+
+@import 'lego-desktop/buttons';
+@import 'lego-desktop/layout';
+@import 'lego-desktop/type';
 
 // Variables
 $new-brand-dark: #00415d;
@@ -26,10 +37,11 @@ $new-brand-dark: #00415d;
 @import 'state';
 @import 'hacks';
 
-// Trumps (These should go last)
-@import '../../../node_modules/lego/src/scss/core/partials/trumps/background';
-@import '../../../node_modules/lego/src/scss/core/partials/trumps/layout';
-@import '../../../node_modules/lego/src/scss/core/partials/trumps/margin';
-@import '../../../node_modules/lego/src/scss/core/partials/trumps/padding';
-@import '../../../node_modules/lego/src/scss/core/partials/trumps/type';
-@import '../../../node_modules/lego/src/scss/core/partials/trumps/sizing';
+// ## Trumps
+// Trumps use `!important` classes for overrides and should always be loaded last.
+@import '../../../node_modules/lego/src/core/partials/trumps/background';
+@import '../../../node_modules/lego/src/core/partials/trumps/layout';
+@import '../../../node_modules/lego/src/core/partials/trumps/margin';
+@import '../../../node_modules/lego/src/core/partials/trumps/padding';
+@import '../../../node_modules/lego/src/core/partials/trumps/type';
+@import '../../../node_modules/lego/src/core/partials/trumps/sizing';

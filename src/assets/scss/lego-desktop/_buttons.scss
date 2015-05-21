@@ -1,0 +1,156 @@
+%lego-button,
+.lego-button {
+
+  border-style: solid;
+  border-width: 1px;
+
+  // ### Button Styles
+  // Button color variations.
+
+  background: linear-gradient(#FFF, #EEE);
+  border-color: map-fetch($color, ui base);
+
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus {
+    outline: none;
+    color: map-fetch($color, text base);
+  }
+
+  &.lego-button--hover,
+  &:hover {
+    background: linear-gradient(#FFF, #E5E5E5);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  &.lego-button--active,
+  &:active {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-color: #BBB;
+  }
+
+  &:visited,
+  &:focus {
+    color: map-fetch($color, text base);
+  }
+
+  &--brand {
+    background: linear-gradient(#147CC5, #1270B1);
+    border-color: #00558D;
+    color: map-fetch($color, text white);
+
+    &.lego-button--hover,
+    &:hover {
+      background: linear-gradient(#038AE6, #1270B1);
+    }
+
+    &.lego-button--active,
+    &:active {
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3);
+      border-color: #00558D;
+    }
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+      color: map-fetch($color, text white);
+    }
+  }
+
+  &--highlight {
+    background: linear-gradient(#A1CD1E, #91B81C);
+    border-color: #719505;
+    color: map-fetch($color, text white);
+
+    &.lego-button--hover,
+    &:hover {
+      background: linear-gradient(#A3D60C, #91B81C);
+    }
+
+    &.lego-button--active,
+    &:active {
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3);
+      border-color: #719505;
+    }
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+      color: map-fetch($color, text white);
+    }
+  }
+
+  &--danger {
+    background: linear-gradient(#AA280D, #991E04);
+    border-color: #641100;
+    color: map-fetch($color, text white);
+
+    &.lego-button--hover,
+    &:hover {
+      background: linear-gradient(#C02C0C, #991E04);
+    }
+
+    &.lego-button--active,
+    &:active {
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3);
+      border-color: #641100;
+    }
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+      color: map-fetch($color, text white);
+    }
+  }
+
+  &--round {
+    border-radius: 50%;
+    // Using the same dimension for height and width so that the button is always round
+    height: map-fetch($button, size small height);
+    width: map-fetch($button, size small height);
+    padding: 0;
+
+    .lego-icon {
+      height: 12px;
+      width: 12px;
+    }
+  }
+
+  &--link {
+    @extend %link;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-family: map-fetch($font, family base);
+    cursor: pointer;
+    outline: 0;
+  }
+
+  &--add,
+  &--remove {
+    @extend %lego-button--small;
+    @extend %lego-button--round;
+  }
+
+  &--remove:hover,
+  &--remove:active,
+  &--remove:focus {
+    color: map-fetch($color, text bad-news);
+  }
+}
+
+// ### Anchors like Buttons
+// Anchors that appear to be buttons. Requires pixel fixes.
+
+a.lego-button {
+  line-height: map-fetch($button, size base height);
+  line-height: 32px; // TODO: Fix this cause its hacky but they are looking weird in the product too.
+
+  &--small {
+    line-height: map-fetch($button, size small height);
+  }
+}
