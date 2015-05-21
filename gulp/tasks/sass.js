@@ -10,7 +10,12 @@ var paths        = require('../../config').paths;
 gulp.task('sass', function () {
   return gulp.src(path.join(paths.src + paths.scss, '*.scss'))
     .pipe(sourcemaps.init())
-    .pipe(sass())
+    .pipe(sass({
+      errLogToConsole: true,
+      includePaths : [
+        require('lego').includePath
+      ]
+    }))
     .on('error', handleErrors)
     .pipe(sourcemaps.write())
     // .pipe(autoprefixer({ browsers: ['last 2 version'] }))
