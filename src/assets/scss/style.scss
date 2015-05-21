@@ -1,47 +1,42 @@
-// Add compass & LEGO dependencies
-// Temporary to get Lego to work until it works with libsass natively.
-@import '../../../node_modules/compass-mixins/lib/compass';
-@function tint($color, $percent) {
-  @return mix(#fff, $color, $percent);
-}
+// ## Developer Docs Variables
+@import 'variables';
 
 // # LEGO
 // ## Core functions and mixins
-@import '../../../node_modules/lego/src/core/partials/elements/functions';
-@import '../../../node_modules/lego/src/core/partials/elements/mixins';
+@import 'core/partials/elements/functions';
+@import 'core/partials/elements/mixins';
 // ## Core polyfills
-@import '../../../node_modules/lego/src/core/core-polyfills';
+@import 'core/core-polyfills';
 // ## Core variables
-@import '../../../node_modules/lego/src/core/core-variables';
+@import 'core/core-variables';
 // ## Core partials
-@import '../../../node_modules/lego/src/core/core-partials';
-
+@import 'core/core-partials';
+// ## LEGO-DESKTOP
 @import 'lego-desktop/buttons';
 @import 'lego-desktop/layout';
 @import 'lego-desktop/type';
 
-// Variables
-$new-brand-dark: #00415d;
 
-// Base styles
-@import 'fonts'; // This is temporary.
+// # Developer Docs Styles
+// ## Base styles
 @import 'base';
 @import 'layout';
 
-// Module styles
+// ## Module styles
 @import 'nav';
 @import 'objects';
 @import 'syntax';
 
-// State styles
+// ## State styles
 @import 'state';
 @import 'hacks';
 
+
 // ## Trumps
 // Trumps use `!important` classes for overrides and should always be loaded last.
-@import '../../../node_modules/lego/src/core/partials/trumps/background';
-@import '../../../node_modules/lego/src/core/partials/trumps/layout';
-@import '../../../node_modules/lego/src/core/partials/trumps/margin';
-@import '../../../node_modules/lego/src/core/partials/trumps/padding';
-@import '../../../node_modules/lego/src/core/partials/trumps/type';
-@import '../../../node_modules/lego/src/core/partials/trumps/sizing';
+@import 'core/partials/trumps/background';
+@import 'core/partials/trumps/layout';
+@import 'core/partials/trumps/margin';
+@import 'core/partials/trumps/padding';
+@import 'core/partials/trumps/type';
+@import 'core/partials/trumps/sizing';
