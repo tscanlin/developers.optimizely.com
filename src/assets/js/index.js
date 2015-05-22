@@ -88,6 +88,13 @@ function updateSidebar() {
   var top = document.documentElement.scrollTop || body.scrollTop;
   var headerHeight = header.offsetHeight;
 
+  if (top > headerHeight) {
+    header.classList.remove('background--brand-darker');
+  }
+  else {
+    header.classList.add('background--brand-darker');
+  }
+
   if (nav) {
     // Fix the nav on scroll.
     if (top > headerHeight) {
