@@ -10,7 +10,8 @@ gulp.task('images', function() {
   return gulp.src([
       path.join(paths.src + paths.img, '**/*.gif'),
       path.join(paths.src + paths.img, '**/*.svg'),
-      path.join(paths.src + paths.img, '**/*.png')
+      path.join(paths.src + paths.img, '**/*.png'),
+      path.join(paths.src + paths.img, '**/*.gif')
     ])
     .pipe(changed(paths.build + paths.img)) // Ignore unchanged files
     // .pipe(imagemin()) // Optimize
