@@ -1,7 +1,11 @@
+/*eslint quotes: [1, "single"], comma-dangle: 1, curly: 2, strict: 0, no-use-before-define: 0*/
+/*global window, console, hljs, require, document*/
+
 // Initialize code syntax highlighting.
 hljs.initHighlightingOnLoad();
 
 var smoothScroll = require('smooth-scroll');
+// var sandbox = require('./sandbox.js');
 var each = [].forEach;
 var some = [].some;
 
@@ -9,7 +13,7 @@ var some = [].some;
 var body = document.body;
 var header = document.getElementById('header');
 var nav = document.getElementById('nav');
-var content = document.getElementById('content');
+// var content = document.getElementById('content');
 
 // Selectors.
 var toc = document.querySelector('.active + .toc');
@@ -59,7 +63,7 @@ each.call(headings, function(heading, i) {
       easing: 'easeInOutCubic',
       offset: HEADER_OFFSET,
       speed: ANIMATION_DURATION,
-      updateURL: true,
+      updateURL: true
     });
 
     tocLinks = toc.querySelectorAll('.toc-link');
@@ -161,7 +165,7 @@ function updateSidebar() {
 // while smoothScroll is animating.
 if (tocLinks) {
   each.call(tocLinks, function(tocLink) {
-    tocLink.addEventListener('click', function(e) {
+    tocLink.addEventListener('click', function() {
       highlight = false;
       window.setTimeout(function() {
         highlight = true;
@@ -184,5 +188,8 @@ each.call(collapsers, function(collapser) {
     else {
       collapsible.classList.add(IS_COLLAPSED_CLASS);
     }
-  })
+  });
 });
+
+// Start experimenting with the sandbox.
+// console.log(sandbox);
