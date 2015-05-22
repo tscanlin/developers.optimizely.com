@@ -3,6 +3,6 @@ template: page-sidebar
 title: "Optimizely Javascript API Guide"
 ---
 
-## Javascript API Guide
+To access the Optimizely data object, open your browser console and type `window.optimizely`:
 
-Guide goes here.
+<img src="../../../assets/img/developer-console-1.gif">
