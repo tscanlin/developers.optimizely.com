@@ -8,13 +8,13 @@ var NAV_SECTIONS = {
     path: 'guide/',
     title: 'Guide'
   },
-  docs: {
-    path: 'docs/',
-    title: 'Docs'
+  reference: {
+    path: 'reference/',
+    title: 'Reference'
   },
-  examples: {
-    path: 'examples/',
-    title: 'Examples'
+  faqs: {
+    path: 'faqs/',
+    title: 'FAQs'
   }
 };
 
