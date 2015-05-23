@@ -1,6 +1,6 @@
 ---
 template: page-sidebar
-title: "Optimizely REST API Examples"
+title: "Optimizely REST API FAQs"
 ---
 
 Below are some common use cases of the REST API, with example code.

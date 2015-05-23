@@ -1,6 +1,6 @@
 ---
 template: page-sidebar
-title: "Optimizely Javascript Examples"
+title: "Optimizely JavaScript API FAQs"
 ---
 
 ## Javascript Examples

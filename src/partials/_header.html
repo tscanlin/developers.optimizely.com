@@ -7,7 +7,7 @@
       <ul class="unstyled lego-nav">
         <li><a href="/overview">Overview</a></li>
         <li class="position--relative">
-          <a href="/rest/docs" data-collapser>
+          <a href="/rest/introduction" data-collapser>
             Documentation
             <span class="lego-arrow-inline--down"></span>
           </a>
@@ -15,7 +15,7 @@
             {% for key, item in paths.navigation %}
               {% if item.path !== '/samples/' && item.path !== '/overview/' %}
                 <li class="push-half">
-                  <a href="{{ item.path }}docs/">{{ item.title }}</a>
+                  <a href="{{ item.path }}introduction/">{{ item.title }}</a>
                 </li>
               {% endif %}
             {% endfor %}

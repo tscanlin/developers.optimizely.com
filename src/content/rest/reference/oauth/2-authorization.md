@@ -22,8 +22,8 @@ To enable users to authorize your application, you must link to Optimizely's aut
 We recommend you use the <b>Connect with Optimizely</b> button below, which you may resize as needed:
 
 <div align="center">
-<img src="../images/connect.png" width=250px><br>
-<a href="../images/connect.png" download="ConnectWithOptimizelyButton.png">Click to download</a>
+<img src="../../assets/img/connect.png" width=250px><br>
+<a href="../../assets/img/connect.png" download="ConnectWithOptimizelyButton.png">Click to download</a>
 </div><br>
 
 Users can revoke your application's access to their data at any time in their <a target="_blank" href="https://www.optimizely.com/accountsettings/access">API Access</a> settings.

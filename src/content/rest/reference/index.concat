@@ -1,6 +1,6 @@
 ---
 template: page-sidebar--full
-title: "Optimizely REST API"
+title: "Optimizely REST API Reference"
 sections:
 - overview
 - oauth
