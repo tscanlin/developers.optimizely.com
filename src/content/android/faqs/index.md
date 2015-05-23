@@ -1,8 +1,6 @@
 ---
 template: page-sidebar
-title: "Optimizely Android SDK Examples"
+title: "Optimizely Android SDK FAQs"
 ---
 
-## Android SDK Examples
-
-Examples go here.
+FAQs go here.

@@ -4,9 +4,13 @@ var assets = 'assets/';
 
 // Sections for each navigation item.
 var NAV_SECTIONS = {
+  introduction: {
+    path: 'introduction/',
+    title: 'Introduction'
+  },
   guide: {
     path: 'guide/',
-    title: 'Guide'
+    title: 'Getting started'
   },
   reference: {
     path: 'reference/',

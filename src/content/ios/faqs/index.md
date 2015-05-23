@@ -1,8 +1,6 @@
 ---
 template: page-sidebar
-title: "Optimizely iOS SDK Examples"
+title: "Optimizely iOS SDK FAQs"
 ---
 
-## iOS SDK Examples
-
-Examples go here.
+FAQs go here.

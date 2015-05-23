@@ -1,37 +1,11 @@
 ---
 template: page-sidebar
-title: "Optimizely Javascript API"
+title: "Optimizely JavaScript API Reference"
 ---
 
-The Optimizely Javascript API provides a way for developers to modify the normal behavior of the Optimizely snippet for specific use cases. Use the API to target activation based on specific page content or events, query the state of activation, bucketing, or conversion for use in custom analytics packages, and force visitors into specific variations, among other capabilities.
-
-Check out our [Technology Partners](http://optimizely.com/partners/technology) page to see examples of integrations built via the Javascript API.
-
-## API Overview
-
-The Optimizely Javascript API has two parts:
+Below is a full reference for the JavaScript API.
 
 ### API Function Calls
-
-The Optimizely API function calls are used to direct Optimizely to take specific actions.
-
-One example is starting experiments manually rather than upon page load, which is useful for testing dynamic web pages. Your application can tell Optimizely when to activate these "manual activation mode" experiments with the [activate](#activate) API function. Another example is using the [bucketVisitor](#bucket-visitor) API function to assign visitors to a specific variation if you wanted to incorporate inputs that Optimizely's traffic allocation algorithm does not. The API function calls expose many of Optimizely's decisions and actions so you can take control.
-
-<a name="data-object"></a>
-### Data Object
-
-Optimizely's Data Object is a read-only data object that contains information about a visitor and his or her Optimizely experiments, variations, and goals. Use the Data Object to retrieve the state of and details about Optimizely experiments, variations, and goals for a given visitor. An example of this is retrieving which experiments and variations a visitor has seen and passing this information to your internal database.
-
-### Tutorials
-
-See the [Tutorials page](https://www.optimizely.com/docs/tutorials) for more examples of solutions using the Optimizely API.
-
-<a name="change-log"></a>
-### Change Log
-* **August 14, 2014**: Geo-targeted experiments for which visitor geo data is locally cached now activate immediately, rather than waiting for DOM.ready().
-* **November 17, 2014**: New API call to set a [Universal User ID](#uuid).
-
-## API Function Calls
 
 Before ever making an Optimizely function call you should use the following asynchronous instantiation line. The purpose of this line is to ensure that the Optimizely code has already been loaded or, if it has not been loaded, to queue the function calls in a JavaScript array. This is similar to Google Analytics' asynchronous function calls. The following is the code you should use:
 
@@ -44,6 +18,8 @@ Optimizely function calls can be made using JavaScript or a query parameter, `op
 ```text
 http://www.example.com/page.html?optimizely_opt_out=true
 ```
+
+
 
 <a name="activate"></a>
 ### Activate

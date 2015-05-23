@@ -1,6 +1,6 @@
 ---
 template: page-sidebar
-title: "Optimizely iOS Docs"
+title: "Optimizely iOS SDK Reference"
 ---
 ## <a name="Key Documentation"></a> Key Documentation
 [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
