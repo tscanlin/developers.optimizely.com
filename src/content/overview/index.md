@@ -5,9 +5,13 @@ title: "Overview"
 
 ## Introduction
 
-Welcome to *Optimizely Developers*!
+*Welcome to Optimizely Developers! This site contains resources for developers who want to extend and integrate with Optimizely in new ways.*
 
-This site contains resources for developers who want to extend and integrate with Optimizely in new ways. While you can get Optimizely up and running without writing code, many companies want to do more advanced testing or customization that isn't provided by Optimizely out of the box. This site describes what you can build on the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
+While you can get Optimizely up and running without writing code, many companies want to do more advanced testing or customization that isn't provided by Optimizely out of the box. This site describes what you can build on the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
+
+Our platform includes a [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction).
+
+<img src="../../assets/img/optimizely-experience-architecture.svg">
 
 ### Getting started
 
