@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Access data on page
-anchor: helpers-data-access
+anchor: custom-implementations-data-access
 js: |
   /*
    * Usage
