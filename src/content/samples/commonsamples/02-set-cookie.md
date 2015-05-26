@@ -7,24 +7,21 @@ js: |
     * Usage
     *    This function will set a cookie on the visitor's browser.
     *
-    *  @param {String} name - The name of the cookie.
+    *  @param {String} c_name - The name of the cookie.
     *  @param {String} value - The value of the cookie.
-    *  @param {String} domain - The domain on which this cookie should be set and can be read.
-    *  @param {Float} age - The number of days the cookie should last.
+    *  @param {Float} exdays - The number of days the cookie should last.
+    *  @param {String} c_domain - The domain on which this cookie should be set and can be read.
+
     *
     */
 
-    var setCookie = function(name, value, domain, age) {
-      var futureDate = new Date(+new Date() + age * 1000);
-      var parts = [
-        name, '=', encodeURIComponent(value),
-        '; domain=.', domain,
-        '; path=/',
-        '; expires=', futureDate.toUTCString(),
-        ';'
-      ];
-      document.cookie = parts.join('');
-    };
+    var setCookie = function(c_name,value,exdays,c_domain) {
+      c_domain = (typeof c_domain === "undefined") ? "" : "domain=" + c_domain + ";";
+      var exdate=new Date();
+      exdate.setDate(exdate.getDate() + exdays);
+      var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+      document.cookie=c_name + "=" + c_value + ";" + c_domain + "path=/";
+    }
 
 ---
 
