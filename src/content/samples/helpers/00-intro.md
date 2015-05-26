@@ -1,7 +1,7 @@
 ---
 template: sidebyside
-title: Custom Experiment Setups
-anchor: commoncode
+title: Helper Functions
+anchor: helpers
 js: |
 
   /*

@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Change page title
-anchor: commonsamples-browserTab-test
+anchor: helpers-browserTab-test
 js: |
 
   /*

@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: .ajaxComplete()
-anchor: commonsamples-ajax-complete
+anchor: helpers-ajax-complete
 js: |
   /*
    *  Usage

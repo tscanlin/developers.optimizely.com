@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Set Cookie
-anchor: commonsamples-set-cookie
+anchor: helpers-set-cookie
 js: |
    /*
     * Usage

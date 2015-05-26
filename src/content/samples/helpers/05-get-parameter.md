@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Get query parameter value
-anchor: commonsamples-get-parameter
+anchor: helpers-get-parameter
 js: |
   /*
    * Usage

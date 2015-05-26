@@ -24,24 +24,20 @@ js: |
    };
 
    // function to create cookies
-   var setCookie = function(name, value, domain, age) {
-     var futureDate = new Date(+new Date() + age * 1000);
-     var parts = [
-       name, '=', encodeURIComponent(value),
-       '; domain=.', domain,
-       '; path=/',
-       '; expires=', futureDate.toUTCString(),
-       ';'
-     ];
-     document.cookie = parts.join('');
-   };
+    var setCookie = function(c_name,value,exdays,c_domain) {
+      c_domain = (typeof c_domain === "undefined") ? "" : "domain=" + c_domain + ";";
+      var exdate=new Date();
+      exdate.setDate(exdate.getDate() + exdays);
+      var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+      document.cookie=c_name + "=" + c_value + ";" + c_domain + "path=/";
+    }
 
    // logic that counts and limits number of times code can evaluate for given visitor
    if (!getCookie(cookieName)) {
-     setCookie(cookieName, 1, window.location.hostname, days);
+     setCookie(cookieName, 1, days, window.location.hostname);
    } else {
      var numberPops = parseInt(getCookie(cookieName)) + 1;
-     setCookie(cookieName, numberPops, window.location.hostname, days);
+     setCookie(cookieName, numberPops, days, window.location.hostname);
    }
 
    if (getCookie(cookieName) <= limit) {

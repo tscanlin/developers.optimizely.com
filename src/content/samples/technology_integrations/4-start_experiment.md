@@ -1,6 +1,7 @@
 ---
 template: sidebyside
 title: Start the experiment
+anchor: technology_integrations_start
 js: |
   function startExperiment(experiment) {
     $('#optimizely_toggle_running').text('Starting...');

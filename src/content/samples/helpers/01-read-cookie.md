@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Read Cookie
-anchor: commonsamples-read-cookie
+anchor: helpers-read-cookie
 js: |
   /*
    * Usage

@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Redirect - Keep hash parameter
-anchor: commonsamples-keep hash
+anchor: helpers-keep hash
 js: |
 
   /*

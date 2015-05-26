@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Track clicks on dynamic content
-anchor: commonsamples-dynamic--content-clicks
+anchor: helpers-dynamic--content-clicks
 js: |
   /*
    *  Usage

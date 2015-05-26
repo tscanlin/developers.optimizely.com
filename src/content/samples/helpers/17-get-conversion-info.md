@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Get off-line conversion parameters
-anchor: commonsamples-get-conversion-info
+anchor: helpers-get-conversion-info
 js: |
   /*
    * Usage

@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Sticky navigation bar
-anchor: commonsamples-sticky-nav
+anchor: helpers-sticky-nav
 js: |
   /*
    *  Usage

@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Redirect - Add query parameter to URL
-anchor: commonsamples-add query param
+anchor: helpers-add query param
 js: |
 
   /*

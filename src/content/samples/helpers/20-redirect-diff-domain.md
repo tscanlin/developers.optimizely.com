@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Redirect - Same path on different domain
-anchor: commonsamples-diff domain
+anchor: helpers-diff domain
 js: |
 
   /*

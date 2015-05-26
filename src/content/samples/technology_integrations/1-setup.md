@@ -1,6 +1,7 @@
 ---
 template: sidebyside
 title: Connect a project
+anchor: technology_integrations_setup
 html: |
   <h3>Enter Your API Token</h3>
   <input id="token" type="text" />

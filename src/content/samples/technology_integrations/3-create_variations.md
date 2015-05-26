@@ -1,6 +1,7 @@
 ---
 template: sidebyside
 title: Create variations
+anchor: technology_integrations_variations
 js: |
   function createVariation(experiment, index, newTitle, weight) {
 

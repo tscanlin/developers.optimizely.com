@@ -1,6 +1,7 @@
 ---
 template: sidebyside
 title: Create an experiment
+anchor: technology_integrations_create
 html: |
   <h1>Variation #1</h1>
   <input type="text" id="post_title1" class="optimizely_variation" placeholder="Alternate Title 1">

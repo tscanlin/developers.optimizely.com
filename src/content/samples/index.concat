@@ -4,9 +4,11 @@ title: "Code Samples"
 sections:
 - introduction
 - ajax
-- cms
 - dmp
 - results
 - conditional
-- commonsamples
+- helpers
+- custom_implementations
+- advanced_targeting
+- technology_integrations
 ---

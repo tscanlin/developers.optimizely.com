@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Redirect - New path
-anchor: commonsamples-new path
+anchor: helpers-new path
 js: |
 
   /*

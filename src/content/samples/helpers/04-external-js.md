@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Load external JavaScript
-anchor: commonsamples-external-js
+anchor: helpers-external-js
 js: |
   /*
    * Usage
