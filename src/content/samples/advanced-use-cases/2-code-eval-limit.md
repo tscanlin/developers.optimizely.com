@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Execute code for X visits
-anchor: custom_implementations-code-eval-limit
+anchor: advanced-use-cases-code-eval-limit
 js: |
 
   /*

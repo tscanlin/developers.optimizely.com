@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: .ajaxComplete()
-anchor: custom-implementations-ajax-complete
+anchor: single-page-apps-ajax-complete
 js: |
   /*
    *  Usage

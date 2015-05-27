@@ -1,7 +1,7 @@
 ---
 template: sidebyside
-title: Advanced Targeting
-anchor: advanced-targeting
+title: Advanced Goal Tracking
+anchor: advanced-goal-tracking
 js: |
 
   /*

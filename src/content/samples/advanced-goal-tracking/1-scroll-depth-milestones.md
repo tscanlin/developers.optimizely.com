@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Scroll Depth - Milestones
-anchor: helpers-scroll-depth-milestones
+anchor: advanced-goal-tracking-scroll-depth-milestones
 js: |
   /*
    * Usage
