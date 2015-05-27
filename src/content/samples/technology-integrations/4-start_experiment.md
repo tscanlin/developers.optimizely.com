@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Start the experiment
 anchor: technology_integrations_start
 js: |

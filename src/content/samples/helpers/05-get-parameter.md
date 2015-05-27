@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Get query parameter value
 anchor: helpers-get-parameter
 js: |

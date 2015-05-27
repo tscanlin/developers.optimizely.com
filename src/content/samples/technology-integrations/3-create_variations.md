@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Create variations
 anchor: technology_integrations_variations
 js: |

@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 type: GET
 endpoint: projects/
 title: Connect a project

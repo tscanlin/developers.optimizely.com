@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Getting Results via API
 anchor: results
 ---

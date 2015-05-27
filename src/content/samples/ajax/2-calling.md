@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Calling the API
 anchor: calling-the-api
 js: |

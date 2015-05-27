@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Execute code for X visits
 anchor: advanced-use-cases-code-eval-limit
 js: |

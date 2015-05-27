@@ -1,18 +1,20 @@
 // Navigation classes.
 
 .nav {
+  background-color: #F2F5FA;
   // & > .lego-nav > li > ul {
   //   border-left: 2px solid map-get($ui-color, brand);
   // }
 
   a {
     // color: white;
-    color: #EBF1FF;
+    color: #00415D;
     display: inline-block;
   }
 
   .active {
-    color: map-fetch($color, ui brand-light);
+    color: #0095E7;
+    font-weight:400;
   }
 
   li {
@@ -21,7 +23,7 @@
   }
 
   .main-section + .lego-nav {
-    border-left: 2px solid map-fetch($color, ui brand);
+    border-left: 2px solid #0095E7;
     margin-left: 5px;
   }
 }

@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Get off-line conversion parameters
 anchor: advanced-use-cases-get-conversion-info
 js: |

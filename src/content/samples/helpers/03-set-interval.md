@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Poll for element
 anchor: helpers-poll-for-element
 js: |

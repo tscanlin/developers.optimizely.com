@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Helper Functions
 anchor: helpers
 js: |

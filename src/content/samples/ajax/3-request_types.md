@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Request types
 anchor: ajax-request-types
 js: |

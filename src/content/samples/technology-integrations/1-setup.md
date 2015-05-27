@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Connect a project
 anchor: technology_integrations_setup
 html: |

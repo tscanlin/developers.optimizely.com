@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Load external JavaScript
 anchor: helpers-external-js
 js: |

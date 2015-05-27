@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Track clicks on dynamic content
 anchor: helpers-dynamic--content-clicks
 js: |
