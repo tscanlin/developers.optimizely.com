@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Scroll depth
 anchor: commonsamples-scroll-depth
 js: |

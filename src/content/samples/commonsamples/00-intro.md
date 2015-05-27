@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Custom Experiment Setups
 anchor: commoncode
 js: |

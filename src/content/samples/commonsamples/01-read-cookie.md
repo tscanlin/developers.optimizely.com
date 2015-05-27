@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Read Cookie
 anchor: commonsamples-read-cookie
 js: |

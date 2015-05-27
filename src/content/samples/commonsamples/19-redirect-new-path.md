@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Redirect - New path
 anchor: commonsamples-new path
 js: |

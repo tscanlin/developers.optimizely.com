@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Change page title
 anchor: commonsamples-browserTab-test
 js: |

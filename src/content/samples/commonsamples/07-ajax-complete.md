@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: .ajaxComplete()
 anchor: commonsamples-ajax-complete
 js: |

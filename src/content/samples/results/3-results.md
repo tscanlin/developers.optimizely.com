@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 type: GET
 endpoint: experiments/1234/results
 title: Get results

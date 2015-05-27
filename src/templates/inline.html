@@ -1,0 +1,100 @@
+<!-- Row -->
+<section>
+  <!-- Left column -->
+  <div class="soft-double max-width--reading {% if fileName == "0-intro" %} intro{% endif %}">
+
+    <!-- Anchor link -->
+    <!--{% if anchor %}<a name="{{anchor}}"></a>{% endif %}-->
+
+    <!-- Title -->
+    {% if fileName == "0-intro" %}
+      <h2 id="{{anchor}}">{{title}}</h2>
+    {% else %}
+      <h3 id="{{anchor}}">{{title}}</h3>
+    {% endif %}
+
+    <!-- Endpoint -->
+    {% if type and endpoint %}
+      <pre>{{ type }} {{ endpoint }}</pre>
+    {% endif %}
+
+    <!-- Description -->
+    {{ body | safe }}
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- Example request -->
+{% if endpoint %}
+<h4>Example Request</h4>
+<pre>
+{% highlight 'bash' %}
+curl \
+  -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
+  -H "Content-Type: application/json" \
+  -d '{{ request | stringify }}' \{% endif %}
+  {% if type %}-X {{type}} {% endif %}"https://www.optimizelyapis.com/experiment/v1/{{ endpoint }}"
+{% endhighlight %}
+</pre>
+{% endif %}
+
+<!-- Example response -->
+{% if response %}
+<h4>Example Response</h4>
+<pre>
+{% highlight 'json' %}
+{{ response | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+<!-- Example HTML -->
+{% if html %}
+<h4>Example HTML</h4>
+<pre>
+{% highlight 'html' %}
+{{ html | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+<!-- Example JS -->
+{% if js %}
+<h4>Example Javascript</h4>
+<pre>
+{% highlight 'js' %}
+{{ js | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+<!-- Example URL -->
+{% if request_url %}
+<h4>Example URL</h4>
+<pre>
+{% highlight 'bash' %}
+{{ request_url | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+<!-- Example Request -->
+{% if curl %}
+<h4>Example Request</h4>
+<pre>
+{% highlight 'bash' %}
+{{ curl | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+    <!-- Arguments -->
+    {% if fields %}
+      <h4>Definitions</h4>
+      <table class="table">
+      {% for key, f in fields %}
+        <tr><td align="left"><b>{{ key }}</b></td><td class="desc">{{ f | marked }}</td></tr>
+      {% endfor %}
+      </table>
+    {% endif %}
+  </div>
+</section>

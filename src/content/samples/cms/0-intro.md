@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Wordpress Headline Testing
 anchor: wordpress
 ---
