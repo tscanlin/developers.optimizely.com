@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Single Page Applications
 anchor: single-page-apps
 js: |

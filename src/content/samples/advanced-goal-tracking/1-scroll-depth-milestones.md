@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Scroll Depth - Milestones
 anchor: advanced-goal-tracking-scroll-depth-milestones
 js: |

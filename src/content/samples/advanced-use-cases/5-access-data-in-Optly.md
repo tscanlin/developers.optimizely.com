@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Access data on page (Variation Code)
 anchor: advanced-use-cases-data-access
 js: |

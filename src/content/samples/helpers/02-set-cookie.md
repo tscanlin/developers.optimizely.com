@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Set Cookie
 anchor: helpers-set-cookie
 js: |

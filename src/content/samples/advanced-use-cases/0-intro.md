@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Advanced Use Cases
 anchor: advanced-use-cases
 js: |

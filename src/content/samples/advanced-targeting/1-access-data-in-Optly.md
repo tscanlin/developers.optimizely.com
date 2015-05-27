@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Access data on page (Audience)
 anchor: advanced-targeting-data-access
 js: |
