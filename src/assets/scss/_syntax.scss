@@ -16,7 +16,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-subst,
 .hljs-tag .hljs-title,
 .nginx .hljs-title {
-  color: #00415D;
+  color: #F6F6F7;
 }
 
 .hljs-string,
@@ -46,7 +46,7 @@ Ported by Fabrício Tavares de Oliveira
 .markdown .hljs-header,
 .coffeescript .hljs-attribute,
 .hljs-name {
-  color: #0074B4;
+  color: #0095E7;
 }
 
 .smartquote,
@@ -153,21 +153,24 @@ Ported by Fabrício Tavares de Oliveira
 
 .css .hljs-attribute,
 .html .hljs-attribute {
-  color: #5D65AE;
+  color: #F26F5A;
 }
 
 .css .hljs-class,
 .html .hljs-tag,
 .html .hljs-title {
-  color: #5087BF;
+  color: #14A54A;
 }
 
 
 // Custom styling.
 code {
   background: #F3F8FB;
-  border: 1px solid #D8E1F1;
-  border-radius: 2px;
+  //border: 1px solid #D8E1F1;
+  //border-radius: 2px;
+  border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
   color: #1D1D1D;
   font-family: Consolas, Monaco, "Courier New", monospace;
   font-size: 12px;
@@ -176,11 +179,11 @@ code {
 
 pre code {
   display: block;
-  background: #00415D;
-  color: #4d4d4c;
+  background-color: #00415D;
+  color: #F6F6F7;
   font-family: Menlo, Monaco, Consolas, monospace;
   line-height: 1.5;
-  border: 1px solid #D8E1F1;
+  // border: 1px solid #A2B8D8;
   padding: 10px;
 }
 
