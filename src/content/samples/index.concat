@@ -7,8 +7,8 @@ sections:
 - dmp
 - results
 - conditional
+- custom-implementations
+- advanced-targeting
+- technology-integrations
 - helpers
-- custom_implementations
-- advanced_targeting
-- technology_integrations
 ---
