@@ -3,9 +3,6 @@ template: page-sidebar--full
 title: "Code Samples"
 sections:
 - introduction
-- ajax
-- dmp
-- results
 - conditional
 - custom-implementations
 - advanced-targeting
