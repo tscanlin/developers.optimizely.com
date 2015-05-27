@@ -3,8 +3,6 @@ template: page-sidebar
 title: "Optimizely REST API"
 ---
 
-<img src="../../assets/img/rest-icon.svg">
-
 # Optimizely REST API
 
 *The REST API allows you to manage Optimizely projects using code. Using the REST API, you can create, start, stop, and archive experiments programmatically inside your own application.*

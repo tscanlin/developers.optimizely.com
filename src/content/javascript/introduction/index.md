@@ -3,8 +3,6 @@ template: page-sidebar
 title: "Optimizely JavaScript API"
 ---
 
-<img src="../../assets/img/js-icon.svg">
-
 # Optimizely JavaScript API
 
 *The Optimizely JavaScript API provides a way for developers to modify the normal behavior of the Optimizely web snippet for specific use cases.*
