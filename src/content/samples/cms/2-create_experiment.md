@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Create an experiment
 html: |
   <h1>Variation #1</h1>

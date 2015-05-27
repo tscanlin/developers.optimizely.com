@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Sticky navigation bar
 anchor: commonsamples-sticky-nav
 js: |

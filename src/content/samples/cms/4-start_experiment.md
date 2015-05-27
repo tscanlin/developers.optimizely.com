@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Start the experiment
 js: |
   function startExperiment(experiment) {

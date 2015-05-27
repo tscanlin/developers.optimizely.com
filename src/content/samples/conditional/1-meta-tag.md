@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Polling - Meta Tag Data
 anchor: conditional-activation-meta-tag
 html: |

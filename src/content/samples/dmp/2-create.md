@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Create an audience
 endpoint: projects/43523/audiences/
 type: POST

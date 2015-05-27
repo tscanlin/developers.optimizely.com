@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Connect a project
 html: |
   <h3>Enter Your API Token</h3>

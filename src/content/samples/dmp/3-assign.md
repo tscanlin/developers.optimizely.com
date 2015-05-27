@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Assign visitors
 js: |
   window['optimizely'] = window['optimizely'] || [];

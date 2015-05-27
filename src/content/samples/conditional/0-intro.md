@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Conditional Activation
 anchor: conditional
 js: |

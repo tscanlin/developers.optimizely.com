@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Initialization
 anchor: initialization
 js: |

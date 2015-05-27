@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: API Calls with AJAX
 anchor: ajax
 ---

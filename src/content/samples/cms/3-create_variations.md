@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Create variations
 js: |
   function createVariation(experiment, index, newTitle, weight) {

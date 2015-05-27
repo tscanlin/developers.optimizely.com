@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: inline
 title: Polling - DOM Element
 anchor: conditional-activation-dom-element
 js: |
