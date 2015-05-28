@@ -3,10 +3,11 @@ template: page-sidebar--full
 title: "Code Samples"
 sections:
 - introduction
-- ajax
-- cms
-- dmp
-- results
+- advanced-goal-tracking
+- advanced-targeting
+- advanced-use-cases
 - conditional
-- commonsamples
+- technology-integrations
+- single-page-applications
+- helpers
 ---
