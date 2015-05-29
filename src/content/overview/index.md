@@ -66,7 +66,7 @@ TODO
 TODO
 
 ####CMS integrations (headline testing)
-TODO
+Interested in building your own headline testing tool on top of Optimizely's REST API? This [step-by-step guide](https://blog.optimizely.com/wp-content/uploads/2015/05/OptimizelyHeadlineTesting.pdf) will walk you through the process to get up in running with any CMS.
 
 ####Offline conversion integrations
 Example 
