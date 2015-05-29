@@ -49,17 +49,30 @@ Many of our customers want to run more advanced tests and personalized experienc
 
 Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) to make it easy to exchange data between Optimizely and other tools. In addition, our customers often build custom integrations with 3rd parties or their own internal tools. If you are a partner or customer looking to build an integration, please use the following resources to get started:
 
-* *Analytics integrations:* TODO
+#### Analytics integrations
+##### Description
+An analytics integration is an integration where Optimizely sends information to a different tool. In other words: an Analytics integration is "data out". The data that is send in the most conventional integrations is which experiments and variations a visitor has been bucketed in. For every page a visitor visits, the Optimizely Javascript is  is used to determine if an experiment is running on that page and in which variation the visitor is bucketed. That information is used to send to an Analytics platform.
+##### Examples
+* [Google Analytics](https://help.optimizely.com/hc/en-us/articles/200039995)
+* [Adobe Analytics](https://help.optimizely.com/hc/en-us/articles/200039985)
 
-* *Audience integrations:* TODO
+##### Build your own
 
-* *Targeting list integrations:* TODO
 
-* *CMS integrations:* TODO
+####Audience integrations
+TODO
 
-* *Offline conversion integrations:* TODO
+####Targeting list integrations
+TODO
 
-* *Other integrations:* TODO
+####CMS integrations (headline testing)
+TODO
+
+####Offline conversion integrations
+Example 
+
+####Other integrations
+TODO
 
 (more detail, to be filled out by Lucas)
 
