@@ -4,8 +4,6 @@ title: Analytics integration
 anchor: technology-integrations-analytics
 ---
 
-#Analytics integration
-
     /**
      * Implement this function to send data to a Analytics provider
      * @param {string} experimentId
