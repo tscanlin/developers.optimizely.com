@@ -3,19 +3,17 @@ template: page-sidebar
 title: "Optimizely Android SDK Guide"
 ---
 
-## Android SDK Guide
+# Optimizely Android SDK Guide
 
-### <a name="Key Documentation"></a> Key Documentation
-[Releases](https://github.com/optimizely/Optimizely-Android-SDK/)
+## <a name="Key Documentation"></a> SDK Download
+[JAR](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Optimizely-1.0.0-SNAPSHOT.jar) | [GitHub](https://github.com/optimizely/Optimizely-Android-SDK)
 
-SDK Download [JAR](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Optimizely-1.0.0-SNAPSHOT.jar) | [GitHub](https://github.com/optimizely/Optimizely-Android-SDK)
-
-Change history: [Changelog](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Changelog.md)
+[Releases](https://github.com/optimizely/Optimizely-Android-SDK/) | [Change History](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Changelog.md)
 
 
-## <a name="SDK Installation"></a> Install Optimizely Android SDK
+## <a name="SDK Installation"></a> SDK Install Steps
 
-### <a name="installation"></a> Step 1: SDK Installation
+### <a name="installation"></a> 1. SDK Installation
 To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#gradle) (recommended for Android Studio users), [Maven](#maven) (recommended for IDEA/Eclipse users), or via [Manual Installation](#manualinstall).
 
 **We strongly recommend using a version control system (such as [Git](http://git-scm.com/)) and checking in your app before installing Optimizely.**
@@ -89,39 +87,39 @@ The Optimizely SDK depends on:
 ##### Eclipse
  If you are using ADT (Eclipse), copy the dependencies and Optimizely.jar to your `libs/` folder inside your project:
 
-  <img src="eclipse-libs.png" alt="Eclipse Project Structure" style="width: 40%;"/>
+  <img src="../../assets/img/android/eclipse-libs.png" alt="Eclipse Project Structure" style="width: 40%;"/>
 
  Then right-click on each dependency jar as well as Optimizely.jar and select `Build Path > Add to Build Path`:
 
-  <img src="eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
+  <img src="../../assets/img/android/eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
 
 ##### IntelliJ IDEA
 If you are using IntelliJ with the Android plugin, add each dependency jar and Optimizely.jar as a library dependency for your app module:
 
 Under Project Structure > Libraries click the `+` button.
-  <img src="ij-add-library.png" alt="IntelliJ Module Library Step 1" style="width: 80%;"/>
+  <img src="src/assets/img/android/ij-add-library.png" alt="IntelliJ Module Library Step 1" style="width: 80%;"/>
 
 Select the Optimizely.jar library (you may wish to copy the jar into your project before this step).
-  <img src="ij-locate-optimizely.png" alt="IntelliJ Module Library Step 2" style="width: 80%;"/>
+  <img src="../../assets/img/android/ij-locate-optimizely.png" alt="IntelliJ Module Library Step 2" style="width: 80%;"/>
 
 Select your application module as a target for the library.
-  <img src="ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
+  <img src="../../assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
 
 ##### Android Studio
 If you are using Android Studio, please see the [Gradle](#gradle) configuration above.
 
-### <a name="accountcreation"></a> Step 2: Create an Android Project
+### <a name="accountcreation"></a> 2. Create an Android Project
 
 To create an Android project, select "New Project" from the left drawer in your [Optimizely Home](https://app.optimizely.com/projects/):
 
-   <img src="create-project.png" alt="Create Project Dialog" style="width: 80%;"/>
+   <img src="../../assets/img/android/create-project.png" alt="Create Project Dialog" style="width: 80%;"/>
 
 
 <a name="project-code"></a>Once you've created a project, please take a look at the `Implementation` section under the `Settings` tab to find your project ID and API key which you will use during integration:
 
-![Project Code Dialog](project-code.png)
+![Project Code Dialog](../../assets/img/android/project-code.png)
 
-### <a name="apitoken"></a> Step 3: Activate Optimizely
+### <a name="apitoken"></a> 3. Activate Optimizely
 Now, you're ready to add some code so your app can connect with your Optimizely account.
 Optimizely assigns each project a unique identifier known as an API token. Your app identifies itself to the Optimizely Android SDK by initializing the SDK with this token.
 Open the Java source file corresponding to your app's main activity (the one declared as a launcher activity in your `AndroidManifest.xml`), and add the following import:
@@ -155,9 +153,9 @@ Optimizely needs to connect to the internet to allow you to use our online edito
 
 At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background. You will see your project overview display light up, allowing you to create an experiment:
 
-   <img src="sdk-detected.png", style="width: 70%"/>
+   <img src="../../assets/img/android/sdk-detected.png", style="width: 70%"/>
 
-### <a name="createexperiment"></a> Step 4: Create an Experiment
+### <a name="createexperiment"></a> 4. Create an Experiment
 
 After creating an Android project and installing the SDK, click the `Create Experiment` button in the upper right hand side of your project overview.
 
@@ -167,12 +165,12 @@ The Optimizely Android SDK identifies Views within your application using the vi
 
 See this section on [configuring the visual editor](#configure_visual_editor).
 
-### <a name="qa"></a> Step 5: QA
+### <a name="qa"></a> 5. QA
 
 #### <a name="preview"></a> Preview Mode
 Preview mode allows you to force your app into a certain variation for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, select your desired variation, open the variation settings drawer, and click `Preview`
 
-<img src="preview-mode.png" alt="Enter Preview Mode" />
+<img src="../../assets/img/android/preview-mode.png" alt="Enter Preview Mode" />
 
 #### Pre-launch Checklist
 
