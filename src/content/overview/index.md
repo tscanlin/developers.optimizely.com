@@ -52,12 +52,28 @@ Optimizely integrates with more than [30 Technology Partners](http://optimizely.
 #### Analytics integrations
 ##### Description
 An analytics integration is an integration where Optimizely sends information to a different tool. In other words: an Analytics integration is "data out". The data that is send in the most conventional integrations is which experiments and variations a visitor has been bucketed in. For every page a visitor visits, the Optimizely Javascript is  is used to determine if an experiment is running on that page and in which variation the visitor is bucketed. That information is used to send to an Analytics platform.
-##### Examples
+#####Examples
 * [Google Analytics](https://help.optimizely.com/hc/en-us/articles/200039995)
 * [Adobe Analytics](https://help.optimizely.com/hc/en-us/articles/200039985)
 
-##### Build your own
+#####Build your own
+To create an analytics integration, you need to find out which experiments are running on a page and send their ids and/or names to the analytics tool you are integrating with. In theory, this is really easy with Optimizely. The Optimizely object on a page has the attribute `optimizely.variationIdsMap` which gives you all the all the experiments that are currently running on a page and the ids for the variations you (as a visitor) are bucketed in. There is one type of experiment that doesn't work with this solution: a redirect experiment. When a variation has redirected a visitor, the page where the visitor has been redirected to doesn't have the experiment running in most cases. In other words: this experiment doesn't show up in `optimizely.variationIdsMap`. To build a complete analytics integration that takes care of all the edge cases, you can use an analytics integration template. You can find the template and additional documentation in the [code samples section](/samples/#technology-integrations-analytics).
 
+The template takes care of:
+
+ * Retrieving all running experiments and their variations form the `optimizely.variationIdsMap` function. 
+ * Determining if you are looking at a page was the result of a redirect experiment. In most cases, the experiment doesn't run on the page where you are redirected to, so a redirect experiment can only be detected by looking at a redirect cookie that Optimizely sets right before a redirect occurs.  
+ * Abstracting the original referrer url before a redirect happened from the redirect cookie. This can be used to correct information in your analytics tool (see GA example).
+ * Creating sendable names based on integration specific paramters. It makes sure that information that is being send is not too long and doesn't contain any invalid characters.
+ 
+You can see how all those steps work in our [code samples section](/samples/#technology-integrations-analytics).
+ 
+#####Submit integration
+If you want to build an integration, we can review the integration. To share an integration with more customers, please follow the next steps:
+
+1. Create the integration using the [analytics integration template](samples/#technology-integrations-analytics) described in our code samples.
+2. Describe (preferably using screenshots) how a customer can view the data that is related to Optimizely in the tool you are integrating with. 
+3. Send both the code and the description to [developers@optimizely.com](mailto:developers@optimizely.com)
 
 ####Audience integrations
 TODO
