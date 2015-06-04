@@ -5,7 +5,7 @@ anchor: technology-integrations-cms
 ---
 NEEDS UPDATING: Make overview more general (beyond just Wordpress)
 
-This sample goes through a simplified version of our Wordpress plugin, which lets editors write alternate headlines for a blogpost and A/B test them directly from their Wordpress editor.
+This sample goes through a simplified version of our Wordpress plugin, which lets editors write alternate headlines for a blogpost and A/B test them directly from their Wordpress editor. A [PDF version](https://blog.optimizely.com/wp-content/uploads/2015/05/OptimizelyHeadlineTesting.pdf) is also available, which includes screenshots.
 
 To see the full source of our plugin or download it to use on your own site, click the button below. Note that this plugin is just a proof of concept -- we encourage you to fork it, improve it for your own needs, and share it with the community.
 
