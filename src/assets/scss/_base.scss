@@ -38,6 +38,16 @@ h3, h4 {
   margin-top: 30px;
 }
 
+h3::after {
+  content: '';
+  border-left: solid 5px #0081BA;
+  float: left;
+  height: 24px;
+  padding-right: 10px;
+  position: relative;
+  top: -1px;
+}
+
 p {
   margin-bottom: 20px;
 }
