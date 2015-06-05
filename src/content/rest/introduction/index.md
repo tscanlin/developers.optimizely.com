@@ -15,3 +15,6 @@ To see a full list endpoints supported in the REST API, refer to our [API refere
 
 If you have any questions about using the REST API, please reach out to [developers@optimizely.com](mailto:developers@optimizely.com). Our developer support team is happy to help support you building your application.
 
+<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="../guide/index.html">
+Get Started
+</a>
