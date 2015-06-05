@@ -18,3 +18,7 @@ $layout-width: (
 .max-width--reading {
   max-width: map-get($layout-width, reading);
 }
+
+.max-width--900 {
+  max-width: 900px;
+}

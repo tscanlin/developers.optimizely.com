@@ -1,5 +1,5 @@
 ---
-template: page-sidebar--full
+template: page-sidebar--wider
 title: "Code Samples"
 sections:
 - introduction
