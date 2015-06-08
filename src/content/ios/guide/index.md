@@ -2,7 +2,7 @@
 template: page-sidebar
 title: "Optimizely iOS SDK Guide"
 ---
-#Optimizely iOS SDK Guide
+#Getting Started with Optimizely's iOS SDK
 ## <a name="Key Documentation"></a> SDK Download
 [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
 

@@ -3,7 +3,7 @@ template: page-sidebar
 title: "Optimizely Android SDK Guide"
 ---
 
-# Optimizely Android SDK Guide
+# Getting Started with Optimizely's Android SDK
 
 ## <a name="Key Documentation"></a> SDK Download
 [JAR](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Optimizely-1.0.0-SNAPSHOT.jar) | [GitHub](https://github.com/optimizely/Optimizely-Android-SDK)
