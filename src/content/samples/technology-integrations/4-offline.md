@@ -29,7 +29,7 @@ An offline conversion needs the following pieces of information:
 
 ```
 /**
- * GET ACCOUNT ID
+ * Gets Account ID
  *
  * @return {Number} the account id 
  */
