@@ -10,7 +10,6 @@ title: "Optimizely Android SDK Guide"
 
 [Releases](https://github.com/optimizely/Optimizely-Android-SDK/) | [Change History](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Changelog.md)
 
-
 ## <a name="SDK Installation"></a> SDK Install Steps
 
 ### <a name="installation"></a> 1. SDK Installation
@@ -187,4 +186,17 @@ Now that you've created an experiment and successfully installed the Optimizely 
        1. Trigger events in the app and keep the app foregrounded for 2 minutes
        2. Background the app so that events are sent to our servers.
 
-4. Once you've checked all these steps, you're ready to release to the play store!
+4. Once you've checked all these steps, you're ready to release to the Play Store!
+
+### Advanced Setup
+
+Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the Play Store:
+
+1. [Live Variables](../reference/index.html#-a-name-variables-a-register-live-variables)
+2. [Code Blocks](../reference/index.html#-a-name-codeblocks-a-code-blocks)
+3. [Custom Tags](../reference/index.html#custom-tags-a-name-customtags-a-)
+4. [Track Event](../reference/index.html#-a-name-trackevent-a-track-event) (for key metrics you would like to track in your app)
+5. [Revenue Tracking](../reference/index.html#-a-name-revenuegoal-a-revenue)
+6. [Analytics Integration](../reference/index.html#-a-name-analytics-a-analytics-integrations)
+
+For a comprehensive list of all additional methods available in the SDK you can refer to the [Reference](../reference/index.html) section or the [Java Docs](/android/help/reference/packages.html).
