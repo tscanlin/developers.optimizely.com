@@ -28,7 +28,7 @@ An offline conversion needs the following pieces of information:
 1. Account id
 
 ```
-**
+/**
  * GET ACCOUNT ID
  *
  * @return {Number} the account id 
