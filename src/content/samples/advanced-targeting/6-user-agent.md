@@ -5,7 +5,7 @@ anchor: user-agent
 js: |
   /*
    * Usage
-   *
+   *  Targets visitors based on user-agent.
    */
 
    window.navigator.userAgent.indexOf("Chrome") !== -1

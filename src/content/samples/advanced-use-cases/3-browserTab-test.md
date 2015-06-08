@@ -29,4 +29,4 @@ js: |
 
 ---
 
-This JavaScript will modify the text of the browser tab when a visitor focuses and unfocuses on said tab.  You can display one title when a visitor is focused on the tab and a different title when they toggle to a different tab or window.
+This JavaScript will modify the text of the browser tab when a visitor focuses and unfocuses on the tab.  You can display one title when a visitor is focused on the tab and a different title when they toggle to a different tab or window.
