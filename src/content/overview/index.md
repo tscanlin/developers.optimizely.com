@@ -63,26 +63,9 @@ An analytics integration is an integration where Optimizely sends information to
 * [Google Analytics](https://help.optimizely.com/hc/en-us/articles/200039995)
 * [Adobe Analytics](https://help.optimizely.com/hc/en-us/articles/200039985)
 
-#####Build your own
-To create an analytics integration, you need to find out which experiments are running on a page and send their ids and/or names to the analytics tool you are integrating with. In theory, this is really easy with Optimizely. The Optimizely object on a page has the attribute `optimizely.variationIdsMap` which gives you all the all the experiments that are currently running on a page and the ids for the variations you (as a visitor) are bucketed in. There is one type of experiment that doesn't work with this solution: a redirect experiment. When a variation has redirected a visitor, the page where the visitor has been redirected to doesn't have the experiment running in most cases. In other words: this experiment doesn't show up in `optimizely.variationIdsMap`. To build a complete analytics integration that takes care of all the edge cases, you can use an analytics integration template. You can find the template and additional documentation in the [code samples section](/samples/#technology-integrations-analytics).
 
-The template takes care of:
 
- * Retrieving all running experiments and their variations form the `optimizely.variationIdsMap` function. 
- * Determining if you are looking at a page was the result of a redirect experiment. In most cases, the experiment doesn't run on the page where you are redirected to, so a redirect experiment can only be detected by looking at a redirect cookie that Optimizely sets right before a redirect occurs.  
- * Abstracting the original referrer url before a redirect happened from the redirect cookie. This can be used to correct information in your analytics tool (see GA example).
- * Creating sendable names based on integration specific paramters. It makes sure that information that is being send is not too long and doesn't contain any invalid characters.
- 
-You can see how all those steps work in our [code samples section](/samples/#technology-integrations-analytics).
- 
-#####Submit integration
-If you want to build an integration, we can review the integration. To share an integration with more customers, please follow the next steps:
-
-1. Create the integration using the [analytics integration template](samples/#technology-integrations-analytics) described in our code samples.
-2. Describe (preferably using screenshots) how a customer can view the data that is related to Optimizely in the tool you are integrating with. 
-3. Send both the code and the description to [developers@optimizely.com](mailto:developers@optimizely.com)
-
-####*Audience integrations*
+<!--####*Audience integrations*
 An audience integration is a "data in" integration. 
 
 #####Examples
@@ -103,7 +86,7 @@ List targeting integrations are in terms of functionality quite similar to Audie
 
 #####Build your own
  
-#####Submit integration
+#####Submit integration-->
 
 
 
@@ -115,43 +98,12 @@ A CMS integration is an integration that allows users of a CMS to easily set up 
 * [Headline testing](https://help.optimizely.com/hc/en-us/articles/200040505-Implementing-Optimizely-on-a-CMS-or-e-commerce-platform)
 * [Wordpress headline testing](https://help.optimizely.com/hc/en-us/articles/205331897#headline)
 
-#####Build your own
-Interested in building your own headline testing tool on top of Optimizely's REST API? This [step-by-step guide](https://blog.optimizely.com/wp-content/uploads/2015/05/OptimizelyHeadlineTesting.pdf) will walk you through the process to get up in running with any CMS.
-
-#####Submit integration
-If you're done building a headline testing integration, we would love to see it in action. Please contact us on [developers@optimizely.com](mailto:developers@optimizely.com) and we will see how we can help you. 
-
 ####*Snippet insertion*
 There is a wide range of tools that have the ability to insert the Optimizely snippet. An obvious example is a tag managments solution, but most CMS systems or eCommerce platforms will be able to do it as well. 
 #####Examples
 
 * [Tealium](https://help.optimizely.com/hc/en-us/articles/203491910#enable)
 * [Wordpress snippet insertion](https://help.optimizely.com/hc/en-us/articles/205331897#plugin)
-
-#####Build your own
-Implementing the Optimizely snippet is straightforward: a customer needs to implement 1 line ("snippet") to their html template. There are a few things to consider when this line is added to the template:
-
-* The snippet needs to be added synchronously and as high as possible in the head section of the page to make sure Optimizely can execute before a browser shows the page to a visitor. If Optimizely is implemented correctly, Optimizely can prevent a flicker on the page when an experiments is running.
-* If synchronous implementation isn't possible, we recommend to implement a timeout that blocks the Optimizely script from executing when it isn't loaded within 2 seconds (due to a bad connection for example). 
-* If a snippet isn't implemented synchronously we still recommend to ad the snippet to the page as high as possible. 
-
-Every project has their own snippet. The snippet has this construction:
-
-`<script src="//cdn.optimizely.com/js/{{project_id}}.js"></script>`
-
-where {{project_id}} is replaced by the id of an Optimizely project. An example:
-
-`<script src="//cdn.optimizely.com/js/2734370016.js"></script>`
-
-There is only one variable that needs to be filled in by a user: the project id. Therefore, a snippet insertion integration works like this:
-
-1. A user wants to install Optimizely on their website
-2. The user goed to the CMS/tag management system/ecommerce platform that has the snippet insertion integration and enables the integration. 
-3. Upon enablement, a user is prompted for a project id
-4. The integration automatically adds the snippet to the head section of all pages and uses the provided project id to insert the correct snippet.
- 
-#####Submit integration
-If you're done building a headline testing integration, we would love to see it in action. Please contact us on [developers@optimizely.com](mailto:developers@optimizely.com) and we will see how we can help you. 
 
 
 ####*Offline conversion integrations (calltracking)*
@@ -161,18 +113,32 @@ When a goal is triggered on a webpage, a request is send to our servers. That re
 
 * [Avanser](https://help.optimizely.com/hc/en-us/articles/202480110-Integrating-Optimizely-with-Avanser)
 * [Delacon](https://help.optimizely.com/hc/en-us/articles/203047264-Integrating-Optimizely-with-Delacon)
+* [Freespee](http://support.freespee.com/hc/en-us/articles/202196842)
 
-#####Build your own
+<!--#####Build your own
+The best calltracking integrations are apps or plugins that live within the calltracking software. 
+*Installation*
 
- 
-#####Submit integration
+Option 1 (manual):
 
+1. The user creates a custom goal within Optimizly (manually) ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
+2. The user continues to the calltracking software and installs the plugin / app
+3. During the installation or after in a settings window, the user should be prompted to fill in the custom event name that was defined when the goal was created within Optimizely
 
+Option 2 (REST):
 
-####Other integrations
-TODO
+1. The user goes to the calltracking software and installs the plugin / app
+2. The user is prompted for Optimizely authentication (token or oAuth)
+3. The user can select a project where a call tracking goal can be installed / selected.
+4. Users can select the newly created goal from the list of saved goals within Optimizely when they create a new experiment
 
-(more detail, to be filled out by Lucas)
+*Creating an offline converion*
+To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added to a custom variable (or something similar) in the calltracking 
+[More about offline conversions](https://help.optimizely.com/hc/en-us/articles/200040195)
+An offline conversion needs the following pieces of information:
+1. Project id (can be filled in by )
+2. -->
+
 
 ### Mobile App A/B Testing
 

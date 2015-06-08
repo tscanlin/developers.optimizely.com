@@ -1,9 +1,16 @@
 ---
 template: inline
-title: Analytics integration
+title: Send Optimizely data to analytics
 anchor: technology-integrations-analytics
 ---
-The easiest way to create a new Analytics integration is by using the [analytics integration template](https://github.com/optimizely/Analytics-JS/blob/master/analytics.js). This template is a working example of a Google Analytics integration. The only functions that need to be modified to create an integration with a different analytics tool are these:
+The most relevant data that Optimizely has about a visitor is which experiment a visitor has seen and which variation a visitor was bucketed in. These steps will explain how to abstract that data and send it to a different system.
+#### 1. Download template	
+Download the analytics template here: [analytics integration template](https://github.com/optimizely/Analytics-JS/blob/master/analytics.js)
+
+The template contains several functions that are usefull for every analytics integration. 
+#### 2. Customize two functions
+
+At the top of the template, an object called `window.integration` is defined. In the object, there are tow functions that have to customized to get the integration working. This is an example implementation for Google Analytics:
 
 ```
 /**
@@ -21,6 +28,7 @@ window.integration = {
    */
   makeRequest: function (experimentId, variationIds) {
     var slot = 2;
+    // keyValue = experiment name, keyValue.value = variation name(s)
     var keyValue = window.integrator.makeSendableNames(experimentId, variationIds, 255, 
     255, 255, false, "test");
 
@@ -44,6 +52,31 @@ window.integration = {
   }
 };
 ```
+
+Implement the functions `makeRequest` and `initialize`. 
+
+*makeRequest*
+The function `makeRequest` is called for every running experiment on a page. It gets an experiment id and a variation id, which allows you to create sendable names with the function `window.integrator.makeSendableNames`. 
+
+*initialize*
+The function `initialize` will only run once, before making any quests. It allows you to do some preperation. The preperation in the Google Analytics example is to set the right referrer value. Because a Javascript redirect has taken place, the referrer value on the page is not to be trusted. Therefore, Optimizely stores the referrer value in a cookie. The Optimizely (trusted) referrer value will be returned by calling the function `window.integrator.redirect.getRedirectReferrer`.
+
+#### 3. Implement the result
+Take the customized `integrations` object together with the functions from the analytics template and add them to a html page, below Optimizely. Also make sure that the functions you are using to send data to the analytics tool are available at the point where the template is added to the page. 
+
+<!--#### 4. Submit integration
+If you want to build an integration, we can review the integration. To share an integration with more customers, please follow the next steps:
+
+1. Create the integration using the [analytics integration template](samples/#technology-integrations-analytics) described in our code samples.
+2. Describe (preferably using screenshots) how a customer can view the data that is related to Optimizely in the tool you are integrating with. 
+3. Send both the code and the description to [developers@optimizely.com](mailto:developers@optimizely.com)
+
+The easiest way to create a new Analytics integration is by using the . This template is a working example of a Google Analytics integration. The only functions that need to be modified to create an integration with a different analytics tool are these:-->
+
+
+#### 4. (Optional) More information regarding the analytics template
+
+To create an analytics integration, you need to find out which experiments are running on a page and send their ids and/or names to the analytics tool you are integrating with. In theory, this is really easy with Optimizely. The Optimizely object on a page has the attribute `optimizely.variationIdsMap` which gives you all the all the experiments that are currently running on a page and the ids for the variations you (as a visitor) are bucketed in. There is one type of experiment that doesn't work with this solution: a redirect experiment. When a variation has redirected a visitor, the page where the visitor has been redirected to doesn't have the experiment running in most cases. In other words: this experiment doesn't show up in `optimizely.variationIdsMap`. To build a complete analytics integration that takes care of all the edge cases, you can use an analytics integration template. 
 
 The template takes care of:
 

@@ -1,9 +1,8 @@
 ---
 template: inline
-title: CMS integrations (headline testing)
+title: Test headlines
 anchor: technology-integrations-cms
 ---
-NEEDS UPDATING: Make overview more general (beyond just Wordpress)
 
 This sample goes through a simplified version of our Wordpress plugin, which lets editors write alternate headlines for a blogpost and A/B test them directly from their Wordpress editor. A [PDF version](https://blog.optimizely.com/wp-content/uploads/2015/05/OptimizelyHeadlineTesting.pdf) is also available, which includes screenshots.
 
@@ -13,7 +12,7 @@ To see the full source of our plugin or download it to use on your own site, cli
 
 The plugin uses jQuery to make the API calls, as described in our [AJAX code sample](#ajax).
 
-Create an experiment
+#### 1. Create an experiment
 
 Now, when users go to write their posts, they'll see a new section for A/B testing headlines. This section will include two inputs for users to write alternate headlines and a button to create the experiment.
 
@@ -59,7 +58,7 @@ We aren't done yet. The experiment we created has two built-in variations, but n
 
     }
 
-####Connect a project
+#### 2. Connect a project
 Our plugin starts with a configuration page that lets users connect their Optimizely account to Wordpress. It requests all the information needed to authenticate and run experiments.
 
 First, we ask the user for their API token on our plugin configuration page. We use this to [authenticate]({{site.paths.rest}}#authentication) with the REST API.
@@ -95,7 +94,7 @@ When the user presses that button, we call the `GET projects/` endpoint to [list
       });
     });
 
-####Create variations
+#### 3. Create variations
 
 To create a variation, we first generate the variation code. We use a template based on the Wordpress theme, and then we drop in the values for our variation. The result would be:
 
@@ -144,7 +143,7 @@ Once all the PUT and POST requests have returned, we're done! At this point, we 
     }
 
 
-####Start the experiment
+#### 4. Start the experiment
 Finally, we'll add a start button so users can run the experiment directly from Wordpress. Once it's started, we'll turn it into a pause button to stop the running experiement.
 
 This button will update the experiment's `status` to `Running` or `Paused`.
