@@ -15,7 +15,7 @@ js: |
    for (var i=0; i < optimizely.activeExperiments.length; i++) {
      var experimentID = optimizely.activeExperiments[i];
      var variationID = optimizely.variationIdsMap[experimentID];
-     var variationName= optimizely.variationNamesMap[experimentID];
+     var variationName = optimizely.variationNamesMap[experimentID];
      // code to pass this data to your backend should go here
    }
 
