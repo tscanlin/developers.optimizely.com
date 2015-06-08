@@ -5,7 +5,262 @@ title: "Optimizely JavaScript API Reference"
 
 Below is a full reference for the JavaScript API.
 
-### API Function Calls
+## The Data Object
+
+The `window['optimizely'].data` object contains read-only information about the current user and the running experiments.
+
+<a name="custom-tags-data"></a>
+### Custom Tags
+
+```javascript
+window['optimizely'].data.customTags
+```
+
+This is an object that contains all the key-value pairs you've sent to Optimizely using the [custom tag function](#custom-tag).
+
+### Experiments
+
+#### The Experiments Object
+
+```javascript
+window['optimizely'].data.experiments
+```
+
+This is an object with information about all the experiments for this project file. The keys of `window['optimizely'].data.experiment` are the experiment ids, which can be found in the diagnostic report for your experiment.
+
+#### Experiment Code
+
+```javascript
+window['optimizely'].data.experiments[experimentId].code
+```
+
+This contains the experiment's global JavaScript code, if any.
+
+#### Experiment Manual Mode
+
+```javascript
+window['optimizely'].data.experiments[experimentId].manual
+```
+
+This is a boolean indicating whether the experiment is a manual experiment or not.
+
+#### Experiment Name
+
+```javascript
+window['optimizely'].data.experiments[experimentId].name
+```
+
+This is the experiment's name.
+
+#### Experiment Section Ids
+
+```javascript
+window['optimizely'].data.experiments[experimentId].section_ids
+```
+
+This contains the section ids for the experiment, if it is a multivariate experiment.
+
+#### Experiment Variation Ids
+
+```javascript
+window['optimizely'].data.experiments[experimentId].variation_ids
+```
+
+This is an array of variation ids for the variations of this experiment.
+
+### Sections
+
+#### The Sections Object
+
+```javascript
+window['optimizely'].data.sections
+```
+
+This object contains information about all the project file's sections, indexed by their section id. The section ids can be found in the diagnostic report. Only [multivariate experiments](https://www.optimizely.com/resources/multivariate-test-vs-ab-test) contain sections.
+
+#### Section Name
+
+```javascript
+window['optimizely'].data.sections[variationId].name
+```
+
+This contains the section's name.
+
+#### Section Variation Ids
+
+```javascript
+window['optimizely'].data.sections[variationId].variation_ids
+```
+
+This is an array containing the variation ids for this section.
+
+### State
+
+#### The State Object
+
+```javascript
+window['optimizely'].data.state
+```
+
+This object contains information about the current state of Optimizely, such as the active variations and the visitor's bucket map.
+
+#### Active Experiments
+
+```javascript
+window['optimizely'].data.state.activeExperiments
+```
+
+This is an array of experiment ids for all the active experiments.
+
+#### Variation Map
+
+```javascript
+window['optimizely'].data.state.variationMap
+```
+
+This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation indexes for those experiments.
+
+#### Variation Ids Map
+
+```javascript
+window['optimizely'].data.state.variationIdsMap
+```
+
+This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation ids for those experiments.
+
+#### Variation Names Map
+
+```javascript
+window['optimizely'].data.state.variationNamesMap
+```
+
+This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation names for those experiments.
+
+### Variations
+
+#### The Variation Object
+
+```javascript
+window['optimizely'].data.variations
+```
+
+This is an object with information about all the project file's variations, indexed by their variation id. The variation ids can be found in the diagnostic report.
+
+#### Variation Name
+
+```javascript
+window['optimizely'].data.variations[variationId].name
+```
+
+This contains the variation's name.
+
+#### Variation Map
+
+```javascript
+window['optimizely'].data.variations[variationId].code
+```
+
+This contains the variation's JavaScript code..
+
+### Visitor
+
+#### The Visitor Object
+
+```javascript
+window['optimizely'].data.visitor
+```
+
+This contains helpful information about the visitor to Optimizely.
+
+#### Visitor Audiences
+
+```javascript
+window['optimizely'].data.audiences
+```
+
+This is an object with audienceId as the key, and a boolean representing whether the visitor is in the audience (true if the visitor is in the audience) as the value. Not all audiences will be listed, in particular those audiences which are not used in any condition and are not enabled for segmentation.
+
+#### Visitor Browser
+
+```javascript
+window['optimizely'].data.visitor.browser
+```
+
+This is a string containing information about the browser type that the visitor is using. Options include "Firefox", "Google Chrome", "Internet Explorer", "Opera", and "Safari". If Optimizely does not recognize the browser, this will be an empty string.
+
+#### Visitor Dimension Values
+
+```javascript
+window['optimizely'].data.visitor.dimensions
+```
+
+An object with dimensionId as the key, and a string for the dimension value (if any) as the value. If a visitor has no value for a dimension, it will not appear in this object.
+
+#### Visitor Location
+
+```javascript
+window['optimizely'].data.visitor.location
+window['optimizely'].data.visitor.location.city
+window['optimizely'].data.visitor.location.region
+window['optimizely'].data.visitor.location.country
+```
+
+For Platinum customers only, this is an object containing information about the visitor's location. Specifically, this object contains the names of the visitor's city, region, and country, if detected.
+
+Region can also be a territory, such as Canadian province, Indian state, or German state. For US states and Canadian provinces, the string will be the standard two-letter abbreviation of the state, e.g. "NH" for New Hampshire, "DC" for the District of Columbia, and "ON" for Ontario. In some cases, the region string could refer to different places. For example, "MN" could be Minnesota, the US state, or Manipur, the Indian state. The region information should be used in conjunction with the country information, in order to be sure the region is for the correct country.
+
+The country value is a two-letter abbreviation of the visitor's country, if one is detected. For example, "US" is the United States, "CA" is Canada, "MX" is Mexico, "DE" is Germany, "JP" is Japan, "GB" is Great Britain, and "RU" is Russia.
+
+#### Visitor Referrer
+
+```javascript
+window['optimizely'].data.visitor.referrer
+```
+
+This is a string listing the visitor's referring URL, if any. This is functionally equivalent to document.referer.
+
+#### Visitor OS
+
+```javascript
+window['optimizely'].data.visitor.os
+```
+
+This is a string listing the visitor's operating system. If the operating system is unknown, this string is the empty string.
+
+#### Visitor Third Party Data
+
+```javascript
+window['optimizely'].data.thirdParty
+```
+
+This object contains information about the visitor sourced from third-party integrations. The content of this object depends on which integrations you have enabled in Optimizely. For example, if you have enabled the <a target="_blank" href="http://optimizely.com/partners/technology/demandbase">Demandbase integration</a> you can access Demandbase's visitor attributes as follows:
+
+```javascript
+window['optimizely'].data.thirdParty.demandbase.company_name
+window['optimizely'].data.thirdParty.demandbase.industry
+window['optimizely'].data.thirdParty.demandbase.sub_industry
+...
+```
+
+More generally, to access the third-party attribute `attributeID` from an integration `integrationID`, use the format below:
+
+```javascript
+window['optimizely'].data.thirdParty.integrationID.attributeID
+```
+
+Since third-party data is not guaranteed to be present on every page view, ensure that your code correctly handles reference errors.  For example, to access the `industry` field from the Demandbase integration, we recommend the code below:
+
+```javascript
+var demandbase = window['optimizely'].data.thirdParty.demandbase || {};
+var industry = demandbase.industry || '';
+if (industry) {
+  // do something
+}
+```
+
+For more information on how to enable third-party integrations and what visitor attributes you have access to, see <a target="_blank" href="http://help.optimizely.com/hc/en-us/articles/203729580">Introduction to Optimizely Integrations</a>.
+
+## API Function Calls
 
 Before ever making an Optimizely function call you should use the following asynchronous instantiation line. The purpose of this line is to ensure that the Optimizely code has already been loaded or, if it has not been loaded, to queue the function calls in a JavaScript array. This is similar to Google Analytics' asynchronous function calls. The following is the code you should use:
 
@@ -298,258 +553,3 @@ To remove a visitor from all segments, use:
 ```javascript
 window['optimizely'].push(['removeFromAllSegments']);
 ```
-
-## The Data Object
-
-The `window['optimizely'].data` object contains read-only information about the current user and the running experiments.
-
-<a name="custom-tags-data"></a>
-### Custom Tags
-
-```javascript
-window['optimizely'].data.customTags
-```
-
-This is an object that contains all the key-value pairs you've sent to Optimizely using the [custom tag function](#custom-tag).
-
-### Experiments
-
-#### The Experiments Object
-
-```javascript
-window['optimizely'].data.experiments
-```
-
-This is an object with information about all the experiments for this project file. The keys of `window['optimizely'].data.experiment` are the experiment ids, which can be found in the diagnostic report for your experiment.
-
-#### Experiment Code
-
-```javascript
-window['optimizely'].data.experiments[experimentId].code
-```
-
-This contains the experiment's global JavaScript code, if any.
-
-#### Experiment Manual Mode
-
-```javascript
-window['optimizely'].data.experiments[experimentId].manual
-```
-
-This is a boolean indicating whether the experiment is a manual experiment or not.
-
-#### Experiment Name
-
-```javascript
-window['optimizely'].data.experiments[experimentId].name
-```
-
-This is the experiment's name.
-
-#### Experiment Section Ids
-
-```javascript
-window['optimizely'].data.experiments[experimentId].section_ids
-```
-
-This contains the section ids for the experiment, if it is a multivariate experiment.
-
-#### Experiment Variation Ids
-
-```javascript
-window['optimizely'].data.experiments[experimentId].variation_ids
-```
-
-This is an array of variation ids for the variations of this experiment.
-
-### Sections
-
-#### The Sections Object
-
-```javascript
-window['optimizely'].data.sections
-```
-
-This object contains information about all the project file's sections, indexed by their section id. The section ids can be found in the diagnostic report. Only [multivariate experiments](https://www.optimizely.com/resources/multivariate-test-vs-ab-test) contain sections.
-
-#### Section Name
-
-```javascript
-window['optimizely'].data.sections[variationId].name
-```
-
-This contains the section's name.
-
-#### Section Variation Ids
-
-```javascript
-window['optimizely'].data.sections[variationId].variation_ids
-```
-
-This is an array containing the variation ids for this section.
-
-### State
-
-#### The State Object
-
-```javascript
-window['optimizely'].data.state
-```
-
-This object contains information about the current state of Optimizely, such as the active variations and the visitor's bucket map.
-
-#### Active Experiments
-
-```javascript
-window['optimizely'].data.state.activeExperiments
-```
-
-This is an array of experiment ids for all the active experiments.
-
-#### Variation Map
-
-```javascript
-window['optimizely'].data.state.variationMap
-```
-
-This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation indexes for those experiments.
-
-#### Variation Ids Map
-
-```javascript
-window['optimizely'].data.state.variationIdsMap
-```
-
-This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation ids for those experiments.
-
-#### Variation Names Map
-
-```javascript
-window['optimizely'].data.state.variationNamesMap
-```
-
-This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation names for those experiments.
-
-### Variations
-
-#### The Variation Object
-
-```javascript
-window['optimizely'].data.variations
-```
-
-This is an object with information about all the project file's variations, indexed by their variation id. The variation ids can be found in the diagnostic report.
-
-#### Variation Name
-
-```javascript
-window['optimizely'].data.variations[variationId].name
-```
-
-This contains the variation's name.
-
-#### Variation Map
-
-```javascript
-window['optimizely'].data.variations[variationId].code
-```
-
-This contains the variation's JavaScript code..
-
-### Visitor
-
-#### The Visitor Object
-
-```javascript
-window['optimizely'].data.visitor
-```
-
-This contains helpful information about the visitor to Optimizely.
-
-#### Visitor Audiences
-
-```javascript
-window['optimizely'].data.audiences
-```
-
-This is an object with audienceId as the key, and a boolean representing whether the visitor is in the audience (true if the visitor is in the audience) as the value. Not all audiences will be listed, in particular those audiences which are not used in any condition and are not enabled for segmentation.
-
-#### Visitor Browser
-
-```javascript
-window['optimizely'].data.visitor.browser
-```
-
-This is a string containing information about the browser type that the visitor is using. Options include "Firefox", "Google Chrome", "Internet Explorer", "Opera", and "Safari". If Optimizely does not recognize the browser, this will be an empty string.
-
-#### Visitor Dimension Values
-
-```javascript
-window['optimizely'].data.visitor.dimensions
-```
-
-An object with dimensionId as the key, and a string for the dimension value (if any) as the value. If a visitor has no value for a dimension, it will not appear in this object.
-
-#### Visitor Location
-
-```javascript
-window['optimizely'].data.visitor.location
-window['optimizely'].data.visitor.location.city
-window['optimizely'].data.visitor.location.region
-window['optimizely'].data.visitor.location.country
-```
-
-For Platinum customers only, this is an object containing information about the visitor's location. Specifically, this object contains the names of the visitor's city, region, and country, if detected.
-
-Region can also be a territory, such as Canadian province, Indian state, or German state. For US states and Canadian provinces, the string will be the standard two-letter abbreviation of the state, e.g. "NH" for New Hampshire, "DC" for the District of Columbia, and "ON" for Ontario. In some cases, the region string could refer to different places. For example, "MN" could be Minnesota, the US state, or Manipur, the Indian state. The region information should be used in conjunction with the country information, in order to be sure the region is for the correct country.
-
-The country value is a two-letter abbreviation of the visitor's country, if one is detected. For example, "US" is the United States, "CA" is Canada, "MX" is Mexico, "DE" is Germany, "JP" is Japan, "GB" is Great Britain, and "RU" is Russia.
-
-#### Visitor Referrer
-
-```javascript
-window['optimizely'].data.visitor.referrer
-```
-
-This is a string listing the visitor's referring URL, if any. This is functionally equivalent to document.referer.
-
-#### Visitor OS
-
-```javascript
-window['optimizely'].data.visitor.os
-```
-
-This is a string listing the visitor's operating system. If the operating system is unknown, this string is the empty string.
-
-#### Visitor Third Party Data
-
-```javascript
-window['optimizely'].data.thirdParty
-```
-
-This object contains information about the visitor sourced from third-party integrations. The content of this object depends on which integrations you have enabled in Optimizely. For example, if you have enabled the <a target="_blank" href="http://optimizely.com/partners/technology/demandbase">Demandbase integration</a> you can access Demandbase's visitor attributes as follows:
-
-```javascript
-window['optimizely'].data.thirdParty.demandbase.company_name
-window['optimizely'].data.thirdParty.demandbase.industry
-window['optimizely'].data.thirdParty.demandbase.sub_industry
-...
-```
-
-More generally, to access the third-party attribute `attributeID` from an integration `integrationID`, use the format below:
-
-```javascript
-window['optimizely'].data.thirdParty.integrationID.attributeID
-```
-
-Since third-party data is not guaranteed to be present on every page view, ensure that your code correctly handles reference errors.  For example, to access the `industry` field from the Demandbase integration, we recommend the code below:
-
-```javascript
-var demandbase = window['optimizely'].data.thirdParty.demandbase || {};
-var industry = demandbase.industry || '';
-if (industry) {
-  // do something
-}
-```
-
-For more information on how to enable third-party integrations and what visitor attributes you have access to, see <a target="_blank" href="http://help.optimizely.com/hc/en-us/articles/203729580">Introduction to Optimizely Integrations</a>.
