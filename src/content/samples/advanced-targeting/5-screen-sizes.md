@@ -5,7 +5,7 @@ anchor: screen-sizes
 js: |
   /*
    * Usage
-   *
+   *  Specifies window size (in pixels) to target visitors.
    */
 
    screen.width > 1400 && screen.height < 800

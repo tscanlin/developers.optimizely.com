@@ -5,7 +5,7 @@ anchor: experiment-certain-days
 js: |
   /*
    * Usage
-   *
+   *  Specifies a date range to target visitors
    */
 
    new Date().getDay() > 0 && new Date().getDay() < 6

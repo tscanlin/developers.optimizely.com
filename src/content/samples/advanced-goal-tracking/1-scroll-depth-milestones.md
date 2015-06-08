@@ -49,4 +49,4 @@ js: |
     });
 ---
 
-This function polls for an element on the page every 50ms that matches a specified selector.  This is useful when you want to modify an element that is not injected into the DOM until shortly after document ready.
+This function polls for an element on the page every 50ms that matches a specified selector.  This is useful when you want to modify an element that is not injected into the DOM until shortly after the document is ready (ie, `$(document).ready()`).

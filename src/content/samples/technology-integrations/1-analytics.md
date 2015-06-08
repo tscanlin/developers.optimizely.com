@@ -10,7 +10,7 @@ Download the analytics template here: [analytics integration template](https://g
 The template contains several functions that are usefull for every analytics integration. 
 #### 2. Customize two functions
 
-At the top of the template, an object called `window.integration` is defined. In the object, there are tow functions that have to customized to get the integration working. This is an example implementation for Google Analytics:
+At the top of the template, an object called `window.integration` is defined. In the object, there are two functions that have to customized to get the integration working. This is an example implementation for Google Analytics:
 
 ```
 /**

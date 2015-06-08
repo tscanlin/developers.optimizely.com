@@ -5,7 +5,8 @@ anchor: logged-in-users
 js: |
   /*
    * Usage
-   *
+   *  Sets visitor to logged-in to separate them from logged-out visitors
+   *  Can either be "yes" or "no"
    */
 
    window.logged_in === “yes”

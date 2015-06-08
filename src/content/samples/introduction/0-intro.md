@@ -4,6 +4,5 @@ title: Introduction
 anchor: introduction
 ---
 
-*This page contains several code samples available for download.*
-
-Introduction to code samples.
+In order to help you get up and running quickly, we have provided a number of code samples that you can use.
+Be sure to modify the code appropriately before blindly running in production!

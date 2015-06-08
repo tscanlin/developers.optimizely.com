@@ -9,7 +9,7 @@ This sample uses a calltracking tool as an example. Offline conversions are ofte
 
 Option 1 (manual):
 
-1. The user creates a custom goal within Optimizly (manually) ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
+1. The user creates a custom goal within Optimizly manually ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
 2. The user continues to the calltracking software and installs the plugin / app
 3. During the installation or after in a settings window, the user should be prompted to fill in the custom event name that was defined when the goal was created within Optimizely
 
@@ -28,8 +28,8 @@ An offline conversion needs the following pieces of information:
 1. Account id
 
 ```
-**
- * GET ACCOUNT ID
+/**
+ * Gets Account ID
  *
  * @return {Number} the account id 
  */
@@ -42,7 +42,7 @@ function getAccountId() {
 
 ```
 /**
- * GET PROJECT ID (sometimes the same as the project id)
+ * Gets Project IDs (sometimes the same as the project id)
  *
  * @return {Number} the project id
  */
@@ -55,7 +55,7 @@ function getProjectId() {
 
 ```
 /**
- * EXPERIMENT IDS USING A COOKIE
+ * Gets experiment IDs using a cookie.
  *
  * @return {String} a string that displays all the experiments and variations in a list of query parameters
  */
@@ -74,7 +74,7 @@ function getVariationsInParameters() {
 
 ```
 /**
- * SEGMENT VALUES USING A COOKIE
+ * Segment values using a cookie.
  *
  * @return {String} a string that displays all the segments and their values in a list of query parameters
  */
@@ -114,7 +114,7 @@ http://{{project_id}}.log.optimizely.com/event?a=1
                                
 ```
 All the paramters are more extensively described in this article:
-(Tracking offline conversion events with Optimizely)[https://help.optimizely.com/hc/en-us/articles/200040195]
+[Tracking offline conversion events with Optimizely](https://help.optimizely.com/hc/en-us/articles/200040195)
 
 
 *Example code to generate a valid offline converions url:*
