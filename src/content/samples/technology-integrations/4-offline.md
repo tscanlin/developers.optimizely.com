@@ -114,7 +114,7 @@ http://{{project_id}}.log.optimizely.com/event?a=1
                                
 ```
 All the paramters are more extensively described in this article:
-(Tracking offline conversion events with Optimizely)[https://help.optimizely.com/hc/en-us/articles/200040195]
+[Tracking offline conversion events with Optimizely](https://help.optimizely.com/hc/en-us/articles/200040195)
 
 
 *Example code to generate a valid offline converions url:*
