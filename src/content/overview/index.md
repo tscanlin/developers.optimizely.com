@@ -5,33 +5,41 @@ title: "Overview"
 
 ## Introduction
 
-*Welcome to Optimizely Developers! This site contains resources for developers who want to extend and integrate with Optimizely in new ways.*
+*This site contains resources for developers who want to extend and integrate with Optimizely in new ways.*
 
-While you can get Optimizely up and running without writing code, many companies want to do more advanced testing or customization that isn't provided by Optimizely out of the box. This site describes what you can build on the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
-
-Our platform includes a [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction).
+While you can get Optimizely up and running without writing code, many companies require a custom optimization solution that isn't provided by Optimizely out of the box. This site describes what you can do with the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
 
 <img src="../../assets/img/optimizely-experience-architecture.svg">
 
 ### Getting started
 
-If you are using Optimizely for the first time, check out the [Use cases](#use-cases) below to understand the different ways to develop on our platform. For a more in-depth overview, you may also want to read [How Optimizely works](#how-optimizely-works) which explains Optimizely's data model, architecture, and the various integration points for developers.
+If you are new to Optimizely, check out the [Use cases](#use-cases) below to understand the different ways to develop on our platform. For a more in-depth overview, you may also want to read [How Optimizely works](#how-optimizely-works) which explains Optimizely's data model, architecture, and the various integration points for developers.
 
-If you're looking to develop on a specific platform, check out the documentation for our [REST API](/rest), [JS API](/javascript), [iOS SDK](/ios), and [Android SDK](/android). Each API and SDK contains a 10 minute quickstart guide, comprehensive documentation, examples, and FAQs. You may also want to check out our [Code samples](/samples) page which contains full solutions from customers, partners, and Optimizely employees that you can download for free.
+If you're looking to develop on a specific platform, check out our documentation for the [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction). Each API and SDK contains a brief getting started guide, comprehensive documentation, and FAQs. You may also want to check out our [Code samples](/samples) page which contains full solutions from customers, partners, and Optimizely employees that you can download for free.
 
-You can always create a [free account](/signup) to get full access to our APIs and SDKs.
+### Developer account
+
+Optimizely offers a free account for developers that includes access to the APIs and SDKs. Creating an account takes 30 seconds and doesn't require a credit card.
+
+<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="#">
+Create free account
+</a>
 
 ### Developer support
 
-If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). We're always interested to learn about your needs and see how the platform can help.
+If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). You can also post on our [developer discussion group](http://community.optimizely.com/t5/Developers/bd-p/Developers) on Optiverse. We're always interested to learn about your needs and happy to help walk you through how to use our APIs and SDKs.
+
+### Contributions
+
+This site is open source and we welcome contributions from the non-Optimizely developer community. If you have any feedback or suggestions, please feel free to send us a pull request to the [developers.optimizely.com Github repo](http://github.com/optimizely/developers.optimizely.com).
 
 ## Use cases
 
-Below are some of the most common use cases of Optimizely for developers, and pointers to the relevant resources to get started.
+Below are some common use cases of Optimizely for developers, and pointers to the relevant resources to get started.
 
 ### Custom Implementations
 
-Many of our customers want to run more advanced tests and personalized experiences that are not possible in Optimizely's out of the box solution. Below are some common customizations that we've seen from our customers.
+Many Optimizely customers want to run more advanced tests and personalized experiences that are not possible in Optimizely's out of the box solution. Below are some common customizations that we've seen from our customers.
 
 * *Custom variation code:* If you'd like to write your own variation code instead of using the Optimizely visual editor, check out our [Variation code](#variation-code) section that explains how to format Optimizely variations with example code.
 
@@ -47,7 +55,7 @@ Many of our customers want to run more advanced tests and personalized experienc
 
 ### Technology Integrations
 
-Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) to make it easy to exchange data between Optimizely and other tools. In addition, our customers often build custom integrations with 3rd parties or their own internal tools. If you are a partner or customer looking to build an integration, please use the following resources to get started:
+Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) to make it easy to exchange data between Optimizely and other tools. In addition, our customers often build custom integrations with 3rd parties or their own internal tools. If you are a partner or customer looking to build an integration, please use the following resources to get started.
 
 ####*Analytics integrations*
 An analytics integration is an integration where Optimizely sends information to a different tool. In other words: an Analytics integration is "data out". The data that is send in the most conventional integrations is which experiments and variations a visitor has been bucketed in. For every page a visitor visits, the Optimizely Javascript is  is used to determine if an experiment is running on that page and in which variation the visitor is bucketed. That information is used to send to an Analytics platform.
@@ -166,13 +174,67 @@ TODO
 
 (more detail, to be filled out by Lucas)
 
-### Mobile A/B Testing
+### Mobile App A/B Testing
 
-Optimizely includes an [A/B testing solution](http://optimizely.com/mobile) for native iOS and Android apps. If you are looking at implementing Optimizely in your app for the first time, check out our [iOS Quickstart](/ios/guide) and [Android Quickstart](/android/guide), which contain detailed instructions for installing the Optimizely SDK and running your first experiment.
+Optimizely includes an [A/B testing solution](http://optimizely.com/mobile) for native iOS and Android apps. If you are looking at implementing Optimizely in your app for the first time, check out our [iOS getting started guide](/ios/guide) and [Android getting started guide](/android/guide), which contain detailed instructions for installing the Optimizely SDK and running your first experiment.
 
 ## How Optimizely works
 
-This section explains the inner workings of Optimizely, including key terminology, architecture, and the available touchpoints for developers.
+This section explains the inner workings of Optimizely, including key terminology, architecture, and the available touchpoints for developers. [Life of an experiment](#life-of-an-experiment) describes a typical customer workflow and [Life of a visitor](#life-of-a-visitor) describes what happens when a visitor comes to a website or mobile app running Optimizely.
+
+### Life of an experiment
+
+Below is a typical workflow for a customer running an experiment with Optimizely.
+
+#### *1. Create an experiment*
+
+An *experiment* is a campaign run by Optimizely on either a website or a mobile app to determine the impact of a change. An experiment could be an A/B test or a multivariate test. Customers can configure how much traffic they'd like to allocate to their experiment.
+
+#### *2. Create one or more variations*
+
+In any given experiment, customers can create one or more *variations*, that contain alternative content changes they'd like to test. Technically speaking, a variation is just a snippet of jQuery code that runs in a user's browser that renders the page differently. Variations can be created using Optimizely's [visual editor](#) or using the [edit code](#).
+
+#### *3. Create a target audience*
+
+Customers can filter what type of traffic they'd like to include in an experiment using an *audience*. An audience is just a set of AND/OR conditions about a user (e.g. browser type, geography, query parameters) that can be evaluated in real-time when a user visits a web page or mobile app. Audiences can be saved and re-used for other experiments.
+
+#### *4. Create a goal*
+
+Customers must define at least one *goal* for their experiment, i.e. a metric they'd like to track for the success of the experiment. Experiments can have an arbitrary number of goals but just one *primary goal*. Optimizely customers can define click goals or pageview goals using the goal creation dialog, or they can create *custom events* that are goals defined through code. Any goals that are defined for an experiment are tracked in the Optimizely backend over the lifetime of the experiment.
+
+#### *5. Start the experiment*
+
+Once the experiment has been configured, the customer can start the experiment using the *Start experiment* button in the visual editor. On taking this action, Optimizely updates the *Optimizely snippet* that contains the code necessary to make changes in the website or mobile app. The Optimizely snippet is delivered through a CDN.
+
+#### *6. Monitor the results*
+
+A customer can now see the results of their experiment in real-time by looking at the Optimizely results page. The results page contains how many visitors were assigned to each variation and the number of *conversions* over time, for each of the experiment goals that have been defined.
+
+Optimizely experiments can be grouped into *projects*, which are usually tied to a single website or mobile app. Each project can have multiple *collaborators* with custom permissions.
+
+### Life of a visitor
+
+Below is what happens when a visitor comes to a web page or mobile app that is running Optimizely.
+
+#### *1. Evaluate audiences*
+
+The first thing Optimizely does is it collects information about the visitor, to determine what audiences that visitor is a part of.
+
+#### *2. Bucket experiments*
+
+Next, Optimizely determines what experiment(s) (if any) should be shown to the user. This decision is based on what audiences the visitor is in, random traffic allocation, and any additional experiment targeting criteria.
+
+#### *3. Assign variation*
+
+If the visitor has been bucketed into an experiment, Optimizely decides which variation should be shown to the visitor using random assignment, according to the relative traffic allocation specified by the customer.
+
+#### *4. Activate experiment*
+
+Optimizely runs the code for the chosen variation. By default, this is done before the page loads on a website to ensure that the visitor doesn't see flicker. However, many customers may want to activate an experiment after a page has loaded. For more information see conditional activation.
+
+#### *5. Track events*
+
+Once the page or mobile app has been rendered to the user, Optimizely tracks events by sending information to the Optimizely backend. Besides event tracking, all of the steps below happen completely client-side (i.e. in the user's browser or mobile app).
 
 ### Data model
 
@@ -318,9 +380,3 @@ Below are some of the key integration points for developers to customize the beh
 #### Tags
 
 #### Advanced
-
-## Contributions
-
-This site is open source and we welcome contributions from the non-Optimizely developer community. If you have any feedback or suggestions, please feel free to send us a pull request to the [developers.optimizely.com Github repo](http://github.com/optimizely/developers.optimizely.com).
-
-
