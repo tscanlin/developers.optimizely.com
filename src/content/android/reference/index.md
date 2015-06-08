@@ -5,9 +5,53 @@ title: "Optimizely Android SDK Reference"
 ## Java Docs
 Link to [Optimizely Class Reference Documentation](/android/help/reference/packages.html)
 
-## <a name="custom configuration"></a> Customize Your Variations
+## Connecting to Optimizely's Editor
 
-### <a name="variables"></a> Register Live Variables
+It is highly recommended to use Optimizely's 'O' gesture to connect your app to Optimizely's editor.  However, there are other options should you choose not to implement Optimizely's URL scheme.
+
+### Programmatically Enable Edit Mode
+
+Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizely`, you can call [enableEditor](http://developers.optimizely.com/android/help/reference/com/optimizely/Optimizely.html#enableEditor()) in the development version of your app so that you can make changes.
+
+```java
+Optimizely.enableEditor();
+Optimizely.startOptimizely(getOptimizelyToken(), getApplication());
+```
+
+ **Note that you should always remove the enableEditor call prior to releasing your app to the App store.**
+ 
+### Disable Gesture
+
+By default, Optimizely's Android SDK disables the gesture if the app is live in the Play store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the [setEditGestureEnabled](http://developers.optimizely.com/android/help/reference/com/optimizely/Optimizely.html#setEditGestureEnabled(boolean)) method prior to `startOptimizelyWithAPIToken`.
+
+An example of how to implement this method can be found below:
+
+```java
+Optimizely.setEditGestureEnabled(false);
+Optimizely.startOptimizely(getOptimizelyToken(), getApplication());
+```
+
+## <a name="tag your views"></a> Visual Editor Configuration
+
+The Optimizely Visual Editor allows you to modify existing views in your app. The first time you connect your app to Optimizely's Visual Editor, you can see which views are automatically detected by Optimizely.  Optimizely is able to detect and allows you to modify these views by:
+
+- Dynamically tagging all views with an Optimizely ID
+- Optimizely uses swizzling to enable view changes
+
+### Tag Your Views
+
+There are some cases where Optimizely will not be able to detect your views.  For those views, you should give them a unique `optimizelyId`.  An example of how to do this is below:
+
+```java
+TextView priceTextView = (TextView) rowView.findViewById(R.id.textViewPrice);
+Optimizely.setOptimizelyId("price_text_label", priceTextView);
+```
+
+### Disable Visual Editor
+
+If you decide you want to exclusively use live variables and code blocks, you can set  [setVisualExperimentsEnabled](http://developers.optimizely.com/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled(boolean)) to false.
+
+## <a name="variables"></a> Register Live Variables
 
 Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables are declared as static variables in your code and then can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new stylings. Live variables must be declared as static variables in your app in order for the Optimizely Editor to detect them.
 
@@ -51,7 +95,7 @@ You're now ready to edit your live variables using the Optimizely web editor:
 3. The editor will allow you to modify the variable value for different variations.  
 4. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
 
-### Code Blocks <a name="codeblocks"></a>
+## Code Blocks <a name="codeblocks"></a>
 
 Code Blocks allow developers to create variations that execute different code paths. CodeBlocks are declared as static variables and then can be accessed anywhere in your application.
 
@@ -102,7 +146,53 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 For more details, please see the [Code Blocks API Reference](help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
+### Phased Rollouts
+
+A common use case for code blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse [here](https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App).
+
 ## <a name="targeting"></a> Custom Targeting
+
+### Custom Tags <a name="customtags"></a>
+Custom Tags allow you to target users based on variables and attributes before Optimizely starts. You will be able to run your experiment and target visitors based on those custom attributes, effectively **only** bucketing those who meet your targeting conditions.
+To create an experiment targeting a Custom Tag, open the Optimizely editor, click on "Options", followed by "Targeting" and selecting "Custom Tag" within the Optimizely editor.
+
+For example, to create the Custom Tag `"returning_customer"` with a value of `"true"`:
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    // more create logic
+    Optimizely.setCustomTag("returning_customer", "true");
+    Optimizely.startOptimizely("<API Token>", getApplication());
+}
+```
+
+Make sure to call `setCustomTag` prior to `startOptimizely`.
+
+Please refer to our [API Docs](help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
+
+### <a name="foregrounding"></a> Experiment Reload
+By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the backgroudn, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
+
+```java
+      Optimizely.setshouldReloadExperimentsOnForegrounding(false);
+```
+
+It is also possible to manually force Optimizely to reset all experiments and try to re-bucket the user from "scratch." One example where this is useful is in setting the user ID manually:
+
+```java
+  private void userDidLogIn(String username) {
+    Optimizely.setUserId(username);
+    Optimizely.refreshExperimentData();
+  }
+```
+
+**Note: Using `refreshExperimentData()` may damage the statistical validity of your conversion events because the user has potentially seen multiple variations of your experiment!**
+
+## <a name="goaltracking"></a> Goal Tracking
 
 ### Track Event <a name="customgoals"></a>
 Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal. The first step occurs in the web editor. Click "Goals", then "New Goal", and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal. In order to track this goal, send this same string as a parameter to
@@ -130,40 +220,13 @@ private void userCompletedPurchase() {
 }
 ```
 
-## <a name="goaltracking"></a> Goal Tracking
-
-### Custom Tags <a name="customtags"></a>
-Custom Tags allow you to target users based on variables and attributes before Optimizely starts. You will be able to run your experiment and target visitors based on those custom attributes, effectively **only** bucketing those who meet your targeting conditions.
-To create an experiment targeting a Custom Tag, open the Optimizely editor, click on "Options", followed by "Targeting" and selecting "Custom Tag" within the Optimizely editor.
-
-For example, to create the Custom Tag `"returning_customer"` with a value of `"true"`:
-
-```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
-    // more create logic
-    Optimizely.setCustomTag("returning_customer", "true");
-    Optimizely.startOptimizely("<API Token>", getApplication());
-}
-```
-
-Make sure to call `setCustomTag` prior to `startOptimizely`.
-
-Please refer to our [API Docs](help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
-
-### <a name="analytics"></a> Analytics Integrations
+## <a name="analytics"></a> Analytics Integrations
 
 You can also access the experiments and variations active for a given user directly using the `Optimizely.getActiveExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](help/reference/com/optimizely/Optimizely.html#getActiveExperiments()).
 
  We are working on deeper integrations with 3rd party analytics platforms and will update these documents as those integrations are added to the Optimizely SDK.
 
-
-## Advanced Configuration
-
-### <a name="networksettings"></a> Network Settings
+## <a name="networksettings"></a> Network Settings
 There are only two instances when the Optimizely Android SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, the config file is automatically downloaded every 2 minutes. Event tracking data is automatically uploaded whenever the user leaves a screen of your application (on every `Activity.onPause`). The Optimizely Android SDK allows you to customize how often these network calls are made by:
 
 1. Customizing the 2 minute interval
@@ -189,25 +252,6 @@ To manually send events, in the appropriate function (e.g. where you make other 
 ```
 
 Please refer to the documentation for [trackEvent](help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [dispatchEvents](help/reference/com/optimizely/Optimizely.html#dispatchEvents())for more details.
-
-### <a name="foregrounding"></a> Experiment Reload
-By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the backgroudn, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
-
-```java
-      Optimizely.setshouldReloadExperimentsOnForegrounding(false);
-```
-
-It is also possible to manually force Optimizely to reset all experiments and try to re-bucket the user from "scratch." One example where this is useful is in setting the user ID manually:
-
-```java
-  private void userDidLogIn(String username) {
-    Optimizely.setUserId(username);
-    Optimizely.refreshExperimentData();
-  }
-```
-
-**Note: Using `refreshExperimentData()` may damage the statistical validity of your conversion events because the user has potentially seen multiple variations of your experiment!**
-
 
 ## <a name="upgrade"></a>Upgrading to a new SDK
 
