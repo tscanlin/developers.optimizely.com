@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Access data on page (Audience)
+title: Access data on page
 anchor: advanced-targeting-data-access
 js: |
   /*

@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Running An Experiment On Certain Days
+title: Days of the week
 anchor: experiment-certain-days
 js: |
   /*

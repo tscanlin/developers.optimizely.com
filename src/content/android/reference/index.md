@@ -2,6 +2,9 @@
 template: page-sidebar
 title: "Optimizely Android SDK Reference"
 ---
+
+# Optimizely Android SDK Reference
+
 ## Java Docs
 Link to [Optimizely Class Reference Documentation](/android/help/reference/packages.html)
 

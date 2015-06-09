@@ -1,7 +1,7 @@
 ---
 template: inline
-title: Access data on page (Variation Code)
-anchor: advanced-use-cases-data-access
+title: Access data on page
+anchor: access-data-variation-code
 js: |
   /*
    * Usage

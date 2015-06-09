@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Running An Experiment For Visitors With Certain Screen Sizes
+title: Screen size
 anchor: screen-sizes
 js: |
   /*

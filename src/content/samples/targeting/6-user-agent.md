@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Running An Experiment For Visitors Who Have A Specific User Agent
+title: User agent
 anchor: user-agent
 js: |
   /*

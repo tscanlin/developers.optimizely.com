@@ -5,11 +5,8 @@ title: "Optimizely iOS SDK FAQs"
 
 # <a name="FAQ"></a>Optimizely iOS SDK FAQs
 
-You can find the General Optimizely's Mobile SDK FAQ in our Optiverse:
+See [General Mobile FAQs](https://help.optimizely.com/hc/en-us/articles/201893400) in our Optiverse.
 
-[General FAQ](https://help.optimizely.com/hc/en-us/articles/201893400)
-
-## <a name="troubleshooting"></a>Troubleshooting
 **<a name="cantseeappineditor"></a>Q: My device is running the app but I can't see it in the editor.**
 
 A: First, confirm your device is connected to the internet and make sure that the API token that you passed into

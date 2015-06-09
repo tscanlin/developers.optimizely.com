@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Running An Experiment On Pages With Certain Meta Values
+title: Meta values
 anchor: meta-values
 js: |
   /*

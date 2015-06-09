@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Scroll Depth - Milestones
+title: Scroll depth
 anchor: advanced-goal-tracking-scroll-depth-milestones
 js: |
   /*

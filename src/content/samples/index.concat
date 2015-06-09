@@ -2,12 +2,4 @@
 template: page-sidebar--wider
 title: "Code Samples"
 sections:
-- introduction
-- advanced-goal-tracking
-- advanced-targeting
-- advanced-use-cases
-- conditional
-- technology-integrations
-- single-page-applications
-- helpers
 ---

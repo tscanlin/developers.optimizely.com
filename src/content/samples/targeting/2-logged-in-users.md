@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Running an Experiment for Logged-In Users
+title: Logged-in users
 anchor: logged-in-users
 js: |
   /*
