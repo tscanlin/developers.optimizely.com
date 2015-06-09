@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Get off-line conversion parameters
+title: Get offline conversion parameters
 anchor: advanced-use-cases-get-conversion-info
 js: |
   /*

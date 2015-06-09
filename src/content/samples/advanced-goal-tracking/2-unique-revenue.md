@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Unique Revenue Events
+title: Unique revenue
 anchor: unique-revenue
 js: |
   //Unique Revenue Object

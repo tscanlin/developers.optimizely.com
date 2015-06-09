@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Target Pages Based On Meta Values
+title: Target pages based on meta values
 anchor: meta-values
 js: |
   /*

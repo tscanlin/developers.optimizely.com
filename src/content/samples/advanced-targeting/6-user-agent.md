@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Target Specific User Agents
+title: Target specific user agents
 anchor: user-agent
 js: |
   /*

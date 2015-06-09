@@ -5,9 +5,10 @@ sections:
 - introduction
 - advanced-goal-tracking
 - advanced-targeting
-- advanced-use-cases
 - conditional
-- technology-integrations
+- variation-code
 - single-page-applications
+- advanced-use-cases
+- technology-integrations
 - helpers
 ---
