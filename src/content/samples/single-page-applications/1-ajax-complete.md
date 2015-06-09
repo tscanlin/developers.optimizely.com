@@ -1,6 +1,6 @@
 ---
 template: inline
-title: AJAX request complete
+title: AJAX complete
 anchor: single-page-apps-ajax-complete
 js: |
   /*

@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Polling: DOM element
+title: Polling - DOM element
 anchor: conditional-activation-dom-element
 js: |
   /*

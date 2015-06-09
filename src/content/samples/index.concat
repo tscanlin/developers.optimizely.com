@@ -2,4 +2,13 @@
 template: page-sidebar--wider
 title: "Code Samples"
 sections:
+- introduction
+- event-tracking
+- targeting
+- conditional
+- variation-code
+- single-page-applications
+- advanced
+- technology-integrations
+- helpers
 ---

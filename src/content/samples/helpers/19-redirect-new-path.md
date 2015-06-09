@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Redirect - New path
+title: Redirect - new path
 anchor: helpers-new path
 js: |
 
