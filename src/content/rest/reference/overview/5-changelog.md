@@ -3,6 +3,8 @@ template: sidebyside
 title: Change Log
 anchor: changes
 ---
+* **May 11th, 2015**: You can now [upload targeting lists](#lists) via the REST API.
+* **March 27th, 2015**: You can now retrieve statistics computed by <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200039895">Optimizely Stats Engine</a> via the API.
 * **March 19th, 2015**: We have added [OAuth 2.0 support](#oauth) so third party applications can connect with the REST API on behalf of an Optimizely customer.
 * **February 24th, 2015**: You can now [create and edit dimensions](#dimensions) via the REST API.
 * **February 23rd, 2015**: Replace "Browser" condition type with "Browser / Version", "Device", and "Platform / OS" conditions. For more information see [Audience Conditions](/rest/conditions). At this time "Browser" conditions are _deprecated_ but will continue to work until further notice.

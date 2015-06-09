@@ -13,7 +13,7 @@ If you don't have an Optimizely account already, just sign up for a [free develo
 
 ### *2.* Generate an API token
 
-Visit <a target="_blank" href="http://www.optimizely.com/tokens">optimizely.com/tokens</a> to generate a API token, which you'll need to authenticate with the API.
+Visit <a target="_blank" href="https://app.optimizely.com/tokens">app.optimizely.com/tokens</a> to generate a API token, which you'll need to authenticate with the API.
 
 *Note:* If you didn't create your own developer account you'll need to make sure you have Administrator or Project Owner permissions to generate a token.  If you don't have permissions, ask your Administrator or Project Owner to generate a token for you.
 
