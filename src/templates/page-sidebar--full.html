@@ -8,6 +8,13 @@
     {% include 'partials/_nav.html' %}
 
     <div id="content" class="content">
+      <div class="sidebyside-toggles push-double--sides push--ends">
+        <ul class="lego-nav unstyled">
+          <li><a class="toggle" href="#" data-toggle="curl">CURL</a></li>
+          <li class="flush"><a class="toggle" href="#" data-toggle="interactive">Interactive Mode</a></li>
+        </ul>
+      </div>
+
       {{ body | safe }}
     </div>
   </main>

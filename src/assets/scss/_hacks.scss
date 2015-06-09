@@ -26,10 +26,20 @@ ul {
   }
 }
 
-.sample {
+.code-container {
   background-color: #00415D;
+  position: relative;
 
   pre code {
     border: 0;
+  }
+
+  h4 {
+    color: white;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    opacity: 0.5;
+    text-transform: uppercase;
   }
 }

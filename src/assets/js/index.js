@@ -5,7 +5,6 @@
 hljs.initHighlightingOnLoad();
 
 var smoothScroll = require('smooth-scroll');
-// var sandbox = require('./sandbox.js');
 var each = [].forEach;
 var some = [].some;
 
@@ -193,3 +192,31 @@ each.call(collapsers, function(collapser) {
 
 // Start experimenting with the sandbox.
 // console.log(sandbox);
+var toggleContainer = body.querySelector('.sidebyside-toggles');
+var allToggleSections = body.querySelectorAll('[data-toggle-section]');
+var toggles = toggleContainer.querySelectorAll('.toggle');
+var toggleClass = 'visible';
+each.call(toggles, function(elm) {
+  elm.addEventListener('click', function(e) {
+    e.preventDefault();
+    var toggleSectionId = e.target.getAttribute('data-toggle');
+
+    // Remove visible class from all toggle sections.
+    each.call(allToggleSections, function(el) {
+      el.classList.remove(toggleClass);
+    });
+
+    // Add visible class to toggle sections that have a matching id.
+    var sectionsToToggle = body.querySelectorAll('[data-toggle-section="' + toggleSectionId + '"]');
+    each.call(sectionsToToggle, function(el) {
+      el.classList.add(toggleClass);
+    });
+  });
+});
+
+var ZeroClipboard = require('zeroclipboard');
+window.ZeroClipboard = ZeroClipboard;
+
+var sandbox = require('./sandbox.js');
+
+// console.log(toggles);

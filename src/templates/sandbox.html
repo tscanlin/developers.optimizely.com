@@ -1,0 +1,38 @@
+<div class="push-quad--top">
+  <div class="input-group interactive">
+    <span class="input-group-addon">{{ type }}</span>
+    <span class="input-group-addon input-group-addon-extra" id="{{ anchor }}-sandbox-endpoint-prefix">{{ endpoint_prefix }}</span>
+    {% if endpoint_option %}
+    <input type="text" class="form-control" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
+    {% else %}
+    <input type="text" class="form-control" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
+    {% endif %}
+    {% if endpoint_suffix %}
+    <span class="input-group-addon input-group-addon-extra" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
+    {% else %}
+    <span class="input-group-addon input-group-addon-extra hidden" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
+    {% endif %}
+  </div>
+  <div>
+    <a class="btn btn-success sandbox_run" id="{{ anchor }}-sandbox">Run Request</a>
+  </div>
+  <div>
+    <div class="sandbox-code" id="{{ anchor }}-sandbox-request">
+      <h4>Raw Request</h4>
+      <a class="btn btn-success pull-right copy-btn" id="{{ anchor }}-sandbox-copy-btn" data-clipboard-target="{{ anchor }}-sandbox-raw-request">Copy</a>
+      <pre><code class="bash" id="{{ anchor }}-sandbox-raw-request"></code></pre>
+    </div>
+    <div class="sandbox-code" id="{{ anchor }}-sandbox-status">
+      <h4>Response Status</h4>
+      <pre style="color:white;"></pre>
+    </div>
+    <div class="sandbox-code" id="{{ anchor }}-sandbox-headers">
+      <h4>Response Headers</h4>
+      <pre style="color:white;"></pre>
+    </div>
+    <div class="sandbox-code" id="{{ anchor }}-sandbox-response">
+      <h4>Request Output</h4>
+      <pre class="response-scroll"><code class="json"></code></pre>
+    </div>
+  </div>
+</div>

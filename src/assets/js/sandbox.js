@@ -1,3 +1,15 @@
+/*eslint-disable */
+
+// This replaces underscore templates (_.template)
+String.prototype.format = function() {
+  var formatted = this;
+  for (var i = 0; i < arguments.length; i++) {
+      var regexp = new RegExp('\\{'+i+'\\}', 'gi');
+      formatted = formatted.replace(regexp, arguments[i]);
+  }
+  return formatted;
+};
+
 OptimizelyAPI = function(token) {
   this.outstandingRequests = 0;
   this.token = token;
@@ -46,19 +58,17 @@ OptimizelyAPI.prototype.put = function(endpoint, data, success_callback, complet
   this.call('PUT', endpoint, data, success_callback, complete_callback);
 }
 
-var curlGetTemplate = _.template(
-  'curl \\\n\
-    -H "Token: <%- token %>" \\\n\
-    -X GET "https://www.optimizelyapis.com/experiment/v1/<%- endpoint %>"'
-)
+var curlGetTemplate = 'curl \\\n\
+    -H "Token: {0}" \\\n\
+    -X GET "https://www.optimizelyapis.com/experiment/v1/{1}"';
 
-var curlDataTemplate = _.template(
-  'curl \\\n\
-    -H "Token: <%- token %>" \\\n\
-    <%- headers %> \\\n\
-    <%- data %> \\\n\
-    -X <%- method %> "https://www.optimizelyapis.com/experiment/v1/<%- endpoint %>"'
-)
+// var curlDataTemplate = _.template(
+//   'curl \\\n\
+//     -H "Token: <%- token %>" \\\n\
+//     <%- headers %> \\\n\
+//     <%- data %> \\\n\
+//     -X <%- method %> "https://www.optimizelyapis.com/experiment/v1/<%- endpoint %>"'
+// )
 
 var showTokenError = function() {
   $('#apiTokenFormGroup').addClass('has-error');
@@ -70,8 +80,8 @@ var showTokenError = function() {
 
 $(document).ready(function() {
   var clip = new ZeroClipboard($('.copy-btn'), {
-      moviePath: '/images/zeroclipboard.swf',
-      forceHandCursor: true,
+      // moviePath: '/images/zeroclipboard.swf',
+      // forceHandCursor: true,
   });
 
   $('#sandbox_token').on('blur', function() {
@@ -104,7 +114,7 @@ $(document).ready(function() {
                  $('#' + id + '-endpoint-option').val() +
                  $('#' + id + '-endpoint-suffix').text();
 
-      var highlightedResponse = hljs.highlightAuto(curlGetTemplate({token: optly.token, endpoint: path})).value;
+      var highlightedResponse = hljs.highlightAuto(curlGetTemplate.format(optly.token, path));
       requestDiv.find('code').html(hljs.fixMarkup(highlightedResponse));
       requestDiv.show();
 
@@ -127,3 +137,4 @@ $(document).ready(function() {
 });
 
 module.exports = OptimizelyAPI;
+/*eslint-enable */
