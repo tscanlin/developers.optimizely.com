@@ -7,7 +7,7 @@ title: "Overview"
 
 *This site contains resources for developers who want to extend and integrate with Optimizely in new ways.*
 
-While you can get Optimizely up and running without writing code, many companies require a custom optimization solution that isn't provided by Optimizely out of the box. This site describes what you can do with the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
+While you can get Optimizely up and running without writing code, many companies require a custom optimization solution that isn't provided by Optimizely out-of-the-box. This site describes what you can do with the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
 
 <img src="../../assets/img/optimizely-experience-architecture.svg">
 
@@ -27,7 +27,7 @@ Create free account
 
 ### Developer support
 
-If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). You can also post on our [developer discussion group](http://community.optimizely.com/t5/Developers/bd-p/Developers) on Optiverse. We're always interested to learn about your needs and happy to help walk you through how to use our APIs and SDKs.
+If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). You can also post on our [developer discussion group](http://community.optimizely.com/t5/Developers/bd-p/Developers) on Optiverse. We're eager to hear your feedback and happy to help walk you through how to use our APIs and SDKs.
 
 ### Contributions
 
@@ -37,7 +37,7 @@ This site is open source and we welcome contributions from the non-Optimizely de
 
 Below are some common use cases of Optimizely for developers, and pointers to the relevant resources to get started.
 
-### Custom Implementations
+### Custom implementations
 
 Many Optimizely customers want to run more advanced tests and personalized experiences that are not possible in Optimizely's out of the box solution. Below are some common customizations that we've seen from our customers.
 
@@ -53,12 +53,12 @@ Many Optimizely customers want to run more advanced tests and personalized exper
 
 (many more things, to be determined by SA team)
 
-### Technology Integrations
+### Integrations
 
 Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) to make it easy to exchange data between Optimizely and other tools. In addition, our customers often build custom integrations with 3rd parties or their own internal tools. If you are a partner or customer looking to build an integration, please use the following resources to get started.
 
-####*Analytics integrations*
-An analytics integration is an integration where Optimizely sends information to a different tool. In other words: an Analytics integration is "data out". The data that is send in the most conventional integrations is which experiments and variations a visitor has been bucketed in. For every page a visitor visits, the Optimizely Javascript is  is used to determine if an experiment is running on that page and in which variation the visitor is bucketed. That information is used to send to an Analytics platform.
+####*Analytics*
+An analytics integration is an integration where Optimizely sends information to a different tool, usually including what experiments and variations a visitor has been bucketed in. For every page a visitor visits, the Optimizely JavaScript API is used to determine if an experiment is running on that page and in which variation the visitor is bucketed. That information is then passed along to an analytics platform.
 #####Examples
 * [Google Analytics](https://help.optimizely.com/hc/en-us/articles/200039995)
 * [Adobe Analytics](https://help.optimizely.com/hc/en-us/articles/200039985)
@@ -90,24 +90,24 @@ List targeting integrations are in terms of functionality quite similar to Audie
 
 
 
-####*CMS integrations (headline testing)*
-A CMS integration is an integration that allows users of a CMS to easily set up experiments from the CSM without seeing the Optimizely tool. An example use case is the website of a newspaper. The editors of the newspaper might want to try out different headlines for articles or want to test images and derive learnings from those experiments for future articles. Instead of learing all the editors how to use Optimizely, this plugin allows the editors to easily set up an experiment with 2 headlines for example:
-![headline testing](https://help.optimizely.com/hc/en-us/article_attachments/201826977/Screen_Shot_2015-05-20_at_9.41.51_AM.png)
+####*Headline testing*
+A CMS integration is an integration that allows users of a CMS to easily set up experiments from a CMS without having to log into Optimizely. An example use case is the website of a newspaper. The editors of the newspaper might want to try out different headlines for articles or want to test images and derive learnings from those experiments for future articles.
+
 #####Examples
 
 * [Headline testing](https://help.optimizely.com/hc/en-us/articles/200040505-Implementing-Optimizely-on-a-CMS-or-e-commerce-platform)
-* [Wordpress headline testing](https://help.optimizely.com/hc/en-us/articles/205331897#headline)
+* [WordPress headline testing](https://help.optimizely.com/hc/en-us/articles/205331897#headline)
 
-####*Snippet insertion*
-There is a wide range of tools that have the ability to insert the Optimizely snippet. An obvious example is a tag managments solution, but most CMS systems or eCommerce platforms will be able to do it as well. 
+####*Snippet implementation*
+There is a wide range of tools that have the ability to insert the Optimizely snippet. An obvious example is a tag management solution, but most CMS systems or e-commerce platforms will be able to do it as well. 
 #####Examples
 
 * [Tealium](https://help.optimizely.com/hc/en-us/articles/203491910#enable)
 * [Wordpress snippet insertion](https://help.optimizely.com/hc/en-us/articles/205331897#plugin)
 
 
-####*Offline conversion integrations (calltracking)*
-When a goal is triggered on a webpage, a request is send to our servers. That requests creates a conversion and will later be reflected on the results page. A similar request can also be triggered from other places than the website, if that happens we call it a "offline conversion". In other words, a conversion that wasn't generated on the same medium where the experiment is running. A common use case is call tracking. For some customers an incoming call is an important conversion to track, more than conversions that happen on the web or in an app. Calltracking solutions often have the ability to set up a whebhook that is triggered when a call comes in or when a call is being answered. With the right information, this webhook can be used to create a conversion in an Optimizely report.
+####*Offline conversions*
+When a goal is triggered on a webpage, a request is sent to our servers. That request creates a conversion and will later be reflected on the results page. A similar request can also be triggered from other places than the website, if that happens we call it a "offline conversion". In other words, a conversion that wasn't generated on the same medium where the experiment is running. A common use case is call tracking. For some customers an incoming call is an important conversion to track, more than conversions that happen on the web or in an app. Calltracking solutions often have the ability to set up a whebhook that is triggered when a call comes in or when a call is being answered. With the right information, this webhook can be used to create a conversion in an Optimizely report.
 
 #####Examples
 
@@ -140,7 +140,7 @@ An offline conversion needs the following pieces of information:
 2. -->
 
 
-### Mobile App A/B Testing
+### Mobile testing
 
 Optimizely includes an [A/B testing solution](http://optimizely.com/mobile) for native iOS and Android apps. If you are looking at implementing Optimizely in your app for the first time, check out our [iOS getting started guide](/ios/guide) and [Android getting started guide](/android/guide), which contain detailed instructions for installing the Optimizely SDK and running your first experiment.
 
@@ -154,19 +154,19 @@ Below is a typical workflow for a customer running an experiment with Optimizely
 
 #### *1. Create an experiment*
 
-An *experiment* is a campaign run by Optimizely on either a website or a mobile app to determine the impact of a change. An experiment could be an A/B test or a multivariate test. Customers can configure how much traffic they'd like to allocate to their experiment.
+An *experiment* is a campaign run by Optimizely on either a website or a mobile app to determine the impact of a change. An experiment could be an A/B test, multivariate test, or a multi-page test ([learn more](https://help.optimizely.com/hc/en-us/articles/200039785)). Customers can configure how much traffic they'd like to allocate to their experiment.
 
 #### *2. Create one or more variations*
 
-In any given experiment, customers can create one or more *variations*, that contain alternative content changes they'd like to test. Technically speaking, a variation is just a snippet of jQuery code that runs in a user's browser that renders the page differently. Variations can be created using Optimizely's [visual editor](#) or using the [edit code](#).
+In any given experiment, customers can create one or more *variations*, that contain alternative changes they'd like to test. Technically speaking, a variation is just a snippet of code that runs in a user's browser that renders the page differently (or a screen in the case of a native mobile app). Variations can be created using Optimizely's [visual editor](#) or using the [edit code](#) feature.
 
-#### *3. Create a target audience*
-
-Customers can filter what type of traffic they'd like to include in an experiment using an *audience*. An audience is just a set of AND/OR conditions about a user (e.g. browser type, geography, query parameters) that can be evaluated in real-time when a user visits a web page or mobile app. Audiences can be saved and re-used for other experiments.
-
-#### *4. Create a goal*
+#### *3. Create a goal*
 
 Customers must define at least one *goal* for their experiment, i.e. a metric they'd like to track for the success of the experiment. Experiments can have an arbitrary number of goals but just one *primary goal*. Optimizely customers can define click goals or pageview goals using the goal creation dialog, or they can create *custom events* that are goals defined through code. Any goals that are defined for an experiment are tracked in the Optimizely backend over the lifetime of the experiment.
+
+#### *4. Create a target audience*
+
+Customers can filter what type of traffic they'd like to include in an experiment using an *audience*. An audience is just a set of AND/OR conditions about a user (e.g. browser type, geography, query parameters) that can be evaluated in real-time when a user visits a web page or mobile app. Audiences can be saved and re-used for other experiments.
 
 #### *5. Start the experiment*
 
