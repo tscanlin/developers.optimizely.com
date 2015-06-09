@@ -84,7 +84,7 @@ $(document).ready(function() {
       // forceHandCursor: true,
   });
 
-  $('#sandbox_token').on('blur', function() {
+  $('#api_token').on('blur', function() {
     optly = new OptimizelyAPI($(this).val());
     if (!optly.token) {
       showTokenError();

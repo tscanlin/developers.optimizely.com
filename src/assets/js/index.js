@@ -217,6 +217,6 @@ each.call(toggles, function(elm) {
 var ZeroClipboard = require('zeroclipboard');
 window.ZeroClipboard = ZeroClipboard;
 
-var sandbox = require('./sandbox.js');
-
+var optimizelyApi = require('./optly-api.js');
+window.optimizelyApi = optimizelyApi;
 // console.log(toggles);

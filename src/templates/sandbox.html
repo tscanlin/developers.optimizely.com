@@ -1,11 +1,11 @@
-<div class="push-quad--top">
-  <div class="input-group interactive">
-    <span class="input-group-addon">{{ type }}</span>
-    <span class="input-group-addon input-group-addon-extra" id="{{ anchor }}-sandbox-endpoint-prefix">{{ endpoint_prefix }}</span>
+<div class="push-quad--top white">
+  <div class="gamma">
+    <span>{{ type }}</span>
+    <span id="{{ anchor }}-sandbox-endpoint-prefix">{{ endpoint_prefix }}</span>
     {% if endpoint_option %}
-    <input type="text" class="form-control" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
+    <input type="text" class="lego-text-input width-200" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
     {% else %}
-    <input type="text" class="form-control" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
+    <input type="text" class="lego-text-input width-200" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
     {% endif %}
     {% if endpoint_suffix %}
     <span class="input-group-addon input-group-addon-extra" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
@@ -14,12 +14,12 @@
     {% endif %}
   </div>
   <div>
-    <a class="btn btn-success sandbox_run" id="{{ anchor }}-sandbox">Run Request</a>
+    <a class="lego-button lego-button--highlight sandbox_run" id="{{ anchor }}-sandbox">Run Request</a>
   </div>
-  <div>
+  <div class="soft-double--top">
     <div class="sandbox-code" id="{{ anchor }}-sandbox-request">
       <h4>Raw Request</h4>
-      <a class="btn btn-success pull-right copy-btn" id="{{ anchor }}-sandbox-copy-btn" data-clipboard-target="{{ anchor }}-sandbox-raw-request">Copy</a>
+      <a class="lego-button lego-button--highlight float--right copy-btn" id="{{ anchor }}-sandbox-copy-btn" data-clipboard-target="{{ anchor }}-sandbox-raw-request">Copy</a>
       <pre><code class="bash" id="{{ anchor }}-sandbox-raw-request"></code></pre>
     </div>
     <div class="sandbox-code" id="{{ anchor }}-sandbox-status">
