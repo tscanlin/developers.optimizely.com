@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Polling - meta tag data
+title: Polling - Meta Tag Data
 anchor: conditional-activation-meta-tag
 html: |
   <meta name="keywords" content="movies,games,videos,photos"/>

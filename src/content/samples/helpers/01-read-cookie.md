@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Read cookie
+title: Read Cookie
 anchor: helpers-read-cookie
 js: |
   /*

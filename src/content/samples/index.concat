@@ -3,12 +3,11 @@ template: page-sidebar--wider
 title: "Code Samples"
 sections:
 - introduction
-- event-tracking
-- targeting
+- advanced-goal-tracking
+- advanced-targeting
+- advanced-use-cases
 - conditional
-- variation-code
-- single-page-applications
-- advanced
 - technology-integrations
+- single-page-applications
 - helpers
 ---

@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Helper functions
+title: Helper Functions
 anchor: helpers
 ---
 

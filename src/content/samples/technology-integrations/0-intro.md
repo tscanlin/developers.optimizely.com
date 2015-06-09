@@ -1,5 +1,5 @@
 ---
 template: inline
-title: Integrations
+title: Technology Integrations
 anchor: technology-integrations
 ---

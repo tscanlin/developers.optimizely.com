@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Analytics
+title: Send Optimizely data to analytics
 anchor: technology-integrations-analytics
 ---
 The most relevant data that Optimizely has about a visitor is which experiment a visitor has seen and which variation a visitor was bucketed in. These steps will explain how to abstract that data and send it to a different system.

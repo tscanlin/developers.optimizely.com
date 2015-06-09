@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Single page apps
+title: Single Page Applications
 anchor: single-page-apps
 ---
 

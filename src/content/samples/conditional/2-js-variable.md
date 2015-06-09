@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Polling - JavaScript variable
+title: Polling - JavaScript Variable
 anchor: conditional-activation-js-variable
 js: |
   /*

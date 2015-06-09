@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Headline testing
+title: Test headlines
 anchor: technology-integrations-cms
 ---
 
