@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Function - AJAX Response
+title: Function - AJAX response
 anchor: conditional-activation-ajax-complete
 js: |
   /*

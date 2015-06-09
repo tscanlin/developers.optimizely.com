@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Function - Angular Page Change
+title: Function - Angular page change
 anchor: conditional-activation-angular-page-change
 js: |
   /*

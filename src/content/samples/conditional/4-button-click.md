@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Function - Button Click
+title: Function - Button click
 anchor: conditional-activation-button-click
 js: |
   /*

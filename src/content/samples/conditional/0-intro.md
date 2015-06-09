@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Conditional Activation
+title: Conditional activation
 anchor: conditional
 js: |
 

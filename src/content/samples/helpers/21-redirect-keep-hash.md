@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Redirect - Hash Parameter
+title: Redirect - Hash parameter
 anchor: helpers-keep-hash
 js: |
 

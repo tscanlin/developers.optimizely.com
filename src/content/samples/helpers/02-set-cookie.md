@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Set Cookie
+title: Set cookie
 anchor: helpers-set-cookie
 js: |
    /*

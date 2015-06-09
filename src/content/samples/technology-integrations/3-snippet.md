@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Automatic Snippet Implementation
+title: Snippet implementation
 anchor: technology-integrations-snippet
 ---
 
