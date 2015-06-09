@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Target Visitors Based On Screen Sizes
+title: Target Visitors Based On Screen Size
 anchor: screen-sizes
 js: |
   /*

@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Redirect - Add query parameter to URL
+title: Redirect - Query Parameter
 anchor: helpers-add-query-param
 js: |
 

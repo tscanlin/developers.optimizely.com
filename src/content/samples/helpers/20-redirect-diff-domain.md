@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Redirect - Same path on different domain
+title: Redirect- Same Path Different Domain
 anchor: helpers-diff-domain
 js: |
 
