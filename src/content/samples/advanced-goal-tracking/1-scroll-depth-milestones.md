@@ -49,4 +49,4 @@ js: |
     });
 ---
 
-This function polls for an element on the page every 50ms that matches a specified selector.  This is useful when you want to modify an element that is not injected into the DOM until shortly after the document is ready (ie, `$(document).ready()`).
+This function checks after each scroll event to see if a visitor has achieved certain scroll depth milestones. In the case of this example, custom events will be fired off when a visitor scrolls 25%, 50%, 75%, and 100% of the way down the page. Within the goals menu, you'll need to create custom event goals that correspond to the events below (e.g. "scroll25" for scrolling 25% of the way down the page).

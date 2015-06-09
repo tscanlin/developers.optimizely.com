@@ -13,7 +13,8 @@ js: |
    var eventName = [YOUR_EVENT_NAME];  //provide the custom event name
 
    $('html').delegate(selector, 'mousedown touchend', function() {
-     window.optimizely.push(['trackEvent', eventName]);
+     window['optimizely'] = window['optimizely'] || [];
+     window.optimizely.push(["trackEvent", "eventName"]);
    });
 
 ---

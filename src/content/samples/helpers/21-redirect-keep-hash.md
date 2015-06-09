@@ -1,7 +1,7 @@
 ---
 template: inline
-title: Redirect - Keep hash parameter
-anchor: helpers-keep hash
+title: Redirect - Hash Parameter
+anchor: helpers-keep-hash
 js: |
 
   /*

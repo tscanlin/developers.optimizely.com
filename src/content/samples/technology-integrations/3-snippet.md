@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Implement the Optimizely snippet automatically
+title: Automatic Snippet Implementation
 anchor: technology-integrations-snippet
 ---
 

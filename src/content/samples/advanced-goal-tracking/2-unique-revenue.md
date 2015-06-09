@@ -177,7 +177,4 @@ js: |
         }
     }   
 ---
-
-Whelan to add usage background/context here.
-
-Typically, you want to track revenue after your checkout or billing detail form has been successfully submitted to avoid sending revenue totals to Optimizely for invalid purchases. Additionally, you want to avoid triggering the Revenue goal on the click of a button. This is because a visitor may click the button several times due to validation errors, and the revenue totao would be sent to Optimizely on each click.
+Typically, you want to track revenue after your checkout or billing detail form has been successfully submitted to avoid sending revenue totals to Optimizely for invalid purchases. Additionally, you want to avoid triggering the Revenue goal on the click of a button. This is because a visitor may click the button several times due to validation errors, and the revenue total would be sent to Optimizely on each click.
