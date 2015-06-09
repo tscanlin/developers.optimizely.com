@@ -1,6 +1,6 @@
 ---
 template: inline
-title: Getting Results via API
+title: Experiment results
 anchor: results
 ---
 To illustrate how to [get experiment results](/rest/#get-results) via the REST API, we've built a basic web application that gets the top-level results for the active experiments in a project.  This code sample walks through all of the REST API calls that are used by the web application.

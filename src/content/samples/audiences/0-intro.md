@@ -1,7 +1,7 @@
 ---
 template: inline
-title: Creating Audiences via API
-anchor: dmp
+title: Audiences
+anchor: audiences
 ---
 If you have data about the visitors to a site, you can use our platform to group those visitors into Optimizely Audiences. This makes it easy to target content to different audiences and segment experiment results.
 
