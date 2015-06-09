@@ -1,0 +1,8 @@
+---
+template: inline
+title: Creating Audiences via API
+anchor: dmp
+---
+If you have data about the visitors to a site, you can use our platform to group those visitors into Optimizely Audiences. This makes it easy to target content to different audiences and segment experiment results.
+
+In this example, we'll show how a data management platform could connect to Optimizely to create audiences and assign visitors to them on the fly. In this case, we'll use the REST API to create a "Truck Shoppers" audience, and then we'll use the Javascript API to assign visitors to it whenever their cookie indicates they're in the market for a truck.
