@@ -3,6 +3,8 @@ template: page-sidebar
 title: "Optimizely REST API Guide"
 ---
 
+# Getting started with Optimizely's REST API
+
 Get started with the REST API in 5 minutes by following the instructions below:
 
 ### *1.* Create an Optimizely account

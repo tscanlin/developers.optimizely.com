@@ -5,8 +5,7 @@ title: "Optimizely Android SDK FAQs"
 
 # <a name="FAQ"></a>Optimizely Android SDK FAQs
 
-You can find the General Optimizely's Mobile SDK FAQ in our Optiverse:
-[General FAQ](https://help.optimizely.com/hc/en-us/articles/201893400)
+See [General Mobile FAQs](https://help.optimizely.com/hc/en-us/articles/201893400) in our Optiverse.
 
 **<a name="negativesize"></a>Q: Why are there negative values (-1, -2) for width and height in the Visual Editor?**
 
@@ -59,8 +58,6 @@ A: The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/
 **<a name="permissions"></a>Q: Does the Optimizely SDK require any permissions?**
 
 A: The Optimizely SDK only requires the [INTERNET](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET) permission.
-
-## <a name="troubleshooting"></a>Troubleshooting
 
 **<a name="cantseeappineditor"></a>Q: My device is running the app but I can't see it in the editor.**
 

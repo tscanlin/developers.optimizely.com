@@ -1,8 +1,8 @@
 ---
 template: page-sidebar
-title: "Optimizely JavaScript API FAQs"
+title: "Optimizely JS API FAQs"
 ---
 
-## Javascript Examples
+# Optimizely JS API FAQs
 
-Examples go here.
+Coming soon! In the meantime, refer to our [general product FAQs](https://help.optimizely.com/hc/en-us/articles/200904580).

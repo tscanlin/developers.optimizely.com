@@ -1,9 +1,11 @@
 ---
 template: page-sidebar
-title: "Optimizely JavaScript API Reference"
+title: "Optimizely JS API Reference"
 ---
 
-Below is a full reference for the JavaScript API.
+# Optimizely JS API Reference
+
+Below is a full reference for the JavaScript API, including the [The Data Object](#the-data-object) and [API Function Calls](#api-function-calls).
 
 ## The Data Object
 
@@ -425,41 +427,6 @@ window['optimizely'].push(["log"]);
 
 You can also do this by using the query parameter `optimizely_log=true`.
 
-### Universal User ID (Beta)<a name="uuid"></a>
-
-Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will re-bucket visitors in all experiments so that visitors will see the same variation across devices and platforms. We will store this identifier in a cookie and continue to use it until a new one is set.
-
-Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID (cookie) and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
-
-```javascript
-window['optimizely'] = window['optimizely'] || [];
-window['optimizely'].push(["setUserId", myHashedEmail]);
-```
-
-*This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
-
-<div class="lego-attention lego-attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
-
-### Visitor Opt Out
-
-Opt a visitor out of Optimizely tracking. For example, you may want to opt visitors out of Optimizely tracking as part of your site's broader opt-out preferences.
-
-```javascript
-window['optimizely'] = window['optimizely'] || [];
-window['optimizely'].push(["optOut"]);
-```
-
-You can also do this by using the query parameter `optimizely_opt_out=true`.
-
-### 3rd Party Cookie Opt Out
-
-Disable Optimizely's 3rd party cookies. You must call "optOutThirdPartyCookies" prior to loading the Optimizely snippet. This will prevent cross-domain visitor bucketing and measurement. For more information on Optimizely's use of cookies, please see our [Knowledge Base](https://help.optimizely.com/hc/en-us/articles/200040335).
-
-```javascript
-window['optimizely'] = window['optimizely'] || [];
-window['optimizely'].push(["optOutThirdPartyCookies"]);
-```
-
 ### Set Cookie Expiration
 
 Specify the number of days before the Optimizely visitor cookies will be set to expire. You must call "setCookieExpiration" prior to loading the Optimizely snippet. The minimum number of days that can be set is 90 (approximately 3 months). For more information on how Optimizely uses cookies, visit our [Learning Center](https://help.optimizely.com/hc/en-us/articles/200040335).
@@ -483,6 +450,15 @@ window['optimizely'].push(["setCookieDomain", "www.example.com"]);
 ```
 
 In this example, the cookies Optimizely sets will be available only on ".www.example.com", ("www.example.com" and all of its subdomains), rather than on ".example.com", which is the default.
+
+### Third Party Cookie Opt Out
+
+Disable Optimizely's 3rd party cookies. You must call "optOutThirdPartyCookies" prior to loading the Optimizely snippet. This will prevent cross-domain visitor bucketing and measurement. For more information on Optimizely's use of cookies, please see our [Knowledge Base](https://help.optimizely.com/hc/en-us/articles/200040335).
+
+```javascript
+window['optimizely'] = window['optimizely'] || [];
+window['optimizely'].push(["optOutThirdPartyCookies"]);
+```
 
 ### Track Element
 
@@ -526,6 +502,32 @@ window['optimizely'].push(["trackEvent", "eventName", {"revenue": valueInCents}]
 window['optimizely'].push(["trackEvent", "purchase", {"revenue": 2395}]);
 ```
 
+### Universal User ID (Beta)<a name="uuid"></a>
+
+Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will re-bucket visitors in all experiments so that visitors will see the same variation across devices and platforms. We will store this identifier in a cookie and continue to use it until a new one is set.
+
+Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID (cookie) and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
+
+```javascript
+window['optimizely'] = window['optimizely'] || [];
+window['optimizely'].push(["setUserId", myHashedEmail]);
+```
+
+*This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
+
+<div class="lego-attention lego-attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
+
+### Visitor Opt Out
+
+Opt a visitor out of Optimizely tracking. For example, you may want to opt visitors out of Optimizely tracking as part of your site's broader opt-out preferences.
+
+```javascript
+window['optimizely'] = window['optimizely'] || [];
+window['optimizely'].push(["optOut"]);
+```
+
+You can also do this by using the query parameter `optimizely_opt_out=true`.
+
 <a name="segments"></a>
 ### Visitor Segments
 
@@ -553,3 +555,9 @@ To remove a visitor from all segments, use:
 ```javascript
 window['optimizely'].push(['removeFromAllSegments']);
 ```
+
+<a name="changelog"></a>
+## Changelog
+* **August 14, 2014**: Geo-targeted experiments for which visitor geo data is locally cached now activate immediately, rather than waiting for DOM.ready().
+* **November 17, 2014**: New API call to set a [Universal User ID](#uuid).
+

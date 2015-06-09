@@ -2,7 +2,7 @@
 template: page-sidebar
 title: "Optimizely iOS SDK Guide"
 ---
-#Getting Started with Optimizely's iOS SDK
+#Getting started with Optimizely's iOS SDK
 ## <a name="Key Documentation"></a> SDK Download
 [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
 
@@ -12,7 +12,7 @@ title: "Optimizely iOS SDK Guide"
 
 The following SDK Install Steps will allow you to install the SDK and run experiments with Optimizely's Visual Editor.
 
-### <a name="accountcreation"></a> 1. Create an iOS Project
+### <a name="accountcreation"></a> *1.* Create an iOS Project
 
 To create an iOS project, select "Create New Project" in the [Optimizely Dashboard](https://www.optimizely.com/dashboard):
 
@@ -22,7 +22,7 @@ To create an iOS project, select "Create New Project" in the [Optimizely Dashboa
 
 <img src="/assets/img/ios/project-code.png" alt="Project Code Dialog">
 
-### <a name="installation"></a> 2. SDK Integration
+### <a name="installation"></a> *2.* SDK Integration
 To use Optimizely's iOS SDK you must first integrate the SDK into your app. You can either install the Optimizely SDK using [CocoaPods](#cocoapods) (recommended) or via [Manual Installation](#manualinstall).  Our SDK supports iOS 7.0 and above.  We have partial support of Swift with [limited functionality](https://help.optimizely.com/hc/en-us/articles/201893400#swift).
 
 #### <a name="cocoapods"></a> Using CocoaPods
@@ -61,7 +61,7 @@ For new installations, please follow all steps. For upgrades, please follow step
 <br  />
 3. <a name="objc"></a>Switch to the "Build Settings" tab. Add `-ObjC` to the "Other Linker Flags" build setting.
 
-### <a name="apitoken"></a> 3. Add Your API token
+### <a name="apitoken"></a> *3.* Add Your API token
 1. Now, you're ready to write some code!  Include this file at the top of your `AppDelegate` class implementation. This is usually found in a file called `AppDelegate.m` in the Project Navigator.
 
 	```objective-c
@@ -115,10 +115,10 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
             [Optimizely enableGestureInAppStoreApp];
          ```
 
-### <a name="createexperiment"></a> 4. Create an Experiment
+### <a name="createexperiment"></a> *4.* Create an Experiment
 After creating an iOS project and installing the SDK, reference [this guide in our Knowledge Base](https://help.optimizely.com/hc/en-us/articles/202296994), which will walk you through how to set up an experiment.
 
-### <a name="qa"></a> 5. QA
+### <a name="qa"></a> *5.* QA
 Now that you've created an experiment and successfully installed the Optimizely iOS SDK, below is a checklist to go through prior to releasing your app to the app store with the SDK:
 
 1. In order to set up your app such that you can QA experiments (beyond using Preview), we recommend either having a separate [Project](#accountcreation) for development and production or inserting [Custom Tags](#customtags), that are only set for certain QA devices.  If you decide to go with setting up 2 separate projects, we recommend setting up an `#ifdef` to ensure that only one project code snippet is defined at any given time.
