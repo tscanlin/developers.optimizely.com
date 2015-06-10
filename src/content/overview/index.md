@@ -27,7 +27,7 @@ Create free account
 
 ### Developer support
 
-If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). You can also post on our [developer discussion group](http://community.optimizely.com/t5/Developers/bd-p/Developers) on Optiverse. We're eager to hear your feedback and happy to help walk you through how to use our APIs and SDKs!
+If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). You can also post on our [developer discussion group](http://community.optimizely.com/t5/Developers/bd-p/Developers) on Optiverse. We're happy to help and eager to hear your feedback.
 
 ### Contributions
 
@@ -182,7 +182,7 @@ Typically, an experiment is an *A/B test* that includes a control and one or mor
 
 In any given experiment, customers can create one or more *variations*, that contain alternative changes they'd like to test.
 
-Technically speaking, a variation is just a snippet of code that can be executed in a user's browser or app to render the experience differently. On the web, a variation consists of a snippet of jQuery code. Variations can be created using Optimizely's [visual editor](#) or using the [edit code](#) feature.
+Technically speaking, a variation is just a snippet of code that can be executed in a user's browser or app to render the experience differently. On the web, a variation consists of a snippet of jQuery code. Variations can be created using Optimizely's [visual editor](https://help.optimizely.com/hc/en-us/articles/200039725) or using the [code editor](https://help.optimizely.com/hc/en-us/articles/200039835).
 
 * Learn how to [edit jQuery code in the Optimizely editor](https://help.optimizely.com/hc/en-us/articles/200039835)
 * Learn how to [register live variables](../ios/reference#-a-name-variables-a-register-live-variables) and [write code blocks](../ios/reference#-a-name-codeblocks-a-code-blocks) using the iOS SDK
@@ -229,21 +229,35 @@ On taking this action, Optimizely updates the *snippet* or *datafile* sent over 
 
 A customer can now see the results of their experiment in real-time by looking at the Optimizely results page.
 
-The results page contains how many visitors were assigned to each variation and the number of *conversions* over time, for each of the experiment goals that have been defined.
+The results page contains how many visitors were assigned to each variation and the number of *conversions* over time, for each of the experiment goals that have been defined. Customers can also apply *segmentation* to the results page based on dimensions and audiences that they have defined.
 
 * Learn how to [get the results of an experiment using the REST API](../rest/reference#stats)
 
+#### *7. Deploy winners*
+
+Customers can deploy winners by allocating 100% of their visitor traffic to the winning variation.
+
+* Learn how to [change traffic allocation using the REST API](../rest/reference#experiments)
+
 ### Life of a visitor
 
-Below is what happens when a visitor comes to a web page or mobile app that is running Optimizely.
+Check out the following articles for a detailed overview of Optimizely's execution on web sites and mobile apps:
 
-TODO: expand this with links and also refer to the existing articles in the KB.
+* [How Optimizely Works: Snippet order of execution, JavaScript evaluation timing, and cookies](https://help.optimizely.com/hc/en-us/articles/200040335)
+* [How Optimizely's SDKs Work: SDK Order of execution, experiment activation, and goals](https://help.optimizely.com/hc/en-us/articles/205014107)
 
-#### *1. Evaluate audiences*
+The execution of Optimizely can be summarized in the steps below.
+
+#### *1. Evaluate targeting conditions*
 
 The first thing Optimizely does is it collects information about the visitor, to determine what audiences that visitor is a part of.
 
-#### *2. Bucket experiments*
+* Learn how to [write custom targeting criteria in JavaScript](/samples#custom-js)
+* Learn how to [manually assign a visitor to an audience on a web page](../javascript/reference#audiences)
+* Learn how to [create custom targeting conditions in an iOS app](../ios/reference#-a-name-targeting-a-custom-targeting)
+* Learn how to [create custom targeting conditions in an Android app](../ios/reference#-a-name-targeting-a-custom-targeting)
+
+#### *2. Assign experiments*
 
 Next, Optimizely determines what experiment(s) (if any) should be shown to the user. This decision is based on what audiences the visitor is in, random traffic allocation, and any additional experiment targeting criteria.
 
@@ -251,10 +265,20 @@ Next, Optimizely determines what experiment(s) (if any) should be shown to the u
 
 If the visitor has been bucketed into an experiment, Optimizely decides which variation should be shown to the visitor using random assignment, according to the relative traffic allocation specified by the customer.
 
+* Learn how to [assign a visitor to a specific variation on a web page](/rest/reference#bucket-visitor)
+* Learn how to [send variation data to an analytics tool](/samples#technology-integrations-analytics)
+
 #### *4. Activate experiment*
 
 Optimizely runs the code for the chosen variation. By default, this is done before the page loads on a website to ensure that the visitor doesn't see flicker. However, many customers may want to activate an experiment after a page has loaded. For more information see conditional activation.
 
+* Learn how to [conditionally activate experiments using JavaScript](/samples#conditional)
+* Learn how to [manually activate experiments using JavaScript](/javascript/reference#activate)
+
 #### *5. Track events*
 
-Once the page or mobile app has been rendered to the user, Optimizely tracks events by sending information to the Optimizely backend. Besides event tracking, all of the steps below happen completely client-side (i.e. in the user's browser or mobile app).
+Once the page or mobile app has been rendered to the user, Optimizely tracks events by sending information to the Optimizely backend.
+
+* Learn how to [track custom events from a web browser](../javascript/reference#track-event)
+* Learn how to [track custom events from an iOS app](../ios/reference#-a-name-goaltracking-a-goal-tracking)
+* Learn how to [track custom events from an Android app](../android/reference#-a-name-goaltracking-a-goal-tracking)

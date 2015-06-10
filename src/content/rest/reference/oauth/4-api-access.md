@@ -1,7 +1,7 @@
 ---
 template: sidebyside
 title: Authentication
-anchor: authentication
+anchor: authentication-oauth
 curl: |
   curl \
     -H "Authorization: Bearer abcdefghijklmnopqrstuvwxyz" \
