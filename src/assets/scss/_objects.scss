@@ -21,7 +21,7 @@
   background-color: #082F40;
 }
 
-
+// On home page
 .section-box {
 	border: solid 1px rgba(0, 149, 231, 0.3);
 	border-radius: 5px;
@@ -31,6 +31,28 @@
 	&:hover {
 		border: solid 1px rgba(0, 149, 231, 1);
 	}
+}
+
+.sidebyside-toggles {
+  position: fixed;
+  margin-left: calc(50% - 160px);
+  width: calc(50% - 140px);
+  z-index: 1;
+
+  .token-link {
+    position: absolute;
+    right: 0;
+  }
+
+  .rounded-box {
+    border-radius: 5px;
+    margin-top: 5px;
+    max-width: 400px;
+  }
+
+  #api_token {
+    width: 95%;
+  }
 }
 
 // Toggle section
