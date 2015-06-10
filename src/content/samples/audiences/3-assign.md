@@ -1,6 +1,7 @@
 ---
 template: inline
 title: Assign visitors
+anchor: audiences-assign
 js: |
   window['optimizely'] = window['optimizely'] || [];
   window['optimizely'].push(["addToAudience", 85094]);

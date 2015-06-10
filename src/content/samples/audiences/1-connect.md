@@ -3,6 +3,7 @@ template: inline
 type: GET
 endpoint: projects/
 title: Connect a project
+anchor: audiences-connect
 response: |
   [
     {
