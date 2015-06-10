@@ -91,7 +91,6 @@ $(document).ready(function() {
   $('#api_token').on('blur', function() {
     var val = $(this).val();
     optimizelyApi = new OptimizelyAPI(val);
-    console.log(val, optimizelyApi.token);
     if (!optimizelyApi.token) {
       showTokenError();
     } else {
@@ -107,10 +106,10 @@ $(document).ready(function() {
       }
       var id = this.id;
       var requestDiv = $('#' + id + '-request'),
+          loaderDiv = $('#' + id + '-loader'),
           statusDiv = $('#' + id + '-status'),
           headerDiv = $('#' + id + '-headers'),
-          responseDiv = $('#' + id + '-response'),
-          copyBtnDiv = $('#' + id + '-copy-btn');
+          responseDiv = $('#' + id + '-response');
       statusDiv.hide();
       headerDiv.hide();
       responseDiv.hide();
@@ -121,21 +120,24 @@ $(document).ready(function() {
       var highlightedResponse = hljs.highlightAuto(curlGetTemplate.format(optimizelyApi.token, path));
       requestDiv.find('code').html(hljs.fixMarkup(highlightedResponse).value);
       requestDiv.show();
+      loaderDiv.removeClass('hidden');
 
       optimizelyApi.get(path,
-                function(response) {
-                  var responseString = JSON.stringify(response, undefined, 2);
-                  var highlightedResponse = hljs.highlightAuto(responseString).value;
-                  highlightedResponse = hljs.fixMarkup(highlightedResponse);
-                  responseDiv.find('code').html(highlightedResponse);
-                  responseDiv.show();
-                },
-                function(jqXhr, textStatus) {
-                  statusDiv.find('pre').html(jqXhr.status + ' ' + textStatus);
-                  headerDiv.find('pre').html(jqXhr.getAllResponseHeaders());
-                  statusDiv.show();
-                  headerDiv.show();
-                });
+        function(response) {
+          loaderDiv.addClass('hidden');
+          var responseString = JSON.stringify(response, undefined, 2);
+          var highlightedResponse = hljs.highlightAuto(responseString).value;
+          highlightedResponse = hljs.fixMarkup(highlightedResponse);
+          responseDiv.find('code').html(highlightedResponse);
+          responseDiv.show();
+        },
+        function(jqXhr, textStatus) {
+          loaderDiv.addClass('hidden');
+          statusDiv.find('pre').html(jqXhr.status + ' ' + textStatus);
+          headerDiv.find('pre').html(jqXhr.getAllResponseHeaders());
+          statusDiv.show();
+          headerDiv.show();
+        });
     });
   });
 });
