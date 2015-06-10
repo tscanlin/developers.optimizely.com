@@ -27,16 +27,14 @@ curl \
   -X GET "https://www.optimizelyapis.com/experiment/v1/projects/"
 ```
 
-Running the command above should return a list of projects in your account.
-
 ### *4.* Register your application
 
 Register your application in your [account settings](http://app.optimizely.com/accountsettings/developer).
 
-If you're developing an application for use by other customers, we recommend registering your application so you can use OAuth 2.0 to authenticate with the API. OAuth 2.0 will allow customers to use your application without requiring them to share their Optimizely username and password. For more information on how to use OAuth, refer to our [OAuth documentation](/#oauth).
+If you're developing an application for use by other customers, we recommend registering your application so you can use OAuth 2.0 to authenticate with the API. OAuth 2.0 will allow customers to use your application without requiring them to share their Optimizely username and password. For more information on how to use OAuth, refer to our [OAuth documentation](/rest/reference#oauth).
 
 ### *5.* Start building!
 
-You're now ready to start building an application with Optimizely! Please refer to our full [API reference](/rest/docs) to see a full list of the supported endpoints. You may also want to check out [example use cases](/rest/examples) of the REST API to quickly get the answers you need.
+You're now ready to start building an application with Optimizely! Please refer to our full [API reference](/rest/reference) to see a full list of the supported endpoints. You may also want to check out our [FAQs](/rest/faqs) to quickly get the answers you need.
 
 If you have any questions about using the REST API, please reach out to [developers@optimizely.com](mailto:developers@optimizely.com). Our developer support team is happy to help support you building your application.
