@@ -5,7 +5,7 @@ title: "Optimizely JS API Reference"
 
 # Optimizely JS API Reference
 
-Below is a full reference for the JavaScript API, including the [The Data Object](#the-data-object) and [API Function Calls](#api-function-calls).
+Below is a full reference for the JavaScript API, including the [Data Object](#the-data-object) and [API Function Calls](#api-function-calls).
 
 ## The Data Object
 
@@ -28,7 +28,7 @@ This is an object that contains all the key-value pairs you've sent to Optimizel
 window['optimizely'].data.experiments
 ```
 
-This is an object with information about all the experiments for this project file. The keys of `window['optimizely'].data.experiment` are the experiment ids, which can be found in the diagnostic report for your experiment.
+This is an object with information about all the experiments for this project file. The keys of `window['optimizely'].data.experiments` are the experiment ids, which can be found in the diagnostic report for your experiment.
 
 #### Experiment Code
 
