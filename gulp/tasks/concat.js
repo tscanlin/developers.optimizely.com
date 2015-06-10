@@ -61,6 +61,9 @@ gulp.task('concat', ['markdown'], function (cb) {
       var topPath = '/' + relativePath.split('/')[0] + '/';
       json.topPath = topPath;
 
+      // Ex: 'reference'
+      json.subPath = relativePath.split('/')[1] || '';
+
       // Get the html from the build directory for the different sections. These
       // sections are specified in the front-matter of the index.concat files.
       var concatHtml = '';

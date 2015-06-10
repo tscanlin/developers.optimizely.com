@@ -1,3 +1,6 @@
+/*eslint quotes: [1, "single"], comma-dangle: 1, curly: 2, strict: 0, no-use-before-define: 0*/
+/*global window, console, hljs, require, document*/
+
 // Initialize code syntax highlighting.
 hljs.initHighlightingOnLoad();
 
@@ -9,7 +12,7 @@ var some = [].some;
 var body = document.body;
 var header = document.getElementById('header');
 var nav = document.getElementById('nav');
-var content = document.getElementById('content');
+// var content = document.getElementById('content');
 
 // Selectors.
 var toc = document.querySelector('.active + .toc');
@@ -59,7 +62,7 @@ each.call(headings, function(heading, i) {
       easing: 'easeInOutCubic',
       offset: HEADER_OFFSET,
       speed: ANIMATION_DURATION,
-      updateURL: true,
+      updateURL: true
     });
 
     tocLinks = toc.querySelectorAll('.toc-link');
@@ -161,7 +164,7 @@ function updateSidebar() {
 // while smoothScroll is animating.
 if (tocLinks) {
   each.call(tocLinks, function(tocLink) {
-    tocLink.addEventListener('click', function(e) {
+    tocLink.addEventListener('click', function() {
       highlight = false;
       window.setTimeout(function() {
         highlight = true;
@@ -184,5 +187,60 @@ each.call(collapsers, function(collapser) {
     else {
       collapsible.classList.add(IS_COLLAPSED_CLASS);
     }
-  })
+  });
+});
+
+
+
+// Enable toggles for sandbox / interactive mode in REST reference section.
+if (body.classList.contains('rest') && body.classList.contains('reference')) {
+  var toggleContainer = body.querySelector('.sidebyside-toggles');
+  var allToggleSections = body.querySelectorAll('[data-toggle-section]');
+  var toggles = toggleContainer.querySelectorAll('.toggle');
+  var toggleClass = 'visible';
+  each.call(toggles, function(elm) {
+    elm.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = e.target;
+      each.call(toggleContainer.querySelectorAll('.lego-button--brand'), function(el) {
+        el.classList.remove('lego-button--brand');
+      });
+      target.classList.add('lego-button--brand');
+
+      var toggleSectionId = target.getAttribute('data-toggle');
+
+      // Remove visible class from all toggle sections.
+      each.call(allToggleSections, function(el) {
+        el.classList.remove(toggleClass);
+      });
+
+      // Add visible class to toggle sections that have a matching id.
+      var sectionsToToggle = body.querySelectorAll('[data-toggle-section="' + toggleSectionId + '"]');
+      each.call(sectionsToToggle, function(el) {
+        el.classList.add(toggleClass);
+      });
+    });
+  });
+}
+
+var ZeroClipboard = require('zeroclipboard');
+window.ZeroClipboard = ZeroClipboard;
+
+var optimizelyApi = require('./optly-api.js');
+window.optimizelyApi = optimizelyApi;
+
+// Add copy code buttons.
+$('pre code').after('<div class="copy-code-button">\
+<svg class="lego-icon">\
+	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#clipboard"></use>\
+</svg></div>');
+
+$('.copy-code-button').each(function(i, el) {
+  var clip = new ZeroClipboard(el, {
+    forceHandCursor: true
+  });
+  clip.on('copy', function(event) {
+    var clipboard = event.clipboardData;
+    clipboard.setData('text/plain', $(el).prev().text());
+  });
 });

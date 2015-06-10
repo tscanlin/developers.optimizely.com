@@ -179,7 +179,12 @@ pre code {
 
 pre {
   margin-bottom: 20px;
+  position: relative;
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
+
+  &:hover .copy-code-button {
+    opacity: 1;
+  }
 }

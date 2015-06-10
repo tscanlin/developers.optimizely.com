@@ -34,8 +34,8 @@
       </div>
 
       <!-- Right column -->
-      <div class="lego-grid__cell width-1-2 sample{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %} tab-content">
-        <div class="tab-pane active curl">
+      <div class="lego-grid__cell width-1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+        <div class="toggle-section visible" data-toggle-section="curl">
 
 <!-- Indenting is weird here because of the <pre> tags -->
 
@@ -104,11 +104,11 @@ curl \
 {% endif %}
 
         </div>
-        <!-- <div class="tab-pane interactive">
+        <div class="toggle-section" data-toggle-section="interactive">
           {% if endpoint and type == "GET" %}
-            {# include sandbox.html #}
+            {% include 'templates/sandbox.html' %}
           {% endif %}
-        </div> -->
+        </div>
       </div>
     </div>
   </section>

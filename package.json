@@ -29,7 +29,8 @@
     "compass-mixins": "^0.12.3",
     "highlight.js": "^8.5.0",
     "lego": "git+ssh://git@github.com:optimizely/lego.git",
-    "smooth-scroll": "git://github.com/cferdinandi/smooth-scroll"
+    "smooth-scroll": "git://github.com/cferdinandi/smooth-scroll",
+    "zeroclipboard": "^2.2.0"
   },
   "devDependencies": {
     "browser-sync": "^2.2.1",
