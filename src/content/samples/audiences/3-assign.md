@@ -6,7 +6,7 @@ js: |
   window['optimizely'].push(["addToAudience", 85094]);
 ---
 
-Now that you've created the audience, you can assign visitors to it programmatically using our [Javascript API](/javascript/#audiences).
+Now that you've created the audience, you can assign visitors to it programmatically using our [Javascript API](/javascript).
 
 Use the `addToAudience` call with the audience's `id` as the first argument.
 

@@ -16,4 +16,4 @@ response: |
   ]
 ---
 
-First, you'll need to [authenticate](/rest/#authentication) with our REST API and choose which project to retrieve results for.  You can [list out all the projects](/rest/#list-projects) in a user's account using the example request here.
+First, you'll need to [authenticate](/rest/reference/index.html#authentication) with our REST API and choose which project to retrieve results for.  You can [list out all the projects](/rest/reference/index.html#list-projects) in a user's account using the example request here.
