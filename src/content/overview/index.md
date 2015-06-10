@@ -3,11 +3,11 @@ template: page-sidebar
 title: "Overview"
 ---
 
-## Introduction
+## Welcome!
 
 *This site contains resources for developers who want to extend and integrate with Optimizely in new ways.*
 
-While you can get Optimizely up and running without writing code, many companies require a custom optimization solution that isn't provided by Optimizely out-of-the-box. This site describes what you can do with the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
+While you can get Optimizely up and running without writing code, many companies greatly benefit from a custom optimization solution that isn't provided by Optimizely out-of-the-box. This site describes what you can do with the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
 
 <img src="../../assets/img/optimizely-experience-architecture.svg">
 
@@ -15,7 +15,7 @@ While you can get Optimizely up and running without writing code, many companies
 
 If you are new to Optimizely, check out the [Use cases](#use-cases) below to understand the different ways to develop on our platform. For a more in-depth overview, you may also want to read [How Optimizely works](#how-optimizely-works) which explains Optimizely's data model, architecture, and the various integration points for developers.
 
-If you're looking to develop on a specific platform, check out our documentation for the [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction). Each API and SDK contains a brief getting started guide, comprehensive documentation, and FAQs. You may also want to check out our [Code samples](/samples) page which contains full solutions from customers, partners, and Optimizely employees that you can download for free.
+If you're looking to develop on a specific platform, check out our documentation for the [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction). Each API and SDK contains a brief getting started guide, comprehensive documentation, and FAQs. This site also includes a [Code samples](/samples) page with solutions from customers, partners, and Optimizely employees that you can download for free.
 
 ### Developer account
 
@@ -27,7 +27,7 @@ Create free account
 
 ### Developer support
 
-If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). You can also post on our [developer discussion group](http://community.optimizely.com/t5/Developers/bd-p/Developers) on Optiverse. We're eager to hear your feedback and happy to help walk you through how to use our APIs and SDKs.
+If you have any questions or need help please email Optimizely's developer support team at [developers@optimizely.com](mailto:developers@optimizely.com). You can also post on our [developer discussion group](http://community.optimizely.com/t5/Developers/bd-p/Developers) on Optiverse. We're eager to hear your feedback and happy to help walk you through how to use our APIs and SDKs!
 
 ### Contributions
 
@@ -39,7 +39,7 @@ Below are some common use cases of Optimizely for developers, and pointers to th
 
 ### Custom implementations
 
-Many Optimizely customers want to run more advanced tests and personalized experiences that are not possible in Optimizely's out of the box solution. Below are some common customizations that we've seen from our customers.
+Many Optimizely customers want to run more advanced tests and personalized experiences that are not possible in Optimizely's out-of-the-box solution. Below are some common customizations that we've seen from our customers.
 
 * *Custom variation code:* If you'd like to write your own variation code instead of using the Optimizely visual editor, check out our [Variation code](#variation-code) section that explains how to format Optimizely variations with example code.
 
@@ -148,39 +148,88 @@ Optimizely includes an [A/B testing solution](http://optimizely.com/mobile) for 
 
 This section explains the inner workings of Optimizely, including key terminology, architecture, and the available touchpoints for developers. [Life of an experiment](#life-of-an-experiment) describes a typical customer workflow and [Life of a visitor](#life-of-a-visitor) describes what happens when a visitor comes to a website or mobile app running Optimizely.
 
+### Architecture
+
+The diagram below provides an overview of the REST API, JS API, iOS SDK, and Android SDK. Your application can integrate with Optimizely in two ways:
+
+* *Server-side:* Use the REST API to customize your optimization workflow.
+* *Client-side:* Use the JS API, iOS SDK, or Android SDK to customize the behavior of Optimizely in a web page or app.
+
+<img src="../../assets/img/optimizely-experience-architecture.svg">
+
 ### Life of an experiment
 
 Below is a typical workflow for a customer running an experiment with Optimizely.
 
 #### *1. Create an experiment*
 
-An *experiment* is a campaign run by Optimizely on either a website or a mobile app to determine the impact of a change. An experiment could be an A/B test, multivariate test, or a multi-page test ([learn more](https://help.optimizely.com/hc/en-us/articles/200039785)). Customers can configure how much traffic they'd like to allocate to their experiment.
+An *experiment* is a campaign run by Optimizely on either a website or a mobile app to determine the impact of a change.
+
+Typically, an experiment is an *A/B test* that includes a control and one or more variations with changes to test. On the web we also support *multivariate tests* and *multi-page tests* ([learn more](https://help.optimizely.com/hc/en-us/articles/200039785)). Customers can configure what fraction of visitor traffic they'd like to allocate to their experiment.
+
+* Learn how to [see which experiments are active on a web page](../javascript/reference#experiments)
+* Learn how to [create an experiment using the REST API](../rest/reference#experiments)
 
 #### *2. Create one or more variations*
 
-In any given experiment, customers can create one or more *variations*, that contain alternative changes they'd like to test. Technically speaking, a variation is just a snippet of code that runs in a user's browser that renders the page differently (or a screen in the case of a native mobile app). Variations can be created using Optimizely's [visual editor](#) or using the [edit code](#) feature.
+In any given experiment, customers can create one or more *variations*, that contain alternative changes they'd like to test.
+
+Technically speaking, a variation is just a snippet of code that can be executed in a user's browser or app to render the experience differently. On the web, a variation consists of a snippet of jQuery code. Variations can be created using Optimizely's [visual editor](#) or using the [edit code](#) feature.
+
+* Learn how to [edit jQuery code in the Optimizely editor](https://help.optimizely.com/hc/en-us/articles/200039835)
+* Learn how to [register live variables](../ios/reference#-a-name-variables-a-register-live-variables) and [write code blocks](../ios/reference#-a-name-codeblocks-a-code-blocks) using the iOS SDK
+* Learn how to [register live variables](../android/reference#-a-name-variables-a-register-live-variables) and [write code blocks](../android/reference#-a-name-codeblocks-a-code-blocks) using the Android SDK
+* Learn how to [create a variation using the REST API](../rest/reference#variations)
 
 #### *3. Create a goal*
 
-Customers must define at least one *goal* for their experiment, i.e. a metric they'd like to track for the success of the experiment. Experiments can have an arbitrary number of goals but just one *primary goal*. Optimizely customers can define click goals or pageview goals using the goal creation dialog, or they can create *custom events* that are goals defined through code. Any goals that are defined for an experiment are tracked in the Optimizely backend over the lifetime of the experiment.
+Customers must define at least one *goal* for their experiment, i.e. a metric to measure the impact of the experiment.
+
+Experiments can have an arbitrary number of goals but just one *primary goal*. Optimizely customers can define click goals or pageview goals using the goal creation dialog, or they can create *custom events* that are goals defined through code. Any goals that are defined for an experiment are tracked in the Optimizely backend over the lifetime of the experiment.
+
+* Learn how to [track custom events from a web browser](../javascript/reference#track-event)
+* Learn how to [track custom events from an iOS app](../ios/reference#-a-name-goaltracking-a-goal-tracking)
+* Learn how to [track custom events from an Android app](../android/reference#-a-name-goaltracking-a-goal-tracking)
+* Learn how to [create a goal using the REST API](../rest/reference#goals)
 
 #### *4. Create a target audience*
 
-Customers can filter what type of traffic they'd like to include in an experiment using an *audience*. An audience is just a set of AND/OR conditions about a user (e.g. browser type, geography, query parameters) that can be evaluated in real-time when a user visits a web page or mobile app. Audiences can be saved and re-used for other experiments.
+Customers can filter what type of traffic they'd like to include in an experiment using an *audience*.
+
+On the web, an audience is just a set of AND/OR conditions about a user (e.g. browser type, geography, query parameters) that can be evaluated in real-time when a user visits a web page. Audiences can be saved and re-used for other experiments. You can use *custom dimensions* to manually define conditions by which visitors are assigned to an audience in a web browser, or upload *user lists* if you want to target a particular set of user identifiers (e.g. cookies or query parameters).
+
+*Note:* We do not yet support audiences on iOS and Android, but you can still create your own [custom targeting conditions](https://help.optimizely.com/hc/en-us/articles/202296994#targeting) for an experiment.
+
+* Learn how to [set custom dimensions for a visitor on a web page](../javascript/reference#dimensions)
+* Learn how to [manually assign a visitor to an audience on a web page](../javascript/reference#audiences)
+* Learn how to [create custom targeting conditions in an iOS app](../ios/reference#-a-name-targeting-a-custom-targeting)
+* Learn how to [create custom targeting conditions in an Android app](../ios/reference#-a-name-targeting-a-custom-targeting)
+* Learn how to [create a custom dimension using the REST API](../rest/reference#dimensions)
+* Learn how to [create an audience using the REST API](../rest/reference#audience)
+* Learn how to [upload user lists to Optimizely using the REST API](../rest/reference#user_lists)
+
 
 #### *5. Start the experiment*
 
-Once the experiment has been configured, the customer can start the experiment using the *Start experiment* button in the visual editor. On taking this action, Optimizely updates the *Optimizely snippet* that contains the code necessary to make changes in the website or mobile app. The Optimizely snippet is delivered through a CDN.
+Once the experiment has been configured, the customer can start the experiment using the *Start experiment* button.
+
+On taking this action, Optimizely updates the *snippet* or *datafile* sent over the CDN with instructions to run the experiment in the website or mobile app.
+
+* Learn how to [start an experiment using the REST API](../rest/reference#experiments)
 
 #### *6. Monitor the results*
 
-A customer can now see the results of their experiment in real-time by looking at the Optimizely results page. The results page contains how many visitors were assigned to each variation and the number of *conversions* over time, for each of the experiment goals that have been defined.
+A customer can now see the results of their experiment in real-time by looking at the Optimizely results page.
 
-Optimizely experiments can be grouped into *projects*, which are usually tied to a single website or mobile app. Each project can have multiple *collaborators* with custom permissions.
+The results page contains how many visitors were assigned to each variation and the number of *conversions* over time, for each of the experiment goals that have been defined.
+
+* Learn how to [get the results of an experiment using the REST API](../rest/reference#stats)
 
 ### Life of a visitor
 
 Below is what happens when a visitor comes to a web page or mobile app that is running Optimizely.
+
+TODO: expand this with links and also refer to the existing articles in the KB.
 
 #### *1. Evaluate audiences*
 
@@ -201,148 +250,3 @@ Optimizely runs the code for the chosen variation. By default, this is done befo
 #### *5. Track events*
 
 Once the page or mobile app has been rendered to the user, Optimizely tracks events by sending information to the Optimizely backend. Besides event tracking, all of the steps below happen completely client-side (i.e. in the user's browser or mobile app).
-
-### Data model
-
-Below are some of the key terminology in the Optimizely data model.
-
-<table class="table">
-  <tr>
-    <td>
-      *Account*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *Project*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *Experiment*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *Variation*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *Dimension*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *Audience*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *Event*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *Goal*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *User*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-  <tr>
-    <td>
-      *User List*
-    </td>
-    <td>
-      API link(s)
-    </td>
-    <td>
-      Description
-    </td>
-  </tr>
-</table>
-
-### Architecture
-
-What are the different parts of the Optimizely architecture? How does Optimizely deliver content through the CDN to the client? How does Optimizely receive data from the client? How do the REST API, JS API, iOS SDK, and Android SDK fit into this?
-
-<img src="../../assets/img/optimizely-experience-architecture.svg">
-
-### Configuration
-
-Below are some of the key integration points for developers to customize the behavior of Optimizely.
-
-#### Data object
-
-#### Variation code
-
-#### Conditional activation
-
-#### User IDs
-
-#### Events
-
-#### Revenue
-
-#### Dimensions
-
-#### Tags
-
-#### Advanced
