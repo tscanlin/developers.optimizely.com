@@ -165,7 +165,7 @@ app delegate:
 
 *Special thanks to user [IAmMalte](https://github.com/IAmMalte) for a [detailed writeup](https://github.com/IAmMalte/swift-example-optimizely) on using our SDK in Swift.*
 
-### Advanced Setup
+## Advanced Setup
 
 Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the App Store:
 

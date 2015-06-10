@@ -13,7 +13,7 @@ title: "Optimizely Android SDK Guide"
 ## <a name="SDK Installation"></a> SDK Install Steps
 
 ### <a name="installation"></a> *1.* SDK Installation
-To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#gradle) (recommended for Android Studio users), [Maven](#maven) (recommended for IDEA/Eclipse users), or via [Manual Installation](#manualinstall).
+To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#gradle) (recommended for Android Studio users), [Maven](#maven) (recommended for IDEA/Eclipse users), or via [pic Installation](#manualinstall).
 
 **We strongly recommend using a version control system (such as [Git](http://git-scm.com/)) and checking in your app before installing Optimizely.**
 
@@ -188,7 +188,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
 
 4. Once you've checked all these steps, you're ready to release to the Play Store!
 
-### Advanced Setup
+## Advanced Setup
 
 Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the Play Store:
 

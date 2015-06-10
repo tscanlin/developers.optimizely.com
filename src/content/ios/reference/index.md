@@ -77,7 +77,7 @@ OptimizelyVariableKeyForNumber(myGravityVariable, @9.8f);
 
 or, if you're using Swift, declare your `OptimizelyVariableKey`s in your AppDelegate's `application:didFinishLaunchingWithOptions:` method as follows:
 
-```swift
+```objective-c
 // Define and register live variable with type NSNumber
 var myGravityVariableKey: OptimizelyVariableKey = OptimizelyVariableKey.optimizelyKeyWithKey("myGravityVariable", defaultNSNumber: 9.8)
 Optimizely.preregisterVariableKey(myGravityVariableKey)
@@ -110,7 +110,7 @@ OptimizelyVariableKeyForNumber(myGravityVariable, @9.8f);
 
 or, in Swift:
 
-```swift
+```objective-c
 // Load live variable
 var myGravityVariableKey = OptimizelyVariableKey.optimizelyKeyWithKey("myGravityVariable", defaultNSNumber: 9.8)
 var gravity: NSNumber = Optimizely.numberForKey(myGravityVariableKey)
@@ -125,9 +125,10 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 1. Load your application and connect in edit mode.
 2. Navigate to the variables section of the editor.
-<img src="/assets/img/ios/editor-variablestab.png" alt="Drawing" style="width: 100%;"/>
-3. The editor will allow you to modify the variable value for different variations.
-4. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
+<img src="/assets/img/ios/editor-variables-add-button.png" alt="Drawing" style="width: 50%; align:center"/>
+3. Click the "Add Variable" button to open a dialog where you can select variables to add to your experiment.
+4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
+5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
 
 For more details, please see the [Live Variables API Reference](help/html/Classes/Optimizely.html#task_Live%20Variables)
 

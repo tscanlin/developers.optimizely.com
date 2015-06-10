@@ -70,7 +70,7 @@ public class MyActivity extends Activity {
       return currentSpeed;
     }
   }
-}  
+}
 ```
 
 Once a variable is defined, each variation can specify a different value for that variable.
@@ -94,9 +94,10 @@ You're now ready to edit your live variables using the Optimizely web editor:
 0. Make sure you have not called `Optimizely.setEditGestureEnabled(false)`.
 1. Load your application and draw a large circle to connect in edit mode.
 2. Navigate to the variables section of the editor.
-<img src="/assets/img/android/editor-variablestab.png" alt="Live Variables Tab"/>
-3. The editor will allow you to modify the variable value for different variations.  
-4. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
+<img src="/assets/img/android/editor-variables-add-button.png" alt="Drawing" style="width: 50%;"/>
+3. Click the "Add Variable" button to open a dialog where you can select variables to add to your experiment.
+4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
+5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
 
 ## Code Blocks <a name="codeblocks"></a>
 
@@ -239,7 +240,7 @@ The first option is to customize the interval for how often you want network cal
 For example, to set the data file download to 5 minutes (300,000ms):
 `Optimizely.setDataFileDownloadInterval(5 * 60 * 1000);`
 
-The second option is to turn off the automatic event sends and manually make network calls. Calling `Optimizely.setAutomaticEventSending(false);` will disable the automatic sending of events. You will need to send events manually using `Optimizely.dispatchEvents()` in order to collect experiment results.
+The second option is to turn off the automatic event sends and manually make network calls. Calling `Optimizely.setAutomaticEventSending(false);` will disable the automatic sending of events. You will need to send events manually using `Optimizely.sendEvents()` in order to collect experiment results.
 
 ```java
 Optimizely.setAutomaticEventSending(false);
@@ -250,11 +251,11 @@ To manually send events, in the appropriate function (e.g. where you make other 
 ```java
   private void userClickedImportantButton() {
       Optimizely.trackEvent("ImportantButtonClicked");
-      Optimizely.dispatchEvents(); // Manually send the event logs back to the server
+      Optimizely.sendEvents(); // Manually send the event logs back to the server
   }
 ```
 
-Please refer to the documentation for [trackEvent](help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [dispatchEvents](help/reference/com/optimizely/Optimizely.html#dispatchEvents())for more details.
+Please refer to the documentation for [trackEvent](help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
 
 ## <a name="upgrade"></a>Upgrading to a new SDK
 
