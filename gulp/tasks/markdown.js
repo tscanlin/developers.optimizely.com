@@ -60,6 +60,9 @@ gulp.task('markdown', function () {
       var topPath = '/' + relativePath.split('/')[0] + '/';
       json.topPath = topPath;
 
+      // Ex: 'reference'
+      json.subPath = relativePath.split('/')[1] || '';
+
       var tpl = swig.compileFile(paths.templates + template + '.html');
       file.contents = new Buffer(tpl(json), 'utf8');
     }))
