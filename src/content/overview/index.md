@@ -21,8 +21,8 @@ If you're looking to develop on a specific platform, check out our documentation
 
 Optimizely offers a free account for developers that includes access to the APIs and SDKs. Creating an account takes 30 seconds and doesn't require a credit card.
 
-<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="#">
-Create free account
+<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="https://www.optimizely.com/?modal=devsignup">
+Create a free account
 </a>
 
 ### Developer support
@@ -74,14 +74,14 @@ An analytics integration is an integration where Optimizely sends information to
 
 
 <!--####*Audience integrations*
-An audience integration is a "data in" integration. 
+An audience integration is a "data in" integration.
 
 #####Examples
 
 * test
 
 #####Build your own
- 
+
 #####Submit integration
 
 
@@ -90,10 +90,10 @@ An audience integration is a "data in" integration.
 List targeting integrations are in terms of functionality quite similar to Audience integrations.
 #####Examples
 
-* 
+*
 
 #####Build your own
- 
+
 #####Submit integration-->
 
 
@@ -107,7 +107,7 @@ A CMS integration is an integration that allows users of a CMS to easily set up 
 * [WordPress headline testing](https://help.optimizely.com/hc/en-us/articles/205331897#headline)
 
 ####*Snippet implementation*
-There is a wide range of tools that have the ability to insert the Optimizely snippet. An obvious example is a tag management solution, but most CMS systems or e-commerce platforms will be able to do it as well. 
+There is a wide range of tools that have the ability to insert the Optimizely snippet. An obvious example is a tag management solution, but most CMS systems or e-commerce platforms will be able to do it as well.
 #####Examples
 
 * [Tealium](https://help.optimizely.com/hc/en-us/articles/203491910#enable)
@@ -124,7 +124,7 @@ When a goal is triggered on a webpage, a request is sent to our servers. That re
 * [Freespee](http://support.freespee.com/hc/en-us/articles/202196842)
 
 <!--#####Build your own
-The best calltracking integrations are apps or plugins that live within the calltracking software. 
+The best calltracking integrations are apps or plugins that live within the calltracking software.
 *Installation*
 
 Option 1 (manual):
@@ -141,7 +141,7 @@ Option 2 (REST):
 4. Users can select the newly created goal from the list of saved goals within Optimizely when they create a new experiment
 
 *Creating an offline converion*
-To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added to a custom variable (or something similar) in the calltracking 
+To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added to a custom variable (or something similar) in the calltracking
 [More about offline conversions](https://help.optimizely.com/hc/en-us/articles/200040195)
 An offline conversion needs the following pieces of information:
 1. Project id (can be filled in by )
