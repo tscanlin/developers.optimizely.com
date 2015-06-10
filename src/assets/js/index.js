@@ -1,5 +1,5 @@
 /*eslint quotes: [1, "single"], comma-dangle: 1, curly: 2, strict: 0, no-use-before-define: 0*/
-/*global window, console, hljs, require, document*/
+/*global window, $, console, hljs, require, document*/
 
 // Initialize code syntax highlighting.
 hljs.initHighlightingOnLoad();
