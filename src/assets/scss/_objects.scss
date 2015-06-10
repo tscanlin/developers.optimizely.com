@@ -43,7 +43,7 @@
 .copy-code-button {
   color: white;
   cursor: pointer;
-  // opacity: 0.1;
+  opacity: 0.2;
   padding: 0.5em;
   // pointer-events: none;
   position: absolute;
@@ -51,7 +51,8 @@
   transition: opacity 300ms ease;
   right: 0;
 
-  &:hover {
+  &:hover,
+  &.zeroclipboard-is-hover {
     opacity: 1;
   }
 }
