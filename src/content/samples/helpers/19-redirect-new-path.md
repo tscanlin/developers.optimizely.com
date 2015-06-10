@@ -7,10 +7,12 @@ js: |
   /*
    *  Usage
    *    This JavaScript will redirect a visitor to a new path.
+   *
+   *  @param {String} newPath - Replace "/[NEW_PATH]" with your new path, but keep the '/'.
    */
 
   /* _optimizely_redirect = custom_new_path */
-  var newPath = "/[NEW_PATH]";  // Replace [NEW_PATH] with your new path, but keep the '/'
+  var newPath = "/[NEW_PATH]";
   var _optly = {redir: document.createElement("a")};
   _optly.redir = {protocol: "https:" == document.location.protocol ? "https://" : "http://",
                   domain: window.location.hostname,
