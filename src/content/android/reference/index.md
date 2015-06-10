@@ -70,7 +70,7 @@ public class MyActivity extends Activity {
       return currentSpeed;
     }
   }
-}  
+}
 ```
 
 Once a variable is defined, each variation can specify a different value for that variable.
@@ -94,9 +94,10 @@ You're now ready to edit your live variables using the Optimizely web editor:
 0. Make sure you have not called `Optimizely.setEditGestureEnabled(false)`.
 1. Load your application and draw a large circle to connect in edit mode.
 2. Navigate to the variables section of the editor.
-<img src="/assets/img/android/editor-variablestab.png" alt="Live Variables Tab"/>
-3. The editor will allow you to modify the variable value for different variations.  
-4. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
+<img src="/assets/img/android/editor-variables-add-button.png" alt="Drawing" style="width: 50%;"/>
+3. Click the "Add Variable" button to open a dialog where you can select variables to add to your experiment.
+4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
+5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
 
 ## Code Blocks <a name="codeblocks"></a>
 
