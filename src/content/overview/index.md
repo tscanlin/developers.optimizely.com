@@ -43,23 +43,27 @@ Many Optimizely customers want to run more advanced tests and personalized exper
 
 * *Event tracking:* To track events that are not provided out of the box by Optimizely (e.g. purchase data or offline conversions), check out our section on [Events](/samples/#advanced-goal-tracking) which explains all of our available tracking APIs.
 
-* *Custom JS conditions:* If you expose first or third party data on the client, then you can use Optimizely's [custom JS conditions](/samples/#custom-js) to port data into different audiences.
-
-* *Conditional activation:* Sometimes you'll want to trigger an Optimizely experiment dynamically, after some part of the page or screen has loaded. Read our [Conditional activation](/samples/#conditional) section for more information on how to control when Optimizely activates.
-
 * *Variation code:* If you would like to write your own variation code instead of using the Optimizely visual editor, check out our [Variation code](/samples/#variation-code) section that explains how to format Optimizely variations with example code.
-
-* *Single page apps:* On traditional websites, when visitors click links, the links generally lead to a new URL and load an entirely new page. In Single Page Applications, the whole page doesn’t reload; instead, certain content is changed, loaded, and swapped out in the current URL. Check out our [single page app](/samples/#single-page-apps) section to help accommodate the behavior of Single Page Applications.
-
-* *Advanced use cases:* These [advanced use cases](/samples/#advanced-use-cases) will help you push the limits of what Optimizely is capable of doing within Project, Experiment, and Variation Javascript.
-
-* *Experiment results:* Utilize these code samples to better understand Optimizely's [/results endpoint](/samples/#results). This endpoint provides high-level insights from Optimizely's Stats Engine.
 
 * *Audiences:* If you have data about the visitors to a site, you can use our platform to group those visitors into [Optimizely Audiences](/samples/#audiences). This makes it easy to target content to different audiences and segment experiment results.
 
-* *Integrations:* Whether you're looking to create a custom integration with an analytics platform or if you're looking to do Wordpress headline testing with Optimizely, these [integration code samples](/samples/#technology-integrations) will help you navigate these processes.
+* *Advanced use cases:* These advanced use cases ([Web](/samples/#advanced-use-cases) | [iOS](/ios/guide/index.html#advanced-setup) | [Android](/android/guide/index.html#advanced-setup)) will help you push the limits of what Optimizely is capable of doing within Project, Experiment, and Variation code.
 
-* *Helper functions:* Many times, it is necessary to use getter and setter methods within Optimizely to better interact with your website. This list of [helper functions](/samples/#helpers) are frequently used in Project, Experiment, and Variation Javascript.
+* *Experiment results:* Utilize these code samples to better understand Optimizely's [/results endpoint](/samples/#results). This endpoint provides high-level insights from Optimizely's Stats Engine.
+
+* *Integrations:* Whether you're looking to create a custom integration with an analytics platform or if you're looking to do Wordpress headline testing with Optimizely, you can refer to the following links for each of Optimizely's different channels will help you navigate these processes:
+   * [Web integration guide](/samples/#technology-integrations)
+   * [iOS integration guide](/ios/reference/index.html#-a-name-analytics-a-analytics-integrations)
+   * [Android integration guide](/android/reference/index.html#-a-name-analytics-a-analytics-integrations)
+
+
+* *Single page web apps (web only):* On traditional websites, when visitors click links, the links generally lead to a new URL and load an entirely new page. In Single Page Applications, the whole page doesn’t reload; instead, certain content is changed, loaded, and swapped out in the current URL. Check out our [single page app](/samples/#single-page-apps) section to help accommodate the behavior of Single Page Applications.
+
+* *Custom JS conditions (web only):* If you expose first or third party data on the client, then you can use Optimizely's [custom JS conditions](/samples/#custom-js) to port data into different audiences.
+
+* *Conditional activation (web only):* Sometimes you'll want to trigger an Optimizely experiment dynamically, after some part of the page or screen has loaded. Read our [Conditional activation](/samples/#conditional) section for more information on how to control when Optimizely activates.
+
+* *Helper functions (web only):* Many times, it is necessary to use getter and setter methods within Optimizely to better interact with your website. This list of [helper functions](/samples/#helpers) are frequently used in Project, Experiment, and Variation Javascript.
 
 ### Integrations
 
@@ -189,18 +193,8 @@ Technically speaking, a variation is just a snippet of code that can be executed
 * Learn how to [register live variables](../android/reference#-a-name-variables-a-register-live-variables) and [write code blocks](../android/reference#-a-name-codeblocks-a-code-blocks) using the Android SDK
 * Learn how to [create a variation using the REST API](../rest/reference#variations)
 
-#### *3. Create a goal*
 
-Customers must define at least one *goal* for their experiment, i.e. a metric to measure the impact of the experiment.
-
-Experiments can have an arbitrary number of goals but just one *primary goal*. Optimizely customers can define click goals or pageview goals using the goal creation dialog, or they can create *custom events* that are goals defined through code. Any goals that are defined for an experiment are tracked in the Optimizely backend over the lifetime of the experiment.
-
-* Learn how to [track custom events from a web browser](../javascript/reference#track-event)
-* Learn how to [track custom events from an iOS app](../ios/reference#-a-name-goaltracking-a-goal-tracking)
-* Learn how to [track custom events from an Android app](../android/reference#-a-name-goaltracking-a-goal-tracking)
-* Learn how to [create a goal using the REST API](../rest/reference#goals)
-
-#### *4. Create a target audience*
+#### *3. Create a target audience*
 
 Customers can filter what type of traffic they'd like to include in an experiment using an *audience*.
 
@@ -216,6 +210,16 @@ On the web, an audience is just a set of AND/OR conditions about a user (e.g. br
 * Learn how to [create an audience using the REST API](../rest/reference#audience)
 * Learn how to [upload user lists to Optimizely using the REST API](../rest/reference#user_lists)
 
+#### *4. Create a goal*
+
+Customers must define at least one *goal* for their experiment, i.e. a metric to measure the impact of the experiment.
+
+Experiments can have an arbitrary number of goals but just one *primary goal*. Optimizely customers can define click goals or pageview goals using the goal creation dialog, or they can create *custom events* that are goals defined through code. Any goals that are defined for an experiment are tracked in the Optimizely backend over the lifetime of the experiment.
+
+* Learn how to [track custom events from a web browser](../javascript/reference#track-event)
+* Learn how to [track custom events from an iOS app](../ios/reference#-a-name-goaltracking-a-goal-tracking)
+* Learn how to [track custom events from an Android app](../android/reference#-a-name-goaltracking-a-goal-tracking)
+* Learn how to [create a goal using the REST API](../rest/reference#goals)
 
 #### *5. Start the experiment*
 

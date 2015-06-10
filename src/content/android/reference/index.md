@@ -239,7 +239,7 @@ The first option is to customize the interval for how often you want network cal
 For example, to set the data file download to 5 minutes (300,000ms):
 `Optimizely.setDataFileDownloadInterval(5 * 60 * 1000);`
 
-The second option is to turn off the automatic event sends and manually make network calls. Calling `Optimizely.setAutomaticEventSending(false);` will disable the automatic sending of events. You will need to send events manually using `Optimizely.dispatchEvents()` in order to collect experiment results.
+The second option is to turn off the automatic event sends and manually make network calls. Calling `Optimizely.setAutomaticEventSending(false);` will disable the automatic sending of events. You will need to send events manually using `Optimizely.sendEvents()` in order to collect experiment results.
 
 ```java
 Optimizely.setAutomaticEventSending(false);
@@ -250,11 +250,11 @@ To manually send events, in the appropriate function (e.g. where you make other 
 ```java
   private void userClickedImportantButton() {
       Optimizely.trackEvent("ImportantButtonClicked");
-      Optimizely.dispatchEvents(); // Manually send the event logs back to the server
+      Optimizely.sendEvents(); // Manually send the event logs back to the server
   }
 ```
 
-Please refer to the documentation for [trackEvent](help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [dispatchEvents](help/reference/com/optimizely/Optimizely.html#dispatchEvents())for more details.
+Please refer to the documentation for [trackEvent](help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
 
 ## <a name="upgrade"></a>Upgrading to a new SDK
 
