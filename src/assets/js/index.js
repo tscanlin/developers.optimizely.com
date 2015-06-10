@@ -201,7 +201,13 @@ if (body.classList.contains('rest') && body.classList.contains('reference')) {
   each.call(toggles, function(elm) {
     elm.addEventListener('click', function(e) {
       e.preventDefault();
-      var toggleSectionId = e.target.getAttribute('data-toggle');
+      var target = e.target;
+      each.call(toggleContainer.querySelectorAll('.lego-button--brand'), function(el) {
+        el.classList.remove('lego-button--brand');
+      });
+      target.classList.add('lego-button--brand');
+
+      var toggleSectionId = target.getAttribute('data-toggle');
 
       // Remove visible class from all toggle sections.
       each.call(allToggleSections, function(el) {

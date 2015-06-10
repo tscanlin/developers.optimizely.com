@@ -71,33 +71,37 @@ var curlGetTemplate = 'curl \\\n\
 // )
 
 var showTokenError = function() {
-  $('#apiTokenFormGroup').addClass('has-error');
-  $('.api-token-error').show();
-  $('#apiTokenField').show();
-  $('#expandSign').removeClass('glyphicon-plus-sign');
-  $('#expandSign').addClass('glyphicon-minus-sign');
+  var tokenContainer = $('.token-link');
+  tokenContainer.find('.collapsible').removeClass('is-collapsed');
+  tokenContainer.find('.form-container').addClass('lego-form-bad-news');
+};
+
+var hideTokenError = function() {
+  var tokenContainer = $('.token-link');
+  tokenContainer.find('.collapsible').addClass('is-collapsed');
+  tokenContainer.find('.form-container').removeClass('lego-form-bad-news');
 };
 
 $(document).ready(function() {
-  var clip = new ZeroClipboard($('.copy-btn'), {
-      // moviePath: '/images/zeroclipboard.swf',
-      // forceHandCursor: true,
-  });
-
+  // var clip = new ZeroClipboard($('.copy-btn'), {
+  //     // moviePath: '/images/zeroclipboard.swf',
+  //     // forceHandCursor: true,
+  // });
+  var optimizelyApi;
   $('#api_token').on('blur', function() {
-    optly = new OptimizelyAPI($(this).val());
-    if (!optly.token) {
+    var val = $(this).val();
+    optimizelyApi = new OptimizelyAPI(val);
+    console.log(val, optimizelyApi.token);
+    if (!optimizelyApi.token) {
       showTokenError();
-    }
-    else {
-      $('#apiTokenFormGroup').removeClass('has-error');
-      $('.api-token-error').hide();
+    } else {
+      hideTokenError();
     }
   });
 
-  $('.sandbox_run').each(function(){
-    $(this).on('click', function(){
-      if (!optly.token) {
+  $('.sandbox_run').each(function() {
+    $(this).on('click', function() {
+      if (!optimizelyApi || !optimizelyApi.token) {
         showTokenError();
         return;
       }
@@ -114,11 +118,11 @@ $(document).ready(function() {
                  $('#' + id + '-endpoint-option').val() +
                  $('#' + id + '-endpoint-suffix').text();
 
-      var highlightedResponse = hljs.highlightAuto(curlGetTemplate.format(optly.token, path));
-      requestDiv.find('code').html(hljs.fixMarkup(highlightedResponse));
+      var highlightedResponse = hljs.highlightAuto(curlGetTemplate.format(optimizelyApi.token, path));
+      requestDiv.find('code').html(hljs.fixMarkup(highlightedResponse).value);
       requestDiv.show();
 
-      optly.get(path,
+      optimizelyApi.get(path,
                 function(response) {
                   var responseString = JSON.stringify(response, undefined, 2);
                   var highlightedResponse = hljs.highlightAuto(responseString).value;
