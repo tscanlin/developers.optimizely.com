@@ -3,6 +3,7 @@ template: inline
 type: GET
 endpoint: projects/1234/experiments
 title: List experiments
+anchor: results-list
 response: |
   [
     {
@@ -24,4 +25,4 @@ response: |
   ]
 ---
 
-Next, you'll want to [list out all of the experiments](/rest/#list-experiments) for the selected project.  You can tell which experiments are active based on the `status` field.
+Next, you'll want to [list out all of the experiments](/rest/reference/index.html#list-experiments) for the selected project.  You can tell which experiments are active based on the `status` field.

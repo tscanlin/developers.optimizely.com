@@ -102,7 +102,7 @@ function getUserId() {
 ```
 
 
-#### 3. Creating an offline converion
+#### 3. Creating an offline conversion
 The format of an offline conversion url is the following:
 
 ```

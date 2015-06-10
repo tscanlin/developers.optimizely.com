@@ -6,15 +6,17 @@ js: |
   /*
    *  Usage
    *    Track clicks on elements loaded after DOM ready.  The .delegate() method allows you to select all current and future elements that match the selector passed in as the first argument.
-   *
+   *  
+   *  @param {String} selector - Provide the element selector.
+   *  @param {String} eventName - Provide the custom event name.
    */
 
-   var selector = [YOUR_SELECTOR]; //provide the element selector as a string
-   var eventName = [YOUR_EVENT_NAME];  //provide the custom event name
+   var selector = [YOUR_SELECTOR];
+   var eventName = [YOUR_EVENT_NAME];
 
    $('html').delegate(selector, 'mousedown touchend', function() {
      window['optimizely'] = window['optimizely'] || [];
-     window.optimizely.push(["trackEvent", "eventName"]);
+     window.optimizely.push(["trackEvent", eventName]);
    });
 
 ---

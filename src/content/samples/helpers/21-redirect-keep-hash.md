@@ -7,11 +7,14 @@ js: |
   /*
    *  Usage
    *    This JavaScript will redirect a visitor to the URL you pass in while preserving all hash parameters.  Be sure to include the protocol in the [REDIRECT_URL]
+   *
+   *  @param {String} redirectUrl - Replace "[REDIRECT_URL]" with the new URL.
    */
 
   /* _optimizely_redirect = custom_keep_hash */
+  var redirectUrl = "[REDIRECT_URL]";
   var _optly = {redir:document.createElement("a")};
-  _optly.redir.href = "[REDIRECT_URL]";  // Replace [REDIRECT_URL] to the new URL
+  _optly.redir.href = redirectUrl;  // 
   _optly.cur = window.location.search;
   if (_optly.cur) {
     _optly.redir.search = _optly.redir.search ? _optly.cur + "&" + _optly.redir.search.slice(1) : _optly.cur;

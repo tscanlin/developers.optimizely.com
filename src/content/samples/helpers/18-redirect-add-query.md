@@ -7,10 +7,12 @@ js: |
   /*
    *  Usage
    *    This JavaScript will add a query parameter you specify to the visitor's current URL.
+   *
+   *  @param {String} newQuery - Parameter key-value pair. Replace [PARAM_NAME] and [PARAM_VALUE]
    */
 
   /* _optimizely_redirect = custom_add_query_param */
-  var newQuery = "[PARAM_NAME]=[PARAM_VALUE]";  // Replace [PARAM_NAME] and [PARAM_VALUE]
+  var newQuery = "[PARAM_NAME]=[PARAM_VALUE]";
   var _optly = {redir: document.createElement("a")};
   _optly.redir = {protocol: "https:" == document.location.protocol ? "https://" : "http://",
                   domain: window.location.hostname,
