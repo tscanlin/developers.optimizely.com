@@ -39,3 +39,19 @@
   // position: absolute;
   // visibility: hidden;
 }
+
+.copy-code-button {
+  color: white;
+  cursor: pointer;
+  // opacity: 0.1;
+  padding: 0.5em;
+  // pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: opacity 300ms ease;
+  right: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}

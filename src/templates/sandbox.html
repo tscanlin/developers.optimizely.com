@@ -12,9 +12,9 @@
     {% else %}
     <span class="input-group-addon input-group-addon-extra hidden" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
     {% endif %}
+    <a class="lego-button lego-button--highlight sandbox_run float--right push-double--right" id="{{ anchor }}-sandbox">Run Request</a>
   </div>
-  <div>
-    <a class="lego-button lego-button--highlight sandbox_run" id="{{ anchor }}-sandbox">Run Request</a>
+  <div class="push--top">
   </div>
   <div class="soft-double--top">
     <div class="sandbox-code" id="{{ anchor }}-sandbox-request">

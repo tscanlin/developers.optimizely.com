@@ -228,4 +228,19 @@ window.ZeroClipboard = ZeroClipboard;
 
 var optimizelyApi = require('./optly-api.js');
 window.optimizelyApi = optimizelyApi;
-// console.log(toggles);
+
+// Add copy code buttons.
+$('pre code').after('<div class="copy-code-button">\
+<svg class="lego-icon">\
+	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#clipboard"></use>\
+</svg></div>');
+
+$('.copy-code-button').each(function(i, el) {
+  var clip = new ZeroClipboard(el, {
+    forceHandCursor: true
+  });
+  clip.on('copy', function(event) {
+    var clipboard = event.clipboardData;
+    clipboard.setData('text/plain', $(el).prev().text());
+  });
+});
