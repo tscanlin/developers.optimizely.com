@@ -37,7 +37,7 @@ js: |
 
 ---
 
-Conditional activation mode is a flexible and powerful way to activate an experiment. There are two ways to use it: with **polling**, you enter a condition and Optimizely activates the experiment once that condition is true. With a **callback**, you enter a function and trigger a callback once your code is ready for the experiment to activate. These methods are described in more detail below, and we've also highlighted several examples using each method.
+[Conditional activation mode](https://help.optimizely.com/hc/en-us/articles/200040225-Activation-Mode-Activating-an-experiment-dynamically-after-a-page-has-loaded#conditional) is a flexible and powerful way to activate an experiment. There are two ways to use it: with **polling**, you enter a condition and Optimizely activates the experiment once that condition is true. With a **callback**, you enter a function and trigger a callback once your code is ready for the experiment to activate. These methods are described in more detail below, and we've also highlighted several examples using each method.
 
 Based on the code you enter, Optimizely will automatically determine if it should be polled for or executed as a function. See the examples for detailed usage definitions.
 
