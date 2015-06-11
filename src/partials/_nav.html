@@ -16,6 +16,18 @@
                 <ul class="unstyled lego-nav lego-nav--stacked toc"></ul>
               </li>
             {% endfor %}
+
+            <!-- Add links to auto generated docs -->
+            {% if item.path === '/ios/' %}
+              <li>
+                <a class="section" href="{{ item.path }}help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+              </li>
+            {% endif %}
+            {% if item.path === '/android/' %}
+              <li>
+                <a class="section" href="{{ item.path }}help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+              </li>
+            {% endif %}
           </ul>
         </li>
       {% endfor %}
