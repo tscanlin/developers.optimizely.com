@@ -71,7 +71,8 @@ Dependency:
 </dependency>
 ```
 
-#### <a name="manualinstall"></a> Manual Installation
+<a name="manualinstall"></a> 
+#### Manual Installation
 
 **Dependencies**
 The Optimizely SDK depends on:
