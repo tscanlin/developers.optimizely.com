@@ -9,5 +9,5 @@ gulp.task('default', [
   'browserify',
   'images',
   'browser-sync',
-  'watch'
+  'watch',
 ]);
