@@ -25,7 +25,7 @@ To create an offline conversion, pieces of data regarding a visitor are required
 
 An offline conversion needs the following pieces of information:
 
-1. Account id
+1.) Account id
 
 ```
 /**
@@ -38,7 +38,7 @@ function getAccountId() {
 }
 ```
 
-2. Project id
+2.) Project id
 
 ```
 /**
@@ -51,7 +51,7 @@ function getProjectId() {
 }
 ```
 
-3. Experiment IDs
+3.) Experiment IDs
 
 ```
 /**
@@ -70,7 +70,7 @@ function getVariationsInParameters() {
 }
 ```
 
-4. Segment values
+4.) Segment values
 
 ```
 /**
@@ -88,7 +88,7 @@ function getSegmentsInParameters() {
 }
 ```
 
-4. Optimizely user id
+5.) Optimizely user id
 
 ```
 /**
