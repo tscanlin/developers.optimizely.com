@@ -101,34 +101,42 @@ You're now ready to edit your live variables using the Optimizely web editor:
 
 ## Code Blocks <a name="codeblocks"></a>
 
-Code Blocks allow developers to create variations that execute different code paths. CodeBlocks are declared as static variables and then can be accessed anywhere in your application.
+Code Blocks allow developers to create variations that execute different code paths. CodeBlocks are declared as static variables and then can be accessed anywhere in your application. For example, one use case might be to test various checkout flows.
 
-**Note: The syntax for Code Blocks was changed in 0.2.6**
+**Note: The syntax for Code Blocks was changed in version 1.0+**
 
-For example, one use case might be to test various checkout flows. First, define your CodeBlock as a static variable, then, add handlers for each of the possible branches in your code:
+First, define your CodeBlock as a static variable, then, add handlers for each of the possible branches in your code:
 
+``` java
+private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlock("CheckoutFlow")
+		.withBranchNames("shortCheckout", "longCheckout");
+```
 
-```java
+The above code block will have 3 branches: the "default" branch, and a branch named "shortCheckout" and a branch named "longCheckout".
+
+This is what the implemenation of that code block looks like. Be sure to implement your codeblock branches in the same order as you declare them when initializing the codeblock.
+
+``` java
 public class CommerceActivity extends Activity {
-  private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlockWithBranchNames("CheckoutFlow", "shortCheckout", "longCheckout");
+  private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlock("CheckoutFlow").withBranchNames("shortCheckout", "longCheckout");
 
   private void checkout {
     // This line defines Code Blocks "shortCheckout", "longCheckout", and a
     // default block that is executed in the case that the experiment is
     // not activated.
-    checkoutFlow.execute(new DefaultCodeBlock() {
+    checkoutFlow.execute(new DefaultCodeBranch() {
             @Override
             public void execute() {
                 // This block is executed by default
                 goToDefaultCheckout();
             }
-        }, new CodeBlock("shortCheckout") {
+        }, new CodeBranch() {
             @Override
             public void execute() {
                 // This block is executed when myCheckoutTest -> shortCheckout
                 goToShortCheckout();
             }
-        }, new CodeBlock("longCheckout") {
+        }, new CodeBranch() {
             @Override
             public void execute() {
                 // This block is executed when myCheckoutTest -> longCheckout
@@ -144,9 +152,10 @@ You're now ready to implement your experiment using the Optimizely web editor:
 0. Make sure you have not called `Optimizely.setEditGestureEnabled(false)`.
 1. Load your application and draw a large circle to connect in edit mode.
 2. Navigate to the Code Blocks section of the editor.
-<img src="/assets/img/android/editor-codeblocks.png" alt="Code Blocks Tab"/>
-3. The editor will display your Code Blocks.  Use the drop down to select the desired Code Block for this variation.  
-4. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](#preview) prior to going live with the experiment.
+<img src="editor-codeblocks-add-button.png" alt="Drawing" style="width: 100%;"/>
+3. Click the "Add Code Block" button to open a dialog where you can select code blocks to add to your experiment.
+4. Once you have added a code block to the experiment, you can select a value for each variation in the Code Blocks section of the editor.
+5. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
 
 For more details, please see the [Code Blocks API Reference](/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
