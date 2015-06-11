@@ -17,7 +17,7 @@ To use Optimizely for Android you must first integrate the SDK into your app. Yo
 
 **We strongly recommend using a version control system (such as [Git](http://git-scm.com/)) and checking in your app before installing Optimizely.**
 
-#### <a name="gradle"></a> Using Gradle
+#### <a name="gradle"></a> *Using Gradle*
 
 Your project must be set up to build with Gradle. Refer to [Gradle Getting Started](http://developer.android.com/sdk/installing/studio-build.html) if you haven't yet configured your project to work with Gradle.
 
@@ -45,7 +45,7 @@ dependencies {
 }
 ```
 
-#### <a name="maven"></a> Using Maven
+#### <a name="maven"></a> *Using Maven*
 
 0. Your project must be set up to build with Maven. Refer to [Maven in 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) guide if you haven't yet configured your project to work with Maven.
 
@@ -72,7 +72,7 @@ Dependency:
 ```
 
 <a name="manualinstall"></a> 
-#### Manual Installation
+#### *Manual Installation*
 
 **Dependencies**
 The Optimizely SDK depends on:
@@ -84,7 +84,7 @@ The Optimizely SDK depends on:
 
   [Download](https://github.com/optimizely/Optimizely-Android-SDK/) the latest jar file.
 
-##### Eclipse
+#### *Eclipse*
  If you are using ADT (Eclipse), copy the dependencies and Optimizely.jar to your `libs/` folder inside your project:
 
   <img src="../../assets/img/android/eclipse-libs.png" alt="Eclipse Project Structure" style="width: 40%;"/>
@@ -93,7 +93,7 @@ The Optimizely SDK depends on:
 
   <img src="../../assets/img/android/eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
 
-##### IntelliJ IDEA
+#### *IntelliJ IDEA*
 If you are using IntelliJ with the Android plugin, add each dependency jar and Optimizely.jar as a library dependency for your app module:
 
 Under Project Structure > Libraries click the `+` button.
@@ -105,7 +105,7 @@ Select the Optimizely.jar library (you may wish to copy the jar into your projec
 Select your application module as a target for the library.
   <img src="../../assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
 
-##### Android Studio
+#### *Android Studio*
 If you are using Android Studio, please see the [Gradle](#gradle) configuration above.
 
 ### <a name="accountcreation"></a> *2.* Create an Android Project
