@@ -6,20 +6,20 @@ var assets = 'assets/';
 var NAV_SECTIONS = {
   introduction: {
     path: 'introduction/',
-    title: 'Introduction'
+    title: 'Introduction',
   },
   guide: {
     path: 'guide/',
-    title: 'Getting started'
+    title: 'Getting started',
   },
   reference: {
     path: 'reference/',
-    title: 'Reference'
+    title: 'Reference',
   },
   faqs: {
     path: 'faqs/',
-    title: 'FAQs'
-  }
+    title: 'FAQs',
+  },
 };
 
 var paths = {
@@ -44,35 +44,35 @@ var paths = {
   navigation: {
     overview: {
       path: '/overview/',
-      title: 'Overview'
+      title: 'Overview',
     },
     rest: {
       path: '/rest/',
       title: 'REST API',
-      sections: NAV_SECTIONS
+      sections: NAV_SECTIONS,
     },
     javascript: {
       path: '/javascript/',
       title: 'JS API',
-      sections: NAV_SECTIONS
+      sections: NAV_SECTIONS,
     },
     ios: {
       path: '/ios/',
       title: 'iOS SDK',
-      sections: NAV_SECTIONS
+      sections: NAV_SECTIONS,
     },
     android: {
       path: '/android/',
       title: 'Android SDK',
-      sections: NAV_SECTIONS
+      sections: NAV_SECTIONS,
     },
     samples: {
       path: '/samples/',
-      title: 'Code Samples'
-    }
+      title: 'Code Samples',
+    },
   },
 };
 
 module.exports = {
-  paths: paths
-}
+  paths: paths,
+};

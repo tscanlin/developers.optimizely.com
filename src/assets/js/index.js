@@ -1,5 +1,4 @@
-/*eslint quotes: [1, "single"], comma-dangle: 1, curly: 2, strict: 0, no-use-before-define: 0*/
-/*global window, $, console, hljs, require, document*/
+/*global hljs */
 
 // Initialize code syntax highlighting.
 hljs.initHighlightingOnLoad();
@@ -28,7 +27,8 @@ var HEADER_OFFSET = 0;
 
 
 // Build Table of Contents Links.
-var subGroup, lastHeading;
+var subGroup;
+var lastHeading;
 // Iterate over headings.
 each.call(headings, function(heading, i) {
   // If the page has the toc container the build the toc.
@@ -40,16 +40,14 @@ each.call(headings, function(heading, i) {
         subGroup = document.createElement('ul');
         subGroup.setAttribute('class', 'unstyled soft--left collapsible ' + IS_COLLAPSED_CLASS);
         toc.appendChild(subGroup);
-      }
-      else if (currentHeadingLevel < lastHeadingLevel) {
+      } else if (currentHeadingLevel < lastHeadingLevel) {
         subGroup = undefined;
       }
     }
 
     if (!subGroup) {
       toc.appendChild(makeLink(heading));
-    }
-    else {
+    } else {
       subGroup.appendChild(makeLink(heading));
     }
 
@@ -62,7 +60,7 @@ each.call(headings, function(heading, i) {
       easing: 'easeInOutCubic',
       offset: HEADER_OFFSET,
       speed: ANIMATION_DURATION,
-      updateURL: true
+      updateURL: true,
     });
 
     tocLinks = toc.querySelectorAll('.toc-link');
@@ -93,8 +91,7 @@ function updateSidebar() {
 
   if (top > headerHeight) {
     header.classList.remove('background--brand-darker');
-  }
-  else {
+  } else {
     header.classList.add('background--brand-darker');
   }
 
@@ -102,8 +99,7 @@ function updateSidebar() {
     // Fix the nav on scroll.
     if (top > headerHeight) {
       nav.className = 'fixed';
-    }
-    else {
+    } else {
       nav.className = '';
     }
 
@@ -119,9 +115,8 @@ function updateSidebar() {
           var index = (i === 0) ? i : i - 1;
           topHeader = headings[index];
           return true;
-        }
         // This allows scrolling for the last heading on the page.
-        else if (i === headings.length - 1) {
+        } else if (i === headings.length - 1) {
           topHeader = headings[headings.length - 1];
           return true;
         }
@@ -146,8 +141,7 @@ function updateSidebar() {
       var activeList;
       if (activeTocLink.classList.contains('toc-link--H2')) {
         activeList = activeTocLink.parentNode.nextElementSibling;
-      }
-      else {
+      } else {
         activeList = activeTocLink.parentNode.parentNode;
       }
 
@@ -183,13 +177,11 @@ each.call(collapsers, function(collapser) {
     var isCollapsed = collapsible.classList.contains(IS_COLLAPSED_CLASS);
     if (isCollapsed) {
       collapsible.classList.remove(IS_COLLAPSED_CLASS);
-    }
-    else {
+    } else {
       collapsible.classList.add(IS_COLLAPSED_CLASS);
     }
   });
 });
-
 
 
 // Enable toggles for sandbox / interactive mode in REST reference section.
@@ -223,21 +215,24 @@ if (body.classList.contains('rest') && body.classList.contains('reference')) {
   });
 }
 
-var ZeroClipboard = require('zeroclipboard');
-window.ZeroClipboard = ZeroClipboard;
-
 var optimizelyApi = require('./optly-api.js');
 window.optimizelyApi = optimizelyApi;
 
+
+var ZeroClipboard = require('zeroclipboard');
+window.ZeroClipboard = ZeroClipboard;
+
 // Add copy code buttons.
-$('pre code').after('<div class="copy-code-button">\
+var copyCodeTemplate = '<div class="copy-code-button">\
 <svg class="lego-icon">\
 	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#clipboard"></use>\
-</svg></div>');
+</svg></div>';
+
+$('pre code').after(copyCodeTemplate);
 
 $('.copy-code-button').each(function(i, el) {
   var clip = new ZeroClipboard(el, {
-    forceHandCursor: true
+    forceHandCursor: true,
   });
   clip.on('copy', function(event) {
     var clipboard = event.clipboardData;
