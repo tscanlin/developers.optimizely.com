@@ -270,7 +270,7 @@ Please refer to the documentation for [trackEvent](/android/help/reference/com/o
 
 If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
 
-If you are using manual integration, please repeat the [Manual Installation Steps](#manualinstall) for your platform.
+If you are using manual integration, please repeat the [Manual Installation Steps](/android/guide/index.html#-a-name-installation-a-1-sdk-installation) for your platform.
 
 ## <a name="uninstall"></a>Uninstalling Optimizely
 
