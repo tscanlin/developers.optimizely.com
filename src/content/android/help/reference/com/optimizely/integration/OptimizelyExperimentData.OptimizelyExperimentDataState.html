@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>
 
-  OptimizelyCodeBlock
+  OptimizelyExperimentData.OptimizelyExperimentDataState
 
 
 </title>
@@ -142,11 +142,11 @@
                 
     <li class="api apilevel-">
   <a href="../../../com/optimizely/package-summary.html">com.optimizely</a></li>
-    <li class="selected api apilevel-">
+    <li class="api apilevel-">
   <a href="../../../com/optimizely/CodeBlocks/package-summary.html">com.optimizely.CodeBlocks</a></li>
     <li class="api apilevel-">
   <a href="../../../com/optimizely/Variable/package-summary.html">com.optimizely.Variable</a></li>
-    <li class="api apilevel-">
+    <li class="selected api apilevel-">
   <a href="../../../com/optimizely/integration/package-summary.html">com.optimizely.integration</a></li>
               </ul><br/>
             </div> <!-- end packages -->
@@ -154,18 +154,24 @@
           <div id="classes-nav">
             <ul>
               
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html">OptimizelyEventListener</a></li>
+      </ul>
+    </li>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></li>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a></li>
-          <li class="selected api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a></li>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.html">OptimizelyCodeBlocks</a></li>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a></li>
       </ul>
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="selected api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -212,6 +218,25 @@
   
   
 
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -221,6 +246,8 @@ Summary:
 
 
 
+  <a href="#enumconstants">Enums</a>
+  
 
 
 
@@ -228,7 +255,8 @@ Summary:
 
 
 
-  <a href="#pubmethods">Methods</a>
+
+  &#124; <a href="#pubmethods">Methods</a>
   
 
 
@@ -253,16 +281,20 @@ Summary:
 
 <div id="jd-header">
     public
-     
-     
+    static 
+    final 
     
-    class
-<h1>OptimizelyCodeBlock</h1>
+    enum
+<h1>OptimizelyExperimentData.OptimizelyExperimentDataState</h1>
 
 
 
   
-    extends Object<br/>
+  
+  
+
+  
+    extends Enum&lt;E&nbsp;extends&nbsp;Enum&lt;E&gt;&gt;<br/>
   
   
   
@@ -282,7 +314,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -290,7 +322,17 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.CodeBlocks.OptimizelyCodeBlock</td>
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Enum&lt;E&nbsp;extends&nbsp;java.lang.Enum&lt;E&gt;&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.integration.OptimizelyExperimentData.OptimizelyExperimentDataState</td>
     </tr>
     
 
@@ -306,15 +348,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Code Blocks allow developers to create variations that execute different code paths.
- CodeBlocks are declared as static variables and then can be accessed anywhere in your application.
- When #execute(DefaultCodeBranch, CodeBranch...) is called only one branch (represented by a <code><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></code>) will be
- executed.
- To use a codeblock, first define your CodeBlock with al possible branch names as a static variable, using
-
- <code>Optimizely.codeBlockWithBranchNames(String, String...)</code>
-
- and then call #execute(DefaultCodeBranch, CodeBranch...) on the instance with default code block and each of the possible branch code block.
+<p>Type describing the current state of the experiment
 </p>
 
 
@@ -353,6 +387,39 @@ Summary:
 
 
 
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>&nbsp;</td>
+        <td class="jd-linkcol">OptimizelyExperimentDataStateDeactivated&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Experiment has been deactivated
+ This can happen if
+ (a) not all of its assets are downloaded by the time our block time runs out, or
+ (b) another experiment has already been activated that makes a conflicting change
+ (c) targeting criteria for this experiment has not been met
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>&nbsp;</td>
+        <td class="jd-linkcol">OptimizelyExperimentDataStateDisabled&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Experiment is not running on the Optimizely dashboard.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>&nbsp;</td>
+        <td class="jd-linkcol">OptimizelyExperimentDataStateRunning&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Experiment is running &nbsp;</td>
+    </tr>
+    
+    
+</table>
+
+
 
 
 
@@ -380,47 +447,12 @@ Summary:
             
             
             
+            static
             
-            
-            void
+            <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#execute(com.optimizely.CodeBlocks.DefaultCodeBranch, com.optimizely.CodeBlocks.CodeBranch...)">execute</a></span>(<a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a> defaultCodeBlock, <a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch...</a> codeBranches)
-        
-        <div class="jd-descrdiv">First initialize the code block with provided code block definitions and then executes the correct code block
- depending on the active variation and experiments as stored in <code>OptimizelyData</code>.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#getBlockName()">getBlockName</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            Set&lt;String&gt;
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#getBranchNames()">getBranchNames</a></span>()
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#valueOf(java.lang.String)">valueOf</a></span>(String name)
         
   </td></tr>
 
@@ -430,13 +462,13 @@ Summary:
         <td class="jd-typecol">
             
             
+            final
+            static
             
-            
-            
-            String
+            <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentDataState[]</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#getDefaultBranchName()">getDefaultBranchName</a></span>()
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#values()">values</a></span>()
         
   </td></tr>
 
@@ -454,6 +486,208 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Enum-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Enum
+
+<div id="inherited-methods-java.lang.Enum">
+  <div id="inherited-methods-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Object
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(E arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Class&lt;E&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getDeclaringClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">name</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">ordinal</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            &lt;T&nbsp;extends&nbsp;Enum&lt;T&gt;&gt;
+            T
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">valueOf</span>(Class&lt;T&gt; arg0, String arg1)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
 
 
 <tr class="api apilevel-" >
@@ -657,6 +891,50 @@ From class
 </td></tr>
 
 
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Comparable-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  java.lang.Comparable
+
+<div id="inherited-methods-java.lang.Comparable">
+  <div id="inherited-methods-java.lang.Comparable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(T arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -675,6 +953,108 @@ From class
 
 
 <!-- Enum Values -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Enum Values</h2>
+
+
+
+
+<a id="OptimizelyExperimentDataStateDeactivated"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+      </span>
+        OptimizelyExperimentDataStateDeactivated
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Experiment has been deactivated
+ This can happen if
+ (a) not all of its assets are downloaded by the time our block time runs out, or
+ (b) another experiment has already been activated that makes a conflicting change
+ (c) targeting criteria for this experiment has not been met
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="OptimizelyExperimentDataStateDisabled"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+      </span>
+        OptimizelyExperimentDataStateDisabled
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Experiment is not running on the Optimizely dashboard. Try starting the experiment on https://www.optimizely.com </p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="OptimizelyExperimentDataStateRunning"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+      </span>
+        OptimizelyExperimentDataStateRunning
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Experiment is running </p></div>
+
+    
+    </div>
+</div>
+
+
 
 
 <!-- Constants -->
@@ -699,20 +1079,20 @@ From class
 
 
 
-<a id="execute(com.optimizely.CodeBlocks.DefaultCodeBranch, com.optimizely.CodeBlocks.CodeBranch...)"></a>
+<a id="valueOf(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
          
          
          
-         
-        void
+        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
       </span>
-      <span class="sympad">execute</span>
-      <span class="normal">(<a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a> defaultCodeBlock, <a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch...</a> codeBranches)</span>
+      <span class="sympad">valueOf</span>
+      <span class="normal">(String name)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -724,42 +1104,25 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>First initialize the code block with provided code block definitions and then executes the correct code block
- depending on the active variation and experiments as stored in <code>OptimizelyData</code>.
- Also locks the code block to make sure in future re-executions, only this code block is executed again.
- In Editor mode, notifies the socket about discovery of a new code block.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>defaultCodeBlock</th>
-          <td>default code block logic.</td>
-        </tr>
-        <tr>
-          <th>codeBranches</th>
-          <td>list of code block definition with branchNames.
-</td>
-        </tr>
-      </table>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
 
 
-<a id="getBlockName()"></a>
+<a id="values()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
+        final 
          
          
-         
-         
-        String
+        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentDataState[]</a>
       </span>
-      <span class="sympad">getBlockName</span>
+      <span class="sympad">values</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -773,83 +1136,6 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the name of this block which will show as the block label in the editor
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="getBranchNames()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        Set&lt;String&gt;
-      </span>
-      <span class="sympad">getBranchNames</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a list of the block names which will show in the dropdown list in the editor
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="getDefaultBranchName()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getDefaultBranchName</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the name of the default block
-</li></ul>
-  </div>
 
     </div>
 </div>

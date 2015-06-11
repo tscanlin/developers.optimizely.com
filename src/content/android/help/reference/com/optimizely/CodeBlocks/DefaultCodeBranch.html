@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>
 
-  LiveVariable
+  DefaultCodeBranch
 
 
 </title>
@@ -142,9 +142,9 @@
                 
     <li class="api apilevel-">
   <a href="../../../com/optimizely/package-summary.html">com.optimizely</a></li>
-    <li class="api apilevel-">
-  <a href="../../../com/optimizely/CodeBlocks/package-summary.html">com.optimizely.CodeBlocks</a></li>
     <li class="selected api apilevel-">
+  <a href="../../../com/optimizely/CodeBlocks/package-summary.html">com.optimizely.CodeBlocks</a></li>
+    <li class="api apilevel-">
   <a href="../../../com/optimizely/Variable/package-summary.html">com.optimizely.Variable</a></li>
     <li class="api apilevel-">
   <a href="../../../com/optimizely/integration/package-summary.html">com.optimizely.integration</a></li>
@@ -154,15 +154,14 @@
           <div id="classes-nav">
             <ul>
               
-    <li><h2>Interfaces</h2>
-      <ul>
-          <li class="api apilevel-"><a href="../../../com/optimizely/Variable/LiveVariable.Callback.html">LiveVariable.Callback</a>&lt;T&gt;</li>
-      </ul>
-    </li>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../com/optimizely/Variable/LiveVariable.html">LiveVariable</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></li>
+          <li class="selected api apilevel-"><a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.html">OptimizelyCodeBlocks</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></li>
       </ul>
     </li>
               
@@ -211,6 +210,15 @@
   
   
   
+   
+  
+  
+
+  
+   
+  
+  
+  
   
 
 
@@ -219,24 +227,21 @@
 
 Summary:
 
-  <a href="#nestedclasses">Nested Classes</a>
+
+
+
+
+
+
+
+  <a href="#inhfields">Inherited Fields</a>
   
 
 
-
-
-
-
-
-
-
-
-  &#124; <a href="#proctors">Protected Ctors</a>
+  &#124; <a href="#pubctors">Ctors</a>
   
 
 
-  &#124; <a href="#pubmethods">Methods</a>
-  
 
 
 
@@ -262,14 +267,18 @@ Summary:
     public
      
      
-    
+    abstract
     class
-<h1>LiveVariable</h1>
+<h1>DefaultCodeBranch</h1>
 
 
 
   
-    extends Object<br/>
+  
+  
+
+  
+    extends <a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a><br/>
   
   
   
@@ -289,7 +298,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -297,7 +306,17 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.Variable.LiveVariable&lt;T&gt;</td>
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">com.optimizely.CodeBlocks.CodeBranch</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.CodeBlocks.DefaultCodeBranch</td>
     </tr>
     
 
@@ -313,29 +332,15 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Live Variables allow you to designate variables in your app that can be assigned
- values in the Optimizely editor.  These values can be modified by Optimizely's
- editor even after you have released your app to the app store.  For example, you
- might want to create an experiment that tests various values for gravity. Live Variables
- are declared as static variables in your code and then can be accessed anywhere in your
- application. These values can be used as feature flags, to modify the behavior of your
- app, or as a convenient way to update your app with new stylings. Live variables must
- be declared as static variables in your app in order for the Optimizely Editor to detect them.
-
- To declare a LiveVariable use one of the following functions:
- <br>
- <code><a href="../../../com/optimizely/Optimizely.html#booleanVariable(java.lang.String, java.lang.Boolean)">booleanVariable(String, Boolean)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#stringVariable(java.lang.String, java.lang.String)">stringVariable(String, String)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#integerVariable(java.lang.String, int)">integerVariable(String, int)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#floatVariable(java.lang.String, float)">floatVariable(String, float)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#rectVariable(java.lang.String, android.graphics.Rect)">rectVariable(String, android.graphics.Rect)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#pointVariable(java.lang.String, android.graphics.Point)">pointVariable(String, android.graphics.Point)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#colorVariable(java.lang.String, int)">colorVariable(String, int)</a></code>
-
-</p>
+<p>The DefaultCodeBlock interface implementation will be executed as part of a Active variation if no variational CodeBlock is defined.</p>
 
 
 
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></code></li>
+      </ul>
+  </div>
 
 
 </div><!-- jd-descr -->
@@ -362,51 +367,73 @@ Summary:
 
 
 
-<!-- ======== NESTED CLASS SUMMARY ======== -->
-<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
 
 
-  
-    <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        interface</td>
-      <td class="jd-linkcol"><a href="../../../com/optimizely/Variable/LiveVariable.Callback.html">LiveVariable.Callback</a>&lt;T&gt;</td>
-      <td class="jd-descrcol" width="100%">&nbsp;</td>
-    </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="inhfields" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Fields</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-com.optimizely.CodeBlocks.CodeBranch" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-com.optimizely.CodeBlocks.CodeBranch-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">com.optimizely.CodeBlocks.CodeBranch</a>
+<div id="inherited-fields-com.optimizely.CodeBlocks.CodeBranch">
+  <div id="inherited-fields-com.optimizely.CodeBlocks.CodeBranch-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-com.optimizely.CodeBlocks.CodeBranch-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
     
+
     
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html#branchName">branchName</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
 
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
 
 
 
@@ -421,7 +448,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/Variable/LiveVariable.html#LiveVariable(java.lang.String, T, OptimizelyVariables)">LiveVariable</a></span>(String variableKey, T defaultValue, OptimizelyVariables optimizelyVariables)
+        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html#DefaultCodeBranch()">DefaultCodeBranch</a></span>()
         
   </td></tr>
 
@@ -432,32 +459,6 @@ Summary:
 
 
 
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            T
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/Variable/LiveVariable.html#get()">get</a></span>()
-        
-        <div class="jd-descrdiv">Retrieve the value for this variable by resolving it from the currently
- active variation.</div>
-  
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -469,6 +470,48 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.optimizely.CodeBlocks.CodeBranch" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-com.optimizely.CodeBlocks.CodeBranch-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">com.optimizely.CodeBlocks.CodeBranch</a>
+
+<div id="inherited-methods-com.optimizely.CodeBlocks.CodeBranch">
+  <div id="inherited-methods-com.optimizely.CodeBlocks.CodeBranch-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-com.optimizely.CodeBlocks.CodeBranch-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html#execute()">execute</a></span>()
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
 
 
 <tr class="api apilevel-" >
@@ -701,28 +744,25 @@ From class
 <!-- Public ctors -->
 
 
-
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
-
-<h2>Protected Constructors</h2>
+<h2>Public Constructors</h2>
 
 
 
-<a id="LiveVariable(java.lang.String, T, OptimizelyVariables)"></a>
+<a id="DefaultCodeBranch()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
-        protected 
+        public 
          
          
          
          
         
       </span>
-      <span class="sympad">LiveVariable</span>
-      <span class="normal">(String variableKey, T defaultValue, OptimizelyVariables optimizelyVariables)</span>
+      <span class="sympad">DefaultCodeBranch</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -743,50 +783,13 @@ From class
 
 
 
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
 <!-- ========= METHOD DETAIL ======== -->
 <!-- Public methdos -->
-
-<h2>Public Methods</h2>
-
-
-
-<a id="get()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        T
-      </span>
-      <span class="sympad">get</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the value for this variable by resolving it from the currently
- active variation.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the object represented by this variable
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
 
 
 
