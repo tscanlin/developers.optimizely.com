@@ -107,7 +107,7 @@ function updateSidebar() {
       nav.className = '';
     }
 
-    if (toc && highlight) {
+    if (toc && highlight && headings.length > 0) {
       // Highlight the toc based on scroll position.
       var collapsibleLists = toc.querySelectorAll('ul.collapsible');
       var headingsOffset = HEADER_OFFSET - 30;
