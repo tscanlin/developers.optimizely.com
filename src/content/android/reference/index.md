@@ -14,7 +14,7 @@ It is highly recommended to use Optimizely's 'O' gesture to connect your app to 
 
 ### Programmatically Enable Edit Mode
 
-Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizely`, you can call [enableEditor](http://developers.optimizely.com/android/help/reference/com/optimizely/Optimizely.html#enableEditor()) in the development version of your app so that you can make changes.
+Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizely`, you can call [enableEditor](/android/help/reference/com/optimizely/Optimizely.html#enableEditor()) in the development version of your app so that you can make changes.
 
 ```java
 Optimizely.enableEditor();
@@ -22,10 +22,10 @@ Optimizely.startOptimizely(getOptimizelyToken(), getApplication());
 ```
 
  **Note that you should always remove the enableEditor call prior to releasing your app to the App store.**
- 
+
 ### Disable Gesture
 
-By default, Optimizely's Android SDK disables the gesture if the app is live in the Play store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the [setEditGestureEnabled](http://developers.optimizely.com/android/help/reference/com/optimizely/Optimizely.html#setEditGestureEnabled(boolean)) method prior to `startOptimizelyWithAPIToken`.
+By default, Optimizely's Android SDK disables the gesture if the app is live in the Play store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the [setEditGestureEnabled](/android/help/reference/com/optimizely/Optimizely.html#setEditGestureEnabled(boolean)) method prior to `startOptimizelyWithAPIToken`.
 
 An example of how to implement this method can be found below:
 
@@ -52,7 +52,7 @@ Optimizely.setOptimizelyId("price_text_label", priceTextView);
 
 ### Disable Visual Editor
 
-If you decide you want to exclusively use live variables and code blocks, you can set  [setVisualExperimentsEnabled](http://developers.optimizely.com/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled(boolean)) to false.
+If you decide you want to exclusively use live variables and code blocks, you can set  [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled(boolean)) to false.
 
 ## <a name="variables"></a> Register Live Variables
 
@@ -75,7 +75,7 @@ public class MyActivity extends Activity {
 
 Once a variable is defined, each variation can specify a different value for that variable.
 
-Optimizely defines different  `<type>Variable()` functions for all the basic Java types. See the [Class Documentation](help/reference/com/optimizely/Optimizely.html) for more information.  In order to access the variable, call `Optimizely.<type>Variable` and provide the corresponding variable name. Variables are scoped at an application level, thus repeated calls to `Optimizely.<type>Variable` will return the same value throughout your application.
+Optimizely defines different  `<type>Variable()` functions for all the basic Java types. See the [Class Documentation](/android/help/reference/com/optimizely/Optimizely.html) for more information.  In order to access the variable, call `Optimizely.<type>Variable` and provide the corresponding variable name. Variables are scoped at an application level, thus repeated calls to `Optimizely.<type>Variable` will return the same value throughout your application.
 
 ```java
 import com.optimizely.Optimizely;
@@ -148,7 +148,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 3. The editor will display your Code Blocks.  Use the drop down to select the desired Code Block for this variation.  
 4. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](#preview) prior to going live with the experiment.
 
-For more details, please see the [Code Blocks API Reference](help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
+For more details, please see the [Code Blocks API Reference](/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
 ### Phased Rollouts
 
@@ -176,7 +176,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Make sure to call `setCustomTag` prior to `startOptimizely`.
 
-Please refer to our [API Docs](help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
+Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
 
 ### <a name="foregrounding"></a> Experiment Reload
 By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the backgroudn, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
@@ -226,7 +226,7 @@ private void userCompletedPurchase() {
 
 ## <a name="analytics"></a> Analytics Integrations
 
-You can also access the experiments and variations active for a given user directly using the `Optimizely.getActiveExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](help/reference/com/optimizely/Optimizely.html#getActiveExperiments()).
+You can also access the experiments and variations active for a given user directly using the `Optimizely.getActiveExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](/android/help/reference/com/optimizely/Optimizely.html#getActiveExperiments()).
 
  We are working on deeper integrations with 3rd party analytics platforms and will update these documents as those integrations are added to the Optimizely SDK.
 
@@ -255,7 +255,7 @@ To manually send events, in the appropriate function (e.g. where you make other 
   }
 ```
 
-Please refer to the documentation for [trackEvent](help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
+Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
 
 ## <a name="upgrade"></a>Upgrading to a new SDK
 
