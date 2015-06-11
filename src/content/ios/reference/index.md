@@ -4,7 +4,7 @@ title: "Optimizely iOS SDK Reference"
 ---
 #Optimizely iOS SDK Reference
 ## <a name="Key Documentation"></a> Apple Docs
-Link to [Optimizely Class Reference Documentation](http://developers.optimizely.com/ios/help/html/index.html)
+Link to [Optimizely Class Reference Documentation](/ios/help/html/index.html)
 
 ## Connecting to Optimizely's Editor
 

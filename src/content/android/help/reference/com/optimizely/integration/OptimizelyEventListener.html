@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>
 
-  OptimizelyCodeBlock
+  OptimizelyEventListener
 
 
 </title>
@@ -142,11 +142,11 @@
                 
     <li class="api apilevel-">
   <a href="../../../com/optimizely/package-summary.html">com.optimizely</a></li>
-    <li class="selected api apilevel-">
+    <li class="api apilevel-">
   <a href="../../../com/optimizely/CodeBlocks/package-summary.html">com.optimizely.CodeBlocks</a></li>
     <li class="api apilevel-">
   <a href="../../../com/optimizely/Variable/package-summary.html">com.optimizely.Variable</a></li>
-    <li class="api apilevel-">
+    <li class="selected api apilevel-">
   <a href="../../../com/optimizely/integration/package-summary.html">com.optimizely.integration</a></li>
               </ul><br/>
             </div> <!-- end packages -->
@@ -154,18 +154,24 @@
           <div id="classes-nav">
             <ul>
               
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="selected api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html">OptimizelyEventListener</a></li>
+      </ul>
+    </li>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></li>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a></li>
-          <li class="selected api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a></li>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.html">OptimizelyCodeBlocks</a></li>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a></li>
       </ul>
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -205,37 +211,9 @@
 
 
 
-  
-   
-  
-  
-  
-  
-
 
 <div class="sum-details-links">
 
-
-Summary:
-
-
-
-
-
-
-
-
-
-
-
-  <a href="#pubmethods">Methods</a>
-  
-
-
-
-  &#124; <a href="#inhmethods">Inherited Methods</a>
-
-&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
 
 </div><!-- end sum-details-links -->
 <div class="api-level">
@@ -256,16 +234,10 @@ Summary:
      
      
     
-    class
-<h1>OptimizelyCodeBlock</h1>
+    interface
+<h1>OptimizelyEventListener</h1>
 
 
-
-  
-    extends Object<br/>
-  
-  
-  
 
   
   
@@ -282,15 +254,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-         	
-        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.CodeBlocks.OptimizelyCodeBlock</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.integration.OptimizelyEventListener</td>
     </tr>
     
 
@@ -306,15 +270,9 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Code Blocks allow developers to create variations that execute different code paths.
- CodeBlocks are declared as static variables and then can be accessed anywhere in your application.
- When #execute(DefaultCodeBranch, CodeBranch...) is called only one branch (represented by a <code><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></code>) will be
- executed.
- To use a codeblock, first define your CodeBlock with al possible branch names as a static variable, using
-
- <code>Optimizely.codeBlockWithBranchNames(String, String...)</code>
-
- and then call #execute(DefaultCodeBranch, CodeBranch...) on the instance with default code block and each of the possible branch code block.
+<p>Interface for clients which want notifications when various Optimizely events occur.
+ Listeners are weakly held, so you may need to re-register your listeners if you don't
+ hold onto them.
 </p>
 
 
@@ -377,7 +335,7 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
-            
+            abstract
             
             
             
@@ -385,10 +343,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#execute(com.optimizely.CodeBlocks.DefaultCodeBranch, com.optimizely.CodeBlocks.CodeBranch...)">execute</a></span>(<a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a> defaultCodeBlock, <a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch...</a> codeBranches)
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html#onGoalTriggered(java.lang.String, java.util.List<com.optimizely.integration.OptimizelyExperimentData>)">onGoalTriggered</a></span>(String description, List&lt;<a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a>&gt; affectedExperiments)
         
-        <div class="jd-descrdiv">First initialize the code block with provided code block definitions and then executes the correct code block
- depending on the active variation and experiments as stored in <code>OptimizelyData</code>.</div>
+        <div class="jd-descrdiv">Notification that a goal has been triggered.</div>
   
   </td></tr>
 
@@ -396,121 +353,7 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#getBlockName()">getBlockName</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            Set&lt;String&gt;
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#getBranchNames()">getBranchNames</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html#getDefaultBranchName()">getDefaultBranchName</a></span>()
-        
-  </td></tr>
-
-
-
-</table>
-
-
-
-
-
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="inhmethods" class="jd-sumtable"><tr><th>
-  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
-  <div style="clear:left;">Inherited Methods</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Object-trigger"
-          src="../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  java.lang.Object
-
-<div id="inherited-methods-java.lang.Object">
-  <div id="inherited-methods-java.lang.Object-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            Object
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">clone</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">equals</span>(Object arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
+            abstract
             
             
             
@@ -518,146 +361,114 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">finalize</span>()
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html#onMessage(java.lang.String, java.lang.String, android.os.Bundle)">onMessage</a></span>(String source, String messageType, Bundle payload)
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            Class&lt;?&gt;
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">getClass</span>()
-        
+        <div class="jd-descrdiv">Called whenever a core component or plugin
+ sends a message that is not covered by the functions above.</div>
+  
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
             
             
-            
-            int
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">hashCode</span>()
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html#onOptimizelyDataFileLoaded()">onOptimizelyDataFileLoaded</a></span>()
         
+        <div class="jd-descrdiv">Notification that will fire whenever Optimizely loads a new configuration file.</div>
+  
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
-            final
             
             
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">notify</span>()
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html#onOptimizelyEditorEnabled()">onOptimizelyEditorEnabled</a></span>()
         
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">notifyAll</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">toString</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>(long arg0, int arg1)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>(long arg0)
-        
-  </td></tr>
-
-
-</table>
-  </div>
+        <div class="jd-descrdiv">Notification that Optimizely is now running in edit mode (though not necessarily connected to
+ the online editor)
 </div>
-</td></tr>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html#onOptimizelyExperimentViewed(com.optimizely.integration.OptimizelyExperimentData)">onOptimizelyExperimentViewed</a></span>(<a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a> experimentState)
+        
+        <div class="jd-descrdiv">Notification that is fired whenever the user's experience has been affected
+ by an experiment.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html#onOptimizelyFailedToStart(java.lang.String)">onOptimizelyFailedToStart</a></span>(String errorMessage)
+        
+        <div class="jd-descrdiv">Notification that Optimizely was unable to initialize along with a debugging message.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html#onOptimizelyStarted()">onOptimizelyStarted</a></span>()
+        
+        <div class="jd-descrdiv">Notification that Optimizely has successfully initialized and is now running.</div>
+  
+  </td></tr>
+
 
 
 </table>
+
+
+
+
+
 
 
 </div><!-- jd-descr (summary) -->
@@ -699,7 +510,7 @@ From class
 
 
 
-<a id="execute(com.optimizely.CodeBlocks.DefaultCodeBranch, com.optimizely.CodeBlocks.CodeBranch...)"></a>
+<a id="onGoalTriggered(java.lang.String, java.util.List<com.optimizely.integration.OptimizelyExperimentData>)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -707,12 +518,12 @@ From class
         public 
          
          
-         
+        abstract 
          
         void
       </span>
-      <span class="sympad">execute</span>
-      <span class="normal">(<a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a> defaultCodeBlock, <a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch...</a> codeBranches)</span>
+      <span class="sympad">onGoalTriggered</span>
+      <span class="normal">(String description, List&lt;<a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a>&gt; affectedExperiments)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -724,20 +535,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>First initialize the code block with provided code block definitions and then executes the correct code block
- depending on the active variation and experiments as stored in <code>OptimizelyData</code>.
- Also locks the code block to make sure in future re-executions, only this code block is executed again.
- In Editor mode, notifies the socket about discovery of a new code block.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Notification that a goal has been triggered.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>defaultCodeBlock</th>
-          <td>default code block logic.</td>
+          <th>description</th>
+          <td>A description of the goal event</td>
         </tr>
         <tr>
-          <th>codeBranches</th>
-          <td>list of code block definition with branchNames.
+          <th>affectedExperiments</th>
+          <td>the experiments that are active and tracking this goal
 </td>
         </tr>
       </table>
@@ -747,7 +555,7 @@ From class
 </div>
 
 
-<a id="getBlockName()"></a>
+<a id="onMessage(java.lang.String, java.lang.String, android.os.Bundle)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -755,12 +563,12 @@ From class
         public 
          
          
+        abstract 
          
-         
-        String
+        void
       </span>
-      <span class="sympad">getBlockName</span>
-      <span class="normal">()</span>
+      <span class="sympad">onMessage</span>
+      <span class="normal">(String source, String messageType, Bundle payload)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -772,18 +580,32 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Called whenever a core component or plugin
+ sends a message that is not covered by the functions above.</p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the name of this block which will show as the block label in the editor
-</li></ul>
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>source</th>
+          <td>ID of the plugin or core component that sent the message</td>
+        </tr>
+        <tr>
+          <th>messageType</th>
+          <td>type of the message</td>
+        </tr>
+        <tr>
+          <th>payload</th>
+          <td>payload of extras bundled into the message
+</td>
+        </tr>
+      </table>
   </div>
 
     </div>
 </div>
 
 
-<a id="getBranchNames()"></a>
+<a id="onOptimizelyDataFileLoaded()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -791,11 +613,11 @@ From class
         public 
          
          
+        abstract 
          
-         
-        Set&lt;String&gt;
+        void
       </span>
-      <span class="sympad">getBranchNames</span>
+      <span class="sympad">onOptimizelyDataFileLoaded</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -808,18 +630,92 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Notification that will fire whenever Optimizely loads a new configuration file.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="onOptimizelyEditorEnabled()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onOptimizelyEditorEnabled</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Notification that Optimizely is now running in edit mode (though not necessarily connected to
+ the online editor)
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="onOptimizelyExperimentViewed(com.optimizely.integration.OptimizelyExperimentData)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onOptimizelyExperimentViewed</span>
+      <span class="normal">(<a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a> experimentState)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Notification that is fired whenever the user's experience has been affected
+ by an experiment. This means that:
+   a live variable has been evaluated,
+   a code block has been evaluated,
+   or a visual change has been seen by the user.</p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a list of the block names which will show in the dropdown list in the editor
-</li></ul>
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>experimentState</th>
+          <td>the current running state of the experiment.
+</td>
+        </tr>
+      </table>
   </div>
 
     </div>
 </div>
 
 
-<a id="getDefaultBranchName()"></a>
+<a id="onOptimizelyFailedToStart(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -827,11 +723,52 @@ From class
         public 
          
          
+        abstract 
          
-         
-        String
+        void
       </span>
-      <span class="sympad">getDefaultBranchName</span>
+      <span class="sympad">onOptimizelyFailedToStart</span>
+      <span class="normal">(String errorMessage)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Notification that Optimizely was unable to initialize along with a debugging message.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>errorMessage</th>
+          <td>the cause of the failure to start.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="onOptimizelyStarted()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onOptimizelyStarted</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -844,12 +781,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the name of the default block
-</li></ul>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p>Notification that Optimizely has successfully initialized and is now running.
+</p></div>
 
     </div>
 </div>

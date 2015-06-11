@@ -730,7 +730,8 @@ has viewed across all sessions. To get a list of all experiments, use allExperim
 			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/setUserId:</TokenIdentifier>
 			<Abstract type="html">A unique identifier for the current user.
 If a custom identifier is provided, it must be set prior to calling +startWithProjectId:launchOptions:.
-Defaults to the device UUIDString if no identifier is provided.</Abstract>
+Defaults to the device UUIDString if no identifier is provided.
+Setting the userId to nil will reset the UUID.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, strong) NSString *userId</Declaration>
@@ -744,7 +745,8 @@ Defaults to the device UUIDString if no identifier is provided.</Abstract>
 			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/userId</TokenIdentifier>
 			<Abstract type="html">A unique identifier for the current user.
 If a custom identifier is provided, it must be set prior to calling +startWithProjectId:launchOptions:.
-Defaults to the device UUIDString if no identifier is provided.</Abstract>
+Defaults to the device UUIDString if no identifier is provided.
+Setting the userId to nil will reset the UUID.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, strong) NSString *userId</Declaration>
@@ -758,7 +760,8 @@ Defaults to the device UUIDString if no identifier is provided.</Abstract>
 			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/userId</TokenIdentifier>
 			<Abstract type="html">A unique identifier for the current user.
 If a custom identifier is provided, it must be set prior to calling +startWithProjectId:launchOptions:.
-Defaults to the device UUIDString if no identifier is provided.</Abstract>
+Defaults to the device UUIDString if no identifier is provided.
+Setting the userId to nil will reset the UUID.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, strong) NSString *userId</Declaration>
@@ -965,6 +968,19 @@ except that it cannot (yet) be activated through the website.</Abstract>
 			
 			
 			<Anchor>//api/name/activateMixpanelIntegration</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/activateAmplitudeIntegration</TokenIdentifier>
+			<Abstract type="html">This activates the Optimizely SDK&apos;s Amplitude integration. You can read more about this
+here.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)activateAmplitudeIntegration</Declaration>
+			
+			
+			<Anchor>//api/name/activateAmplitudeIntegration</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		

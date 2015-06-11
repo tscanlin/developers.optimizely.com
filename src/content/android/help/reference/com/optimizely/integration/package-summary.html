@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>
 
-  com.optimizely.CodeBlocks
+  com.optimizely.integration
 
 
 </title>
@@ -142,11 +142,11 @@
                 
     <li class="api apilevel-">
   <a href="../../../com/optimizely/package-summary.html">com.optimizely</a></li>
-    <li class="selected api apilevel-">
+    <li class="api apilevel-">
   <a href="../../../com/optimizely/CodeBlocks/package-summary.html">com.optimizely.CodeBlocks</a></li>
     <li class="api apilevel-">
   <a href="../../../com/optimizely/Variable/package-summary.html">com.optimizely.Variable</a></li>
-    <li class="api apilevel-">
+    <li class="selected api apilevel-">
   <a href="../../../com/optimizely/integration/package-summary.html">com.optimizely.integration</a></li>
               </ul><br/>
             </div> <!-- end packages -->
@@ -154,18 +154,24 @@
           <div id="classes-nav">
             <ul>
               
+    <li><h2>Interfaces</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html">OptimizelyEventListener</a></li>
+      </ul>
+    </li>
               
     <li><h2>Classes</h2>
       <ul>
-        <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></li>
-        <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a></li>
-        <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a></li>
-        <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.html">OptimizelyCodeBlocks</a></li>
-        <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></li>
+        <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a></li>
       </ul>
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -214,7 +220,7 @@
 
 <div id="jd-header">
   package
-  <h1>com.optimizely.CodeBlocks</h1>
+  <h1>com.optimizely.integration</h1>
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -227,6 +233,17 @@
 
 
   
+    <h2>Interfaces</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html">OptimizelyEventListener</a></td>
+              <td class="jd-descrcol" width="100%">Interface for clients which want notifications when various Optimizely events occur.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
 
 
   
@@ -235,30 +252,27 @@
     
   <table class="jd-sumtable-expando">
         <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../com/optimizely/CodeBlocks/CodeBranch.html">CodeBranch</a></td>
-              <td class="jd-descrcol" width="100%">The CodeBlock interface should be implemented to specify a unit of work under test.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a></td>
-              <td class="jd-descrcol" width="100%">The DefaultCodeBlock interface implementation will be executed as part of a Active variation if no variational CodeBlock is defined.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a></td>
-              <td class="jd-descrcol" width="100%">Code Blocks allow developers to create variations that execute different code paths.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.html">OptimizelyCodeBlocks</a></td>
-              <td class="jd-descrcol" width="100%">OptimizelyCodeBlocks is the singleton class which handles all the functionality required for implementing CodeBocks.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
+              <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a></td>
+              <td class="jd-descrcol" width="100%">Description of an Optimizely Experiment's current state, including whether it is currently
+ running or viewed.&nbsp;</td>
           </tr>
   </table>
     </div>
   
 
 
+  
+    <h2>Enums</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></td>
+              <td class="jd-descrcol" width="100%">Type describing the current state of the experiment
+&nbsp;</td>
+          </tr>
+  </table>
+    </div>
   
 
 

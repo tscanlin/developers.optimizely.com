@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>
 
-  LiveVariable
+  OptimizelyExperimentData
 
 
 </title>
@@ -144,9 +144,9 @@
   <a href="../../../com/optimizely/package-summary.html">com.optimizely</a></li>
     <li class="api apilevel-">
   <a href="../../../com/optimizely/CodeBlocks/package-summary.html">com.optimizely.CodeBlocks</a></li>
-    <li class="selected api apilevel-">
-  <a href="../../../com/optimizely/Variable/package-summary.html">com.optimizely.Variable</a></li>
     <li class="api apilevel-">
+  <a href="../../../com/optimizely/Variable/package-summary.html">com.optimizely.Variable</a></li>
+    <li class="selected api apilevel-">
   <a href="../../../com/optimizely/integration/package-summary.html">com.optimizely.integration</a></li>
               </ul><br/>
             </div> <!-- end packages -->
@@ -156,17 +156,22 @@
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../com/optimizely/Variable/LiveVariable.Callback.html">LiveVariable.Callback</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyEventListener.html">OptimizelyEventListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../com/optimizely/Variable/LiveVariable.html">LiveVariable</a>&lt;T&gt;</li>
+          <li class="selected api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a></li>
       </ul>
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -228,11 +233,14 @@ Summary:
 
 
 
-
-
-
-  &#124; <a href="#proctors">Protected Ctors</a>
+  &#124; <a href="#lfields">Fields</a>
   
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
 
 
   &#124; <a href="#pubmethods">Methods</a>
@@ -264,7 +272,7 @@ Summary:
      
     
     class
-<h1>LiveVariable</h1>
+<h1>OptimizelyExperimentData</h1>
 
 
 
@@ -297,7 +305,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.Variable.LiveVariable&lt;T&gt;</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.integration.OptimizelyExperimentData</td>
     </tr>
     
 
@@ -313,25 +321,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Live Variables allow you to designate variables in your app that can be assigned
- values in the Optimizely editor.  These values can be modified by Optimizely's
- editor even after you have released your app to the app store.  For example, you
- might want to create an experiment that tests various values for gravity. Live Variables
- are declared as static variables in your code and then can be accessed anywhere in your
- application. These values can be used as feature flags, to modify the behavior of your
- app, or as a convenient way to update your app with new stylings. Live variables must
- be declared as static variables in your app in order for the Optimizely Editor to detect them.
-
- To declare a LiveVariable use one of the following functions:
- <br>
- <code><a href="../../../com/optimizely/Optimizely.html#booleanVariable(java.lang.String, java.lang.Boolean)">booleanVariable(String, Boolean)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#stringVariable(java.lang.String, java.lang.String)">stringVariable(String, String)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#integerVariable(java.lang.String, int)">integerVariable(String, int)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#floatVariable(java.lang.String, float)">floatVariable(String, float)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#rectVariable(java.lang.String, android.graphics.Rect)">rectVariable(String, android.graphics.Rect)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#pointVariable(java.lang.String, android.graphics.Point)">pointVariable(String, android.graphics.Point)</a></code><br>
- <code><a href="../../../com/optimizely/Optimizely.html#colorVariable(java.lang.String, int)">colorVariable(String, int)</a></code>
-
+<p>Description of an Optimizely Experiment's current state, including whether it is currently
+ running or viewed.
 </p>
 
 
@@ -373,9 +364,10 @@ Summary:
          
          
         
-        interface</td>
-      <td class="jd-linkcol"><a href="../../../com/optimizely/Variable/LiveVariable.Callback.html">LiveVariable.Callback</a>&lt;T&gt;</td>
-      <td class="jd-descrcol" width="100%">&nbsp;</td>
+        enum</td>
+      <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></td>
+      <td class="jd-descrcol" width="100%">Type describing the current state of the experiment
+&nbsp;</td>
     </tr>
     
     
@@ -398,6 +390,146 @@ Summary:
 
 
 
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          Boolean</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#enabled">enabled</a></td>
+          <td class="jd-descrcol" width="100%">Whether this experiment is enabled from the dashboard
+</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#experimentId">experimentId</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#experimentName">experimentName</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#locked">locked</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#state">state</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#targetingConditions">targetingConditions</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#targetingMet">targetingMet</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#variationId">variationId</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#variationName">variationName</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          int</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#visitedCount">visitedCount</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#visitedEver">visitedEver</a></td>
+          <td class="jd-descrcol" width="100%">true if the experiment has ever been marked as viewed.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#visitedThisSession">visitedThisSession</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
 
 
 
@@ -406,7 +538,7 @@ Summary:
 
 
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
 
 
 
@@ -421,13 +553,15 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/Variable/LiveVariable.html#LiveVariable(java.lang.String, T, OptimizelyVariables)">LiveVariable</a></span>(String variableKey, T defaultValue, OptimizelyVariables optimizelyVariables)
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#OptimizelyExperimentData()">OptimizelyExperimentData</a></span>()
         
   </td></tr>
 
 
 
 </table>
+
+
 
 
 
@@ -445,14 +579,11 @@ Summary:
             
             
             
-            T
+            String
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/Variable/LiveVariable.html#get()">get</a></span>()
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#toString()">toString</a></span>()
         
-        <div class="jd-descrdiv">Retrieve the value for this variable by resolving it from the currently
- active variation.</div>
-  
   </td></tr>
 
 
@@ -698,31 +829,400 @@ From class
 <!-- Fields -->
 
 
-<!-- Public ctors -->
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
 
 
 
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
 
-<h2>Protected Constructors</h2>
-
-
-
-<a id="LiveVariable(java.lang.String, T, OptimizelyVariables)"></a>
+<a id="enabled"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
-        protected 
+        public 
+         
+         
+        Boolean
+      </span>
+        enabled
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Whether this experiment is enabled from the dashboard
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="experimentId"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        String
+      </span>
+        experimentId
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="experimentName"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        String
+      </span>
+        experimentName
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="locked"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        boolean
+      </span>
+        locked
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="state"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+      </span>
+        state
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="targetingConditions"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        String
+      </span>
+        targetingConditions
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="targetingMet"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        boolean
+      </span>
+        targetingMet
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="variationId"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        String
+      </span>
+        variationId
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="variationName"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        String
+      </span>
+        variationName
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="visitedCount"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        int
+      </span>
+        visitedCount
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="visitedEver"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        boolean
+      </span>
+        visitedEver
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>true if the experiment has ever been marked as viewed. This means that the user
+ has trigger a call to a LiveVariable.get, OptimizelyCodeBlock.execute() or that they have
+ seen a screen where the experiment's visual changes have been applied at any point in their
+ historical interactions with the app.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="visitedThisSession"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        boolean
+      </span>
+        visitedThisSession
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<a id="OptimizelyExperimentData()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
          
          
          
          
         
       </span>
-      <span class="sympad">LiveVariable</span>
-      <span class="normal">(String variableKey, T defaultValue, OptimizelyVariables optimizelyVariables)</span>
+      <span class="sympad">OptimizelyExperimentData</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -743,6 +1243,11 @@ From class
 
 
 
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
 <!-- ========= METHOD DETAIL ======== -->
 <!-- Public methdos -->
 
@@ -750,7 +1255,7 @@ From class
 
 
 
-<a id="get()"></a>
+<a id="toString()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -760,9 +1265,9 @@ From class
          
          
          
-        T
+        String
       </span>
-      <span class="sympad">get</span>
+      <span class="sympad">toString</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -775,13 +1280,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the value for this variable by resolving it from the currently
- active variation.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the object represented by this variable
-</li></ul>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
