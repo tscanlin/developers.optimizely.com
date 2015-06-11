@@ -5,9 +5,6 @@ title: "Optimizely Android SDK Reference"
 
 # Optimizely Android SDK Reference
 
-## Java Docs
-Link to <a target="_blank" href="/android/help/reference/packages.html">Optimizely Class Reference Documentation</a>
-
 ## Connecting to Optimizely's Editor
 
 It is highly recommended to use Optimizely's 'O' gesture to connect your app to Optimizely's editor.  However, there are other options should you choose not to implement Optimizely's URL scheme.

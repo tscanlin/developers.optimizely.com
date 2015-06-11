@@ -3,8 +3,6 @@ template: page-sidebar
 title: "Optimizely iOS SDK Reference"
 ---
 #Optimizely iOS SDK Reference
-## <a name="Key Documentation"></a> Apple Docs
-Link to <a target="_blank" href="/ios/help/html/index.html">Optimizely Class Reference Documentation</a>
 
 ## Connecting to Optimizely's Editor
 
