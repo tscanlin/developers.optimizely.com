@@ -12,7 +12,7 @@ It is highly recommended to use Optimizely's 'O' gesture to connect your app to 
 
 ### Programmatically Enable Edit Mode
 
-Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizelyWithAPIToken`, you can call [enableEditor](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/enableEditor) in the development version of your app so that you can make changes.
+Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizelyWithAPIToken`, you can call [enableEditor](/ios/help/html/Classes/Optimizely.html#//api/name/enableEditor) in the development version of your app so that you can make changes.
 
 ```objective-c
 [Optimizely enableEditor];
@@ -20,10 +20,10 @@ Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will 
 ```
 
  **Note that you should always remove the enableEditor call prior to releasing your app to the App store.**
- 
+
 ### Disable Gesture
 
-By default, Optimizely's iOS SDK disables the gesture if the app is live in the App store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the [disableGesture](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/disableGesture) method prior to `startOptimizelyWithAPIToken`.
+By default, Optimizely's iOS SDK disables the gesture if the app is live in the App store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the [disableGesture](/ios/help/html/Classes/Optimizely.html#//api/name/disableGesture) method prior to `startOptimizelyWithAPIToken`.
 
 An example of how to implement this method can be found below:
 
@@ -52,15 +52,15 @@ Cases where you will typically have to tag your views include if you would like 
 
 ### Disable Automatic Tagging
 
-If you decide you do not want views to be automatically tagged with an optimizelyId, you can set the [shouldNotGenerateDynamicIds](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/shouldNotGenerateDynamicIds) property to YES.
+If you decide you do not want views to be automatically tagged with an optimizelyId, you can set the [shouldNotGenerateDynamicIds](/ios/help/html/Classes/Optimizely.html#//api/name/shouldNotGenerateDynamicIds) property to YES.
 
 ### Disable Visual Editor
 
-If you decide you want to exclusively use live variables and code blocks, you can set the  [disableSwizzle](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/shouldNotGenerateDynamicIds) property to YES.
+If you decide you want to exclusively use live variables and code blocks, you can set the  [disableSwizzle](/ios/help/html/Classes/Optimizely.html#//api/name/shouldNotGenerateDynamicIds) property to YES.
 
 ## <a name="variables"></a> Register Live Variables
 
-[Live Variables](help/html/Classes/Optimizely.html#task_Live%20Variables) allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity.  In order to create an Optimizely Live Variable, first define a corresponding `OptimizelyVariableKey` as follows:
+[Live Variables](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables) allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity.  In order to create an Optimizely Live Variable, first define a corresponding `OptimizelyVariableKey` as follows:
 
 ```objective-c
 #import <Optimizely/Optimizely.h>
@@ -85,7 +85,7 @@ Optimizely.preregisterVariableKey(myGravityVariableKey)
 
 This defines an Optimizely variable key called `myGravityVariable` with a default value of 9.8.  Once a variable key is defined, variations can change the value for variables accessed via this key.
 
-The provided `OptimizelyVariableKeyFor[type]` macro ([list of types](help/html/Classes/Optimizely.html#task_Live%20Variables)) is the suggested method for defining an `OptimizelyVariableKey` as it will allow the web editor to detect live variables right when it connects your application. **Note that keys must be defined outside of the function scope.**
+The provided `OptimizelyVariableKeyFor[type]` macro ([list of types](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables)) is the suggested method for defining an `OptimizelyVariableKey` as it will allow the web editor to detect live variables right when it connects your application. **Note that keys must be defined outside of the function scope.**
 
 In order to access the variable, call `numberForKey` and provide the corresponding variable key:
 
@@ -130,11 +130,11 @@ You're now ready to implement your experiment using the Optimizely web editor:
 4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
 5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
 
-For more details, please see the [Live Variables API Reference](help/html/Classes/Optimizely.html#task_Live%20Variables)
+For more details, please see the [Live Variables API Reference](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables)
 
 ### Register Variable Callback
 
-By default, in Edit Mode, Optimizely's editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForVariableWithKey](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/registerCallbackForVariableWithKey:callback:) method.
+By default, in Edit Mode, Optimizely's editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForVariableWithKey](/ios/help/html/Classes/Optimizely.html#//api/name/registerCallbackForVariableWithKey:callback:) method.
 
 An example implementation of this can be found below:
 
@@ -232,7 +232,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 3. The editor will display your Code Blocks.  Use the drop down to select the desired Code Block for this variation.
 4. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
 
-For more details, please see the [Code Blocks API Reference](help/html/Classes/Optimizely.html#//api/name/codeBlocksWithKey:blockOne:defaultBlock:)
+For more details, please see the [Code Blocks API Reference](/ios/help/html/Classes/Optimizely.html#//api/name/codeBlocksWithKey:blockOne:defaultBlock:)
 
 ### Phased Rollouts
 
@@ -250,7 +250,7 @@ Optimizely will also track unique visitors in experiment results using this ID; 
 [Optimizely sharedInstance].userId = @"userid";
 ```
 
-*This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
+*This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
 
 <div class="lego-attention lego-attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
 
@@ -268,16 +268,16 @@ For example, to create the Custom Tag "returning_customer" with a value of "true
 `setValue:forCustomTag:` should be called prior to `startOptimizely` and any time custom tag values are expected to change.  To do that you can make the `setValue:forCustomTag:` call in the following ways:
 
 - Prior to `startOptimizely` so that Optimizely knows all of the targeting conditions prior to experiment activation
-- `setValue:forCustomTag:` can also be called in conjunction with [refreshExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) while the app is still running.  For more details on how this works, you can refer to the section [below](#experimentreload).
+- `setValue:forCustomTag:` can also be called in conjunction with [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) while the app is still running.  For more details on how this works, you can refer to the section [below](#experimentreload).
 
 From there, to create an experiment [targeting a Custom Tag](https://help.optimizely.com/hc/en-us/articles/202296994-Get-Started-on-Mobile-Optimization#targeting), open the Optimizely editor, click on "Options," followed by "Targeting" and selecting "Custom Tag" within the Optimizely editor.
 
 
 ### Experiment Reload <a name="experimentreload"></a>
 
-[refreshExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) should be called any time custom tag values are expected to change.  [refreshExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) allows Optimizely to take into account a user's newly added or changed custom tag values and rebuckets users based on updated targeting.
+[refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) should be called any time custom tag values are expected to change.  [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) allows Optimizely to take into account a user's newly added or changed custom tag values and rebuckets users based on updated targeting.
 
-For example, here's an use case where the user logs in, the developer sets a logged in custom tag, and then calls [refreshExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments):
+For example, here's an use case where the user logs in, the developer sets a logged in custom tag, and then calls [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments):
 
 
 ```objective-c
@@ -290,10 +290,10 @@ For example, here's an use case where the user logs in, the developer sets a log
 ```
 ## <a name="goaltracking"></a> Goal Tracking
 
-For additional information about any of the experimental approaches below, see the full [API Documentation](http://developers.optimizely.com/ios/help/html/index.html).
+For additional information about any of the experimental approaches below, see the full [API Documentation](/ios/help/html/index.html).
 
 ### <a name="revenuegoal"></a> Revenue
-The revenue goal allows you to [track revenue](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
+The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
 
 1. Add the tracking code to your app, you can add this tracking call by adding the code below:
 
@@ -323,7 +323,7 @@ Custom goals allow you to track events other than taps and view changes. There a
 
 2. To create an experiment that tracks custom goals, open the Optimizely editor, click "Goals," then "New Goal," and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal.  You should enter in the same string used in your trackEvent method call in the previous step.
 
-      For example, if we wanted a goal for users deleting a task with a swipe, we might create a custom goal "User Deleted Task" and then call [trackEvent](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/trackEvent:) with this string in our event handler as follows:
+      For example, if we wanted a goal for users deleting a task with a swipe, we might create a custom goal "User Deleted Task" and then call [trackEvent](/ios/help/html/Classes/Optimizely.html#//api/name/trackEvent:) with this string in our event handler as follows:
 
       ```objective-c
       - (void)userDidSwipeTask:(id)sender {
@@ -337,12 +337,12 @@ Custom goals allow you to track events other than taps and view changes. There a
 
 Optimizely integrates with popular analytics frameworks to allow you to slice and dice your experiment results. The integration sends information about the experiment and variation a user is bucketed into.  Currently we support the following frameworks in our iOS SDK:
 
-- [Mixpanel](help/html/Classes/Optimizely.html#//api/name/activateMixpanelIntegration)
+- [Mixpanel](/ios/help/html/Classes/Optimizely.html#//api/name/activateMixpanelIntegration)
 - [Google Analytics](https://help.optimizely.com/hc/en-us/articles/204628347)
 
 *Note: You must instantiate your analytics SDK in `application:didFinishLaunchingWithOptions:` before calling `startOptimizelyWithAPIToken` and enabling any integrations.*
 
-You can also access experiments and variations that a user has visited directly using the `[Optimizely sharedInstance].visitedExperiments` property and pass that data to internal or other analytics frameworks.  You can pass the values of `[Optimizely sharedInstance].visitedExperiments.experimentName` and `[Optimizely sharedInstance].visitedExperiments.variationName` to your analytics tool.  You can learn more about the [allExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/allExperiments) and [visitedExperiments](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/visitedExperiments) properties via our API reference.
+You can also access experiments and variations that a user has visited directly using the `[Optimizely sharedInstance].visitedExperiments` property and pass that data to internal or other analytics frameworks.  You can pass the values of `[Optimizely sharedInstance].visitedExperiments.experimentName` and `[Optimizely sharedInstance].visitedExperiments.variationName` to your analytics tool.  You can learn more about the [allExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/allExperiments) and [visitedExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/visitedExperiments) properties via our API reference.
 
 ## <a name="networksettings"></a> Network Settings
 There are only two instances when the Optimizely iOS SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, network calls are automatically made every 2 minutes.  The Optimizely iOS SDK allows you to customize how often these network calls are made by:
@@ -350,7 +350,7 @@ There are only two instances when the Optimizely iOS SDK uses a network connecti
 1. Customizing the 2 minute interval
 2. By turning off automatic sending of events and allowing you to sending events manually.
 
-The first option is to customize the interval for how often you want network calls to be made. To adjust the interval in seconds, you can use the [dispatchInterval](help/html/Classes/Optimizely.html#//api/name/dispatchInterval) method, which should be called prior to `startOptimizely` at the beginning of your `application:didFinishLaunchingWithOptions:` method:
+The first option is to customize the interval for how often you want network calls to be made. To adjust the interval in seconds, you can use the [dispatchInterval](/ios/help/html/Classes/Optimizely.html#//api/name/dispatchInterval) method, which should be called prior to `startOptimizely` at the beginning of your `application:didFinishLaunchingWithOptions:` method:
 
  ```objective-c
     // Configure a network call to be made every minute
@@ -359,9 +359,9 @@ The first option is to customize the interval for how often you want network cal
     [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
   ```
 
-The second option is to turn off the interval and manually make network calls.  Setting `dispatchInterval` to 0 or a negative value will disable the automatic sending of events. You will need to send events manually using [dispatch](http://developers.optimizely.com/ios/help/html/Classes/Optimizely.html#//api/name/dispatch), which is also when the config file will be downloaded.
+The second option is to turn off the interval and manually make network calls.  Setting `dispatchInterval` to 0 or a negative value will disable the automatic sending of events. You will need to send events manually using [dispatch](/ios/help/html/Classes/Optimizely.html#//api/name/dispatch), which is also when the config file will be downloaded.
 
-To turn off the automatic sending of events, you can set the value of [dispatchInterval](help/html/Classes/Optimizely.html#//api/name/dispatchInterval) to 0 at the beginning of your `application:didFinishLaunchingWithOptions:` method:
+To turn off the automatic sending of events, you can set the value of [dispatchInterval](/ios/help/html/Classes/Optimizely.html#//api/name/dispatchInterval) to 0 at the beginning of your `application:didFinishLaunchingWithOptions:` method:
 
  ```objective-c
 
@@ -390,7 +390,7 @@ To manually send events, in the appropriate function (e.g. where you make other 
 ```
 
 
-  
+
 ## Optimizely Debug <a name="debug"></a>
 
 For full details on how to use NSNotifications and the Experiment Data Object, you can refer to this [QA article](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-Experiments) in Optiverse.
@@ -419,7 +419,7 @@ The following sample shows how to register for a notification:
 ### Experiment Data Object <a name="experimentdata"></a>
 Optimizely's Experiment Object will provide information about what part of the experiment lifecycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited.
 
-Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](http://developers.optimizely.com/ios/help/html/Classes/OptimizelyExperimentData.html).
+Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](/ios/help/html/Classes/OptimizelyExperimentData.html).
 
 Sample usage of how this data looks is listed below:
 
