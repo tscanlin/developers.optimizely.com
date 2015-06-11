@@ -6,7 +6,7 @@ title: "Optimizely Android SDK Reference"
 # Optimizely Android SDK Reference
 
 ## Java Docs
-Link to [Optimizely Class Reference Documentation](/android/help/reference/packages.html)
+Link to <a target="_blank" href="/android/help/reference/packages.html">Optimizely Class Reference Documentation</a>
 
 ## Connecting to Optimizely's Editor
 
