@@ -11,8 +11,82 @@
         {% if fileName == "0-intro" %}
           <h2 id="{{anchor}}">{{title}}</h2>
         {% else %}
-          <h3 id="{{anchor}}">{{title}}</h3>
+          <h3 id="{{anchor}}">
+            {{title}}
+            {% if meta.warning %}<span> (deprecated)</span>{% endif %}
+          </h3>
         {% endif %}
+
+        <!-- Used for rest/conditions -->
+        {% if meta.warning %}<div class="lego-attention lego-attention--warning push--bottom">{{ meta.warning }}</div>{% endif %}
+        {% if condition.fields %}
+          <ul>
+            <li><b>type</b>: <code>{{type}}</code>
+
+            {% if condition.fields.name.required %}
+            <li><b>name</b>: required
+            {% endif %}
+
+            {% if condition.fields.match_type %}
+            <li><b>match_type</b>: {% if condition.fields.match_type.required %}required{% else %}optional{% endif %}</li>
+            {% endif %}
+
+            {% if condition.fields.value %}
+            <li><b>value</b>: {% if condition.fields.value.required %}required{% else %}optional{% endif %}</li>
+            {% endif %}
+          </ul>
+
+          <p>{% if meta.usage %}{{meta.usage | marked}}{% endif %}
+          {% if condition.fields.value.values %}
+          Acceptable values are:
+
+          <table class="growable table">
+          {% for value in condition.fields.value.values %}
+            <tr {% if forloop.index > 10 %}class="hidden"{% endif %}>
+              <td><code>{{value.value}}</code></td>
+              <td>
+                {% if value.deprecated %}
+                  <s>{{value.text}}</s> (deprecated)
+                {% else %}
+                {{value.text}}
+                {% endif %}
+              </td>
+            </tr>
+
+            {% if forloop.index == 10 %}
+            <tr>
+              <td colspan="2"><a class="expander">See {{ forloop.rindex }} more values</a></td>
+            </tr>
+            {% endif %}
+
+          {% endfor %}
+          </table>
+          {% endif %}
+          </p>
+
+          {% if condition.fields.value.disallowed_values %}
+          <p>Any string value is allowed except:
+            <ul>
+            {% for value in condition.fields.value.disallowed_values %}
+            <li><code>{{value}}</code></li>
+            {% endfor %}
+            </ul>
+          </p>
+          {% endif %}
+
+
+          {% if condition.fields.match_type.values %}
+          <p>The <code>match_type</code> can be:
+            <ul>
+            {% for match_type in condition.fields.match_type.values %}
+            <li><code>{{match_type.value}}</code> {{match_type.text}}</li>
+            {% endfor %}
+            </ul>
+          </p>
+          {% endif %}
+        {% endif %}
+        <!-- End used for rest/conditions -->
+
 
         <!-- Endpoint -->
         {% if type and endpoint %}
@@ -79,6 +153,16 @@ curl \
 <pre>
 {% highlight 'js' %}
 {{ js | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+<!-- Example JSON (for rest/conditions) -->
+{% if json %}
+<h4>Example JSON</h4>
+<pre>
+{% highlight 'js' %}
+{{ json | safe }}
 {% endhighlight %}
 </pre>
 {% endif %}

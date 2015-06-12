@@ -29,7 +29,7 @@ function filter_stringify(input) {
   return JSON.stringify(input);
 }
 filter_stringify.safe = true;
-swig.setFilter('stringify', filter_stringify );
+swig.setFilter('stringify', filter_stringify);
 
 // Add swig-highlight for code highlighting.
 require('swig-highlight').apply(swig);
