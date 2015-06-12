@@ -46,15 +46,15 @@ var opts = {
 
     // Add swig-highlight for code highlighting.
     require('swig-highlight').apply(swig);
-  }
+  },
 };
 
-gulp.task('html-templates', function () {
+gulp.task('html-templates', function() {
   return gulp.src([
-      path.join(paths.src + paths.pages, '**/*.html')
+      path.join(paths.src + paths.pages, '**/*.html'),
     ])
     .pipe(swig(opts))
     .on('error', handleErrors)
     .pipe(gulp.dest(paths.build))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.reload({stream: true}));
 });

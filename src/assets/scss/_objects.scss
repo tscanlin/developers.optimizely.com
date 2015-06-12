@@ -40,10 +40,9 @@
 // Toggle section
 .toggle-section {
   display: none;
-  // position: absolute;
-  // visibility: hidden;
 }
 
+// Copy code button in the top right corner of code samples.
 .copy-code-button {
   color: white;
   cursor: pointer;
@@ -61,6 +60,26 @@
   }
 }
 
+// Code container on the right side of sidebyside template.
+.code-container {
+  background-color: #00415D;
+  position: relative;
+
+  pre code {
+    border: 0;
+  }
+
+  h4 {
+    color: white;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+}
+
+// Add borders to divide up sidebyside template better.
 .sidebyside {
   .explanation {
     border-top: 1px solid rgba(0, 0, 0, 0.05);

@@ -1,14 +1,14 @@
 /*global hljs */
 
 // This replaces underscore templates (_.template)
-String.prototype.format = function() {
-  var formatted = this;
-  for (var i = 0; i < arguments.length; i++) {
-    var regexp = new RegExp('\\{' + i + '\\}', 'gi');
-    formatted = formatted.replace(regexp, arguments[i]);
-  }
-  return formatted;
-};
+function formatString(format) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return format.replace(/{(\d+)}/g, function(match, number) {
+    return typeof args[number] !== 'undefined'
+      ? args[number]
+      : match;
+  });
+}
 
 var OptimizelyAPI = function(token) {
   this.outstandingRequests = 0;
@@ -116,7 +116,7 @@ $(document).ready(function() {
                  $('#' + id + '-endpoint-option').val() +
                  $('#' + id + '-endpoint-suffix').text();
 
-      var highlightedResponse = hljs.highlightAuto(curlGetTemplate.format(optimizelyApi.token, path));
+      var highlightedResponse = hljs.highlightAuto(formatString(curlGetTemplate, optimizelyApi.token, path));
       requestDiv.find('code').html(hljs.fixMarkup(highlightedResponse).value);
       requestDiv.show();
       loaderDiv.removeClass('hidden');
