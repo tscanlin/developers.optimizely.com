@@ -1,14 +1,16 @@
 // Object classes.
 
+// For dropdown in header
 .dropdown {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
   left: -10px;
-  margin-top: 2px;
+  top: 30px;
   position: absolute;
   width: 120%;
 }
 
-.background--super-dark{
+// Used on the home page
+.background--super-dark {
 	background-color: #031E2A;
 	a, h2, p {
 		color: white;
@@ -18,7 +20,7 @@
 	}
 }
 
-.home .background--brand-darker{
+.home .background--brand-darker {
   background-color: #082F40;
 }
 
