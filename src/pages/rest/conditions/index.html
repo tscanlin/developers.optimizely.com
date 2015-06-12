@@ -1,0 +1,108 @@
+{% include 'partials/_head.html' %}
+
+{% include 'partials/_header.html' %}
+
+  <main id="main" class="main has-nav">
+    {%
+      include 'partials/_nav.html'
+      {
+        topPath: '/rest/',
+        section: {
+          path: 'conditions/'
+        },
+        relativePath: 'rest/conditions/'
+      }
+    %}
+
+    <div id="content" class="content">
+      <!-- Row -->
+      <section class="sidebyside">
+        <div class="lego-grid">
+          <!-- Left column -->
+          <div class="lego-grid__cell width-1-2 soft-quad--left soft-double--right explanation intro">
+
+            <h2 id="audience-conditions">Audience Conditions</h2>
+            <p></p><p>Audiences are defined using logical rules called conditions. Each condition is a rule like "Browser equals Chrome", and an audience is a Boolean combination of these rules, like "Browser equals Chrome OR Referrer matches the substring google.com".</p>
+
+            <p>Each individual condition is a JSON object with a <code>type</code> and other properties depending on that type. You can see how each condition type is defined below, or just create an audience on Optimizely and GET it back to see its condition JSON.</p>
+
+            <p>Conditions are joined together in lists. The first element in each list should be <code>"and"</code>, <code>"or"</code>, or <code>"not"</code>, and the rest of the conditions will be combined using that operator. You can replace any individual condition with another list, which allows for a nested structure of ANDs and ORs. A <code>"not"</code> list should only have one condition or list, which will be negated. Otherwise, a list with a single condition like <code>["and", {...}]</code> will just match that condition.</p>
+
+            <p>The full condition object should be passed to the API as a serialized string (for example, by using <code>JSON.stringify(data)</code> in JavaScript). We'll return it in the same format, so to traverse it you'll need to parse it as an object (with <code>JSON.parse(string)</code> or equivalent).</p>
+            <p></p>
+          </div>
+
+          <!-- Right column -->
+          <div class="lego-grid__cell width-1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+<!-- Example JSON -->
+<h4>Example JSON</h4>
+<pre>
+{% highlight 'js' %}
+  // Condition Grammar: "conditions" should be any value of the form
+  ["and", **]
+  ["or" , **]
+  ["not",  *]
+  "{..}" // an object with keys like ('type', 'value', 'match_type', 'name') and string values
+  // ** = one or more values from the list above
+  // * = one value of the form listed above
+
+
+  // Chrome users on SpringSale or FallSale campaign
+  [
+    "and",
+    {
+      "type": "browser",
+      "value": "gc"
+    },
+    [
+      "or",
+      {
+        "type": "query",
+        "name": "utm_campaign",
+        "value": "SpringSale"
+      },
+      {
+        "type": "query",
+        "name": "utm_campaign",
+        "value": "FallSale"
+      },
+    ]
+  ]
+
+  // Visitor is not on Firefox
+  [
+    "not",
+    {
+      "type": "browser",
+      "value": "ff"
+    }
+  ]
+{% endhighlight %}
+</pre>
+          </div>
+        </div>
+      </section>
+
+{% for type, meta in json.dimensions_meta %}
+  {% set condition = json.dimensions[type] %}
+
+  {%
+    include 'templates/sidebyside.html'
+    {
+      title: condition.title,
+      anchor: type,
+      condition: condition,
+      meta: meta,
+      json: meta.example
+    }
+  %}
+{% endfor %}
+
+  </div>
+</main>
+
+{% include 'partials/_footer.html' %}
+
+{% include 'partials/_foot.html' %}
