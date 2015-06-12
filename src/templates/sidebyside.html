@@ -36,30 +36,24 @@
             {% endif %}
           </ul>
 
-          <p>{% if meta.usage %}{{meta.usage | marked}}{% endif %}
+          <p>
+          {% if meta.usage %}{{meta.usage | marked}}{% endif %}
           {% if condition.fields.value.values %}
           Acceptable values are:
 
           <table class="growable table">
-          {% for value in condition.fields.value.values %}
-            <tr {% if forloop.index > 10 %}class="hidden"{% endif %}>
-              <td><code>{{value.value}}</code></td>
-              <td>
-                {% if value.deprecated %}
-                  <s>{{value.text}}</s> (deprecated)
-                {% else %}
-                {{value.text}}
-                {% endif %}
-              </td>
-            </tr>
-
-            {% if forloop.index == 10 %}
-            <tr>
-              <td colspan="2"><a class="expander">See {{ forloop.rindex }} more values</a></td>
-            </tr>
-            {% endif %}
-
-          {% endfor %}
+            {% for value in condition.fields.value.values %}
+              <tr>
+                <td><code>{{value.value}}</code></td>
+                <td>
+                  {% if value.deprecated %}
+                    <s>{{value.text}}</s> (deprecated)
+                  {% else %}
+                  {{value.text}}
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
           </table>
           {% endif %}
           </p>
