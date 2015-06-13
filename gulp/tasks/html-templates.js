@@ -11,7 +11,6 @@ var paths = require('../../config').paths;
 try {
   var dimensions = yaml.safeLoad(fs.readFileSync('./src/pages/rest/conditions/dimensions.yaml', 'utf8'));
   var dimensions_meta = yaml.safeLoad(fs.readFileSync('./src/pages/rest/conditions/dimensions-meta.yaml', 'utf8'));
-  console.log(dimensions);
 } catch (e) {
   console.log(e);
 }

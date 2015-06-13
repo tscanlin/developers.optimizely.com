@@ -31,6 +31,10 @@ $sidebar-width: 300px;
   -ms-transition: background 0.3s ease;
   -o-transition: background 0.3s ease;
   transition: background 0.3s ease;
+
+  a:hover {
+    color: #0095E7;
+  }
 }
 
 .main {

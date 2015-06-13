@@ -6,6 +6,12 @@
   transition: all 0.3s ease;
 }
 
+.collapsible--small {
+  max-height: 300px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
 .is-collapsed {
   max-height: 0;
 }

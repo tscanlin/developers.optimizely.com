@@ -17,14 +17,22 @@ module.exports = function() {
 
   // Make pseudo directive for collapsible sections.
   each.call(collapsers, function(collapser) {
+    var collapsible = collapser.nextElementSibling;
+
     collapser.addEventListener('click', function(e) {
       e.preventDefault();
-
-      var collapsible = collapser.nextElementSibling;
       var isCollapsed = collapsible.classList.contains(IS_COLLAPSED_CLASS);
       if (isCollapsed) {
         collapsible.classList.remove(IS_COLLAPSED_CLASS);
       } else {
+        collapsible.classList.add(IS_COLLAPSED_CLASS);
+      }
+    });
+
+    // Functionality for auto closing.
+    document.addEventListener('click', function(event) {
+      var autoClose = collapsible.getAttribute('data-auto-close');
+      if (autoClose !== null && collapser !== event.target) {
         collapsible.classList.add(IS_COLLAPSED_CLASS);
       }
     });
