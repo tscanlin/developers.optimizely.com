@@ -73,13 +73,30 @@ OptimizelyVariableKeyForNumber(myGravityVariable, @9.8f);
 @end
 ```
 
-or, if you're using Swift, declare your `OptimizelyVariableKey`s in your AppDelegate's `application:didFinishLaunchingWithOptions:` method as follows:
+or, if you're using Swift, declare your `OptimizelyVariableKey`s in your AppDelegate's top level. `#define` macros do not work in Swift so you'll have to manually pre-register these keys in the `application:didFinishLaunchingWithOptions:` method before calling `startOptimizelyWithAPIToken`. Here's an example of an AppDelegate.swift:
 
-```objective-c
-// Define and register live variable with type NSNumber
-var myGravityVariableKey: OptimizelyVariableKey = OptimizelyVariableKey.optimizelyKeyWithKey("myGravityVariable", defaultNSNumber: 9.8)
-Optimizely.preregisterVariableKey(myGravityVariableKey)
+```objective-c 
+import Optimizely
+
+internal var myGravityVariableKey: OptimizelyVariableKey = OptimizelyVariableKey.optimizelyKeyWithKey("myGravityVariable", defaultNSNumber: 9.8)
+	
+@UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
+   
+   var window: UIWindow?
+   
+   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+       
+       // Make sure to pre-register your keys before starting Optimizely
+       Optimizely.preregisterVariableKey(myGravityVariableKey)
+                       
+       Optimizely.startOptimizelyWithAPIToken("YOUR_API_TOKEN", launchOptions: launchOptions)
+       return true
+   }
+}
+
 ```
+
+By defining your variable key at the top level of the AppDelegate.swift and specifying it as `internal`, you'll be able to access them throughout your target.
 
 This defines an Optimizely variable key called `myGravityVariable` with a default value of 9.8.  Once a variable key is defined, variations can change the value for variables accessed via this key.
 
@@ -108,17 +125,20 @@ OptimizelyVariableKeyForNumber(myGravityVariable, @9.8f);
 
 or, in Swift:
 
-```objective-c
-// Load live variable
-var myGravityVariableKey = OptimizelyVariableKey.optimizelyKeyWithKey("myGravityVariable", defaultNSNumber: 9.8)
-var gravity: NSNumber = Optimizely.numberForKey(myGravityVariableKey)
+```swift
+import Optimizely
 
-// Use gravity...
-println("Gravity for this variation is \(gravity)")
+func someFunction() {
+	// myGravityVariableKey was previously defined in our AppDelegate.swift at
+	// the top level as an internal variable, so we can reference it here 
+	// in other parts of our application
+	var gravity: NSNumber = Optimizely.numberForKey(myGravityVariableKey)
+	
+	// Use gravity...
+	println("Gravity for this variation is \(gravity)")
+}
+
 ```
-
-*Note: in Swift, you'll need to preregister live variables in your AppDelegate, so it may make sense to store your `OptimizelyVariableKey`s somewhere to use later, when you access that variable. In this example, we're reconstructing the key using the same key name and default value, which is less efficient.*
-
 You're now ready to implement your experiment using the Optimizely web editor:
 
 1. Load your application and connect in edit mode.
@@ -137,10 +157,10 @@ By default, in Edit Mode, Optimizely's editor will apply variable value changes 
 An example implementation of this can be found below:
 
 ```objective-c
-[Optimizely registerCallbackForVariableWithKey:EXAMPLEVARIABLE callback:^(NSString *key, id value){
+[Optimizely registerCallbackForVariableWithKey:myVariableKey callback:^(NSString *key, id value) {
         NSLog(@"The value of Optimizely's Live Variable: %@ is now %@\n", key, value);
         [self.tableView reloadData];
-    }];
+}];
 ```
 
 ## <a name="codeblocks"></a> Code Blocks
@@ -165,12 +185,27 @@ OptimizelyCodeBlocksKeyWithBlockNames(myCheckoutBlocksKey,
 
 or, in Swift:
 
-```swift
-var myCheckoutBlocksKey = OptimizelyCodeBlocksKey("myCheckoutBlocksKey", blockNames: ["shortCheckout", "longCheckout"])
-Optimizely.preregisterBlockKey(myCheckoutBlocksKey)
+```swift 	
+import Optimizely
+
+internal var myCheckoutBlocksKey: OptimizelyCodeBlocksKey = OptimizelyCodeBlocksKey("myCheckoutBlocksKey", blockNames: ["shortCheckout", "longCheckout"])
+	
+@UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
+   
+   var window: UIWindow?
+   
+   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+       
+       // Make sure to pre-register your keys before starting Optimizely
+       Optimizely.preregisterBlockKey(myCheckoutBlocksKey)                
+       Optimizely.startOptimizelyWithAPIToken("YOUR_API_TOKEN", launchOptions: launchOptions)
+       
+       return true
+   }
+}
 ```
 
-*Note: again, in Swift you'll need to preregister code blocks in your AppDelegate, so it may make sense to store your `OptimizelyBlockKey`s somewhere so you can access them later if you don't plan to use them in that scope.*
+By defining your block key at the top level of the AppDelegate.swift and specifying it as `internal`, you'll be able to access them throughout your target.
 
 This defines an `OptimizelyCodeBlocksKey` called myCheckoutTest associated with block names "shortCheckout" and "longCheckout." A Code Block can contain up to 4 named blocks.  Once a Code Block key is defined, variations can change the block that is executed for a particular variation.
 
@@ -215,11 +250,18 @@ OptimizelyCodeBlocksKeyWithBlockNames(myCheckoutBlocksKey,
 or, in Swift:
 
 ```swift
-Optimizely.codeBlocksWithKey(myCheckoutBlocksKey,
-    blockOne: { self.performSegueWithIdentifier("shortCheckoutFlow" sender:self) },
-    blockTwo: { self.performSegueWithIdentifier("longCheckoutFlow" sender:self) },
-    defaultBlock: { self.performSegueWithIdentifier("checkoutFlow" sender:self) }
-)
+import Optimizely
+
+func someFunction() {
+	// myCheckoutBlocksKey was previously defined in our AppDelegate.swift at
+	// the top level as an internal variable, so we can reference it here in
+	// other parts of our application
+	Optimizely.codeBlocksWithKey(myCheckoutBlocksKey,
+	    blockOne: { self.performSegueWithIdentifier("shortCheckoutFlow" sender:self) },
+	    blockTwo: { self.performSegueWithIdentifier("longCheckoutFlow" sender:self) },
+	    defaultBlock: { self.performSegueWithIdentifier("checkoutFlow" sender:self) })
+}
+
 ```
 
 You're now ready to implement your experiment using the Optimizely web editor:
