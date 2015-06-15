@@ -9,7 +9,7 @@ Get started with the REST API in 5 minutes by following the instructions below:
 
 ### *1.* Create an Optimizely account
 
-If you don't have an Optimizely account already, just sign up for a [free developer account](https://www.optimizely.com/free-trial/). This account will give you access to core Optimizely features and API access, but with limited traffic allocation. No credit card is required, but you can always upgrade your account to a paid plan later.
+If you don't have an Optimizely account already, just sign up for a [free developer account](https://www.optimizely.com/?modal=devsignup). This account will give you access to core Optimizely features and API access, but with limited traffic allocation. No credit card is required, but you can always upgrade your account to a paid plan later.
 
 ### *2.* Generate an API token
 

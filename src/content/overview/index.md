@@ -21,7 +21,7 @@ If you're looking to develop on a specific platform, check out our documentation
 
 Optimizely offers a free account for developers that includes access to the APIs and SDKs. Creating an account takes 30 seconds and doesn't require a credit card.
 
-<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="https://www.optimizely.com/free-trial/">
+<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="https://www.optimizely.com/?modal=devsignup">
 Create a free account
 </a>
 
