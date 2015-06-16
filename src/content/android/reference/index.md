@@ -96,6 +96,23 @@ You're now ready to edit your live variables using the Optimizely web editor:
 4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
 5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
 
+### Register Variable Callback
+
+By default, in Edit Mode, Optimizely's editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the overloaded `Optimizely.<type>Variable` methods like `"stringVariable(String variableKey, String defaultValue, Callback callback)"`.
+
+An example implementation of this can be found below:
+
+```java
+Optimizely.stringVariable("variableKey", "defaultValue", new LiveVariable.Callback<String>() {
+  @Override
+  public void execute(String variableKey, @Nullable String value) {
+    Log.i("log-tag", String.format("The value of Optimizely's Live Variable: %s is now %s", 
+              variableKey, value));
+    actionButton.setText(value);
+  }
+});
+```
+
 ## Code Blocks <a name="codeblocks"></a>
 
 Code Blocks allow developers to create variations that execute different code paths. CodeBlocks are declared as static variables and then can be accessed anywhere in your application. For example, one use case might be to test various checkout flows.
