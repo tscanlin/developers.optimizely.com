@@ -266,8 +266,8 @@ For example, to set the data file download to 5 minutes (300,000ms):
 The second option is to turn off the automatic event sends and manually make network calls. Calling `Optimizely.setAutomaticEventSending(false);` will disable the automatic sending of events. You will need to send events manually using `Optimizely.sendEvents()` in order to collect experiment results.
 
 ```java
-Optimizely.setAutomaticEventSending(false);
-```
+Optimizely.setAutomaticEventSending(false);    
+```    
 
 To manually send events, in the appropriate function (e.g. where you make other network calls or after a custom event goal is triggered):
 
@@ -279,6 +279,45 @@ To manually send events, in the appropriate function (e.g. where you make other 
 ```
 
 Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
+
+## <a name="notifications"></a>Optimizely SDK Notifications
+Clients can get notifications when various Optimizely events occur in the Optimizely SDK lifecycyle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
+
+```java
+  Optimizely.addOptimizelyEventListener(new DefaultOptimizelyEventListener() {
+
+    public void onOptimizelyStarted() {
+      Log.i(tag, "Optimizely started.");
+    }
+
+    public void onOptimizelyFailedToStart(String errorMessage) {
+      Log.i(tag, format("Optimizely failed to start with message {%s}", errorMessage));
+    }
+
+    public void onOptimizelyExperimentViewed(OptimizelyExperimentData experimentState) {
+      Log.i(tag, format("Optimizely experiment {%s} viewed.", experimentState));
+    }
+
+    public void onOptimizelyEditorEnabled() {
+      Log.i(tag, "Optimizely is ready to connect to the editor.");
+    }
+
+    public void onOptimizelyDataFileLoaded() {
+      Log.i(tag, "Optimizely experiment data file loaded.");
+    }
+
+    public void onGoalTriggered(String description, 
+                                List<OptimizelyExperimentData> affectedExperiments) {
+      Log.i(tag, format("Optimizely goal {%s} part of experiments {%s} achieved.", 
+                          description, affectedExperiments));
+    }
+
+    public void onMessage(String source, String messageType, Bundle payload) {
+      Log.i(tag, format("Optimizely received message %s from %s {%s; %s} .", 
+                          messageType, source, payload));
+    }
+  });
+```
 
 ## <a name="upgrade"></a>Upgrading to a new SDK
 
