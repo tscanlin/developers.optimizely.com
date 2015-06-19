@@ -232,7 +232,7 @@ private void userCompletedPurchase() {
 
 ## <a name="analytics"></a> Analytics Integrations
 
-You can also access the experiments and variations active for a given user directly using the `Optimizely.getActiveExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](/android/help/reference/com/optimizely/Optimizely.html#getActiveExperiments()).
+You can also access the experiments and variations active for a given user directly using the `Optimizely.getVisitedExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments()).
 
  We are working on deeper integrations with 3rd party analytics platforms and will update these documents as those integrations are added to the Optimizely SDK.
 
