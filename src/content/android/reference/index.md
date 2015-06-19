@@ -265,7 +265,9 @@ For example, to set the data file download to 5 minutes (300,000ms):
 
 The second option is to turn off the automatic event sends and manually make network calls. Calling `Optimizely.setAutomaticEventSending(false);` will disable the automatic sending of events. You will need to send events manually using `Optimizely.sendEvents()` in order to collect experiment results.
 
-clients which want notifications when various Optimizely events occur.```
+```java
+Optimizely.setAutomaticEventSending(false);    
+```    
 
 To manually send events, in the appropriate function (e.g. where you make other network calls or after a custom event goal is triggered):
 
