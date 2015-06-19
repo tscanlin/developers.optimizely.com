@@ -16,6 +16,8 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#compileerror">*Q:* My app won't compile.</a><br>
 <a href="#dynamicimage">*Q:* My dynamically rendered image does not render while using the Editor.</a><br>
 <a href="#visualeditorchange">*Q:* I'm trying to make a Visual Change with Optimizely's Visual Editor, but the View is not changing.</a><br>
+<a href="#resultspage">*Q:* I am not seeing conversions or visitors on the results page.</a><br>
+<a href="#testflight">*Q:* If I release my app via TestFlight, will the gesture be disabled?</a><br>
 
 <a name="cantseeappineditor"></a>
 #####*Q: My device is running the app but I can't see it in the editor.*
@@ -55,3 +57,18 @@ referenced from: MY_CLASS
 <a name="visualeditorchange"></a>
 #####*Q: I'm trying to make a Visual Change with Optimizely's Visual Editor, but the View is not changing.*
 *A:* Optimizely applies changes once viewDidMoveToWindow is called.  The implication is that if you have code that modifies views after viewDidMoveToWindow is called (e.g. an animation that starts after the view is rendered), Optimizely will not be able to apply Visual Changes to the view.
+
+<a name="resultspage"></a>
+#####*Q: I am not seeing conversions or visitors on the results page.*
+*A:* There are two things to check if you not being counted as a visitor or seeing conversions on the results page as you're doing QA: that you meet targeting conditions and goals are being triggered properly.
+
+To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the live variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background and foreground the app in order for events store locally to be sent to the server.
+
+To check that goals are triggering properly, you can use our [developer APIs](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-Experiments) to check that:
+
+- Your experiment is running 
+- Your goals are triggered properly
+
+<a name="testflight"></a>
+#####*Q: If I release my app via TestFlight, will the gesture be disabled?*
+*A:* If you release your app via TestFlight or as an enterprise app (not through the App Store), the gesture will not be disabled by default.  Be sure to disable the gesture in code by making a call to [disableGesture](/ios/reference/index.html#disable-gesture) before you release your app via TestFlight or anywhere other than the App Store so that your users cannot put the app into Edit Mode.
