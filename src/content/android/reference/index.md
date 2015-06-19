@@ -117,7 +117,7 @@ This is what the implemenation of that code block looks like. Be sure to impleme
 public class CommerceActivity extends Activity {
   private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlock("CheckoutFlow").withBranchNames("shortCheckout", "longCheckout");
 
-  private void checkout {
+  private void checkout() {
     // This line defines Code Blocks "shortCheckout", "longCheckout", and a
     // default block that is executed in the case that the experiment is
     // not activated.
