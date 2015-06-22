@@ -332,26 +332,6 @@ For example, here's an use case where the user logs in, the developer sets a log
 
 For additional information about any of the experimental approaches below, see the full [API Documentation](/ios/help/html/index.html).
 
-### Revenue
-The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
-
-1. Add the tracking code to your app, you can add this tracking call by adding the code below:
-
-      ```objective-c
-      [Optimizely trackRevenue:(NSNumber *)];
-      ```
-
-      For example, if we wanted a goal for users that completed a purchase, and you could make the tracking call in your purchaseConfirmation method where `price` is the variable that holds the dollar amount that has been spent:
-
-      ```objective-c
-      - (void)purchaseConfirmation:(id)sender {
-          [Optimizely trackRevenue:price*100];
-          //The rest of your handler
-      }
-      ```
-
-2. To create an experiment that tracks revenue, click Goals -> Saved Goal -> Select "Total Revenue" from the drop-down.
-
 ### Track Event
 Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal.
 
@@ -372,6 +352,26 @@ Custom goals allow you to track events other than taps and view changes. There a
       }
       ```
       For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
+
+### Revenue
+The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
+
+1. Add the tracking code to your app, you can add this tracking call by adding the code below:
+
+      ```objective-c
+      [Optimizely trackRevenue:(NSNumber *)];
+      ```
+
+      For example, if we wanted a goal for users that completed a purchase, and you could make the tracking call in your purchaseConfirmation method where `price` is the variable that holds the dollar amount that has been spent:
+
+      ```objective-c
+      - (void)purchaseConfirmation:(id)sender {
+          [Optimizely trackRevenue:price*100];
+          //The rest of your handler
+      }
+      ```
+
+2. To create an experiment that tracks revenue, click Goals -> Saved Goal -> Select "Total Revenue" from the drop-down.
 
 ## Analytics Integrations
 
