@@ -3,7 +3,7 @@ template: page-sidebar
 title: "Optimizely Android SDK FAQs"
 ---
 
-# <a name="FAQ"></a>Optimizely Android SDK FAQs
+# Optimizely Android SDK FAQs
 
 Below are some frequently asked questions about the Android SDK. You may also want to check out [general product FAQs](https://help.optimizely.com/hc/en-us/articles/201893400).
 
@@ -87,5 +87,5 @@ To be counted as a visitor and show up on the results page, you actually have to
 
 To check that goals are triggering properly, you can use our developer APIs including: [OptimizelyEventListener](http://developers.optimizely.com/android/help/reference/com/optimizely/integration/OptimizelyEventListener.html) and [getVisitedExperiments](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments(%29) to check that:
 
-- Your experiment is running 
+- Your experiment is running
 - Your goals are triggered properly

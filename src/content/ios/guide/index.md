@@ -2,16 +2,16 @@
 template: page-sidebar
 title: "Optimizely iOS SDK Guide"
 ---
-#Getting started with Optimizely's iOS SDK
+# Getting started with Optimizely's iOS SDK
 
 The following SDK Install Steps will allow you to install the SDK and run experiments with Optimizely's Visual Editor.
 
-## <a name="Key Documentation"></a> SDK Download
+## SDK Download
 [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
 
 [ZIP](http://github.com/optimizely/Optimizely-iOS-SDK/zipball/master) | [TAR](http://github.com/optimizely/Optimizely-iOS-SDK/tarball/master) | [GitHub](http://github.com/optimizely/Optimizely-iOS-SDK)
 
-## <a name="accountcreation"></a> *1.* Create an iOS Project
+## 1. Create an iOS Project
 
 To create an iOS project, select "Create New Project" in the [Optimizely Dashboard](https://www.optimizely.com/dashboard):
 
@@ -21,10 +21,10 @@ To create an iOS project, select "Create New Project" in the [Optimizely Dashboa
 
 <img src="/assets/img/ios/project-code.png" alt="Project Code Dialog">
 
-## <a name="installation"></a> *2.* SDK Integration
+## 2. SDK Integration
 To use Optimizely's iOS SDK you must first integrate the SDK into your app. You can either install the Optimizely SDK using [CocoaPods](#cocoapods) (recommended) or via [Manual Installation](#manualinstall).  Our SDK supports iOS 7.0 and above.
 
-### <a name="cocoapods"></a> Using CocoaPods
+### Using CocoaPods
 
 0. Your Xcode project must be set up for CocoaPods. Refer to [CocoaPods Getting Started](http://cocoapods.org/#getstarted) if you haven't yet configured your project to work with CocoaPods.
 
@@ -41,7 +41,7 @@ To use Optimizely's iOS SDK you must first integrate the SDK into your app. You 
 
  *Note: By default CocoaPods installs to the first build target in the project.*
 
-### <a name="manualinstall"></a> Manual Installation
+### Manual Installation
 
 For new installations, please follow all steps. For upgrades, please follow steps 1 and 2.
 
@@ -62,7 +62,7 @@ For new installations, please follow all steps. For upgrades, please follow step
 <br  />
 3. <a name="objc"></a>Switch to the "Build Settings" tab. Add `-ObjC` to the "Other Linker Flags" build setting.
 
-## <a name="apitoken"></a> *3.* Add Your API token
+## 3. Add Your API token
 1. Now, you're ready to write some code!  Include this file at the top of your `AppDelegate` class implementation. This is usually found in a file called `AppDelegate.m` in the Project Navigator.
 
 	```objective-c
@@ -116,10 +116,10 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
             [Optimizely enableGestureInAppStoreApp];
          ```
 
-## <a name="createexperiment"></a> *4.* Create an Experiment
+## 4. Create an Experiment
 After creating an iOS project and installing the SDK, reference [this guide in our Knowledge Base](https://help.optimizely.com/hc/en-us/articles/202296994), which will walk you through how to set up an experiment.
 
-## <a name="qa"></a> *5.* QA
+## 5. QA
 Now that you've created an experiment and successfully installed the Optimizely iOS SDK, below is a checklist to go through prior to releasing your app to the app store with the SDK:
 
 1. In order to set up your app such that you can QA experiments (beyond using Preview), we recommend either having a separate [Project](#accountcreation) for development and production or inserting [Custom Tags](#customtags), that are only set for certain QA devices.  If you decide to go with setting up 2 separate projects, we recommend setting up an `#ifdef` to ensure that only one project code snippet is defined at any given time.
@@ -138,7 +138,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
 <br  />
 5. Once you've checked all these steps, you're ready to release to the app store!  To learn more about how to use Optimizely's editor and get additional testing ideas, you can check out our articles in [Optiverse](https://help.optimizely.com/hc/en-us/sections/200666084-Mobile-Optimization).
 
-## <a name="swift"></a>(Optional) SDK Setup with Swift
+## (Optional) SDK Setup with Swift
 1. Follow the installation steps above through [Step 2](#installation).
 2. Add an additional import statement for Optimizely: `import Optimizely`.
 3. The Objective-C `Project Code`, which you can find by selecting the appropriate iOS Project in your [Optimizely Dashboard](https://www.optimizely.com/dashboard) will need to be modified for a Swift project. For more details on finding your `Project Code`, you can refer back to [Step 1: Create an iOS project](#accountcreation). The original Objective-C project code should look like:
