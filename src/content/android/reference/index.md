@@ -242,7 +242,7 @@ The Revenue goal allows you to track purchases made by your users. There are two
 
 ```java
 private void userCompletedPurchase() {
-    Optimizely.trackRevenue(275));
+    Optimizely.trackRevenue(price * 100));
     //The rest of your handler
 }
 ```
