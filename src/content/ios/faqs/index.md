@@ -3,7 +3,7 @@ template: page-sidebar
 title: "Optimizely iOS SDK FAQs"
 ---
 
-# <a name="FAQ"></a>Optimizely iOS SDK FAQs
+# Optimizely iOS SDK FAQs
 
 Below are some frequently asked questions about the iOS SDK. You may also want to check out [general product FAQs](https://help.optimizely.com/hc/en-us/articles/201893400).
 
@@ -66,7 +66,7 @@ To be counted as a visitor and show up on the results page, you actually have to
 
 To check that goals are triggering properly, you can use our [developer APIs](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-Experiments) to check that:
 
-- Your experiment is running 
+- Your experiment is running
 - Your goals are triggered properly
 
 <a name="testflight"></a>
