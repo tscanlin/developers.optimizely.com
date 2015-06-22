@@ -18,6 +18,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#visualeditorchange">*Q:* I'm trying to make a Visual Change with Optimizely's Visual Editor, but the View is not changing.</a><br>
 <a href="#resultspage">*Q:* I am not seeing conversions or visitors on the results page.</a><br>
 <a href="#testflight">*Q:* If I release my app via TestFlight, will the gesture be disabled?</a><br>
+<a href="#labeltextcutoff">*Q:* Sometimes when I modify the text of a label the text gets cut off or doesn't break properly when I use the Visual Editor.  How can I fix that?</a><br>
 
 <a name="cantseeappineditor"></a>
 #####*Q: My device is running the app but I can't see it in the editor.*
@@ -72,3 +73,10 @@ To check that goals are triggering properly, you can use our [developer APIs](ht
 <a name="testflight"></a>
 #####*Q: If I release my app via TestFlight, will the gesture be disabled?*
 *A:* If you release your app via TestFlight or as an enterprise app (not through the App Store), the gesture will not be disabled by default.  Be sure to disable the gesture in code by making a call to [disableGesture](/ios/reference/index.html#disable-gesture) before you release your app via TestFlight or anywhere other than the App Store so that your users cannot put the app into Edit Mode.
+
+<a name=labeltextcutoff"></a>
+#####*Q: Sometimes when I modify the text of a label the text gets cut off or doesn't break properly when I use the Visual Editor.  How can I fix that?*
+*A:* In order to make it such that the label wraps correctly, in your app code you will need to set the following properties for the label you are looking to modify with the Visual Editor:
+
+- set Lines property to 0
+- set Line Breaks property to Word Wrap
