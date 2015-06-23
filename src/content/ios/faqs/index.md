@@ -79,4 +79,4 @@ To check that goals are triggering properly, you can use our [developer APIs](ht
 *A:* In order to make it such that the label wraps correctly, in your app code you will need to set the following properties for the label you are looking to modify with the Visual Editor:
 
 - set Lines property to 0
-- set Line Breaks property to Word Wrap
+- set Line Breaks property to Word Wrap 
