@@ -4,8 +4,8 @@
  * @author Tim Scanlin (tim.scanlin@optimizely.com)
  */
 
-/*global hljs */
 // Initialize code syntax highlighting.
+var hljs = require('highlight.js');
 hljs.initHighlightingOnLoad();
 
 // Add 'tocly' to generate a table of contents.

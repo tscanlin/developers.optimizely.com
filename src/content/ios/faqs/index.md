@@ -25,7 +25,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 #####*Q: My device is running the app but I can't see it in the editor.*
 *A:* First, confirm your device is connected to the internet and make sure that the API token that you passed into
 
-```objective-c
+```obj-c
 [Optimizely startOptimizelyWithAPIToken:@"YOUR-API-TOKEN"
 						  launchOptions:launchOptions];
 ```
@@ -80,7 +80,7 @@ To check that goals are triggering properly, you can use our [developer APIs](ht
 *A:* In order to make it such that the label wraps correctly, in your app code you will need to set the following properties for the label you are looking to modify with the Visual Editor:
 
 - set Lines property to 0
-- set Line Breaks property to Word Wrap 
+- set Line Breaks property to Word Wrap
 
 <a name="64bit"></a>
 #####*Q: Does Optimizely support 64-bit apps?*.

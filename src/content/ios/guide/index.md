@@ -65,14 +65,14 @@ For new installations, please follow all steps. For upgrades, please follow step
 ## 3. Add Your API token
 1. Now, you're ready to write some code!  Include this file at the top of your `AppDelegate` class implementation. This is usually found in a file called `AppDelegate.m` in the Project Navigator.
 
-	```objective-c
+	```obj-c
 	#import <Optimizely/Optimizely.h>
 	```
 
 2. Add the following to the beginning of `application:didFinishLaunchingWithOptions:` in your
 app delegate. The code can be copied from your `Project Code`, which you can find by selecting the appropriate iOS Project in your [Optimizely Dashboard](https://www.optimizely.com/dashboard).  For more details, you can refer back to [Step 1: Create an iOS project](#accountcreation).
 
-    ```objective-c
+    ```obj-c
     // You can find the following code snippet in your project code.
 
     [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
@@ -85,7 +85,7 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
    0. Add `[Optimizely handleOpenURL:]` to `application:openURL` in your app delegate.  This will notify Optimizely when the application has been loaded from a URL:
 
-         ```objective-c
+         ```obj-c
          - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
             if ([Optimizely handleOpenURL:url]) {
                return YES;
@@ -98,7 +98,7 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
    2. Locate the section called "URL Types" and click the plus icon (+) to expand the section.
    3. Paste the following into the field called "Identifer":
 
-         ```objective-c
+         ```obj-c
          com.optimizely
          ```
 
@@ -112,7 +112,7 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
    6. <a name="editliveappstore"></a>(Optional) By default, you will not be able to connect your app to the Optimizely editor once your app is live in the App Store.  If you would like to enable Edit Mode when the app is live, you can add the following line of code before `startOptimizelyWithAPIToken`:
 
-         ```objective-c
+         ```obj-c
             [Optimizely enableGestureInAppStoreApp];
          ```
 
@@ -143,7 +143,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
 2. Add an additional import statement for Optimizely: `import Optimizely`.
 3. The Objective-C `Project Code`, which you can find by selecting the appropriate iOS Project in your [Optimizely Dashboard](https://www.optimizely.com/dashboard) will need to be modified for a Swift project. For more details on finding your `Project Code`, you can refer back to [Step 1: Create an iOS project](#accountcreation). The original Objective-C project code should look like:
 
-      ```objective-c
+      ```obj-c
       [Optimizely startOptimizelyWithAPIToken:@"YOUR_API_TOKEN" launchOptions:launchOptions];
       ```
 Copy your API token, and add the following to the beginning of `application:didFinishLaunchingWithOptions:` in your
