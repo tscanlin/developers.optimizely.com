@@ -45,7 +45,7 @@ The `project_id` is required in the URL, and the `description` and `edit_url` ar
 
 When you create an experiment, Optimizely will also fill in associated data by default. These defaults mimic the behavior of Optimizely's editor and include:
 
-- Two variations in `variation_ids` named "Default Variation #1" and "Default Variation #2". The default variations have 50% traffic each and no code.
+- Two variations in `variation_ids` named "Original" and "Variation #1". The default variations have 50% traffic each and no code.
 - One URL targeting condition in `url_conditions`. By default, your experiment is targeted to the `edit_url` with a simple match.
 - Traffic allocated to 100% in `percentage_included`. Traffic is measured in basis points. Divide by 100 to get a percentage.
 - A `status` of "Not started", meaning the experiment will not be running initially.
