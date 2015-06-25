@@ -13,7 +13,7 @@ gulp.task('sass', function () {
     .pipe(sass({
       errLogToConsole: true,
       includePaths : [
-        require('lego').includePath
+        require('optimizely-lego').includePath
       ]
     }))
     .on('error', handleErrors)
