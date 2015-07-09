@@ -219,6 +219,20 @@ It is also possible to manually force Optimizely to reset all experiments and tr
 
 **Note: Using `refreshExperimentData()` may damage the statistical validity of your conversion events because the user has potentially seen multiple variations of your experiment!**
 
+### Universal User ID (Beta)
+
+Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. Android phone to tablet). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in local storage and continue to use it until a new one is set.
+
+Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
+
+```java
+Optimizely.setUserId("userid");
+```
+
+*This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
+
+<div class="lego-attention lego-attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
+
 ## Goal Tracking
 
 ### Track Event

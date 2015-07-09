@@ -280,20 +280,6 @@ A common use case for code blocks are phased rollouts.  Phased rollouts allow yo
 
 ## Custom Targeting
 
-### Universal User ID (Beta)
-
-Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. iPad app to iPhone app). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in `NSUserDefaults` and continue to use it until a new one is set.
-
-Optimizely will also track unique visitors in experiment results using this ID; we will count an [anonymous ID](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDevice_Class/index.html#//apple_ref/occ/instp/UIDevice/identifierForVendor) and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
-
-```objective-c
-[Optimizely sharedInstance].userId = @"userid";
-```
-
-*This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
-
-<div class="lego-attention lego-attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
-
 ### Custom Tags
 Custom Tags allow you to target users based on variables and attributes. You will be able to run your experiment and target visitors based on those custom attributes, effectively **only** bucketing those who meet your targeting conditions.  To be able to use Custom Tags in Optimizely, there are some lines of code that need to be added to your app.
 
@@ -328,6 +314,21 @@ For example, here's an use case where the user logs in, the developer sets a log
       [Optimizely refreshExperiments];
 }
 ```
+
+### Universal User ID (Beta)
+
+Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. iPad app to iPhone app). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in `NSUserDefaults` and continue to use it until a new one is set.
+
+Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
+
+```objective-c
+[Optimizely sharedInstance].userId = @"userid";
+```
+
+*This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
+
+<div class="lego-attention lego-attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
+
 ## Goal Tracking
 
 For additional information about any of the experimental approaches below, see the full [API Documentation](/ios/help/html/index.html).
