@@ -19,6 +19,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#resultspage">*Q:* I am not seeing conversions or visitors on the results page.</a><br>
 <a href="#testflight">*Q:* If I release my app via TestFlight, will the gesture be disabled?</a><br>
 <a href="#labeltextcutoff">*Q:* Sometimes when I modify the text of a label the text gets cut off or doesn't break properly when I use the Visual Editor.  How can I fix that?</a><br>
+<a href="#64bit">*Q:* Does Optimizely support 64-bit apps?</a><br>
 
 <a name="cantseeappineditor"></a>
 #####*Q: My device is running the app but I can't see it in the editor.*
@@ -80,3 +81,7 @@ To check that goals are triggering properly, you can use our [developer APIs](ht
 
 - set Lines property to 0
 - set Line Breaks property to Word Wrap 
+
+<a name="64bit"></a>
+#####*Q: Does Optimizely support 64-bit apps?*.
+*A:* Yes, Optimizely does support 64-bit apps.  Optimizely's SDK includes a 64-bit slice.  Architectures supported in the fat file include: armv7 and arm64.
