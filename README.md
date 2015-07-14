@@ -34,3 +34,9 @@ If npm install throws an error mentioning browserify then run:
 ```
 npm install --save-dev browserify
 ```
+
+If you are getting weird node dependency errors that don't make sense then run this to start fresh:
+```
+rm -rf node_modules/
+npm install
+```
