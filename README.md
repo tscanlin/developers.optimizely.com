@@ -1,9 +1,10 @@
 # developers.optimizely.com
-New developer documentation website (in progress) it will become - http://developers.optimizely.com/
+New developer documentation website.
 
 ### Prerequisites
 - have node.js installed
-- have github access and git setup properly
+- have github access
+- have git ssh keys setup properly, if you don't follow directions [here](https://help.github.com/articles/generating-ssh-keys/)
 
 ### To install
 ```
