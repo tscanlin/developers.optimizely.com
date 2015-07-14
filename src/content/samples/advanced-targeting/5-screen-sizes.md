@@ -8,7 +8,13 @@ js: |
    *  Specifies window size (in pixels) to target visitors.
    */
 
-   screen.width > 1400 && screen.height < 800
+   //target desktop viewports
+   //matches CSS media queries for height/width or max/min-height or -width
+   window.innerWidth > 1400 && window.innerHeight > 800
+
+   //target mobile phones
+   //matches CSS media queries using device-height and device-width
+   screen.width >= 320 && screen.width <= 480 && screen.height <= 640
 ---
 
-The following condition will ensure that the experiment only runs if the screen width is greater than 1400 and the height is greater than 800.
+The first condition will ensure that the experiment only runs if the screen width is greater than 1400 and the height is greater than 800. The second condition will ensure the experiment only runs if the viewport width is between 320 and 480 pixels and the height is less than 640 pixels.
