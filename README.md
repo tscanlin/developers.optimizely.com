@@ -23,6 +23,8 @@ npm run gulp
 # AND have the site running locally, then run:
 npm run deploy
 ```
+After deploying verify your changes on the live site:
+[http://developers.optimizely.com/](http://developers.optimizely.com/)
 
 ### Troubleshooting
 
