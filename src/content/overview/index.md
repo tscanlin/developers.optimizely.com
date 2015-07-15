@@ -51,19 +51,19 @@ Many Optimizely customers want to run more advanced tests and personalized exper
 
 * *Experiment results:* Utilize these code samples to better understand Optimizely's [/results endpoint](/samples/#results). This endpoint provides high-level insights from Optimizely's Stats Engine.
 
-* *Integrations:* Whether you're looking to create a custom integration with an analytics platform or if you're looking to do Wordpress headline testing with Optimizely, you can refer to the following links for each of Optimizely's different channels will help you navigate these processes:
+* *Integrations:* Whether you're looking to create a custom integration with an analytics platform or if you're looking to do WordPress headline testing with Optimizely, you can refer to the following links for each of Optimizely's different channels will help you navigate these processes:
    * [Web integration guide](/samples/#technology-integrations)
    * [iOS integration guide](/ios/reference/index.html#-a-name-analytics-a-analytics-integrations)
    * [Android integration guide](/android/reference/index.html#-a-name-analytics-a-analytics-integrations)
 
 
-* *Single page web apps (web only):* On traditional websites, when visitors click links, the links generally lead to a new URL and load an entirely new page. In Single Page Applications, the whole page doesn’t reload; instead, certain content is changed, loaded, and swapped out in the current URL. Check out our [single page app](/samples/#single-page-apps) section to help accommodate the behavior of Single Page Applications.
+* *Single page web apps (web only):* On traditional websites, when visitors click links, the links generally lead to a new URL and load an entirely new page. In Single Page Applications, the whole page doesn't reload; instead, certain content is changed, loaded, and swapped out in the current URL. Check out our [single page app](/samples/#single-page-apps) section to help accommodate the behavior of Single Page Applications.
 
 * *Custom JS conditions (web only):* If you expose first or third party data on the client, then you can use Optimizely's [custom JS conditions](/samples/#custom-js) to port data into different audiences.
 
 * *Conditional activation (web only):* Sometimes you'll want to trigger an Optimizely experiment dynamically, after some part of the page or screen has loaded. Read our [Conditional activation](/samples/#conditional) section for more information on how to control when Optimizely activates.
 
-* *Helper functions (web only):* Many times, it is necessary to use getter and setter methods within Optimizely to better interact with your website. This list of [helper functions](/samples/#helpers) are frequently used in Project, Experiment, and Variation Javascript.
+* *Helper functions (web only):* Many times, it is necessary to use getter and setter methods within Optimizely to better interact with your website. This list of [helper functions](/samples/#helpers) are frequently used in Project, Experiment, and Variation JavaScript.
 
 ### Integrations
 
@@ -115,11 +115,11 @@ There is a wide range of tools that have the ability to insert the Optimizely sn
 #####Examples
 
 * [Tealium](https://help.optimizely.com/hc/en-us/articles/203491910#enable)
-* [Wordpress snippet insertion](https://help.optimizely.com/hc/en-us/articles/205331897#plugin)
+* [WordPress snippet insertion](https://help.optimizely.com/hc/en-us/articles/205331897#plugin)
 
 
 ####*Offline conversions*
-When a goal is triggered on a webpage, a request is sent to our servers. That request creates a conversion and will later be reflected on the results page. A similar request can also be triggered from other places than the website, if that happens we call it a "offline conversion". In other words, a conversion that wasn't generated on the same medium where the experiment is running. A common use case is call tracking. For some customers an incoming call is an important conversion to track, more than conversions that happen on the web or in an app. Calltracking solutions often have the ability to set up a whebhook that is triggered when a call comes in or when a call is being answered. With the right information, this webhook can be used to create a conversion in an Optimizely report.
+When a goal is triggered on a webpage, a request is sent to our servers. That request creates a conversion and will later be reflected on the results page. A similar request can also be triggered from other places than the website, if that happens we call it a "offline conversion". In other words, a conversion that wasn't generated on the same medium where the experiment is running. A common use case is call tracking. For some customers an incoming call is an important conversion to track, more than conversions that happen on the web or in an app. Call-tracking solutions often have the ability to set up a webhook that is triggered when a call comes in or when a call is being answered. With the right information, this webhook can be used to create a conversion in an Optimizely report.
 
 #####Examples
 
@@ -128,24 +128,24 @@ When a goal is triggered on a webpage, a request is sent to our servers. That re
 * [Freespee](http://support.freespee.com/hc/en-us/articles/202196842)
 
 <!--#####Build your own
-The best calltracking integrations are apps or plugins that live within the calltracking software.
+The best call-tracking integrations are apps or plug-ins that live within the call-tracking software.
 *Installation*
 
 Option 1 (manual):
 
 1. The user creates a custom goal within Optimizly (manually) ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
-2. The user continues to the calltracking software and installs the plugin / app
+2. The user continues to the call-tracking software and installs the plug-in / app
 3. During the installation or after in a settings window, the user should be prompted to fill in the custom event name that was defined when the goal was created within Optimizely
 
 Option 2 (REST):
 
-1. The user goes to the calltracking software and installs the plugin / app
+1. The user goes to the call-tracking software and installs the plug-in / app
 2. The user is prompted for Optimizely authentication (token or oAuth)
 3. The user can select a project where a call tracking goal can be installed / selected.
 4. Users can select the newly created goal from the list of saved goals within Optimizely when they create a new experiment
 
 *Creating an offline converion*
-To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added to a custom variable (or something similar) in the calltracking
+To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added to a custom variable (or something similar) in the call-tracking
 [More about offline conversions](https://help.optimizely.com/hc/en-us/articles/200040195)
 An offline conversion needs the following pieces of information:
 1. Project id (can be filled in by )
@@ -189,8 +189,8 @@ In any given experiment, customers can create one or more *variations*, that con
 Technically speaking, a variation is just a snippet of code that can be executed in a user's browser or app to render the experience differently. On the web, a variation consists of a snippet of jQuery code. Variations can be created using Optimizely's [visual editor](https://help.optimizely.com/hc/en-us/articles/200039725) or using the [code editor](https://help.optimizely.com/hc/en-us/articles/200039835).
 
 * Learn how to [edit jQuery code in the Optimizely editor](https://help.optimizely.com/hc/en-us/articles/200039835)
-* Learn how to [register live variables](../ios/reference#-a-name-variables-a-register-live-variables) and [write code blocks](../ios/reference#-a-name-codeblocks-a-code-blocks) using the iOS SDK
-* Learn how to [register live variables](../android/reference#-a-name-variables-a-register-live-variables) and [write code blocks](../android/reference#-a-name-codeblocks-a-code-blocks) using the Android SDK
+* Learn how to [register Live Variables](../ios/reference#-a-name-variables-a-register-live-variables) and [write Code Blocks](../ios/reference#-a-name-codeblocks-a-code-blocks) using the iOS SDK
+* Learn how to [register Live Variables](../android/reference#-a-name-variables-a-register-live-variables) and [write Code Blocks](../android/reference#-a-name-codeblocks-a-code-blocks) using the Android SDK
 * Learn how to [create a variation using the REST API](../rest/reference#variations)
 
 
