@@ -1,4 +1,6 @@
-/*global hljs */
+/*eslint-disable */
+var hljs = require('highlight.js');
+/*eslint-enable */
 
 // This replaces underscore templates (_.template)
 function formatString(format) {
