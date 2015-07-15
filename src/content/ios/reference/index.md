@@ -12,7 +12,7 @@ It is highly recommended to use Optimizely's 'O' gesture to connect your app to 
 
 Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizelyWithAPIToken`, you can call [enableEditor](/ios/help/html/Classes/Optimizely.html#//api/name/enableEditor) in the development version of your app so that you can make changes.
 
-```objective-c
+```obj-c
 [Optimizely enableEditor];
 [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
 ```
@@ -25,7 +25,7 @@ By default, Optimizely's iOS SDK disables the gesture if the app is live in the 
 
 An example of how to implement this method can be found below:
 
-```objective-c
+```obj-c
 [Optimizely sharedInstance].disableGesture = YES;
 [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
 ```
@@ -41,7 +41,7 @@ The Optimizely Visual Editor allows you to modify existing views in your app. Th
 
 There are some cases where Optimizely will not be able to detect your views.  For those views, you should give them a unique `optimizelyId`.  An example of how to do this is below:
 
-```objective-c
+```obj-c
 UILabel *label = [[UILabel alloc] initWithFrame:...];
 label.optimizelyId = @"pricing-title-label";
 ```
@@ -60,7 +60,7 @@ If you decide you want to exclusively use live variables and code blocks, you ca
 
 [Live Variables](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables) allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity.  In order to create an Optimizely Live Variable, first define a corresponding `OptimizelyVariableKey` as follows:
 
-```objective-c
+```obj-c
 #import <Optimizely/Optimizely.h>
 
 // This line defines an OptimizelyVariableKey called myGravityVariable with a default value of 9.8
@@ -75,7 +75,7 @@ OptimizelyVariableKeyForNumber(myGravityVariable, @9.8f);
 
 or, if you're using Swift, declare your `OptimizelyVariableKey`s in your AppDelegate's top level. `#define` macros do not work in Swift so you'll have to manually pre-register these keys in the `application:didFinishLaunchingWithOptions:` method before calling `startOptimizelyWithAPIToken`. Here's an example of an AppDelegate.swift:
 
-```objective-c
+```obj-c
 import Optimizely
 
 internal var myGravityVariableKey: OptimizelyVariableKey = OptimizelyVariableKey.optimizelyKeyWithKey("myGravityVariable", defaultNSNumber: 9.8)
@@ -104,7 +104,7 @@ The provided `OptimizelyVariableKeyFor[type]` macro ([list of types](/ios/help/h
 
 In order to access the variable, call `numberForKey` and provide the corresponding variable key:
 
-```objective-c
+```obj-c
 #import <Optimizely/Optimizely.h>
 
 // This line defines an OptimizelyVariableKey called myGravityVariable
@@ -156,7 +156,7 @@ By default, in Edit Mode, Optimizely's editor will apply variable value changes 
 
 An example implementation of this can be found below:
 
-```objective-c
+```obj-c
 [Optimizely registerCallbackForVariableWithKey:myVariableKey callback:^(NSString *key, id value) {
         NSLog(@"The value of Optimizely's Live Variable: %@ is now %@\n", key, value);
         [self.tableView reloadData];
@@ -167,7 +167,7 @@ An example implementation of this can be found below:
 
 Code Blocks allow developers to create variations that execute different code paths.  For example, one use case might be to test various checkout flows.   In order to create a Code Block, first define a corresponding `OptimizelyCodeBlocksKey` as follows:
 
-```objective-c
+```obj-c
 #import <Optimizely/Optimizely.h>
 
 // This line defines an OptimizelyCodeBlocksKey called myCheckoutTest
@@ -214,7 +214,7 @@ The provided `OptimizelyCodeBlocksKeyWithBlockNames` macro is the suggested meth
 Next, implement the Code Block as follows:
 
 
-```objective-c
+```obj-c
 #import <Optimizely/Optimizely.h>
 
 // This line defines an OptimizelyCodeBlocksKey called myCheckoutBlocksKey
@@ -285,7 +285,7 @@ Custom Tags allow you to target users based on variables and attributes. You wil
 
 For example, to create the Custom Tag "returning_customer" with a value of "true":
 
- ```objective-c
+ ```obj-c
 [Optimizely setValue:@"true" forCustomTag:@"returning_customer"];
   ```
 
@@ -306,7 +306,7 @@ From there, to create an experiment [targeting a Custom Tag](https://help.optimi
 For example, here's an use case where the user logs in, the developer sets a logged in custom tag, and then calls [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments):
 
 
-```objective-c
+```obj-c
 - (void)handlerForUserLogin {
       // The user just logged in and we can set a custom tag to track this
       // and then we'll call a refresh
@@ -321,7 +321,7 @@ Set a unique (logged-in) identifier to be used by Optimizely for bucketing and t
 
 Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
 
-```objective-c
+```obj-c
 [Optimizely sharedInstance].userId = @"userid";
 ```
 
@@ -338,7 +338,7 @@ Custom goals allow you to track events other than taps and view changes. There a
 
 1. In order to track this goal, send this same string as a parameter to:
 
-      ```objective-c
+      ```obj-c
       [Optimizely trackEvent:(NSString *)];
       ```
 
@@ -346,7 +346,7 @@ Custom goals allow you to track events other than taps and view changes. There a
 
       For example, if we wanted a goal for users deleting a task with a swipe, we might create a custom goal "User Deleted Task" and then call [trackEvent](/ios/help/html/Classes/Optimizely.html#//api/name/trackEvent:) with this string in our event handler as follows:
 
-      ```objective-c
+      ```obj-c
       - (void)userDidSwipeTask:(id)sender {
           [Optimizely trackEvent:@"User Deleted Task"];
           //The rest of your handler
@@ -359,13 +359,13 @@ The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely
 
 1. Add the tracking code to your app, you can add this tracking call by adding the code below:
 
-      ```objective-c
+      ```obj-c
       [Optimizely trackRevenue:(NSNumber *)];
       ```
 
       For example, if we wanted a goal for users that completed a purchase, and you could make the tracking call in your purchaseConfirmation method where `price` is the variable that holds the dollar amount that has been spent:
 
-      ```objective-c
+      ```obj-c
       - (void)purchaseConfirmation:(id)sender {
           [Optimizely trackRevenue:price*100];
           //The rest of your handler
@@ -393,7 +393,7 @@ There are only two instances when the Optimizely iOS SDK uses a network connecti
 
 The first option is to customize the interval for how often you want network calls to be made. To adjust the interval in seconds, you can use the [dispatchInterval](/ios/help/html/Classes/Optimizely.html#//api/name/dispatchInterval) method, which should be called prior to `startOptimizely` at the beginning of your `application:didFinishLaunchingWithOptions:` method:
 
- ```objective-c
+ ```obj-c
     // Configure a network call to be made every minute
     [Optimizely sharedInstance].dispatchInterval = 60;
 
@@ -404,7 +404,7 @@ The second option is to turn off the interval and manually make network calls.  
 
 To turn off the automatic sending of events, you can set the value of [dispatchInterval](/ios/help/html/Classes/Optimizely.html#//api/name/dispatchInterval) to 0 at the beginning of your `application:didFinishLaunchingWithOptions:` method:
 
- ```objective-c
+ ```obj-c
 
 #ifdef DEBUG
     [Optimizely enableEditor];
@@ -419,7 +419,7 @@ To turn off the automatic sending of events, you can set the value of [dispatchI
 
 To manually send events, in the appropriate function (e.g. where you make other network calls or after a custom event goal is triggered):
 
-```objective-c
+```obj-c
 - (void)userDidSwipeTask:(id)sender {
     [Optimizely trackEvent:@"User Deleted Task"];
 
@@ -447,7 +447,7 @@ Optimizely provides a couple NSNotificationCenter notifications for developers t
 
 The following sample shows how to register for a notification:
 
-```objective-c
+```obj-c
 -(void)registerForOptimizelyNotifications {
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -464,7 +464,7 @@ Each experiment is represented as an `OptimizelyExperimentData` object. For more
 
 Sample usage of how this data looks is listed below:
 
- ```objective-c
+ ```obj-c
 for (OptimizelyExperimentData *data in [Optimizely sharedInstance].allExperiments) {
 // Lists all running, paused, and draft experiments
         NSLog(@"All Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long) data.visitedCount);
