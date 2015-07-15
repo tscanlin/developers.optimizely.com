@@ -161,11 +161,11 @@ app delegate:
 
 Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the App Store:
 
-1. [Live Variables](../reference/index.html#-a-name-variables-a-register-live-variables)
-2. [Code Blocks](../reference/index.html#-a-name-codeblocks-a-code-blocks)
-3. [Custom Tags](../reference/index.html#custom-tags-a-name-customtags-a-)
-4. [Track Event](../reference/index.html#-a-name-trackevent-a-track-event) (for key metrics you would like to track in your app)
-5. [Revenue Tracking](../reference/index.html#-a-name-revenuegoal-a-revenue)
-6. [Analytics Integration](../reference/index.html#-a-name-analytics-a-analytics-integrations)
+1. [Live Variables](../reference/index.html#register-live-variables)
+2. [Code Blocks](../reference/index.html#code-blocks)
+3. [Custom Tags](../reference/index.html#custom-tags)
+4. [Track Event](../reference/index.html#track-event) (for key metrics you would like to track in your app)
+5. [Revenue Tracking](../reference/index.html#revenue-tracking)
+6. [Analytics Integration](../reference/index.html#analytics-integrations)
 
 For a comprehensive list of all additional methods available in the SDK you can refer to the [Reference](../reference/index.html) section or the [Apple Docs](http://developers.optimizely.com/ios/help/html/index.html).

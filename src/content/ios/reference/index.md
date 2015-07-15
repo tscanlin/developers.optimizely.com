@@ -354,7 +354,7 @@ Custom goals allow you to track events other than taps and view changes. There a
       ```
       For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
 
-### Revenue
+### Revenue Tracking
 The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
 
 1. Add the tracking code to your app, you can add this tracking call by adding the code below:

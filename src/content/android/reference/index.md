@@ -251,7 +251,7 @@ private void userDidSwipeTask() {
 }
 ```
 
-### Revenue Goal
+### Revenue Tracking
 The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add Saved Goal", and select "Revenue." In order to track this goal, use the revenue API by passing an integer number of cents:
 
 ```java
