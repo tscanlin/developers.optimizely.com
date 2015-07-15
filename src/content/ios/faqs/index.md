@@ -9,6 +9,9 @@ Below are some frequently asked questions about the iOS SDK. You may also want t
 
 Can't find an answer to your question? We're happy to answer your question on <a href="mobile-support@optimizely.com">mobile-support@optimizely.com</a>.
 
+<a href="#iosversion">*Q:* What iOS versions does Optimizely support?</a><br>
+<a href="#ioslibs">*Q:* What third party libraries are used in the iOS SDK?</a><br>
+<a href="#howiosworks">*Q:* How does the SDK work?</a><br>
 <a href="#cantseeappineditor">*Q:* My device is running the app but I can't see it in the editor.</a><br>
 <a href="#remoterepo">*Q:* What should I do if I get a `Could not read from remote repository.` error?</a><br>
 <a href="#tableview">*Q:* How do I modify a Table View Cell?</a><br>
@@ -20,6 +23,40 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#testflight">*Q:* If I release my app via TestFlight, will the gesture be disabled?</a><br>
 <a href="#labeltextcutoff">*Q:* Sometimes when I modify the text of a label the text gets cut off or doesn't break properly when I use the Visual Editor.  How can I fix that?</a><br>
 <a href="#64bit">*Q:* Does Optimizely support 64-bit apps?</a><br>
+
+<a name="iosversion"></a>
+#####*Q: What version of iOS is supported by Optimizely's iOS SDK?*
+*A:* Optimizely currently supports apps that are built for Apple iOS 7.0 and higher.  For earlier versions, the app will still run but the SDK will be disabled.
+
+<a name="ioslibs"></a>
+#####*Q: What third party libraries are used in the iOS SDK?*
+*A: Libraries*
+- AFDownloadRequestOperation v2.0.1
+- AFNetworking v2.5.4
+- CTObjectiveCRuntimeAdditions v1
+- SocketRocket v0.3.1
+- FMDB v2.5
+- Murmur3 v1
+
+<a name="howiosworks"></a>
+#####*Q: How does the SDK work?*
+*A:* Optimizely is implemented through an SDK and the Optimizely datafile.  To get started with Optimizely and run your first experiments, you simply need to install the SDK and add one line of code to your app.  The SDK will download the datafile which is comprised of JSON and contains all of the experiment and goal information necessary to deploy and control experiments and return data to our reporting.  The data file is hosted on our CDN and follows the attached schemas for iOS and Android.  You may view your datafile at cdn.optimizely.com/json/ios/1.0/<project_id>.json . For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/205014107-How-Optimizely-s-SDKs-Work-SDK-Order-of-execution-experiment-activation-and-goals).  The platform works as shown below:
+
+*SDK Contents*
+- Data File Contents
+- Compiled into the app
+- Downloads Config from CDN
+- Executes experiments and tracks goals locally
+- Offline caching/network logic
+- Reports events back
+- Integrated with dependency management systems for easy updates
+
+*Datafile contents*
+- Active Experiments
+- Draft Experiments
+- Project goals
+
+The datafile follows this [schema](/ios/schema).
 
 <a name="cantseeappineditor"></a>
 #####*Q: My device is running the app but I can't see it in the editor.*
