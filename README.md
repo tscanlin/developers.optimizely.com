@@ -1,5 +1,5 @@
 # developers.optimizely.com
-New developer documentation website.
+New developer documentation website. [http://developers.optimizely.com/](http://developers.optimizely.com/)
 
 ### Prerequisites
 - have node.js installed
@@ -32,11 +32,6 @@ After deploying verify your changes on the live site:
 Most errors / compilation weirdness can be solved with:
 ```
 npm run clean
-```
-
-If npm install throws an error mentioning browserify then run:
-```
-npm install --save-dev browserify
 ```
 
 If you are getting weird node dependency errors that don't make sense then run this to start fresh:
