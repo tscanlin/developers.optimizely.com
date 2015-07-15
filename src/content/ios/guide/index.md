@@ -155,7 +155,7 @@ app delegate:
       // The rest of your initialization code...
       ```
 *Note: We recommend putting this code at the beginning of your `application:didFinishLaunchingWithOptions:` function.*
-4. At this point, you can jump back to [adding a url scheme](#urlschemeInfo) in **Add Your App Token** and follow along with the rest of the setup instructions.
+4. At this point, you can jump back to [adding a URL scheme](#urlschemeInfo) in **Add Your App Token** and follow along with the rest of the setup instructions.
 
 ## Advanced Setup
 

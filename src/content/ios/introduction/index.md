@@ -28,12 +28,12 @@ There are three types of changes you can make in Optimizely, one of which (Visua
 
 *Live Variables*
 
-- Requires live variables to already have been identified prior to App Store submission
-- Optimizely allows you to change variable values inbetween releases
+- Requires Live Variables to already have been identified prior to App Store submission
+- Optimizely allows you to change variable values in between releases
 
 *Code Blocks*
- 
-- Requires new code/features to be tested have already been submitted to App Store and approved 
+
+- Requires new code/features to be tested have already been submitted to App Store and approved
 - Can perform phased roll-outs of new features for targeted group or percentage of your users directly from Optimizely
 - Optimizely acts as the switch enabling you to intelligently activate your features/code and analyze the impact the new changes have made
 

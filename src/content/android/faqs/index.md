@@ -43,11 +43,11 @@ in the width or height fields in the visual editor. We are working on an update 
 
 <a name="threadsafety"></a>
 #####*Q: Are LiveVariable evaluations thread-safe?*
-*A:* In production mode, all live variable values are set when Optimizely starts up. Any further access to the LiveVariable is a read-only action and is thus thread safe.
+*A:* In production mode, all Live Variable values are set when Optimizely starts up. Any further access to the LiveVariable is a read-only action and is thus thread safe.
 
 <a name="proguard"></a>
 #####*Q: Do I need to include any ProGuard configuration rules to use the Optimizely SDK?*
-*A:* The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addendums for the GSON serialization:
+*A:* The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
 
 ```
 # Gson uses generic type information stored in a class file when working with fields. Proguard
@@ -83,7 +83,7 @@ in the width or height fields in the visual editor. We are working on an update 
 #####*Q: I am not seeing conversions or visitors on the results page.*
 *A:* There are two things to check if you not being counted as a visitor or seeing conversions on the results page as you're doing QA: that you meet targeting conditions and goals are being triggered properly.
 
-To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the live variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background and foreground the app in order for events store locally to be sent to the server.
+To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the Live Variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background and foreground the app in order for events store locally to be sent to the server.
 
 To check that goals are triggering properly, you can use our developer APIs including: [OptimizelyEventListener](http://developers.optimizely.com/android/help/reference/com/optimizely/integration/OptimizelyEventListener.html) and [getVisitedExperiments](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments(%29) to check that:
 

@@ -54,7 +54,7 @@ If you decide you do not want views to be automatically tagged with an optimizel
 
 ### Disable Visual Editor
 
-If you decide you want to exclusively use live variables and code blocks, you can set the  [disableSwizzle](/ios/help/html/Classes/Optimizely.html#//api/name/shouldNotGenerateDynamicIds) property to YES.
+If you decide you want to exclusively use Live Variables and Code Blocks, you can set the  [disableSwizzle](/ios/help/html/Classes/Optimizely.html#//api/name/shouldNotGenerateDynamicIds) property to YES.
 
 ## Register Live Variables
 
@@ -100,7 +100,7 @@ By defining your variable key at the top level of the AppDelegate.swift and spec
 
 This defines an Optimizely variable key called `myGravityVariable` with a default value of 9.8.  Once a variable key is defined, variations can change the value for variables accessed via this key.
 
-The provided `OptimizelyVariableKeyFor[type]` macro ([list of types](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables)) is the suggested method for defining an `OptimizelyVariableKey` as it will allow the web editor to detect live variables right when it connects your application. **Note that keys must be defined outside of the function scope.**
+The provided `OptimizelyVariableKeyFor[type]` macro ([list of types](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables)) is the suggested method for defining an `OptimizelyVariableKey` as it will allow the web editor to detect Live Variables right when it connects your application. **Note that keys must be defined outside of the function scope.**
 
 In order to access the variable, call `numberForKey` and provide the corresponding variable key:
 
@@ -276,7 +276,7 @@ For more details, please see the [Code Blocks API Reference](/ios/help/html/Clas
 
 ### Phased Rollouts
 
-A common use case for code blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse [here](https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App).
+A common use case for Code Blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse [here](https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App).
 
 ## Custom Targeting
 
@@ -301,7 +301,7 @@ From there, to create an experiment [targeting a Custom Tag](https://help.optimi
 
 ### Experiment Reload
 
-[refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) should be called any time custom tag values are expected to change.  [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) allows Optimizely to take into account a user's newly added or changed custom tag values and rebuckets users based on updated targeting.
+[refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) should be called any time custom tag values are expected to change.  [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) allows Optimizely to take into account a user's newly added or changed custom tag values and re-buckets users based on updated targeting.
 
 For example, here's an use case where the user logs in, the developer sets a logged in custom tag, and then calls [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments):
 
@@ -443,7 +443,7 @@ Optimizely provides a couple NSNotificationCenter notifications for developers t
 
 `OptimizelyGoalTriggeredNotification` is triggered when an Optimizely goal is tracked and a conversion is counted. The user info in the notification will list the experiment IDs for which this was counted as a conversion.
 
-`OptimizelyNewDataFileLoadedNotification` is triggered when an application resumes from foregrouding and a new experiment datafile is applied. This notification only triggers in Normal Mode, and not in Edit Mode.
+`OptimizelyNewDataFileLoadedNotification` is triggered when an application resumes from foregrounding and a new experiment datafile is applied. This notification only triggers in Normal Mode, and not in Edit Mode.
 
 The following sample shows how to register for a notification:
 
@@ -458,7 +458,7 @@ The following sample shows how to register for a notification:
 ```
 
 ### Experiment Data Object
-Optimizely's Experiment Object will provide information about what part of the experiment lifecycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited.
+Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited.
 
 Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](/ios/help/html/Classes/OptimizelyExperimentData.html).
 
@@ -504,7 +504,7 @@ Repeat steps 1 and 2 [above](#manualinstall). You may need to remove Optimizely.
 There are two steps to uninstalling Optimizely.
 
 1. **Remove the SDK from your app.**
-  If you installed via Cocoapods, simply remove the dependency on Optimizely
+  If you installed via CocoaPods, simply remove the dependency on Optimizely
   and run `pod install` again. If you installed manually, you need to delete
   Optimizely.framework from your app. Whether or not you actually delete the
   framework or just remove the reference, it wont be compiled into your app any longer.

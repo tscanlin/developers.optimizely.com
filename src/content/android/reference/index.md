@@ -49,11 +49,11 @@ Optimizely.setOptimizelyId("price_text_label", priceTextView);
 
 ### Disable Visual Editor
 
-If you decide you want to exclusively use live variables and code blocks, you can set  [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled(boolean)) to false.
+If you decide you want to exclusively use Live Variables and Code Blocks, you can set [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled(boolean)) to false.
 
 ## Register Live Variables
 
-Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables are declared as static variables in your code and then can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new stylings. Live variables must be declared as static variables in your app in order for the Optimizely Editor to detect them.
+Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables are declared as static variables in your code and then can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new styling. Live variables must be declared as static variables in your app in order for the Optimizely Editor to detect them.
 
 ```java
 public class MyActivity extends Activity {
@@ -86,7 +86,7 @@ public class GameUtils {
 }
 ```
 
-You're now ready to edit your live variables using the Optimizely web editor:
+You're now ready to edit your Live Variables using the Optimizely web editor:
 
 0. Make sure you have not called `Optimizely.setEditGestureEnabled(false)`.
 1. Load your application and draw a large circle to connect in edit mode.
@@ -115,7 +115,7 @@ Optimizely.stringVariable("variableKey", "defaultValue", new LiveVariable.Callba
 
 ## Code Blocks
 
-Code Blocks allow developers to create variations that execute different code paths. CodeBlocks are declared as static variables and then can be accessed anywhere in your application. For example, one use case might be to test various checkout flows.
+Code Blocks allow developers to create variations that execute different code paths. Code Blocks are declared as static variables and then can be accessed anywhere in your application. For example, one use case might be to test various checkout flows.
 
 **Note: The syntax for Code Blocks was changed in version 1.0+**
 
@@ -126,9 +126,9 @@ private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlock("Checkout
 		.withBranchNames("shortCheckout", "longCheckout");
 ```
 
-The above code block will have 3 branches: the "default" branch, and a branch named "shortCheckout" and a branch named "longCheckout".
+The above Code Block will have 3 branches: the "default" branch, and a branch named "shortCheckout" and a branch named "longCheckout".
 
-This is what the implemenation of that code block looks like. Be sure to implement your codeblock branches in the same order as you declare them when initializing the codeblock.
+This is what the implementation of that Code Block looks like. Be sure to implement your Code Block branches in the same order as you declare them when initializing the Code Block.
 
 ``` java
 public class CommerceActivity extends Activity {
@@ -167,15 +167,15 @@ You're now ready to implement your experiment using the Optimizely web editor:
 1. Load your application and draw a large circle to connect in edit mode.
 2. Navigate to the Code Blocks section of the editor.
 <img src="/assets/img/android/editor-codeblocks-add-button.png" alt="Drawing">
-3. Click the "Add Code Block" button to open a dialog where you can select code blocks to add to your experiment.
-4. Once you have added a code block to the experiment, you can select a value for each variation in the Code Blocks section of the editor.
+3. Click the "Add Code Block" button to open a dialog where you can select Code Blocks to add to your experiment.
+4. Once you have added a Code Block to the experiment, you can select a value for each variation in the Code Blocks section of the editor.
 5. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
 
 For more details, please see the [Code Blocks API Reference](/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
 ### Phased Rollouts
 
-A common use case for code blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse [here](https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App).
+A common use case for Code Blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse [here](https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App).
 
 ## Custom Targeting
 
@@ -202,7 +202,7 @@ Make sure to call `setCustomTag` prior to `startOptimizely`.
 Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
 
 ### Experiment Reload
-By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the backgroudn, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
+By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the background, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
 
 ```java
       Optimizely.setshouldReloadExperimentsOnForegrounding(false);
@@ -295,7 +295,7 @@ To manually send events, in the appropriate function (e.g. where you make other 
 Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
 
 ## Optimizely SDK Notifications
-Clients can get notifications when various Optimizely events occur in the Optimizely SDK lifecycyle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
+Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
 
 ```java
   Optimizely.addOptimizelyEventListener(new DefaultOptimizelyEventListener() {
