@@ -7,7 +7,7 @@ You can find the new developer documentation website here: [http://developers.op
 
 ### To install
 
-Run this is the repository directory:
+Run this in the repository directory:
 ```
 npm update
 npm install
@@ -15,7 +15,7 @@ npm install
 
 ### To run
 
-Run this is the repository directory:
+Run this in the repository directory:
 ```
 npm run gulp
 ```
