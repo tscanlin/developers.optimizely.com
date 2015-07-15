@@ -18,7 +18,7 @@ npm run gulp
 ```
 
 ### To deploy
-*IMPORTANT:* Make sure you have pulled the latest changes from the master branch
+**IMPORTANT:** Make sure you have pulled the latest changes from the master branch
 *AND* its a good idea to restart `npm run gulp` before a deploy
 *AND* have verified the changes on the site running locally, then run:
 ```
