@@ -10,7 +10,7 @@ fields:
   is_paused: Default is `false`, true means no new visitors will see the variation
   description: The name that shows up as a tab in the Optimizely editor
   weight: The percentage of your visitors that should see this variation, measured in basis points. 100 basis points = 1% traffic. Variation weights should add up to 10000.
-  js_component: The Javascript code that will run for a variation
+  js_component: The JavaScript code that will run for a variation
 response: |
   {
     "is_paused": false,

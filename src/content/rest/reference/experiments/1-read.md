@@ -28,7 +28,7 @@ fields:
     - **negate**: default is `false`, setting it to `true` will exclude the URL
   percentage_included: The percentage of your visitors that should see the experiment, measured in basis points. 100 basis points = 1% traffic.
   activation_mode: Can be `immediate`, `manual` or 'conditional', see <a href="https://help.optimizely.com/hc/en-us/articles/200039765-Activation-Mode" target="_blank">Activation Mode</a>.
-  conditional_code: The Javascript condition or function used to activate the experiment. Learn more [here](https://help.optimizely.com/hc/en-us/articles/200040225-Activation-Mode-Activating-an-experiment-dynamically-after-a-page-has-loaded#conditional).
+  conditional_code: The JavaScript condition or function used to activate the experiment. Learn more [here](https://help.optimizely.com/hc/en-us/articles/200040225-Activation-Mode-Activating-an-experiment-dynamically-after-a-page-has-loaded#conditional).
   experiment_type: A normal A/B test is `ab` but this could also be `multivariate` or `multipage`. See <a href="https://help.optimizely.com/hc/en-us/articles/200039785-Experiment-Type-Overview" target="_blank">Experiment Type Overview</a>.
   shareable_results_link: A link that anyone can use to see your experiment's results, whether or not they're logged into Optimizely.
   audience_ids: List of IDs of all audiences the experiment is targeted at.

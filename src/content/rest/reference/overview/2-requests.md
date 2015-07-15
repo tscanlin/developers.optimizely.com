@@ -28,7 +28,7 @@ To get a single entity, use its `id` in the URL. To get a list of all entities, 
 If the operation succeeds, the response will include the data in the body and a `200 OK` response code.
 
 #### POST
-A `POST` requests creates an entitity in Optimizely, relative to a certain parent (for example, an experiment within a project). The parent entity's `id` is provided in the URL, and the data for the entity being created is provided as JSON in the body.
+A `POST` requests creates an entity in Optimizely, relative to a certain parent (for example, an experiment within a project). The parent entity's `id` is provided in the URL, and the data for the entity being created is provided as JSON in the body.
 
 If the operation succeeds, the response will include the created entity as JSON in the body, including a new `id` argument, and a `201 CREATED` response code.
 
