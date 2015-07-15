@@ -4,19 +4,19 @@ title: Headline testing
 anchor: technology-integrations-cms
 ---
 
-This sample goes through a simplified version of our Wordpress plugin, which lets editors write alternate headlines for a blogpost and A/B test them directly from their Wordpress editor. A [PDF version](https://blog.optimizely.com/wp-content/uploads/2015/05/OptimizelyHeadlineTesting.pdf) is also available, which includes screenshots.
+This sample goes through a simplified version of our WordPress plug-in, which lets editors write alternate headlines for a blog post and A/B test them directly from their WordPress editor. A [PDF version](https://blog.optimizely.com/wp-content/uploads/2015/05/OptimizelyHeadlineTesting.pdf) is also available, which includes screenshots.
 
-To see the full source of our plugin or download it to use on your own site, click the button below. Note that this plugin is just a proof of concept -- we encourage you to fork it, improve it for your own needs, and share it with the community.
+To see the full source of our plug-in or download it to use on your own site, click the button below. Note that this plug-in is just a proof of concept -- we encourage you to fork it, improve it for your own needs, and share it with the community.
 
 <a class="lego-button" target="_blank" href="https://github.com/optimizely/wordpress-plugin">Download source code</a>
 
-The plugin uses jQuery to make the API calls, as described in our [AJAX code sample](#ajax).
+The plug-in uses jQuery to make the API calls, as described in our [AJAX code sample](#ajax).
 
 #### 1. Create an experiment
 
 Now, when users go to write their posts, they'll see a new section for A/B testing headlines. This section will include two inputs for users to write alternate headlines and a button to create the experiment.
 
-When the button is pressed, we run the `createExperiment` function. This function [creates an experiment]({{site.paths.rest}}#create-experiment) by providing a `description` based on the post's title and an `edit_url` based on the permalink of the Wordpress post. We send these as a POST request and register a callback to run the `onExperimentCreated` function when it completes.
+When the button is pressed, we run the `createExperiment` function. This function [creates an experiment]({{site.paths.rest}}#create-experiment) by providing a `description` based on the post's title and an `edit_url` based on the permalink of the WordPress post. We send these as a POST request and register a callback to run the `onExperimentCreated` function when it completes.
 
 We aren't done yet. The experiment we created has two built-in variations, but now we need to add a third and update the content. Since we're adding a variation, we also need to calculate the traffic weight to use for each one. Once we've done this, we'll call the `createVariation` function explained below.
 
@@ -59,11 +59,11 @@ We aren't done yet. The experiment we created has two built-in variations, but n
     }
 
 #### 2. Connect a project
-Our plugin starts with a configuration page that lets users connect their Optimizely account to Wordpress. It requests all the information needed to authenticate and run experiments.
+Our plug-in starts with a configuration page that lets users connect their Optimizely account to WordPress. It requests all the information needed to authenticate and run experiments.
 
-First, we ask the user for their API token on our plugin configuration page. We use this to [authenticate]({{site.paths.rest}}#authentication) with the REST API.
+First, we ask the user for their API token on our plug-in configuration page. We use this to [authenticate]({{site.paths.rest}}#authentication) with the REST API.
 
-We also ask them to choose a project to create the experiment in. They make this choice using a dropdown menu that we will populate using the "Connect Optimizely button."
+We also ask them to choose a project to create the experiment in. They make this choice using a drop-down menu that we will populate using the "Connect Optimizely button."
 
 When the user presses that button, we call the `GET projects/` endpoint to [list out all the projects]({{site.paths.rest}}#list-projects) in their account. For each project, we show its name in the dropdown and store its ID in the value attribute for submission to a form.
 
@@ -96,7 +96,7 @@ When the user presses that button, we call the `GET projects/` endpoint to [list
 
 #### 3. Create variations
 
-To create a variation, we first generate the variation code. We use a template based on the Wordpress theme, and then we drop in the values for our variation. The result would be:
+To create a variation, we first generate the variation code. We use a template based on the WordPress theme, and then we drop in the values for our variation. The result would be:
 
 ```javascript
 $(".post-27 .entry-title a").text("Alternate Title #1");
@@ -144,11 +144,11 @@ Once all the PUT and POST requests have returned, we're done! At this point, we 
 
 
 #### 4. Start the experiment
-Finally, we'll add a start button so users can run the experiment directly from Wordpress. Once it's started, we'll turn it into a pause button to stop the running experiement.
+Finally, we'll add a start button so users can run the experiment directly from WordPress. Once it's started, we'll turn it into a pause button to stop the running experiement.
 
 This button will update the experiment's `status` to `Running` or `Paused`.
 
-#####Example Javascript
+#####Example JavaScript
     function startExperiment(experiment) {
       $('#optimizely_toggle_running').text('Starting...');
       optly.put('experiments/' + experiment.id, {'status': 'Running'}, function(response) {

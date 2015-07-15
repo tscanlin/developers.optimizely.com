@@ -19,7 +19,7 @@ js: |
   /*
    * Usage Option #2 - Callback Function
    *   Optimizely will call the function entered immediately if the JavaScript entered
-   *   does evaluate to a functon type.
+   *   does evaluate to a function type.
    *
    * @param {Function} activate - Activate this experiment
    * @param {Object=}  options {

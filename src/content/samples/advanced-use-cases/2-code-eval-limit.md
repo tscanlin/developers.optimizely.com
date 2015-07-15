@@ -6,8 +6,7 @@ js: |
 
   /*
    * Usage
-   *   The following allows you to set a limit on the number of times a code block will execute for any given visitor.  
-   *
+   *   The following allows you to set a limit on the number of times a Code Block will execute for any given visitor.
    */
 
    // the number of times the code should execute for a given visitor
@@ -46,6 +45,6 @@ js: |
 
 ---
 
-This JavaScript will let you execute code a certain number of times within an experiment.  
+This JavaScript will let you execute code a certain number of times within an experiment.
 
 For example, you might want to only show a pop up to visitors on their first 3 visits.  In this case, you place this code in either the Experiment JS or Variation code.
