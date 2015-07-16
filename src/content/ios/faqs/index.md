@@ -70,7 +70,7 @@ matches what you see in the Project Code box within Optimizely.
 
 <a name="remoterepo"></a>
 #####*Q: What should I do if I get a `Could not read from remote repository.` error?*
-*A:* Please make sure you have a Github account with [SSH access](https://help.github.com/articles/generating-ssh-keys) installed.
+*A:* Please make sure you have a GitHub account with [SSH access](https://help.github.com/articles/generating-ssh-keys) installed.
 
 <a name="tableview"></a>
 #####*Q: How do I modify a Table View Cell?*
@@ -87,7 +87,7 @@ matches what you see in the Project Code box within Optimizely.
 Undefined symbols for architecture armv7s: "_OBJC_CLASS_$_Optimizely",
 referenced from: MY_CLASS
 ```
-*A:* Certain build configurations require you to add `-framework Optimizely` to your Build Settings under "Other Linker Flags." If you installed using CocoaPods, you may need to update or reset "Other Linker Flags" because you have settings in your project that conflict with Cocoapods's automatic addition of that flag.
+*A:* Certain build configurations require you to add `-framework Optimizely` to your Build Settings under "Other Linker Flags." If you installed using CocoaPods, you may need to update or reset "Other Linker Flags" because you have settings in your project that conflict with CocoaPods's automatic addition of that flag.
 
 <a name="dynamicimage"></a>
 #####*Q: My dynamically rendered image does not render while using the Editor.*
@@ -101,7 +101,7 @@ referenced from: MY_CLASS
 #####*Q: I am not seeing conversions or visitors on the results page.*
 *A:* There are two things to check if you not being counted as a visitor or seeing conversions on the results page as you're doing QA: that you meet targeting conditions and goals are being triggered properly.
 
-To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the live variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background and foreground the app in order for events store locally to be sent to the server.
+To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the Live Variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background and foreground the app in order for events store locally to be sent to the server.
 
 To check that goals are triggering properly, you can use our [developer APIs](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-Experiments) to check that:
 

@@ -92,7 +92,7 @@ The Optimizely SDK depends on:
   <img src="/assets/img/android/eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
 
 ### IntelliJ IDEA
-If you are using IntelliJ with the Android plugin, add each dependency jar and Optimizely.jar as a library dependency for your app module:
+If you are using IntelliJ with the Android plug-in, add each dependency jar and Optimizely.jar as a library dependency for your app module:
 
 Under Project Structure > Libraries click the `+` button.
   <img src="/assets/img/android/ij-add-library.png" alt="IntelliJ Module Library Step 1" style="width: 80%;"/>
