@@ -21,4 +21,4 @@ First, you'll need to [authenticate](/rest/reference/index.html#authentication) 
 
 You'll also need to choose a project to create the audiences in. If you're building an integration, you could ask for a `project_id` directly from the user.
 
-Alternatively, you can [list out all the projects](/rest/reference/index.html#list-projects) in a user's account and have them pick from a dropdown, as the example at right shows.
+Alternatively, you can [list out all the projects](/rest/reference/index.html#list-projects) in a user's account and have them pick from a drop-down, as the example at right shows.

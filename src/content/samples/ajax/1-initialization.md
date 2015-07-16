@@ -11,7 +11,7 @@ js: |
   optly = new OptimizelyAPI("abcdefghijklmnop:12345");
 ---
 
-The `OptimizelyAPI` class provides a connection to the API via Javascript and lets you make authenticated calls without repeating yourself.
+The `OptimizelyAPI` class provides a connection to the API via JavaScript and lets you make authenticated calls without repeating yourself.
 
 We store the API `token` in each instance of the object, and we can connect to multiple different accounts by creating new instances of the `OptimizelyAPI` class.
 

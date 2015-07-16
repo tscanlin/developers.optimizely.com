@@ -3,25 +3,25 @@ template: inline
 title: Offline conversions
 anchor: technology-integrations-offline
 ---
-This sample uses a calltracking tool as an example. Offline conversions are often used by calltracking tools to create a "call conversion" within Optimizely. The best calltracking integrations are apps or plugins that live within the calltracking software. 
+This sample uses a call-tracking tool as an example. Offline conversions are often used by call-tracking tools to create a "call conversion" within Optimizely. The best call-tracking integrations are apps or plug-ins that live within the call-tracking software.
 
 #### 1. Installation
 
 Option 1 (manual):
 
 1. The user creates a custom goal within Optimizly manually ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
-2. The user continues to the calltracking software and installs the plugin / app
+2. The user continues to the call-tracking software and installs the plug-in / app
 3. During the installation or after in a settings window, the user should be prompted to fill in the custom event name that was defined when the goal was created within Optimizely
 
 Option 2 (REST):
 
-1. The user goes to the calltracking software and installs the plugin / app
+1. The user goes to the call-tracking software and installs the plug-in / app
 2. The user is prompted for Optimizely authentication (token or oAuth)
 3. The user can select a project where a call tracking goal can be installed / selected.
 4. Users can select the newly created goal from the list of saved goals within Optimizely when they create a new experiment
 
 #### 2. Get all data for a visitor
-To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added as a custom variable (or something similar) in the calltracking technology.
+To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added as a custom variable (or something similar) in the call-tracking technology.
 
 An offline conversion needs the following pieces of information:
 
@@ -31,7 +31,7 @@ An offline conversion needs the following pieces of information:
 /**
  * Gets Account ID
  *
- * @return {Number} the account id 
+ * @return {Number} the account id
  */
 function getAccountId() {
     return optimizely.getAccountId();
@@ -94,7 +94,7 @@ function getSegmentsInParameters() {
 /**
  * Getting the user id is only possible using the cookie value
  *
- * @return {String} a JSON formatted string that contains all the segments and their values  
+ * @return {String} a JSON formatted string that contains all the segments and their values
  */
 function getUserId() {
     return getCookie("optimizelyEndUserId");
@@ -110,8 +110,8 @@ http://{{project_id}}.log.optimizely.com/event?a=1
                                &n={{goal identified}}}
                                &u={{ Optimizely user id }}
                                &x{{experiment id 1}}={{variation id 1}}
-                               &s{{segment id 1}}={{segment value 1}}                               
-                               
+                               &s{{segment id 1}}={{segment value 1}}
+
 ```
 All the paramters are more extensively described in this article:
 [Tracking offline conversion events with Optimizely](https://help.optimizely.com/hc/en-us/articles/200040195)
@@ -119,14 +119,14 @@ All the paramters are more extensively described in this article:
 
 *Example code to generate a valid offline converions url:*
 ```
-/** 
- * Generate the entire URL that you can use to create a conversion, given a goalname. The goalname 
- * is required, if you also provide a value, there will be a revenue value added to the conversion call. 
- * The goalname will be encoded if it isn't already. 
+/**
+ * Generate the entire URL that you can use to create a conversion, given a goalname. The goalname
+ * is required, if you also provide a value, there will be a revenue value added to the conversion call.
+ * The goalname will be encoded if it isn't already.
  *
  * @param {String} goalname (the goal were you are creating a conversion for)
  * @param {Number} value (a value representing the revenue of the conversion)
- * @return {String} a JSON formatted string that contains all the segments and their values   
+ * @return {String} a JSON formatted string that contains all the segments and their values
  */
 function generateConversionUrl(goalname, value) {
     var goalname = decodeURIComponent(goalname) == goalname ? encodeURIComponent(goalname) : goalname;
@@ -141,4 +141,4 @@ function generateConversionUrl(goalname, value) {
 
 ```
 
-The valid url needs to be used to trigger a conversion in Optimizely.
+The valid URL needs to be used to trigger a conversion in Optimizely.
