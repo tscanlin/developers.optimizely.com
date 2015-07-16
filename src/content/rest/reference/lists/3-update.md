@@ -15,17 +15,17 @@ request:
   format: "csv"
 response: |
   {
-      "name": "List_1", 
+      "name": "List_1",
       "description": "New description of List_1",
-      "list_type": 2, 
+      "list_type": 2,
       "key_fields": "user_id",
-      "id": 123, 
+      "id": 123,
       "project_id": 456,
       "account_id": 789,
       "format": "csv"
   }
 ---
 
-Overrwrite the user list with the provided `id`. Required arguments are identical to creating a new user list.
+Overwrite the user list with the provided `id`. Required arguments are identical to creating a new user list.
 
 Note that `name` and `format` cannot be modified.
