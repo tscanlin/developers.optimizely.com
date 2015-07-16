@@ -152,11 +152,11 @@ curl \
 {% endif %}
 
 <!-- Example JSON (for rest/conditions) -->
-{% if json %}
+{% if jsonExample %}
 <h4>Example JSON</h4>
 <pre>
 {% highlight 'js' %}
-{{ json | safe }}
+{{ jsonExample | safe }}
 {% endhighlight %}
 </pre>
 {% endif %}
