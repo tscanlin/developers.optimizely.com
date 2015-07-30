@@ -25,11 +25,11 @@ Can't find an answer to your question? We're happy to answer your question on <a
 
 
 <a name="androidversion"></a>
-#####*Q: What version of Android is supported by the Android SDK?*
+##### *Q: What version of Android is supported by the Android SDK?*
 *A:* Optimizely currently supports apps that are built for Android AP 14 (Ice Cream Sandwich) and above.  For versions of Android AP 8-13, the app will still run but the SDK will be disabled.
 
 <a name="androidlibs"></a>
-#####*Q: What third party libraries are used in the Android SDK?*
+##### *Q: What third party libraries are used in the Android SDK?*
 *A: Libraries:*
 - Google GSON v2.3.1
 - Square OkHTTP v2.3.0
@@ -40,7 +40,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 - Autobahn v0.5.3
 
 <a name="howandroidworks"></a>
-#####*Q: How does the SDK work?*
+##### *Q: How does the SDK work?*
 *A:* Optimizely is implemented through an SDK and the Optimizely datafile.  To get started with Optimizely and run your first experiments, you simply need to install the SDK and add one line of code to your app.  The SDK will download the datafile which is comprised of JSON and contains all of the experiment and goal information necessary to deploy and control experiments and return data to our reporting.  The data file is hosted on our CDN and follows the attached schemas for iOS and Android.  You may view your datafile at cdn.optimizely.com/json/android/1.0/<project_id>.json . For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/205014107-How-Optimizely-s-SDKs-Work-SDK-Order-of-execution-experiment-activation-and-goals).  The platform works as shown below:
 
 *SDK Contents:*
@@ -60,32 +60,32 @@ Can't find an answer to your question? We're happy to answer your question on <a
 The datafile follows this [schema](/android/schema).  
 
 <a name="negativesize"></a>
-#####*Q: Why are there negative values (-1, -2) for width and height in the Visual Editor?*
+##### *Q: Why are there negative values (-1, -2) for width and height in the Visual Editor?*
 *A:* Android uses `-1` for the constant `MATCH_PARENT` and `-2` for `WRAP_CONTENT`. To set the size of the view to an explicit pixel value, enter a positive number of pixels
 in the width or height fields in the visual editor. We are working on an update to the editor that will better understand these special values.
 
 <a name="matchwrap"></a>
-#####*Q: How do I use `MATCH_PARENT` or `WRAP_CONTENT` for width and height in the Visual Editor?*
+##### *Q: How do I use `MATCH_PARENT` or `WRAP_CONTENT` for width and height in the Visual Editor?*
 *A:* Android uses `-1` for the constant `MATCH_PARENT` and `-2` for `WRAP_CONTENT`. To set the width or height of the view to `WRAP_CONTENT`, enter `-2` in the corresponding field. Similarly, to set the width or height to `MATCH_PARENT`, ENTER `-1` in the corresponding field in the visual editor. We are working on an update to the editor that will better understand these special values.
 
 <a name="blocking"></a>
-#####*Q: Is `Optimizely#startOptimizely()` a blocking method?*
+##### *Q: Is `Optimizely#startOptimizely()` a blocking method?*
 *A:* Yes, `Optimizely#startOptimizely()` is blocking. It will exit and return `true` if the configuration file was downloaded and parsed, or `false` if it hits the network timeout (or another error occurred). The default timeout is 2.5 seconds and is configurable through the `setNetworkTimeout()` API. Calls to `startOptimizely()` are not synchronized, and are not thread safe.
 
 <a name="startoptimizely"></a>
-#####*Q: Where and when can I call `Optimizely#startOptimizely()`?*
+##### *Q: Where and when can I call `Optimizely#startOptimizely()`?*
 *A:* `Optimizely#startOptimizely()` must be called from the UI thread, but may be called as many times as you like. Multiple calls after the first activation call are no-ops. `Optimizely#startOptimizely()` may be called from any UI thread method (such as `onCreate()` in an `Application` or `Activity` subclass).
 
 <a name="codeblockmemory"></a>
-#####*Q: Should we unregister or nullify OptimizelyCodeBlock with anonymous handlers that have a reference to an Activity after finishing the `OptimizelyCodeBlock#execute()` method call?*
+##### *Q: Should we unregister or nullify OptimizelyCodeBlock with anonymous handlers that have a reference to an Activity after finishing the `OptimizelyCodeBlock#execute()` method call?*
 *A:* OptimizelyCodeBlocks are long-lived, so any references to Activities/Views/Applications should be weak references. This is a known issue that is being addressed.
 
 <a name="threadsafety"></a>
-#####*Q: Are LiveVariable evaluations thread-safe?*
+##### *Q: Are LiveVariable evaluations thread-safe?*
 *A:* In production mode, all Live Variable values are set when Optimizely starts up. Any further access to the LiveVariable is a read-only action and is thus thread safe.
 
 <a name="proguard"></a>
-#####*Q: Do I need to include any ProGuard configuration rules to use the Optimizely SDK?*
+##### *Q: Do I need to include any ProGuard configuration rules to use the Optimizely SDK?*
 *A:* The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
 
 ```
@@ -107,19 +107,19 @@ in the width or height fields in the visual editor. We are working on an update 
 ```
 
 <a name="permissions"></a>
-#####*Q: Does the Optimizely SDK require any permissions?*
+##### *Q: Does the Optimizely SDK require any permissions?*
 *A:* The Optimizely SDK only requires the [INTERNET](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET) permission.
 
 <a name="cantseeappineditor"></a>
-#####*Q: My device is running the app but I can't see it in the editor.*
+##### *Q: My device is running the app but I can't see it in the editor.*
 *A:* First, confirm your device is connected to the internet and make sure that the API token in your call to `startOptimizely` matches what you see in the Project Code box within Optimizely. For more information, you can set `Optimizely.setVerboseLogging(true);` and look for error messages in Logcat.
 
 <a name="3rdparty"></a>
-#####*Q: Does Optimizely work with my other 3rd party SDKs?*
+##### *Q: Does Optimizely work with my other 3rd party SDKs?*
 *A:* Optimizely works with many 3rd party SDKs. If we encounter specific 3rd party SDKs that cause conflicts with Optimizely we will list them here.
 
 <a name="resultspage"></a>
-#####*Q: I am not seeing conversions or visitors on the results page.*
+##### *Q: I am not seeing conversions or visitors on the results page.*
 *A:* There are two things to check if you not being counted as a visitor or seeing conversions on the results page as you're doing QA: that you meet targeting conditions and goals are being triggered properly.
 
 To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the Live Variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background and foreground the app in order for events store locally to be sent to the server.
