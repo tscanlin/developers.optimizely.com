@@ -8,7 +8,7 @@ js: |
    *  Usage
    *    This JavaScript will add a query parameter you specify to the visitor's current URL.
    *
-   *  @param {String} newQuery - Parameter key-value pair. Replace [PARAM_NAME] and [PARAM_VALUE]
+   *  @param {String} newQuery - Parameter key-value pair. Replace [PARAM_NAME] and [PARAM_VALUE] with your values.
    */
 
   /* _optimizely_redirect=http://custom_add_query_param */
