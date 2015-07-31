@@ -11,7 +11,7 @@ js: |
    *  @param {String} newQuery - Parameter key-value pair. Replace [PARAM_NAME] and [PARAM_VALUE]
    */
 
-  /* _optimizely_redirect = custom_add_query_param */
+  /* _optimizely_redirect=http://custom_add_query_param */
   var newQuery = "[PARAM_NAME]=[PARAM_VALUE]";
   var _optly = {redir: document.createElement("a")};
   _optly.redir = {protocol: "https:" == document.location.protocol ? "https://" : "http://",
