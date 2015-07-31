@@ -11,7 +11,7 @@ js: |
    *  @param {String} newPath - Replace "/[NEW_PATH]" with your new path, but keep the '/'.
    */
 
-  /* _optimizely_redirect = custom_new_path */
+  /* _optimizely_redirect=http://custom_new_path */
   var newPath = "/[NEW_PATH]";
   var _optly = {redir: document.createElement("a")};
   _optly.redir = {protocol: "https:" == document.location.protocol ? "https://" : "http://",
