@@ -1,5 +1,5 @@
 # Optimizely's Developers Site
-You can find the new developer documentation website here: [http://developers.optimizely.com/](http://developers.optimizely.com/)
+You can find the new developer documentation website here: [http://developers.optimizely.com](http://developers.optimizely.com)
 
 ### Prerequisites
 - Have [node.js](https://nodejs.org/) installed.
@@ -29,7 +29,7 @@ npm run gulp
 npm run deploy
 ```
 
-After deploying verify your changes on the live site: [http://developers.optimizely.com/](http://developers.optimizely.com/)
+After deploying verify your changes on the live site: [http://developers.optimizely.com](http://developers.optimizely.com)
 
 ### Troubleshooting
 test

@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/optimizely/developers.optimizely.com/issues"
   },
-  "homepage": "https://github.com/optimizely/developers.optimizely.com",
+  "homepage": "http://developers.optimizely.com",
   "dependencies": {
     "compass-mixins": "^0.12.7",
     "highlight.js": "^8.6.0",
