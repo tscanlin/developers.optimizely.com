@@ -69,9 +69,9 @@ Many Optimizely customers want to run more advanced tests and personalized exper
 
 Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) to make it easy to exchange data between Optimizely and other tools. In addition, our customers often build custom integrations with 3rd parties or their own internal tools. If you are a partner or customer looking to build an integration, please use the following resources to get started.
 
-####*Analytics*
+#### *Analytics*
 An analytics integration is an integration where Optimizely sends information to a different tool, usually including what experiments and variations a visitor has been bucketed in. For every page a visitor visits, the Optimizely JavaScript API is used to determine if an experiment is running on that page and in which variation the visitor is bucketed. That information is then passed along to an analytics platform.
-#####Examples
+##### Examples
 * [Google Analytics](https://help.optimizely.com/hc/en-us/articles/200039995)
 * [Adobe Analytics](https://help.optimizely.com/hc/en-us/articles/200039985)
 
@@ -102,26 +102,26 @@ List targeting integrations are in terms of functionality quite similar to Audie
 
 
 
-####*Headline testing*
+#### *Headline testing*
 A CMS integration is an integration that allows users of a CMS to easily set up experiments from a CMS without having to log into Optimizely. An example use case is the website of a newspaper. The editors of the newspaper might want to try out different headlines for articles or want to test images and derive learnings from those experiments for future articles.
 
-#####Examples
+##### Examples
 
 * [Headline testing](https://help.optimizely.com/hc/en-us/articles/200040505-Implementing-Optimizely-on-a-CMS-or-e-commerce-platform)
 * [WordPress headline testing](https://help.optimizely.com/hc/en-us/articles/205331897#headline)
 
-####*Snippet implementation*
+#### *Snippet implementation*
 There is a wide range of tools that have the ability to insert the Optimizely snippet. An obvious example is a tag management solution, but most CMS systems or e-commerce platforms will be able to do it as well.
-#####Examples
+##### Examples
 
 * [Tealium](https://help.optimizely.com/hc/en-us/articles/203491910#enable)
 * [WordPress snippet insertion](https://help.optimizely.com/hc/en-us/articles/205331897#plugin)
 
 
-####*Offline conversions*
+#### *Offline conversions*
 When a goal is triggered on a webpage, a request is sent to our servers. That request creates a conversion and will later be reflected on the results page. A similar request can also be triggered from other places than the website, if that happens we call it a "offline conversion". In other words, a conversion that wasn't generated on the same medium where the experiment is running. A common use case is call tracking. For some customers an incoming call is an important conversion to track, more than conversions that happen on the web or in an app. Call-tracking solutions often have the ability to set up a webhook that is triggered when a call comes in or when a call is being answered. With the right information, this webhook can be used to create a conversion in an Optimizely report.
 
-#####Examples
+##### Examples
 
 * [Avanser](https://help.optimizely.com/hc/en-us/articles/202480110-Integrating-Optimizely-with-Avanser)
 * [Delacon](https://help.optimizely.com/hc/en-us/articles/203047264-Integrating-Optimizely-with-Delacon)

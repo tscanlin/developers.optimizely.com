@@ -32,14 +32,14 @@ Create a page where the user can authenticate with Optimizely oAuth. When the us
 
 The objects returned contain a project id. Save the project id of the chosen project somewhere.
 
-#####Example dialog
+##### Example dialog
 <img src="../../assets/img/wordpress_dialog.png">
 
 
 #### 2. Implement snippet in the head section of every page
 Write custom code to add the Optimizely snippet to every page automatically, using that project id that was chosen by the user.
 
-#####Example PHP
+##### Example PHP
 
 ```php
 /**
