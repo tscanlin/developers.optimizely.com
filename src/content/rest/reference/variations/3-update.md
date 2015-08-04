@@ -24,7 +24,7 @@ response: |
 
 The `id` is required in the URL.
 
-#### Editable Fields - 1
+#### Editable fields
 
 - `description`
 - `is_paused` (set this to `true` to stop the variation from getting traffic)

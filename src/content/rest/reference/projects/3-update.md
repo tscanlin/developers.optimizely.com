@@ -32,7 +32,7 @@ response: |
 ---
 
 
-#### Editable Fields
+#### Editable fields
 - `project_status`
 - `project_name`
 - `include_jquery`

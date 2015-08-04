@@ -21,7 +21,7 @@ response: |
       "archived": false
   }
 ---
-#### Editable Fields
+#### Editable fields
 
 - `name`
 - `description`
