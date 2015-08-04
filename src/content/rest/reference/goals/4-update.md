@@ -16,7 +16,7 @@ response: |
   }
 ---
 
-####Editable fields
+#### Editable fields
 - `archived`
 - `description`
 - `experiment_ids`

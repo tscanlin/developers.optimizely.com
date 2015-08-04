@@ -7,7 +7,7 @@ anchor: introduction
 In order to help you get up and running quickly, we have provided a number of code samples that you can use.
 Be sure to modify the code appropriately before running in production!
 
-####Table of Contents
+#### Table of Contents
 
 * *Event tracking:* To track events that are not provided out of the box by Optimizely (e.g. purchase data or offline conversions), check out our section on [Events](/samples/#advanced-goal-tracking) which explains all of our available tracking APIs.
 

@@ -15,7 +15,7 @@ response: |
     "status": "Running"
   }
 ---
-####Editable fields
+#### Editable fields
 
 - `audience_ids` (add or remove an audience ID here to change the experiment's targeting)
 - `activation_mode`

@@ -80,25 +80,25 @@ An analytics integration is an integration where Optimizely sends information to
 <!--####*Audience integrations*
 An audience integration is a "data in" integration.
 
-#####Examples
+##### Examples
 
 * test
 
-#####Build your own
+##### Build your own
 
-#####Submit integration
+##### Submit integration
 
 
 
-####*Targeting list integrations*
+#### *Targeting list integrations*
 List targeting integrations are in terms of functionality quite similar to Audience integrations.
-#####Examples
+##### Examples
 
 *
 
-#####Build your own
+##### Build your own
 
-#####Submit integration-->
+##### Submit integration-->
 
 
 
