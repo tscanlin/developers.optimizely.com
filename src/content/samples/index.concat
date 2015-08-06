@@ -9,6 +9,7 @@ sections:
 - variation-code
 - single-page-applications
 - advanced-use-cases
+- mutually-exclusive
 - stats
 - results
 - audiences
