@@ -32,7 +32,7 @@ npm run deploy
 After deploying verify your changes on the live site: [http://developers.optimizely.com](http://developers.optimizely.com)
 
 ### Troubleshooting
-test
+
 Most errors / compilation weirdness can be solved with:
 ```
 npm run clean
@@ -43,3 +43,17 @@ If you are getting weird node dependency errors that don't make sense then run t
 rm -rf node_modules/
 npm install
 ```
+
+If you get a node error mentioning "EMFILE" then try running:
+```
+ulimit -n 2560
+```
+and restart `npm run gulp`
+
+### Contributing
+
+Contributions are welcome! Please open pull requests against master.
+
+Also, please tag @tscanlin in general PRs for this repository and I can ensure the proper content owners are also tagged.
+
+Thanks!
