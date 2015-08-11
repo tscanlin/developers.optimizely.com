@@ -5,7 +5,7 @@ endpoint_prefix: projects/
 endpoint_option: 456
 endpoint_suffix: /targeting_lists
 type: POST
-title: Create a user list
+title: Create an uploaded list
 anchor: create-list
 request:
   name: "List_1"
@@ -16,18 +16,18 @@ request:
   format: "csv"
 response: |
   {
-      "name": "List_1", 
+      "name": "List_1",
       "description": "Description of List_1",
-      "list_type": 2, 
+      "list_type": 2,
       "key_fields": "user_id",
-      "id": 123, 
+      "id": 123,
       "project_id": 456,
       "account_id": 789,
       "format": "csv"
   }
 ---
 
-Create a user list with the given name and comma-separated set of values.
+Create an uploaded list with the given name and comma-separated set of values.
 
 `name` must be unique across all lists defined in the current project, and can only contain characters, numbers, hyphens, and underscores.
 

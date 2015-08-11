@@ -4,7 +4,7 @@ endpoint: targeting_lists/123/
 endpoint_prefix: targeting_lists/
 endpoint_option: 123
 type: PUT
-title: Update a user list
+title: Update an uploaded list
 anchor: update-list
 request:
   name: "List_1"
@@ -26,6 +26,6 @@ response: |
   }
 ---
 
-Overwrite the user list with the provided `id`. Required arguments are identical to creating a new user list.
+Overwrite the uploaded list with the provided `id`. Required arguments are identical to creating a new uploaded list.
 
 Note that `name` and `format` cannot be modified.
