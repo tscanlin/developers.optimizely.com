@@ -5,8 +5,8 @@ endpoint_prefix: projects/
 endpoint_option: 456
 endpoint_suffix: /targeting_lists/
 type: GET
-title: List uploaded audiences in a project
-anchor: list-uploaded-audiences
+title: List uploaded lists in project
+anchor: list-lists
 response: |
   [
     {
@@ -32,4 +32,4 @@ response: |
   ]
 ---
 
-Show all of the uploaded audiences that have been uploaded to a project.
+Show all of the uploaded lists that have been uploaded to a project.
