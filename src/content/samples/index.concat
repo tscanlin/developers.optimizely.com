@@ -13,7 +13,7 @@ sections:
 - stats
 - results
 - audiences
-- user-lists
+- uploaded-audiences
 - technology-integrations
 - helpers
 ---

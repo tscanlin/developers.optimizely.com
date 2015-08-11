@@ -4,8 +4,8 @@ endpoint: targeting_lists/123/
 endpoint_prefix: targeting_lists/
 endpoint_option: 123
 type: PUT
-title: Update an uploaded list
-anchor: update-list
+title: Update an uploaded audience
+anchor: update-uploaded-audience
 request:
   name: "List_1"
   description: "New description of List 1"
@@ -26,6 +26,6 @@ response: |
   }
 ---
 
-Overwrite the uploaded list with the provided `id`. Required arguments are identical to creating a new uploaded list.
+Overwrite the uploaded audience with the provided `id`. Required arguments are identical to creating a new uploaded audience.
 
 Note that `name` and `format` cannot be modified.
