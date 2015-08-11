@@ -5,8 +5,8 @@ endpoint_prefix: projects/
 endpoint_option: 456
 endpoint_suffix: /targeting_lists
 type: POST
-title: Create an uploaded audience
-anchor: create-uploaded-audience
+title: Create an uploaded list
+anchor: create-list
 request:
   name: "List_1"
   description: "Description of List 1"
@@ -27,9 +27,9 @@ response: |
   }
 ---
 
-Create an uploaded audience with the given name and comma-separated set of values.
+Create an uploaded list with the given name and comma-separated set of values.
 
-`name` must be unique across all audiences defined in the current project, and can only contain characters, numbers, hyphens, and underscores.
+`name` must be unique across all lists defined in the current project, and can only contain characters, numbers, hyphens, and underscores.
 
 `list_type` must take one of the following values:
 
@@ -37,6 +37,6 @@ Create an uploaded audience with the given name and comma-separated set of value
 - `2` Query string
 - `3` Zip code
 
-`list_content` should contain the content of the audience in comma-separated format and `format` must be set to `csv`. Currently we limit audience sizes to 5MB. If you need to upload larger audiences, please contact [developers@optimizely.com](mailto:developers@optimizely.com).
+`list_content` should contain the content of the list in comma-separated format and `format` must be set to `csv`. Currently we limit list sizes to 5MB. If you need to upload larger list sizes, please contact [developers@optimizely.com](mailto:developers@optimizely.com).
 
 All fields are required with the exception of `description`.

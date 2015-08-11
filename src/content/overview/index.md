@@ -198,7 +198,7 @@ Technically speaking, a variation is just a snippet of code that can be executed
 
 Customers can filter what type of traffic they'd like to include in an experiment using an *audience*.
 
-On the web, an audience is just a set of AND/OR conditions about a user (e.g. browser type, geography, query parameters) that can be evaluated in real-time when a user visits a web page. Audiences can be saved and re-used for other experiments. You can use *custom dimensions* to manually define conditions by which visitors are assigned to an audience in a web browser, or use *uploaded audiences* if you want to target a particular set of user identifiers (e.g. cookies or query parameters).
+On the web, an audience is just a set of AND/OR conditions about a user (e.g. browser type, geography, query parameters) that can be evaluated in real-time when a user visits a web page. Audiences can be saved and re-used for other experiments. You can use *custom dimensions* to manually define conditions by which visitors are assigned to an audience in a web browser, or use *uploaded lists* if you want to target a particular set of user identifiers (e.g. cookies or query parameters).
 
 *Note:* We do not yet support audiences on iOS and Android, but you can still create your own [custom targeting conditions](https://help.optimizely.com/hc/en-us/articles/202296994#targeting) for an experiment.
 
@@ -208,7 +208,7 @@ On the web, an audience is just a set of AND/OR conditions about a user (e.g. br
 * Learn how to [create custom targeting conditions in an Android app](../ios/reference#-a-name-targeting-a-custom-targeting)
 * Learn how to [create a custom dimension using the REST API](../rest/reference#dimensions)
 * Learn how to [create an audience using the REST API](../rest/reference#audience)
-* Learn how to [use uploaded audiences in Optimizely using the REST API](../rest/reference#uploaded-audiences)
+* Learn how to [use uploaded lists in Optimizely using the REST API](../rest/reference#user_lists)
 
 #### *4. Create a goal*
 
