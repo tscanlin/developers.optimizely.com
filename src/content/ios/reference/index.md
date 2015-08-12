@@ -336,13 +336,13 @@ For additional information about any of the experimental approaches below, see t
 ### Track Event
 Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal.
 
-1. In order to track this goal, send this same string as a parameter to:
+1. In order to track a custom goal, choose a unique string to identify it and send this string as a parameter to:
 
       ```obj-c
       [Optimizely trackEvent:(NSString *)];
       ```
 
-2. To create an experiment that tracks custom goals, open the Optimizely editor, click "Goals," then "New Goal," and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal.  You should enter in the same string used in your trackEvent method call in the previous step.
+2. To create an experiment that tracks that custom goal, open the Optimizely editor, click "Goals," then "Create a New Goal," and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal.  You should enter in the same string used in your trackEvent method call in the previous step.
 
       For example, if we wanted a goal for users deleting a task with a swipe, we might create a custom goal "User Deleted Task" and then call [trackEvent](/ios/help/html/Classes/Optimizely.html#//api/name/trackEvent:) with this string in our event handler as follows:
 
@@ -352,7 +352,10 @@ Custom goals allow you to track events other than taps and view changes. There a
           //The rest of your handler
       }
       ```
-      For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
+
+      As of SDK version 1.1, if you aren't sure of the exact spelling of your custom goal string, you can trigger custom events in your simulator or connected device, and the strings will appear in the dialog in the order they were triggered.
+
+      For more details and to learn about tap and view goals, refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
 
 ### Revenue Tracking
 The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely.html#//api/name/trackRevenue:) in your app. There are two steps to creating a custom goal.
@@ -372,7 +375,7 @@ The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely
       }
       ```
 
-2. To create an experiment that tracks revenue, click Goals -> Saved Goal -> Select "Total Revenue" from the drop-down.
+2. To create an experiment that tracks revenue, click Goals -> Add a Saved Goal -> Hover over the "Total Revenue" goal and click the "Add" button.
 
 ## Analytics Integrations
 
