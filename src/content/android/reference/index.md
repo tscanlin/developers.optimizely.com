@@ -255,7 +255,7 @@ As of SDK version 1.1, if you aren't sure of the exact spelling of your custom g
 For more details and to learn about tap and view goals, refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
 
 ### Revenue Tracking
-The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add a Saved Goal", and select "Revenue." In order to track this goal, use the revenue API by passing an integer number of cents:
+The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add a Saved Goal", hover over the "Total Revenue" goal, and click the "Add" button. In order to track this goal, use the revenue API by passing an integer number of cents:
 
 ```java
 private void userCompletedPurchase() {
