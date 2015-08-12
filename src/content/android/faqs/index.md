@@ -41,7 +41,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 
 <a name="howandroidworks"></a>
 ##### *Q: How does the SDK work?*
-*A:* Optimizely is implemented through an SDK and the Optimizely datafile.  To get started with Optimizely and run your first experiments, you simply need to install the SDK and add one line of code to your app.  The SDK will download the datafile which is comprised of JSON and contains all of the experiment and goal information necessary to deploy and control experiments and return data to our reporting.  The data file is hosted on our CDN and follows the attached schemas for iOS and Android.  You may view your datafile at cdn.optimizely.com/json/android/1.0/<project_id>.json . For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/205014107-How-Optimizely-s-SDKs-Work-SDK-Order-of-execution-experiment-activation-and-goals).  The platform works as shown below:
+*A:* Optimizely is implemented through an SDK and the Optimizely datafile.  To get started with Optimizely and run your first experiments, you simply need to install the SDK and add one line of code to your app.  The SDK will download the datafile which is comprised of JSON and contains all of the experiment and goal information necessary to deploy and control experiments and return data to our reporting.  The data file is hosted on our CDN and follows the attached schemas for iOS and Android.  You may view your datafile at cdn.optimizely.com/json/android/1.0/&lrproject_id&rt.json. Replace "1.0" in the example with the version of the SDK that you are using. For more details, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/205014107-How-Optimizely-s-SDKs-Work-SDK-Order-of-execution-experiment-activation-and-goals).  The platform works as shown below:
 
 *SDK Contents:*
 - Data File Contents
@@ -57,7 +57,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 - Draft Experiments
 - Project goals
 
-The datafile follows this [schema](/android/schema).  
+The datafile follows this [schema](/android/schema).
 
 <a name="negativesize"></a>
 ##### *Q: Why are there negative values (-1, -2) for width and height in the Visual Editor?*
