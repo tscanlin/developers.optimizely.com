@@ -26,4 +26,4 @@ We recommend you use the <b>Connect with Optimizely</b> button below, which you 
 Download Button: <a href="/assets/img/connect.png" download="ConnectWithOptimizelyButton.png">PNG</a> | <a href="/assets/img/connect.svg" download="ConnectWithOptimizelyButton.svg">SVG</a>
 </div><br>
 
-Users can revoke your application's access to their data at any time in their <a target="_blank" href="https://www.optimizely.com/accountsettings/access">API Access</a> settings.
+Users can revoke your application's access to their data at any time in their <a target="_blank" href="https://app.optimizely.com/accountsettings/apps/access">API Access</a> settings.
