@@ -236,7 +236,7 @@ Optimizely.setUserId("userid");
 ## Goal Tracking
 
 ### Track Event
-Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal. The first step occurs in the web editor. Click "Goals", then "New Goal", and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal. In order to track this goal, send this same string as a parameter to
+Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal. The first step occurs in the web editor. Click "Goals", then "Create a New Goal", and select "Custom Goal" from the drop-down. You will be prompted for a string to uniquely identify your custom goal. In order to track this goal, send this same string as a parameter to
 
 ```java
 Optimizely.trackEvent("GoalID");
@@ -250,9 +250,12 @@ private void userDidSwipeTask() {
     //The rest of your handler
 }
 ```
+As of SDK version 1.1, if you aren't sure of the exact spelling of your custom goal string, you can trigger custom events in your simulator or connected device, and the strings will appear in the dialog in the order they were triggered.
+
+For more details and to learn about tap and view goals, refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
 
 ### Revenue Tracking
-The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add Saved Goal", and select "Revenue." In order to track this goal, use the revenue API by passing an integer number of cents:
+The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add a Saved Goal", hover over the "Total Revenue" goal, and click the "Add" button. In order to track this goal, use the revenue API by passing an integer number of cents:
 
 ```java
 private void userCompletedPurchase() {
