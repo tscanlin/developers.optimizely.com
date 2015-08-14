@@ -11,7 +11,7 @@ js: |
    * Place this code in your project JS. 
    * This code allows you to run mutually exclusive experiments by tagging experiment names.
    * Experiment naming convention includes [ME], [ME] holdout,
-   * [Group_X] where X can be any letter, [Group_X_ME], and [Group_X_ME]
+   * [Group_X] where X can be any letter, [Group_X_ME], and [Group_X] holdout
    *
    * See http://developers.optimizely.com/samples/#mutually-exclusive for more information
    * about running mutually exclusive experiments
