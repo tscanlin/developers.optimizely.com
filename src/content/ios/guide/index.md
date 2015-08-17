@@ -60,7 +60,6 @@ For new installations, please follow all steps. For upgrades, please follow step
    * SystemConfiguration.framework
    * UIKit.framework
 <br  />
-3. <a name="objc"></a>Switch to the "Build Settings" tab. Add `-ObjC` to the "Other Linker Flags" build setting.
 
 ## 3. Add Your API token
 1. Now, you're ready to write some code!  Include this file at the top of your `AppDelegate` class implementation. This is usually found in a file called `AppDelegate.m` in the Project Navigator.
