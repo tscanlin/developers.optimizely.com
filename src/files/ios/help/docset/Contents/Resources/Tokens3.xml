@@ -15,6 +15,333 @@ within Optimizely.</Abstract>
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setAudiences:</TokenIdentifier>
+			<Abstract type="html">Property that tells you the audiences currently associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *audiences</Declaration>
+			
+			
+			<Anchor>//api/name/audiences</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/audiences</TokenIdentifier>
+			<Abstract type="html">Property that tells you the audiences currently associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *audiences</Declaration>
+			
+			
+			<Anchor>//api/name/audiences</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/audiences</TokenIdentifier>
+			<Abstract type="html">Property that tells you the audiences currently associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *audiences</Declaration>
+			
+			
+			<Anchor>//api/name/audiences</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setExperimentId:</TokenIdentifier>
+			<Abstract type="html">Property that tells you the experiment Id</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
+			
+			
+			<Anchor>//api/name/experimentId</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/experimentId</TokenIdentifier>
+			<Abstract type="html">Property that tells you the experiment Id</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
+			
+			
+			<Anchor>//api/name/experimentId</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/experimentId</TokenIdentifier>
+			<Abstract type="html">Property that tells you the experiment Id</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
+			
+			
+			<Anchor>//api/name/experimentId</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setExperimentName:</TokenIdentifier>
+			<Abstract type="html">Property that tells you the experiment Name</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/experimentName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/experimentName</TokenIdentifier>
+			<Abstract type="html">Property that tells you the experiment Name</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/experimentName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/experimentName</TokenIdentifier>
+			<Abstract type="html">Property that tells you the experiment Name</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
+			
+			
+			<Anchor>//api/name/experimentName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setLocked:</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
+was making a conflicting change or your assets did not finish downloading in time</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
+			
+			
+			<Anchor>//api/name/locked</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/locked</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
+was making a conflicting change or your assets did not finish downloading in time</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
+			
+			
+			<Anchor>//api/name/locked</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/locked</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
+was making a conflicting change or your assets did not finish downloading in time</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
+			
+			
+			<Anchor>//api/name/locked</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setState:</TokenIdentifier>
+			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/state</TokenIdentifier>
+			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/state</TokenIdentifier>
+			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setTargetingConditions:</TokenIdentifier>
+			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
+			
+			
+			<Anchor>//api/name/targetingConditions</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/targetingConditions</TokenIdentifier>
+			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
+			
+			
+			<Anchor>//api/name/targetingConditions</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/targetingConditions</TokenIdentifier>
+			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
+			
+			
+			<Anchor>//api/name/targetingConditions</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setTargetingMet:</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
+			
+			
+			<Anchor>//api/name/targetingMet</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/targetingMet</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
+			
+			
+			<Anchor>//api/name/targetingMet</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/targetingMet</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
+			
+			
+			<Anchor>//api/name/targetingMet</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationId:</TokenIdentifier>
+			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
+			
+			
+			<Anchor>//api/name/variationId</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationId</TokenIdentifier>
+			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
+			
+			
+			<Anchor>//api/name/variationId</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationId</TokenIdentifier>
+			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
+			
+			
+			<Anchor>//api/name/variationId</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationName:</TokenIdentifier>
+			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
+			
+			
+			<Anchor>//api/name/variationName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationName</TokenIdentifier>
+			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
+			
+			
+			<Anchor>//api/name/variationName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationName</TokenIdentifier>
+			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
+			
+			
+			<Anchor>//api/name/variationName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVisitedCount:</TokenIdentifier>
 			<Abstract type="html">Property that counts the number of times the user has seen this experiment</Abstract>
 			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
@@ -119,297 +446,6 @@ within Optimizely.</Abstract>
 			
 			
 			<Anchor>//api/name/visitedThisSession</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setTargetingMet:</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
-			
-			
-			<Anchor>//api/name/targetingMet</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/targetingMet</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
-			
-			
-			<Anchor>//api/name/targetingMet</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/targetingMet</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
-			
-			
-			<Anchor>//api/name/targetingMet</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setLocked:</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
-was making a conflicting change or your assets did not finish downloading in time</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
-			
-			
-			<Anchor>//api/name/locked</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/locked</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
-was making a conflicting change or your assets did not finish downloading in time</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
-			
-			
-			<Anchor>//api/name/locked</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/locked</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
-was making a conflicting change or your assets did not finish downloading in time</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
-			
-			
-			<Anchor>//api/name/locked</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setExperimentId:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Id</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
-			
-			
-			<Anchor>//api/name/experimentId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/experimentId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Id</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
-			
-			
-			<Anchor>//api/name/experimentId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/experimentId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Id</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
-			
-			
-			<Anchor>//api/name/experimentId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setExperimentName:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Name</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
-			
-			
-			<Anchor>//api/name/experimentName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/experimentName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Name</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
-			
-			
-			<Anchor>//api/name/experimentName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/experimentName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Name</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
-			
-			
-			<Anchor>//api/name/experimentName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationId:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
-			
-			
-			<Anchor>//api/name/variationId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
-			
-			
-			<Anchor>//api/name/variationId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
-			
-			
-			<Anchor>//api/name/variationId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationName:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
-			
-			
-			<Anchor>//api/name/variationName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
-			
-			
-			<Anchor>//api/name/variationName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
-			
-			
-			<Anchor>//api/name/variationName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setTargetingConditions:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
-			
-			
-			<Anchor>//api/name/targetingConditions</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/targetingConditions</TokenIdentifier>
-			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
-			
-			
-			<Anchor>//api/name/targetingConditions</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/targetingConditions</TokenIdentifier>
-			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
-			
-			
-			<Anchor>//api/name/targetingConditions</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setState:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
-			
-			
-			<Anchor>//api/name/state</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/state</TokenIdentifier>
-			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
-			
-			
-			<Anchor>//api/name/state</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/state</TokenIdentifier>
-			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
-			
-			
-			<Anchor>//api/name/state</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		

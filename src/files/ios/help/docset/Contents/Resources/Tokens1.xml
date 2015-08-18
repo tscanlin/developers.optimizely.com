@@ -809,7 +809,7 @@ Setting the userId to nil will reset the UUID.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/setDispatchInterval:</TokenIdentifier>
-			<Abstract type="html">The frequency (in seconds) at which events are sent to Optimizley and the experiment
+			<Abstract type="html">The frequency (in seconds) at which events are sent to Optimizely and the experiment
 data file is fetched from server. Defaults to 2 minutes.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
@@ -822,7 +822,7 @@ data file is fetched from server. Defaults to 2 minutes.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/dispatchInterval</TokenIdentifier>
-			<Abstract type="html">The frequency (in seconds) at which events are sent to Optimizley and the experiment
+			<Abstract type="html">The frequency (in seconds) at which events are sent to Optimizely and the experiment
 data file is fetched from server. Defaults to 2 minutes.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
@@ -835,7 +835,7 @@ data file is fetched from server. Defaults to 2 minutes.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/dispatchInterval</TokenIdentifier>
-			<Abstract type="html">The frequency (in seconds) at which events are sent to Optimizley and the experiment
+			<Abstract type="html">The frequency (in seconds) at which events are sent to Optimizely and the experiment
 data file is fetched from server. Defaults to 2 minutes.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
@@ -954,6 +954,42 @@ config file.</Abstract>
 			
 			
 			<Anchor>//api/name/disableGesture</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/setStartingState:</TokenIdentifier>
+			<Abstract type="html">This returns the initialization state of the Optimizely singleton.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) OptimizelyInitializationState startingState</Declaration>
+			
+			
+			<Anchor>//api/name/startingState</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/startingState</TokenIdentifier>
+			<Abstract type="html">This returns the initialization state of the Optimizely singleton.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) OptimizelyInitializationState startingState</Declaration>
+			
+			
+			<Anchor>//api/name/startingState</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/startingState</TokenIdentifier>
+			<Abstract type="html">This returns the initialization state of the Optimizely singleton.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) OptimizelyInitializationState startingState</Declaration>
+			
+			
+			<Anchor>//api/name/startingState</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
