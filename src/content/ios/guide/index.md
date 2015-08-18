@@ -69,11 +69,11 @@ Code Blocks have already been added to the sample app. You can refer to the *Cod
 
 1. If you tap on "Code Blocks" > "Sign in" without modifying the code block, the View Controller that will appear is shown below:
 
-<img src="/assets/img/ios/code_block_1.png" alt="Drawing" style="width: 80%;"/>
+<img src="/assets/img/ios/code_block_1.png" alt="Drawing" style="width: 50%;"/>
 
 2. Return to the "Sign in" View Controller:
 
-<img src="/assets/img/ios/code_block_0.png" alt="Drawing" style="width: 80%;"/>
+<img src="/assets/img/ios/code_block_0.png" alt="Drawing" style="width: 50%;"/>
 
 3. Now, select 
 
