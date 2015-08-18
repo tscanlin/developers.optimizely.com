@@ -59,7 +59,7 @@ Once you have a project created and the SDK installed, you should be ready to st
 
 Live variables have already been added to the sample app. You can refer to the *LiveVariablesViewController.m* file.  There are 3 examples of live variables used in that file, which are shown below.  Save your experiment after you have made the change.
 
-<img src="/assets/img/ios/live_variable_number.png" alt="Drawing" style="width: 80%;"/>
+<img src="/assets/img/ios/live_variable_number.png" alt="Drawing" style="width: 60%;"/>
 
 For more details about live variables, you can refer [here](../reference/index.html#register-live-variables).
 
@@ -69,13 +69,16 @@ Code Blocks have already been added to the sample app. You can refer to the *Cod
 
 1. If you tap on "Code Blocks" > "Sign in" without modifying the code block, the View Controller that will appear is shown below:
 
-<img src="/assets/img/ios/code_block_1.png" alt="Drawing" style="width: 50%;"/>
+<img src="/assets/img/ios/code_block_2.png" alt="Drawing" style="width: 60%;"/>
 
 2. Return to the "Sign in" View Controller:
 
-<img src="/assets/img/ios/code_block_0.png" alt="Drawing" style="width: 50%;"/>
+<img src="/assets/img/ios/code_blocks_3.png" alt="Drawing" style="width: 60%;"/>
 
-3. Now, select 
+3. Now, select "One Stage", and if you navigate through the app, you will see a new screen appear, which is shown below:
+
+<img src="/assets/img/ios/code_blocks_4.png" alt="Drawing" style="width: 60%;"/>
+
 
 For more details about code blocks, you can refer [here](../reference/index.html#code-blocks).
 
@@ -104,12 +107,12 @@ After creating an iOS project and installing the SDK, reference [this guide in o
 ### Preview Mode
 Preview mode allows you to view your app in a different variations for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, open the `Preview` menu, and click `Launch Preview`
 
-<img src="/assets/img/mobile/launch-preview.png" alt="Enter Preview Mode" />
+<img src="/assets/img/mobile/launch-preview.png" style="width: 60%;" alt="Enter Preview Mode" />
 
 Your app will restart and you will see the Optimizely preview menu icon displayed over your app content.
  The icon may be repositioned by dragging it. Tapping the icon will reveal the Preview Menu which allows you to switch variations, view the goals that have been triggered so far, and see the code blocks and live variables that are included in the experiment.
 
-<img src="/assets/img/ios/preview-menu.gif" alt="Preview Mode Demo" />
+<img src="/assets/img/ios/preview-menu.gif" style="width: 40%;" alt="Preview Mode Demo" />
 
 ### Pre-launch Checklist
 
