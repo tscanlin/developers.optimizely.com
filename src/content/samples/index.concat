@@ -5,15 +5,15 @@ sections:
 - introduction
 - advanced-goal-tracking
 - advanced-targeting
-- conditional
-- variation-code
-- single-page-applications
 - advanced-use-cases
-- mutually-exclusive
-- stats
-- results
 - audiences
-- user-lists
-- technology-integrations
+- conditional
 - helpers
+- mutually-exclusive
+- results
+- single-page-applications
+- stats
+- technology-integrations
+- user-lists
+- variation-code
 ---
