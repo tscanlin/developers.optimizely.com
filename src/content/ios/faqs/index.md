@@ -15,7 +15,6 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#cantseeappineditor">*Q:* My device is running the app but I can't see it in the editor.</a><br>
 <a href="#remoterepo">*Q:* What should I do if I get a `Could not read from remote repository.` error?</a><br>
 <a href="#tableview">*Q:* How do I modify a Table View Cell?</a><br>
-<a href="#appcrash">*Q:* My app crashes and I get a run-time error after installing.</a><br>
 <a href="#compileerror">*Q:* My app won't compile.</a><br>
 <a href="#dynamicimage">*Q:* My dynamically rendered image does not render while using the Editor.</a><br>
 <a href="#visualeditorchange">*Q:* I'm trying to make a Visual Change with Optimizely's Visual Editor, but the View is not changing.</a><br>
@@ -75,11 +74,6 @@ matches what you see in the Project Code box within Optimizely.
 <a name="tableview"></a>
 ##### *Q: How do I modify a Table View Cell?*
 *A:* By default, each instance of a UITableViewCell in a UITableView will have the same changes applied to it.  If you would like to be able to modify a single UITableViewCell, you can [tag](#tag%20your%20views) the specific UITableViewCell with an optimizelyId.
-
-<a name="appcrash"></a>
-##### *Q: My app crashes and I get a run-time error after installing:*
-```this class is not key value coding-compliant for the key optimizelyId```
-*A:* Make sure you added the `-ObjC` linker flag to your build settings (see [Manual Installation](#objc)).
 
 <a name="compileerror"></a>
 ##### *Q: My app won't compile and I get an error saying:*
