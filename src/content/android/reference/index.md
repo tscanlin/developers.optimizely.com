@@ -336,6 +336,54 @@ Clients can get notifications when various Optimizely events occur in the Optimi
   });
 ```
 
+## Integrations
+
+Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. Configuration instructions for each integration are below.
+
+### Amplitude
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:amplitudeintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Optimizely.registerPlugin(new AmplitudeIntegration());
+```
+
+### Mixpanel
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:mixpanelintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Optimizely.registerPlugin(new MixpanelIntegration());
+```
+
+### Universal Analytics (Google Analytics)
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:universalanalyticsintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Tracker tracker = GoogleAnalytics.getInstance(this).newTracker("TRACKER_ID");
+OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
+Optimizely.registerPlugin(new UniversalAnalyticsIntegration());
+```
+
 ## Upgrading to a new SDK
 
 If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
