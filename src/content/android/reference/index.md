@@ -336,6 +336,8 @@ Clients can get notifications when various Optimizely events occur in the Optimi
   });
 ```
 
+**Note** If Optimizely is already running at the time when you register a new `OptimizelyEventListener`, `onOptimizelyStarted` or `onOptimizelyFailedToStart` will immediately be called on the listener, reflecting the current state of the SDK.
+
 ## Integrations
 
 Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. Configuration instructions for each integration are below.
@@ -365,6 +367,7 @@ dependencies {
 
 Installation:
 ```java
+MixpanelAPI mixpanelAPI = MixpanelAPI.getInstance(this, "API_TOKEN");
 Optimizely.registerPlugin(new MixpanelIntegration());
 ```
 
