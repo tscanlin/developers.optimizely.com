@@ -369,7 +369,7 @@ The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely
 1. Add the tracking code to your app, you can add this tracking call by adding the code below:
 
       ```obj-c
-      [Optimizely trackRevenue:(NSNumber *)];
+      [Optimizely trackRevenue:(int)];
       ```
 
       For example, if we wanted a goal for users that completed a purchase, and you could make the tracking call in your purchaseConfirmation method where `price` is the variable that holds the dollar amount that has been spent:

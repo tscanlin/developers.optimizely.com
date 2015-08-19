@@ -39,6 +39,8 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/audiences">&nbsp;&nbsp;&nbsp;&nbsp;audiences</option>
+	
 	<option value="//api/name/experimentId">&nbsp;&nbsp;&nbsp;&nbsp;experimentId</option>
 	
 	<option value="//api/name/experimentName">&nbsp;&nbsp;&nbsp;&nbsp;experimentName</option>
@@ -88,6 +90,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audiences">audiences</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/experimentId">experimentId</a></span></li>
 	
@@ -172,31 +176,7 @@ within <a href="../Classes/Optimizely.html">Optimizely</a>.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/visitedCount">&nbsp;&nbsp;visitedCount</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/visitedEver">&nbsp;&nbsp;visitedEver</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/visitedThisSession">&nbsp;&nbsp;visitedThisSession</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/targetingMet">&nbsp;&nbsp;targetingMet</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/locked">&nbsp;&nbsp;locked</a></code>
+		<code><a href="#//api/name/audiences">&nbsp;&nbsp;audiences</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -214,6 +194,30 @@ within <a href="../Classes/Optimizely.html">Optimizely</a>.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/locked">&nbsp;&nbsp;locked</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/state">&nbsp;&nbsp;state</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/targetingConditions">&nbsp;&nbsp;targetingConditions</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/targetingMet">&nbsp;&nbsp;targetingMet</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/variationId">&nbsp;&nbsp;variationId</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -226,13 +230,19 @@ within <a href="../Classes/Optimizely.html">Optimizely</a>.</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/targetingConditions">&nbsp;&nbsp;targetingConditions</a></code>
+		<code><a href="#//api/name/visitedCount">&nbsp;&nbsp;visitedCount</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/state">&nbsp;&nbsp;state</a></code>
+		<code><a href="#//api/name/visitedEver">&nbsp;&nbsp;visitedEver</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/visitedThisSession">&nbsp;&nbsp;visitedThisSession</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -248,6 +258,42 @@ within <a href="../Classes/Optimizely.html">Optimizely</a>.</p>
 					<div class="section section-methods">
 						<a title="Properties" name="properties"></a>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/audiences" title="audiences"></a>
+	<h3 class="subsubtitle method-title">audiences</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Property that tells you the audiences currently associated with this experiment</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) NSString *audiences</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyExperimentData.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/experimentId" title="experimentId"></a>
@@ -668,7 +714,7 @@ was making a conflicting change or your assets did not finish downloading in tim
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Optimizely. All rights reserved. (Last updated: 2015-06-12)</span><br />
+						<p><span class="copyright">&copy; 2015 Optimizely. All rights reserved. (Last updated: 2015-08-18)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

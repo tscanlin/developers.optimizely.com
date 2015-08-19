@@ -84,17 +84,39 @@ For more details about code blocks, you can refer [here](../reference/index.html
 
 ## 6. Add Custom Tags
 
+Custom tags sample code can be found in the *AppDelegate.m* and *CodeBlocksViewController.m* files.  In order to create a test that only runs for returning users as defined in the app, in your Optimizely experiment you can go to Options > Targeting to set up the custom tag condition.
+
+<img src="/assets/img/ios/custom_tags_guide.png" alt="Drawing" style="width: 60%;"/>
+
 For more details about custom tags, you can refer [here](../reference/index.html#custom-tags)
 
 ## 7. Track Event
+
+trackEvent sample code can be found in the *CodeBlocksViewController.m* file.  In order to track the custom event for a specific experiment, you can click on the flag image on the top right of the screen next to the "Start Experiment" button.
+
+<img src="/assets/img/ios/goals_flag.png" alt="Drawing" style="width: 30%;"/>
+
+From there, you can add a new goal of goal type custom event as shown below:
+
+<img src="/assets/img/ios/goal_modal.png" alt="Drawing" style="width: 60%;"/>
 
 For more details, you can refer [here](../reference/index.html#track-event).
 
 ## 8. Revenue Tracking
 
+Code for tracking revenue can be found in the *CodeBlocksViewController.m* file.  In order to track revenue for a specific experiment, you can click on the flag image on the top right of the screen next to the "Start Experiment" button.
+
+<img src="/assets/img/ios/goals_flag.png" alt="Drawing" style="width: 30%;"/>
+
+From there, you can click on Add a Saved Goal > Select Revenue:
+
+<img src="/assets/img/ios/revenue.png" alt="Drawing" style="width: 60%;"/>
+
 For more details, you can refer [here](../reference/index.html#revenue-tracking).
 
 ## 9. Analytics Integration
+
+For guidance on how to implement Google Analytics and Mixpanel integrations, you can refer to the *AppDelegate.m* file in the comments.
 
 For more details, you can refer [here](../reference/index.html#analytics-integrations)
 
