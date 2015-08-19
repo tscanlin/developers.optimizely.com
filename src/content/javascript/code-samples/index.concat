@@ -1,0 +1,14 @@
+---
+template: page-sidebar--wider
+title: "Code Samples"
+sections:
+- introduction
+- advanced-goal-tracking
+- advanced-targeting
+- conditional
+- variation-code
+- single-page-applications
+- advanced-use-cases
+- technology-integrations
+- helpers
+---
