@@ -268,7 +268,52 @@ private void userCompletedPurchase() {
 
 You can also access the experiments and variations active for a given user directly using the `Optimizely.getVisitedExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments()).
 
- We are working on deeper integrations with 3rd party analytics platforms and will update these documents as those integrations are added to the Optimizely SDK.
+Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. Configuration instructions for each integration are below.
+
+### Amplitude
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:amplitudeintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Optimizely.registerPlugin(new AmplitudeIntegration());
+```
+
+### Mixpanel
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:mixpanelintegration:+@aar')
+}
+```
+
+Installation:
+```java
+MixpanelAPI mixpanelAPI = MixpanelAPI.getInstance(this, "API_TOKEN");
+Optimizely.registerPlugin(new MixpanelIntegration());
+```
+
+### Universal Analytics (Google Analytics)
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:universalanalyticsintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Tracker tracker = GoogleAnalytics.getInstance(this).newTracker("TRACKER_ID");
+OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
+Optimizely.registerPlugin(new UniversalAnalyticsIntegration());
+```
 
 ## Network Settings
 There are only two instances when the Optimizely Android SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, the config file is automatically downloaded every 2 minutes. Event tracking data is automatically uploaded whenever the user leaves a screen of your application (on every `Activity.onPause`). The Optimizely Android SDK allows you to customize how often these network calls are made by:
@@ -334,57 +379,6 @@ Clients can get notifications when various Optimizely events occur in the Optimi
                           messageType, source, payload));
     }
   });
-```
-
-**Note** If Optimizely is already running at the time when you register a new `OptimizelyEventListener`, `onOptimizelyStarted` or `onOptimizelyFailedToStart` will immediately be called on the listener, reflecting the current state of the SDK.
-
-## Integrations
-
-Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. Configuration instructions for each integration are below.
-
-### Amplitude
-
-Gradle dependency:
-```groovy
-dependencies {
-    compile('com.optimizely:amplitudeintegration:+@aar')
-}
-```
-
-Installation:
-```java
-Optimizely.registerPlugin(new AmplitudeIntegration());
-```
-
-### Mixpanel
-
-Gradle dependency:
-```groovy
-dependencies {
-    compile('com.optimizely:mixpanelintegration:+@aar')
-}
-```
-
-Installation:
-```java
-MixpanelAPI mixpanelAPI = MixpanelAPI.getInstance(this, "API_TOKEN");
-Optimizely.registerPlugin(new MixpanelIntegration());
-```
-
-### Universal Analytics (Google Analytics)
-
-Gradle dependency:
-```groovy
-dependencies {
-    compile('com.optimizely:universalanalyticsintegration:+@aar')
-}
-```
-
-Installation:
-```java
-Tracker tracker = GoogleAnalytics.getInstance(this).newTracker("TRACKER_ID");
-OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
-Optimizely.registerPlugin(new UniversalAnalyticsIntegration());
 ```
 
 ## Upgrading to a new SDK
