@@ -4,53 +4,21 @@ var assets = 'assets/';
 
 // Sections for each navigation item.
 var NAV_SECTIONS = {
-  'introduction': {
+  introduction: {
     path: 'introduction/',
     title: 'Introduction',
   },
-  'getting-started': {
-    path: 'getting-started/',
-    title: 'Getting started',
-  },
-  'reference': {
-    path: 'reference/',
-    title: 'Reference',
-  },
-  'faqs': {
-    path: 'faqs/',
-    title: 'FAQs',
-  },
-  'code-samples': {
-    path: 'code-samples/',
-    title: 'Code Samples',
-  },
-};
-
-// Sections for each navigation item.
-var MOBILE_NAV_SECTIONS = {
-  'introduction': {
-    path: 'introduction/',
-    title: 'Introduction',
-  },
-  'getting-started': {
-    path: 'getting-started/',
-    title: 'Getting started',
-  },
-  'guide': {
+  guide: {
     path: 'guide/',
-    title: 'Guide',
+    title: 'Getting started',
   },
-  'reference': {
+  reference: {
     path: 'reference/',
     title: 'Reference',
   },
-  'faqs': {
+  faqs: {
     path: 'faqs/',
     title: 'FAQs',
-  },
-  'code-samples': {
-    path: 'code-samples/',
-    title: 'Code Samples',
   },
 };
 
@@ -91,12 +59,12 @@ var paths = {
     ios: {
       path: '/ios/',
       title: 'iOS SDK',
-      sections: MOBILE_NAV_SECTIONS,
+      sections: NAV_SECTIONS,
     },
     android: {
       path: '/android/',
       title: 'Android SDK',
-      sections: MOBILE_NAV_SECTIONS,
+      sections: NAV_SECTIONS,
     },
     samples: {
       path: '/samples/',
