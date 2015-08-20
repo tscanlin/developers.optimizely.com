@@ -137,28 +137,21 @@ Integrations with Optimizely typically fall into one of the six categories below
 ## Developer Guide
 
 ### Analytics
-
-Analytics integrations take the experiment and variation that is running on a page and send it to an Analytics platform. This information can be used within the analytics platform to perform further analysis on the bahaviour of visitors based on the experience they had on the website.
+Analytics integrations allow customers to track Optimizely experiments in an external analytics tool.  With the flip of a switch, Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool.
 
 #### Prerequisites
-- Functionality to send custom data to the analytics platform
-- (Optional) Functionality to overwrite referrer 
-value
-- You have an Optimizely (developer) account (see the "<a href="#1-create-an-optimizely-account">Join the Technology Partner Program</a>" section).
-- You are able to host a test page
-- Have Chrome or Firefox installed
-- You know how to use the Javascript console in <a href="https://developer.chrome.com/devtools/docs/console">Chrome</a> or <a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console">Firefox</a>
-- Basic skill in Javascript
+
+- Your platform has the ability to receive experiment names
+- You have an Optimizely account
+- Basic JavaScript skills
 
 #### 1. Create test page with Optimizely snippet
-Create a page to test the integration on. On the test page, the Optimizely snippet needs to be added to the top of the &lt;head&gt; section. 
-
-Instructions regarding installing the snippet can be found on our <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">knowledge base</a>.
+Create a page to test the integration on. On the test page, the Optimizely snippet needs to be added to the top of the &lt;head&gt; section. Instructions on how to install the Optimizely snippet can be found on our <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">knowledge base</a>.
 
 #### 2. Create and start an experiment for the test page
-Within your Optimizely account, create an experiment that runs on the test page you have created in step 1. It isn't necessery to make modification in the experiment, just save and start the experiment. Remember the experiment id (see experiment_id in address bar).
+Within your Optimizely account, create an experiment that runs on the test page you have created in step 1. It isn't necessary to make modification in the experiment, just save and start the experiment. Remember the experiment id (see experiment_id in address bar).
 
-When the uploading of the experiment is done (approximately 2 minutes), verify that the experiment is running on the sample page by going to the test page in your browser. After a hard refresh, the Optimizely experiment should be running. You can verify if the experiment is running by opening your Javascript console and executing `optimizely.activeExperiments`. After hitting enter, the console will output an array with your experiment ID in it. 
+When the uploading of the experiment is done (approximately 2 minutes), verify that the experiment is running on the sample page by going to the test page in your browser. After a hard refresh the Optimizely experiment should be running. You can verify if the experiment is running by opening your JavaScript console and executing `optimizely.activeExperiments`. After hitting enter, the console will output an array with your experiment ID in it. 
 
 <img src="/assets/img/integrations/active_experiments.png">
  
@@ -201,9 +194,9 @@ The three functions to implement are initialize (optional), makeRequest (require
 
 **initialize**
 
-The function initialize runs before anything else happens. It allows you to implement logic to initialize the integration. In some cases, this isn't necessery. 
+The function initialize runs before anything else happens. It allows you to implement logic to initialize the integration. In some cases, this isn't necessary. 
 
-Example usage: Google Analytics uses referrer values to map out behaviour through the website. The function window.integrator.redirect.getRedirectReferrer() returns a referrer that was set when a redirect has occured. This value can be used to set the correct referrer value when a redirect has occured.
+Example usage: Google Analytics uses referrer values to map out behavior through the website. The function window.integrator.redirect.getRedirectReferrer() returns a referrer that was set when a redirect has occurred. This value can be used to set the correct referrer value when a redirect has occurred.
 
 **makeRequest(experimentId, variationId)**
 
@@ -236,7 +229,7 @@ An example of a test page where an Google Analytics integration has been impleme
 
 #### 5. Verify that the integration works
 
-When the integration is succesfully implemented, you can check your network traffic to see if all the data is correctly send to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic. 
+When the integration is successfully implemented, you can check your network traffic to see if all the data is correctly send to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic. 
 
 ### Audiences
 Audience integrations allow customers to use data from a different platform to target and segment visitors. The platform data needs to be available on the client side to be able to pass it to Optimizely. If data is not available on the client side, consider using an Uploaded list integration instead. 
@@ -247,7 +240,7 @@ Audience integrations allow customers to use data from a different platform to t
 - You are comfortable with REST APIs
 - You can use oAuth authentication
 
-Using a combination of the Optimizely REST API and the Javascript API, it is possible to create audiences within Optimizely and add a visitor to that audience within the browser. 
+Using a combination of the Optimizely REST API and the JavaScript API, it is possible to create audiences within Optimizely and add a visitor to that audience within the browser. 
 ### **Integration with other platform API**
 
 
