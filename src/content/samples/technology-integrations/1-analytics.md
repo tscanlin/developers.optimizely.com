@@ -5,7 +5,7 @@ anchor: technology-integrations-analytics
 ---
 The most relevant data that Optimizely has about a visitor is which experiment a visitor has seen and which variation a visitor was bucketed in. These steps will explain how to abstract that data and send it to a different system.
 #### 1. Download template
-Download the analytics template here: [analytics integration template](https://github.com/optimizely/Analytics-JS/blob/master/analytics.js)
+Download the analytics template here: [analytics integration template](https://github.com/optimizely/Analytics-JS)
 
 The template contains several functions that are useful for every analytics integration.
 #### 2. Customize two functions
