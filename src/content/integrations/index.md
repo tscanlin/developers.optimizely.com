@@ -145,26 +145,81 @@ Analytics integrations allow customers to track Optimizely experiments in an ext
 - You have an Optimizely account
 - Basic JavaScript skills
 
-#### 1. Create test page with Optimizely snippet
+#### Implementation
+The following step-by-step describes how to implement an analytics integration. The limition of the method described in the following steps is that redirect experiments are not supported. An alternative approach is documented <a href="#alternative-approach">below</a>, but please mind that the resources provided in the alternative approach are not maintained by Optimizely. 
+
+##### 1. Create test page with Optimizely snippet
 Create a page to test the integration on. On the test page, the Optimizely snippet needs to be added to the top of the &lt;head&gt; section. Instructions on how to install the Optimizely snippet can be found on our <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">knowledge base</a>.
 
-#### 2. Create and start an experiment for the test page
+##### 2. Create and start an experiment for the test page
+Within your Optimizely account, create an experiment that runs on the test page you have created in step 1. It isn't necessary to make modification in the experiment, just save and start the experiment. Remember the experiment id (see experiment_id in address bar).
+
+When the uploading of the experiment is done (approximately 2 minutes), verify that the experiment is running on the sample page by going to the test page in your browser. After a hard refresh the Optimizely experiment should be running. You can verify if the experiment is running by opening your JavaScript console and executing `optimizely.activeExperiments`. After hitting enter, the console will output an array with your experiment ID in it. 
+
+<img src="/assets/img/integrations/active_experiments.png">
+
+##### 3. Implement platform specific integration code
+**This step is platform specific**
+
+On the test page, below the Optimizely snippet, we can implement code to get the experiment and variation names of the experiments that are running on the page. This is the information that you can send to the analytics platform you are working with.
+
+The JavaScript API provides four usefull methods for getting all information regarding running experiments on a page. The methods that you will use for this integration are:
+
+- `window["optimizely"] && window["optimizely"]["data"]`
+This line makes sure that Optimizely is loaded on the page.
+- `window['optimizely'].data.state.activeExperiments`
+This is an array of experiment ids for all the active experiments.
+- `window['optimizely'].data.state.variationNamesMap`
+This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation names for those experiments.
+- `window['optimizely'].data.experiments[experimentId].name`
+This is the experiment's name.
+
+If we combine these three functions, we can get the information we need:
+
+```
+<script>
+if (window["optimizely"] && window["optimizely"]["data"]) {
+    var activeExperiments = window['optimizely'].data.state.activeExperiments;
+    for (var i = 0; i < activeExperiments.length; i++) {
+        var experimentId = activeExperiments[i];
+        var experimentName = window['optimizely'].data.state.variationNamesMap[experimentId];
+        var variationName = window['optimizely'].data.experiments[experimentId].name;
+
+        // Use the experimentName and variationName value here to send information to your analytics platform  
+
+    }
+}
+</script>
+```
+
+Where indicated in the above code snippet, implement the platform specific code. 
+
+##### 4. Verify that the integration works
+When the integration is successfully implemented, you can check your network traffic to see if all the data is correctly send to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic. 
+
+#### Alternative implementation
+To make it easier for anyone to implement an analytics integration that works with redirect experiments as well, an alternative implementation is described below. This implementation uses resources that are not supported by Optimizely, but are open source and can be contributed to. See <a href="https://github.com/optimizely/Analytics-JS">https://github.com/optimizely/Analytics-JS</a>. 
+
+##### 1. Create test page with Optimizely snippet
+Create a page to test the integration on. On the test page, the Optimizely snippet needs to be added to the top of the &lt;head&gt; section. Instructions on how to install the Optimizely snippet can be found on our <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">knowledge base</a>.
+
+##### 2. Create and start an experiment for the test page
 Within your Optimizely account, create an experiment that runs on the test page you have created in step 1. It isn't necessary to make modification in the experiment, just save and start the experiment. Remember the experiment id (see experiment_id in address bar).
 
 When the uploading of the experiment is done (approximately 2 minutes), verify that the experiment is running on the sample page by going to the test page in your browser. After a hard refresh the Optimizely experiment should be running. You can verify if the experiment is running by opening your JavaScript console and executing `optimizely.activeExperiments`. After hitting enter, the console will output an array with your experiment ID in it. 
 
 <img src="/assets/img/integrations/active_experiments.png">
  
-#### 3. Add integrator snippet to the test page
+##### 3. Add integrator snippet to the test page
 Below the Optimizely snippet, add another snippet to the test page:
 
 ```
 <script src="https://cdn.rawgit.com/optimizely/Analytics-JS/master/integrator.js"></script>
 ```
 
-We will refer to this snippet as the Integrator snippet. 
+We will refer to this snippet as the Integrator snippet. The integrator snippet contains functionality which is commonly used in analtics integrations. It provides functionality to support redirect experiments, fix referrer values and to create usable experiment names. 
 
-#### 4. Implement platform specific integration code
+##### 4. Implement platform specific integration code
 **This step is platform specific**
 
 This step will describe how to implement your analytics platform specific code. In the previous steps you have added the integrator snippet. The code in the integrator snippet helps you build the integration, by abstracting a lot of the logic for you. The only thing that is left for you to do, is to implement three functions. 
@@ -172,7 +227,7 @@ This step will describe how to implement your analytics platform specific code. 
 On the test page, below the Optimizely and Integrator snippet, add this code:
 
 ```
-</script>
+<script>
 window.integration = {
   initialize: function () {
 
@@ -221,14 +276,12 @@ The parameters for the `makeSendableNamesfunction` are:
 
 This function is called after makeRequest has been executed for all the experiments that are running on the page. 
 
-#### Example
+###### Example
 An example of a test page where an Google Analytics integration has been implemented with is here:
 
 <a href="https://github.com/optimizely/Analytics-JS/blob/master/example.html">https://github.com/optimizely/Analytics-JS/blob/master/example.html</a>
 
-
-#### 5. Verify that the integration works
-
+##### 5. Verify that the integration works
 When the integration is successfully implemented, you can check your network traffic to see if all the data is correctly send to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic. 
 
 ### Audiences
