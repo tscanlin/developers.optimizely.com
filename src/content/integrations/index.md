@@ -14,54 +14,76 @@ If you are a prospective Technology Partner interested in building an integratio
 If you are a current Optimizely customer interested in building a custom integration, you may skip the steps below since they only apply to the formal partner program. Jump straight to [Integration Types](#integration-types) to understand the different ways of integrating with the Optimizely.
 
 
-## Guide for Technology Partners
+## Technology Partner Program
 
-Follow the steps below to get your integration built, approved, and launched by Optimizely.
+If you would like to partner with Optimizely to help support your integration, we highly recommend you apply for the [Technology Partner Program](http://optimizely.com/partners/technology/join). Becoming a partner includes many benefits including hands-on developer support and marketing benefits to help promote your integration to Optimizely customers. For more information about requirements and benefits of the Technology Partner Program <a href="http://pages.optimizely.com/rs/361-GER-922/images/Optimizely%20Technology%20Partners.pdf" target="_blank">click here</a>.
+
+If you are a developer interested in joining the program, follow the steps below to get your integration built, approved, and launched by Optimizely.
 
 ### 1. Create an Optimizely account
 
 If you don't have an Optimizely account already, just sign up for a [free developer account](https://www.optimizely.com/?modal=devsignup). This account will give you access to the full set of Optimizely features and API access, but with limited traffic allocation. No credit card is required to create an account.
 
-### 2. Join the Technology Partner Program
+### 2. Apply to the Technology Partner Program
 
-If you would like to partner with Optimizely to help support your integration, please fill out the <a href="https://www.optimizely.com/partners/technology/join/" target="_blank">Technology Partner Program form</a>. Becoming a partner includes many benefits including hands-on developer support and marketing benefits to help promote your integration to Optimizely customers. For more information about requirements and benefits of the Technology Partner Program <a href="http://pages.optimizely.com/rs/361-GER-922/images/Optimizely%20Technology%20Partners.pdf" target="_blank">click here</a>.
+Please fill out the <a href="https://www.optimizely.com/partners/technology/join/" target="_blank">Technology Partner Program form</a> to apply for the program. We recommend that you apply for the program before you start developing an integration so we can provide you with appropriate guidance using the Optimizely APIs and plan for launch.
 
 ### 3. Build your integration
 
 There are many ways to integrate with Optimizely depending on your needs. To help you decide how to best integrate with our platform, please see [Integration Types](#integration-types) below which includes some common types of integrations built by customers and partners. Each integration type includes a step-by-step guide including example code to build the integration. If none of these integration types meet your needs, please refer to the rest of our API documentation.
 
-### 4. Get your integration approved by Optimizely
+### 4. Get your integration tested by Optimizely
 
-If you are approved in the Technology Partner Program, please email <a href="mailto:techpartners@optimizely.com" target="_blank">techpartners@optimizely.com</a> with information on how to test your integration. Our team is eager to provide feedback and make sure the integration works as expected.
+If you are approved in the Technology Partner Program, please email your Partner Manager with information on how to test your integration. Our team is eager to provide feedback and make sure the integration works as expected. Please include any relevant documentation on the integration that you've built, as well as instructions on how to access a demo account.
 
 ### 5. Promote your integration to customers
 
-If your integration is approved please fill out the <a href="https://docs.google.com/forms/d/1yC0eIgsp9QwUtUjsQRrfgS_K68Wy5IPKQCUoFBbTbu0/viewform?edit_requested=true" target="_blank">Technology Partner Directory form</a> to get your integration listed in our public partner directory. As a Technology Partner you will also receive a Marketing Playbook that provides detailed guidance on the best way to promote your integration to Optimizely customers.
+After Optimizely has tested and approved your integration, you can work with your Partner Manager to get your integration listed in the [Technology Partner Directory](http://optimizely.com/partners/technology). As a Technology Partner you will also receive a Marketing Playbook that provides detailed guidance on the best way to promote your integration to Optimizely customers.
 
 If you have any questions about becoming a Technology Partner please email <a href="mailto:techpartners@optimizely.com">techpartners@optimizely.com</a>.
 
 
 ## Integration Types
 
-Integrations with Optimizely typically fall into one of the six categories below.
+Integrations with Optimizely typically fall into one of the following six categories. For each category we've included some examples as well as a link to an implementation guide with step-by-step instructions on how to build the integration.
 
-<table style="vertical-align:top" border=1 cellpadding="10" cellspacing="10">
+<style>
+  table {
+    vertical-align: top;
+    border: 1px solid black;
+  }
+  td {
+    padding: 5px;
+    border: 1px solid black;
+  }
+  th {
+    background-color: #00415d;
+    color: white;
+    text-align: left;
+    padding: 5px;
+    border: 1px solid black;
+  }
+</style>
+
+<table>
   <tr>
-    <td>
-      *Category*
-    </td>
-    <td>
-      *Examples*
-    </td>
-    <td>
-      *Description*
-    </td>
+    <th>
+      Category
+    </th>
+    <th>
+      Examples
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+    </th>
   </tr>
   <tr>
-    <td>
+    <td width=120>
       *Analytics*
     </td>
-    <td>
+    <td width=120>
       <a href="http://optimizely.com/partners/technology/sitecatalyst">Adobe Analytics</a><br>
       <a href="http://optimizely.com/partners/technology/google-analytics">Google Analytics</a><br>
       <a href="http://optimizely.com/partners/technology/mixpanel">Mixpanel</a>
@@ -69,10 +91,13 @@ Integrations with Optimizely typically fall into one of the six categories below
     <td>
       Analytics integrations allow customers to track Optimizely experiments in an external analytics tool.  With the flip of a switch, Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool.
     </td>
+    <td width=150>
+      [Implementation Guide](#analytics)
+    </td>
   </tr>
   <tr>
     <td>
-      *Audience*
+      *Audiences*
     </td>
     <td>
       <a href="http://optimizely.com/partners/technology/bluekai">BlueKai</a><br>
@@ -82,17 +107,23 @@ Integrations with Optimizely typically fall into one of the six categories below
     <td>
       Audience integrations allow customers to target a specific audience based on data from an external source.  With a simple drag-and-drop interface, customers can personalize content and experiments based on 3rd party demographic data such as gender, location, weather, and age, or 1st party behavioral data such as buying intent, lifetime value, cart abandonment, and more.
     </td>
+    <td>
+      [Implementation Guide](#audiences)
+    </td>
   </tr>
   <tr>
     <td>
-      *Uploaded Audience*
+      *Uploaded Lists*
     </td>
     <td>
       <a href="http://optimizely.com/partners/technology/salesforce">Salesforce</a><br>
       <a href="http://optimizely.com/partners/technology/marketo">Marketo</a>
     </td>
     <td>
-      Uploaded Audience integrations are similar to Audience integrations, but data is exchanged server-side.
+      Uploaded List integrations allow customers to upload a list of user identifiers (e.g. cookies, query parameters, or other user identifiers) to Optimizely from a 3rd party application, which can be used to target experiments and segment results. Unlike audience integrations which operate client-side, user list integrations are implemented by a server-to-server exchange.
+    </td>
+    <td>
+      [Implementation Guide](#uploaded-lists)
     </td>
   </tr>
   <tr>
@@ -105,6 +136,9 @@ Integrations with Optimizely typically fall into one of the six categories below
     </td>
     <td>
       Content Management System (CMS) integrations allow customers to utilize the full power of Optimizely directly from a CMS.  Customers can create, configure, and run experiments directly from their CMS interface without having to login to Optimizely. 
+    </td>
+    <td>
+      [Implementation Guide](#content-management)
     </td>
   </tr>
   <tr>
@@ -119,6 +153,9 @@ Integrations with Optimizely typically fall into one of the six categories below
     <td>
       Goal integrations allow customers to use custom events (e.g. phone calls) as a goal for their experiments, as opposed to default goals (eg. clicks or pageviews).  These integrations use Optimizely’s custom event goals functionality to track conversions.
     </td>
+    <td>
+      [Implementation Guide](#conversion-tracking)
+    </td>
   </tr>
   <tr>
     <td>
@@ -131,12 +168,15 @@ Integrations with Optimizely typically fall into one of the six categories below
     <td>
       TBD
     </td>
+    <td>
+      [Implementation Guide](#snippet-installation)
+    </td>
   </tr>
 </table>
 
 ## Analytics
 
-Analytics integrations allow customers to track Optimizely experiments in an external analytics tool.  With the flip of a switch, Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool.
+*Analytics integrations* allow customers to track Optimizely experiments in an external analytics tool.  With the flip of a switch, Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool.
 
 ### Prerequisites
 
@@ -262,7 +302,12 @@ The parameters for the `makeSendableNamesfunction` are:
 
 This function is called after makeRequest has been executed for all the experiments that are running on the page. 
 
+### 5. QA integration
+
+When the integration is successfully implemented, you can check your network traffic to see if all the data is correctly send to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic. 
+
 #### Example
+
 An example of a test page where an Google Analytics integration has been implemented with is here: <a href="https://github.com/optimizely/Analytics-JS/blob/master/example.html">https://github.com/optimizely/Analytics-JS/blob/master/example.html</a>
 
 ## Audiences
@@ -278,13 +323,45 @@ Using a combination of the Optimizely REST API and the Javascript API, it is pos
 ## **Integration with other platform API**
 
 
-## Uploaded Audiences
+## Uploaded Lists
+
+*Uploaded List integrations* allow customers to upload a list of user identifiers (e.g. cookies, query parameters, or other user identifiers) to Optimizely from a 3rd party application, which can be used to target experiments and segment results. Unlike audience integrations which operate client-side, user list integrations are implemented by a server-to-server exchange. For more information on uploaded lists, refer to the Optimizely [knowledge base](https://help.optimizely.com/hc/en-us/articles/206197347).
+
+This section walks through how to build an integration with Optimizely that sends lists of users to Optimizely via the REST API. As an example, check out our integrations with [Salesforce](https://help.optimizely.com/hc/en-us/articles/206524537) and [Marketo](https://help.optimizely.com/hc/en-us/articles/206440108).
+
+### Prerequisites
+
+* Your application stores user identifiers (e.g. hashed email addresses or other unique IDs)
+* User identifiers are not personally identifiable, according to Optimizely's [Terms of Service](https://www.optimizely.com/terms/)
+* User identifiers can be accessed via the user's browser (e.g. in a cookie, query parameter, or otherwise)
+
+### 1. Create a developer account
+
+Uploaded Lists are a feature restricted to select Enterprise customers and developers. If you do not have access to Uploaded Lists and would like to develop an integration, [create a free developer account](https://www.optimizely.com/?modal=devsignup). Creating a developer account does not reqiure a credit card and will provide full access to the Uploaded Lists feature and associated APIs.
+
+### 2. Register your application
+
+We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+
+### 3. Create a list in Optimizely
+
+After connecting with Optimizely you can send lists to Optimizely via the REST API. Note that we currently limit list sizes to 5MB. If you want to send larger lists, please contact [developers@optimizely.com](mailto:developers@optimizely.com) with more information on what size lists you hope to send via the API. [Learn how to create an uploaded list in Optimizely via the REST API](/rest/reference/#create-list).
+
+### 4. Update a list in Optimizely
+
+If you'd like periodically refresh lists, please use the [PUT endpoint](http://localhost:4001/rest/reference/#update-list) to update an existing list.
+
+### 5. QA integration
+
+To test the integration end-to-end, you should verify that lists you've created via the API appear in the [Uploaded Lists](https://help.optimizely.com/hc/en-us/articles/206197347#create) tab in Optimizely. You can download the lists directly from this interface to make sure the individual user IDs are uploaded as expected. Finally, try [creating an audience including the uploaded list](https://help.optimizely.com/hc/en-us/articles/206197347#target) and running an experiment targeted to the audience to make sure users are bucketed correctly.
+
+*Note:* You may upload lists as frequently as you like, however, it may take up to 2 hours to propagate your lists to our servers.
 
 ## Content Management
 
 ## Conversion Tracking
 
-Conversion tracking integrations allow customers to use offline events from another application (e.g. phone calls) as a goal for their experiments, as opposed to default goals (e.g. clicks or pageviews). As an example, check out our integration with [DialogTech](https://help.optimizely.com/hc/en-us/articles/202984310) or [FreeSpee](https://help.optimizely.com/hc/en-us/articles/204468298).
+*Conversion tracking integrations* allow customers to use offline events from another application (e.g. phone calls) as a goal for their experiments, as opposed to default goals (e.g. clicks or pageviews). As an example, check out our integration with [DialogTech](https://help.optimizely.com/hc/en-us/articles/202984310) or [FreeSpee](https://help.optimizely.com/hc/en-us/articles/204468298).
 
 This section walks through how to create a conversion tracking integration using [custom event goals](https://help.optimizely.com/hc/en-us/articles/200039925) and the [offline conversion API](https://help.optimizely.com/hc/en-us/articles/200040195).
 
