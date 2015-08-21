@@ -98,6 +98,11 @@ var paths = {
       title: 'Android SDK',
       sections: MOBILE_NAV_SECTIONS,
     },
+    integrations: {
+      path: '/integrations/',
+      title: 'Integrations',
+    },
+
   },
 };
 
