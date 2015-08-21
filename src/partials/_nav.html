@@ -3,8 +3,7 @@
     <ul class="unstyled lego-nav lego-nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
         <li class="push--bottom">
-          <a class="main-section{% if item.path === topPath %} active{% endif %}" href="{{ item.path }}"{% if item.path !== '/samples/' && item.path !== '/overview/' %} data-collapser{% endif %}>{{ item.title }}</a>
-
+          <a class="main-section{% if item.path === topPath %} active{% endif %}" href="{{ item.path }}"{% if item.path !== '/samples/' && item.path !== '/overview/' && item.path !== '/integrations/' %} data-collapser{% endif %}>{{ item.title }}</a>
           <!-- TOC for overview, integrations, and code samples -->
           {% if item.path === '/overview/' || item.path === '/integrations/' %}
             <ul class="unstyled lego-nav lego-nav--stacked epsilon toc"></ul>

@@ -16,11 +16,6 @@ Whether you're looking to create a custom integration with an analytics platform
 
 The Xamarin binding example can be found [here](/assets/img/ios/New_projectbutton.png).
 
-
-## *Swift*
-
-Swift example with Optimizely can be found [here](https://github.com/IAmMalte/swift-example-optimizely).
-
 ## *Advanced Use Cases*
 
 ### *Experiment from App to Webview*
