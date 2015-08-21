@@ -2,13 +2,14 @@
 template: page-sidebar--wider
 title: "Code Samples"
 sections:
+- introduction
 - advanced-goal-tracking
 - advanced-targeting
-- conditional
-- variation-code
-- single-page-applications
-- mutually-exclusive
 - advanced-use-cases
-- technology-integrations
+- conditional
 - helpers
+- mutually-exclusive
+- single-page-applications
+- technology-integrations
+- variation-code
 ---
