@@ -128,14 +128,14 @@ Integrations with Optimizely typically fall into one of the following six catego
   </tr>
   <tr>
     <td>
-      *Content Management*
+      *Content*
     </td>
     <td>
       <a href="http://optimizely.com/partners/technology/wordpress">WordPress</a><br>
       <a href="http://optimizely.com/partners/technology/parsely">Parse.ly</a>
     </td>
     <td>
-      Content Management System (CMS) integrations allow customers to utilize the full power of Optimizely directly from a CMS.  Customers can create, configure, and run experiments directly from their CMS interface without having to login to Optimizely. 
+      Content integrations allow customers to utilize the full power of Optimizely directly from a platform that manages content.  Customers can create, configure, and run experiments directly from their content platform interface without having to login to Optimizely. Examples of content platforms are Content Management Systems, e-commerce platforms and editorial platforms. 
     </td>
     <td>
       [Implementation Guide](#content-management)
@@ -216,7 +216,7 @@ This is the experiment's name.
 
 If we combine these three functions, we can get the information we need:
 
-```
+```xml
 <script>
 if (window["optimizely"] && window["optimizely"]["data"]) {
     var activeExperiments = window['optimizely'].data.state.activeExperiments;
@@ -252,7 +252,7 @@ We will refer to this snippet as the Integrator snippet. The Integrator snippet 
 
 On the test page, below the Optimizely and Integrator snippet, add this code:
 
-```
+```xml
 <script>
 window.integration = {
   initialize: function () {
@@ -335,7 +335,7 @@ After connecting with Optimizely you can create Audiences via the REST API. When
 ### 5. Adding a visitor to the Optimizely audience
 The Optimizely JavaScript API allows you to programatically add a visitor to an Optimizely audience. To do so, you can use the following function:
 
-```
+```javascript
 window['optimizely'] = window['optimizely'] || [];
 window['optimizely'].push(['addToAudience', audienceId]);
 ```
@@ -393,12 +393,78 @@ To test the integration end-to-end, you should verify that lists you've created 
 
 *Note:* You may upload lists as frequently as you like, however, it may take up to 2 hours to propagate your lists to our servers.
 
-## Content Management
+## Content
 
 ### Prerequisites
-- Your platform data is available client side (in the browser)
+- Your platform manages content on a website
+- The content that is tested has a unique identifier. Example: `<a id="article1234">HeadlineTest</a>`
 
-Using a combination of the Optimizely REST API and the Javascript API, it is possible to create audiences within Optimizely and add a visitor to that audience within the browser. 
+### Implementation
+A content integration can be done in many forms. The example that we will use is testing headlines for posts done with Wordpress. Other examples of a content integration are: testing images from within an e-Commerce platform, testing product titles from within an e-Commerce platform, testing an entire article from an editorial platform. 
+
+### 1. Create a developer account
+
+Uploaded Lists are a feature restricted to select Enterprise customers and developers. If you do not have access to Uploaded Lists and would like to develop an integration, [create a free developer account](https://www.optimizely.com/?modal=devsignup). Creating a developer account does not require a credit card and will provide full access to the Uploaded Lists feature and associated APIs.
+
+### 2. Register your application
+
+We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+
+### 3. Configuration form: authenticating and project selection
+
+Within your platform, you should add form for installing Optimzely in a place where only administrators have access to. The configuration form consists of a button to authenticate with Optimizely.
+
+After connecting with Optimizely you can use the REST API to get all the projects for the account that the user has authenticated with. To get all the project names and their corresponding project IDs, use the <a href="/rest/reference/index.html#list-projects">list-projects</a> REST api call.
+
+<img src="/assets/img/integrations/content_config_authentication.png">
+
+### 4. Configuration form: URL targeting
+
+An article could appear on several places on the website, so the easiest URL targeting setting for an headline testing experiment is to do a substring match on the entire website. You can create an option for users to select different URLS to target. This targeting will be used for all experiments started with the headline testing tool. 
+<img src="/assets/img/integrations/content_config_url.png">
+
+### 5. Configuration form: variation code
+For Optimizely to modify the right content on the page, a user will have to specify where the content can be found on the page. Create a textbox that allows a user to specify the variation code.
+<img src="/assets/img/integrations/content_config_variationcode.png">
+
+### 6. Create experiment
+On the content item level, create a form that allows editors to create an experiment. 
+
+<img src="/assets/img/integrations/content_createexperiment.png">
+
+When a user clicks on the "Create experiment button" you can use the REST API to create the experiment with the relevant variation codes.
+
+Example form HTML code:
+
+```xml
+<h1>Variation#1</h1>
+<input type="text" id="post_title1" class="optimizely_variation" placeholder="AlternateTitle1">
+<h1>Variation#2</h1>
+<input type="text" id="post_title2" class="optimizely_variation" placeholder="AlternateTitle2">
+<a id="optimizely_create" class="button-primary">CreateExperiment</a>
+```
+
+Use the REST API When the experiment is created. With the REST API you can create an experiment and the variations defined in the form. If your platform has a structured URL structure, you can also create a goal with the REST API to track how many visitors open the article and read it. The REST API calls to use:
+
+- [Create experiment](/rest/reference/index.html#create-experiment)
+- [Create variations](/rest/reference/index.html#create-variation)
+- [Create goals](/rest/reference/index.html#create-goal)
+
+### 7. Start and pause experiment
+After creating experiments the form on the content will change to allow a user to start, pause and modify the experiment.
+
+<img src="/assets/img/integrations/content_startexperiment.png">
+
+You can also use the REST API to [update an experiment](/rest/reference/index.html#experiments) and [a variation](/rest/reference/index.html#update-variation). 
+
+To start and pause the experiment, update the status field on an experiment.
+
+### 8. Display results
+For editors to work entirely in the content platform, you will also have to report on the results of the content experiments. 
+
+<img src="/assets/img/integrations/content_results.png">
+
+The results can be fetched using the [Get experiment results](/rest/reference/index.html#get-stats) function of the REST API.
 
 ## Conversion Tracking
 
@@ -426,7 +492,7 @@ In addition to the providing a custom event goal name, you'll also need to speci
 
 #### Account ID
 
-```
+```javascript
 /**
  * Gets the Optimizely Account ID installed on this page
  *
@@ -439,7 +505,7 @@ function getAccountId() {
 
 #### Project ID
 
-```
+```javascript
 /**
  * Gets the Optimizely Project ID installed on this page (sometimes the same as the Account ID)
  *
@@ -452,7 +518,7 @@ function getProjectId() {
 
 #### Experiment and Variation IDs
 
-```
+```javascript
 /**
  * Gets the experiment/variation mappings for the current visitor
  *
@@ -471,7 +537,7 @@ function getVariationsInParameters() {
 
 #### Segment IDs
 
-```
+```javascript
 /**
  * Gets the segment values for the current visitor
  *
@@ -489,7 +555,7 @@ function getSegmentsInParameters() {
 
 #### User IDs
 
-```
+```javascript
 /**
  * Getting the user ID is only possible using the cookie value
  *
@@ -504,7 +570,7 @@ function getUserId() {
 
 Once you know the required information about a visitor and the name of the custom event goal you want to track, you can create an offline conversion using a GET request formatted like below:
 
-```
+```http
 http://{{project_id}}.log.optimizely.com/event?a=1
                                &n={{goal identified}}}
                                &u={{ Optimizely user id }}
@@ -517,11 +583,11 @@ To learn more about the expected format of these parameters see
 
 For example, the following function can be used to construct a valid offline conversion URL:
 
-```
+```javascript
 /**
  * Generate the entire URL that you can use to create a conversion, given a goalname. The goalname
- * is required, if you also provide a value, there will be a revenue value added to the conversion call.
- * The goalname will be encoded if it isn't already.
+ * is required, if you also provide a value, there will be a revenue value added to the conversion 
+ * call. The goalname will be encoded if it isn't already.
  *
  * @param {String} goalname (the goal were you are creating a conversion for)
  * @param {Number} value (a value representing the revenue of the conversion)
@@ -561,7 +627,7 @@ We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely R
 
 ### 3. Configuration form
 
-Within your platform, you should a form for installing Optimzely in a place where only administrators have access to. The configuration form consists of a button to authenticate with Optimizely using oAuth and a selector for selecting the project that the user wants to have installed on their website. This is an example of a form for when the user has not authenticated yet:
+Within your platform, you should add a form for installing Optimzely in a place where only administrators have access to. The configuration form consists of a button to authenticate with Optimizely using oAuth and a selector for selecting the project that the user wants to have installed on their website. This is an example of a form for when the user has not authenticated yet:
 
 <img src="/assets/img/integrations/snippet_wordpress_first.png">
 
