@@ -5,9 +5,10 @@
         <li class="push--bottom">
           <a class="main-section{% if item.path === topPath %} active{% endif %}" href="{{ item.path }}"{% if item.path !== '/samples/' && item.path !== '/overview/' && item.path !== '/integrations/' %} data-collapser{% endif %}>{{ item.title }}</a>
           <!-- TOC for overview, integrations, and code samples -->
-          {% if item.path === '/overview/' || item.path === '/integrations/' || item.path === '/samples/' %}
+          {% if item.path === '/overview/' || item.path === '/integrations/' %}
             <ul class="unstyled lego-nav lego-nav--stacked epsilon toc"></ul>
           {% endif %}
+
           <!-- Sub sections -->
           <ul class="unstyled lego-nav lego-nav--stacked epsilon soft--left collapsible{% if item.path !== topPath %} is-collapsed{% endif %}">
             {% for sub_key, section in item.sections %}

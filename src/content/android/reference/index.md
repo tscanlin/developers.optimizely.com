@@ -197,7 +197,17 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Make sure to call `setCustomTag` prior to `startOptimizely`.
+Make sure to call `setCustomTag` prior to `startOptimizely` and any time custom tag values are expected to change.  To do that you can make the `setValue:forCustomTag:` call in the following ways:
+
+- Prior to `startOptimizely` so that Optimizely knows all of the targeting conditions prior to experiment activation
+- `setCustomTag` can also be called in conjunction with `refreshExperimentData` while the app is still running.  For more details on how this works, you can refer to the section below.
+
+```java
+  private void userDidLogIn(String username) {
+    Optimizely.setCustomTag("returning_customer", "true");
+    Optimizely.refreshExperimentData();
+  }
+```
 
 Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
 
@@ -342,7 +352,7 @@ To manually send events, in the appropriate function (e.g. where you make other 
 
 Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
 
-## Optimizely SDK Notifications
+## Optimizely Debug
 Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
 
 ```java
