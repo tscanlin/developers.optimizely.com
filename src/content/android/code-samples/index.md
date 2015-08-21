@@ -7,4 +7,4 @@ title: "Code Samples"
 
 *Coming soon!*
 
-We are working on a number of code samples that you can use soon!
+We are working on a number of code samples that you can use soon.
