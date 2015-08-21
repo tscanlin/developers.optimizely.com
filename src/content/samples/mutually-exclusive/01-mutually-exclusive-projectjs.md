@@ -22,7 +22,7 @@ js: |
 
 This code allows you to bucket users into different experiments that would otherwise all run simultaneously. Implementing mutually exclusive code does REDUCE the amount of users exposed to each experiment tagged with a mutually exclusive tag.
 
-An information slide deck can be found at: https://docs.google.com/presentation/d/1k4DlrxCcz35AXo1qq2O9xEhN8rD5XYN4aMc4QHWNOPE/edit?usp=sharing
+An informational slide deck can be found at: https://docs.google.com/presentation/d/1k4DlrxCcz35AXo1qq2O9xEhN8rD5XYN4aMc4QHWNOPE/edit?usp=sharing
 
 Execution flow for the code:
 * First evaluate whether none of the experiments will be picked. There is a 5% chance for this condition and its called a global holdout as designated by the '[ME] holdout'.
