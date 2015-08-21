@@ -11,7 +11,7 @@ js: |
    *  @param {String} redirectUrl - Replace "[REDIRECT_URL]" with the new URL.
    */
 
-  /* _optimizely_redirect = custom_keep_hash */
+  /* _optimizely_redirect=http://custom_keep_hash */
   var redirectUrl = "[REDIRECT_URL]";
   var _optly = {redir:document.createElement("a")};
   _optly.redir.href = redirectUrl;  // 

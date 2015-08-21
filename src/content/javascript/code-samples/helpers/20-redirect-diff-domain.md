@@ -11,7 +11,7 @@ js: |
    *  @param {String} newDomain - Change "[NEW_DOMAIN]" to the new domain, NOT including the protocol.
    */
 
-  /* _optimizely_redirect = custom_new_domain */
+  /* _optimizely_redirect=http://custom_new_domain */
   var newDomain = "[NEW_DOMAIN]";
   var _optly = {redir: document.createElement("a")};
   _optly.redir.href = window.location.href;
