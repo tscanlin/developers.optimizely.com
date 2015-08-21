@@ -66,6 +66,10 @@ var paths = {
       title: 'Android SDK',
       sections: NAV_SECTIONS,
     },
+    integrations: {
+      path: '/integrations/',
+      title: 'Integrations',
+    },
     samples: {
       path: '/samples/',
       title: 'Code Samples',

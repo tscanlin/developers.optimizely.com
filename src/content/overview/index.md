@@ -52,7 +52,7 @@ Many Optimizely customers want to run more advanced tests and personalized exper
 * *Experiment results:* Utilize these code samples to better understand Optimizely's [/results endpoint](/samples/#results). This endpoint provides high-level insights from Optimizely's Stats Engine.
 
 * *Integrations:* Whether you're looking to create a custom integration with an analytics platform or if you're looking to do WordPress headline testing with Optimizely, you can refer to the following links for each of Optimizely's different channels will help you navigate these processes:
-   * [Web integration guide](/samples/#technology-integrations)
+   * [Web integration guide](/integrations/)
    * [iOS integration guide](/ios/reference/index.html#-a-name-analytics-a-analytics-integrations)
    * [Android integration guide](/android/reference/index.html#-a-name-analytics-a-analytics-integrations)
 
@@ -67,90 +67,7 @@ Many Optimizely customers want to run more advanced tests and personalized exper
 
 ### Integrations
 
-Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) to make it easy to exchange data between Optimizely and other tools. In addition, our customers often build custom integrations with 3rd parties or their own internal tools. If you are a partner or customer looking to build an integration, please use the following resources to get started.
-
-#### *Analytics*
-An analytics integration is an integration where Optimizely sends information to a different tool, usually including what experiments and variations a visitor has been bucketed in. For every page a visitor visits, the Optimizely JavaScript API is used to determine if an experiment is running on that page and in which variation the visitor is bucketed. That information is then passed along to an analytics platform.
-##### Examples
-* [Google Analytics](https://help.optimizely.com/hc/en-us/articles/200039995)
-* [Adobe Analytics](https://help.optimizely.com/hc/en-us/articles/200039985)
-
-
-
-<!--####*Audience integrations*
-An audience integration is a "data in" integration.
-
-##### Examples
-
-* test
-
-##### Build your own
-
-##### Submit integration
-
-
-
-#### *Targeting list integrations*
-List targeting integrations are in terms of functionality quite similar to Audience integrations.
-##### Examples
-
-*
-
-##### Build your own
-
-##### Submit integration-->
-
-
-
-#### *Headline testing*
-A CMS integration is an integration that allows users of a CMS to easily set up experiments from a CMS without having to log into Optimizely. An example use case is the website of a newspaper. The editors of the newspaper might want to try out different headlines for articles or want to test images and derive learnings from those experiments for future articles.
-
-##### Examples
-
-* [Headline testing](https://help.optimizely.com/hc/en-us/articles/200040505-Implementing-Optimizely-on-a-CMS-or-e-commerce-platform)
-* [WordPress headline testing](https://help.optimizely.com/hc/en-us/articles/205331897#headline)
-
-#### *Snippet implementation*
-There is a wide range of tools that have the ability to insert the Optimizely snippet. An obvious example is a tag management solution, but most CMS systems or e-commerce platforms will be able to do it as well.
-##### Examples
-
-* [Tealium](https://help.optimizely.com/hc/en-us/articles/203491910#enable)
-* [WordPress snippet insertion](https://help.optimizely.com/hc/en-us/articles/205331897#plugin)
-
-
-#### *Offline conversions*
-When a goal is triggered on a webpage, a request is sent to our servers. That request creates a conversion and will later be reflected on the results page. A similar request can also be triggered from other places than the website, if that happens we call it a "offline conversion". In other words, a conversion that wasn't generated on the same medium where the experiment is running. A common use case is call tracking. For some customers an incoming call is an important conversion to track, more than conversions that happen on the web or in an app. Call-tracking solutions often have the ability to set up a webhook that is triggered when a call comes in or when a call is being answered. With the right information, this webhook can be used to create a conversion in an Optimizely report.
-
-##### Examples
-
-* [Avanser](https://help.optimizely.com/hc/en-us/articles/202480110-Integrating-Optimizely-with-Avanser)
-* [Delacon](https://help.optimizely.com/hc/en-us/articles/203047264-Integrating-Optimizely-with-Delacon)
-* [Freespee](http://support.freespee.com/hc/en-us/articles/202196842)
-
-<!--#####Build your own
-The best call-tracking integrations are apps or plug-ins that live within the call-tracking software.
-*Installation*
-
-Option 1 (manual):
-
-1. The user creates a custom goal within Optimizly (manually) ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
-2. The user continues to the call-tracking software and installs the plug-in / app
-3. During the installation or after in a settings window, the user should be prompted to fill in the custom event name that was defined when the goal was created within Optimizely
-
-Option 2 (REST):
-
-1. The user goes to the call-tracking software and installs the plug-in / app
-2. The user is prompted for Optimizely authentication (token or oAuth)
-3. The user can select a project where a call tracking goal can be installed / selected.
-4. Users can select the newly created goal from the list of saved goals within Optimizely when they create a new experiment
-
-*Creating an offline converion*
-To create an offline conversion, pieces of data regarding a visitor are required. All of the information can be fetched client side and added to a custom variable (or something similar) in the call-tracking
-[More about offline conversions](https://help.optimizely.com/hc/en-us/articles/200040195)
-An offline conversion needs the following pieces of information:
-1. Project id (can be filled in by )
-2. -->
-
+Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) to make it easy to exchange data between Optimizely and other tools. In addition, our customers often build custom integrations with 3rd parties or their own internal tools. If you are a partner or customer looking to build an integration, please refer to our [Integration Guide](/integrations) which includes detailed instructions for building many types of integrations with Optimizely.
 
 ### Mobile testing
 

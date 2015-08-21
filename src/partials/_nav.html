@@ -4,8 +4,8 @@
       {% for key, item in paths.navigation %}
         <li class="push--bottom">
           <a class="main-section{% if item.path === topPath %} active{% endif %}" href="{{ item.path }}"{% if item.path !== '/samples/' && item.path !== '/overview/' %} data-collapser{% endif %}>{{ item.title }}</a>
-          <!-- TOC for overview and code samples -->
-          {% if item.path === '/overview/' || item.path === '/samples/' %}
+          <!-- TOC for overview, integrations, and code samples -->
+          {% if item.path === '/overview/' || item.path === '/integrations/' || item.path === '/samples/' %}
             <ul class="unstyled lego-nav lego-nav--stacked epsilon toc"></ul>
           {% endif %}
           <!-- Sub sections -->
