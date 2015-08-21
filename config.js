@@ -98,10 +98,6 @@ var paths = {
       title: 'Android SDK',
       sections: MOBILE_NAV_SECTIONS,
     },
-    samples: {
-      path: '/samples/',
-      title: 'Code Samples',
-    },
   },
 };
 
