@@ -197,7 +197,17 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Make sure to call `setCustomTag` prior to `startOptimizely`.
+Make sure to call `setCustomTag` prior to `startOptimizely` and any time custom tag values are expected to change.  To do that you can make the `setValue:forCustomTag:` call in the following ways:
+
+- Prior to `startOptimizely` so that Optimizely knows all of the targeting conditions prior to experiment activation
+- `setCustomTag` can also be called in conjunction with `refreshExperimentData` while the app is still running.  For more details on how this works, you can refer to the section below.
+
+```java
+  private void userDidLogIn(String username) {
+    Optimizely.setCustomTag("returning_customer", "true");
+    Optimizely.refreshExperimentData();
+  }
+```
 
 Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
 
@@ -334,6 +344,54 @@ Clients can get notifications when various Optimizely events occur in the Optimi
                           messageType, source, payload));
     }
   });
+```
+
+## Integrations
+
+Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. Configuration instructions for each integration are below.
+
+### Amplitude
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:amplitudeintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Optimizely.registerPlugin(new AmplitudeIntegration());
+```
+
+### Mixpanel
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:mixpanelintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Optimizely.registerPlugin(new MixpanelIntegration());
+```
+
+### Universal Analytics (Google Analytics)
+
+Gradle dependency:
+```groovy
+dependencies {
+    compile('com.optimizely:universalanalyticsintegration:+@aar')
+}
+```
+
+Installation:
+```java
+Tracker tracker = GoogleAnalytics.getInstance(this).newTracker("TRACKER_ID");
+OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
+Optimizely.registerPlugin(new UniversalAnalyticsIntegration());
 ```
 
 ## Upgrading to a new SDK

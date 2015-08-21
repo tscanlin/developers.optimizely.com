@@ -27,6 +27,7 @@
 					<Path>index.html</Path>
 					<Subnodes>
 						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
 						
 					</Subnodes>
 				</Node>
@@ -36,7 +37,7 @@
                     <Name>Blocks</Name>
                     <Path>index.html</Path>
                     <Subnodes>
-                        <NodeRef refid="6"/>
+                        <NodeRef refid="7"/>
                         
                     </Subnodes>
                 </Node>
@@ -174,8 +175,13 @@
             <Path>Constants/OptimizelyExperimentDataState.html</Path>
             
         </Node>
+		<Node id="6" type="file" documentType="reference">
+            <Name>OptimizelyInitializationState</Name>
+            <Path>Constants/OptimizelyInitializationState.html</Path>
+            
+        </Node>
 		
-        <Node id="6" type="file" documentType="reference">
+        <Node id="7" type="file" documentType="reference">
             <Name>OptimizelySuccessBlock</Name>
             <Path>Blocks/OptimizelySuccessBlock.html</Path>
             

@@ -149,6 +149,18 @@ Optimizely needs to connect to the internet to allow you to use our online edito
 
  For more information on Android permissions, see the [Android Manifest Intro](http://developer.android.com/guide/topics/manifest/manifest-intro.html#perms).
 
+ Optimizely uses a unique URL scheme handler to help you edit and test your experiments. Add the following intent filter to the `MainActivity` entry of your `AndroidManifest.xml` file with `1234` replaced by your project ID
+
+ ```xml
+ <!-- Add the following intent filter with your project id -->
+ <intent-filter>
+     <action android:name="android.intent.action.VIEW" />
+     <category android:name="android.intent.category.DEFAULT" />
+     <category android:name="android.intent.category.BROWSABLE" />
+     <data android:scheme="optly1234" />
+ </intent-filter>
+```
+
 At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background. You will see your project overview display light up, allowing you to create an experiment:
 
    <img src="/assets/img/android/sdk-detected.png", style="width: 70%"/>
@@ -161,14 +173,19 @@ After creating an Android project and installing the SDK, click the `Create Expe
 
 The Optimizely Android SDK identifies Views within your application using the view hierarchy of the view-- in some cases you may need to specify your own ID or mark a specific view in a collection view as unique.
 
-See this section on [configuring the visual editor](#configure_visual_editor).
+See this section on [configuring the visual editor](../reference/index.html#visual-editor-configuration).
 
 ## 5. QA
 
 ### Preview Mode
-Preview mode allows you to force your app into a certain variation for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, select your desired variation, open the variation settings drawer, and click `Preview`
+Preview mode allows you to view your app in a different variations for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, open the `Preview` menu, and click `Launch Preview`
 
-<img src="/assets/img/android/preview-mode.png" alt="Enter Preview Mode" />
+<img src="/assets/img/mobile/launch-preview.png" alt="Enter Preview Mode" />
+
+Your app will restart and you will see the Optimizely preview menu icon displayed over your app content.
+ The icon may be repositioned by dragging it. Tapping the icon will reveal the Preview Menu which allows you to switch variations, view the goals that have been triggered so far, and see the code blocks and live variables that are included in the experiment.
+
+<img src="/assets/img/android/preview-menu.gif" alt="Preview Mode Demo" />
 
 ### Pre-launch Checklist
 

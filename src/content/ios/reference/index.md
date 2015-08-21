@@ -287,6 +287,7 @@ For example, to create the Custom Tag "returning_customer" with a value of "true
 
  ```obj-c
 [Optimizely setValue:@"true" forCustomTag:@"returning_customer"];
+[Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
   ```
 
 *`setValue` will only handle NSString objects.*
@@ -295,6 +296,11 @@ For example, to create the Custom Tag "returning_customer" with a value of "true
 
 - Prior to `startOptimizely` so that Optimizely knows all of the targeting conditions prior to experiment activation
 - `setValue:forCustomTag:` can also be called in conjunction with [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) while the app is still running.  For more details on how this works, you can refer to the section [below](#experimentreload).
+
+ ```obj-c
+[Optimizely setValue:@"true" forCustomTag:@"returning_customer"];
+[Optimizely refreshExperiments];
+  ```
 
 From there, to create an experiment [targeting a Custom Tag](https://help.optimizely.com/hc/en-us/articles/202296994-Get-Started-on-Mobile-Optimization#targeting), open the Optimizely editor, click on "Options," followed by "Targeting" and selecting "Custom Tag" within the Optimizely editor.
 
@@ -363,7 +369,7 @@ The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely
 1. Add the tracking code to your app, you can add this tracking call by adding the code below:
 
       ```obj-c
-      [Optimizely trackRevenue:(NSNumber *)];
+      [Optimizely trackRevenue:(int)];
       ```
 
       For example, if we wanted a goal for users that completed a purchase, and you could make the tracking call in your purchaseConfirmation method where `price` is the variable that holds the dollar amount that has been spent:
