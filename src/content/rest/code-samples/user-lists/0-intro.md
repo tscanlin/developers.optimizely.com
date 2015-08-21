@@ -1,7 +1,7 @@
 ---
 template: inline
-title: User lists
-anchor: user-lists
+title: Uploaded lists
+anchor: uploaded-lists
 ---
 You can use the [Optimizely REST API](/rest/reference/index.html#lists) to upload
 [user lists](https://help.optimizely.com/hc/en-us/articles/206197347-User-List-Targeting-Create-audiences-based-on-lists-of-data)
