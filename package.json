@@ -4,8 +4,8 @@
   "description": "developer documentation for optimizely",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp",
-    "deploy": "git-directory-deploy --directory build",
+    "build": "gulp build",
+    "deploy": "gulp clean && gulp build && git-directory-deploy --directory build",
     "gulp": "gulp",
     "clean": "gulp clean",
     "test": "gulp test"
