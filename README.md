@@ -13,7 +13,7 @@ npm update
 npm install
 ```
 
-### To run
+### To run locally
 
 Run this in the repository directory:
 ```sh
@@ -22,9 +22,7 @@ npm run gulp
 
 ### To deploy
 
-**IMPORTANT:** Make sure you have pulled the latest changes from the master branch
-*AND* kill `npm run gulp` (Ctrl + C), run `npm run clean` and restart `npm run gulp` before a deploy
-*AND* have verified the changes on the site running locally, then run:
+**IMPORTANT:** Make sure you have pulled the latest changes from the master branch (by running `git pull`) *AND* also make sure that you have verified the changes on the site running locally, then run:
 ```sh
 npm run deploy
 ```
