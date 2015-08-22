@@ -13,7 +13,7 @@
           </a>
           <ul class="unstyled lego-nav lego-nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
             {% for key, item in paths.navigation %}
-              {% if item.path !== '/samples/' && item.path !== '/overview/' %}
+              {% if item.path !== '/samples/' && item.path !== '/overview/' && item.path !== '/integrations/' %}
                 <li class="push-half">
                   <a href="{{ item.path }}introduction/">{{ item.title }}</a>
                 </li>
