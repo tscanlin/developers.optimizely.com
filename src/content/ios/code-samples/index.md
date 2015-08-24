@@ -8,6 +8,10 @@ title: "Code Samples"
 In order to help you get up and running quickly, we have provided a number of code samples that you can use.
 Be sure to modify the code appropriately before running in production!
 
+## *Developer QA*
+
+To learn how to use Optimizely's debug APIs, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-and-Android-Experiments).
+
 ## *Integrations* 
 
 Whether you're looking to create a custom integration with an analytics platform or if you're looking to do WordPress headline testing with Optimizely, these [integration code samples](/samples/#technology-integrations) will help you navigate these processes.

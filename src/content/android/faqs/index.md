@@ -11,6 +11,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 
 <a href="#androidversion">*Q:* What version of Android is supported by the Android SDK?</a><br>
 <a href="#androidlibs">*Q:* What third party libraries are used in the Android SDK?</a><br>
+<a href="#androidsize">*Q:* What is the size of the Android SDK?</a><br>
 <a href="#howandroidworks">*Q:* How does the SDK work?</a><br>
 <a href="#negativesize">*Q:* Why are there negative values (-1, -2) for width and height in the Visual Editor?</a><br>
 <a href="#matchwrap">*Q:* How do I use `MATCH_PARENT` or `WRAP_CONTENT` for width and height in the Visual Editor?</a><br>
@@ -38,6 +39,12 @@ Can't find an answer to your question? We're happy to answer your question on <a
 - Android Platform v22
 - Murmur Hash v1
 - Autobahn v0.5.3
+
+<a name="androidsize"></a>
+##### *Q: What is the size of the Android SDK?*
+*A: SDK Size:*
+<img src="/assets/img/android/Android_SDK_Size.png" alt="Drawing" style="width: 80%;"/>
+
 
 <a name="howandroidworks"></a>
 ##### *Q: How does the SDK work?*
