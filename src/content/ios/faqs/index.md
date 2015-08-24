@@ -11,6 +11,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 
 <a href="#iosversion">*Q:* What iOS versions does Optimizely support?</a><br>
 <a href="#ioslibs">*Q:* What third party libraries are used in the iOS SDK?</a><br>
+<a href="#iossize">*Q:* What is the size of the iOS SDK?</a><br>
 <a href="#howiosworks">*Q:* How does the SDK work?</a><br>
 <a href="#cantseeappineditor">*Q:* My device is running the app but I can't see it in the editor.</a><br>
 <a href="#remoterepo">*Q:* What should I do if I get a `Could not read from remote repository.` error?</a><br>
@@ -36,6 +37,11 @@ Can't find an answer to your question? We're happy to answer your question on <a
 - SocketRocket v0.3.1
 - FMDB v2.5
 - Murmur3 v1
+
+<a name="iossize"></a>
+##### *Q: What is the size of the iOS SDK?*
+*A:* 840KB
+
 
 <a name="howiosworks"></a>
 ##### *Q: How does the SDK work?*
