@@ -40,7 +40,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 
 <a name="iossize"></a>
 ##### *Q: What is the size of the iOS SDK?*
-*A:* 840KB
+*A:* Approximately 840KB
 
 
 <a name="howiosworks"></a>
