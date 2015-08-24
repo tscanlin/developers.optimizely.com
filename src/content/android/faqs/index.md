@@ -42,7 +42,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 
 <a name="androidsize"></a>
 ##### *Q: What is the size of the Android SDK?*
-*A: SDK Size:*
+*A:* Approximate SDK size below:
 <img src="/assets/img/android/Android_SDK_Size.png" alt="Drawing" style="width: 80%;"/>
 
 
