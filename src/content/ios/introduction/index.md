@@ -42,6 +42,6 @@ Not sure what tests to run?  Check out these [A/B test ideas](https://www.optimi
 
 Any questions or feedback?  E-mail us at [mobile-support@optimizely.com](mailto:mobile-support@optimizely.com).
 
-<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="../guide/index.html">
+<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="../getting-started/index.html">
 Get Started
 </a>

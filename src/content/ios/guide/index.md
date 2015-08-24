@@ -8,7 +8,7 @@ The following steps will allow you to try out Optimizely's SDK in our Tutorial A
 
 ## Download the tutorial app
 
-The tutorial app can be found in the *<a href="https://github.com/optimizely/Optimizely-iOS-SDK/tree/master/TutorialApp" target="_blank">TutorialApp</a>* folder in the SDK.
+The tutorial app is included as a sub directory in the SDK directory.  It can be found in the *<a href="https://github.com/optimizely/Optimizely-iOS-SDK/tree/master/TutorialApp" target="_blank">TutorialApp</a>* folder in the SDK.
 
 [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
 

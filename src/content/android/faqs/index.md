@@ -98,12 +98,18 @@ in the width or height fields in the visual editor. We are working on an update 
 #-keep class com.google.gson.stream.** { *; }
 
 # Classes that will be serialized/deserialized over Gson
+
+# OkIO and OkHTTP
 -keep class com.optimizely.JSON.** { *; }
+-dontwarn okio.**
+
+-dontwarn com.squareup.okhttp.**
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
 
 # DrawerLayout Listener
 -keepclassmembers class android.support.v4.widget.DrawerLayout {
     private android.support.v4.widget.DrawerLayout$DrawerListener mListener;
-}
 ```
 
 <a name="permissions"></a>
