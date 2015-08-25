@@ -149,6 +149,25 @@ Optimizely needs to connect to the internet to allow you to use our online edito
 
  For more information on Android permissions, see the [Android Manifest Intro](http://developer.android.com/guide/topics/manifest/manifest-intro.html#perms).
 
+ Starting with version 1.1, Optimizely's Android SDK uses a unique URL scheme handler to help you edit and test your experiments.
+
+   Add the following intent filter to the MainActivity entry of your AndroidManifest.xml
+
+   ```xml
+   <activity
+     android:name=".MainActivity">
+     <intent-filter>
+       <action android:name="android.intent.action.VIEW" />
+       <category android:name="android.intent.category.DEFAULT" />
+       <category android:name="android.intent.category.BROWSABLE" />
+       <data android:scheme="optly[PROJECT_ID]" />
+     </intent-filter>
+   </activity>
+   ```
+
+   *Note:
+   The scheme includes a unique identifier.  Be sure to replace [PROJECT_ID] with your project id.*
+
 At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background. You will see your project overview display light up, allowing you to create an experiment:
 
    <img src="/assets/img/android/sdk-detected.png", style="width: 70%"/>
