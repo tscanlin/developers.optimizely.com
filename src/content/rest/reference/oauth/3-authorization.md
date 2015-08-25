@@ -3,7 +3,7 @@ template: sidebyside
 title: Authorization
 anchor: authorization
 fields:
-  client_id: The client ID for your application (see <a href="http://app.optimizely.com/account_settings/apps/developers" target="_blank">app settings</a>).
+  client_id: The client ID for your application (see <a href="http://app.optimizely.com/accountsettings/apps/developers" target="_blank">app settings</a>).
   redirect_uri: A URL-encoded redirect URI to which the user will be redirected after successful (or failed) authorization. Must match one of the URIs provided during registration. If you are using an authorization code grant, URLs that start with `http://` will be rejected. You can always add more redirect URIs to your application on the <a target="_blank" href="https://www.optimizely.com/accountsettings/developer">registration page</a>.
   response_type: The grant type your application requests for authorization. As of August 2015, the supported types are `token` (for implicit grant) and `code` (for authorization code grant).
   scopes: A string denoting the access scope(s) your application requires after authorization. As of March 2015, the only supported value is `all`, meaning the generated token will have permissions that match the <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200040775">user role</a> of the authorizing user.
