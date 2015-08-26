@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-title: Customer Profiles
+title: Customer Profiles (Beta)
 anchor: customer_profiles
 ---
 

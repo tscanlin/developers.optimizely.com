@@ -21,3 +21,4 @@ response: |
 ---
 
 Creates a new DCP Service under customer’s account. The service is not yet attached to any project; use project API calls below to do that.
+NOTE: Be sure to update projects with DCPService field after DCPService creation using /PUT projects 

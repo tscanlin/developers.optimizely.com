@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-title: DCPServices
+title: DCPServices (Beta)
 anchor: customer_profile_service
 ---
 
