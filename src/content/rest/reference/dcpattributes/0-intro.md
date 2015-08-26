@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-title: Attributes
+title: Attributes (Beta)
 anchor: dcp_attributes
 ---
 
