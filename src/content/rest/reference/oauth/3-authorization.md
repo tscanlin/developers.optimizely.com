@@ -4,7 +4,7 @@ title: Authorization
 anchor: authorization
 fields:
   client_id: The client ID for your application (see <a href="http://app.optimizely.com/accountsettings/apps/developers" target="_blank">app settings</a>).
-  redirect_uri: A URL-encoded redirect URI to which the user will be redirected after successful (or failed) authorization. Must match one of the URIs provided during registration. If you are using an authorization code grant, URLs that start with `http://` will be rejected. You can always add more redirect URIs to your application on the <a target="_blank" href="https://www.optimizely.com/accountsettings/developer">registration page</a>.
+  redirect_uri: A URL-encoded redirect URI to which the user will be redirected after successful (or failed) authorization. Must match one of the URIs provided during registration. If you are using an authorization code grant, insecure URLs such as those starting with `http://` will be rejected. You can always add more redirect URIs to your application on the <a target="_blank" href="https://www.optimizely.com/accountsettings/developer">registration page</a>.
   response_type: The grant type your application requests for authorization. As of August 2015, the supported types are `token` (for implicit grant) and `code` (for authorization code grant).
   scopes: A string denoting the access scope(s) your application requires after authorization. As of March 2015, the only supported value is `all`, meaning the generated token will have permissions that match the <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200040775">user role</a> of the authorizing user.
   state: A value you provide that will be relayed back to you in the response, to protect against CSRF attacks. For more information, see the <a target="_blank" href="https://tools.ietf.org/html/rfc6749#section-10.12">CSRF section</a> of the OAuth 2.0 spec.
@@ -26,4 +26,4 @@ We recommend you use the <b>Connect with Optimizely</b> button below, which you 
 Download Button: <a href="/assets/img/connect.png" download="ConnectWithOptimizelyButton.png">PNG</a> | <a href="/assets/img/connect.svg" download="ConnectWithOptimizelyButton.svg">SVG</a>
 </div><br>
 
-After clicking this link, users will be prompted to log in to Optimizely if they aren't already, then will be given the option to accept or deny authorization for your application. Users can revoke your application's access to their data at any time in their <a target="_blank" href="https://app.optimizely.com/accountsettings/apps/access">API Access</a> settings.
+After clicking this link, users will be prompted to log in to Optimizely if they aren't already. They will then be given the option to accept or deny authorization for your application. Users can revoke your application's access to their data at any time in their <a target="_blank" href="https://app.optimizely.com/accountsettings/apps/access">API Access</a> settings.

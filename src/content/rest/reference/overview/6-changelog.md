@@ -3,7 +3,7 @@ template: sidebyside
 title: Change Log
 anchor: changes
 ---
-* **August 24th, 2015**: We've added the [authorization code](#authorization-code-grant) grant type with refresh tokens to our OAuth 2.0 support.
+* **August 24th, 2015**: We've added the [authorization code](#grant-types) grant type with refresh tokens to our OAuth 2.0 support.
 * **May 11th, 2015**: You can now [upload targeting lists](#lists) via the REST API.
 * **March 27th, 2015**: You can now retrieve statistics computed by <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200039895">Optimizely Stats Engine</a> via the API.
 * **March 19th, 2015**: We have added [OAuth 2.0 support](#oauth) so third party applications can connect with the REST API on behalf of an Optimizely customer.

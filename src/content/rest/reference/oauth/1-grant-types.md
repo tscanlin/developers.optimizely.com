@@ -14,6 +14,8 @@ Read more about the <a href="https://tools.ietf.org/html/rfc6749#section-4.1" ta
 
 #### *Implicit grant*
 
-The implicit grant type is optimized for *public clients*. Such clients will receive a valid access token at their redirection URL immediately after the user authorizes their application. It is important to note that the implicit grant does not support refresh tokens. Therefore, any application using the implicit grant will need to explicitly re-request authorization from the user when an access token expires.
+The implicit grant type is optimized for *public clients*. Such clients will receive a valid access token at their redirection URL immediately after the user authorizes their application. Access tokens expire after 2 hours.
+
+It is important to note that the implicit grant does not support refresh tokens. Therefore, any application using the implicit grant will need to explicitly re-request authorization from the user when an access token expires.
 
 Read more about the <a href="https://tools.ietf.org/html/rfc6749#section-4.2" target="_blank">Implicit Grant in the official OAuth 2.0 spec</a>.

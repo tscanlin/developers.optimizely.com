@@ -8,12 +8,12 @@ Optimizely provides the OAuth 2.0 protocol to allow users to authorize third par
 
 To build an OAuth 2.0 flow in your application, you'll need to complete the following steps:
 
-* Decide which [Grant Type](#grant-type) is most appropriate for your application
+* Decide which [Grant Type](#grant-types) is most appropriate for your application
 * [Register](#registration) your application with Optimizely
 * In your application, point customers to Optimizely's [authorization](#authorization) URL
 * Process a [redirect](#redirection) after the user accepts (or rejects) your application's access
-* Obtain an access token, via an [authorization code](#authorization-code-exchange) or [refresh token](#refresh-tokens), depending on the authorization flow you're using
-* [Authenticate](#authentication) with the REST API using the provided access token
+* Obtain an access token, via an [authorization code](#authorization-code) or [refresh token](#refresh-tokens), or via the redirect itself, depending on the authorization flow you're using
+* [Authenticate](#authentication-oauth) with the REST API using the provided access token
 
 The following sections walk through each of these steps in detail.
 

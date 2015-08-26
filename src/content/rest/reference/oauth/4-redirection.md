@@ -23,10 +23,8 @@ request_url: |
 
     // Successful authorization (authorization code grant)
     https://myapplication.com/
-      ?access_token=abcdefghijklmnopqrstuvwxyz
-      &token_type=bearer
+      ?code=asdbawejksd
       &state=somesecurestate
-      &expires_in=7200
 
     // Unsuccessful authorization (authorization code grant)
     https://myapplication.com/
@@ -38,4 +36,4 @@ If the user accepts (or rejects) authorization, Optimizely will send an HTTP GET
 
 If you are using the implicit grant flow, this information will be provided in the URL fragment. The examples on the right show redirects to `http://myapplication.com` in both cases where the user accepts and rejects authorization.
 
-If you are using the authorization code flow, this information will be provided in the redirection query parameters.
+If you are using the authorization code flow, this information will be provided in the redirection query parameters. The examples on the right show redirects to `http://myapplication.com` in both cases where the user accepts and rejects authorization.

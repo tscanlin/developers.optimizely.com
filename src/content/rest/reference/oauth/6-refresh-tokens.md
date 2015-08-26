@@ -17,9 +17,9 @@ request_url: |
 
     // Example JSON response
     {
-      "access_token":"abcdefghijklmnopqrstuvwxyz",
-      "expires_in":7200,
-      "token_type":"bearer",
+      "access_token": "abcdefghijklmnopqrstuvwxyz",
+      "expires_in": 7200,
+      "token_type": "bearer",
     }
 ---
 
