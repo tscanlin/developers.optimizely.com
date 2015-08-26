@@ -12,4 +12,9 @@ sections:
 - audiences
 - lists
 - dimensions
+- customer_profiles
+- alias
+- dcpservices
+- dcpdatasources
+- dcpattributes
 ---
