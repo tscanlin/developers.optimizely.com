@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-title: DCPDatasources (Beta)
+title: DCPDatasources
 anchor: dcp_datasources
 ---
 
