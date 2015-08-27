@@ -116,7 +116,7 @@ curl \
   -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
   -H "Content-Type: application/json" \
   -d '{{ request | stringify }}' \{% endif %}
-  {% if type %}-X {{type}} {% endif %}"https://www.optimizelyapis.com/experiment/v1/{{ endpoint }}"
+  {% if type %}-X {{type}} {% endif %}"{% if endpoint_domain %}{{ endpoint_domain }}{% else %}https://www.optimizelyapis.com/experiment/v1/{% endif %}{{ endpoint | safe }}"
 {% endhighlight %}
 </pre>
 {% endif %}
