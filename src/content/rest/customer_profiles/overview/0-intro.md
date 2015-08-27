@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-title: Customer Profiles Overview (Beta)
+title: Overview (Beta)
 anchor: overview
 ---
 

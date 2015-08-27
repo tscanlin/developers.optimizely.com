@@ -1,7 +1,7 @@
 ---
 template: sidebyside
-endpoint:  https://vis.optimizely.com/api/alias/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
-endpoint_prefix: customer_profile/
+endpoint: alias/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
+endpoint_domain: https://vis.optimizely.com/api/
 type: POST
 title: Create Alias
 anchor: create-alias

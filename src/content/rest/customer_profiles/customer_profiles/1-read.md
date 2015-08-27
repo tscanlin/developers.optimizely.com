@@ -1,7 +1,7 @@
 ---
 template: sidebyside
-endpoint:  https://vis.optimizely.com/api/customer_profile/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
-endpoint_prefix: customer_profile/
+endpoint: customer_profile/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
+endpoint_domain: https://vis.optimizely.com/api/
 type: GET
 title: Read customer profile
 anchor: read-customer_profile

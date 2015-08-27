@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-endpoint: https://vis.optimizely.com/api/onsolidated_customer_profile_view/<dcp_service_id>/<optimizely_id>
+endpoint: /consolidated_customer_profile_view/<dcp_service_id>/<optimizely_id>
 endpoint_prefix: customer_profile/
 type: GET
 title: Retrieve consolidated customer profile

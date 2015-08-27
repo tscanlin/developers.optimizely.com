@@ -11,7 +11,7 @@ fields:
   archived: Whether DCPAttribute has been archived
   description: Description of the attribute
   format: When datatype is date, format is date format
-  datatype: Datatype of Attribute. Can be "string", "boolean", or "long"
+  datatype: Datatype of Attribute. Can be "string", "bool", "long", "double", "datetime"
   version: API version
 response: |
   {
