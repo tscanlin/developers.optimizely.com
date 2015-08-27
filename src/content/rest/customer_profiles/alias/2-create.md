@@ -1,19 +1,19 @@
 ---
 template: sidebyside
-endpoint:  /alias/:dcpServiceId/:datasourceId/:customerId
+endpoint:  /alias/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
 endpoint_prefix: customer_profile/
 type: POST
 title: Create Alias
 anchor: create-alias
 request:
   data:
-    8905: 'sfdc1223a3_ji$ddd'
-    1232: 'mkto1245433:213ad'
+    8905: "sfdc1223a3_ji$ddd"
+    1232: "mkto1245433:213ad"
 response: |
   [
    ‘data’: {
-     '8905': 'sfdc1223a3_ji$ddd',
-     '1232': 'mkto1245433:213ad'
+     "8905": "sfdc1223a3_ji$ddd",
+     "1232": "mkto1245433:213ad"
    }
   ]
 ---

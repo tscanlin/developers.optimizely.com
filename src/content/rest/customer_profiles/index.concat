@@ -8,4 +8,9 @@ sections:
 - dcpattributes
 - customer_profiles
 - alias
+
+topPath: '/rest/'
+section:
+  path: 'customer_profiles/'
+relativePath: 'rest/customer_profiles/'
 ---

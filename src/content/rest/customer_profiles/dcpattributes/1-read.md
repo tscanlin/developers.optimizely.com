@@ -1,13 +1,18 @@
 ---
 template: sidebyside
-endpoint: /dcp_datasource_attributes/1234
+endpoint: dcp_datasource_attributes/1234
 endpoint_prefix: dcp_datasources/
 endpoint_option: 1234
 type: GET
 title: Read DCP Attribute
 anchor: read-dcpattribute
 fields:
+  dcp_datasource_id: Id of parent datasource
+  archived: Whether DCPAttribute has been archived
+  description: Description of the attribute
   format: When datatype is date, format is date format
+  datatype: Datatype of Attribute. Can be "string", "boolean", or "long"
+  version: API version
 response: |
   {
     "dcp_datasource_id": 3367160056,

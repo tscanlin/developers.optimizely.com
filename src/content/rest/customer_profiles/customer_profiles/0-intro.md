@@ -1,7 +1,11 @@
 ---
 template: sidebyside
-title: DCP - Customer Profiles (Beta)
+title: Customer Profiles
 anchor: customer_profiles
 ---
 
-Dynamic Customer Profiles aggregate visitor attributes across DCPDatasources. Customer Profile attributes are used to create audiences and perform segmentation. You can <a href="https://help.optimizely.com/hc/en-us/articles/200039685" target="_blank">learn more about audiences in our knowledge base</a>.
+Customer Profiles aggregate visitor attributes across Datasources. Customer Profile attributes are used to create audiences.
+
+You can create, update and delete visitor attributes for a single Datasource at a time.  
+
+Using /consolidated_customer_profile_view, you can retrieve the full Customer Profile across Datasources. 

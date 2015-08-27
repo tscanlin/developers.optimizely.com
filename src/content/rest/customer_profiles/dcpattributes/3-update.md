@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-endpoint: /dcp_datasource_attributes/567
+endpoint: dcp_datasource_attributes/567
 endpoint_prefix: dcp_datasources/
 endpoint_option: 567
 type: PUT
@@ -9,8 +9,6 @@ anchor: update-dcpattribute
 request:
   name: 'is_high_value_customer'
   datatype: "long"
-fields:
-  format: When datatype is date, format is date format
 response: |
   {
     "dcp_datasource_id": 3367160056,
@@ -26,3 +24,8 @@ response: |
   }
 ---
 Updates DCP Attribute Metadata for a given DCP Datasource
+
+#### Editable fields
+- `datatype`
+- `description`
+- `format`
