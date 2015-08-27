@@ -84,20 +84,23 @@ var hideTokenError = function() {
 };
 
 $(document).ready(function() {
-  // var clip = new ZeroClipboard($('.copy-btn'), {
-  //     // moviePath: '/images/zeroclipboard.swf',
-  //     // forceHandCursor: true,
-  // });
   var optimizelyApi;
-  $('#api_token').on('blur', function() {
-    var val = $(this).val();
+  var $apiTokenInput = $('#api-token-input');
+  var $apiTokenForm = $('#api-token-form');
+
+  function tokenEntered(event) {
+    event.preventDefault();
+    var val = $apiTokenInput.val();
     optimizelyApi = new OptimizelyAPI(val);
     if (!optimizelyApi.token) {
       showTokenError();
     } else {
       hideTokenError();
     }
-  });
+  }
+
+  $apiTokenInput.on('blur', tokenEntered);
+  $apiTokenForm.on('submit', tokenEntered);
 
   $('.sandbox_run').each(function() {
     $(this).on('click', function() {
