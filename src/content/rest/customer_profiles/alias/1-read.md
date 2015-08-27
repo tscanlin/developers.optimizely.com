@@ -1,7 +1,7 @@
 ---
 template: sidebyside
-endpoint:  /alias/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
-endpoint_prefix: customer_profile/
+endpoint: alias/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
+endpoint_prefix: https://vis.optimizely.com/api/
 type: GET
 title: Get Aliases
 anchor: get-alias

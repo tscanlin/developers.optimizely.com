@@ -5,7 +5,7 @@ endpoint_prefix: dcp_services/
 endpoint_option: 567
 type: GET
 title: List Datasources
-anchor: read-dcpservice-datasources
+anchor: list-dcpservice-datasources
 response: |
   [
     {

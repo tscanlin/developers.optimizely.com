@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-endpoint:  /alias/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
+endpoint:  https://vis.optimizely.com/api/alias/<dcp_service_id>/<dcp_datasource_id>/<customer_id>
 endpoint_prefix: customer_profile/
 type: POST
 title: Create Alias
@@ -18,4 +18,13 @@ response: |
   ]
 ---
 
-Alias customerId of one datasourceId with list of other customerIds in different datasourceIds.
+Alias customerId of one datasourceId with list of other customerIds in different datasourceId
+
+
+<div class="lego-attention lego-attention--warning push--bottom">
+
+The `dcp_datasource_id` for this call should be the dcp_datasource_id for the Optimizely Datasource. You can find this id using [List Datasources](/rest/customer_profiles/#list-dcpservice-datasources)
+
+The `customer_id` for this call should be the Optimizely User ID.
+
+</div>
