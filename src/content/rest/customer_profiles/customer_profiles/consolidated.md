@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-endpoint: /consolidated_customer_profile_view/<dcp_service_id>/<optimizely_id>
+endpoint: /consolidated_customer_profile_view/:dcp_service_id/:customer_id
 endpoint_prefix: customer_profile/
 type: GET
 title: Retrieve consolidated customer profile
@@ -23,4 +23,4 @@ response: |
   ]
 ---
 
-Retrieves consolidated view (consolidated via alias APIs across different datasourceIds) of customer_profile for given dcp_service_id and Optimizely User ID.
+Retrieves consolidated view (aliased via alias APIs across different datasourceIds) of customer_profile for given dcpServiceId and optimizely datasource customer_profile id.

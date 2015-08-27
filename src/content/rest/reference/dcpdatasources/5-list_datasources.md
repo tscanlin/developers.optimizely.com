@@ -4,16 +4,8 @@ endpoint: dcp_services/567/dcp_datasources
 endpoint_prefix: dcp_services/
 endpoint_option: 567
 type: GET
-title: List DCPDatasources
+title: List Datasources
 anchor: read-dcpservice-datasources
-fields:
-  id: The unique identifier for the audience
-  project_id: The project the audience was created in
-  name: The name of the audience
-  description: A short description
-  conditions: A string defining the targeting rules for an audience. See the sections on [audience conditions](/rest/conditions) for more information.
-  segmentation: True if the audiences is available for [segmentation](https://help.optimizely.com/hc/en-us/articles/200039935#segmenting) on the results page (Platinum only).
-  archived: True if the audience has been archived
 response: |
   [
     {
@@ -35,4 +27,4 @@ response: |
   ]
 ---
 
-Get metadata for a single audience.
+Get all datasources for given DCPService

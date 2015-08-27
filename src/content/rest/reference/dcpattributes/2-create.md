@@ -1,16 +1,14 @@
 ---
 template: sidebyside
-endpoint: /dcp_datasources/1234/dcp_datasource_attributes
+endpoint: dcp_datasources/1234/dcp_datasource_attributes
 endpoint_prefix: dcp_datasources/
 endpoint_option: 1234
 type: POST
-title: Create Attribute
+title: Create DCP Attribute
 anchor: create-dcpattribute
 request:
-  name: 'is_high_value_customer'
+  name: "is_high_value_customer"
   datatype: "long"
-fields:
-  format: When datatype is date, format is date format
 response: |
   {
     "dcp_datasource_id": 3367160056,
@@ -25,4 +23,4 @@ response: |
     "name": "admin_account_id"
   }
 ---
-Creates Attribute Metadata for a given DCPDatasource
+Creates DCP Attribute Metadata for a given DCP Datasource
