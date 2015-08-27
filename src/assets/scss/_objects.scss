@@ -97,3 +97,37 @@
     }
   }
 }
+
+// Styles for entering tokens (for interactive mode)
+.sidebyside-toggles {
+  position: fixed;
+  margin-left: calc(50% - 160px);
+  width: calc(50% - 140px);
+  z-index: 1;
+
+  .token-link {
+    position: absolute;
+    right: 0;
+  }
+
+  .rounded-box {
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 400px;
+  }
+
+  #api-token-input {
+    width: 85%;
+  }
+
+  .lego-form-note--bad-news {
+    display: none;
+  }
+
+  // Error state
+  .form-container.lego-form-bad-news {
+    .lego-form-note--bad-news {
+      display: block;
+    }
+  }
+}
