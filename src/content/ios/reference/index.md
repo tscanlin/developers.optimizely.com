@@ -60,6 +60,7 @@ If you decide you want to exclusively use Live Variables and Code Blocks, you ca
 
 [Live Variables](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables) allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity.  In order to create an Optimizely Live Variable, first define a corresponding `OptimizelyVariableKey` as follows:
 
+#### Objective-C Example
 ```obj-c
 #import <Optimizely/Optimizely.h>
 
@@ -75,7 +76,8 @@ OptimizelyVariableKeyForNumber(myGravityVariable, @9.8f);
 
 or, if you're using Swift, declare your `OptimizelyVariableKey`s in your AppDelegate's top level. `#define` macros do not work in Swift so you'll have to manually pre-register these keys in the `application:didFinishLaunchingWithOptions:` method before calling `startOptimizelyWithAPIToken`. Here's an example of an AppDelegate.swift:
 
-```obj-c
+#### Swift Example
+```swift
 import Optimizely
 
 internal var myGravityVariableKey: OptimizelyVariableKey = OptimizelyVariableKey.optimizelyKeyWithKey("myGravityVariable", defaultNSNumber: 9.8)
@@ -104,6 +106,7 @@ The provided `OptimizelyVariableKeyFor[type]` macro ([list of types](/ios/help/h
 
 In order to access the variable, call `numberForKey` and provide the corresponding variable key:
 
+#### Objective-C Example
 ```obj-c
 #import <Optimizely/Optimizely.h>
 
@@ -123,7 +126,7 @@ OptimizelyVariableKeyForNumber(myGravityVariable, @9.8f);
 @end
 ```
 
-or, in Swift:
+#### Swift Example
 
 ```swift
 import Optimizely
@@ -167,6 +170,7 @@ An example implementation of this can be found below:
 
 Code Blocks allow developers to create variations that execute different code paths.  For example, one use case might be to test various checkout flows.   In order to create a Code Block, first define a corresponding `OptimizelyCodeBlocksKey` as follows:
 
+#### Objective-C Example
 ```obj-c
 #import <Optimizely/Optimizely.h>
 
@@ -183,8 +187,7 @@ OptimizelyCodeBlocksKeyWithBlockNames(myCheckoutBlocksKey,
 @end
 ```
 
-or, in Swift:
-
+#### Swift Example
 ```swift
 import Optimizely
 
@@ -213,7 +216,7 @@ The provided `OptimizelyCodeBlocksKeyWithBlockNames` macro is the suggested meth
 
 Next, implement the Code Block as follows:
 
-
+#### Objective-C Example
 ```obj-c
 #import <Optimizely/Optimizely.h>
 
@@ -247,8 +250,7 @@ OptimizelyCodeBlocksKeyWithBlockNames(myCheckoutBlocksKey,
 @end
 ```
 
-or, in Swift:
-
+#### Swift Example
 ```swift
 import Optimizely
 
