@@ -14,4 +14,4 @@ response: |
   ]
 ---
 
-Return all customerIds aliased to the primary customerID in the primary datasource. CustomerIDs are returned alongside their corresponding DatasourceID.  
+Return all customerIds aliased to the primary customer_id in the Optimizely Datasource. Customer_id's are returned alongside their corresponding datasource_id.  

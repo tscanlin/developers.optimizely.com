@@ -4,7 +4,7 @@ endpoint: /dcp_datasources/1234/dcp_datasource_attributes
 endpoint_prefix: dcp_datasources/
 endpoint_option: 1234
 type: GET
-title: List all Attributes
+title: List Attributes
 anchor: list-dcpattribute
 request:
   name: "is_high_value_customer"

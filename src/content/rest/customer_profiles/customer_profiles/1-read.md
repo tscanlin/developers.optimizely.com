@@ -15,4 +15,4 @@ response: |
 ---
 
 Retrieves customer profile attributes for given dcp_service_id, dcp_datasource_id and customer_id.
-A customer_id is a Datasources' identifier for a given visitor
+A customer_id is a Datasources' identifier for a given customer

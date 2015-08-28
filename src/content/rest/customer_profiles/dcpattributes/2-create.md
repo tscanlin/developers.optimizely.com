@@ -4,7 +4,7 @@ endpoint: dcp_datasources/1234/dcp_datasource_attributes
 endpoint_prefix: dcp_datasources/
 endpoint_option: 1234
 type: POST
-title: Create DCP Attribute
+title: Create Attribute
 anchor: create-dcpattribute
 request:
   name: "is_high_value_customer"
@@ -23,7 +23,7 @@ response: |
     "name": "admin_account_id"
   }
 ---
-Creates DCP Attribute Metadata for a given DCP Datasource
+Creates Attribute Metadata for a given DCP Datasource
 
 #### Datatype options
 - "string"

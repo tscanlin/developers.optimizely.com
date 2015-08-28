@@ -18,12 +18,12 @@ response: |
   ]
 ---
 
-Alias customerId of one datasourceId with list of other customerIds in different datasourceId
+Alias customer_id from one Datasource with of other customer_id in different Datasource
 
 
 <div class="lego-attention lego-attention--warning push--bottom">
 
-The `dcp_datasource_id` for this call should be the dcp_datasource_id for the Optimizely Datasource. You can find this id using [List Datasources](/rest/customer_profiles/#list-dcpservice-datasources)
+The `dcp_datasource_id` for this call should be the dcp_datasource_id of the Optimizely Datasource. You can find this id using [List Datasources](/rest/customer_profiles/#list-dcpservice-datasources)
 
 The `customer_id` for this call should be the Optimizely User ID.
 

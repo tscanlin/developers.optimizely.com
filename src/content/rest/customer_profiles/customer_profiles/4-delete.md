@@ -8,4 +8,4 @@ endpoint_option: 1234
 title: Delete a customer profile
 anchor: delete-customer_profile
 ---
-Delete a DCPAttribute
+Delete an attribute

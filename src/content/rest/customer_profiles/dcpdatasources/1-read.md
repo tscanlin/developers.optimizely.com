@@ -13,13 +13,12 @@ fields:
   description: A short description
   name: The name of the Datasource
   created: When this Datasource was created
-  keyfield_locator_type: Type of keyfield locator. The keyfield locator is the client location for this datasource's ID.
-  keyfield_locator_name: Name of keyfield locator. The keyfield locator is the client location for this datasources ID.
-  is_optimizely: True if the DCP Datasource is the default Datasource storing visitor attributes created by Optimizely
-  last_modified: Last modified date of this DCP Datasource
-  attributes: An array of all attribues inside this DCP Datasource
+  keyfield_locator_type: Type of keyfield locator. The keyfield locator is the client location for this Datasource.
+  keyfield_locator_name: Name of keyfield locator. The Optimizely Datasource storing visitor attributes created by Optimizely
+  last_modified: Last modified date of this Datasource
+  attributes: An array of all attribues inside this Datasource
   aws_access_key: Access key for provisioned aws account, used for large bulk updates
-  id: DCP Datasource ID
+  id: Datasource ID
   dcp_service_id: The id of the parent DCPService  
 response: |
   {
@@ -30,7 +29,7 @@ response: |
     "name": "Optimizely DW",
     "created": "2015-08-20T23:26:08.41	4110Z",
     "keyfield_locator_type": "js_variable",
-    "keyfield_locator_name": "_hashedEmailId",
+    "keyfield_locator_name": "_hashed_email_id",
     "is_optimizely": false,
     "last_modified": "2015-08-20T23:26:08.414140Z",
     "attributes": [],

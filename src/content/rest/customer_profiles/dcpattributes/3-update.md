@@ -4,7 +4,7 @@ endpoint: dcp_datasource_attributes/567
 endpoint_prefix: dcp_datasources/
 endpoint_option: 567
 type: PUT
-title: Update DCP Attribute
+title: Update Attribute
 anchor: update-dcpattribute
 request:
   name: 'is_high_value_customer'

@@ -34,3 +34,5 @@ Create a Datasource.
 The keyfield_locator represents the location of the Datasources' IDs in the browser.
 
 `keyfield_locator_type` can be "cookie", "query parameter", "js_variable" or "uuid"
+
+All `keyfield_locator_types` except "uuid" should match the expression `/^[a-zA-Z_][a-zA-Z_0-9\$]*$/`
