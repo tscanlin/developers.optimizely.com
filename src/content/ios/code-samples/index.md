@@ -14,7 +14,7 @@ To learn how to use Optimizely's debug APIs, you can refer to the following [art
 
 ## *Integrations* 
 
-Whether you're looking to create a custom integration with an analytics platform or if you're looking to do WordPress headline testing with Optimizely, these [integration code samples](/samples/#technology-integrations) will help you navigate these processes.
+Check here for code samples on how to do custom integrations.
 
 ### *Xamarin Binding*
 

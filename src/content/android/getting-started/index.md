@@ -166,7 +166,7 @@ Optimizely needs to connect to the internet to allow you to use our online edito
    ```
 
    *Note:
-   The scheme includes a unique identifier.  Be sure to replace [PROJECT_ID] with your project id.*
+   The scheme includes a unique identifier.  Be sure to replace [PROJECT_ID] with your project id (e.g. optly123456).*
 
 At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background. You will see your project overview display light up, allowing you to create an experiment:
 
