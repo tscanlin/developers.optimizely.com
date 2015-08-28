@@ -24,3 +24,15 @@ response: |
   }
 ---
 Creates DCP Attribute Metadata for a given DCP Datasource
+
+#### Datatype options
+- "string"
+- "bool"
+- "long"
+- "double"
+- "datetime"
+
+#### Datetime formats
+- ISO_8601_DATE = 'yyyy-mm-dd'
+- ISO_8601_DATE_TIME_UTC = 'yyyy-mm-ddThh:mm:ssZ'
+- EPOCH = 'epoch'
