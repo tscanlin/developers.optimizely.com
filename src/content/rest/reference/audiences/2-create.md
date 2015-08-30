@@ -25,6 +25,6 @@ response: |
 
 The only required field in the request is `name`, and you can optionally add a `description`. The `project_id` is also required in the URL.
 
-By default, the `conditions` field will just be an empty list `[]`. In this case, the audience won't match anyone automatically. Instead, you can add visitors to it by `id` using the `addToAudience` function in our [JavaScript API]({{site.paths.js}}#audiences). See our [audiences API sample]({{site.paths.samples}}#dmp) for more information.
+By default, the `conditions` field will just be an empty list `[]`. In this case, the audience will not match anyone automatically. Instead, you can add visitors to it by `id` using the `addToAudience` function in our [JavaScript API](/javascript/reference/index.html#audiences). See our [audiences API sample](/rest/code-samples/index.html#audiences) for more information.
 
 Platinum customers can also set the `segmentation` field. The default value is false, but you can set it to true to track the audience's behavior on the results page. See the section below on [updating audiences](#update-audience) for more information.
