@@ -1,8 +1,8 @@
 ---
 template: sidebyside
-endpoint: dcp_services/567/dcp_datasources
+endpoint: dcp_services/3383760141/dcp_datasources
 endpoint_prefix: dcp_services/
-endpoint_option: 567
+endpoint_option: 3383760141
 type: GET
 title: List Datasources
 anchor: list-dcpservice-datasources

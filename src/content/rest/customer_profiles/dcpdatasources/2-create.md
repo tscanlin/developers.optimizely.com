@@ -1,8 +1,8 @@
 ---
 template: sidebyside
-endpoint: dcp_datasources/3383760141/
+endpoint: dcp_services/3383760141/
 endpoint_prefix: dcp_datasources/
-endpoint_option: 567
+endpoint_option: 3383760141
 type: POST
 title: Create a Datasource
 anchor: create-dcpdatasource
