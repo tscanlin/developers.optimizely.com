@@ -4,11 +4,13 @@ title: Customer Profiles
 anchor: customer_profiles
 ---
 
-Customer Profiles aggregate customer attributes across Datasources. Customer Profile attributes are used to create audiences.
+Customer Profiles are a collection of customer (your users) attributes across Datasources.
 
-You can create, update and delete customer attributes for a single Datasource at a time.  
+The following APIs are designed to create, update and delete customer attributes for a single datasource at a time.
 
-Using /consolidated_customer_profile_view, you can retrieve the full Customer Profile across Datasources.
+<img src="/assets/img/dcp/customer_profiles.png">
+
+Using [/consolidated_customer_profile_view](/rest/customer_profiles#consolidated-profile), you can retrieve the full Customer Profile across Datasources.
 
 <div class="lego-attention lego-attention--warning push--bottom">
 The APIs that follow use the domain: https://vis.optimizely.com/api/

@@ -4,7 +4,9 @@ title: Alias
 anchor: alias
 ---
 
-Alias APIs are used to consolidate visitor attributes across Datasources.
+Alias APIs are used to consolidate customer attributes across Datasources.
+
+<img src="/assets/img/dcp/alias.png">
 
 You should always Alias an ID of a Datasource to Optimizely user ID (either a UUID or the default ID, stored in the optimizelyEndUserId cookie). Using the [/consolidated_customer_profile_view](/#) you can retrieve a unified view of the customer.
 

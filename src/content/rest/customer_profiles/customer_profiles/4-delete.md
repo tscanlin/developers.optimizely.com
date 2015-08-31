@@ -8,4 +8,4 @@ endpoint_option: 1234
 title: Delete a customer profile
 anchor: delete-customer_profile
 ---
-Delete an attribute
+Delete an a set of Customer Profile attributes for a given datasource
