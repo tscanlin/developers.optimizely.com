@@ -23,7 +23,7 @@ response: |
     "name": "admin_account_id"
   }
 ---
-Creates Attribute Metadata for a given DCP Datasource
+Creates Attribute Metadata for a given Datasource
 
 #### Datatype options
 - "string"

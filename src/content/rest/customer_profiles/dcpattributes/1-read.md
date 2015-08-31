@@ -8,7 +8,7 @@ title: Read Attribute
 anchor: read-dcpattribute
 fields:
   dcp_datasource_id: Id of parent datasource
-  archived: Whether DCPAttribute has been archived
+  archived: Whether Attribute has been archived
   description: Description of the attribute
   format: When datatype is date, format is date format
   datatype: Datatype of Attribute. Can be "string", "bool", "long", "double", "datetime"
@@ -27,4 +27,4 @@ response: |
     "name": "is_high_value_customer"
   }
 ---
-Reads DCP Attribute Metadata for a given DCP Datasource
+Reads Attribute Metadata for a given DCP Datasource

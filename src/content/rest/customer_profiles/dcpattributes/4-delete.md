@@ -7,4 +7,4 @@ endpoint_option: 1234
 title: Delete Attribute
 anchor: delete-dcpdatasource
 ---
-Delete a DCP Attribute
+Delete a Attribute

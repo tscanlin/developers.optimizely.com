@@ -23,7 +23,7 @@ response: |
     "name": "admin_account_id"
   }
 ---
-Updates DCP Attribute Metadata for a given DCP Datasource
+Updates Attribute Metadata for a given Datasource
 
 #### Editable fields
 - `datatype`

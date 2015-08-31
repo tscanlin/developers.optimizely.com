@@ -33,4 +33,4 @@ response: |
   	}
   ]
 ---
-Fetches all Attributes and Metadata for a given DCPDatasource
+Fetches all Attributes and Metadata for a given Datasource
