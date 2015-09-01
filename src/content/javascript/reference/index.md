@@ -561,3 +561,165 @@ window['optimizely'].push(['removeFromAllSegments']);
 * **August 14, 2014**: Geo-targeted experiments for which visitor geo data is locally cached now activate immediately, rather than waiting for DOM.ready().
 * **November 17, 2014**: New API call to set a [Universal User ID](#uuid).
 
+
+## Personalization (beta)
+
+Optimizely Personalization introduces several new API calls for tracking visitor behavior and attributes.
+
+### Events
+
+The event function captures visitor behavior and additional data. You can track clicks and pageviews in Optimizely
+without code, but this API call supports tracking other behaviors like watching a video.
+
+#### Examples
+```js
+// Basic tracking
+window['optimizely'].push({
+  type: "event",
+  eventName: "watchedVideo"
+});
+
+// Tracking revenue
+window['optimizely'].push({
+  type: "event",
+  eventName: "purchase",
+  tags: {
+    revenue: 5000,
+  }
+});
+
+// Additional metadata
+window['optimizely'].push({
+  type: "event",
+  eventName: "purchase",
+  tags: {
+    revenue: 10000,
+    quantity: 2,
+    category: "Shoes",
+    subcategory: "Sneakers",
+  }
+});
+```
+
+#### Parameters
+ 
+- `eventName` (string): The "API name" for an event created in Optimizely, e.g. `add_to_cart`  
+- `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.  
+
+### Pages
+
+The page function tracks the visitor's current context on a website. This context is used for both analytics ("track the number of views to the checkout page") and targeting ("run this experiment on the checkout page").
+
+Specifically, pushing a page has two effects:
+ * Optimizely will track a pageview event for this page, incrementing the count of views to that page in analytics and recording the event in the user's behavioral profile
+ * Any experiences targeted to this page will be activated
+
+Pages can be created visually in Optimizely with URL targeting, but this API call provides full flexibility for sites with dynamic content or challenging URL patterns.
+
+Page information is reset whenever the browser reloads.
+
+#### Examples
+```js
+window['optimizely'] = window['optimizely'] || [];
+
+// Basic page tracking
+window['optimizely'].push({
+  type: "page",
+  pageName: "checkout_stage_1"
+});
+
+// Page tracking with tags
+window['optimizely'].push({
+  type: "page",
+  pageName: "product_detail",
+  tags: {
+    category: "Kitchen",
+    subcategory: "Blenders",
+    price: 64999,
+    sku: "113757"
+  }
+});
+```
+
+#### Parameters
+ 
+- `pageName` (string): The "API name" for a page created in Optimizely, e.g. `product_detail`
+- `tags` (object): A single-level JSON object with metadata about the content on the page, e.g. the product being purchased.
+
+### Tags
+
+Tags are contextual metadata about pages events. They identify what a user is looking at, clicking on, or interacting with. For example, you can use tags to describe a product being purchased, an article being read, or a flight being booked.
+
+There are three ways to capture this context:
+ * Directly on an `event`, using the `tags` property.
+ * Directly on a `page`, using the `tags` property. These tags will be sent along with any event that happens on that page.
+ * Finally, you can use this `tags` call directly to add context without activating a page and tracking a pageview. This is equivalent to the previous option, but it can be used when pages are already being activated using URL targeting.
+
+#### Examples
+```js
+// Tracking the current product
+window['optimizely'].push({
+  type: "tags",
+  tags: {
+    category: "Kitchen",
+    subcategory: "Blenders",
+    price: 64999,
+    sku: "113757"
+  }
+});
+```
+
+#### Parameters
+ 
+- `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.  
+
+### Users
+
+The user function captures attributes of a user and stores them in a profile that persists across sessions and syncs across devices.
+
+These attributes, which we call dimensions, are persisted in the browser's local storage and can be used for targeting and analysis in experiment results.
+
+You can also use this function to identify a user with a unique userId. If you don't provide an ID, we'll automatically generate an anonymous ID and persist it in a cookie. Providing your own userId allows you to target lists of users by their ID and integrate offline data.
+
+#### Examples
+```js
+window['optimizely'] = window['optimizely'] || [];
+
+// Attach extra information to an anonymous visitor
+window['optimizely'].push({
+  type: "user",
+  dimensions: {
+    frequentFlyerStatus: "Gold",
+    frequentFlyerMiles: 25600
+  }
+});
+
+// Alias an anonymous user to a known userId
+window['optimizely'].push({
+  type: "user",
+  userId: "834092"
+});
+
+// Combine both calls
+window['optimizely'].push({
+  type: "user",
+  userId: "834092",
+  dimensions: {
+    frequentFlyerStatus: "Gold",
+    frequentFlyerMiles: 25600
+  }
+});
+
+// Remove a dimension value
+window['optimizely'].push({
+  type: "user",
+  dimensions: {
+    dimensionToRemove: null
+  }
+});
+```
+
+#### Parameters
+
+- `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.  
+- `dimensions` (object): Metadata about a user, e.g. their home state. Dimensions can be used for creating audiences (target "Californians") and analyzing results (see results broken down by state). Note that you can track at most 10 dimensions in A/B test results.  
