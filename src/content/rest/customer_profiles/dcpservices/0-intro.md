@@ -12,4 +12,4 @@ Upon creation, a DCPService provisions a Datasource to store Optimizely created 
 ##### Uploading Data
 To upload customer data from other sources, add Datasources to a DCP Service. Each DCPService contains a provisioned [AWS](www.aws.amazon.com/) account used for bulk Customer Profile uploads. Details on sending data to a Datasource can be found [here](/rest/customer_profiles#dcp_datasources). You can send visitor attributes to a Data source in a streaming manner using the [Customer Profile APIs](/rest/customer_profiles#customer_profiles) or in batch using the [Datasources S3 bucket](/rest/customer_profiles#create-customer-profile).
 
-<img src="/assets/img/dcp/overview.png">
+<img src="/assets/img/dcp/DCP_Service.png">

@@ -6,7 +6,7 @@ anchor: dcp_datasources
 
 A Datasource stores a collection of customer attributes within the same ID space.
 
-<img src="/assets/img/dcp/datasources_example.png">
+<img src="/assets/img/dcp/Datasource.png">
 
 Multiple Datasources belong to a single DCPService. In the example above, each Datasource ("Optimizely Datasource", "My Data Warehouse", "Email Platform") has its own set of IDs. This allows you to send customer data to Optimizely, by Datasource, without worrying about the relationship of customers across datasources. Using Aliases, you can link IDs across Datasources to create a unified Customer Profile.
 
