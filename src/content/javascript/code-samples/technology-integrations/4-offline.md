@@ -7,14 +7,12 @@ This sample uses a call-tracking tool as an example. Offline conversions are oft
 
 #### 1. Installation
 
-Option 1 (manual):
-
-1. The user creates a custom goal within Optimizly manually ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
+**Option 1 (manual):**
+1. The user creates a custom goal within Optimizely manually ([custom goals explained](https://help.optimizely.com/hc/en-us/articles/200039925-Custom-event-goals))
 2. The user continues to the call-tracking software and installs the plug-in / app
 3. During the installation or after in a settings window, the user should be prompted to fill in the custom event name that was defined when the goal was created within Optimizely
 
-Option 2 (REST):
-
+**Option 2 (REST):**
 1. The user goes to the call-tracking software and installs the plug-in / app
 2. The user is prompted for Optimizely authentication (token or oAuth)
 3. The user can select a project where a call tracking goal can be installed / selected.
@@ -27,7 +25,7 @@ An offline conversion needs the following pieces of information:
 
 1.) Account id
 
-```
+```js
 /**
  * Gets Account ID
  *
@@ -40,7 +38,7 @@ function getAccountId() {
 
 2.) Project id
 
-```
+```js
 /**
  * Gets Project IDs (sometimes the same as the project id)
  *
@@ -53,7 +51,7 @@ function getProjectId() {
 
 3.) Experiment IDs
 
-```
+```js
 /**
  * Gets experiment IDs using a cookie.
  *
@@ -72,7 +70,7 @@ function getVariationsInParameters() {
 
 4.) Segment values
 
-```
+```js
 /**
  * Segment values using a cookie.
  *
@@ -90,7 +88,7 @@ function getSegmentsInParameters() {
 
 5.) Optimizely user id
 
-```
+```js
 /**
  * Getting the user id is only possible using the cookie value
  *
@@ -103,22 +101,22 @@ function getUserId() {
 
 
 #### 3. Creating an offline conversion
-The format of an offline conversion url is the following:
+The format of an offline conversion URL is the following:
 
 ```
 http://{{project_id}}.log.optimizely.com/event?a=1
-                               &n={{goal identified}}}
-                               &u={{ Optimizely user id }}
-                               &x{{experiment id 1}}={{variation id 1}}
-                               &s{{segment id 1}}={{segment value 1}}
-
+                                        &n={{goal identified}}}
+                                        &u={{ Optimizely user id }}
+                                        &x{{experiment id 1}}={{variation id 1}}
+                                        &s{{segment id 1}}={{segment value 1}}
 ```
-All the paramters are more extensively described in this article:
+
+All the parameters are more extensively described in this article:
 [Tracking offline conversion events with Optimizely](https://help.optimizely.com/hc/en-us/articles/200040195)
 
 
-*Example code to generate a valid offline converions url:*
-```
+*Example code to generate a valid offline conversions URL:*
+```js
 /**
  * Generate the entire URL that you can use to create a conversion, given a goalname. The goalname
  * is required, if you also provide a value, there will be a revenue value added to the conversion call.

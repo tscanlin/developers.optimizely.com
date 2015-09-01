@@ -15,4 +15,4 @@ js: |
    }
 ---
 
-To activate an experiment when a button is clicked on, bind a 'click' or 'mousedown' event to that element using jQuery and activate the experiment when that event fires.
+To activate an experiment when a button is clicked on, bind a `click` or `mousedown` event to that element using jQuery and activate the experiment when that event fires.

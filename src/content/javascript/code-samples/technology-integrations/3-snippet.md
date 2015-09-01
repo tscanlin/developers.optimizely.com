@@ -12,11 +12,15 @@ The WordPress integration does headline testing in addition to a snippet integra
 
 Every project has their own snippet. The snippet has this format:
 
-`<script src="//cdn.optimizely.com/js/{{project_id}}.js"></script>`
+```js
+<script src="//cdn.optimizely.com/js/{{project_id}}.js"></script>
+```
 
-where {{project_id}} is replaced by the id of an Optimizely project. An example:
+where `{{project_id}}` is replaced by the id of your Optimizely project. For example:
 
-`<script src="//cdn.optimizely.com/js/2734370016.js"></script>`
+```js
+<script src="//cdn.optimizely.com/js/2734370016.js"></script>
+```
 
 #### 1. Create a 'project id' dialog
 To implement the correct snippet, you need to know which project to implement.

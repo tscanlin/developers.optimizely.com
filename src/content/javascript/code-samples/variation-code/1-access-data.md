@@ -4,9 +4,7 @@ title: Access data on page
 anchor: access-data-variation-code
 js: |
   /*
-   * Usage
-   *    Example showing how to reference a variable defined natively on the page from inside Optimizely.
-   *
+   * Example showing how to reference a variable defined natively on the page from inside Optimizely.
    */
 
    // Variation code example injecting the 'visitorName' property of the 'exampleObject' in the h3 elements
