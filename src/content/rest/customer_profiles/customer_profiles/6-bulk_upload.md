@@ -13,10 +13,13 @@ You can get credentials and S3 path from the  [Datasource](/rest/customer_profil
 
 
 ##### The CSV should take the following format
-- Each column in the header row is a previously defined [Attribute](/rest/customer_profiles#dcp_attributes) `name`. You can have a subset of defined attributes.
+- Each column in the header row is a previously defined [Attribute](/rest/customer_profiles#dcp_attributes) `name`. A subset of defined [Attribute](/rest/customer_profiles#dcp_attributes) is ok.
 - One column should have a row called "customerID", which should contain customer_id
 - Each row should represent a customer, with each data entry corresponding to a header row
 - If a column header does not correspond to a [Attribute](/rest/customer_profiles#dcp_attributes) `name`, the upload will fail
 - If an Attribute value does respect the [Attribute](/rest/customer_profiles#dcp_attributes) `datatype`, the Upload will fail
 
 Each row is treated as a [Write](/rest/customer_profiles#dcp_attributes)
+
+
+<img src="/assets/img/dcp/csv.png">
