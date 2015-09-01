@@ -1,8 +1,8 @@
 ---
 template: sidebyside
-endpoint: dcp_datasources/3383760141/
+endpoint: dcp_datasources/678/
 endpoint_prefix: dcp_datasources/
-endpoint_option: 3383760141
+endpoint_option: 678
 type: GET
 title: Read a Datasource
 anchor: read-dcpdatasource
@@ -24,7 +24,7 @@ response: |
   {
     "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
     "archived": false,
-    "s3_path": "dcp/3383760141/3389230072",
+    "s3_path": "dcp/567/678",
     "description": "Optimizely DW - First Party Data",
     "name": "Optimizely DW",
     "created": "2015-08-20T23:26:08.41	4110Z",
@@ -35,7 +35,7 @@ response: |
     "attributes": [],
     "aws_access_key": "AKfakekeyV8SH8XTJBUPO",
     "id": 3389230072,
-    "dcp_service_id": 3383760141
+    "dcp_service_id": 567
   }
 ---
 

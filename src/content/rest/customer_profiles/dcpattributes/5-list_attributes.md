@@ -1,8 +1,8 @@
 ---
 template: sidebyside
-endpoint: /dcp_datasources/1234/dcp_datasource_attributes
+endpoint: /dcp_datasources/678/dcp_datasource_attributes
 endpoint_prefix: dcp_datasources/
-endpoint_option: 1234
+endpoint_option: 678
 type: GET
 title: List Attributes
 anchor: list-dcpattribute

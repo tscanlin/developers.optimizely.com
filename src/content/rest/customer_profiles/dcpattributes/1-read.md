@@ -1,8 +1,8 @@
 ---
 template: sidebyside
-endpoint: dcp_datasource_attributes/1234
+endpoint: dcp_datasource_attributes/789
 endpoint_prefix: dcp_datasources/
-endpoint_option: 1234
+endpoint_option: 789
 type: GET
 title: Read Attribute
 anchor: read-dcpattribute

@@ -1,8 +1,8 @@
 ---
 template: sidebyside
-endpoint: dcp_datasources/1234/dcp_datasource_attributes
+endpoint: dcp_datasources/678/dcp_datasource_attributes
 endpoint_prefix: dcp_datasources/
-endpoint_option: 1234
+endpoint_option: 678
 type: POST
 title: Create Attribute
 anchor: create-dcpattribute
@@ -11,7 +11,7 @@ request:
   datatype: "long"
 response: |
   {
-    "dcp_datasource_id": 3367160056,
+    "dcp_datasource_id": 678,
     "archived": false,
     "description": null,
     "format": null,

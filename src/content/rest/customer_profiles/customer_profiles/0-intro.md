@@ -6,7 +6,9 @@ anchor: customer_profiles
 
 Customer Profiles are a collection of customer (your users) attributes across Datasources.
 
-The following APIs are designed to create, update and delete customer attributes for a single datasource at a time.
+The following APIs are designed to create, update and read customer attributes for a single datasource at a time.
+
+To use these APIs make sure you have read the sections on [DCPServices](/rest/customer_profiles#customer_profile_service), [Datasources](/rest/customer_profiles#customer_profile_service), and [Attributes](/rest/customer_profiles#dcp_attributes)
 
 <img src="/assets/img/dcp/customer_profiles.png">
 
