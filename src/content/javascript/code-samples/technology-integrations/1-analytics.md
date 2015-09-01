@@ -12,7 +12,7 @@ The template contains several functions that are useful for every analytics inte
 
 At the top of the template, an object called `window.integration` is defined. In the object, there are two functions that have to customized to get the integration working. This is an example implementation for Google Analytics:
 
-```
+```js
 /**
  * The integration object is modified to integrate with Google Analytics.
  */
@@ -83,7 +83,7 @@ The template takes care of:
  * Retrieving all running experiments and their variations form the `optimizely.variationIdsMap` function and determine if you are looking at a page was the result of a redirect experiment. In most cases, the experiment doesn't run on the page where you are redirected to, so a redirect experiment can only be detected by looking at a redirect cookie that Optimizely sets right before a redirect occurs.
 Code:
 
-```
+```js
 /**
  * Returns an array of Experiment IDs active on the page, as well as includes the ID of the experiment of the
  * experiment that might have redirected the user to the page
@@ -101,7 +101,7 @@ getRelevantExperimentIds = function () {
 ```
  * Abstracting the original referrer url before a redirect happened from the redirect cookie. This can be used to correct information in your analytics tool (see GA example).
 
-```
+```js
 redirect = {
   REDIRECT_COOKIE_NAME: "optimizelyRedirect",
   REFERRER_REDIRECT_COOKIE_NAME: "optimizelyReferrer",
@@ -160,7 +160,7 @@ redirect = {
 ```
  * Creating send-able names based on integration specific parameters. It makes sure that information that is being send is not too long and doesn't contain any invalid characters.
 
-```
+```js
 /**
  * Returns the name of the experiment and the name of the variation, both
  * with cleaned up characters and reduced length.  This processing is needed
