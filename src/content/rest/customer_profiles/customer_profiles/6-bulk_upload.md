@@ -6,20 +6,24 @@ anchor: bulk
 ---
 
 
-You can also upload a CSV to the S3 Path of a given Datasource to perform bulk uploads.
+You can also upload a CSV (comma-separated values) to the `optimizely-import` S3 bucket and provided path for a given Datasource
+We will parse the given CSV, validate the data against the registered [Attributes](/rest/customer_profiles#dcp_attributes), and store the successfully processed profiles.
 
-Instructions for uploading to S3 can be found [here](http://docs.aws.amazon.com/AmazonS3/latest/UG/UploadingObjectsintoAmazonS3.html). You can also use S# tools like [Cyberduck](/www.cyberduck.io/?l=en).
-You can get credentials and S3 path from the  [Datasource](/rest/customer_profiles#dcp_datasources).
+Using the provided AWS credentials, it's possible to upload CSV files in a variety of ways.
+The simplest approach is to use an S3 client application, such as [Cyberduck](www.cyberduck.io/?l=en).
 
+It's also possible to upload files programmatically, using the [AWS
+cli](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html), an available
+[SDK](https://aws.amazon.com/tools/), or [Library](http://boto3.readthedocs.org/en/latest/reference/services/s3.html).
 
-##### The CSV should take the following format
-- Each column in the header row is a previously defined [Attribute](/rest/customer_profiles#dcp_attributes) `name`. A subset of defined [Attribute](/rest/customer_profiles#dcp_attributes) is ok.
-- One column should have a row called "customerID", which should contain customer_id
-- Each row should represent a customer, with each data entry corresponding to a header row
-- If a column header does not correspond to a [Attribute](/rest/customer_profiles#dcp_attributes) `name`, the upload will fail
-- If an Attribute value does respect the [Attribute](/rest/customer_profiles#dcp_attributes) `datatype`, the Upload will fail
+You can retrieve the AWS credentials and S3 path from the [Datasource](/rest/customer_profiles#dcp_datasources).
+
+##### The CSV must follow the below format
+- Each column in the header row must be a registered [Attribute](/rest/customer_profiles#dcp_attributes) `name`. A CSV may contain a subset of the available [Attributes](/rest/customer_profiles#dcp_attributes)
+- The header row must include a `customerId` column. All rows must contain a valid `customer_id`
+- If a column header does not correspond to registered [Attribute](/rest/customer_profiles#dcp_attributes) `name`, the upload will fail
+- If an Attribute value does respect the associated [Attribute](/rest/customer_profiles#dcp_attributes) `datatype`, the Upload will fail
 
 Each row is treated as a [Write](/rest/customer_profiles#dcp_attributes)
-
 
 <img src="/assets/img/dcp/csv.png">
