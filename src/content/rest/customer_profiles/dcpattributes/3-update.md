@@ -23,9 +23,12 @@ response: |
     "name": "admin_account_id"
   }
 ---
-Updates Attribute Metadata for a given Datasource
+Updates metadata for an Attribute. 
 
 #### Editable fields
-- `datatype`
 - `description`
-- `format`
+
+<div class="lego-attention lego-attention--warning push--bottom">
+*NOTE:* Updates to attribute's name or datatype or version is not supported currently. If you want to edit name or datatype or format archive the attribute and create a new one. 
+</div>
+

@@ -6,31 +6,26 @@ endpoint_option: 678
 type: GET
 title: List Attributes
 anchor: list-dcpattribute
-request:
-  name: "is_high_value_customer"
-  datatype: "long"
-fields:
-  format: When datatype is date, format is date format
 response: |
   [
-  	{
-    	"archived": false,
-    	"description": null,
-    	"format": null,
-    	"datatype": "long",
-    	"version": 1,
-    	"id": 3324671622,
-    	"name": "admin_account_id"
-  	},
-  	{
-    	"archived": false,
-    	"description": null,
-    	"format": null,
-    	"datatype": "long",
-    	"version": 1,
-    	"id": 3326101711,
-    	"name": "alexa_rank"
-  	}
+    {
+      "archived": false,
+      "description": null,
+      "format": null,
+      "datatype": "long",
+      "version": 1,
+      "id": 789,
+      "name": "LTV"
+    },
+    {
+      "archived": false,
+      "description": null,
+      "format": null,
+      "datatype": "string",
+      "version": 1,
+      "id": 790,
+      "name": "most_viewed_category"
+    }
   ]
 ---
-Fetches all Attributes and Metadata for a given Datasource
+Fetches all attributes for a given Datasource. [GET Datasource](/rest/customer_profiles/index.html#read-dcpdatasource) also returns all attributes for a given datasource.

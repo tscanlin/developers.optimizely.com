@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-endpoint: /consolidated_customer_profile_view/<dcp_service_id>/<optimizely_id>
+endpoint: /consolidated_customer_profile_view/567/oeu1234.5678
 endpoint_prefix: customer_profile/
 type: GET
 title: Retrieve consolidated customer profile
@@ -8,16 +8,20 @@ anchor: consolidated-profile
 response: |
   [
     {
-      'datasourceId': 123,
-      'data': {
-        'avg_session_length': 10,
-        'most_viewed_page': 'www.optimizely.com'
+      "dcpServiceId": "567"
+      "datasourceId": "789",
+      "customerId": "oeu1234.5678"
+      "data": {
+        "LTV": 10,
+        "most_viewed_category": "jeans"
       }
     },
     {
-      'datasourceId': 890,
-      'data': {
-        'mrr': 10000
+      "dcpServiceId": "567"
+      "datasourceId": "790",
+      "customerId": "sfdc1223a3_ji$ddd"
+      "data": {
+        "mrr": 10000
       }
     }
   ]

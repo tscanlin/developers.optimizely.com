@@ -7,7 +7,7 @@ type: POST
 title: Create Attribute
 anchor: create-dcpattribute
 request:
-  name: "is_high_value_customer"
+  name: "LTV"
   datatype: "long"
 response: |
   {
@@ -19,20 +19,20 @@ response: |
     "created": "2015-08-18T21:38:55.927670Z",
     "last_modified": "2015-08-18T21:38:55.927680Z",
     "version": 1,
-    "id": 3324671622,
-    "name": "admin_account_id"
+    "id": 789,
+    "name": "LTV"
   }
 ---
-Creates Attribute Metadata for a given Datasource
+Creates Attribute for a given Datasource
 
 #### Datatype options
 - "string"
 - "bool"
 - "long"
 - "double"
-- "datetime"
+- "datetime": needs format to be a Datetime format
 
-#### Datetime formats
-- ISO_8601_DATE = 'yyyy-mm-dd'
-- ISO_8601_DATE_TIME_UTC = 'yyyy-mm-ddThh:mm:ssZ'
-- EPOCH = 'epoch'
+#### Datetime format options
+- "yyyy-mm-dd": ISO_8601 UTC date format
+- "yyyy-mm-ddThh:mm:ssZ": ISO_8601 datetime format
+- "epoch": Epoch time in millis

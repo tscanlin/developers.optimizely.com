@@ -7,24 +7,25 @@ type: GET
 title: Read Attribute
 anchor: read-dcpattribute
 fields:
-  dcp_datasource_id: Id of parent datasource
-  archived: Whether Attribute has been archived
+  dcp_datasource_id: ID of parent datasource
+  archived: Boolean flag whether an Attribute has been archived
   description: Description of the attribute
-  format: When datatype is date, format is date format
-  datatype: Datatype of Attribute. Can be "string", "bool", "long", "double", "datetime"
-  version: API version
+  format: When datatype is date, format can be "yyyy-mm-dd", "yyyy-mm-ddThh:mm:ssZ", "epoch"
+  datatype: Datatype of the Attribute. Can be "string", "bool", "long", "double", "datetime"
+  version: Version of the attribute, currently attribute incremental versioning is not supported
+  name: Name of the Attribute, use this name to upload customer_profile data using REST API or bulk upload. Note that attribute name is case sensitive
 response: |
   {
-    "dcp_datasource_id": 3367160056,
+    "dcp_datasource_id": 678,
     "archived": false,
-    "description": null,
+    "description": "Long term value",
     "format": null,
     "datatype": "long",
     "created": "2015-08-18T21:38:55.927670Z",
     "last_modified": "2015-08-18T21:38:55.927680Z",
     "version": 1,
-    "id": 3324671622,
-    "name": "is_high_value_customer"
+    "id": 789,
+    "name": "LTV"
   }
 ---
-Reads Attribute Metadata for a given DCP Datasource
+Get metadata for a single attribute.
