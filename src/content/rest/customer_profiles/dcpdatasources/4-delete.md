@@ -7,4 +7,4 @@ endpoint_option: 678
 title: Delete a DCP Datasource
 anchor: delete-dcpdatasource
 ---
-Delete a DCP Datasource will delete a DCP Datasource and all of its associated data
+Delete a DCP Datasource. Will delete a DCP Datasource and all of its associated data.

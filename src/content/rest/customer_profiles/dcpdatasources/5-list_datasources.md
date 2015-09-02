@@ -9,22 +9,54 @@ anchor: list-dcpservice-datasources
 response: |
   [
     {
-  	"aws_secret_key": "ailL18vK/o3fy5tc8SH8SeGCh2leiuX9fu5Q5y7f",
-  	"archived": false,
-  	"s3_path": "dcp/567/678",
-  	"description": "Optimizely datasource",
-  	"name": "Optimizely",
-  	"created": "2015-08-20T23:23:26.426000Z",
-  	"keyfield_locator_type": "uid",
-  	"keyfield_locator_name": null,
-  	"is_optimizely": true,
-  	"last_modified": "2015-08-20T23:23:26.707620Z",
-  	"attributes": [],
-  	"aws_access_key": "AKIAJNBO3U7VXJTT6X7A",
-  	"id": 3375340400,
-  	"dcp_service_id": 567
+      "id": 789, 
+      "archived": false, 
+      "attributes": [], 
+      "aws_access_key": "AKfakekeyV8SH8XTJBUPO",
+      "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
+      "created": "2015-08-26T09:50:38.886990Z", 
+      "description": "Optimizely datasource", 
+      "dcp_service_id": 567,
+      "is_optimizely": true, 
+      "keyfield_locator_name": null, 
+      "keyfield_locator_type": "uid", 
+      "last_modified": "2015-08-26T09:50:39.202950Z", 
+      "name": "Optimizely", 
+      "s3_path": "dcp/567/789" 
+    },
+    {
+      "id": 678,
+      "archived": false,
+      "attributes": [{
+        "archived": false,
+        "datatype": "long",
+        "description": "Long Term Value",
+        "format": null,
+        "id": 111,
+        "name": "LTV",
+        "version": 1
+      }, {
+        "archived": false,
+        "datatype": "long",
+        "description": "Alexa rank",
+        "format": null,
+        "id": 222,
+        "name": "alexa_rank",
+        "version": 1
+      }],
+      "aws_access_key": "AKfakekeyV8SH8XTJBUPO",
+      "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
+      "created": "2015-08-20T23:26:08.414110Z",
+      "dcp_service_id": 567,
+      "description": "First party data from my Data Warehouse",
+      "is_optimizely": false,
+      "keyfield_locator_name": "_my_hashedEmailcookie",
+      "keyfield_locator_type": "cookie",
+      "last_modified": "2015-08-20T23:26:08.414140Z",
+      "name": "My Awesome Data Warehouse",
+      "s3_path": "dcp/567/678"
     }
   ]
 ---
 
-Get all datasources for given DCPService
+Get all datasources for the specified DCPService

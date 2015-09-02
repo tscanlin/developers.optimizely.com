@@ -4,10 +4,22 @@ title: Datasources
 anchor: dcp_datasources
 ---
 
-A Datasource stores a collection of customer attributes within the same ID space.
+A datasource stores a set of related customer attributes under a common ID space.
 
 <img src="/assets/img/dcp/Datasource.png">
 
-Multiple Datasources belong to a single DCPService. In the example above, each Datasource ("Optimizely Datasource", "My Data Warehouse", "Email Platform") has its own set of IDs. This allows you to send customer data to Optimizely, by Datasource, without worrying about the relationship of customers across datasources. Using Aliases, you can link IDs across Datasources to create a unified Customer Profile.
+A single DCP Service can have several datasources. The figure above, shows three datasources: "My Data Warehouse",
+"Email Platform", "Optimizely Datasource", each with customer attributes obtained from a different source, and each with
+a different way to identify the same customer. For example, the customer identified by `ANON_ID_1` in "My Data
+Warehouse" could be the same customer identified by `OEU_2` in "Optimizely Datasource". Organizing customer data by
+datasource allows you to send data to Optimizely without requiring you to reconcile data across datasources. This task
+of reconciling data of the same customer across datasources can be achieved using the
+[Alias](/rest/customer_profiles#alias) operation.
 
-Upon providing a key field Locator (the location of this Datasources ID in the browser), the Optimizely client will make [Alias](/rest/customer_profiles#alias) links between customer attributes for a Datasource and the Optimizely Datasource when we see Keyfield Locators from different Datasources on the same device.
+When creating a Datasource, you will provide a key field locator type and name to enable Optimizely to perform Aliasing
+for you. A key field locator is a location on your resource (e.g. web-page) where you can place the customer id for a
+particular datasource. The Optimizely snippet will read this information for each of your customers and alias each of
+the datasource customer ids to the canonical Optimizely user id (UID) assigned on the customer's device. In the figure,
+"Email Platform" has a key field locator type `cookie`, and name `email_platform_cookie_name`. You will place this
+datasource's customer id in a `cookie` named `email_platform_cookie_name`, which Optimizely can read and alias to the
+Optimizely UID.

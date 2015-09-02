@@ -7,40 +7,40 @@ type: GET
 title: Read a Datasource
 anchor: read-dcpdatasource
 fields:
-  aws_secret_key: Secret key for provisioned aws account
-  archived: True if the Datasource has been archived
-  s3_path: S3Path for this Datasource
-  description: A short description
-  name: The name of the Datasource
-  created: When this Datasource was created
-  keyfield_locator_type: Type of keyfield locator. The keyfield locator is the client location for customer id for this Datasource
-  keyfield_locator_name: Name of keyfield locator.
-  last_modified: Last modified date of this Datasource
-  attributes: An array of all attribues inside this Datasource
-  aws_access_key: Access key for provisioned aws account
   id: Datasource ID
+  archived: Boolean indicating whether this DCP Service is archived
+  attributes: An array of all attribues inside this Datasource
+  aws_secret_key: Secret key for provisioned aws account
+  aws_access_key: Access key for provisioned aws account
+  created: Creation date of DCP Service
   dcp_service_id: The DCPService this datasource is associated with
+  description: A short description
+  is_optimizely: Boolean indicating if this is the Optimizely Datasource
+  keyfield_locator_type: Type of keyfield locator. The keyfield locator is the client location of this Datasource's
+                         customer id. Must be one of `"cookie"`, `"query parameter"`, `"js_variable"`, or `"uid"`.
+  keyfield_locator_name: Name of keyfield locator. Required for all `keyfield_locator_types` except `"uid"`, and must
+                         match the regular expression `/^[a-zA-Z_][a-zA-Z_0-9\$]*$/`
+  last_modified: Last modified date of this Datasource
+  name: The name of the Datasource
+  s3_path: S3Path for this Datasource
 response: |
   {
-    "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
+    "id": 678,
     "archived": false,
-    "s3_path": "dcp/567/678",
-    "description": "Optimizely DW - First Party Data",
-    "name": "Optimizely DW",
-    "created": "2015-08-20T23:26:08.41	4110Z",
-    "keyfield_locator_type": "js_variable",
-    "keyfield_locator_name": "_hashed_email_id",
-    "is_optimizely": false,
-    "last_modified": "2015-08-20T23:26:08.414140Z",
     "attributes": [],
     "aws_access_key": "AKfakekeyV8SH8XTJBUPO",
-    "id": 3389230072,
-    "dcp_service_id": 567
+    "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
+    "created": "2015-08-20T23:26:08.414110Z",
+    "dcp_service_id": 567,
+    "description": "First party data from my Data Warehouse",
+    "is_optimizely": false,
+    "keyfield_locator_name": "_my_hashedEmailcookie",
+    "keyfield_locator_type": "cookie",
+    "last_modified": "2015-08-20T23:26:08.414140Z",
+    "name": "My Data Warehouse",
+    "s3_path": "dcp/567/678"
   }
 ---
 
-Read metadata for a single datasource
+Gets data of the specified datasource.
 
-`keyfield_locator_type` can be "cookie", "query parameter", "js_variable" or "uuid"
-
-All `keyfield_locator_types` except "uuid" should match the expression `/^[a-zA-Z_][a-zA-Z_0-9\$]*$/`

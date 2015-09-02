@@ -1,27 +1,32 @@
 ---
 template: sidebyside
-endpoint: dcp_services/567
+endpoint: dcp_services
 endpoint_prefix: /dcp_services/
-endpoint_option: 567
 type: POST
 title: Create DCP Service
 anchor: create-dcpservice
 request:
-  name: "Datawarehouse"
+  name: "My DCP Service"
 response: |
   {
     "id": 567,
-    "account_id": 555650815,
-    "name": "My DCP Service",
-    "last_modified": "2015-08-18T21:38:55.927670Z",
+    "account_id": 123456,
+    "archived": false,
     "aws_access_key": "123423asfakedf12vh451234",
     "aws_secret_key": "1234fake12341asdfas234zc",
-    "s3_path": "dcp/11111111",
+    "created": "2015-08-01T11:50:37.864010Z",
+    "last_modified": "2015-08-18T21:38:55.927670Z",
+    "name": "My DCP Service",
+    "s3_path": "dcp/567"
   }
 ---
 
-Creates a new DCP Service under customer's account.
+Creates a new DCP Service under your account.
+
+#### Required Fields  
+- `name`
 
 <div class="lego-attention lego-attention--warning push--bottom">
-*NOTE:* The service is not yet attached to any project use project. After creating a DCPService, be sure to associate a project to a DCP Service using [Update Project](/rest/reference/index.html#update-project)
+*NOTE:* The DCP Service is not yet associated to any project. After creating a DCPService, be sure to associate a
+project to a DCP Service using [Update Project](/rest/reference/index.html#update-project)
 </div>
