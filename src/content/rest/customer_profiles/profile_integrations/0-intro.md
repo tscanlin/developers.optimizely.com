@@ -10,7 +10,7 @@ This section walks through how to build an integration with Optimizely that uplo
 
 ### Prerequisites
 
-* Your application stores customer_ids (user identifiers e.g. hashed email addresses or other unique IDs)
+* Your application stores customer ids (user identifiers e.g. hashed email addresses or other unique IDs)
 * User identifiers are not personally identifiable, according to Optimizely's [Terms of Service](https://www.optimizely.com/terms/)
 * User identifiers can be accessed via the user's browser (e.g. in a cookie, query parameter, or other client location)
 * Comfortable using REST APIs
@@ -21,11 +21,13 @@ Customer Profiles are currently in Beta and are only available for whitelisted a
 
 ### 2. Register your application
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send data to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send data to Optimizely. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 ### 3. Create a datasource
 
-After connecting with Optimizely you should [create a Datasource](/rest/customer_profiles#create-dcpdatasource) in Optimizely. This will be the location for all of your application's customer data. This allows you to send customer data to Optimizely, by Datasource, without worrying about the relationship of customers across datasources.
+After connecting with Optimizely you should [create a Datasource](/rest/customer_profiles#create-dcpdatasource) in Optimizely. This will be the location for all of your application's customer data. This allows you to send customer data to Optimizely grouped by source of Data. You can create as many datasources as you have different sources of data.
+
+Every DCP service account will have a datasource created by default for Optimizely data.
 
 ### 4. Register Attributes
 
