@@ -6,7 +6,8 @@ anchor: bulk
 ---
 
 
-You can also upload a CSV (comma-separated values) to the `optimizely-import` S3 bucket and provided path for a given Datasource
+You can also upload a CSV (comma-separated values) to the `optimizely-import` S3 bucket using the provided Datasource S3
+path.
 We will parse the given CSV, validate the data against the registered [Attributes](/rest/customer_profiles#dcp_attributes), and store the successfully processed profiles.
 
 Using the provided AWS credentials, it's possible to upload CSV files in a variety of ways.
@@ -20,7 +21,7 @@ You can retrieve the AWS credentials and S3 path from the [Datasource](/rest/cus
 
 ##### The CSV must follow the below format
 - Each column in the header row must be a registered [Attribute](/rest/customer_profiles#dcp_attributes) `name`. A CSV may contain a subset of the available [Attributes](/rest/customer_profiles#dcp_attributes)
-- The header row must include a `customerId` column. All rows must contain a valid `customer_id`
+- The header row must include a `customerId` column. All rows must also contain a valid `customer_id`
 - If a column header does not correspond to registered [Attribute](/rest/customer_profiles#dcp_attributes) `name`, the upload will fail
 - If an Attribute value does respect the associated [Attribute](/rest/customer_profiles#dcp_attributes) `datatype`, the Upload will fail
 
