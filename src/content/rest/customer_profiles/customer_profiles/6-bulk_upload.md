@@ -23,7 +23,7 @@ You can retrieve the AWS credentials and S3 path from the [Datasource](/rest/cus
 - Each column in the header row must be a registered [Attribute](/rest/customer_profiles#dcp_attributes) `name`. A CSV may contain a subset of the available [Attributes](/rest/customer_profiles#dcp_attributes)
 - The header row must include a `customerId` column. All rows must also contain a valid `customer_id`
 - If a column header does not correspond to registered [Attribute](/rest/customer_profiles#dcp_attributes) `name`, the upload will fail
-- If an Attribute value does respect the associated [Attribute](/rest/customer_profiles#dcp_attributes) `datatype`, the Upload will fail
+- If an Attribute value does respect the associated [Attribute](/rest/customer_profiles#dcp_attributes) `datatype`, the upload will fail
 
 Each row is treated as a [Write](/rest/customer_profiles#dcp_attributes)
 
