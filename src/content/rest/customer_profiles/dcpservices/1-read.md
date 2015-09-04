@@ -30,4 +30,4 @@ response: |
 ---
 
 Gets data of the specified DCP Service. Every DCP Service is provisioned with AWS credentials; you may use these
-credentials to upload data in bulk to a [Datasource specific S3 path](/rest/customer_profiles#create-customer-profile)
+credentials to upload data in [bulk to a datasource specific S3 path](/rest/customer_profiles#bulk)

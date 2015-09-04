@@ -1,8 +1,8 @@
 ---
 template: sidebyside
 endpoint: dcp_datasource_attributes/789
-endpoint_prefix: dcp_datasources/
-endpoint_option: 567
+endpoint_prefix: dcp_datasource_attributes/
+endpoint_option: 789
 type: PUT
 title: Update Attribute
 anchor: update-dcpattribute
@@ -11,24 +11,25 @@ request:
   datatype: "long"
 response: |
   {
-    "dcp_datasource_id": 678,
     "archived": false,
+    "created": "2015-08-18T21:38:55.927670Z",
+    "datatype": "long",
+    "dcp_datasource_id": 678,
     "description": null,
     "format": null,
-    "datatype": "long",
-    "created": "2015-08-18T21:38:55.927670Z",
-    "last_modified": "2015-08-18T21:38:55.927680Z",
-    "version": 1,
     "id": 789,
-    "name": "admin_account_id"
+    "last_modified": "2015-08-18T21:38:55.927680Z",
+    "name": "is_high_value_customer"
+    "version": 1
   }
 ---
-Updates metadata for an Attribute. 
+Updates the metadata of the specified attribute. 
 
 #### Editable fields
 - `description`
 
 <div class="lego-attention lego-attention--warning push--bottom">
-*NOTE:* Updates to attribute's name or datatype or version is not supported currently. If you want to edit name or datatype or format archive the attribute and create a new one. 
+*NOTE:* Updates to an attribute's name, datatype, or version are not currently supported. We recommend archiving the
+existing attribute and creating a replacement, with the desired name, datatype, and format.
 </div>
 

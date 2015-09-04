@@ -11,16 +11,14 @@ request:
     1232: "mkto1245433:213ad"
 ---
 
-Alias customerId from one Datasource with the customerId of the Optimizely Datasource.
+Alias the customer ID of the specified datasource with the customer ID of the Optimizely datasource.
 
-In the example above, the displayed Ids in Datasources *8905* and *1232* are now linked the Optimizely User ID *oeu1234.5678* (*678* is the Optimizely DatasourceID and *567* is the DCP Service ID).
-
-The payload for this POST rest api call should have the content type `application/json`.
+In the example, the customer IDs corresponding to datasources *8905* and *1232* are now aliased to the Optimizely User
+ID *oeu1234.5678*. The Optimizely datasource ID is *678* and the DCP Service ID is *567*.
 
 <div class="lego-attention lego-attention--warning push--bottom">
-
-The `datasourceId` for this call should be the datasourceId of the Optimizely Datasource. You can find this id using [List Datasources](/rest/customer_profiles/#list-dcpservice-datasources)
-
-The `customerId` for this call should be the Optimizely User ID.
-
+The `datasourceId` for this call should be the ID of the Optimizely datasource. You can find this ID using [list
+datasources](/rest/customer_profiles/#list-dcpservice-datasources) and finding the datasource with `is_optimizely=true`.
+In this example, it is *678*.  The `customerId` for this call should be the Optimizely User ID. In this example, it is
+*oeu1234.5678*.
 </div>

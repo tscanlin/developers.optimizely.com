@@ -7,6 +7,7 @@ endpoint_option: 789
 title: Delete Attribute
 anchor: delete-dcpdatasource
 ---
-Archives the Attribute
+Archives the specified attribute
 
-Once an Attribute is archived, you can no longer send or read Customer Profile data for this Attribute. You can unarchive Attribute at any time.
+Once an attribute is archived, you can no longer update or read Customer Profile data for this attribute. You can
+unarchive an attribute at any time.

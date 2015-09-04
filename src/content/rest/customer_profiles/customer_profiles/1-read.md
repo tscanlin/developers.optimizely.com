@@ -17,5 +17,4 @@ response: |
   }
 ---
 
-Retrieves customer profile attributes for given dcp_service_id, dcp_datasource_id and customer_id.
-A customer_id is a Datasource's identifier for a given customer
+Gets the customer profile attributes for the specified DCP Service, datasource, and customer's ID in that datasource.

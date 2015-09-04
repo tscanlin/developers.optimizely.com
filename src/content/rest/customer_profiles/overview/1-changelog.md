@@ -5,4 +5,4 @@ anchor: changes
 ---
 
 #### Beta Changelog
-Beta changelog will be here. There have not been any changes yet.
+September 3rd, 2015: Added documentation on Customer Profiles (Beta).

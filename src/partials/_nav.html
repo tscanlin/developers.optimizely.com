@@ -27,7 +27,8 @@
 
               {% if relativePath === 'rest/customer_profiles/' %}
                 <li>
-                  <a class="section{% if section.path === 'customer_profiles/' && item.path + section.path === '/' + relativePath %} active{% endif %}" href="{{ item.path }}customer_profiles/index.html">Customer Profiles</a>
+                  <a class="section{% if section.path === 'customer_profiles/' && item.path + section.path === '/' + relativePath %} active{% endif %}"
+                     href="{{ item.path }}customer_profiles/index.html">Dynamic Customer Profiles (Beta)</a>
                   <ul class="unstyled lego-nav lego-nav--stacked toc"></ul>
                 </li>
               {% endif %}

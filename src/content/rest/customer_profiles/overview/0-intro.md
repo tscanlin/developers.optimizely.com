@@ -1,17 +1,29 @@
 ---
 template: sidebyside
-title: Overview (Beta)
+title: Overview
 anchor: overview
 ---
 
-Customer Profiles are a collection of customer (your users) attributes. Attributes can include data such as demographic data, behavioral characteristics, or any other information particular to a customer.
+Dynamic Customer Profiles (DCP) are a collection of your customers' attributes, including demographic data, behavioral
+characteristics, or any other information particular to your industry and customers. DCP provides a consolidated,
+dynamic view of your customers, enables you to refine this view as you obtain more information, and to take action
+based on this view.
 
-A single Customer Profile contains attributes collected by Optimizely alongside uploaded attributes to create a single view of the customer. Attributes for a single profile are stored by [Datasource](/rest/customer_profiles#dcp_datasources) and linked using identity [Aliases](/rest/customer_profiles#alias).  Customer Profiles are used to create audiences for both targeting and segmentation.
+A single customer profile contains attributes collected by Optimizely and attributes collected by you, or by services
+that you use, and provided to Optimizely to create a single view of the customer. These attributes are organized and
+stored by [datasource](/rest/customer_profiles#dcp_datasources) and linked across datasources using identity
+[aliases](/rest/customer_profiles#alias).
 
-The APIs below describe the steps needed to create, update, and delete individual Customer Profiles alongside all related objects.
+Customer profiles can be used to create audiences for targeting, and exported for use in other integrations, or
+analysis.
 
-If you'd like a quick introduction to the REST API, refer to the [Getting started](/rest/guide) guide and check out our [FAQs](/rest/faqs).
+The APIs below can be used to create, update, and delete customer profiles.
 
-Note: Customer Profiles are currently in Beta and are only available for whitelisted accounts. This means the APIs are subject to change pending feedback from early customers. If you would like early access to these APIs please contact us at [customer-profiles@googlegroups.com](mailto:customer-profiles@googlegroups.com)! We are eager to hear your feedback!
+For a quick introduction to the REST API, refer to the [Getting started](/rest/guide) guide and check out our
+[FAQs](/rest/faqs).
+
+Note: Dynamic Customer Profiles are currently in Beta and are only available for whitelisted accounts. The APIs are
+subject to change based on feedback from early customers. If you would like early access to DCP please contact us at
+[customer-profiles@googlegroups.com](mailto:customer-profiles@googlegroups.com)! We are eager to hear your feedback!
 
 <img src="/assets/img/dcp/overview.png">

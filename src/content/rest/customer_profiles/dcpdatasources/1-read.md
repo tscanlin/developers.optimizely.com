@@ -9,7 +9,7 @@ anchor: read-dcpdatasource
 fields:
   id: Datasource ID
   archived: Boolean indicating whether this DCP Service is archived
-  attributes: An array of all attribues inside this Datasource
+  attributes: An array of all attributes inside this Datasource
   aws_secret_key: Secret key for provisioned aws account
   aws_access_key: Access key for provisioned aws account
   created: Creation date of DCP Service

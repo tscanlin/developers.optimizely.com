@@ -19,7 +19,7 @@ response: |
     "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
     "created": "2015-08-20T23:26:08.414110Z",
     "dcp_service_id": 567,
-    "description": "First party data from my Data Warehouse",
+    "description": null,
     "is_optimizely": false,
     "keyfield_locator_name": "_my_hashedEmailcookie",
     "keyfield_locator_type": "cookie",

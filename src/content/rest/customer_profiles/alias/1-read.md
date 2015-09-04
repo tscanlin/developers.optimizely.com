@@ -17,17 +17,14 @@ response: |
   }
 ---
 
-Return all customerIds aliased to the primary customerId in the Optimizely Datasource. CustomerIds are returned alongside their corresponding datasourceIds.
+Gets all customer IDs aliased to the Optimizely datasource customer ID.
 
-The `datasourceId` for this call should be the datasourceId of the Optimizely Datasource. You can find this id using [List Datasources](/rest/customer_profiles/#list-dcpservice-datasources). In this example it is *678*.
-The `customerId` for this call should be the Optimizely User ID. In this example it is *oeu1234.5678*.
-
-In the `data` section of the response the key-value pairs are the datasource_ids and the corresponding customer_ids that were aliased to the given optimizely customer_id.
+The `data` section of response is a map of datasource IDs to their corresponding Customer IDs, each aliased to the
+canonical Optimizely User ID.
 
 <div class="lego-attention lego-attention--warning push--bottom">
-
-The `datasourceId` for this call should be the datasourceId of the Optimizely Datasource. You can find this id using [List Datasources](/rest/customer_profiles/#list-dcpservice-datasources)
-
-The `customerId` for this call should be the Optimizely User ID.
-
+The `datasourceId` for this call should be the ID of the Optimizely datasource. You can find this ID using [list
+datasources](/rest/customer_profiles/#list-dcpservice-datasources) and finding the datasource with `is_optimizely=true`.
+In this example, it is *678*.  The `customerId` for this call should be the Optimizely User ID. In this example, it is
+*oeu1234.5678*.
 </div>

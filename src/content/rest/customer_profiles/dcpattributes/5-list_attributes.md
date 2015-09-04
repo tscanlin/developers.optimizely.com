@@ -10,22 +10,26 @@ response: |
   [
     {
       "archived": false,
+      "datatype": "long",
+      "dcp_datasource_id": 678,
       "description": null,
       "format": null,
-      "datatype": "long",
-      "version": 1,
       "id": 789,
       "name": "LTV"
+      "version": 1
     },
     {
       "archived": false,
+      "datatype": "string",
+      "dcp_datasource_id": 678,
       "description": null,
       "format": null,
-      "datatype": "string",
-      "version": 1,
       "id": 790,
       "name": "most_viewed_category"
+      "version": 1
     }
   ]
 ---
-Fetches all attributes for a given Datasource. [GET Datasource](/rest/customer_profiles/index.html#read-dcpdatasource) also returns all attributes for a given datasource.
+Gets all attributes for the specified datasource.
+The response to [GET datasource](/rest/customer_profiles/index.html#read-dcpdatasource) also includes all attributes of
+that datasource.

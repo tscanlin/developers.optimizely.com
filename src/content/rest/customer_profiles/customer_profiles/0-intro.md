@@ -4,15 +4,15 @@ title: Customer Profiles
 anchor: customer_profiles
 ---
 
-Customer Profiles are a collection of customer user's attributes across Datasources.
+Customer Profiles are a collection of your customers' attributes across several data sources. The following APIs allow
+you to create, update, and read customer attributes for a single datasource.
 
-The following APIs are designed to create, update and read customer's attributes data for a single datasource at a time.
+To use these APIs, we recommend that you first read the sections on
+[DCP Services](/rest/customer_profiles#dcp_services), [datasources](/rest/customer_profiles#dcp_datasources),
+and [attributes](/rest/customer_profiles#dcp_attributes)
 
-To use these APIs make sure you have read the sections on [DCPServices](/rest/customer_profiles#customer_profile_service), [Datasources](/rest/customer_profiles#dcp_datasources
-<img src="/assets/img/dcp/customer_profiles.png">), and [Attributes](/rest/customer_profiles#dcp_attributes)
-
-
-Using [/consolidated_customer_profile_view](/rest/customer_profiles#consolidated-profile), you can retrieve the full Customer's Profile across Datasources.
+Using the [consolidated customer profile view](/rest/customer_profiles#consolidated-profile) API call, you can retrieve
+the complete Customer Profile across all data sources.
 
 <div class="lego-attention lego-attention--warning push--bottom">
 The APIs that follow use the domain: https://vis.optimizely.com/api/

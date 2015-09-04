@@ -4,40 +4,51 @@ title: Profile Integrations
 anchor: cust_integrations
 ---
 
-*Customer Profile Integrations* allow you to upload customer attributes to enrich a Customer Profile.
+*Customer Profile Integrations* allow you to upload attributes to enrich a customer profile.
 
-This section walks through how to build an integration with Optimizely that uploads customer attributes to Optimizely.
+This section walks through how to build an integration that uploads customer attributes to Optimizely.
 
-### Prerequisites
+### Pre-requisites
 
-* Your application stores customer ids (user identifiers e.g. hashed email addresses or other unique IDs)
-* User identifiers are not personally identifiable, according to Optimizely's [Terms of Service](https://www.optimizely.com/terms/)
-* User identifiers can be accessed via the user's browser (e.g. in a cookie, query parameter, or other client location)
-* Comfortable using REST APIs
+* Your application stores customer IDs (e.g. hashed email addresses or other unique IDs)
+* Customer IDs are not personally identifiable, according to Optimizely's
+  [Terms of Service](https://www.optimizely.com/terms/)
+* Customer IDs can be accessed via the customer's device (e.g. in a cookie, query parameter, or other device location)
+* You are comfortable using REST APIs
 
 ### 1. Get Access
 
-Customer Profiles are currently in Beta and are only available for whitelisted accounts. This means the APIs are subject to change, pending feedback from early customers. If you would like early access to these APIs, please contact us at [customer-profiles@googlegroups.com](mailto:customer-profiles@googlegroups.com)! We are eager to hear your feedback!
+Dynamic Customer Profiles are currently in Beta and are only available for whitelisted accounts. The APIs are subject to
+change based on feedback from early customers. If you would like early access to DCP, please contact us at
+[customer-profiles@googlegroups.com](mailto:customer-profiles@googlegroups.com)! We are eager to hear your feedback!
 
 ### 2. Register your application
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send data to Optimizely. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide
+a seamless experience to users in your application and periodically send data to Optimizely. [Learn how to connect to
+Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 ### 3. Create a datasource
 
-After connecting with Optimizely, you should [create a Datasource](/rest/customer_profiles#create-dcpdatasource) in Optimizely. This will be the location for all of your application's customer data. This allows you to send customer data to Optimizely, by Datasource, without worrying about the relationship of customers across datasources.
+After connecting with Optimizely, you should [create a datasource](/rest/customer_profiles#create-dcpdatasource) in
+Optimizely. This will be the location for all of your application's customer data. This allows you to send customer data
+to Optimizely, organized by datasource, without worrying about the relationship of customers across datasources.
 
 ### 4. Register Attributes
 
-Register Attributes for the Datasource with [Create Attribute](/rest/customer-profiles#create-dcpattribute). Attributes must be registered prior to Customer Profile data being added to that Datasource.
+Register attributes for the datasource with [create attribute](/rest/customer_profiles#create-dcpattribute). Attributes
+must be registered prior to customer profile data being uploaded to that datasource.
 
 ### 5. Upload data
 
-Next, use [Write Customer Profile](/rest/customer_profiles#create-customer-profile) to upload Attribute values for the registered Attributes. You can also use [Bulk Upload](/rest/customer_profiles#bulk) to upload attribute data in the form of a bulk CSV (comma-separated values) drop.
+[Write customer profile](/rest/customer_profiles#update-customer-profile) attribute values for the registered
+attributes. You can also [bulk upload](/rest/customer_profiles#bulk) attribute data by dropping a CSV (comma-separated values)
+file into the datasource's [S3 path](/rest/customer_profiles#read-dcpdatasource).
 
 ### 6.  QA integration
 
-To test the integration end-to-end, you should verify the following:
-- A Datasource has been creating in the the Datasource dashboard
-- Datasource Attributes appear in the Audience Builder under "Dynamic Customer Profiles"
-- You can run a targeted experiment based on uploaded data.
+To test the integration end-to-end, verify that:
+- A datasource has been creating in the the datasource dashboard
+- Datasource attributes appear in the audience builder under "Dynamic Customer Profiles" and you can create an audience
+  based on these attributes
+- You can run a experiment targeted to this audience based on uploaded data.

@@ -2,10 +2,9 @@
 template: sidebyside
 endpoint: customer_profile/567/678/oeu1234.5678
 endpoint_domain: https://vis.optimizely.com/api/
-endpoint_option: 1234
 type: POST
 title: Write customer profile
-anchor: Update-customer-profile
+anchor: update-customer-profile
 request:
   data:
     "LTV": 10,
@@ -22,12 +21,16 @@ response: |
   }
 ---
 
-Creates/Updates attributes for a customer profile given `dcp_service_id`, `dcp_datasource_id` and `customer_id`.
+Creates/Updates the attributes for the specified customer's profile; the DCP Service, datasource, and customer's ID in
+that datasource must be specified.
 
-Takes a set of key value pairs, where each key corresponds to the `name` of the [Attribute](/rest/customer_profiles#dcp_attributes) and `value` is provided in attribute's original datatype and format.
+The request data is a set of key value pairs, where each key is the `name` of the
+[attribute](/rest/customer_profiles#dcp_attributes) and its `value` must conform to the attribute's datatype and format.
 
 #### Note:
-- If an Attribute already has a value for a given customer_id, the value for the given Attribute is updated
-- A subset of defined [Attribute](/rest/customer_profiles#dcp_attributes) is ok.
-- If a column header does not correspond to a [Attribute](/rest/customer_profiles#dcp_attributes) `name`, the write will fail
-- If an Attribute value does respect the [Attribute](/rest/customer_profiles#dcp_attributes) `datatype`/`format`, the write will fail
+- The specified attribute value overwrites any existing value specified earlier.
+- The request may contain a subset of defined [attributes](/rest/customer_profiles#dcp_attributes).
+- If a key does not correspond to a registered [attribute](/rest/customer_profiles#dcp_attributes) `name`, the write
+  will fail
+- If a value does not respect the [attribute's](/rest/customer_profiles#dcp_attributes) `datatype`/`format`, the write
+  will fail
