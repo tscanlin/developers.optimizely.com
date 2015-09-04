@@ -102,6 +102,30 @@ Select the Optimizely.jar library (you may wish to copy the jar into your projec
 
 Select your application module as a target for the library.
   <img src="/assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
+  
+### Proguard
+
+The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
+
+```
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+-keepattributes Signature
+
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+
+# Classes that will be serialized/deserialized over Gson
+
+# OkIO and OkHTTP
+-keep class com.optimizely.JSON.** { *; }
+-dontwarn okio.**
+
+-dontwarn com.squareup.okhttp.**
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+```
 
 ### Android Studio
 If you are using Android Studio, please see the [Gradle](#gradle) configuration above.
