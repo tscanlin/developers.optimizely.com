@@ -281,7 +281,14 @@ http://www.example.com/page.html?optimizely_opt_out=true
 <a name="activate"></a>
 ### Activate
 
-Activate manual activation mode experiments. When you call "activate" the given experiment is run if the visitor meets the experiment's targeting conditions.
+Activate manual activation mode experiments. When you call "activate", all experiments that have manual activation mode configured are run if the visitor meets the experiment's targeting conditions.
+
+```javascript
+window['optimizely'] = window['optimizely'] || [];
+window['optimizely'].push(["activate"]);
+```
+
+You can activate an experiment setup with any activation type by including the `experimentID` in the activation call. The visitor must still meet all experiment targeting conditions.
 
 ```javascript
 window['optimizely'] = window['optimizely'] || [];
