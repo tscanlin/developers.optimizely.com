@@ -93,32 +93,7 @@ in the width or height fields in the visual editor. We are working on an update 
 
 <a name="proguard"></a>
 ##### *Q: Do I need to include any ProGuard configuration rules to use the Optimizely SDK?*
-*A:* The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
-
-```
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
-
-# Gson specific classes
--keep class sun.misc.Unsafe { *; }
-#-keep class com.google.gson.stream.** { *; }
-
-# Classes that will be serialized/deserialized over Gson
-
-# OkIO and OkHTTP
--keep class com.optimizely.JSON.** { *; }
--dontwarn okio.**
-
--dontwarn com.squareup.okhttp.**
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
-
-# DrawerLayout Listener
--keepclassmembers class android.support.v4.widget.DrawerLayout {
-    private android.support.v4.widget.DrawerLayout$DrawerListener mListener;
-```
-
+*A:* Refer [here](/android/getting-started/index.html#proguard) for ProGuard configuration rules to include to support Optimizely's SDK.  
 <a name="permissions"></a>
 ##### *Q: Does the Optimizely SDK require any permissions?*
 *A:* The Optimizely SDK only requires the [INTERNET](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET) permission.

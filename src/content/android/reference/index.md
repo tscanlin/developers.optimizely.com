@@ -306,7 +306,7 @@ dependencies {
 Installation:
 ```java
 MixpanelAPI mixpanelAPI = MixpanelAPI.getInstance(this, "API_TOKEN");
-Optimizely.registerPlugin(new MixpanelIntegration());
+Optimizely.registerPlugin(new OptimizelyMixpanelIntegration());
 ```
 
 ### Universal Analytics (Google Analytics)
