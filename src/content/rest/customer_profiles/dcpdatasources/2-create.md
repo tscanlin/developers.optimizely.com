@@ -1,7 +1,7 @@
 ---
 template: sidebyside
-endpoint: dcp_services/567/
-endpoint_prefix: dcp_datasources/
+endpoint: dcp_services/567/dcp_datasources
+endpoint_prefix: dcp_services/
 endpoint_option: 567
 type: POST
 title: Create a Datasource

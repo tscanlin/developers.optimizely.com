@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-endpoint: dcp_datasources/678/
+endpoint: dcp_datasources/678
 endpoint_prefix: dcp_datasources/
 endpoint_option: 678
 type: GET
