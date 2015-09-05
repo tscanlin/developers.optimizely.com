@@ -1,7 +1,7 @@
-var gulp         = require('gulp');
-var path         = require('path');
+var gulp = require('gulp');
+var path = require('path');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../../config').paths;
+var paths = require('../../config').paths;
 
 gulp.task('watch', ['browser-sync'], function() {
   // Watch task for images
