@@ -4,6 +4,22 @@ title: "Optimizely iOS SDK Reference"
 ---
 # Optimizely iOS SDK Reference
 
+This section provides information on how to customize your SDK installation and code snippets for how to implement Optimizely's APIs.
+
+## Custom Initialization
+
+By default, Optimizely is initialized synchronously with a max 2 second timeout.  Optimizely can also be initialized asynchronously, which is a non-blocking call.  If you choose to load Optimizely asynchronously, you will need to use the callback to ensure that Optimizely variables and code blocks are accessed after Optimizely start has been completed.  If Optimizely variables and code blocks are accessed prior to Optimizely start being completed, no experiments will run.
+
+```obj-c
+[Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN
+launchOptions:launchOptions
+experimentsLoadedCallback:^(BOOL success, NSError *error)
+{ 
+   ...
+}];
+```
+
+
 ## Connecting to Optimizely's Editor
 
 It is highly recommended to use Optimizely's 'O' gesture to connect your app to Optimizely's editor.  However, there are other options should you choose not to implement Optimizely's URL scheme.
