@@ -8,7 +8,7 @@ This section provides information on how to customize your SDK installation and 
 
 ## Custom Initialization
 
-By default, Optimizely is initialized synchronously with a max 2 second timeout.  Optimizely can also be initialized asynchronously, which is a non-blocking call.
+By default, Optimizely is initialized synchronously with a max 2 second timeout.  Optimizely can also be initialized asynchronously, which is a non-blocking call.  If you choose to load Optimizely asynchronously, you will need to use the callback to ensure that Optimizely variables and code blocks are accessed after Optimizely start has been completed.  If Optimizely variables and code blocks are accessed prior to Optimizely start being completed, no experiments will run.
 
 ```obj-c
 [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN
@@ -18,8 +18,6 @@ experimentsLoadedCallback:^(BOOL success, NSError *error)
    ...
 }];
 ```
-
-If you choose to load Optimizely asynchronously, you will need to use the callback to ensure that Optimizely variables and code blocks are accessed after Optimizely start has been completed.  If Optimizely variables and code blocks are accessed prior to Optimizely start being completed, no experiments will run.
 
 
 ## Connecting to Optimizely's Editor
