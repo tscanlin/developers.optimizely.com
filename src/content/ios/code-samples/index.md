@@ -12,14 +12,6 @@ Be sure to modify the code appropriately before running in production!
 
 To learn how to use Optimizely's debug APIs, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-and-Android-Experiments).
 
-## *Integrations* 
-
-Check here for code samples on how to do custom integrations.
-
-### *Xamarin Binding*
-
-The Xamarin binding example can be found [here](/assets/img/ios/New_projectbutton.png).
-
 ## *Advanced Use Cases*
 
 ### *Experiment from App to Webview*
