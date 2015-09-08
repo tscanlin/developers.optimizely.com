@@ -1,23 +1,23 @@
-var gulp         = require('gulp');
-var browserSync  = require('browser-sync');
-var swig         = require('swig');
-var markedSwig   = require('swig-marked');
-var markdown     = require('gulp-markdown-to-json');
-var fs           = require('fs');
-var glob         = require('glob');
-var rename       = require('gulp-rename');
-var tap          = require('gulp-tap');
-var util         = require('gulp-util');
-var path         = require('path');
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var swig = require('swig');
+var markedSwig = require('swig-marked');
+var markdown = require('gulp-markdown-to-json');
+var fs = require('fs');
+var glob = require('glob');
+var rename = require('gulp-rename');
+var tap = require('gulp-tap');
+var util = require('gulp-util');
+var path = require('path');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../../config').paths;
+var paths = require('../../config').paths;
 
 swig.setDefaults({
   cache: false,
   loader: swig.loaders.fs(paths.src),
   locals: {
-    paths: paths
-  }
+    paths: paths,
+  },
 });
 
 // Use markdown with swig (as a filter and a tag).
@@ -30,16 +30,16 @@ function filter_stringify(input) {
   return JSON.stringify(input);
 }
 filter_stringify.safe = true;
-swig.setFilter('stringify', filter_stringify );
+swig.setFilter('stringify', filter_stringify);
 
 // Add swig-highlight for code highlighting
 require('swig-highlight').apply(swig);
 
 
 // Gulp task
-gulp.task('concat', ['markdown'], function (cb) {
+gulp.task('concat', ['markdown'], function(cb) {
   return gulp.src([
-      path.join(paths.src + paths.content, '**/index.concat')
+      path.join(paths.src + paths.content, '**/index.concat'),
     ])
     .pipe(markdown())
     // This produces a JSON object with the front-matter and the HTML for the
@@ -49,7 +49,7 @@ gulp.task('concat', ['markdown'], function (cb) {
       var template = json.template || 'default';
 
       var fileName = path.basename(file.path);
-      json.fileName = fileName.replace(/\.[^/.]+$/, ""); // Get the file name without the extension.
+      json.fileName = fileName.replace(/\.[^/.]+$/, ''); // Get the file name without the extension.
 
       // Split on the content path since that is the root.
       var relativePath = file.path.split(paths.content)[1];
@@ -70,8 +70,8 @@ gulp.task('concat', ['markdown'], function (cb) {
       var sections = json.sections;
       sections.forEach(function(section) {
         var filesArray = glob.sync(paths.build + relativePath + section + '/*.html');
-        filesArray.forEach(function(file) {
-          concatHtml += fs.readFileSync(file).toString();
+        filesArray.forEach(function(_file) {
+          concatHtml += fs.readFileSync(_file).toString();
         });
       });
 
@@ -80,9 +80,9 @@ gulp.task('concat', ['markdown'], function (cb) {
       file.contents = new Buffer(tpl(json), 'utf8');
     }))
     .pipe(rename({
-      extname: '.html'
+      extname: '.html',
     }))
     .pipe(gulp.dest(paths.build))
     .on('error', handleErrors)
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.reload({stream: true}));
 });
