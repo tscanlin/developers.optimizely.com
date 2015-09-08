@@ -19,7 +19,7 @@ analysis.
 
 The APIs below can be used to create, update, and delete customer profiles.
 
-For a quick introduction to the REST API, refer to the [Getting started](/rest/guide) guide and check out our
+For a quick introduction to the REST API, refer to the [Getting started](/rest/getting-started) guide and check out our
 [FAQs](/rest/faqs).
 
 Note: Dynamic Customer Profiles are currently in Beta and are only available for whitelisted accounts. The APIs are

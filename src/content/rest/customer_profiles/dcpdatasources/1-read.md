@@ -22,7 +22,7 @@ fields:
                          match the regular expression `/^[a-zA-Z_][a-zA-Z_0-9\$]*$/`
   last_modified: Last modified date of this Datasource
   name: The name of the Datasource
-  s3_path: S3Path for this Datasource
+  s3_path: S3 path for this Datasource
 response: |
   {
     "id": 678,
