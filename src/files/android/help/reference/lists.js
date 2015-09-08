@@ -7,12 +7,14 @@ var DATA = [
       { id:5, label:"com.optimizely.CodeBlocks.OptimizelyCodeBlocks", link:"com/optimizely/CodeBlocks/OptimizelyCodeBlocks.html", type:"class" },
       { id:6, label:"com.optimizely.CodeBlocks.OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder", link:"com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html", type:"class" },
       { id:7, label:"com.optimizely.Optimizely", link:"com/optimizely/Optimizely.html", type:"class" },
-      { id:8, label:"com.optimizely.Variable", link:"com/optimizely/Variable/package-summary.html", type:"package" },
-      { id:9, label:"com.optimizely.Variable.LiveVariable", link:"com/optimizely/Variable/LiveVariable.html", type:"class" },
-      { id:10, label:"com.optimizely.Variable.LiveVariable.Callback", link:"com/optimizely/Variable/LiveVariable.Callback.html", type:"class" },
-      { id:11, label:"com.optimizely.integration", link:"com/optimizely/integration/package-summary.html", type:"package" },
-      { id:12, label:"com.optimizely.integration.OptimizelyEventListener", link:"com/optimizely/integration/OptimizelyEventListener.html", type:"class" },
-      { id:13, label:"com.optimizely.integration.OptimizelyExperimentData", link:"com/optimizely/integration/OptimizelyExperimentData.html", type:"class" },
-      { id:14, label:"com.optimizely.integration.OptimizelyExperimentData.OptimizelyExperimentDataState", link:"com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html", type:"class" }
+      { id:8, label:"com.optimizely.Optimizely.OptimizelyStartState", link:"com/optimizely/Optimizely.OptimizelyStartState.html", type:"class" },
+      { id:9, label:"com.optimizely.Variable", link:"com/optimizely/Variable/package-summary.html", type:"package" },
+      { id:10, label:"com.optimizely.Variable.LiveVariable", link:"com/optimizely/Variable/LiveVariable.html", type:"class" },
+      { id:11, label:"com.optimizely.Variable.LiveVariable.Callback", link:"com/optimizely/Variable/LiveVariable.Callback.html", type:"class" },
+      { id:12, label:"com.optimizely.integration", link:"com/optimizely/integration/package-summary.html", type:"package" },
+      { id:13, label:"com.optimizely.integration.DefaultOptimizelyEventListener", link:"com/optimizely/integration/DefaultOptimizelyEventListener.html", type:"class" },
+      { id:14, label:"com.optimizely.integration.OptimizelyEventListener", link:"com/optimizely/integration/OptimizelyEventListener.html", type:"class" },
+      { id:15, label:"com.optimizely.integration.OptimizelyExperimentData", link:"com/optimizely/integration/OptimizelyExperimentData.html", type:"class" },
+      { id:16, label:"com.optimizely.integration.OptimizelyExperimentData.OptimizelyExperimentDataState", link:"com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html", type:"class" }
 
     ];

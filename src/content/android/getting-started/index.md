@@ -102,7 +102,7 @@ Select the Optimizely.jar library (you may wish to copy the jar into your projec
 
 Select your application module as a target for the library.
   <img src="/assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
-  
+
 ### Proguard
 
 The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
@@ -162,6 +162,22 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // You can find the following code snippet in your project code.
     Optimizely.startOptimizely("<API Token>", getApplication());
+}
+```
+
+This call will block until Optimizely is started. For a non-blocking call, use the following version which takes a callback listener as the third argument. If you are not interested in the callback, you can pass in `null`:
+
+```java
+
+private static void mOptimizelyEventListener = new DefaultOptimizelyEventListener() {
+    @Override onOptimizelyStarted() {}
+    @Override onOptimizelyFailedToStart(String message) {}
+};
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // More startup code here
+    Optimizely.startOptimizelyAsync("<API Token>", getApplication(), mOptimizelyEventListener);
 }
 ```
 
