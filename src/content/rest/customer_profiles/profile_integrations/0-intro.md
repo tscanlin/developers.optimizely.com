@@ -20,7 +20,7 @@ This section walks through how to build an integration that uploads customer att
 
 Dynamic Customer Profiles are currently in Beta and are only available for whitelisted accounts. The APIs are subject to
 change based on feedback from early customers. If you would like early access to DCP, please contact us at
-[customer-profiles@googlegroups.com](mailto:customer-profiles@googlegroups.com)! We are eager to hear your feedback!
+[customer_profiles@optimizely.com](mailto:customer_profiles@optimizely.com)! We are eager to hear your feedback!
 
 ### 2. Register your application
 
@@ -28,24 +28,30 @@ We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely R
 a seamless experience to users in your application and periodically send data to Optimizely. [Learn how to connect to
 Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
-### 3. Create a datasource
+### 3. Create a DCP Service
 
-After connecting with Optimizely, you should [create a datasource](/rest/customer_profiles#create-dcpdatasource) in
-Optimizely. This will be the location for all of your application's customer data. This allows you to send customer data
-to Optimizely, organized by datasource, without worrying about the relationship of customers across datasources.
+After connecting with Optimizely, you should [create a DCP Service](/rest/customer_profiles#create-dcpservice), and
+[associate it with your project](/rest/reference/index.html#update-project). This service will contain all your
+datasources. If you already have a DCP service, you may proceed to the next step.
 
-### 4. Register Attributes
+### 4. Create a datasource
+
+[Create a datasource](/rest/customer_profiles#create-dcpdatasource) within your DCP Service.  This will be the location
+for all of your application's customer data. A datasource allows you to send customer data to Optimizely, organized under
+a common ID space, without worrying about the relationship of customers across datasources.
+
+### 5. Register Attributes
 
 Register attributes for the datasource with [create attribute](/rest/customer_profiles#create-dcpattribute). Attributes
 must be registered prior to customer profile data being uploaded to that datasource.
 
-### 5. Upload data
+### 6. Upload data
 
 [Write customer profile](/rest/customer_profiles#update-customer-profile) attribute values for the registered
 attributes. You can also [bulk upload](/rest/customer_profiles#bulk) attribute data by dropping a CSV (comma-separated values)
 file into the datasource's [S3 path](/rest/customer_profiles#read-dcpdatasource).
 
-### 6.  QA integration
+### 7.  QA integration
 
 To test the integration end-to-end, verify that:
 - A datasource has been creating in the the datasource dashboard

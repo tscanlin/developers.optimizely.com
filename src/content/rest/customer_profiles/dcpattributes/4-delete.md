@@ -5,7 +5,7 @@ endpoint: dcp_datasource_attributes/789
 endpoint_prefix: dcp_attributes/
 endpoint_option: 789
 title: Delete Attribute
-anchor: delete-dcpdatasource
+anchor: delete-dcpattribute
 ---
 Archives the specified attribute
 
