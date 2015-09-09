@@ -227,7 +227,7 @@ See this section on [configuring the visual editor](#configure_visual_editor).
 ### Preview Mode
 Preview mode allows you to force your app into a certain variation for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, select your desired variation, open the variation settings drawer, and click `Preview`
 
-<img src="/assets/img/android/preview-mode.png" alt="Enter Preview Mode" />
+<img src="/assets/img/mobile/launch-preview.png" alt="Enter Preview Mode" />
 
 ### Pre-launch Checklist
 
