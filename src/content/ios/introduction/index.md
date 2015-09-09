@@ -37,6 +37,11 @@ There are three types of changes you can make in Optimizely, one of which (Visua
 - Can perform phased roll-outs of new features for targeted group or percentage of your users directly from Optimizely
 - Optimizely acts as the switch enabling you to intelligently activate your features/code and analyze the impact the new changes have made
 
+For more details, check out the following articles:
+
+- [How Optimizely's SDKs Work](https://help.optimizely.com/hc/en-us/articles/205014107-How-Optimizely-s-SDKs-Work-SDK-Order-of-execution-experiment-activation-and-goals)
+- [QA Your Optimizely Experiments](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-and-Android-Experiments)
+
 Not sure what tests to run?  Check out these [A/B test ideas](https://www.optimizely.com/mobile/#ideas).
 
 
