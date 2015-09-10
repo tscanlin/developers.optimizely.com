@@ -7,7 +7,7 @@ title: "Integrations"
 
 *Welcome! This page walks through everything you need to build an integration using Optimizely APIs.*
 
-Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) including analytics solutions, data management platforms, content management systems, e-commerce platforms, conversion tracking solutions, and more. Many of these integrations were built entirely using public Optimizely APIs. This page which includes some common use cases for integrating with Optimizely and all the developer resources you need to build an integration.
+Optimizely integrates with more than [30 Technology Partners](http://optimizely.com/partners/technology) including analytics solutions, data management platforms, content management systems, e-commerce platforms, conversion tracking solutions, and more. Many of these integrations were built entirely using public Optimizely APIs. This page includes some common use cases for integrating with Optimizely and all the developer resources you need to build an integration.
 
 If you are a prospective Technology Partner interested in building an integration with Optimizely, please read the [Technology Partners](#technology-partners) section to understand the required steps to get your integration built, approved, and launched by Optimizely.
 
@@ -186,7 +186,7 @@ You can see a full list of supported Optimizely integrations divided by type lis
 
 *Note:* The following guide will not work for <a href="https://help.optimizely.com/hc/en-us/articles/200040675" target="_blank">redirect experiments</a>. If you'd like to support redirect experiments as part of the integration, please refer to the [Support for redirect experiments](#support-for-redirect-experiments) section below, which includes some helper code.
 
-### Prerequisites
+<h3 id="analytics-prerequisites">Prerequisites</h3> 
 
 - Your analytics platform can track Optimizely experiment and variation names
 - Basic JavaScript skills
@@ -315,17 +315,17 @@ An example of a test page where a Google Analytics integration has been implemen
 
 *Audience integrations* allow customers to target a specific audience based on data from an external source. With a simple drag-and-drop interface, customers can personalize content and experiments based on 3rd party demographic data such as gender, location, weather, and age, or 1st party behavioral data such as buying intent, lifetime value, cart abandonment, and more. This section explains how to create audiences within Optimizely (via the REST API) and add a visitor to that audience in the browser (via the JavaScript API).
 
-### Prerequisites
+<h3 id="audiences-prerequisites">Prerequisites</h3> 
 
 - Audience data from your platform is available client-side (i.e. in the browser)
 - Comfortable using REST APIs
 - Basic JavaScript skills
 
-### 1. Create a developer account
+<h3 id="audiences-1-create-a-developer-account">1. Create a developer account</h3>
 
 The REST API restricts the amount of calls per month based on the Optimizely plan of your account. To avoid going over the limit with your account, [create a free developer account](https://www.optimizely.com/?modal=devsignup). Creating a developer account does not require a credit card and will provide full access the REST API.
 
-### 2. Register your application
+<h3 id="audiences-2-register-your-application">2. Register your application</h3>
 
 We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send audiences to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
@@ -379,18 +379,20 @@ Verify with your platform that you are recognised as being in the audience. You 
 
 This section walks through how to build an integration with Optimizely that sends lists of users to Optimizely via the REST API. As an example, check out our integrations with [Salesforce](https://help.optimizely.com/hc/en-us/articles/206524537) and [Marketo](https://help.optimizely.com/hc/en-us/articles/206440108).
 
-### Prerequisites
+<h3 id="uploaded-prerequisites">Prerequisites</h3> 
 
 * Your application stores user identifiers (e.g. hashed email addresses or other unique IDs)
 * User identifiers are not personally identifiable, according to Optimizely's [Terms of Service](https://www.optimizely.com/terms/)
 * User identifiers can be accessed via the user's browser (e.g. in a cookie, query parameter, or otherwise)
 * Comfortable using REST APIs
 
-### 1. Create a developer account
+
+<h3 id="uploaded-1-create-a-developer-account">1. Create a developer account</h3>
 
 Uploaded Lists are a feature restricted to select Enterprise customers and developers. If you do not have access to Uploaded Lists and would like to develop an integration, [create a free developer account](https://www.optimizely.com/?modal=devsignup). Creating a developer account does not require a credit card and will provide full access to the Uploaded Lists feature and associated APIs.
 
-### 2. Register your application
+<h3 id="uploaded-2-register-your-application">2. Register your application</h3>
+
 
 We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
@@ -402,7 +404,7 @@ After connecting with Optimizely you can send lists to Optimizely via the REST A
 
 If you'd like periodically refresh lists, please use the [PUT endpoint](http://localhost:4001/rest/reference/#update-list) to update an existing list.
 
-### 5. QA integration
+<h3 id="uploaded-5-qa-integration">5. QA integration</h3>
 
 To test the integration end-to-end, you should verify that lists you've created via the API appear in the [Uploaded Lists](https://help.optimizely.com/hc/en-us/articles/206197347#create) tab in Optimizely. You can download the lists directly from this interface to make sure the individual user IDs are uploaded as expected. Finally, try [creating an audience including the uploaded list](https://help.optimizely.com/hc/en-us/articles/206197347#target) and running an experiment targeted to the audience to make sure users are bucketed correctly.
 
@@ -416,40 +418,41 @@ A content management integration can be done in many forms. The example that we 
 
 An alternative description on how to create a CMS integration is available <a href="https://blog.optimizely.com/wp-content/uploads/2015/05/OptimizelyHeadlineTesting.pdf">in this PDF</a>.
 
-### Prerequisites
+<h3 id="content-prerequisites">Prerequisites</h3> 
 
 - Your platform manages content on a website
 - The content that is tested has a unique identifier, e.g. `<a id="article1234">HeadlineTest</a>`
 - Comfortable using REST APIs
 - Basic JavaScript skills
 
-### 1. Create a developer account
+<h3 id="content-1-create-a-developer-account">1. Create a developer account</h3>
 
 The REST API restricts the amount of calls per month based on the Optimizely plan of your account. To avoid going over the limit with your account, [create a free developer account](https://www.optimizely.com/?modal=devsignup). Creating a developer account does not require a credit card and will provide full access the REST API.
 
-### 2. Register your application
+<h3 id="content-2-register-your-application">2. Register your application</h3>
+
 
 We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
-### 3. Configuration form: authenticating and project selection
+### 3. Create a configuration form: authenticating and project selection
 
-Create a configuration form consists of a button to authenticate with Optimizely. 
+Users can authenticate your application to use the REST API using OAuth 2.0. You can find a description on how to implement OAuth authentication <a href="http://developers.optimizely.com/rest/reference/index.html#oauth">here</a>.
 
 After connecting with Optimizely you can use the REST API to get all the projects for the account that the user has authenticated with. To get all the project names and their corresponding project IDs, use the <a href="/rest/reference/index.html#list-projects">list-projects</a> REST API call.
 
 <img src="/assets/img/integrations/content_config_authentication.png">
 
-### 4. Configuration form: URL targeting
+### 4. Create a configuration form: URL targeting
 
 An article could appear on several places on the website, so the easiest URL targeting setting for a content testing experiment is to do a substring match on the entire website. You can create an option for users to select different URLS to target. This targeting will be used for all experiments that are started with the content testing tool. 
 <img src="/assets/img/integrations/content_config_url.png">
 
-### 5. Configuration form: variation code
+### 5. Create a configuration form: variation code
 For Optimizely to modify the right content on the page, a user will have to specify where the content can be found on the page. Create a textbox that allows a user to specify the variation code.
 
 <img src="/assets/img/integrations/content_config_variationcode.png">
 
-### 6. Create experiment
+### 6. Create an experiment
 On the content item level, create a form that allows editors to create an experiment. 
 
 <img src="/assets/img/integrations/content_createexperiment.png">
@@ -628,7 +631,7 @@ function generateConversionUrl(goalname, value) {
 
 ```
 
-### 5. QA integration
+<h3 id="conversion-5-qa-integration">5. QA integration</h3>
 
 To verify the integration works, create an Optimizely experiment that includes the custom event goal in question, send some visitor traffic and offline conversions. The results page for the experiment should now include data on how many visitors and offline conversions have occurred for this experiment.
 
@@ -636,19 +639,20 @@ To verify the integration works, create an Optimizely experiment that includes t
 
 *Snippet integrations* allow users to implement the Optimizely functionality on their website without the help of a developer to add the Optimizely snippet.
 
-### Prerequisites
+<h3 id="snippet-prerequisites">Prerequisites</h3> 
 
 * Your platform is able to programmatically modify HTML templates
 
-### 1. Create a developer account
+<h3 id="snippet-1-create-a-developer-account">1. Create a developer account</h3>
 
 The REST API restricts the amount of calls per month based on the Optimizely plan of your account. To avoid going over the limit with your account, [create a free developer account](https://www.optimizely.com/?modal=devsignup). Creating a developer account does not require a credit card and will provide full access the REST API.
 
-### 2. Register your application
+<h3 id="snippet-2-register-your-application">2. Register your application</h3>
+
 
 We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application who want to install the Optimizely snippet. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
-### 3. Configuration form
+### 3. Create a configuration form
 
 Within your platform, you should add a form for installing Optimizely in a place where only administrators have access to. The configuration form consists of a button to authenticate with Optimizely using oAuth and a selector for selecting the project that the user wants to have installed on their website. This is an example of a form for when the user has not authenticated yet:
 
@@ -689,7 +693,7 @@ add_action( 'wp_head', 'optimizely_add_script', -1000 );
 
 [WordPress documentation regarding the wp_head function](https://codex.wordpress.org/Plugin_API/Action_Reference/wp_head)
 
-### 5. QA integration
+<h3 id="snippet-5-qa-integration">5. QA integration</h3>
 When a user goes through all the steps, the Optimizely snippet should be installed on the page. You can verify if the snippet is working correctly by going to a page on the website and opening the JavaScript console. When you execute `optimizely.getProjectId()` Optimizely should return the project ID that is installed on the page. 
 
 <img src="/assets/img/integrations/snippet_validation.png">
