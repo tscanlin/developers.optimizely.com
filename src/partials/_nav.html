@@ -21,9 +21,17 @@
             <!-- Add rest/conditions -->
             {% if item.path === '/rest/' %}
               <li>
-                <a class="section{% if item.path + section.path === '/' + relativePath %} active{% endif %}" href="{{ item.path }}conditions/index.html">Conditions</a>
+                <a class="section{% if section.path === 'conditions/' && item.path + section.path === '/' + relativePath %} active{% endif %}" href="{{ item.path }}conditions/index.html">Conditions</a>
                 <ul class="unstyled lego-nav lego-nav--stacked toc"></ul>
               </li>
+
+              {% if relativePath === 'rest/customer_profiles/' %}
+                <li>
+                  <a class="section{% if section.path === 'customer_profiles/' && item.path + section.path === '/' + relativePath %} active{% endif %}"
+                     href="{{ item.path }}customer_profiles/index.html">Dynamic Customer Profiles (Beta)</a>
+                  <ul class="unstyled lego-nav lego-nav--stacked toc"></ul>
+                </li>
+              {% endif %}
             {% endif %}
 
             <!-- Add links to auto generated docs -->

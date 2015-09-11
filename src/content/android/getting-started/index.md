@@ -103,6 +103,30 @@ Select the Optimizely.jar library (you may wish to copy the jar into your projec
 Select your application module as a target for the library.
   <img src="/assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
 
+### Proguard
+
+The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
+
+```
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+-keepattributes Signature
+
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+
+# Classes that will be serialized/deserialized over Gson
+
+# OkIO and OkHTTP
+-keep class com.optimizely.JSON.** { *; }
+-dontwarn okio.**
+
+-dontwarn com.squareup.okhttp.**
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+```
+
 ### Android Studio
 If you are using Android Studio, please see the [Gradle](#gradle) configuration above.
 
@@ -138,6 +162,22 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // You can find the following code snippet in your project code.
     Optimizely.startOptimizely("<API Token>", getApplication());
+}
+```
+
+This call will block until Optimizely is started. For a non-blocking call, use the following version which takes a callback listener as the third argument. If you are not interested in the callback, you can pass in `null`:
+
+```java
+
+private static void mOptimizelyEventListener = new DefaultOptimizelyEventListener() {
+    @Override onOptimizelyStarted() {}
+    @Override onOptimizelyFailedToStart(String message) {}
+};
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // More startup code here
+    Optimizely.startOptimizelyAsync("<API Token>", getApplication(), mOptimizelyEventListener);
 }
 ```
 
@@ -187,7 +227,7 @@ See this section on [configuring the visual editor](#configure_visual_editor).
 ### Preview Mode
 Preview mode allows you to force your app into a certain variation for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, select your desired variation, open the variation settings drawer, and click `Preview`
 
-<img src="/assets/img/android/preview-mode.png" alt="Enter Preview Mode" />
+<img src="/assets/img/mobile/launch-preview.png" alt="Enter Preview Mode" />
 
 ### Pre-launch Checklist
 

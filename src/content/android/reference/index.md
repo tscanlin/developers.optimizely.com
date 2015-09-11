@@ -5,6 +5,8 @@ title: "Optimizely Android SDK Reference"
 
 # Optimizely Android SDK Reference
 
+This section provides information on how to customize your SDK installation and code snippets for how to implement Optimizely's APIs.
+
 ## Connecting to Optimizely's Editor
 
 It is highly recommended to use Optimizely's 'O' gesture to connect your app to Optimizely's editor.  However, there are other options should you choose not to implement Optimizely's URL scheme.
@@ -291,7 +293,7 @@ dependencies {
 
 Installation:
 ```java
-Optimizely.registerPlugin(new AmplitudeIntegration());
+Optimizely.registerPlugin(new OptimizelyAmplitudeIntegration());
 ```
 
 ### Mixpanel
@@ -306,7 +308,7 @@ dependencies {
 Installation:
 ```java
 MixpanelAPI mixpanelAPI = MixpanelAPI.getInstance(this, "API_TOKEN");
-Optimizely.registerPlugin(new MixpanelIntegration());
+Optimizely.registerPlugin(new OptimizelyMixpanelIntegration());
 ```
 
 ### Universal Analytics (Google Analytics)
@@ -356,7 +358,7 @@ Please refer to the documentation for [trackEvent](/android/help/reference/com/o
 Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
 
 ```java
-  Optimizely.addOptimizelyEventListener(new DefaultOptimizelyEventListener() {
+  Optimizely.addOptimizelyEventListener(new OptimizelyEventListener() {
 
     public void onOptimizelyStarted() {
       Log.i(tag, "Optimizely started.");

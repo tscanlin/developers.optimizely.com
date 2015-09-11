@@ -1,10 +1,10 @@
-var gulp         = require('gulp');
-var browserSync  = require('browser-sync');
-var path         = require('path');
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var path = require('path');
 var handleErrors = require('../util/handleErrors');
-var paths        = require('../../config').paths;
-var browserify   = require('browserify');
-var source       = require('vinyl-source-stream');
+var paths = require('../../config').paths;
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 gulp.task('browserify', function() {
   return browserify(paths.src + paths.js + 'index.js')
