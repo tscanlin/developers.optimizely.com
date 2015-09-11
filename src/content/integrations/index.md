@@ -191,12 +191,12 @@ Not seeing the platform you’re looking for? Check out the <a href="https://hel
 
 ### 1. Add the snippet
 
-To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out this step-by-step guide in our <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">knowledge base</a>.
+To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">this step-by-step guide in our knowledge base</a>.
 
 ### 2. Create and start an experiment
 Create an experiment within your Optimizely account that runs on the test page you have created in Step 1. Save your experiment without making any changes. Click Start Experiment.
 
-To verify that your experiment is running, do a hard refresh on the test page outside of the Editor. Open the JavaScript console and execute optimizely.activeExperiments. When your experiment is live, the console will output an array with your Experiment ID. It may take up to 2 minutes for the experiment to fully upload to your test page. If you don’t see the Experiment ID appear, wait a few seconds, then execute the call again.
+To verify that your experiment is running, do a hard refresh on the test page outside of the Editor. Open the JavaScript console and execute optimizely.activeExperiments. When your experiment is live, the console will output an array with your Experiment ID. It may take up to 2 minutes for the experiment to fully upload to your test page. If you don’t see the Experiment ID appear, wait for a few seconds, then execute the call again.
 
 <img src="/assets/img/integrations/active_experiments.png">
 
@@ -414,7 +414,7 @@ To test the integration end-to-end, you should verify that the lists you've crea
 
 *Content Management integrations* allow customers to leverage the full power of Optimizely on a platform that manages content.  Customers can create, configure, and run experiments directly from their content platform interface without having to login to Optimizely.
 
-There are many types of content management integrations. The example below describes an integration that tests article headlines in Wordpress. Other potential integrations include: testing images from within an e-Commerce platform, testing product titles from within an e-Commerce platform, and testing an entire article from an editorial platform. 
+There are many types of content management integrations. The example below describes an integration that tests article headlines in WordPress. Other potential integrations include: testing images from within an e-Commerce platform, testing product titles from within an e-Commerce platform, and testing an entire article from an editorial platform. 
 
 <h3 id="content-prerequisites">Prerequisites</h3> 
 
@@ -444,7 +444,7 @@ You can see an example of how the configuration form should look like in the ima
 
 ### 4. Create a configuration form: URL targeting
 
-Because there are many different places on a page where an article can appear, the best URL Targeting condition for a content management experiment is a substring match on the entire website. You can create an option that allows customers to select different URLS to target. This targeting will be used for all experiments that are created  with the content testing tool.
+Because there are many different places on a page where an article can appear, the best URL targeting condition for a content management experiment is a substring match on the entire website. You can create an option that allows customers to select different URLS to target. This targeting will be used for all experiments that are created  with the content testing tool.
 <img src="/assets/img/integrations/content_config_url.png">
 
 ### 5. Create a configuration form: variation code
@@ -688,7 +688,7 @@ After connecting with Optimizely you can use the REST API to get all the project
 ### 4. Implement snippet in the head section of every page
 Write custom code that automatically adds the Optimizely snippet to every page using the project ID that was chosen by the user.
 
-This is an example of how it would work within Wordpress:
+This is an example of how it would work within WordPress:
 
 ```php
 /**
