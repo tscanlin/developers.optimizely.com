@@ -1759,4 +1759,563 @@
 </method>
 </class>
 </package>
+<package name="com.optimizely.integrations.amplitude"
+>
+<class name="OptimizelyAmplitudeIntegration"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="OptimizelyAmplitudeIntegration"
+ type="com.optimizely.integrations.amplitude.OptimizelyAmplitudeIntegration"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getActivityLifecycleCallbacks"
+ return="android.app.Application.ActivityLifecycleCallbacks"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDependencies"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOnTouchListener"
+ return="android.view.View.OnTouchListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOptimizelyEventsListener"
+ return="com.optimizely.integration.OptimizelyEventListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getPluginId"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRequiredPermissions"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="start"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="optimizely" type="com.optimizely.Optimizely">
+</parameter>
+<parameter name="config" type="org.json.JSONObject">
+</parameter>
+</method>
+<method name="stop"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+</package>
+<package name="com.optimizely.integrations.localytics"
+>
+<class name="OptimizelyLocalyticsIntegration"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="OptimizelyLocalyticsIntegration"
+ type="com.optimizely.integrations.localytics.OptimizelyLocalyticsIntegration"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getActivityLifecycleCallbacks"
+ return="android.app.Application.ActivityLifecycleCallbacks"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDependencies"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOnTouchListener"
+ return="android.view.View.OnTouchListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOptimizelyEventsListener"
+ return="com.optimizely.integration.OptimizelyEventListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getPluginId"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRequiredPermissions"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="start"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="optimizely" type="com.optimizely.Optimizely">
+</parameter>
+<parameter name="config" type="org.json.JSONObject">
+</parameter>
+</method>
+<method name="stop"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<field name="EVENT_ATTR_EXP_NAME"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;Experiment Name&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="EVENT_ATTR_EXP_NAME_AND_VAR_NAME"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;Experiment Name + Variation&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="EVENT_ATTR_EXP_VAR_NAME"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;Experiment Variation Name&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="EVENT_NAME"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;Optimizely Experiment Visited&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="LOCALYTICS_COMPONENT"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;Optimizely Localytics Integration&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="OPTIMIZELY_VARIATIONS_VIEWED"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;Optimizely Variations Viewed&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PLUGIN_ID"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;localytics_mobile&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+</package>
+<package name="com.optimizely.integrations.mixpanel"
+>
+<class name="OptimizelyMixpanelIntegration"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="OptimizelyMixpanelIntegration"
+ type="com.optimizely.integrations.mixpanel.OptimizelyMixpanelIntegration"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getActivityLifecycleCallbacks"
+ return="android.app.Application.ActivityLifecycleCallbacks"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDependencies"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOnTouchListener"
+ return="android.view.View.OnTouchListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOptimizelyEventsListener"
+ return="com.optimizely.integration.OptimizelyEventListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getPluginId"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRequiredPermissions"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="reportTrack"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="start"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="optimizely" type="com.optimizely.Optimizely">
+</parameter>
+<parameter name="config" type="org.json.JSONObject">
+</parameter>
+</method>
+<method name="stop"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+</package>
+<package name="com.optimizely.integrations.universalanalytics"
+>
+<class name="OptimizelyUniversalAnalyticsIntegration"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="OptimizelyUniversalAnalyticsIntegration"
+ type="com.optimizely.integrations.universalanalytics.OptimizelyUniversalAnalyticsIntegration"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getActivityLifecycleCallbacks"
+ return="android.app.Application.ActivityLifecycleCallbacks"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDependencies"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOnTouchListener"
+ return="android.view.View.OnTouchListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOptimizelyEventsListener"
+ return="com.optimizely.integration.OptimizelyEventListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getPluginId"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRequiredPermissions"
+ return="java.util.List&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="setTracker"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="tracker" type="Tracker">
+</parameter>
+</method>
+<method name="start"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="optimizely" type="com.optimizely.Optimizely">
+</parameter>
+<parameter name="config" type="org.json.JSONObject">
+</parameter>
+</method>
+<method name="stop"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+</package>
 </api>

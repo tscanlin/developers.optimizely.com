@@ -11,6 +11,14 @@ var NAVTREE_DATA =
 , "" ], [ "Classes", null, [ [ "DefaultOptimizelyEventListener", "com/optimizely/integration/DefaultOptimizelyEventListener.html", null, "" ], [ "OptimizelyExperimentData", "com/optimizely/integration/OptimizelyExperimentData.html", null, "" ] ]
 , "" ], [ "Enums", null, [ [ "OptimizelyExperimentData.OptimizelyExperimentDataState", "com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html", null, "" ] ]
 , "" ] ]
+, "" ], [ "com.optimizely.integrations.amplitude", "com/optimizely/integrations/amplitude/package-summary.html", [ [ "Classes", null, [ [ "OptimizelyAmplitudeIntegration", "com/optimizely/integrations/amplitude/OptimizelyAmplitudeIntegration.html", null, "" ] ]
+, "" ] ]
+, "" ], [ "com.optimizely.integrations.localytics", "com/optimizely/integrations/localytics/package-summary.html", [ [ "Classes", null, [ [ "OptimizelyLocalyticsIntegration", "com/optimizely/integrations/localytics/OptimizelyLocalyticsIntegration.html", null, "" ] ]
+, "" ] ]
+, "" ], [ "com.optimizely.integrations.mixpanel", "com/optimizely/integrations/mixpanel/package-summary.html", [ [ "Classes", null, [ [ "OptimizelyMixpanelIntegration", "com/optimizely/integrations/mixpanel/OptimizelyMixpanelIntegration.html", null, "" ] ]
+, "" ] ]
+, "" ], [ "com.optimizely.integrations.universalanalytics", "com/optimizely/integrations/universalanalytics/package-summary.html", [ [ "Classes", null, [ [ "OptimizelyUniversalAnalyticsIntegration", "com/optimizely/integrations/universalanalytics/OptimizelyUniversalAnalyticsIntegration.html", null, "" ] ]
+, "" ] ]
 , "" ] ]
 
 ;
