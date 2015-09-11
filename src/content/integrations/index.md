@@ -191,7 +191,7 @@ Not seeing the platform you’re looking for? Check out the <a href="https://hel
 
 ### 1. Add the snippet
 
-To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">this step-by-step guide in our knowledge base</a>.
+To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out this <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">step-by-step</a> guide in our knowledge base.
 
 ### 2. Create and start an experiment
 Create an experiment within your Optimizely account that runs on the test page you have created in Step 1. Save your experiment without making any changes. Click Start Experiment.
