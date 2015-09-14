@@ -300,7 +300,7 @@ Optimizely.registerPlugin(new OptimizelyAmplitudeIntegration());
 Gradle dependency:
 ```groovy
 dependencies {
-	compile(‘com.optimizely.localyticsintegration:+’)
+	compile(‘com.optimizely.localyticsintegration:+@aar’)
 }
 ```
 
