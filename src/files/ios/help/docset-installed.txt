@@ -1,4 +1,4 @@
 Documentation set was installed to Xcode!
 
 Path: /Users/jenkins/Library/Developer/Shared/Documentation/DocSets/com.optimizely.Optimizely.docset
-Time: 2015-08-18 18:12:13 +0000
+Time: 2015-09-14 21:40:15 +0000

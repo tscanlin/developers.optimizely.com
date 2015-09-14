@@ -1021,6 +1021,19 @@ here.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/activateLocalyticsIntegration</TokenIdentifier>
+			<Abstract type="html">This activates the Optimizely SDK&apos;s Localytics integration. You can read more about this
+here</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)activateLocalyticsIntegration</Declaration>
+			
+			
+			<Anchor>//api/name/activateLocalyticsIntegration</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/trackEvent:</TokenIdentifier>
 			<Abstract type="html">  @deprecated.  Use +trackEvent.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
