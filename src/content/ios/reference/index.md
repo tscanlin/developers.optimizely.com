@@ -405,6 +405,8 @@ The revenue goal allows you to [track revenue](/ios/help/html/Classes/Optimizely
 
 Optimizely integrates with popular analytics frameworks to allow you to slice and dice your experiment results. The integration sends information about the experiment and variation a user is bucketed into.  Currently we support the following frameworks in our iOS SDK:
 
+- [Localytics](https://help.optimizely.com/hc/en-us/articles/209645787)
+- [Amplitude](https://help.optimizely.com/hc/en-us/articles/204963198)
 - [Mixpanel](/ios/help/html/Classes/Optimizely.html#//api/name/activateMixpanelIntegration)
 - [Google Analytics](https://help.optimizely.com/hc/en-us/articles/204628347)
 

@@ -295,6 +295,19 @@ Installation:
 ```java
 Optimizely.registerPlugin(new OptimizelyAmplitudeIntegration());
 ```
+### Localytics
+
+Gradle dependency:
+```groovy
+dependencies {
+	compile(‘com.optimizely.localyticsintegration:+’)
+}
+```
+
+Installation:
+```java
+Optimizely.registerPlugin(new OptimizelyLocalyticsIntegration());
+```
 
 ### Mixpanel
 
