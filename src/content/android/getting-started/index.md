@@ -125,6 +125,10 @@ The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/pro
 -dontwarn com.squareup.okhttp.**
 -keep class com.squareup.okhttp.** { *; }
 -keep interface com.squareup.okhttp.** { *; }
+
+-dontwarn com.optimizely.integrations.**
+-dontwarn com.mixpanel.android.mpmetrics.MixpanelApiRetriever*
+-dontwarn com.amplitude.api.OptimizelyAmplitudeBridge
 ```
 
 ### Android Studio
