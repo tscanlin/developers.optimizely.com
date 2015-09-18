@@ -18,3 +18,9 @@ To build an OAuth 2.0 flow in your application, you'll need to complete the foll
 The following sections walk through each of these steps in detail.
 
 If at any point you have any questions or need some help building out an OAuth 2.0 flow, please contact [developers@optimizely.com](mailto:developers@optimizely.com).
+
+
+<div align="center">
+<img src="/assets/img/rest/oauth_flow.png"><br>
+OAuth 2.0 flow
+</div><br>
