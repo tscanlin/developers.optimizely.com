@@ -105,7 +105,7 @@ Integrations with Optimizely typically fall into one of the following categories
       <a href="http://optimizely.com/partners/technology/tealium">Tealium</a>
     </td>
     <td>
-      Audience integrations allow customers to target a specific audience based on data from an external source.  With a simple drag-and-drop interface, customers can personalize content and experiments based on 3rd party demographic data such as gender, location, weather, and age, or 1st party behavioral data such as buying intent, lifetime value, cart abandonment, and more.
+      Audience integrations allow customers to target a specific audience based on data from an external source.  With a simple drag-and-drop interface, customers can personalize content and experiments based on 3rd party demographic data such as gender, location, weather, and age, or 1st party behavioral data such as buying intent, lifetime value, <a href="https://www.optimizely.com/optimization-glossary/shopping-cart-abandonment/" target="_blank">cart abandonment</a>, and more.
     </td>
     <td>
       [Implementation Guide](#audiences)
