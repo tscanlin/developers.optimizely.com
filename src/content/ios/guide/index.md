@@ -14,7 +14,7 @@ The tutorial app is included as a sub directory in the SDK directory.  It can be
 
 [ZIP](http://github.com/optimizely/Optimizely-iOS-SDK/zipball/master) | [TAR](http://github.com/optimizely/Optimizely-iOS-SDK/tarball/master) | [GitHub](http://github.com/optimizely/Optimizely-iOS-SDK)
 
-## 1. Create an iOS Project
+<h2 id="create-an-ios-project">1. Create an iOS Project</h2>
 
 To create an iOS project, select "Create New Project" in the [Optimizely Dashboard](https://www.optimizely.com/dashboard):
 
@@ -26,7 +26,8 @@ To create an iOS project, select "Create New Project" in the [Optimizely Dashboa
 
 <img src="/assets/img/ios/project-code.png" alt="Project Code Dialog">
 
-## 2. Add Your API token
+<h2 id="add-your-api-token">2. Add Your API token</h2>
+
 1. Now, you're ready to add your API token to the tutorial app!  Open the `AppDelegate.m` file in the Project Navigator.  Replace the dummy API token `@"AAMseu0A6cJKXYL7RiH_TgxkvTRMOCvS~123456"` at the beginning of `application:didFinishLaunchingWithOptions:` in your
 app delegate. The code can be copied from your `Project Code`, which you can find by selecting the appropriate iOS Project in your [Optimizely Dashboard](https://www.optimizely.com/dashboard).  For more details, you can refer back to [Step 1: Create an iOS project](#accountcreation).
 
@@ -45,7 +46,7 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
         <img src="/assets/img/ios/sdk-detected.png" alt="Drawing" style="width: 80%;"/>
 
-## 3. Create an experiment
+<h2 id="create-an-experiment">3. Create An Experiment</h2>
 
 Once you have a project created and the SDK installed, you should be ready to start running experiments to generate more value from your mobile apps.
 
@@ -55,7 +56,7 @@ Once you have a project created and the SDK installed, you should be ready to st
 
 2. Put the app into *Edit Mode* by drawing the Optimizely 'O'.
 
-## 4. Modify Live Variables
+<h2 id="modify-live-variables">4. Modify Live Variables</h2>
 
 Live variables have already been added to the sample app. You can refer to the *LiveVariablesViewController.m* file.  There are 3 examples of live variables used in that file, which are shown below.  Save your experiment after you have made the change.
 
@@ -63,7 +64,7 @@ Live variables have already been added to the sample app. You can refer to the *
 
 For more details about live variables, you can refer [here](../reference/index.html#register-live-variables).
 
-## 5. Modify Code Blocks
+<h2 id="modify-code-blocks">5. Modify Code Blocks</h2>
 
 Code Blocks have already been added to the sample app. You can refer to the *CodeBlocksViewController.m* file.  There are 3 examples of live variables used in that file, which are shown below.  Save your experiment after you have made the change.
 
@@ -82,7 +83,7 @@ Code Blocks have already been added to the sample app. You can refer to the *Cod
 
 For more details about code blocks, you can refer [here](../reference/index.html#code-blocks).
 
-## 6. Add Custom Tags
+<h2 id="add-custom-tags">6. Add Custom Tags</h2>
 
 Custom tags sample code can be found in the *AppDelegate.m* and *CodeBlocksViewController.m* files.  In order to create a test that only runs for returning users as defined in the app, in your Optimizely experiment you can go to Options > Targeting to set up the custom tag condition.
 
@@ -90,7 +91,7 @@ Custom tags sample code can be found in the *AppDelegate.m* and *CodeBlocksViewC
 
 For more details about custom tags, you can refer [here](../reference/index.html#custom-tags)
 
-## 7. Track Event
+<h2 id="track-event">7. Track Event</h2>
 
 trackEvent sample code can be found in the *CodeBlocksViewController.m* file.  In order to track the custom event for a specific experiment, you can click on the flag image on the top right of the screen next to the "Start Experiment" button.
 
@@ -102,7 +103,7 @@ From there, you can add a new goal of goal type custom event as shown below:
 
 For more details, you can refer [here](../reference/index.html#track-event).
 
-## 8. Revenue Tracking
+<h2 id="revenue-tracking">8. Revenue Tracking</h2>
 
 Code for tracking revenue can be found in the *CodeBlocksViewController.m* file.  In order to track revenue for a specific experiment, you can click on the flag image on the top right of the screen next to the "Start Experiment" button.
 
@@ -114,16 +115,14 @@ From there, you can click on Add a Saved Goal > Select Revenue:
 
 For more details, you can refer [here](../reference/index.html#revenue-tracking).
 
-## 9. Analytics Integration
+<h2 id="analytics-integrations">9. Analytics Integration</h2>
 
 For guidance on how to implement Google Analytics and Mixpanel integrations, you can refer to the *AppDelegate.m* file in the comments.
 
 For more details, you can refer [here](../reference/index.html#analytics-integrations)
 
-## 10. Create an Experiment
-After creating an iOS project and installing the SDK, reference [this guide in our Knowledge Base](https://help.optimizely.com/hc/en-us/articles/202296994), which will walk you through how to set up an experiment.
 
-## 11. QA
+<h2 id="qa">10. QA</h2>
 
 
 ### Preview Mode

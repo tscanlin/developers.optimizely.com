@@ -11,7 +11,7 @@ The following SDK Install Steps will allow you to install the SDK and run experi
 
 [ZIP](http://github.com/optimizely/Optimizely-iOS-SDK/zipball/master) | [TAR](http://github.com/optimizely/Optimizely-iOS-SDK/tarball/master) | [GitHub](http://github.com/optimizely/Optimizely-iOS-SDK)
 
-## 1. Create an iOS Project
+<h2 id="create-an-ios-project">1. Create an iOS Project</h2>
 
 To create an iOS project, select "Create New Project" in the [Optimizely Dashboard](https://www.optimizely.com/dashboard):
 
@@ -21,7 +21,8 @@ To create an iOS project, select "Create New Project" in the [Optimizely Dashboa
 
 <img src="/assets/img/ios/project-code.png" alt="Project Code Dialog">
 
-## 2. SDK Integration
+<h2 id="sdk-integration">2. SDK Integration</h2>
+
 To use Optimizely's iOS SDK you must first integrate the SDK into your app. You can either install the Optimizely SDK using [CocoaPods](#cocoapods) (recommended) or via [Manual Installation](#manualinstall).  Our SDK supports iOS 7.0 and above.
 
 ### Using CocoaPods
@@ -62,7 +63,8 @@ For new installations, please follow all steps. For upgrades, please follow step
 <br  />
 3. <a name="objc"></a>Switch to the "Build Settings" tab. Add `-ObjC` to the "Other Linker Flags" build setting.
 
-## 3. Add Your API token
+<h2 id="add-your-api-token">3. Add Your API token</h2>
+
 1. Now, you're ready to write some code!  Include this file at the top of your `AppDelegate` class implementation. This is usually found in a file called `AppDelegate.m` in the Project Navigator.
 
 	```obj-c
@@ -110,10 +112,10 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
         <img src="/assets/img/ios/sdk-detected.png" alt="Drawing" style="width: 80%;"/>
 
-## 4. Create an Experiment
+<h2 id="create-an-experiment">4. Create an Experiment</h2>
 After creating an iOS project and installing the SDK, reference [this guide in our Knowledge Base](https://help.optimizely.com/hc/en-us/articles/202296994), which will walk you through how to set up an experiment.
 
-## 5. QA
+<h2 id="qa">5. QA</h2>
 
 ### Preview Mode
 Preview mode allows you to view your app in a different variations for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, open the `Preview` menu, and click `Launch Preview`
@@ -143,7 +145,8 @@ Now that you've created an experiment and successfully installed the Optimizely 
 <br  />
 5. Once you've checked all these steps, you're ready to release to the app store!  To learn more about how to use Optimizely's editor and get additional testing ideas, you can check out our articles in [Optiverse](https://help.optimizely.com/hc/en-us/sections/200666084-Mobile-Optimization).
 
-## (Optional) SDK Setup with Swift
+<h2 id="setup-with-swift">(Optional) SDK Setup with Swift</h2>
+
 1. Follow the installation steps above through [Step 2](#installation).
 2. Add an additional import statement for Optimizely: `import Optimizely`.
 3. The Objective-C `Project Code`, which you can find by selecting the appropriate iOS Project in your [Optimizely Dashboard](https://www.optimizely.com/dashboard) will need to be modified for a Swift project. For more details on finding your `Project Code`, you can refer back to [Step 1: Create an iOS project](#accountcreation). The original Objective-C project code should look like:
