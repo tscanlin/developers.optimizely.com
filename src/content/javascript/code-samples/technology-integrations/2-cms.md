@@ -20,7 +20,7 @@ When the button is pressed, we run the `createExperiment` function. This functio
 
 We aren't done yet. The experiment we created has two built-in variations, but now we need to add a third and update the content. Since we're adding a variation, we also need to calculate the traffic weight to use for each one. Once we've done this, we'll call the `createVariation` function explained below.
 
-#####Example HTML
+##### Example HTML
 ```html
 <h1>Variation #1</h1>
 <input type="text" id="post_title1" class="optimizely_variation" placeholder="Alternate Title 1">
@@ -29,7 +29,7 @@ We aren't done yet. The experiment we created has two built-in variations, but n
 <a id="optimizely_create" class="button-primary">Create Experiment</a>
 ```
 
-#####Example JavaScript
+##### Example JavaScript
 ```js
 $('#optimizely_create').click(createExperiment);
 
@@ -69,7 +69,7 @@ We also ask them to choose a project to create the experiment in. They make this
 
 When the user presses that button, we call the `GET projects/` endpoint to [list out all the projects]({{site.paths.rest}}#list-projects) in their account. For each project, we show its name in the dropdown and store its ID in the value attribute for submission to a form.
 
-#####Example HTML
+##### Example HTML
 ```html
 <h3>Enter Your API Token</h3>
 <input id="token" type="text" />
@@ -80,7 +80,7 @@ When the user presses that button, we call the `GET projects/` endpoint to [list
 </select>
 ```
 
-#####Example JavaScript
+##### Example JavaScript
 ```js
 $("button#connect_optimizely").click(function() {
 
@@ -111,7 +111,7 @@ In this example, we have two alternate headlines plus an original. When we creat
 
 Once all the PUT and POST requests have returned, we're done! At this point, we can let the user know that the experiment is created and ready.
 
-#####Example JavaScript
+##### Example JavaScript
 ```js
 function createVariation(experiment, index, newTitle, weight) {
 
@@ -153,7 +153,7 @@ Finally, we'll add a start button so users can run the experiment directly from 
 
 This button will update the experiment's `status` to `Running` or `Paused`.
 
-#####Example JavaScript
+##### Example JavaScript
 ```js
 function startExperiment(experiment) {
   $('#optimizely_toggle_running').text('Starting...');
