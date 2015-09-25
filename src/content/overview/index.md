@@ -49,7 +49,7 @@ Many Optimizely customers want to run more advanced tests and personalized exper
 
 * *Variation code:* If you would like to write your own variation code instead of using the Optimizely visual editor, check out our [Variation code](/javascript/code-samples/#variation-code) section that explains how to format Optimizely variations with example code.
 
-* *Audiences:* If you have data about the visitors to a site, you can use our platform to group those visitors into [Optimizely Audiences](/javascript/code-samples/#audiences). This makes it easy to target content to different audiences and segment experiment results.
+* *Audiences:* If you have data about the visitors to a site, you can use our platform to group those visitors into [Optimizely Audiences](/rest/reference#audiences). This makes it easy to target content to different audiences and segment experiment results.
 
 * *Advanced use cases:* These advanced use cases ([Web](/javascript/code-samples/#advanced-use-cases) | [iOS](/ios/guide/index.html#advanced-setup) | [Android](/android/guide/index.html#advanced-setup)) will help you push the limits of what Optimizely is capable of doing within Project, Experiment, and Variation code.
 
