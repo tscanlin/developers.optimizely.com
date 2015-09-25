@@ -15,11 +15,7 @@ While you can get Optimizely up and running without writing code, many companies
 
 If you are new to Optimizely, check out the [Use cases](#use-cases) below to understand the different ways to develop on our platform. For a more in-depth overview, you may also want to read [How Optimizely works](#how-optimizely-works) which explains Optimizely's data model, architecture, and the various integration points for developers.
 
-If you're looking to develop on a specific platform, check out our documentation
-for the [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS
-SDK](/ios/introduction) and an [Android SDK](/android/introduction). Each API
-and SDK contains a brief getting started guide, comprehensive documentation, and
-FAQs. This site also includes a [Code samples](/javascript/code-samples) page with solutions from customers, partners, and Optimizely employees that you can download for free.
+If you're looking to develop on a specific platform, check out our documentation for the [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction). Each API and SDK contains a brief getting started guide, comprehensive documentation, and FAQs. This site also includes a [Code samples](/javascript/code-samples) page with solutions from customers, partners, and Optimizely employees that you can download for free.
 
 ### Developer account
 
