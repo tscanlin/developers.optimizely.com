@@ -15,7 +15,7 @@ While you can get Optimizely up and running without writing code, many companies
 
 If you are new to Optimizely, check out the [Use cases](#use-cases) below to understand the different ways to develop on our platform. For a more in-depth overview, you may also want to read [How Optimizely works](#how-optimizely-works) which explains Optimizely's data model, architecture, and the various integration points for developers.
 
-If you're looking to develop on a specific platform, check out our documentation for the [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction). Each API and SDK contains a brief getting started guide, comprehensive documentation, and FAQs. This site also includes a [Code samples](/samples) page with solutions from customers, partners, and Optimizely employees that you can download for free.
+If you're looking to develop on a specific platform, check out our documentation for the [REST API](/rest/introduction), [JS API](/javascript/introduction), [iOS SDK](/ios/introduction) and an [Android SDK](/android/introduction). Each API and SDK contains a brief getting started guide, comprehensive documentation, and FAQs. This site also includes a [Code samples](/javascript/code-samples) page with solutions from customers, partners, and Optimizely employees that you can download for free.
 
 ### Developer account
 
@@ -41,15 +41,15 @@ Below are some common use cases of Optimizely for developers, and pointers to th
 
 Many Optimizely customers want to run more advanced tests and personalized experiences that are not possible in Optimizely's out-of-the-box solution. Below are some common customizations that we've seen from our customers.
 
-* *Event tracking:* To track events that are not provided out of the box by Optimizely (e.g. purchase data or offline conversions), check out our section on [Events](/samples/#advanced-goal-tracking) which explains all of our available tracking APIs.
+* *Event tracking:* To track events that are not provided out of the box by Optimizely (e.g. purchase data or offline conversions), check out our section on [Events](/javascript/code-samples/#advanced-goal-tracking) which explains all of our available tracking APIs.
 
-* *Variation code:* If you would like to write your own variation code instead of using the Optimizely visual editor, check out our [Variation code](/samples/#variation-code) section that explains how to format Optimizely variations with example code.
+* *Variation code:* If you would like to write your own variation code instead of using the Optimizely visual editor, check out our [Variation code](/javascript/code-samples/#variation-code) section that explains how to format Optimizely variations with example code.
 
-* *Audiences:* If you have data about the visitors to a site, you can use our platform to group those visitors into [Optimizely Audiences](/samples/#audiences). This makes it easy to target content to different audiences and segment experiment results.
+* *Audiences:* If you have data about the visitors to a site, you can use our platform to group those visitors into [Optimizely Audiences](/rest/reference#audiences). This makes it easy to target content to different audiences and segment experiment results.
 
-* *Advanced use cases:* These advanced use cases ([Web](/samples/#advanced-use-cases) | [iOS](/ios/guide/index.html#advanced-setup) | [Android](/android/guide/index.html#advanced-setup)) will help you push the limits of what Optimizely is capable of doing within Project, Experiment, and Variation code.
+* *Advanced use cases:* These advanced use cases ([Web](/javascript/code-samples/#advanced-use-cases) | [iOS](/ios/guide/index.html#advanced-setup) | [Android](/android/guide/index.html#advanced-setup)) will help you push the limits of what Optimizely is capable of doing within Project, Experiment, and Variation code.
 
-* *Experiment results:* Utilize these code samples to better understand Optimizely's [/results endpoint](/samples/#results). This endpoint provides high-level insights from Optimizely's Stats Engine.
+* *Experiment results:* Utilize these code samples to better understand Optimizely's [/results endpoint](/rest/code-samples#stats). This endpoint provides high-level insights from Optimizely's Stats Engine.
 
 * *Integrations:* Whether you're looking to create a custom integration with an analytics platform or if you're looking to do WordPress headline testing with Optimizely, you can refer to the following links for each of Optimizely's different channels will help you navigate these processes:
    * [Web integration guide](/integrations/)
@@ -57,13 +57,13 @@ Many Optimizely customers want to run more advanced tests and personalized exper
    * [Android integration guide](/android/reference/index.html#-a-name-analytics-a-analytics-integrations)
 
 
-* *Single page web apps (web only):* On traditional websites, when visitors click links, the links generally lead to a new URL and load an entirely new page. In Single Page Applications, the whole page doesn't reload; instead, certain content is changed, loaded, and swapped out in the current URL. Check out our [single page app](/samples/#single-page-apps) section to help accommodate the behavior of Single Page Applications.
+* *Single page web apps (web only):* On traditional websites, when visitors click links, the links generally lead to a new URL and load an entirely new page. In Single Page Applications, the whole page doesn't reload; instead, certain content is changed, loaded, and swapped out in the current URL. Check out our [single page app](/javascript/code-samples/#single-page-apps) section to help accommodate the behavior of Single Page Applications.
 
-* *Custom JS conditions (web only):* If you expose first or third party data on the client, then you can use Optimizely's [custom JS conditions](/samples/#custom-js) to port data into different audiences.
+* *Custom JS conditions (web only):* If you expose first or third party data on the client, then you can use Optimizely's [custom JS conditions](/javascript/code-samples/#custom-js) to port data into different audiences.
 
-* *Conditional activation (web only):* Sometimes you'll want to trigger an Optimizely experiment dynamically, after some part of the page or screen has loaded. Read our [Conditional activation](/samples/#conditional) section for more information on how to control when Optimizely activates.
+* *Conditional activation (web only):* Sometimes you'll want to trigger an Optimizely experiment dynamically, after some part of the page or screen has loaded. Read our [Conditional activation](/javascript/code-samples/#conditional) section for more information on how to control when Optimizely activates.
 
-* *Helper functions (web only):* Many times, it is necessary to use getter and setter methods within Optimizely to better interact with your website. This list of [helper functions](/samples/#helpers) are frequently used in Project, Experiment, and Variation JavaScript.
+* *Helper functions (web only):* Many times, it is necessary to use getter and setter methods within Optimizely to better interact with your website. This list of [helper functions](/javascript/code-samples/#helpers) are frequently used in Project, Experiment, and Variation JavaScript.
 
 ### Integrations
 
