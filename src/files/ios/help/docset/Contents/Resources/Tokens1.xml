@@ -207,7 +207,7 @@ to Optimizely and fetches the newest experiment data file.</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/trackRevenue:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/trackRevenue:withDescription:</TokenIdentifier>
 			<Abstract type="html">This method informs Optimizely that a revenue goal custom event occured.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
@@ -216,21 +216,25 @@ to Optimizely and fetches the newest experiment data file.</Abstract>
 		
 	</RelatedTokens>
 	
-			<Declaration>+ (void)trackRevenue:(int)revenueAmount</Declaration>
+			<Declaration>+ (void)trackRevenue:(int)revenueAmount withDescription:(NSString *)description</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>revenueAmount</Name>
 					<Abstract type="html">The revenue amount in cents associated with the event</Abstract>
+				</Parameter><Parameter>
+					<Name>description:</Name>
+					<Abstract type="html">a description of the revenue</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/trackRevenue:</Anchor>
+			<Anchor>//api/name/trackRevenue:withDescription:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/registerCallbackForVariableWithKey:callback:</TokenIdentifier>
-			<Abstract type="html">This method registers a callback method for when a given variable is changed.</Abstract>
+			<Abstract type="html">This method registers a callback method for when a given variable is changed.
+Method signature is: void (^callback)(NSString *, id)</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
 			<Declaration>+ (void)registerCallbackForVariableWithKey:(OptimizelyVariableKey *)key callback:(void ( ^ ) ( NSString *, id ))callback</Declaration>
@@ -249,6 +253,27 @@ to Optimizely and fetches the newest experiment data file.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/registerCallbackForCodeBlockWithKey:callback:</TokenIdentifier>
+			<Abstract type="html">This method registers a callback method for when a given code block is changed.
+Method signature is: void (^callback)()</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerCallbackForCodeBlockWithKey:(OptimizelyCodeBlocksKey *)key callback:(void ( ^ ) ( ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The Optimizely key associated with the code block you want to watch</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">The callback method that will be invoked whenever the code block is changed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerCallbackForCodeBlockWithKey:callback:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/refreshExperiments</TokenIdentifier>
 			<Abstract type="html">This method manually refreshes all currently running experiments so as to take into account
 the most recent targeting conditions and tags.</Abstract>
@@ -258,6 +283,74 @@ the most recent targeting conditions and tags.</Abstract>
 			
 			
 			<Anchor>//api/name/refreshExperiments</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/getExperimentDataById:</TokenIdentifier>
+			<Abstract type="html">This method gets the experiment data for a given experimentId</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (OptimizelyExperimentData *)getExperimentDataById:(NSString *)experimentId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>experimentId</Name>
+					<Abstract type="html">The id of the particular experiment.
+The ID is available in the bottom of the experiment details panel from the project view.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">OptimizelyExperimentData returns the experiment data if the experiment is found. returns nil otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/getExperimentDataById:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/isUserInAudience:</TokenIdentifier>
+			<Abstract type="html">This method determines whether a user is in a particular audience.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (BOOL)isUserInAudience:(NSString *)audienceId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>audienceId:</Name>
+					<Abstract type="html">The audienceId that we&apos;re trying to check against</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">BOOL true if user satisfies the audience conditions, false otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/isUserInAudience:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/resetUserBucketing</TokenIdentifier>
+			<Abstract type="html">This method resets the bucketing metadata that is cached on device.
+This will also clear the random user id, so that next time the experiment is activated, the user will be bucketed as a fresh user.
+This will also clear the Optimizely DataFile from storage.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)resetUserBucketing</Declaration>
+			
+			
+			<Anchor>//api/name/resetUserBucketing</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/getAudiences</TokenIdentifier>
+			<Abstract type="html">This method returns a copy of all audiences that are defined in the data file.
+If this is called before Optimizely starts, it will return an empty array.
+If there are no audiences, it will return an empty array.
+Each audience will be an index in the NSArray represented by a NSDictionary.
+Each NSDictionary will have 3 keys: @&quot;name&quot;, @&quot;audience_id&quot;, and @&quot;conditions&quot;
+@&quot;name&quot; keys to a NSString of the audience name in the web editor.
+@&quot;audience_id&quot; keys to a NSString of the unique audience identifier.
+@&quot;conditions&quot; keys to a JSON representation of the audience conditions.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (NSArray *)getAudiences</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray of all audiences.</Abstract></ReturnValue>
+			<Anchor>//api/name/getAudiences</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
@@ -1035,7 +1128,7 @@ here</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/trackEvent:</TokenIdentifier>
-			<Abstract type="html">  @deprecated.  Use +trackEvent.</Abstract>
+			<Abstract type="html">  @deprecated.  Use +trackEvent:.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
 	<RelatedTokens>
@@ -1052,6 +1145,28 @@ here</Abstract>
 			</Parameters>
 			
 			<Anchor>//api/name/trackEvent:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/trackRevenue:</TokenIdentifier>
+			<Abstract type="html">  @deprecated. Use +trackRevenue: withDescription:.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Optimizely/dispatch</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (void)trackRevenue:(int)revenueAmount</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>revenueAmount</Name>
+					<Abstract type="html">The revenue amount in cents associated with the event</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/trackRevenue:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		

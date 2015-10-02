@@ -100,9 +100,15 @@
 	
 	<option value="//api/name/fetchNewDataFile">&nbsp;&nbsp;&nbsp;&nbsp;+ fetchNewDataFile</option>
 	
+	<option value="//api/name/getAudiences">&nbsp;&nbsp;&nbsp;&nbsp;+ getAudiences</option>
+	
+	<option value="//api/name/getExperimentDataById:">&nbsp;&nbsp;&nbsp;&nbsp;+ getExperimentDataById:</option>
+	
 	<option value="//api/name/handleOpenURL:">&nbsp;&nbsp;&nbsp;&nbsp;+ handleOpenURL:</option>
 	
 	<option value="//api/name/ignoreUIViewSubclassesWithNames:">&nbsp;&nbsp;&nbsp;&nbsp;+ ignoreUIViewSubclassesWithNames:</option>
+	
+	<option value="//api/name/isUserInAudience:">&nbsp;&nbsp;&nbsp;&nbsp;+ isUserInAudience:</option>
 	
 	<option value="//api/name/numberForKey:">&nbsp;&nbsp;&nbsp;&nbsp;+ numberForKey:</option>
 	
@@ -112,7 +118,11 @@
 	
 	<option value="//api/name/refreshExperiments">&nbsp;&nbsp;&nbsp;&nbsp;+ refreshExperiments</option>
 	
+	<option value="//api/name/registerCallbackForCodeBlockWithKey:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ registerCallbackForCodeBlockWithKey:callback:</option>
+	
 	<option value="//api/name/registerCallbackForVariableWithKey:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ registerCallbackForVariableWithKey:callback:</option>
+	
+	<option value="//api/name/resetUserBucketing">&nbsp;&nbsp;&nbsp;&nbsp;+ resetUserBucketing</option>
 	
 	<option value="//api/name/setValue:forCustomTag:">&nbsp;&nbsp;&nbsp;&nbsp;+ setValue:forCustomTag:</option>
 	
@@ -129,6 +139,8 @@
 	<option value="//api/name/trackEvent:">&nbsp;&nbsp;&nbsp;&nbsp;+ trackEvent:</option>
 	
 	<option value="//api/name/trackRevenue:">&nbsp;&nbsp;&nbsp;&nbsp;+ trackRevenue:</option>
+	
+	<option value="//api/name/trackRevenue:withDescription:">&nbsp;&nbsp;&nbsp;&nbsp;+ trackRevenue:withDescription:</option>
 	
 	
 	
@@ -253,9 +265,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchNewDataFile">fetchNewDataFile</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getAudiences">getAudiences</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getExperimentDataById:">getExperimentDataById:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handleOpenURL:">handleOpenURL:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ignoreUIViewSubclassesWithNames:">ignoreUIViewSubclassesWithNames:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isUserInAudience:">isUserInAudience:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberForKey:">numberForKey:</a></span></li>
 	
@@ -265,7 +283,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/refreshExperiments">refreshExperiments</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerCallbackForCodeBlockWithKey:callback:">registerCallbackForCodeBlockWithKey:callback:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerCallbackForVariableWithKey:callback:">registerCallbackForVariableWithKey:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetUserBucketing">resetUserBucketing</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setValue:forCustomTag:">setValue:forCustomTag:</a></span></li>
 	
@@ -282,6 +304,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/trackEvent:">trackEvent:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/trackRevenue:">trackRevenue:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/trackRevenue:withDescription:">trackRevenue:withDescription:</a></span></li>
 	
 </ul></li>
 
@@ -449,7 +473,7 @@ available as class methods.</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/trackRevenue:">+&nbsp;trackRevenue:</a></code>
+		<code><a href="#//api/name/trackRevenue:withDescription:">+&nbsp;trackRevenue:withDescription:</a></code>
 	</span>
 	
 	
@@ -461,7 +485,37 @@ available as class methods.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/registerCallbackForCodeBlockWithKey:callback:">+&nbsp;registerCallbackForCodeBlockWithKey:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/refreshExperiments">+&nbsp;refreshExperiments</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getExperimentDataById:">+&nbsp;getExperimentDataById:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isUserInAudience:">+&nbsp;isUserInAudience:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resetUserBucketing">+&nbsp;resetUserBucketing</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getAudiences">+&nbsp;getAudiences</a></code>
 	</span>
 	
 	
@@ -676,6 +730,12 @@ available as class methods.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/trackEvent:">&ndash;&nbsp;trackEvent:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/trackRevenue:">+&nbsp;trackRevenue:</a></code>
 	</span>
 	
 	
@@ -1996,6 +2056,106 @@ of your app downloaded from the app store.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/getAudiences" title="getAudiences"></a>
+	<h3 class="subsubtitle method-title">getAudiences</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method returns a copy of all audiences that are defined in the data file.
+If this is called before Optimizely starts, it will return an empty array.
+If there are no audiences, it will return an empty array.
+Each audience will be an index in the NSArray represented by a NSDictionary.
+Each NSDictionary will have 3 keys: @&ldquo;name&rdquo;, @&ldquo;audience_id&rdquo;, and @&ldquo;conditions&rdquo;
+@&ldquo;name&rdquo; keys to a NSString of the audience name in the web editor.
+@&ldquo;audience_id&rdquo; keys to a NSString of the unique audience identifier.
+@&ldquo;conditions&rdquo; keys to a JSON representation of the audience conditions.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSArray *)getAudiences</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>NSArray of all audiences.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getExperimentDataById:" title="getExperimentDataById:"></a>
+	<h3 class="subsubtitle method-title">getExperimentDataById:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method gets the experiment data for a given experimentId</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (OptimizelyExperimentData *)getExperimentDataById:(NSString *)<em>experimentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>experimentId</em></dt>
+			<dd><p>The id of the particular experiment.
+The ID is available in the bottom of the experiment details panel from the project view.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p><a href="../Classes/OptimizelyExperimentData.html">OptimizelyExperimentData</a> returns the experiment data if the experiment is found. returns nil otherwise</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/handleOpenURL:" title="handleOpenURL:"></a>
 	<h3 class="subsubtitle method-title">handleOpenURL:</h3>
 	
@@ -2074,6 +2234,57 @@ user wishes to enter edit mode.  Typically, this should be placed in <code>appli
 	</div>
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isUserInAudience:" title="isUserInAudience:"></a>
+	<h3 class="subsubtitle method-title">isUserInAudience:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method determines whether a user is in a particular audience.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BOOL)isUserInAudience:(NSString *)<em>audienceId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>audienceId:</em></dt>
+			<dd><p>The audienceId that we&rsquo;re trying to check against</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>BOOL true if user satisfies the audience conditions, false otherwise</p>
+	</div>
 	
 	
 	
@@ -2289,13 +2500,66 @@ the most recent targeting conditions and tags.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/registerCallbackForCodeBlockWithKey:callback:" title="registerCallbackForCodeBlockWithKey:callback:"></a>
+	<h3 class="subsubtitle method-title">registerCallbackForCodeBlockWithKey:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method registers a callback method for when a given code block is changed.
+Method signature is: void (^callback)()</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)registerCallbackForCodeBlockWithKey:(OptimizelyCodeBlocksKey *)<em>key</em> callback:(void ( ^ ) ( ))<em>callback</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The Optimizely key associated with the code block you want to watch</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>callback</em></dt>
+			<dd><p>The callback method that will be invoked whenever the code block is changed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/registerCallbackForVariableWithKey:callback:" title="registerCallbackForVariableWithKey:callback:"></a>
 	<h3 class="subsubtitle method-title">registerCallbackForVariableWithKey:callback:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>This method registers a callback method for when a given variable is changed.</p>
+		<p>This method registers a callback method for when a given variable is changed.
+Method signature is: void (^callback)(NSString *, id)</p>
 	</div>		
 	
     
@@ -2318,6 +2582,44 @@ the most recent targeting conditions and tags.</p>
 		</dl>
 		
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resetUserBucketing" title="resetUserBucketing"></a>
+	<h3 class="subsubtitle method-title">resetUserBucketing</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method resets the bucketing metadata that is cached on device.
+This will also clear the random user id, so that next time the experiment is activated, the user will be bucketed as a fresh user.
+This will also clear the Optimizely DataFile from storage.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)resetUserBucketing</code></div>
+
+    
 	
 	
 	
@@ -2732,7 +3034,7 @@ If the device is in edit mode, the callback will execute immediately.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>This method informs Optimizely that a revenue goal custom event occured.</p>
+		<p>  @deprecated. Use <code>+trackRevenue: withDescription:</code>.</p>
 	</div>		
 	
     
@@ -2747,6 +3049,71 @@ If the device is in edit mode, the callback will execute immediately.</p>
 		<dl class="argument-def parameter-def">
 			<dt><em>revenueAmount</em></dt>
 			<dd><p>The revenue amount in cents associated with the event</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method informs Optimizely that a revenue goal custom event occured.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/dispatch">+ dispatch</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/trackRevenue:withDescription:" title="trackRevenue:withDescription:"></a>
+	<h3 class="subsubtitle method-title">trackRevenue:withDescription:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method informs Optimizely that a revenue goal custom event occured.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)trackRevenue:(int)<em>revenueAmount</em> withDescription:(NSString *)<em>description</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>revenueAmount</em></dt>
+			<dd><p>The revenue amount in cents associated with the event</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>description:</em></dt>
+			<dd><p>a description of the revenue</p></dd>
 		</dl>
 		
 	</div>
@@ -3291,7 +3658,7 @@ experimental change</p></dd>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>  @deprecated.  Use <code>+trackEvent</code>.</p>
+		<p>  @deprecated.  Use <code>+trackEvent:</code>.</p>
 	</div>		
 	
     
@@ -3362,7 +3729,7 @@ experimental change</p></dd>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Optimizely. All rights reserved. (Last updated: 2015-09-14)</span><br />
+						<p><span class="copyright">&copy; 2015 Optimizely. All rights reserved. (Last updated: 2015-10-02)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
