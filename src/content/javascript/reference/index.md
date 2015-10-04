@@ -569,7 +569,9 @@ window['optimizely'].push(['removeFromAllSegments']);
 * **November 17, 2014**: New API call to set a [Universal User ID](#uuid).
 
 
-## Personalization (beta)
+## Personalization
+
+<div class="lego-attention lego-attention--warning push--bottom">The API calls below only apply to <a href="http://www.optimizely.com/personalization" target="_blank">Optimizely Personalization</a>.</div>
 
 Optimizely Personalization introduces several new API calls for tracking visitor behavior and attributes.
 
@@ -707,7 +709,7 @@ window['optimizely'].push({
 
 The user function captures attributes of a user and stores them in a profile that persists across sessions and syncs across devices.
 
-These attributes, which we call dimensions, are persisted in the browser's local storage and can be used for targeting and analysis in experiment results.
+These attributes are persisted in the browser's local storage and can be used for targeting and analysis in experiment results.
 
 You can also use this function to identify a user with a unique userId. If you don't provide an ID, we'll automatically generate an anonymous ID and persist it in a cookie. Providing your own userId allows you to target lists of users by their ID and integrate offline data.
 
@@ -716,7 +718,7 @@ You can also use this function to identify a user with a unique userId. If you d
 
 - `type`: "user"
 - `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.  
-- `dimensions` (object): Metadata about a user, e.g. their home state. Dimensions can be used for creating audiences (target "Californians") and analyzing results (see results broken down by state). Note that you can track at most 10 dimensions in A/B test results. 
+- `attributes` (object): Metadata about a user, e.g. their home state. Attributes can be used for creating audiences (target "Californians") and analyzing results (see results broken down by state).
 
 #### Examples
 ```js
@@ -725,7 +727,7 @@ window['optimizely'] = window['optimizely'] || [];
 // Attach extra information to an anonymous visitor
 window['optimizely'].push({
   type: "user",
-  dimensions: {
+  attributes: {
     frequentFlyerStatus: "Gold",
     frequentFlyerMiles: 25600
   }
@@ -741,17 +743,17 @@ window['optimizely'].push({
 window['optimizely'].push({
   type: "user",
   userId: "834092",
-  dimensions: {
+  attributes: {
     frequentFlyerStatus: "Gold",
     frequentFlyerMiles: 25600
   }
 });
 
-// Remove a dimension value
+// To remove an attribute value, set it to null
 window['optimizely'].push({
   type: "user",
-  dimensions: {
-    dimensionToRemove: null
+  attributes: {
+    frequentFlyerStatus: null
   }
 });
 ``` 
