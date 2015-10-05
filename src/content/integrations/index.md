@@ -336,7 +336,7 @@ You can now create Audiences using the REST API. When a user indicates that they
 
 An example of the Optimizely REST API call and the result with CURL is displayed here:
 
-<img src="/assets/img/integrations/audience_rest.png">
+<img src="/assets/img/integrations/audiences_rest.png">
 
 In the above picture, the REST API call returns various fields, including an id (highlighted with an arrow). You will need to use the id in the next step.
 
