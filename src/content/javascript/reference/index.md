@@ -571,7 +571,7 @@ window['optimizely'].push(['removeFromAllSegments']);
 
 ## Personalization
 
-<div class="lego-attention lego-attention--warning push--bottom">The API calls below only apply to <a href="http://www.optimizely.com/personalization" target="_blank">Optimizely Personalization</a>.</div>
+<div class="lego-attention lego-attention--warning push--bottom">The API calls below only apply to Optimizely Personalization. <a href="http://www.optimizely.com/personalization" target="_blank">Learn more</a>.</div>
 
 Optimizely Personalization introduces several new API calls for tracking visitor behavior and attributes.
 
