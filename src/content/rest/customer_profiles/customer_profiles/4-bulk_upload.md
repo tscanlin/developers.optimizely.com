@@ -12,8 +12,8 @@ an [update](/rest/customer_profiles#update-customer-profile) request.
 
 Using the provided AWS credentials, it's possible to upload CSV files in a variety of ways.  The simplest approach is to
 use an S3 client application, such as [Cyberduck](http://www.cyberduck.io/?l=en).
-Note, Cyberduck requires the full S3 path, including both the `optimizely-import` bucket and given `s3_path`,
-for example, `/optimizely-import`/`s3_path`.
+Note: Cyberduck requires the full S3 path, including both the `optimizely-import` bucket and given `s3_path`,
+for example, /`optimizely-import`/`s3_path`.
 
 <img src="/assets/img/dcp/cyberduck_path.png">
 
