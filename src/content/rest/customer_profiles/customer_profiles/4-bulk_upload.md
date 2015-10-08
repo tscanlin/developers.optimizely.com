@@ -8,10 +8,14 @@ anchor: bulk
 You can also upload a CSV (comma-separated values) to the `optimizely-import` S3 bucket using the provided datasource S3
 path.  We will parse the given CSV, validate each row of data against the registered
 [attributes](/rest/customer_profiles#dcp_attributes), and store the successfully processed rows.  Each row is treated as
-a [write](/rest/customer_profiles#update-customer-profile) request.
+an [update](/rest/customer_profiles#update-customer-profile) request.
 
 Using the provided AWS credentials, it's possible to upload CSV files in a variety of ways.  The simplest approach is to
 use an S3 client application, such as [Cyberduck](http://www.cyberduck.io/?l=en).
+Note: Cyberduck requires the full S3 path, including both the `optimizely-import` bucket and given `s3_path`,
+for example, /`optimizely-import`/`s3_path`.
+
+<img src="/assets/img/dcp/cyberduck_path.png">
 
 It's also possible to upload files programmatically, using the [AWS
 CLI](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html), an available
