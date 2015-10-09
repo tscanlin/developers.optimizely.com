@@ -14,6 +14,10 @@ body {
 
 $header-offset: 60px;
 
+a {
+  word-break: break-word;
+}
+
 // Color the headings.
 h1, h2, h3, h4, h5, h6 {
   color: $new-brand-dark;

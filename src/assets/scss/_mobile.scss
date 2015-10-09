@@ -1,0 +1,52 @@
+// Mobile styles
+
+@media only screen and (max-width : 736px) {
+  .is-hidden-on-mobile {
+    display: none !important;
+  }
+
+  .is-inline-block-on-mobile {
+    display: inline-block;
+  }
+
+  .header {
+    text-align: left;
+  }
+  .nav-toggle {
+    position: relative;
+    top: 3px;
+  }
+  .header-logo-container {
+    vertical-align: bottom;
+    margin-left: 20px;
+  }
+
+  #nav {
+    box-shadow: 0 0 5px rgba(0,0,0,0);
+    transform: translateX(-100%);
+    transition: all 300ms ease-in-out;
+  }
+  #toggle-nav-checkbox:checked + #nav {
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transform: translateX(0%);
+  }
+
+  .content {
+    margin-left: 0;
+    // width: 200%;
+  }
+  .main.has-nav + .footer {
+    margin-left: 0;
+  }
+
+  .sidebyside-toggles {
+    margin-left: 0;
+    right: -100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .sidebyside {
+    width: 200%;
+  }
+}

@@ -8,13 +8,13 @@ title: "Code Samples"
 In order to help you get up and running quickly, we have provided a number of code samples that you can use.
 Be sure to modify the code appropriately before running in production!
 
-## *Developer QA*
+## Developer QA
 
 To learn how to use Optimizely's debug APIs, you can refer to the following [article](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-and-Android-Experiments).
 
-## *Advanced Use Cases*
+## Advanced Use Cases
 
-### *Experiment from App to Webview*
+### Experiment from App to Webview
 At a high level, in order to run an experiment across your native app and various webviews, you will need to have 2 projects set up: [1 web project](https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet) and [1 iOS project](https://help.optimizely.com/hc/en-us/articles/202296994-Get-Started-on-Mobile-Optimization).  You will create an iOS experiment on your native app and a separate experiment on your mobile website.  You will follow the steps below in order to get your hybrid app experiment set up:
 1. Set up your web experiment
 2. Set up your iOS experiment and configure Optimizely cookies to show the proper experience
@@ -36,16 +36,16 @@ Set the Optimizely buckets cookie with the proper experiment_id and variation_id
 Pull the optimizelyEndUserId cookie from the first time the webview loads and be sure to load the same optimizelyEndUserId in order to ensure that conversions are tracked properly.
 
 ```obj-c
-OptimizelyCodeBlocksKeyWithBlockNames(myHybridCodeBlocksKey, 
-                                    @"Hybrid_Web_View_1", 
+OptimizelyCodeBlocksKeyWithBlockNames(myHybridCodeBlocksKey,
+                                    @"Hybrid_Web_View_1",
                                     @"Hybrid_Web_View_2");
 
 @implementation MyViewController
 
 - (void) someFunction {
 
-    // This line defines Code Blocks "Hybrid_Web_View_1", "Hybrid_Web_View_2", and a 
-    // default block that is executed in the case that the experiment is 
+    // This line defines Code Blocks "Hybrid_Web_View_1", "Hybrid_Web_View_2", and a
+    // default block that is executed in the case that the experiment is
     // not activated.
     [Optimizely codeBlocksWithKey:myHybridCodeBlocksKey
                        blockOne:^{
@@ -86,7 +86,7 @@ OptimizelyCodeBlocksKeyWithBlockNames(myHybridCodeBlocksKey,
     NSString *urlAddress = @"http://<YOUR_DOMAIN>.com";
 
 
-   
+
     }];
 }
 // This block is executed by default
@@ -113,11 +113,11 @@ OptimizelyCodeBlocksKeyWithBlockNames(myHybridCodeBlocksKey,
 @end
 ```
 
-## *Helper Functions*
+## Helper Functions
 
 This section will include helper functions that you can use for different experiments.
 
-### *Show variation after X action*
+### Show variation after X action
 
 In this example, if you want to test out the number of times to show a user a certain experience, you can set up the experiment in the following way:
 
