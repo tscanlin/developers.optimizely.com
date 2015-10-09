@@ -25,6 +25,11 @@ module.exports = function() {
   var ANIMATION_DURATION = 300;
   // No header offset needed because of the ::before pseudo element on headers.
   var HEADER_OFFSET = 0;
+  var smoothScrollEnabled = true;
+  // Disable smoothScroll on mobile.
+  if (window.document.body.clientWidth < 736) {
+    smoothScrollEnabled = false;
+  }
 
   // Build Table of Contents Links.
   var subGroup;
@@ -56,12 +61,14 @@ module.exports = function() {
 
     // Init smooth scroll when toc is built.
     if (toc && i === (headings.length - 1)) {
-      smoothScroll.init({
-        easing: 'easeInOutCubic',
-        offset: HEADER_OFFSET,
-        speed: ANIMATION_DURATION,
-        updateURL: true,
-      });
+      if (smoothScrollEnabled === true) {
+        smoothScroll.init({
+          easing: 'easeInOutCubic',
+          offset: HEADER_OFFSET,
+          speed: ANIMATION_DURATION,
+          updateURL: true,
+        });
+      }
 
       tocLinks = toc.querySelectorAll('.toc-link');
     }
@@ -159,6 +166,10 @@ module.exports = function() {
     each.call(tocLinks, function(tocLink) {
       tocLink.addEventListener('click', function() {
         highlight = false;
+        // This is for when there is no animation.
+        window.setTimeout(function() {
+          updateSidebar();
+        }, 400); // TODO(tim): this is kinda hacky and needs to be looked into, deferring sidebar update until hash scroll is done.
         window.setTimeout(function() {
           highlight = true;
         }, ANIMATION_DURATION);
