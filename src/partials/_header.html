@@ -1,9 +1,17 @@
   <header id="header" class="header justify background--super-dark background--brand-darker">
-    <a class="display--inline-block" href="/">
+    <div class="link--reverse hidden is-inline-block-on-mobile nav-toggle">
+      <label for="toggle-nav-checkbox">
+        <svg class="lego-icon">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#hamburger"></use>
+        </svg>
+      </label>
+    </div>
+
+    <a class="display--inline-block header-logo-container" href="/">
       <img src="/assets/img/optimizely-developer-logo.svg" alt="Optimizely Developers">
     </a>
 
-    <div class="header-links display--inline-block vertical-align--top">
+    <div class="header-links display--inline-block vertical-align--top is-hidden-on-mobile">
       <ul class="unstyled lego-nav">
         <li class="push-double--right"><a href="/overview">Overview</a></li>
         <li class="position--relative push-double--right">

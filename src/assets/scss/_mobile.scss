@@ -1,0 +1,50 @@
+// Mobile styles
+
+@media only screen and (max-width : 736px) {
+  .is-hidden-on-mobile {
+    display: none !important;
+  }
+
+  .is-inline-block-on-mobile {
+    display: inline-block;
+  }
+
+  .header {
+    text-align: left;
+  }
+  .nav-toggle {
+    position: relative;
+    top: 3px;
+  }
+  .header-logo-container {
+    vertical-align: bottom;
+    margin-left: 20px;
+  }
+
+  #nav {
+    transform: translateX(-100%);
+    transition: all 300ms ease-in-out;
+  }
+  #toggle-nav-checkbox:checked + #nav {
+    transform: translateX(0%);
+  }
+
+  .content {
+    margin-left: 0;
+  }
+  .main.has-nav + .footer {
+    margin-left: 0;
+  }
+
+  .sidebyside-toggles {
+    margin-left: 0;
+    right: -102%;
+    position: absolute;
+    width: 50%;
+  }
+
+  .sidebyside {
+    width: 200%;
+    margin-left: 10px;
+  }
+}
