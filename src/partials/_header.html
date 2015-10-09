@@ -1,4 +1,5 @@
   <header id="header" class="header justify background--super-dark background--brand-darker">
+    {% if page !== 'home' %}
     <div class="link--reverse hidden is-inline-block-on-mobile nav-toggle">
       <label for="toggle-nav-checkbox">
         <svg class="lego-icon">
@@ -6,6 +7,7 @@
         </svg>
       </label>
     </div>
+    {% endif %}
 
     <a class="display--inline-block header-logo-container" href="/">
       <img src="/assets/img/optimizely-developer-logo.svg" alt="Optimizely Developers">
