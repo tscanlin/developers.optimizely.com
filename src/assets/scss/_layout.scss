@@ -76,7 +76,7 @@ $sidebar-width: 300px;
 .hero {
   // background-color: #333;
   // background-color: map-get($ui-color, brand-dark);
-  //background-color: $new-brand-dark;
+  // background-color: $new-brand-dark;
   overflow: hidden;
   background: #082f40; /* Old browsers */
   background: -moz-linear-gradient(top,  #082f40 27%, #051c26 100%); /* FF3.6+ */
@@ -86,18 +86,18 @@ $sidebar-width: 300px;
   background: -ms-linear-gradient(top,  #082f40 27%,#051c26 100%); /* IE10+ */
   background: linear-gradient(to bottom,  #082f40 27%,#051c26 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#082f40', endColorstr='#051c26',GradientType=0 ); /* IE6-9 */
-
+  position: relative;
   color: white;
   height: 350px;
   padding: 70px;
 
   .hero-lines {
     position: absolute;
-    bottom: 235px;
-    left: -100px;
-    right: 0;
+    bottom: 0;
+    left: -5%;
+    right: 0px;
     background-size: cover;
-    width: 118%;
+    width: 107%;
   }
 
   h1, h2 {

@@ -50,9 +50,12 @@
     -webkit-transform: translateX(0%);
   }
 
+  .hero h1::before {
+    height: 20px;
+  }
+
   .content {
     margin-left: 0;
-    // width: 200%;
   }
   .main.has-nav + .footer {
     margin-left: 0;
