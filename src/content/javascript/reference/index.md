@@ -569,7 +569,7 @@ window['optimizely'].push(['removeFromAllSegments']);
 * **November 17, 2014**: New API call to set a [Universal User ID](#uuid).
 
 
-## Personalization
+## Personalization Push API
 
 <div class="lego-attention lego-attention--warning push--bottom">The API calls below only apply to Optimizely Personalization. <a href="http://www.optimizely.com/personalization" target="_blank">Learn more</a>.</div>
 
@@ -601,10 +601,10 @@ The event function captures visitor behavior and additional data. You can track 
 without code, but this API call supports tracking other behaviors like watching a video.
 
 #### Parameters
- 
+
 - `type`: "event"
-- `eventName` (string): The "API name" for an event created in Optimizely, e.g. `add_to_cart`  
-- `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.  
+- `eventName` (string): The "API name" for an event created in Optimizely, e.g. `add_to_cart`
+- `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
 
 #### Examples
 ```js
@@ -649,7 +649,7 @@ Pages can be created visually in Optimizely with URL targeting, but this API cal
 Page information is reset whenever the browser reloads.
 
 #### Parameters
- 
+
 - `type`: "page"
 - `pageName` (string): The "API name" for a page created in Optimizely, e.g. `product_detail`
 - `tags` (object): A single-level JSON object with metadata about the content on the page, e.g. the product being purchased.
@@ -687,9 +687,9 @@ There are three ways to capture this context:
  * Finally, you can use this `tags` call directly to add context without activating a page and tracking a pageview. This is equivalent to the previous option, but it can be used when pages are already being activated using URL targeting.
 
 #### Parameters
- 
+
 - `type`: "tags"
-- `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.  
+- `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
 
 #### Examples
 ```js
@@ -717,7 +717,7 @@ You can also use this function to identify a user with a unique userId. If you d
 #### Parameters
 
 - `type`: "user"
-- `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.  
+- `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.
 - `attributes` (object): Metadata about a user, e.g. their home state. Attributes can be used for creating audiences (target "Californians") and analyzing results (see results broken down by state).
 
 #### Examples
@@ -756,4 +756,163 @@ window['optimizely'].push({
     frequentFlyerStatus: null
   }
 });
-``` 
+```
+
+## Personalization Get API
+
+In addition to updating the `push` API, Optimizely Personalization also exposes a new function, `window['optimizely'].get()`. This function serves as an accessor into a number of useful properties and utilities bundled into the Optimizely Personalization snippet.
+
+For example, if one wanted access the jQuery object used by the Optimizely snippet, they could do so using the following:
+
+```js
+var $ = window['optimizely'].get('jquery');
+```
+
+One important caveat regarding `get` API: unlike `push`, `get` may not be used before the Optimizely snippet has loaded. While this is not a concern when using `get` within the context of custom code, it should be considered when using `get` embedded within external scripts or documents.
+
+
+### jquery
+
+Optimizely optionally bundles jQuery into your Optimizely snippet. This setting is managed via the project settings tab in Optimizely (<a href="https://help.optimizely.com/hc/en-us/articles/202480860" target="_blank">see here for more information</a>). If no jQuery is bundled into the client, the default return value is `window.jQuery`.
+
+#### Examples
+```js
+var $ = window['optimizely'].get('jquery');
+```
+
+### observeSelector
+
+This utility provides a subset of the functionality of a `MutationObserver` (though it does not rely on `MutationObserver` for implementation). Given a CSS Selector and a callback, this function will invoke the supplied callback whenever a new element appears in the DOM matching the supplied selector.
+
+
+```js
+// Retrieve the utils library
+var utils = window['optimizely'].get('utils');
+
+// Modify elements displaying product prices whenever they appear on the page
+// We want huge to be huge and in your face because we have the lowest prices out there
+var cancelProductPriceObserver = utils.observeSelector('.ppPrice', function(priceElement) {
+  priceElement.style.fontSize = '30px';
+  priceElement.style.color = 'red';
+});
+```
+
+#### Parameters
+
+- `selector` (string): CSS selector, ex ".product-item"
+- `callback` (function): A function that accepts a `HTMLDomElement` as it's first parameter
+- `options` (object):
+  - `timeout` (string|null): Number of milliseconds to try before canceling. If null, continues indefinitely
+  - `once` (boolean): If true, the callback will be invoked for the first match only
+  - `onTimeout` (function): Function to execute on timeout
+
+#### Returns
+
+A function that can be executed to cancel observation
+
+### poll
+
+This is a convenience wrapper for `setInterval`.
+
+#### Parameters
+
+- `callback` (function): Function to be executed on the interval specified by `delay`
+- `delay` (number): Milliseconds to wait in between each callback invocation
+
+#### Returns
+
+A function that can be executed to cancel polling.
+
+#### Examples
+
+```js
+// Retrieve the utils library
+var utils = window['optimizely'].get('utils');
+
+// Wait until the element we want to modify is in the DOM
+utils.waitForElement('#pre-header-shipping-cont').then(function(headerElement) {
+
+  // 10 minutes in ms
+  var timeRemaining = 60000;
+
+  // Create a reservation countdown timer that expires after 10 minutes
+  // We want to instill some urgency in our customers so that they buy buy buy
+  var cancelPolling = utils.poll(function() {
+    timeRemaining = timeRemaining - 1000;
+
+    // Update message based on how much time is remaining
+    if (timeRemaining > 0) {
+      var date = new Date(timeRemaining);
+      headerElement.innerHTML = 'You have ' + date.getMinutes() + ':' + date.getSeconds() + ' before your reservation expires.';
+    } else {
+      headerElement.innerHTML = 'Your reservation has expired';
+      cancelPolling();
+    }
+  }, 1000);
+});
+```
+
+### waitForElement
+
+This utility returns a `Promise` that is resolved as soon as an element appears in the DOM matching the supplied selector.
+
+#### Parameters
+
+- `selector` (string): CSS selector, ex. ".product-item"
+
+#### Example
+
+```js
+// Retrieve the utils library
+var utils = window['optimizely'].get('utils');
+
+// Wait for the footer element to appear in the DOM, then change the color
+utils.waitForElement('.footer').then(function(footerElement){
+  footerElement.style.color = 'black';
+});
+```
+
+
+#### Returns
+An es6 style Promise (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">see here for more information</a>) that is resolved with the matching element.
+
+### waitUntil
+
+This utility accepts a function that returns a boolean value and returns a `Promise` that resolves when the supplied function returns `true`.
+
+#### Parameters
+
+- `conditionFunction` (function): A function that will be executed periodically and returns a boolean value
+
+#### Returns
+An es6 style Promise (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">see here for more information</a>)
+
+#### Examples
+
+```js
+// Retrieve the utils library
+var utils = window['optimizely'].get('utils');
+
+// We have infinite scroll enabled on the site. Wait until more than 200 products have been shown
+// to prompt the user to try out our filter by color feature
+utils.waitUntil(function() {
+  var productsShownOnThePage = document.querySelectorAll('.product-listing');
+  return productsShownOnThePage && productsShownOnThePage.length > 200;
+}).then(function() {
+  alert('Not finding what you\'re looking for? Try narrowing down your search using our new filter by color feature');
+});
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
