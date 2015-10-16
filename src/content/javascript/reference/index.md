@@ -810,7 +810,7 @@ var utils = window['optimizely'].get('utils');
 
 // Modify elements displaying product prices whenever they appear on the page
 // We want huge to be huge and in your face because we have the lowest prices out there
-var cancelProductPriceObserver = utils.observeSelector('.ppPrice', function(priceElement) {
+var cancelProductPriceObserver = utils.observeSelector('.productPrice', function(priceElement) {
   priceElement.style.fontSize = '30px';
   priceElement.style.color = 'red';
 });
