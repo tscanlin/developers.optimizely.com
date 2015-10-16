@@ -50,7 +50,7 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
 Once you have a project created and the SDK installed, you should be ready to start running experiments to generate more value from your mobile apps.
 
-1. In the Optimizely Application, select the project that you use for your Android or iOS experiments and click Create Experiment.
+1. In the Optimizely Application, select the project that you use for your iOS experiments and click Create Experiment.
 
 <img src="/assets/img/ios/create_experiment.png" alt="Drawing" style="width: 80%;"/>
 
@@ -85,7 +85,7 @@ For more details about code blocks, you can refer [here](../reference/index.html
 
 <h2 id="add-custom-tags">6. Add Custom Tags</h2>
 
-Custom tags sample code can be found in the *AppDelegate.m* and *CodeBlocksViewController.m* files.  In order to create a test that only runs for returning users as defined in the app, in your Optimizely experiment you can go to Options > Targeting to set up the custom tag condition.
+Custom tags sample code can be found in the *AppDelegate.m* and *CodeBlocksViewController.m* files.  In order to create a test that only runs for returning users as defined in the app, in your Optimizely experiment you can go to Audiences to set up the custom tag condition.
 
 <img src="/assets/img/ios/custom_tags_guide.png" alt="Drawing" style="width: 60%;"/>
 
