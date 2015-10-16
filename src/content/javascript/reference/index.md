@@ -790,7 +790,7 @@ var utils = window['optimizely'].get('utils');
 
 <h4 id="observeSelector" class="subLink"><em>observeSelector</em></h4>
 
-This utility provides a subset of the functionality of a `MutationObserver` (though it does not rely on `MutationObserver` for implementation). Given a CSS Selector and a callback, this function will invoke the supplied callback whenever a new element appears in the DOM matching the supplied selector.
+This utility provides a subset of the functionality of a `MutationObserver`. Given a CSS Selector and a callback, this function will invoke the supplied callback whenever a new element appears in the DOM matching the supplied selector.
 
 ##### *Parameters*
 - `selector` (string): CSS selector, ex ".product-item"
