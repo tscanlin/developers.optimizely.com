@@ -17,7 +17,7 @@ module.exports = function() {
 
   // Selectors.
   var toc = document.querySelector('.active + .toc');
-  var headings = document.querySelectorAll('h2, h3');
+  var headings = document.querySelectorAll('h2, h3, h4.subLink');
   var tocLinks; // = toc.querySelectorAll('.toc-link');
 
   // Classes.
@@ -34,6 +34,8 @@ module.exports = function() {
   // Build Table of Contents Links.
   var subGroup;
   var lastHeading;
+  var parentNode = toc;
+
   // Iterate over headings.
   each.call(headings, function(heading, i) {
     // If the page has the toc container the build the toc.
@@ -44,18 +46,14 @@ module.exports = function() {
         if (currentHeadingLevel > lastHeadingLevel) {
           subGroup = document.createElement('ul');
           subGroup.setAttribute('class', 'unstyled soft--left collapsible ' + IS_COLLAPSED_CLASS);
-          toc.appendChild(subGroup);
+          parentNode.appendChild(subGroup);
+          parentNode = subGroup;
         } else if (currentHeadingLevel < lastHeadingLevel) {
-          subGroup = undefined;
+          parentNode = parentNode.parentNode;
         }
       }
 
-      if (!subGroup) {
-        toc.appendChild(makeLink(heading));
-      } else {
-        subGroup.appendChild(makeLink(heading));
-      }
-
+      parentNode.appendChild(makeLink(heading));
       lastHeading = heading;
     }
 
@@ -144,18 +142,25 @@ module.exports = function() {
         });
 
         // Expand the active link's collapsible list.
-        // NOTE: Right now this only supports two levels.
-        var activeList;
-        if (activeTocLink.classList.contains('toc-link--H2')) {
-          activeList = activeTocLink.parentNode.nextElementSibling;
-        } else {
-          activeList = activeTocLink.parentNode.parentNode;
+        // NOTE: Right now this only supports 3 levels.
+        var activeList = [];
+        if (activeTocLink.classList.contains('toc-link--H4')) {
+          activeList.push(activeTocLink.parentNode.parentNode);
+          activeList.push(activeTocLink.parentNode.parentNode.parentNode);
+          activeList.push(activeTocLink.parentNode.nextElementSibling);
+        } else if (activeTocLink.classList.contains('toc-link--H3')) {
+          activeList.push(activeTocLink.parentNode.parentNode);
+          activeList.push(activeTocLink.parentNode.nextElementSibling);
+        } else if (activeTocLink.classList.contains('toc-link--H2')) {
+          activeList.push(activeTocLink.parentNode.nextElementSibling);
         }
 
-        // activeList may not exist if the H2 doesn't have any sub-sections.
-        if (activeList) {
-          activeList.classList.remove(IS_COLLAPSED_CLASS);
-        }
+        activeList.forEach(function(list) {
+          // list may not exist if the H2 doesn't have any sub-sections.
+          if (list) {
+            list.classList.remove(IS_COLLAPSED_CLASS);
+          }
+        });
       }
     }
   }
