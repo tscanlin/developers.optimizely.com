@@ -169,7 +169,7 @@ protected void onCreate(Bundle savedInstanceState) {
     // more create logic
 
     // You can find the following code snippet in your project code.
-    Optimizely.startOptimizely("<API Token>", getApplication());
+    Optimizely.startOptimizelyWithAPIToken("<API Token>", getApplication());
 }
 ```
 
@@ -243,7 +243,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
 
 1. In order to set up your app such that you can QA experiments (beyond using Preview), we recommend either having a separate [Project](#accountcreation) for development and production or inserting [Custom Tags](#customtags), which are only set for certain QA devices.  If you decide to go with setting up 2 separate projects, we recommend setting up an `if (DEBUG)` to ensure that only one project code snippet is defined at any given time.
 
-2. Were you able to connect to Optimizely's Visual Editor?  Before your release to the app store, you will want to make sure that `Optimizely.setEditGestureEnabled(false)` is called before `Optimizely.startOptimizely`.
+2. Were you able to connect to Optimizely's Visual Editor?  Before your release to the app store, you will want to make sure that `Optimizely.setEditGestureEnabled(false)` is called before `Optimizely.startOptimizelyWithAPIToken`.
 
 3. (Optional) If you have a separate project for development and production, you can run your experiments in your development environment to check that results are updating and that you are seeing the different variations are being seen.
     - You will want to make sure that each experiment does not make changes to the same element (otherwise only one of the experiments will run).
@@ -264,5 +264,6 @@ Once you have run your first few visual editor experiments or tried out Optimize
 4. [Track Event](../reference/index.html#track-event) (for key metrics you would like to track in your app)
 5. [Revenue Tracking](../reference/index.html#revenue-tracking)
 6. [Analytics Integration](../reference/index.html#analytics-integrations)
+7. [Optimizely Event Listeners](../reference/index.html#optimizely-debug)
 
 For a comprehensive list of all additional methods available in the SDK you can refer to the [Reference](../reference/index.html) section or the [Java Docs](/android/help/reference/packages.html).

@@ -101,7 +101,7 @@ referenced from: MY_CLASS
 ##### *Q: I am not seeing conversions or visitors on the results page.*
 *A:* There are two things to check if you not being counted as a visitor or seeing conversions on the results page as you're doing QA: that you meet targeting conditions and goals are being triggered properly.
 
-To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the Live Variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background and foreground the app in order for events store locally to be sent to the server.
+To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the Live Variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background the app in order for events store locally to be sent to the server.
 
 To check that goals are triggering properly, you can use our [developer APIs](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-Experiments) to check that:
 
