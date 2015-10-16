@@ -13,11 +13,11 @@ It is highly recommended to use Optimizely's 'O' gesture to connect your app to 
 
 ### Programmatically Enable Edit Mode
 
-Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizely`, you can call [enableEditor](/android/help/reference/com/optimizely/Optimizely.html#enableEditor()) in the development version of your app so that you can make changes.
+Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizelyWithAPIToken`, you can call [enableEditor](/android/help/reference/com/optimizely/Optimizely.html#enableEditor()) in the development version of your app so that you can make changes.
 
 ```java
 Optimizely.enableEditor();
-Optimizely.startOptimizely(getOptimizelyToken(), getApplication());
+Optimizely.startOptimizelyWithAPIToken(getOptimizelyToken(), getApplication());
 ```
 
  **Note that you should always remove the enableEditor call prior to releasing your app to the App store.**
@@ -30,7 +30,7 @@ An example of how to implement this method can be found below:
 
 ```java
 Optimizely.setEditGestureEnabled(false);
-Optimizely.startOptimizely(getOptimizelyToken(), getApplication());
+Optimizely.startOptimizelyWithAPIToken(getOptimizelyToken(), getApplication());
 ```
 
 ## Visual Editor Configuration
@@ -195,13 +195,13 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // more create logic
     Optimizely.setCustomTag("returning_customer", "true");
-    Optimizely.startOptimizely("<API Token>", getApplication());
+    Optimizely.startOptimizelyWithAPIToken("<API Token>", getApplication());
 }
 ```
 
-Make sure to call `setCustomTag` prior to `startOptimizely` and any time custom tag values are expected to change.  To do that you can make the `setValue:forCustomTag:` call in the following ways:
+Make sure to call `setCustomTag` prior to `startOptimizelyWithAPIToken` and any time custom tag values are expected to change.  To do that you can make the `setValue:forCustomTag:` call in the following ways:
 
-- Prior to `startOptimizely` so that Optimizely knows all of the targeting conditions prior to experiment activation
+- Prior to `startOptimizelyWithAPIToken` so that Optimizely knows all of the targeting conditions prior to experiment activation
 - `setCustomTag` can also be called in conjunction with `refreshExperimentData` while the app is still running.  For more details on how this works, you can refer to the section below.
 
 ```java
