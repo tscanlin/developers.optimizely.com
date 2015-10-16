@@ -780,7 +780,15 @@ Optimizely optionally bundles jQuery into your Optimizely snippet. This setting 
 var $ = window['optimizely'].get('jquery');
 ```
 
-### observeSelector
+### utils
+A number of utility functions are accessible in Optimizely Personalization via the 'utils' object. You may access this object like so:
+
+#### Examples
+```js
+var utils = window['optimizely'].get('utils');
+```
+
+<h4 id="observeSelector" class="subLink">observeSelector</h4>
 
 This utility provides a subset of the functionality of a `MutationObserver` (though it does not rely on `MutationObserver` for implementation). Given a CSS Selector and a callback, this function will invoke the supplied callback whenever a new element appears in the DOM matching the supplied selector.
 
@@ -797,7 +805,7 @@ var cancelProductPriceObserver = utils.observeSelector('.ppPrice', function(pric
 });
 ```
 
-#### Parameters
+##### *Parameters*
 
 - `selector` (string): CSS selector, ex ".product-item"
 - `callback` (function): A function that accepts a `HTMLDomElement` as it's first parameter
@@ -806,24 +814,24 @@ var cancelProductPriceObserver = utils.observeSelector('.ppPrice', function(pric
   - `once` (boolean): If true, the callback will be invoked for the first match only
   - `onTimeout` (function): Function to execute on timeout
 
-#### Returns
+##### *Returns*
 
 A function that can be executed to cancel observation
 
-### poll
+<h4 id="poll" class="subLink">poll</h4>
 
 This is a convenience wrapper for `setInterval`.
 
-#### Parameters
+##### *Parameters*
 
 - `callback` (function): Function to be executed on the interval specified by `delay`
 - `delay` (number): Milliseconds to wait in between each callback invocation
 
-#### Returns
+##### *Returns*
 
 A function that can be executed to cancel polling.
 
-#### Examples
+##### *Examples*
 
 ```js
 // Retrieve the utils library
@@ -852,15 +860,15 @@ utils.waitForElement('#pre-header-shipping-cont').then(function(headerElement) {
 });
 ```
 
-### waitForElement
+<h4 id="waitForElement" class="subLink">waitForElement</h4>
 
 This utility returns a `Promise` that is resolved as soon as an element appears in the DOM matching the supplied selector.
 
-#### Parameters
+##### *Parameters*
 
 - `selector` (string): CSS selector, ex. ".product-item"
 
-#### Example
+##### *Examples*
 
 ```js
 // Retrieve the utils library
@@ -873,21 +881,21 @@ utils.waitForElement('.footer').then(function(footerElement){
 ```
 
 
-#### Returns
+##### *Returns*
 An es6 style Promise (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">see here for more information</a>) that is resolved with the matching element.
 
-### waitUntil
+<h4 id="waitUntil" class="subLink">waitUntil</h4>
 
 This utility accepts a function that returns a boolean value and returns a `Promise` that resolves when the supplied function returns `true`.
 
-#### Parameters
+##### *Parameters*
 
 - `conditionFunction` (function): A function that will be executed periodically and returns a boolean value
 
-#### Returns
+##### *Returns*
 An es6 style Promise (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">see here for more information</a>)
 
-#### Examples
+##### *Examples*
 
 ```js
 // Retrieve the utils library
