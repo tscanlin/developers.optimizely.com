@@ -788,11 +788,22 @@ A number of utility functions are accessible in Optimizely Personalization via t
 var utils = window['optimizely'].get('utils');
 ```
 
-<h4 id="observeSelector" class="subLink">observeSelector</h4>
+<h4 id="observeSelector" class="subLink"><em>observeSelector</em></h4>
 
 This utility provides a subset of the functionality of a `MutationObserver` (though it does not rely on `MutationObserver` for implementation). Given a CSS Selector and a callback, this function will invoke the supplied callback whenever a new element appears in the DOM matching the supplied selector.
 
+##### *Parameters*
+- `selector` (string): CSS selector, ex ".product-item"
+- `callback` (function): A function that accepts a `HTMLDomElement` as it's first parameter
+- `options` (object):
+  - `timeout` (string|null): Number of milliseconds to try before canceling. If null, continues indefinitely
+  - `once` (boolean): If true, the callback will be invoked for the first match only
+  - `onTimeout` (function): Function to execute on timeout
 
+##### *Returns*
+A function that can be executed to cancel observation
+
+##### *Examples*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -805,34 +816,18 @@ var cancelProductPriceObserver = utils.observeSelector('.ppPrice', function(pric
 });
 ```
 
-##### *Parameters*
-
-- `selector` (string): CSS selector, ex ".product-item"
-- `callback` (function): A function that accepts a `HTMLDomElement` as it's first parameter
-- `options` (object):
-  - `timeout` (string|null): Number of milliseconds to try before canceling. If null, continues indefinitely
-  - `once` (boolean): If true, the callback will be invoked for the first match only
-  - `onTimeout` (function): Function to execute on timeout
-
-##### *Returns*
-
-A function that can be executed to cancel observation
-
-<h4 id="poll" class="subLink">poll</h4>
+<h4 id="poll" class="subLink"><em>poll</em></h4>
 
 This is a convenience wrapper for `setInterval`.
 
 ##### *Parameters*
-
 - `callback` (function): Function to be executed on the interval specified by `delay`
 - `delay` (number): Milliseconds to wait in between each callback invocation
 
 ##### *Returns*
-
 A function that can be executed to cancel polling.
 
 ##### *Examples*
-
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -860,16 +855,17 @@ utils.waitForElement('#pre-header-shipping-cont').then(function(headerElement) {
 });
 ```
 
-<h4 id="waitForElement" class="subLink">waitForElement</h4>
+<h4 id="waitForElement" class="subLink"><em>waitForElement</em></h4>
 
 This utility returns a `Promise` that is resolved as soon as an element appears in the DOM matching the supplied selector.
 
 ##### *Parameters*
-
 - `selector` (string): CSS selector, ex. ".product-item"
 
-##### *Examples*
+##### *Returns*
+An es6 style Promise (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">see here for more information</a>) that is resolved with the matching element.
 
+##### *Examples*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -880,23 +876,17 @@ utils.waitForElement('.footer').then(function(footerElement){
 });
 ```
 
-
-##### *Returns*
-An es6 style Promise (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">see here for more information</a>) that is resolved with the matching element.
-
-<h4 id="waitUntil" class="subLink">waitUntil</h4>
+<h4 id="waitUntil" class="subLink"><em>waitUntil</em></h4>
 
 This utility accepts a function that returns a boolean value and returns a `Promise` that resolves when the supplied function returns `true`.
 
 ##### *Parameters*
-
 - `conditionFunction` (function): A function that will be executed periodically and returns a boolean value
 
 ##### *Returns*
 An es6 style Promise (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">see here for more information</a>)
 
 ##### *Examples*
-
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
