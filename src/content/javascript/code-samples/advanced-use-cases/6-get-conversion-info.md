@@ -5,7 +5,7 @@ anchor: advanced-use-cases-get-conversion-info
 js: |
   /*
    * Usage
-   *    Loops through the Optimizely Data Object to return the information necessary to construct the off-line conversions URL.  
+   *    Loops through the Optimizely Data Object to return the information necessary to construct the off-line conversions URL.
    *
    */
 

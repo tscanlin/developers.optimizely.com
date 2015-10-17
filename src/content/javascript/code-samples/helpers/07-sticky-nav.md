@@ -6,7 +6,7 @@ js: |
   /*
    *  Usage
    *     Pass in the ID of an element whose position you want fixed once the visitor scrolls past the element's initial position.  If the visitor scrolls up again, the element will take on its original position.
-   *  
+   *
    *  @param {String} id - The CSS ID of the element you want to have fixed position.
    *
    */

@@ -38,7 +38,6 @@ js: |
    loadScript('http://www.example.com/test.js', function() {
      // CALLBACK - code that does something with the data returned by loading the script
    });
-
 ---
 
 This function will append an external JavaScript to the head of the document.  You can optionally provide a callback function as well.

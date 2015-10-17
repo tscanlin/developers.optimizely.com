@@ -5,7 +5,7 @@ anchor: helpers-get-parameter
 js: |
   /*
    * Usage
-   *    This function takes a query parameter name and returns its value.  
+   *    This function takes a query parameter name and returns its value.
    *
    *  @param {String} name - The name of the query parameter, whose value you want returned.
    */

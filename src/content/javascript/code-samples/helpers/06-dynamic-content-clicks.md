@@ -6,7 +6,7 @@ js: |
   /*
    *  Usage
    *    Track clicks on elements loaded after DOM ready.  The .delegate() method allows you to select all current and future elements that match the selector passed in as the first argument.
-   *  
+   *
    *  @param {String} selector - Provide the element selector.
    *  @param {String} eventName - Provide the custom event name.
    */

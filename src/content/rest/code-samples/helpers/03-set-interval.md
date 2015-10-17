@@ -5,8 +5,8 @@ anchor: helpers-poll-for-element
 js: |
   /*
    * Usage
-   *    This function is a recursive setTimeout of 50ms that polls for an element matching the selector in the if statement. 
-   *  @param {String} selector - The CSS path for the selector that you're polling for. 
+   *    This function is a recursive setTimeout of 50ms that polls for an element matching the selector in the if statement.
+   *  @param {String} selector - The CSS path for the selector that you're polling for.
    */
 
    var pollForElement = function(selector) {
