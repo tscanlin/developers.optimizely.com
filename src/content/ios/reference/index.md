@@ -14,7 +14,7 @@ By default, Optimizely is initialized synchronously with a max 2 second timeout.
 [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN
 launchOptions:launchOptions
 experimentsLoadedCallback:^(BOOL success, NSError *error)
-{ 
+{
    ...
 }];
 ```
