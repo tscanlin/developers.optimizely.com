@@ -1,4 +1,4 @@
-campaign: 
+campaign:
   usage: "Will match if the `utm_campaign` query parameter matches `value` according to `match_type`. If you don't provide a match type, it will default to `exact` if a value is provided or `exists` if a value is not provided."
   example: |
     {
@@ -24,7 +24,7 @@ browser_version:
       "value": "ie10"
     }
 
-cookies: 
+cookies:
   usage: "Will match if cookie `name` matches `value` according to `match_type`. If you don't provide a match type, it will default to `exact` if a value is provided or `exists` if a value is not provided."
   example: |
     {
@@ -42,7 +42,7 @@ device:
       "value": "ipad"
     }
 
-event: 
+event:
   usage: Will match if the visitor triggered the goal with event name `name`.
   example: |
     {
@@ -77,7 +77,7 @@ custom_dimension:
       "value": "1234"
     }
 
-ip: 
+ip:
   usage: Will match if the visitor's IP matches `value` according to the match type.
   example: |
     {
@@ -109,7 +109,7 @@ first_session:
       "type": "first_session"
     }
 
-platform: 
+platform:
   usage: Mobile or desktop platform (OS) the visitor is using.
   example: |
     {

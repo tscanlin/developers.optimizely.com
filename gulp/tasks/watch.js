@@ -19,8 +19,6 @@ gulp.task('watch', ['browser-sync'], function() {
   // Watch tasks for html
   gulp.watch(path.join(paths.src + paths.pages, '**/*.html'), ['html-templates'])
     .on('error', handleErrors);
-  // gulp.watch(path.join(paths.src + paths.pages, '**/*.html'), ['html-templates'])
-  //   .on('error', handleErrors);
   gulp.watch(path.join(paths.src + paths.content, '**/*.md'), ['concat'])
     .on('error', handleErrors);
   gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['html-templates', 'concat'])
