@@ -97,6 +97,7 @@ You're now ready to edit your Live Variables using the Optimizely web editor:
 3. Click the "Add Variable" button to open a dialog where you can select variables to add to your experiment.
 4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
 5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
+6. Once you've connected your app to the editor, you can later edit live variables without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 ### Register Variable Callback
 
@@ -172,6 +173,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 3. Click the "Add Code Block" button to open a dialog where you can select Code Blocks to add to your experiment.
 4. Once you have added a Code Block to the experiment, you can select a value for each variation in the Code Blocks section of the editor.
 5. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
+6. Once you've connected your app to the editor, you can later edit code blocks without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 For more details, please see the [Code Blocks API Reference](/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
