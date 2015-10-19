@@ -26,7 +26,6 @@ js: |
   }
   _optly.redir.href = _optly.redir.protocol + _optly.redir.domain + _optly.redir.pathname + _optly.redir.query;
   window.location.replace(_optly.redir.href);
-
 ---
 
 This JavaScript will redirect a visitor to a new URL after appending a query parameter you specify.

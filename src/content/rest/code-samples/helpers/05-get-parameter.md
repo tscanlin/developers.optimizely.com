@@ -5,7 +5,7 @@ anchor: helpers-get-parameter
 js: |
   /*
    * Usage
-   *    This function takes a query parameter name and returns its value.  
+   *    This function takes a query parameter name and returns its value.
    *
    *  @param {String} name - The name of the query parameter, whose value you want returned.
    */
@@ -17,7 +17,6 @@ js: |
 
    // example showing the function called, with the return value inserted in the first h1 element
    $('h1:eq(0)').text(getQueryParam('myParam'));
-
 ---
 
 This function will return the value of a query parameter.  This is useful if you'd like to render a query parameter value on the page itself.

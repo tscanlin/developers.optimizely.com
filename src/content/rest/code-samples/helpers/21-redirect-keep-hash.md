@@ -14,7 +14,7 @@ js: |
   /* _optimizely_redirect = custom_keep_hash */
   var redirectUrl = "[REDIRECT_URL]";
   var _optly = {redir:document.createElement("a")};
-  _optly.redir.href = redirectUrl;  // 
+  _optly.redir.href = redirectUrl;  //
   _optly.cur = window.location.search;
   if (_optly.cur) {
     _optly.redir.search = _optly.redir.search ? _optly.cur + "&" + _optly.redir.search.slice(1) : _optly.cur;
@@ -23,7 +23,6 @@ js: |
     _optly.redir.hash = window.location.hash;
   }
   window.location.replace(_optly.redir.href);
-
 ---
 
 This JavaScript will redirect a visitor to a new URL while preserving the hash parameters.

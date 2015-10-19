@@ -17,7 +17,6 @@ js: |
   _optly.redir.href = window.location.href;
   _optly.redir.hostname = newDomain;
   window.location.replace(_optly.redir.href);
-
 ---
 
 This JavaScript will redirect a visitor to a new domain, preserving the rest of the URL.

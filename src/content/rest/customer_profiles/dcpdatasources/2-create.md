@@ -9,7 +9,7 @@ anchor: create-dcpdatasource
 request:
   name: "My Data Warehouse"
   keyfield_locator_type: "cookie"
-  keyfield_locator_name: "_my_hashedEmailcookie"  
+  keyfield_locator_name: "_my_hashedEmailcookie"
 response: |
   {
     "id": 678,
@@ -31,9 +31,9 @@ response: |
 
 Create a Datasource for the specified DCP Service.
 
-#### Required Fields  
+#### Required Fields
 - `name`
-- `keyfield_locator_type`: Must be one of 
+- `keyfield_locator_type`: Must be one of
   - `"cookie"`
   - `"query parameter"`
   - `"js_variable"`

@@ -23,7 +23,7 @@ response: |
     "version": 1
   }
 ---
-Updates the metadata of the specified attribute. 
+Updates the metadata of the specified attribute.
 
 #### Editable fields
 - `description`
@@ -32,4 +32,3 @@ Updates the metadata of the specified attribute.
 *NOTE:* Updates to an attribute's name, datatype, or version are not currently supported. We recommend archiving the
 existing attribute and creating a replacement, with the desired name, datatype, and format.
 </div>
-

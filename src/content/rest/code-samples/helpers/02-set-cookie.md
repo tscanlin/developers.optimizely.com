@@ -22,7 +22,6 @@ js: |
       var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
       document.cookie=c_name + "=" + c_value + ";" + c_domain + "path=/";
     }
-
 ---
 
 This function sets a cookie and accepts the cookie's name, value, domain and duration in days as arguments.

@@ -34,7 +34,7 @@ Updates a Datasource.
 #### Editable fields
 - `name`
 - `description`
-- `keyfield_locator_type`: Must be one of 
+- `keyfield_locator_type`: Must be one of
   - `"cookie"`
   - `"query parameter"`
   - `"js_variable"`

@@ -9,20 +9,20 @@ anchor: list-dcpservice-datasources
 response: |
   [
     {
-      "id": 789, 
-      "archived": false, 
-      "attributes": [], 
+      "id": 789,
+      "archived": false,
+      "attributes": [],
       "aws_access_key": "AKfakekeyV8SH8XTJBUPO",
       "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
-      "created": "2015-08-26T09:50:38.886990Z", 
-      "description": "Optimizely datasource", 
+      "created": "2015-08-26T09:50:38.886990Z",
+      "description": "Optimizely datasource",
       "dcp_service_id": 567,
-      "is_optimizely": true, 
-      "keyfield_locator_name": null, 
-      "keyfield_locator_type": "uid", 
-      "last_modified": "2015-08-26T09:50:39.202950Z", 
-      "name": "Optimizely", 
-      "s3_path": "dcp/567/789" 
+      "is_optimizely": true,
+      "keyfield_locator_name": null,
+      "keyfield_locator_type": "uid",
+      "last_modified": "2015-08-26T09:50:39.202950Z",
+      "name": "Optimizely",
+      "s3_path": "dcp/567/789"
     },
     {
       "id": 678,

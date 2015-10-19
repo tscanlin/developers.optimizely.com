@@ -14,8 +14,6 @@ js: |
      var match = document.cookie.match(name+'=([^;]*)');
      return match ? match[1] : undefined;
    };
-
-
 ---
 
 This function reads a cookie from the visitor's browser and returns the value.

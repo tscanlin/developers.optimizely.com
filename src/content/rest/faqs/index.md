@@ -20,7 +20,6 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#get-results">*Q:* How do I get the results of an experiment?</a><br>
 <a href="#archive-experiment">*Q:* How do I archive an experiment?</a><br>
 
-
 <a name="run-tests"></a>
 ##### *Q: Can I run web A/B tests with the REST API?*
 *A:* Yes! The REST API allows you to create projects, experiments, variations, audiences, and goals analogous to using the Optimizely interface. Check out [Life of an experiment](../../overview#life-of-an-experiment) to see what's involved in setting up an experiment and which API endpoints are needed.

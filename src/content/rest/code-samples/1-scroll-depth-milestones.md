@@ -5,7 +5,7 @@ anchor: advanced-goal-tracking-scroll-depth-milestones
 js: |
   /*
    * Usage
-   *    This function fires custom events at different scroll depth milestones.  
+   *    This function fires custom events at different scroll depth milestones.
    */
 
     // Variables to prevent continuous firing of custom events

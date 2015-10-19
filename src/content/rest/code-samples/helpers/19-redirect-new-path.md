@@ -20,7 +20,6 @@ js: |
                  };
   _optly.redir.href = _optly.redir.protocol + _optly.redir.domain + newPath + _optly.redir.query;
   window.location.replace(_optly.redir.href);
-
 ---
 
-This JavaScript will redirect a visitor to a new path, preserving the rest of the URL.  
+This JavaScript will redirect a visitor to a new path, preserving the rest of the URL.

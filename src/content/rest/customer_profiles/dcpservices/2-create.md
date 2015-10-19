@@ -23,7 +23,7 @@ response: |
 
 Creates a new DCP Service under your account.
 
-#### Required Fields  
+#### Required Fields
 - `name`
 
 <div class="lego-attention lego-attention--warning push--bottom">
