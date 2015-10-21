@@ -66,7 +66,7 @@ For more details about live variables, you can refer [here](../reference/index.h
 
 <h2 id="modify-code-blocks">5. Modify Code Blocks</h2>
 
-Code Blocks have already been added to the sample app. You can refer to the *CodeBlocksViewController.m* file.  There are 3 examples of live variables used in that file, which are shown below.  Save your experiment after you have made the change.
+Code Blocks have already been added to the sample app. You can refer to the *CodeBlocksViewController.m* file.  There is 1 example of a code block used in that file, which are shown below.  Save your experiment after you have made the change.
 
 1. If you tap on "Code Blocks" > "Sign in" without modifying the code block, the View Controller that will appear is shown below:
 

@@ -96,7 +96,7 @@ var paths = {
     android: {
       path: '/android/',
       title: 'Android SDK',
-      sections: NAV_SECTIONS,
+      sections: MOBILE_NAV_SECTIONS,
     },
     integrations: {
       path: '/integrations/',
