@@ -30,20 +30,25 @@ Now, you're ready to add some code so your app can connect with your Optimizely 
 
 Optimizely assigns each project a unique identifier known as an API token. Your app identifies itself to the Optimizely Android SDK by initializing the SDK with this token.
 
-Add the following to the end of your main activity's `onCreate()` function. The code can be copied from your `Implementation Settings`, which you can find by selecting on the appropriate Android Project in your [Optimizely Home](https://app.optimizely.com/projects).  For more details, you can refer back to [Step 2: Create an Android project](#accountcreation).
+Modify the Optimizely call in MainActivity.java in the `onCreate()` function. The code can be copied from your `Implementation Settings`, which you can find by selecting on the appropriate Android Project in your [Optimizely Home](https://app.optimizely.com/projects).  For more details, you can refer back to [Step 2: Create an Android project](#accountcreation).
 
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    
+    ...
 
-    // more create logic
-
-    // You can find the following code snippet in your project code.
-    Optimizely.startOptimizelyWithAPIToken("<API Token>", getApplication());
+    // [OPTIMIZELY] (REQUIRED) Replace this line with your API token, and don't forget to go to
+    // your AndroidManifest.xml (e.g. it should look like optly123456, replace 123456 with your project id)
+    // Replace <YOUR_API_TOKEN> with your API Token from your Optimizely Dashboard
+    // optimizely.com/dashboard.  It should look like: "AAMseu0A6cJKXYL7RiH_TgxkvTRMOCvS~123456"
+    Optimizely.startOptimizelyWithAPIToken(<YOUR_API_TOKEN>, getApplication(), mOptimizelyEventListener);
 }
 ```
+
+In this example, you can see that the Optimizely event listener is included in this call.  By registering this callback with Optimizely and overriding methods you're interested in, you can get notifications when various Optimizely events occur.  To learn more, you can go [here](../reference/index.html#optimizely-debug).
 
 This call will block until Optimizely is started. For a non-blocking call, use the following version which takes a callback listener as the third argument. If you are not interested in the callback, you can pass in `null`:
 
@@ -81,7 +86,7 @@ protected void onCreate(Bundle savedInstanceState) {
    ```
 
 
-At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background. You will see your project overview display light up, allowing you to create an experiment:
+At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background once you put the app into edit mode. You will see your project overview display light up, allowing you to create an experiment:
 
    <img src="/assets/img/android/sdk-detected.png", style="width: 70%"/>
 
@@ -114,15 +119,15 @@ Code Blocks have already been added to the sample app. You can refer to the *Cod
 
 1. If you tap on "Code Blocks" > "Sign in" without modifying the code block, the View Controller that will appear is shown below:
 
-<img src="/assets/img/android/code_block_2.png" alt="Drawing" style="width: 60%;"/>
+   <img src="/assets/img/android/code_block_2.png" alt="Drawing" style="width: 60%;"/>
 
 2. Return to the "Sign in" View Controller:
 
-<img src="/assets/img/android/code_block_3.png" alt="Drawing" style="width: 60%;"/>
+   <img src="/assets/img/android/code_block_3.png" alt="Drawing" style="width: 60%;"/>
 
 3. Now, select "addOnboarding", and if you navigate through the app, you will see a new screen appear, which is shown below:
 
-<img src="/assets/img/android/code_block_4.png" alt="Drawing" style="width: 60%;"/>
+   <img src="/assets/img/android/code_block_4.png" alt="Drawing" style="width: 60%;"/>
 
 
 For more details about code blocks, you can refer [here](../reference/index.html#code-blocks).
