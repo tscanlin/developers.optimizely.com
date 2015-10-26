@@ -70,15 +70,15 @@ Code Blocks have already been added to the sample app. You can refer to the *Cod
 
 1. If you tap on "Code Blocks" > "Sign in" without modifying the code block, the View Controller that will appear is shown below:
 
-<img src="/assets/img/ios/code_block_2.png" alt="Drawing" style="width: 60%;"/>
+   <img src="/assets/img/ios/code_block_2.png" alt="Drawing" style="width: 60%;"/>
 
 2. Return to the "Sign in" View Controller:
 
-<img src="/assets/img/ios/code_blocks_3.png" alt="Drawing" style="width: 60%;"/>
+   <img src="/assets/img/ios/code_blocks_3.png" alt="Drawing" style="width: 60%;"/>
 
 3. Now, select "One Stage", and if you navigate through the app, you will see a new screen appear, which is shown below:
 
-<img src="/assets/img/ios/code_blocks_4.png" alt="Drawing" style="width: 60%;"/>
+   <img src="/assets/img/ios/code_blocks_4.png" alt="Drawing" style="width: 60%;"/>
 
 
 For more details about code blocks, you can refer [here](../reference/index.html#code-blocks).
