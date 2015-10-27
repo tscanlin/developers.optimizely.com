@@ -172,7 +172,7 @@ For more details, please see the [Live Variables API Reference](/ios/help/html/C
 
 ### Register Variable Callback
 
-By default, in Edit Mode, Optimizely's editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForVariableWithKey](/ios/help/html/Classes/Optimizely.html#//api/name/registerCallbackForVariableWithKey:callback:) method.
+By default, in Edit Mode, Optimizely's editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForVariableWithKey:callback:](/ios/help/html/Classes/Optimizely.html#//api/name/registerCallbackForVariableWithKey:callback:) method.
 
 An example implementation of this can be found below:
 
@@ -293,6 +293,19 @@ You're now ready to implement your experiment using the Optimizely web editor:
 5. Once you've connected your app to the editor, you can later edit code blocks without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 For more details, please see the [Code Blocks API Reference](/ios/help/html/Classes/Optimizely.html#//api/name/codeBlocksWithKey:blockOne:defaultBlock:)
+
+### Register Code Block Callback
+
+By default, in Edit Mode, Optimizely's editor will apply code block branch changes once the code block is executed again.  However, there may be times where you want the new code block branch to be executed in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForCodeBlockWithKey:callback:](/ios/help/html/Classes/Optimizely.html#//api/name//registerCallbackForCodeBlockWithKey:callback:) method.
+
+An example implementation of this can be found below:
+
+```obj-c
+[Optimizely registerCallbackForCodeBlockWithKey:myCodeBlockKey callback:^() {
+	// Calling renderViews will allow us to execute the code that wraps our code block
+	[self renderViews];
+}];
+```
 
 ### Phased Rollouts
 
