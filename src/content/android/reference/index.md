@@ -177,6 +177,21 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 For more details, please see the [Code Blocks API Reference](/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
+### Register Code Block Callback
+
+By default, in Edit Mode, Optimizely's editor will apply code block branch changes once the code block is executed again.  However, there may be times where you want the new code block branch to be executed in your app without the screen being refreshed while you're making experiment changes. To do so, you can use the `Optimizely.CodeBlock` method `setCallback(new OptimizelyCodeBlock.Callback(){...})`
+
+An example implementation of this can be found below:
+
+```java
+OptimizelyCodeBlock myCodeBlock = Optimizely.codeBlock("myCodeBlock").setCallback(new OptimizelyCodeBlock.Callback() {
+		@Override
+    	public void onBranchChange() {
+			// Calling renderViews will allow us to execute the code that wraps our code block
+			renderViews();
+		}
+    }).withBranchNames("branch1", "branch2");
+```
 ### Phased Rollouts
 
 A common use case for Code Blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse [here](https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App).
