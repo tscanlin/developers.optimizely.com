@@ -545,6 +545,19 @@ for (NSDictionary *audience in audiences) {
 }
 ```  
 
+### Forcing a Variation
+Sometimes you'll want to try out your experiment before it goes live and outside of preview mode. You may run into an annoyance where you spend a lot of times re-bucketing yourself in order to get into all the experiment combinations. Now you can opt to force an experiment into a given variation with `forceVariation:ofExperiment:`. When you force a variation for a given experiment, we'll reset the app's userId and try to force that experiment/variation if they are both valid. This should be called before startOptimizely is called and keep in mind that you should only use this for testing your experiments. You should NOT ship this to your customers.
+
+Here's an example below:
+```obj-c
+// Force the variation and experiment specified by those two ids
+[Optimizely forceVariation:myVariationId ofExperiment:myExperimentId];
+
+// Make sure to call it before start Optimizely is called
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+```
+
 ## Upgrading to a new SDK
 
 To keep up with SDK updates, you can refer to our [change log](https://github.com/optimizely/Optimizely-iOS-SDK/blob/master/CHANGELOG.md).
