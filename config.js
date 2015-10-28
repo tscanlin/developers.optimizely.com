@@ -27,6 +27,34 @@ var NAV_SECTIONS = {
 };
 
 // Sections for each navigation item.
+var JS_NAV_SECTIONS = {
+  'introduction': {
+    path: 'introduction/',
+    title: 'Introduction',
+  },
+  'getting-started': {
+    path: 'getting-started/',
+    title: 'Getting started',
+  },
+  'reference': {
+    path: 'reference/',
+    title: 'Reference',
+  },
+  'faqs': {
+    path: 'faqs/',
+    title: 'FAQs',
+  },
+  'code-samples': {
+    path: 'code-samples/',
+    title: 'Code Samples',
+  },
+  'personalization': {
+    path: 'personalization/',
+    title: 'Personalization',
+  }
+};
+
+// Sections for each navigation item.
 var MOBILE_NAV_SECTIONS = {
   'introduction': {
     path: 'introduction/',
@@ -86,7 +114,7 @@ var paths = {
     javascript: {
       path: '/javascript/',
       title: 'JS API',
-      sections: NAV_SECTIONS,
+      sections: JS_NAV_SECTIONS,
     },
     ios: {
       path: '/ios/',
