@@ -476,7 +476,7 @@ To manually send events, in the appropriate function (e.g. where you make other 
 
 
 
-## Optimizely Debug
+## Debugging Optimizely
 
 For full details on how to use NSNotifications and the Experiment Data Object, you can refer to this [QA article](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-Experiments) in Optiverse.
 
@@ -493,16 +493,14 @@ The following sample shows how to register for a notification:
 
 ```obj-c
 -(void)registerForOptimizelyNotifications {
-
     [[NSNotificationCenter defaultCenter] addObserver:self
 		selector:@selector(experimentDidGetViewed:)
 			name:OptimizelyExperimentVisitedNotification object:nil];
-
 }
 ```
 
 ### Experiment Data Object
-Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited.
+Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited. You can also query for the `OptimizelyExperimentData` associated to a given experimentId by using `getExperimentDataById:`.
 
 Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](/ios/help/html/Classes/OptimizelyExperimentData.html).
 
@@ -510,19 +508,19 @@ Sample usage of how this data looks is listed below:
 
  ```obj-c
 for (OptimizelyExperimentData *data in [Optimizely sharedInstance].allExperiments) {
-// Lists all running, paused, and draft experiments
-        NSLog(@"All Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long) data.visitedCount);
-
+	// Lists all running, paused, and draft experiments
+    NSLog(@"All Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long) data.visitedCount);
 }
 
 for (OptimizelyExperimentData *data in [Optimizely sharedInstance].visitedExperiments) {
-// Lists all experiments that a user has visited
-        NSLog(@"Visited Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long)data.visitedCount);
-
+	// Lists all experiments that a user has visited
+	NSLog(@"Visited Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long)data.visitedCount);
 }
+
+// This will get the experiment with the corresponding experimentId
+OptimizelyExperimentData *data = [Optimizely getExperimentDataById:@"EXPERIMENT_ID"];
   ```
-
-
+ 
 ## Upgrading to a new SDK
 
 To keep up with SDK updates, you can refer to our [change log](https://github.com/optimizely/Optimizely-iOS-SDK/blob/master/CHANGELOG.md).

@@ -384,7 +384,9 @@ To manually send events, in the appropriate function (e.g. where you make other 
 
 Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
 
-## Optimizely Debug
+## Debugging Optimizely
+
+### Adding an Event Listener
 Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
 
 ```java
@@ -422,6 +424,24 @@ Clients can get notifications when various Optimizely events occur in the Optimi
     }
   });
 ```
+
+### Experiment Data Object
+Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited. You can also query for the `OptimizelyExperimentData` associated to a given experimentId by using `getExperimentDataById`.
+
+Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](/android/help/reference/com/optimizely/integration/OptimizelyExperimentData.html).
+
+```java
+// This will get all your experiments
+Map<String, OptimizelyExperimentData> allExperiments = Optimizely.getAllExperiments();
+
+// This will get all your visited experiments
+Map<String, OptimizelyExperimentData> visitedExperiments = Optimizely.getVisitedExperiments();
+
+// This will get the experiment with the corresponding experimentId
+OptimizelyExperimentData data = Optimizely.getExperimentDataById("EXPERIMENT_ID");
+```
+
+
 
 ## Upgrading to a new SDK
 
