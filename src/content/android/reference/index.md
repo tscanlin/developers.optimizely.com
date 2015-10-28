@@ -426,7 +426,7 @@ Clients can get notifications when various Optimizely events occur in the Optimi
 ```
 
 ### Experiment Data Object
-Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited. You can also query for the `OptimizelyExperimentData` associated to a given experimentId by using `getExperimentDataById`.
+Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main functions: `getAllExperiments` and `getVisitedExperiments`.  `getAllExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `getVisitedExperiments` contains all experiments in your Optimizely project that a user has actually visited. You can also query for the `OptimizelyExperimentData` associated to a given experimentId by using `getExperimentDataById`.
 
 Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](/android/help/reference/com/optimizely/integration/OptimizelyExperimentData.html).
 
@@ -441,7 +441,29 @@ Map<String, OptimizelyExperimentData> visitedExperiments = Optimizely.getVisited
 OptimizelyExperimentData data = Optimizely.getExperimentDataById("EXPERIMENT_ID");
 ```
 
+### Audience Information
+There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return a JSONArray of all the audiences associated with your project. Each audience is represented as an JSONObject and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started. 
 
+Here's an example below:
+```java
+// Make sure to call the helper functions after starting Optimizely
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+
+// Gets an array that holds all your project audiences
+JSONArray audiences = Optimizely.getAudiences();
+
+for(int i = 0; i < audiences.length(); i++) {
+    JSONObject audience = audiences.getJSONObject(i);
+    // You can access the metadata associated with each audience
+    // Here we're just getting each audience's audienceId
+    String audienceId = audience.getString("audience_id");
+    
+    // We can then check to see if the user currently satisfies those
+    // audience conditions
+    boolean included = Optimizely.isUserInAudience(audienceId);
+    Log.d("tag", "The user " + (included ? "is" : "isn't") + " included in this audience:" + audienceId);
+}
+```  
 
 ## Upgrading to a new SDK
 

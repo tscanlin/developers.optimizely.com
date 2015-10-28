@@ -520,7 +520,31 @@ for (OptimizelyExperimentData *data in [Optimizely sharedInstance].visitedExperi
 // This will get the experiment with the corresponding experimentId
 OptimizelyExperimentData *data = [Optimizely getExperimentDataById:@"EXPERIMENT_ID"];
   ```
- 
+
+### Audience Information
+There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return an array of all the audiences associated with your project. Each audience is represented as an NSDictionary and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience:` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started. 
+
+Here's an example below:
+```obj-c
+// Make sure to call the helper functions after starting Optimizely
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+  
+// Gets an array that holds all your project audiences
+NSArray *audiences = [Optimizely getAudiences];
+    
+for (NSDictionary *audience in audiences) {
+	// You can access the metadata associated with each audience
+    // Here we're just getting each audience's audienceId
+    NSString *audienceId = audience[@"audience_id"];
+        
+    // We can then check to see if the user currently satisfies those
+    // audience conditions
+    BOOL included = [Optimizely isUserInAudience:audienceId];
+    NSLog(@"The user %@ included in audience: %@", included ? @"is" : @"isn't", audienceId);
+}
+```  
+
 ## Upgrading to a new SDK
 
 To keep up with SDK updates, you can refer to our [change log](https://github.com/optimizely/Optimizely-iOS-SDK/blob/master/CHANGELOG.md).
