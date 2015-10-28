@@ -52,6 +52,10 @@ var MOBILE_NAV_SECTIONS = {
     path: 'code-samples/',
     title: 'Code Samples',
   },
+  'changelog': {
+    path: 'changelog/',
+    title: 'Changelog',
+  },
 };
 
 var paths = {
