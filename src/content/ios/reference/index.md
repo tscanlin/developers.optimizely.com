@@ -518,10 +518,10 @@ To keep up with SDK updates, you can refer to our [change log](https://github.co
 Simply run `pod update`.
 
 #### Manual Installation Upgrade
-Repeat steps 1 and 2 [above](#manualinstall). You may need to remove Optimizely.framework from your Frameworks directory before you drag in the new copy.
+Repeat steps 1 and 2 [here](/ios/getting-started/index.html#manual-installation). You may need to remove Optimizely.framework from your Frameworks directory before you drag in the new copy.
 
 #### SDK Specific Upgrade Instructions (for upgrading to SDK 0.8)
-0. [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](https://github.com/optimizely/Optimizely-iOS-SDK/releases/) For manual upgrades, please follow steps 1 and 2 [above](#manualinstall).
+0. [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](https://github.com/optimizely/Optimizely-iOS-SDK/releases/) For manual upgrades, please follow steps 1 and 2 [here](/ios/getting-started/index.html#manual-installation).
 
 1. Remove the run script build phase (prior to version 0.8).
   Click on your project and for any target that was using Optimizely, select
