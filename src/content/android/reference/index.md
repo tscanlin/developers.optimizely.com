@@ -476,6 +476,19 @@ Optimizely.forceVariation(myVariationId, myExperimentId);
 // Make sure to call it before start Optimizely is called
 Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
 ```
+
+### Resetting QA State
+Uninstalling the app everytime to QA your builds with Optimizely can be quite tedious. Now you can use `resetUserBucketing` to clear any variations that the current app user may have already been bucketed into. This will also remove the cached data file. This is useful if you want to insure that you're treated as a new user each time you start the app. Keep in mind that you must call `resetUserBucketing` before you start Optimizely.
+
+Here's an example below:
+```java
+// Reset user bucketing
+Optimizely.resetUserBucketing(context);
+
+// Make sure to call it before start Optimizely is called
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+```
+
 ## Upgrading to a new SDK
 
 1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
