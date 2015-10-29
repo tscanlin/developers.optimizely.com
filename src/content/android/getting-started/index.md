@@ -12,7 +12,7 @@ title: "Optimizely Android SDK Guide"
 
 <h2 id="sdk-installation">1. SDK Installation</h2>
 
-To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#gradle) (recommended for Android Studio users), [Maven](#maven) (recommended for IDEA/Eclipse users), or via [pic Installation](#manualinstall).
+To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#using-gradle) (recommended for Android Studio users), [Maven](#using-maven) (recommended for IDEA/Eclipse users), or via [pic Installation](#manual-installation).
 
 **We strongly recommend using a version control system (such as [Git](http://git-scm.com/)) and checking in your app before installing Optimizely.**
 
@@ -133,7 +133,7 @@ The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/pro
 ```
 
 ### Android Studio
-If you are using Android Studio, please see the [Gradle](#gradle) configuration above.
+If you are using Android Studio, please see the [Gradle](#using-gradle) configuration above.
 
 <h2 id="create-an-android-project">2. Create an Android Project</h2>
 

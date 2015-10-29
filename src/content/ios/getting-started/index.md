@@ -23,7 +23,7 @@ To create an iOS project, select "Create New Project" in the [Optimizely Dashboa
 
 <h2 id="sdk-integration">2. SDK Integration</h2>
 
-To use Optimizely's iOS SDK you must first integrate the SDK into your app. You can either install the Optimizely SDK using [CocoaPods](#cocoapods) (recommended) or via [Manual Installation](#manualinstall).  Our SDK supports iOS 7.0 and above.
+To use Optimizely's iOS SDK you must first integrate the SDK into your app. You can either install the Optimizely SDK using [CocoaPods](#using-cocoapods) (recommended) or via [Manual Installation](#manual-installation).  Our SDK supports iOS 7.0 and above.
 
 ### Using CocoaPods
 

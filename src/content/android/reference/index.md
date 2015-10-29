@@ -13,7 +13,7 @@ It is highly recommended to use Optimizely's 'O' gesture to connect your app to 
 
 ### Programmatically Enable Edit Mode
 
-Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizelyWithAPIToken`, you can call [enableEditor](/android/help/reference/com/optimizely/Optimizely.html#enableEditor()) in the development version of your app so that you can make changes.
+Typically Optimizely's 'O' gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely's editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into 'Edit Mode', prior to `startOptimizelyWithAPIToken`, you can call [enableEditor](/android/help/reference/com/optimizely/Optimizely.html#enableEditor%28%29) in the development version of your app so that you can make changes.
 
 ```java
 Optimizely.enableEditor();
@@ -24,7 +24,7 @@ Optimizely.startOptimizelyWithAPIToken(getOptimizelyToken(), getApplication());
 
 ### Disable Gesture
 
-By default, Optimizely's Android SDK disables the gesture if the app is live in the Play store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the [setEditGestureEnabled](/android/help/reference/com/optimizely/Optimizely.html#setEditGestureEnabled(boolean)) method prior to `startOptimizelyWithAPIToken`.
+By default, Optimizely's Android SDK disables the gesture if the app is live in the Play store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the [setEditGestureEnabled](/android/help/reference/com/optimizely/Optimizely.html#setEditGestureEnabled%28boolean%29) method prior to `startOptimizelyWithAPIToken`.
 
 An example of how to implement this method can be found below:
 
@@ -51,7 +51,7 @@ Optimizely.setOptimizelyId("price_text_label", priceTextView);
 
 ### Disable Visual Editor
 
-If you decide you want to exclusively use Live Variables and Code Blocks, you can set [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled(boolean)) to false.
+If you decide you want to exclusively use Live Variables and Code Blocks, you can set [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled%28boolean%29) to false.
 
 ## Register Live Variables
 
@@ -96,7 +96,7 @@ You're now ready to edit your Live Variables using the Optimizely web editor:
 <img src="/assets/img/android/editor-variables-add-button.png" alt="Drawing" style="width: 50%;"/>
 3. Click the "Add Variable" button to open a dialog where you can select variables to add to your experiment.
 4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
-5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](#preview) prior to going live with the experiment.
+5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](/android/getting-started/index.html#preview-mode) prior to going live with the experiment.
 6. Once you've connected your app to the editor, you can later edit live variables without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 ### Register Variable Callback
@@ -172,7 +172,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 <img src="/assets/img/android/editor-codeblocks-add-button.png" alt="Drawing">
 3. Click the "Add Code Block" button to open a dialog where you can select Code Blocks to add to your experiment.
 4. Once you have added a Code Block to the experiment, you can select a value for each variation in the Code Blocks section of the editor.
-5. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
+5. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](/android/getting-started/index.html#preview-mode) prior to going live with the experiment.
 6. Once you've connected your app to the editor, you can later edit code blocks without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 For more details, please see the [Code Blocks API Reference](/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
@@ -367,7 +367,7 @@ To manually send events, in the appropriate function (e.g. where you make other 
   }
 ```
 
-Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent(String)), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents())for more details.
+Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent%28String%29), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents%28%29)for more details.
 
 ## Optimizely Debug
 Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
@@ -411,7 +411,7 @@ Clients can get notifications when various Optimizely events occur in the Optimi
 ## Upgrading to a new SDK
 
 1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
-2. Starting with version 1.1, Optimizely's Android SDK uses a unique URL scheme handler to help you edit and test your experiments.
+2. Starting with SDK version 1.1, Optimizely's Android SDK uses a unique URL scheme handler to help you edit and test your experiments.
 
    Add the following intent filter to the MainActivity entry of your AndroidManifest.xml
 
@@ -431,7 +431,7 @@ Clients can get notifications when various Optimizely events occur in the Optimi
    The scheme includes a unique identifier.  Be sure to replace [PROJECT_ID] with your project id.*
 
 
-If you are using manual integration, please repeat the [Manual Installation Steps](/android/guide/index.html#manualinstall) for your platform.
+If you are using manual integration, please repeat the [Manual Installation Steps](/android/getting-started/index.html#manual-installation) for your platform.
 
 ## Uninstalling Optimizely
 
