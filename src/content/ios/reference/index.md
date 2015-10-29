@@ -558,6 +558,19 @@ Here's an example below:
                           launchOptions:launchOptions];
 ```
 
+### Resetting QA State
+Uninstalling the app everytime to QA your builds with Optimizely can be quite tedious. Now you can use `resetUserBucketing` to clear any variations that the current app user may have already been bucketed into. This will also remove the cached data file. This is useful if you want to insure that you're treated as a new user each time you start the app. Keep in mind that you must call `resetUserBucketing` before you start Optimizely.
+
+Here's an example below:
+```obj-c
+// Reset user bucketing
+[Optimizely resetUserBucketing];
+
+// Make sure to call it before start Optimizely is called
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+```
+
 ## Upgrading to a new SDK
 
 To keep up with SDK updates, you can refer to our [change log](https://github.com/optimizely/Optimizely-iOS-SDK/blob/master/CHANGELOG.md).
