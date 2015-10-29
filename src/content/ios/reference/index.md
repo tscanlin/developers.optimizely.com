@@ -470,8 +470,60 @@ To manually send events, in the appropriate function (e.g. where you make other 
     //The rest of your handler
 }
 ```
+## Manual Activation
 
+### Experiment Activation Modes
 
+There are two different types of activation modes for Optimizely Mobile experiments.
+
+#### Automatic (Default)
+By default, Optimizely buckets users and activates the experiment as soon as the app starts and the startOptimizely method is called (either synchronously or asynchronously). Experiments are marked as visited when the end user reaches an element that has been modified in the experiment.
+
+#### Manual
+In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Please note that manual activation is only available for SDK versions 1.3.0 and above.
+
+Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
+
+<img src="/assets/img/ios/activation_mode.png" alt="Drawing" style="width: 50%;"/>
+
+### Use Cases
+#### Use case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment. 
+
+Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting. 
+For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session. 
+With automatic activation mode, you can only target using tags set before the app was started (and thus set in a previous session).
+
+#### Use case #2: Bucket only a subset of users who access less frequently used areas of your app.
+
+Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit. 
+For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling. 
+With manual activation mode, you can bucket users at the point where they visit that feature, and run tests on only those users.
+
+#### Use case #3: Quick-load assets for consistency.
+
+Remote assets distributed by the Optimizely CDN, such as images you upload to our editor, start loading asynchronously when the app starts. As a result, if any assets fail to load before an experiment is viewed due to slow internet speeds, the user is not showed the variation and is instead shown the control even though that user has been bucketed.
+The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results. 
+In manual activation mode, you can activate experiments right when you want to show them, giving the user’s device more time to load assets associated with that experiment.
+
+### Example
+
+```obj-c
+// Note that calling start Optimizely won't activate any manual experiments.
+// Instead you can activate them manually
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+                          
+...
+
+// Further down your application flow, you can choose to activate any
+// manual experiment. This can be useful when you want to wait until you 
+// have additional information for a user and then store them as custom tags.
+// For example, we now know that the user is a VIP user so we set a tag for that
+[Optimizely setValue:@"VIP" forCustomTag:@"accountType"];
+    
+// Activate a manual experiment that takes into account the custom tag we just set
+BOOL success = [Optimizely activateManualExperiment:myExperimentId];
+```
 
 ## Debugging Optimizely
 
