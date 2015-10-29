@@ -505,7 +505,7 @@ Remote assets distributed by the Optimizely CDN, such as images you upload to ou
 The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results. 
 In manual activation mode, you can activate experiments right when you want to show them, giving the user’s device more time to load assets associated with that experiment.
 
-### Example
+### Manual Activation Example
 
 ```obj-c
 // Note that calling start Optimizely won't activate any manual experiments.
