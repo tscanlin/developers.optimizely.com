@@ -70,7 +70,7 @@ If you decide you do not want views to be automatically tagged with an optimizel
 
 ### Disable Visual Editor
 
-If you decide you want to exclusively use Live Variables and Code Blocks, you can set the  [disableSwizzle](/ios/help/html/Classes/Optimizely.html#//api/name/shouldNotGenerateDynamicIds) property to YES.
+If you decide you want to exclusively use Live Variables and Code Blocks, you can set the  [disableSwizzle](/ios/help/html/Classes/Optimizely.html#//api/name/disableSwizzle) property to YES.
 
 ## Register Live Variables
 
@@ -165,7 +165,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 <img src="/assets/img/ios/editor-variables-add-button.png" alt="Drawing" style="width: 50%; align:center"/>
 3. Click the "Add Variable" button to open a dialog where you can select variables to add to your experiment.
 4. Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.
-5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
+5. While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in [preview mode](/ios/getting-started/index.html#preview-mode) prior to going live with the experiment.
 6. Once you've connected your app to the editor, you can later edit live variables without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 For more details, please see the [Live Variables API Reference](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables)
@@ -289,7 +289,7 @@ You're now ready to implement your experiment using the Optimizely web editor:
 2. Navigate to the Code Blocks section of the editor.
 <img src="/assets/img/ios/editor-codeblocks.png" alt="Drawing" style="width: 100%;"/>
 3. The editor will display your Code Blocks.  Use the drop down to select the desired Code Block for this variation.
-4. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) prior to going live with the experiment.
+4. While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block's logic.  However, we recommend that you verify your Code Blocks in [preview mode](/ios/getting-started/index.html#preview-mode) prior to going live with the experiment.
 5. Once you've connected your app to the editor, you can later edit code blocks without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 For more details, please see the [Code Blocks API Reference](/ios/help/html/Classes/Optimizely.html#//api/name/codeBlocksWithKey:blockOne:defaultBlock:)
@@ -315,7 +315,7 @@ For example, to create the Custom Tag "returning_customer" with a value of "true
 `setValue:forCustomTag:` should be called prior to `startOptimizely` and any time custom tag values are expected to change.  To do that you can make the `setValue:forCustomTag:` call in the following ways:
 
 - Prior to `startOptimizely` so that Optimizely knows all of the targeting conditions prior to experiment activation
-- `setValue:forCustomTag:` can also be called in conjunction with [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) while the app is still running.  For more details on how this works, you can refer to the section [below](#experimentreload).
+- `setValue:forCustomTag:` can also be called in conjunction with [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) while the app is still running.  For more details on how this works, you can refer to the section [below](#experiment-reload).
 
  ```obj-c
 [Optimizely setValue:@"true" forCustomTag:@"returning_customer"];
@@ -520,6 +520,7 @@ Simply run `pod update`.
 #### Manual Installation Upgrade
 Repeat steps 1 and 2 [here](/ios/getting-started/index.html#manual-installation). You may need to remove Optimizely.framework from your Frameworks directory before you drag in the new copy.
 
+<!--
 #### SDK Specific Upgrade Instructions (for upgrading to SDK 0.8)
 0. [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](https://github.com/optimizely/Optimizely-iOS-SDK/releases/) For manual upgrades, please follow steps 1 and 2 [here](/ios/getting-started/index.html#manual-installation).
 
@@ -529,6 +530,7 @@ Repeat steps 1 and 2 [here](/ios/getting-started/index.html#manual-installation)
   'x' on the right hand side of the build phase.
 
 2. If you haven't already, be sure to implement the [URL scheme](#urlscheme).
+-->
 
 
 ## Uninstalling Optimizely

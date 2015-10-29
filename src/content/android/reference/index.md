@@ -413,7 +413,7 @@ Clients can get notifications when various Optimizely events occur in the Optimi
 1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
 2. Starting with SDK version 1.1, Optimizely's Android SDK uses a unique URL scheme handler to help you edit and test your experiments.
 
-   Add the following intent filter to the MainActivity entry of your AndroidManifest.xml
+   If you are upgrading from an SDK version more outdated than 1.1 to version 1.1 or later, please add the following intent filter to the MainActivity entry of your AndroidManifest.xml
 
    ```xml
    <activity
