@@ -38,7 +38,7 @@ var MOBILE_NAV_SECTIONS = {
   },
   'guide': {
     path: 'guide/',
-    title: 'Guide',
+    title: 'Tutorial',
   },
   'reference': {
     path: 'reference/',
@@ -51,6 +51,10 @@ var MOBILE_NAV_SECTIONS = {
   'code-samples': {
     path: 'code-samples/',
     title: 'Code Samples',
+  },
+  'changelog': {
+    path: 'changelog/',
+    title: 'Changelog',
   },
 };
 
