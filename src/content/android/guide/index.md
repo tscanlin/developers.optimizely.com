@@ -96,7 +96,7 @@ At this point you should run your application to register the SDK installation. 
    <img src="/assets/img/android/sdk-detected.png", style="width: 70%"/>
 
 
-<h2 id="create-an-experiment">4. Create an Experiment</h2>
+<h2 id="create-an-experiment">3. Create an Experiment</h2>
 
 After creating an Android project and installing the SDK, click the `Create Experiment` button in the upper right hand side of your project overview.
 
