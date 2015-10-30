@@ -1,8 +1,8 @@
 ---
 template: page-sidebar
-title: "Optimizely iOS SDK Guide"
+title: "Optimizely iOS SDK Tutorial"
 ---
-# Guide
+# Optimizely iOS SDK Tutorial
 
 The following steps will allow you to try out Optimizely's SDK in our Tutorial App.  This guide is a walkthrough of all the key code that you can include in your app prior to releasing your app live to the App Store.
 
