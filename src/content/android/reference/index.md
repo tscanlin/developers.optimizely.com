@@ -401,19 +401,19 @@ Toggle between manual and automatic activation mode from the Options > Activatio
 <img src="/assets/img/android/activation_mode.png" alt="Drawing" style="width: 50%;"/>
 
 ### Use Cases
-#### Use case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment. 
+#### Use Case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment. 
 
 Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting. 
 For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session. 
 With automatic activation mode, you can only target using tags set before the app was started (and thus set in a previous session).
 
-#### Use case #2: Bucket only a subset of users who access less frequently used areas of your app.
+#### Use Case #2: Bucket only a subset of users who access less frequently used areas of your app.
 
 Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit. 
 For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling. 
-With manual activation mode, you can bucket users at the point where they visit that feature, and run tests on only those users.
+If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users. 
 
-#### Use case #3: Quick-load assets for consistency.
+#### Use Case #3: Quick-load assets for consistency.
 
 Remote assets distributed by the Optimizely CDN, such as images you upload to our editor, start loading asynchronously when the app starts. As a result, if any assets fail to load before an experiment is viewed due to slow internet speeds, the user is not showed the variation and is instead shown the control even though that user has been bucketed.
 The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results. 
@@ -422,23 +422,23 @@ In manual activation mode, you can activate experiments right when you want to s
 ### Manual Activation Example
 
 ```java
-// Note that calling start Optimizely won't activate any manual experiments.
-// Instead you can activate them manually
+// Calling start Optimizely will not activate any manual experiments.
+// Instead you have to activate them manually for users to see your experiment
 Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
                           
 ...
 
-// Further down your application flow, you can choose to activate any
-// manual experiment. This can be useful when you want to wait until you 
-// have additional information for a user and then store them as custom tags.
+// You specify when you want to activate each manual experiment.
+// For use case #1 above, this can be useful if you want to wait until you 
+// have additional data for a user and then store that data as custom tags.
 // For example, we now know that the user is a VIP user so we set a tag for that
 Optimizely.setCustomTag("accountType", "VIP");
     
-// Activate a manual experiment that takes into account the custom tag we just set
+// Activate a manual experiment that takes the custom tag we just set into account 
 boolean success = Optimizely.activateManualExperiment(myExperimentId);
 ```
 
-## Debugging Optimizely
+## Debugging Your Experiments
 
 ### Adding an Event Listener
 Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
