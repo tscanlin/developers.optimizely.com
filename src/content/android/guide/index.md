@@ -1,8 +1,8 @@
 ---
 template: page-sidebar
-title: "Optimizely Android SDK Guide"
+title: "Optimizely Android SDK Tutorial"
 ---
-# Guide
+# Optimizely Android SDK Tutorial
 
 The following steps will allow you to try out Optimizely's SDK in our Tutorial App.  This guide is a walkthrough of all the key code that you can include in your app prior to releasing your app live to the Play Store.
 
@@ -75,7 +75,13 @@ protected void onCreate(Bundle savedInstanceState) {
 
    ```xml
    <activity
-     android:name=".MainActivity">
+     android:name="com.optly.tutorialapp.MainActivity"
+     android:label="@string/app_name" >
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN" />
+       <category android:name="android.intent.category.LAUNCHER" />
+       <category android:name="android.intent.category.DEFAULT" />
+     </intent-filter>
      <intent-filter>
        <action android:name="android.intent.action.VIEW" />
        <category android:name="android.intent.category.DEFAULT" />
@@ -84,7 +90,6 @@ protected void onCreate(Bundle savedInstanceState) {
      </intent-filter>
    </activity>
    ```
-
 
 At this point you should run your application to register the SDK installation. The Optimizely SDK will register itself in the background once you put the app into edit mode. You will see your project overview display light up, allowing you to create an experiment:
 
