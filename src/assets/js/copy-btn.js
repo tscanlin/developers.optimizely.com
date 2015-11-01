@@ -3,8 +3,7 @@
  *
  * @author Tim Scanlin (tim.scanlin@optimizely.com)
  */
-
-var ZeroClipboard = require('zeroclipboard');
+var Clipboard = require('clipboard');
 
 module.exports = function() {
   // Add copy code buttons.
@@ -16,12 +15,10 @@ module.exports = function() {
   $('pre code').after(copyCodeTemplate);
 
   $('.copy-code-button').each(function(i, el) {
-    var clip = new ZeroClipboard(el, {
-      forceHandCursor: true,
-    });
-    clip.on('copy', function(event) {
-      var clipboard = event.clipboardData;
-      clipboard.setData('text/plain', $(el).prev().text());
+    var clipboard = new Clipboard(el, {
+      text: function() {
+        return $(el).prev().text();
+      },
     });
   });
 };
