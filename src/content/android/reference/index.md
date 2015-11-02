@@ -412,6 +412,30 @@ Clients can get notifications when various Optimizely events occur in the Optimi
 
 1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
 
+  Here are some examples with Gradle:
+
+  - If you want to always stay up to date with our newest SDK version, allow Gradle to auto-update the Optimizely SDK:
+  ```
+  compile('com.optimizely:optimizely:+@aar') {
+        transitive = true
+    }
+  ```
+
+  - If you want to specify when you want to upgrade to monthly SDK feature releases (numbered v X.Y) and automatically upgrade to the newest incremental releases and hotfixes for that release (numbered v X.Y.Z), in this case all releases 1.3 and after and up to 1.4:
+  ```
+  compile('com.optimizely:optimizely:1.3+@aar') {
+        transitive = true
+    }
+  ```
+
+  - If you want to upgrade to a particular SDK version and stay at that version, in this case version 1.3:
+  ```
+  compile('com.optimizely:optimizely:1.3@aar') {
+      transitive = true
+  }
+  ```
+
+
 2. Starting with SDK version 1.1, Optimizely's Android SDK uses a unique URL scheme handler to help you edit and test your experiments.
 
    If you are upgrading from an SDK version more outdated than 1.1 to version 1.1 or later, please add the following intent filter to the MainActivity entry of your AndroidManifest.xml
