@@ -235,13 +235,16 @@ It is also possible to manually force Optimizely to reset all experiments and tr
 
 ### Universal User ID (Beta)
 
-Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. Android phone to tablet). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in local storage and continue to use it until a new one is set.
-
-Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
+Set a unique identifier (defined by you) to be used by Optimizely for bucketing and tracking identifiable users (e.g. logged in users) across different different devices and/or platforms. Once set, Optimizely will bucket visitors in all new and future experiments using the UUID to ensure that visitors will see the same variation across devices (e.g. Android phone to tablet). You can ensure this behavior and ensure consistent counting and bucketing across devices by using our Audiences feature to target users with a UUID. We store the UUID in NSUserDefaults and continue to use it until a new UUID is set.
 
 ```java
 Optimizely.setUserId("userid");
 ```
+
+For the UUID to apply to a certain experiment, the UUID must be set before the user views that experiment. Setting the UUID will not force rebucketing if the user is already in the app. Rebucketing with a new UUID happens upon app foregrounding or cold start (the user closes the app and comes back). Alternatively, if you want to set the UUID while the user is using your app and use the UUID in the same session, you can set your experiments to [manual activation mode](#manual-activation) and manually activate experiments after you set the UUID.
+
+Optimizely will track unique visitors in experiment results using this ID; we count an anonymous ID and a UUID as two distinct visitors, and if the the UUID is set, we disregard the anonymous ID when counting experiment traffic and goals.
+
 
 *This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
 
