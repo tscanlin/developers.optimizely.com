@@ -7,7 +7,12 @@ title: "Optimizely iOS SDK Guide"
 The following SDK Install Steps will allow you to install the SDK and run experiments with Optimizely's Visual Editor.
 
 ## SDK Download
+
+You can download the iOS SDK through Cocoapods, download it manually from GitHub, or install it through Fabric: 
+
 [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
+
+<a href="https://fabric.io/kits/ios/optimizely"><img src="/assets/img/mobile/fabric_button.png" style="width: 150px; height: 58px;"/></a>
 
 [ZIP](http://github.com/optimizely/Optimizely-iOS-SDK/zipball/master) | [TAR](http://github.com/optimizely/Optimizely-iOS-SDK/tarball/master) | [GitHub](http://github.com/optimizely/Optimizely-iOS-SDK)
 
