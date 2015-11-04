@@ -228,7 +228,7 @@ Make sure to call `setCustomTag` prior to `startOptimizelyWithAPIToken` and any 
   }
 ```
 
-Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
+Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String) for more details.
 
 ### Experiment Reload
 By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the background, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
