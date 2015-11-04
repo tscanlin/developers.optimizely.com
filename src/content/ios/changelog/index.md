@@ -24,11 +24,9 @@ Read more in-depth descriptions [here](/ios/reference/index.html#experiment-acti
 OptimizelyFailedToStartNotification 
 OptimizelyStartedNotification
 - *Code Block Callbacks in Edit Mode.* Please note that code block callbacks will only work in edit mode
-- *Upgrade dialogs.* Dialogs now apppear in our web interface to alert you of new SDK updates
 
 *Bug Fixes:*
-- iOS - Fixed bug in language Audience condition 
-- iOS - Improved edit-mode connection gesture reliability 
+- Fixed bug in language Audience condition 
 
 ### 1.2.2 
 October 12, 2015
