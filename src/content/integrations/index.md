@@ -308,6 +308,301 @@ This function is called after makeRequest has been executed for all the experime
 
 An example of a test page where a Google Analytics integration has been implemented: <a href="https://github.com/optimizely/Analytics-JS/blob/master/example.html">https://github.com/optimizely/Analytics-JS/blob/master/example.html</a>
 
+## Mobile analytics
+Mobile analytics integrations allow customers to track Optimizely experiments in an external analytics tool. Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool. The following step-by-step guide describes how to implement an analytics integration for mobile through Optimizely provided plugins.The plugins allow you to capture information about which experiment is running and which variant is chosen for a visitor. 
+
+<h3 id="analytics-for-mobile-prerequisites">Prerequisites</h3> 
+
+- Your analytics platform can track Optimizely experiment and variation names by calling a SDK function or a REST API endpoint
+- The ability to create an Android or iOS library
+
+<h3 id="create-test-app">1. Create a test application and install the Optimizely SDK</h3>
+
+To get started, create a test application and install the Optimizely SDK. This is the app you’ll test your integration on. To learn how to install the Optimizely SDK, check out this <a href="https://help.optimizely.com/hc/en-us/articles/202296994-Get-Started-on-Mobile-Optimization#prereqs">step-by-step</a> guide in our knowledge base.
+
+<h3 id="declare-dependency">2. Declare a dependency on the Optimizely SDK</h3>
+
+To get started, declare a dependency on the Optimizely SDK in your test app. Declaring the dependency in Android happens by adding `provided ("com.optimizely:optimizely-core:1.2.1+@aar") {transitive = true}`to your build.gradle. You can read more about using Gradle to declare the dependency in the <a href="/android/getting-started/index.html#using-gradle">developer documentation for Android</a>. For iOS you need to declare the dependency by adding `pod 'Optimizely-iOS-SDK'` to your CocoaPods Podfile. You can read more about using CocoaPods to declare the dependency in the <a href="/ios/getting-started/index.html#using-cocoapods">developer documentation for iOS</a>.
+
+<h3 id="implement-the-optimizely-plugin">3. Implement the Optimizely plugin</h3>
+
+
+#### Android
+The Optimizely Android SDK includes an interface called "OptimizelyPlugin" that you will need to implement. This is an example implementation of the OptimizelyPlugin interface:
+
+```java
+package com.analytics;
+
+import com.optimizely.Optimizely;
+import com.optimizely.integration.DefaultOptimizelyEventListener;
+import com.optimizely.integration.OptimizelyEventListener;
+import com.optimizely.integration.OptimizelyExperimentData;
+import com.optimizely.integration.OptimizelyPlugin;
+
+import org.json.JSONObject;
+
+import java.util.List;
+
+import android.app.Application;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.View;
+
+/**
+ * Example Plugin
+ */
+public class ExamplePlugin implements OptimizelyPlugin {
+
+    @NonNull
+    @Override
+    public String getPluginId() {
+        return "com.example.plugin";
+    }
+
+    /**
+     * Declare all required permissions here. Nullable lists are okay for the empty set of permissions.
+     * @param context the context of the app in case the permission is based on the package name
+     *                or otherwise declared via manifest.
+     * @return a list of permissions required or null if no permissions are necessary
+     */
+    @Nullable
+    @Override
+    public List<String> getRequiredPermissions(Context context) {
+        return null; // Declare required Android permissions
+    }
+
+    /**
+     * Declare all dependencies on other plugins here.
+     * @return
+     */
+    @Override
+    public List<String> getDependencies() {
+        return null; // Declare any dependencies on other Optimizely Plugins
+    }
+
+    /**
+     * @return a touch listener which will receive all touch events that occur on tracked views
+     */
+    @Nullable
+    @Override
+    public View.OnTouchListener getOnTouchListener() {
+        return null; // If your plugin wants to handle touch events, return an OnTouchListener here.
+    }
+
+    /**
+     * @return a lifecycle callbacks that will receive all Android lifecycle events that occur
+     */
+    @Nullable
+    @Override
+    public Application.ActivityLifecycleCallbacks getActivityLifecycleCallbacks() {
+        // If your plugin wants to be notified of Activity start/stop, return an
+        // ActivityLifecycleCallbacks instance here.
+        return null;
+    }
+
+    /**
+     * @return a listener that will receive all events emitted by Optimizely and its plugins
+     */
+    @Nullable
+    @Override
+    public OptimizelyEventListener getOptimizelyEventsListener() {
+        return mListener;
+    }
+
+    /**
+     * Initialize the plugin and start any listeners or threads.
+     * @param optimizely reference to the Optimizely singleton so that services can be accessed
+     * @return true if the plugin was started successfully, false otherwise.
+     */
+    @Override
+    public boolean start(Optimizely optimizely, JSONObject config) {
+        return true;
+    }
+
+    /**
+     * Stop the plugin and clean up any objects that are owned by the plugin.
+     */
+    @Override
+    public void stop() {
+
+    }
+
+    /**
+     * Interface for clients which want notifications when various Optimizely events occur.
+     * Listeners are weakly held, so you may need to re-register your listeners if you don't
+     * hold onto them.
+     */
+    private OptimizelyEventListener mListener = new DefaultOptimizelyEventListener() {
+        /**
+         * Notification that is fired whenever the user's experience has been affected
+         * by an experiment. This means that:
+         *   a live variable has been evaluated,
+         *   a code block has been evaluated,
+         *   or a visual change has been seen by the user.
+         * @param experimentState the current running state of the experiment.
+         */
+        @Override
+        public void onOptimizelyExperimentVisited(OptimizelyExperimentData experimentState) {
+            String propertyName = "Optimizely: " + experimentState.experimentName;
+            String propertyValue = experimentState.variationName;
+            // mySDK.setGlobalProperty(propertyName, propertyValue);
+        }
+
+        /**
+         * Notification that a goal has been triggered.
+         * @param description A description of the goal event
+         * @param affectedExperiments the experiments that are active and tracking this goal
+         */
+        @Override
+        public void onGoalTriggered(String description, List<OptimizelyExperimentData> affectedExperiments) {
+            String eventName = "Optimizely: " + description;
+
+            for (OptimizelyExperimentData experimentData : affectedExperiments) {
+                String propertyName = "Optimizely: " + experimentData.experimentName;
+                String propertyValue = experimentData.variationName;
+                // mySDK.setEventProperty(propertyName, propertyValue);
+            }
+            // mySDK.trackEvent(eventName);
+        }
+    };
+}
+```
+The plugin framework offers a lot of functionality, but for most analytics integrations the functions in the OptimizelyEventListener shown in the example are sufficient.
+
+##### onOptimizelyExperimentVisited
+The function `onOptimizelyExperimentVisited` is triggered every time an experiment is shown to a user of the app. Every experiment has an ID and a name.The user will be randomly assigned to a variation of the experiment which also has an ID and a name. For the analytics integration, you'll want to use the experiment name and variation name. 
+In the example, the experiment name is stored in the String `propertyName` and the variation name is stored in `propertyValue`. Both the experiment name and variation name are assigned to a user. Use your analytics SDK or REST API to append this metadata to a user. An example of how to send the data with the Google Analytics Android SDK is by using <a href="https://developers.google.com/analytics/devguides/collection/android/v4/customdimsmets">custom dimensions</a>. 
+
+##### onGoalTriggered
+The `onGoalTriggered` function is called everytime a goal that has been set in Optimizely is triggered by the user of the app. The `onGoalTriggered` function can be used to forward events to your SDK or REST API.
+
+#### iOS
+The Optimizely iOS SDK includes a interface called "OptimizelyPlugin" that you will need to implement. This is an example implementation of the OptimizelyPlugin interface:
+
+```
+//
+//  ExamplePlugin.m
+//
+//  Created by Josiah Gaskin on 10/8/15.
+//
+
+#import <Foundation/Foundation.h>
+#import <Optimizely/OptimizelyPlugin.h>
+
+@interface ExamplePlugin : NSObject<OptimizelyPlugin>
+
+@end
+
+@implementation ExamplePlugin
+@synthesize pluginId;
+
+/**
+ * Initialize and set id
+ */
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.pluginId = @"com.example.analytics";
+    }
+    return self;
+}
+
+/*
+ * iOS plugins are expected to handle their own permission requests appropriately
+ */
+
+/**
+ * Declare all dependencies on other plugins here.
+ * @return a list of plugin identifiers
+ */
+- (NSSet *)getDependencies {
+    return nil;
+}
+
+/**
+ * @return true if this plugin should receive and handle touch events
+ */
+- (BOOL)shouldHandleTouchEvents {
+    return NO;
+}
+
+/**
+ * If shouldHandleTouchEvents returns true, touch events will be passed to the plugin.
+ */
+- (void)processTouchEvent:(UIEvent *)event {}
+
+/*
+ * iOS plugins are expected to handle UIApplication* notifications as needed
+ */
+
+/**
+ * iOS plugins can subscribe to the NSNotification center notifications for the Optimizely
+ * notifications listed in Optimizely.h#NSNotification Keys
+ */
+
+/**
+ * Initialize the plugin and start any listeners or threads.
+ * @param optimizely reference to the Optimizely singleton so that services can be accessed
+ * @return true if the plugin was started successfully, false otherwise.
+ */
+- (BOOL)startWithOptimizely:(Optimizely *)optimizely withConfig:(NSDictionary *)config {
+    /**
+     *  Constant NSNotification key that is triggered when an experiment is viewed by the user. The userInfo in the notification
+     *  will have metadata which includes experiment Id, variation Id, experiment description and variation description. For more
+     *  information on visited experiments, see the `visitedExperiments`.
+     */
+    [NSNotificationCenter.defaultCenter addObserverForName:OptimizelyExperimentVisitedNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        NSDictionary *userInfo = note.userInfo;
+        NSString *property_name = [NSString stringWithFormat:@"Optimizely: %@", userInfo[@"experiment_id"]];
+        NSString *property_value = userInfo[@"variation_id"];
+        // [mySDK setGlobalProperty: property_value forKey: propertyName];
+    }];
+
+    /**
+     *  Constant NSNotification key that is triggered when an Optimizely goal is triggered. The userInfo in the notification
+     *  will have metadata which includes an array of experiments pertaining to this goal and the goal description. This notification
+     *  is only fired in normal mode when a conversion is counted for 1 or more experiments.
+     */
+    [NSNotificationCenter.defaultCenter addObserverForName:OptimizelyGoalTriggeredNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        NSDictionary *userInfo = note.userInfo;
+        NSString *description = userInfo[@"description"];
+        NSArray *experiments = userInfo[@"experiments"];
+
+        for (NSDictionary *experiment in experiments) {
+            NSString *property_name = [NSString stringWithFormat:@"Optimizely: %@", experiment[@"experiment_id"]];
+            NSString *property_value = experiment[@"variation_id"];
+            // [mySDK setEventProperty: property_value forKey: propertyName];
+        }
+        // [mySDK trackEvent: description];
+    }];
+    return YES;
+}
+
+/**
+ * Stop the extension and clean up any objects that are owned by the extension.
+ */
+- (void)stop {}
+
+@end
+```
+The plugin framework offers a lot of functionality, but for most analytics integrations the observers in the `startWithOptimizely:(Optimizely *)optimizely withConfig:(NSDictionary *)config` function are most relevant. 
+
+##### OptimizelyExperimentVisitedNotification
+The function `OptimizelyExperimentVisitedNotification` is triggered everytime an experiment is shown to a user of the app. Every experiment has an ID and a name and the user will be randomly assigned to a variation of the experiment which also has an ID and a name. You need to use the experiment name and variation name for your analytics integration.In the example, the experiment name is stored in the NSString `property_name` and the variation name is stored in `property_value`. Both the experiment name and variation name are assigned to a user. Use your analytics SDK or REST API to append this metadata to a user. An example of how to send the data with the Google Analytics iOS SDK is by using <a href="https://developers.google.com/analytics/devguides/collection/ios/v3/customdimsmets#set-send">custom dimensions</a>. 
+
+##### OptimizelyGoalTriggeredNotification
+The `OptimizelyGoalTriggeredNotification` function is called everytime a goal that has been set in Optimizely is triggered by the user of the app. The `OptimizelyGoalTriggeredNotification` function can be used to forward Optimizely goal events to your SDK or REST API.
+
+<h3 id="register-plugin">4. Register plugin</h3>
+
+The code that you wrote in step 3 needs to be registered to become effective. If you used the class name ExamplePlugin, you need to use `Optimizely.registerPlugin(new ExamplePlugin());` to register the plugin in Android and `[[Optimizely sharedInstance].pluginRegistry registerPlugin:[[ExamplePlugin alloc] init]];` in iOS. 
+
+
+<h3 id="mobile-qa-integration">5. QA integration</h3>
+
+When the integration is successfully implemented, check your network traffic to see if all the data is correctly sending to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic. You can use Charles for monitoring your Network traffic. There is a configuration guide for <a href="http://www.charlesproxy.com/documentation/configuration/browser-and-system-configuration/">using Charles with iOS and Android</a>.
+
 ## Audiences
 
 *Audience integrations* allow customers to target a specific audience based on data from an external source. With a simple drag-and-drop interface, customers can personalize content and experiments based on 3rd party demographic data such as gender, location, weather, and age, or 1st party behavioral data such as buying intent, lifetime value, cart abandonment, and more. This section explains how to create audiences within Optimizely (via the REST API) and add a visitor to that audience in the browser (via the JavaScript API).
