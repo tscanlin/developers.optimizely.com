@@ -394,7 +394,10 @@ There are two different types of activation modes for Optimizely Mobile experime
 By default, Optimizely buckets users and activates the experiment as soon as the app starts and the startOptimizely method is called (either synchronously or asynchronously). Experiments are marked as visited when the end user reaches an element that has been modified in the experiment.
 
 #### Manual
-In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Please note that manual activation is only available for SDK versions 1.3.0 and above.
+In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Manual activation is only available for SDK versions 1.3.0 and above.
+
+*Please note that a manually activated experiment still takes its Audiences into account.* After an experiment gets activated, it will still evaluate its Audience targeting conditions to consider whether the user is eligible for the experiment. 
+
 
 Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
 
