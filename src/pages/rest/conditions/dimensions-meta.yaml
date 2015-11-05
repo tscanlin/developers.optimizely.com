@@ -95,7 +95,7 @@ language:
     }
 
 location:
-   usage: Will geotarget visitors based on their location. You can find the full list of location codes [in this 58MB CSV file](/rest/location-values.csv), where the first column is the `value` and the second is a human-readable name.
+   usage: Will geotarget visitors based on their location. You can find the full list of location codes [in this 58MB CSV file](/assets/files/location-values.csv), where the first column is the `value` and the second is a human-readable name.
    example: |
     {
       "type": "location",
