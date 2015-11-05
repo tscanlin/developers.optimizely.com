@@ -123,6 +123,42 @@ within Optimizely.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setIsManual:</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your experiment is a manual activation experiment.</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL isManual</Declaration>
+			
+			
+			<Anchor>//api/name/isManual</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/isManual</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your experiment is a manual activation experiment.</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL isManual</Declaration>
+			
+			
+			<Anchor>//api/name/isManual</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/isManual</TokenIdentifier>
+			<Abstract type="html">Property that tells you whether or not your experiment is a manual activation experiment.</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL isManual</Declaration>
+			
+			
+			<Anchor>//api/name/isManual</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setLocked:</TokenIdentifier>
 			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
 was making a conflicting change or your assets did not finish downloading in time</Abstract>
@@ -270,8 +306,44 @@ was making a conflicting change or your assets did not finish downloading in tim
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariations:</TokenIdentifier>
+			<Abstract type="html">Property that stores the dictionary representation of all variations associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSArray *variations</Declaration>
+			
+			
+			<Anchor>//api/name/variations</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variations</TokenIdentifier>
+			<Abstract type="html">Property that stores the dictionary representation of all variations associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSArray *variations</Declaration>
+			
+			
+			<Anchor>//api/name/variations</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variations</TokenIdentifier>
+			<Abstract type="html">Property that stores the dictionary representation of all variations associated with this experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSArray *variations</Declaration>
+			
+			
+			<Anchor>//api/name/variations</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationId:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
+			<Abstract type="html">Property that tells you the active variation Id (can be nil if not bucketed)</Abstract>
 			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
@@ -283,7 +355,7 @@ was making a conflicting change or your assets did not finish downloading in tim
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
+			<Abstract type="html">Property that tells you the active variation Id (can be nil if not bucketed)</Abstract>
 			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
@@ -295,7 +367,7 @@ was making a conflicting change or your assets did not finish downloading in tim
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Id (can be nil if not bucketed)</Abstract>
+			<Abstract type="html">Property that tells you the active variation Id (can be nil if not bucketed)</Abstract>
 			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
@@ -307,7 +379,7 @@ was making a conflicting change or your assets did not finish downloading in tim
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationName:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
+			<Abstract type="html">Property that tells you the active variation Name (can be nil if not bucketed)</Abstract>
 			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
@@ -319,7 +391,7 @@ was making a conflicting change or your assets did not finish downloading in tim
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
+			<Abstract type="html">Property that tells you the active variation Name (can be nil if not bucketed)</Abstract>
 			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
@@ -331,7 +403,7 @@ was making a conflicting change or your assets did not finish downloading in tim
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the variation Name (can be nil if not bucketed)</Abstract>
+			<Abstract type="html">Property that tells you the active variation Name (can be nil if not bucketed)</Abstract>
 			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
