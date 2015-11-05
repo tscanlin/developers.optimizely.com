@@ -396,7 +396,7 @@ By default, Optimizely buckets users and activates the experiment as soon as the
 #### Manual
 In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Manual activation is only available for SDK versions 1.3.0 and above.
 
-*Please note that a manually activated experiment still takes its Audiences into account.* After an experiment gets activated, it will still evaluate its Audience targeting conditions to consider whether the user is eligible for the experiment. 
+*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions. 
 
 
 Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
