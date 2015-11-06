@@ -9,6 +9,30 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<method name="activateAllManualExperiments"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="activateManualExperiment"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="experimentId" type="java.lang.String">
+</parameter>
+</method>
 <method name="addOptimizelyEventListener"
  return="void"
  abstract="false"
@@ -253,6 +277,21 @@
 <parameter name="callback" type="com.optimizely.Variable.LiveVariable.Callback&lt;java.lang.Float&gt;">
 </parameter>
 </method>
+<method name="forceVariation"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="variationId" type="java.lang.String">
+</parameter>
+<parameter name="experimentId" type="java.lang.String">
+</parameter>
+</method>
 <method name="getActiveExperiments"
  return="java.util.Map&lt;java.lang.String, java.lang.String&gt;"
  abstract="false"
@@ -280,7 +319,7 @@
  abstract="false"
  native="false"
  synchronized="false"
- static="false"
+ static="true"
  final="false"
  deprecated="not deprecated"
  visibility="public"
@@ -297,6 +336,17 @@
  visibility="public"
 >
 </method>
+<method name="getAudiences"
+ return="org.json.JSONArray"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="getAudiencesManager"
  return="OptimizelyAudiencesManager"
  abstract="false"
@@ -307,6 +357,19 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="getExperimentDataById"
+ return="com.optimizely.integration.OptimizelyExperimentData"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="experimentId" type="java.lang.String">
+</parameter>
 </method>
 <method name="getIntegrationEventsDispatcher"
  return="IntegrationEventsDispatcher"
@@ -336,6 +399,17 @@
  native="false"
  synchronized="false"
  static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getUncaughtExceptionHandler"
+ return="java.lang.Thread.UncaughtExceptionHandler"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
@@ -427,6 +501,19 @@
 <parameter name="defaultValue" type="int">
 </parameter>
 <parameter name="callback" type="com.optimizely.Variable.LiveVariable.Callback&lt;java.lang.Integer&gt;">
+</parameter>
+</method>
+<method name="isUserInAudience"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="audienceID" type="java.lang.String">
 </parameter>
 </method>
 <method name="pointForKey"
@@ -586,7 +673,7 @@
  synchronized="false"
  static="true"
  final="false"
- deprecated="not deprecated"
+ deprecated="deprecated"
  visibility="public"
 >
 <parameter name="plugin" type="OptimizelyPlugin">
@@ -603,6 +690,19 @@
  visibility="public"
 >
 <parameter name="listener" type="com.optimizely.integration.OptimizelyEventListener">
+</parameter>
+</method>
+<method name="resetUserBucketing"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="userContext" type="android.content.Context">
 </parameter>
 </method>
 <method name="sdkVersion"
@@ -632,7 +732,7 @@
  abstract="false"
  native="false"
  synchronized="false"
- static="false"
+ static="true"
  final="false"
  deprecated="not deprecated"
  visibility="public"
@@ -995,6 +1095,19 @@
 <parameter name="revenueDescription" type="java.lang.String">
 </parameter>
 </method>
+<method name="trackViewGoal"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="id" type="java.lang.String">
+</parameter>
+</method>
 <field name="application"
  type="android.app.Application"
  transient="false"
@@ -1175,6 +1288,25 @@
 >
 </method>
 </class>
+<interface name="OptimizelyCodeBlock.Callback"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onBranchChange"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</interface>
 <class name="OptimizelyCodeBlocks"
  extends="java.lang.Object"
  abstract="false"
@@ -1206,8 +1338,8 @@
 <parameter name="codeBlockKey" type="java.lang.String">
 </parameter>
 </method>
-<method name="forceBranchForBlock"
- return="void"
+<method name="makeCodeBlock"
+ return="com.optimizely.CodeBlocks.OptimizelyCodeBlock"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1216,9 +1348,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="blockKey" type="java.lang.String">
+<parameter name="codeBlockKey" type="java.lang.String">
 </parameter>
-<parameter name="branchName" type="java.lang.String">
+<parameter name="branchNames" type="java.lang.String...">
 </parameter>
 </method>
 <method name="makeCodeBlock"
@@ -1232,6 +1364,8 @@
  visibility="public"
 >
 <parameter name="codeBlockKey" type="java.lang.String">
+</parameter>
+<parameter name="callback" type="com.optimizely.CodeBlocks.OptimizelyCodeBlock.Callback">
 </parameter>
 <parameter name="branchNames" type="java.lang.String...">
 </parameter>
@@ -1266,6 +1400,19 @@
 <parameter name="blockName" type="java.lang.String">
 </parameter>
 </constructor>
+<method name="setCallback"
+ return="com.optimizely.CodeBlocks.OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="callback" type="com.optimizely.CodeBlocks.OptimizelyCodeBlock.Callback">
+</parameter>
+</method>
 <method name="withBranchNames"
  return="com.optimizely.CodeBlocks.OptimizelyCodeBlock"
  abstract="false"
@@ -1634,6 +1781,16 @@
  visibility="public"
 >
 </field>
+<field name="isManual"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="locked"
  type="boolean"
  transient="false"
@@ -1645,7 +1802,7 @@
 >
 </field>
 <field name="state"
- type="com.optimizely.integration.OptimizelyExperimentData.OptimizelyExperimentDataState"
+ type="java.lang.String"
  transient="false"
  volatile="false"
  static="false"
@@ -1694,6 +1851,16 @@
  visibility="public"
 >
 </field>
+<field name="variations"
+ type="java.util.List"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="visitedCount"
  type="int"
  transient="false"
@@ -1726,37 +1893,131 @@
 </field>
 </class>
 <class name="OptimizelyExperimentData.OptimizelyExperimentDataState"
- extends="java.lang.Enum"
+ extends="java.lang.Object"
  abstract="false"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<method name="valueOf"
- return="com.optimizely.integration.OptimizelyExperimentData.OptimizelyExperimentDataState"
- abstract="false"
- native="false"
- synchronized="false"
  static="true"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="name" type="java.lang.String">
-</parameter>
-</method>
-<method name="values"
- return="com.optimizely.integration.OptimizelyExperimentData.OptimizelyExperimentDataState[]"
- abstract="false"
- native="false"
- synchronized="false"
+<constructor name="OptimizelyExperimentData.OptimizelyExperimentDataState"
+ type="com.optimizely.integration.OptimizelyExperimentData.OptimizelyExperimentDataState"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<field name="OPTIMIZELY_EXPERIMENT_DATA_STATE_DEACTIVATED"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;optimizelyExperimentDataStateDeactivated&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"
  visibility="public"
 >
-</method>
+</field>
+<field name="OPTIMIZELY_EXPERIMENT_DATA_STATE_DISABLED"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;optimizelyExperimentDataStateDisabled&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="OPTIMIZELY_EXPERIMENT_DATA_STATE_RUNNING"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;optimizelyExperimentDataStateRunning&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="OptimizelyVariationData"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="OptimizelyVariationData"
+ type="com.optimizely.integration.OptimizelyVariationData"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<field name="codeBlocks"
+ type="org.json.JSONArray"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="id"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="name"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="traffic"
+ type="java.lang.Double"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="variables"
+ type="org.json.JSONArray"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="views"
+ type="org.json.JSONArray"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 </class>
 </package>
 <package name="com.optimizely.integrations.amplitude"
@@ -1989,7 +2250,7 @@
  type="java.lang.String"
  transient="false"
  volatile="false"
- value="&quot;Experiment Name&quot;"
+ value="&quot;Name&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"
@@ -2000,7 +2261,7 @@
  type="java.lang.String"
  transient="false"
  volatile="false"
- value="&quot;Experiment Name + Variation&quot;"
+ value="&quot;Name + Variation&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"
@@ -2011,7 +2272,7 @@
  type="java.lang.String"
  transient="false"
  volatile="false"
- value="&quot;Experiment Variation Name&quot;"
+ value="&quot;Variation Name&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"
@@ -2040,22 +2301,22 @@
  visibility="public"
 >
 </field>
-<field name="OPTIMIZELY_VARIATIONS_VIEWED"
+<field name="PLUGIN_ID"
  type="java.lang.String"
  transient="false"
  volatile="false"
- value="&quot;Optimizely Variations Viewed&quot;"
+ value="&quot;localytics_mobile&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"
  visibility="public"
 >
 </field>
-<field name="PLUGIN_ID"
+<field name="PROFILE_ATTR_NAME"
  type="java.lang.String"
  transient="false"
  volatile="false"
- value="&quot;localytics_mobile&quot;"
+ value="&quot;Optimizely Experiments Visited&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"

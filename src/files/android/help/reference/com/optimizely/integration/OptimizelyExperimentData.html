@@ -172,15 +172,12 @@
       <ul>
           <li class="api apilevel-"><a href="../../../com/optimizely/integration/DefaultOptimizelyEventListener.html">DefaultOptimizelyEventListener</a></li>
           <li class="selected api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a></li>
-      </ul>
-    </li>
-              
-              
-    <li><h2>Enums</h2>
-      <ul>
           <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyVariationData.html">OptimizelyVariationData</a></li>
       </ul>
     </li>
+              
+              
               
               
             </ul><br/>
@@ -373,7 +370,7 @@ Summary:
          
          
         
-        enum</td>
+        class</td>
       <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></td>
       <td class="jd-descrcol" width="100%">Type describing the current state of the experiment
 &nbsp;</td>
@@ -455,29 +452,7 @@ Summary:
           
           
           boolean</td>
-          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#locked">locked</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol">
-          public
-          
-          
-          <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></td>
-          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#state">state</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol">
-          public
-          
-          
-          String</td>
-          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#targetingConditions">targetingConditions</a></td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#isManual">isManual</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -488,7 +463,7 @@ Summary:
           
           
           boolean</td>
-          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#targetingMet">targetingMet</a></td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#locked">locked</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -499,7 +474,7 @@ Summary:
           
           
           String</td>
-          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#variationId">variationId</a></td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#state">state</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -510,7 +485,51 @@ Summary:
           
           
           String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#targetingConditions">targetingConditions</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#targetingMet">targetingMet</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#variationId">variationId</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          String</td>
           <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#variationName">variationName</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          List&lt;<a href="../../../com/optimizely/integration/OptimizelyVariationData.html">OptimizelyVariationData</a>&gt;</td>
+          <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html#variations">variations</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -976,6 +995,36 @@ From class
 
 
 
+<a id="isManual"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        boolean
+      </span>
+        isManual
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <a id="locked"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1014,7 +1063,7 @@ From class
         public 
          
          
-        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+        String
       </span>
         state
     </h4>
@@ -1137,6 +1186,36 @@ From class
         String
       </span>
         variationName
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="variations"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        List&lt;<a href="../../../com/optimizely/integration/OptimizelyVariationData.html">OptimizelyVariationData</a>&gt;
+      </span>
+        variations
     </h4>
       <div class="api-level">
         

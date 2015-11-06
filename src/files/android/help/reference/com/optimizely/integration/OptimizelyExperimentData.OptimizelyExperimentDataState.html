@@ -172,15 +172,12 @@
       <ul>
           <li class="api apilevel-"><a href="../../../com/optimizely/integration/DefaultOptimizelyEventListener.html">DefaultOptimizelyEventListener</a></li>
           <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a></li>
-      </ul>
-    </li>
-              
-              
-    <li><h2>Enums</h2>
-      <ul>
           <li class="selected api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/integration/OptimizelyVariationData.html">OptimizelyVariationData</a></li>
       </ul>
     </li>
+              
+              
               
               
             </ul><br/>
@@ -227,25 +224,6 @@
   
   
 
-  
-   
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-   
-  
-  
-  
-  
-
 
 <div class="sum-details-links">
 
@@ -255,18 +233,18 @@ Summary:
 
 
 
-  <a href="#enumconstants">Enums</a>
+
+  <a href="#constants">Constants</a>
   
 
 
 
 
 
-
-
-
-  &#124; <a href="#pubmethods">Methods</a>
+  &#124; <a href="#pubctors">Ctors</a>
   
+
+
 
 
 
@@ -291,19 +269,15 @@ Summary:
 <div id="jd-header">
     public
     static 
-    final 
+     
     
-    enum
+    class
 <h1>OptimizelyExperimentData.OptimizelyExperimentDataState</h1>
 
 
 
   
-  
-  
-
-  
-    extends Enum&lt;E&nbsp;extends&nbsp;Enum&lt;E&gt;&gt;<br/>
+    extends Object<br/>
   
   
   
@@ -323,21 +297,11 @@ Summary:
 
     <tr>
          	
-        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
     <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-         	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Enum&lt;E&nbsp;extends&nbsp;java.lang.Enum&lt;E&gt;&gt;</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
@@ -396,36 +360,40 @@ Summary:
 
 
 
+
+
 <!-- =========== ENUM CONSTANT SUMMARY =========== -->
-<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
 
     
     <tr class="alt-color api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>&nbsp;</td>
-        <td class="jd-linkcol">OptimizelyExperimentDataStateDeactivated&nbsp;</td>
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#OPTIMIZELY_EXPERIMENT_DATA_STATE_DEACTIVATED">OPTIMIZELY_EXPERIMENT_DATA_STATE_DEACTIVATED</a></td>
         <td class="jd-descrcol" width="100%">Experiment has been deactivated
  This can happen if
  (a) not all of its assets are downloaded by the time our block time runs out, or
  (b) another experiment has already been activated that makes a conflicting change
  (c) targeting criteria for this experiment has not been met
-&nbsp;</td>
+</td>
     </tr>
     
     
     <tr class=" api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>&nbsp;</td>
-        <td class="jd-linkcol">OptimizelyExperimentDataStateDisabled&nbsp;</td>
-        <td class="jd-descrcol" width="100%">Experiment is not running on the Optimizely dashboard.&nbsp;</td>
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#OPTIMIZELY_EXPERIMENT_DATA_STATE_DISABLED">OPTIMIZELY_EXPERIMENT_DATA_STATE_DISABLED</a></td>
+        <td class="jd-descrcol" width="100%">Experiment is not running on the Optimizely dashboard.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>&nbsp;</td>
-        <td class="jd-linkcol">OptimizelyExperimentDataStateRunning&nbsp;</td>
-        <td class="jd-descrcol" width="100%">Experiment is running &nbsp;</td>
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#OPTIMIZELY_EXPERIMENT_DATA_STATE_RUNNING">OPTIMIZELY_EXPERIMENT_DATA_STATE_RUNNING</a></td>
+        <td class="jd-descrcol" width="100%">Experiment is running </td>
     </tr>
     
     
+
 </table>
 
 
@@ -439,14 +407,8 @@ Summary:
 
 
 
-
-
-
-
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
 
 
 
@@ -456,34 +418,22 @@ Summary:
             
             
             
-            static
             
-            <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+            
+            
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#valueOf(java.lang.String)">valueOf</a></span>(String name)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            static
-            
-            <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentDataState[]</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#values()">values</a></span>()
+        <span class="sympad"><a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html#OptimizelyExperimentData.OptimizelyExperimentDataState()">OptimizelyExperimentData.OptimizelyExperimentDataState</a></span>()
         
   </td></tr>
 
 
 
 </table>
+
+
+
+
 
 
 
@@ -495,208 +445,6 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Enum-trigger"
-          src="../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  java.lang.Enum
-
-<div id="inherited-methods-java.lang.Enum">
-  <div id="inherited-methods-java.lang.Enum-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            Object
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">clone</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">compareTo</span>(Object arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">compareTo</span>(E arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">equals</span>(Object arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">finalize</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            Class&lt;E&gt;
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">getDeclaringClass</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">hashCode</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">name</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">ordinal</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">toString</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            static
-            &lt;T&nbsp;extends&nbsp;Enum&lt;T&gt;&gt;
-            T
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">valueOf</span>(Class&lt;T&gt; arg0, String arg1)
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
 
 
 <tr class="api apilevel-" >
@@ -900,50 +648,6 @@ From class
 </td></tr>
 
 
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Comparable-trigger"
-          src="../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  java.lang.Comparable
-
-<div id="inherited-methods-java.lang.Comparable">
-  <div id="inherited-methods-java.lang.Comparable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            abstract
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">compareTo</span>(T arg0)
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
 </table>
 
 
@@ -964,13 +668,16 @@ From interface
 <!-- Enum Values -->
 
 
+<!-- Constants -->
+
+
 <!-- ========= ENUM CONSTANTS DETAIL ======== -->
-<h2>Enum Values</h2>
+<h2>Constants</h2>
 
 
 
 
-<a id="OptimizelyExperimentDataStateDeactivated"></a>
+<a id="OPTIMIZELY_EXPERIMENT_DATA_STATE_DEACTIVATED"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -978,9 +685,9 @@ From interface
         public 
         static 
         final 
-        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+        String
       </span>
-        OptimizelyExperimentDataStateDeactivated
+        OPTIMIZELY_EXPERIMENT_DATA_STATE_DEACTIVATED
     </h4>
       <div class="api-level">
         
@@ -1000,12 +707,21 @@ From interface
 </p></div>
 
     
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "optimizelyExperimentDataStateDeactivated"
+            
+        </span>
+        </div>
+    
     </div>
 </div>
 
 
 
-<a id="OptimizelyExperimentDataStateDisabled"></a>
+<a id="OPTIMIZELY_EXPERIMENT_DATA_STATE_DISABLED"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1013,9 +729,9 @@ From interface
         public 
         static 
         final 
-        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+        String
       </span>
-        OptimizelyExperimentDataStateDisabled
+        OPTIMIZELY_EXPERIMENT_DATA_STATE_DISABLED
     </h4>
       <div class="api-level">
         
@@ -1030,12 +746,21 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Experiment is not running on the Optimizely dashboard. Try starting the experiment on https://www.optimizely.com </p></div>
 
     
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "optimizelyExperimentDataStateDisabled"
+            
+        </span>
+        </div>
+    
     </div>
 </div>
 
 
 
-<a id="OptimizelyExperimentDataStateRunning"></a>
+<a id="OPTIMIZELY_EXPERIMENT_DATA_STATE_RUNNING"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1043,9 +768,9 @@ From interface
         public 
         static 
         final 
-        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
+        String
       </span>
-        OptimizelyExperimentDataStateRunning
+        OPTIMIZELY_EXPERIMENT_DATA_STATE_RUNNING
     </h4>
       <div class="api-level">
         
@@ -1060,13 +785,19 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Experiment is running </p></div>
 
     
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "optimizelyExperimentDataStateRunning"
+            
+        </span>
+        </div>
+    
     </div>
 </div>
 
 
-
-
-<!-- Constants -->
 
 
 <!-- Fields -->
@@ -1075,63 +806,24 @@ From interface
 <!-- Public ctors -->
 
 
-
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
+<h2>Public Constructors</h2>
 
 
 
-<!-- ========= METHOD DETAIL ======== -->
-<!-- Public methdos -->
-
-<h2>Public Methods</h2>
-
-
-
-<a id="valueOf(java.lang.String)"></a>
+<a id="OptimizelyExperimentData.OptimizelyExperimentDataState()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
-        static 
          
          
          
-        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentData.OptimizelyExperimentDataState</a>
-      </span>
-      <span class="sympad">valueOf</span>
-      <span class="normal">(String name)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
+         
         
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="values()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-         
-         
-        <a href="../../../com/optimizely/integration/OptimizelyExperimentData.OptimizelyExperimentDataState.html">OptimizelyExperimentDataState[]</a>
       </span>
-      <span class="sympad">values</span>
+      <span class="sympad">OptimizelyExperimentData.OptimizelyExperimentDataState</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1150,6 +842,16 @@ From interface
 </div>
 
 
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
 
 
 

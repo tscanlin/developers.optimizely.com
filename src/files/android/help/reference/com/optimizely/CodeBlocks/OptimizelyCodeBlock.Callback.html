@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>
 
-  OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder
+  OptimizelyCodeBlock.Callback
 
 
 </title>
@@ -164,7 +164,7 @@
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.Callback.html">OptimizelyCodeBlock.Callback</a></li>
+          <li class="selected api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.Callback.html">OptimizelyCodeBlock.Callback</a></li>
       </ul>
     </li>
               
@@ -174,7 +174,7 @@
           <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/DefaultCodeBranch.html">DefaultCodeBranch</a></li>
           <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a></li>
           <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.html">OptimizelyCodeBlocks</a></li>
-          <li class="selected api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></li>
       </ul>
     </li>
               
@@ -218,40 +218,9 @@
 
 
 
-  
-   
-  
-  
-  
-  
-
 
 <div class="sum-details-links">
 
-
-Summary:
-
-
-
-
-
-
-
-
-
-  <a href="#pubctors">Ctors</a>
-  
-
-
-
-  &#124; <a href="#pubmethods">Methods</a>
-  
-
-
-
-  &#124; <a href="#inhmethods">Inherited Methods</a>
-
-&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
 
 </div><!-- end sum-details-links -->
 <div class="api-level">
@@ -269,19 +238,13 @@ Summary:
 
 <div id="jd-header">
     public
-     
+    static 
      
     
-    class
-<h1>OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</h1>
+    interface
+<h1>OptimizelyCodeBlock.Callback</h1>
 
 
-
-  
-    extends Object<br/>
-  
-  
-  
 
   
   
@@ -298,15 +261,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-         	
-        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.CodeBlocks.OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.optimizely.CodeBlocks.OptimizelyCodeBlock.Callback</td>
     </tr>
     
 
@@ -369,31 +324,6 @@ Summary:
 
 
 
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html#OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder(java.lang.String)">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a></span>(String blockName)
-        
-  </td></tr>
-
-
-
-</table>
-
-
 
 
 
@@ -406,31 +336,15 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
             
             
-            
-            <a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a>
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html#setCallback(com.optimizely.CodeBlocks.OptimizelyCodeBlock.Callback)">setCallback</a></span>(<a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.Callback.html">OptimizelyCodeBlock.Callback</a> callback)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html#withBranchNames(java.lang.String...)">withBranchNames</a></span>(String... branchNames)
+        <span class="sympad"><a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.Callback.html#onBranchChange()">onBranchChange</a></span>()
         
   </td></tr>
 
@@ -442,216 +356,6 @@ Summary:
 
 
 
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="inhmethods" class="jd-sumtable"><tr><th>
-  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
-  <div style="clear:left;">Inherited Methods</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Object-trigger"
-          src="../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  java.lang.Object
-
-<div id="inherited-methods-java.lang.Object">
-  <div id="inherited-methods-java.lang.Object-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            Object
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">clone</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">equals</span>(Object arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">finalize</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            Class&lt;?&gt;
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">getClass</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">hashCode</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">notify</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">notifyAll</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">toString</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>(long arg0, int arg1)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>(long arg0)
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-</table>
 
 
 </div><!-- jd-descr (summary) -->
@@ -680,44 +384,6 @@ From class
 <!-- Public ctors -->
 
 
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<h2>Public Constructors</h2>
-
-
-
-<a id="OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder(java.lang.String)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</span>
-      <span class="normal">(String blockName)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-
-
 
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <!-- Protected ctors -->
@@ -731,7 +397,7 @@ From class
 
 
 
-<a id="setCallback(com.optimizely.CodeBlocks.OptimizelyCodeBlock.Callback)"></a>
+<a id="onBranchChange()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -739,43 +405,12 @@ From class
         public 
          
          
+        abstract 
          
-         
-        <a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder.html">OptimizelyCodeBlocks.OptimizelyCodeBlockBuilder</a>
+        void
       </span>
-      <span class="sympad">setCallback</span>
-      <span class="normal">(<a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.Callback.html">OptimizelyCodeBlock.Callback</a> callback)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="withBranchNames(java.lang.String...)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">OptimizelyCodeBlock</a>
-      </span>
-      <span class="sympad">withBranchNames</span>
-      <span class="normal">(String... branchNames)</span>
+      <span class="sympad">onBranchChange</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
