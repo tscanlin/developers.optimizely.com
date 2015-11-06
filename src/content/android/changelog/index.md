@@ -6,7 +6,7 @@ title: "Optimizely Android SDK Changelog"
 # Optimizely Android SDK Changelog
 
 ### 1.3.0
-November 5, 2015
+November 6, 2015
 
 *Announcements:*
 *Twitter Fabric Integration.* We're excited to announce our partnership with Fabric, Twitter's modular mobile platform that makes it easy for developers to install and maintain SDKs within their apps. Find out more [here](https://blog.optimizely.com/2015/10/21/optimizely-twitter-fabric/)
