@@ -355,6 +355,62 @@ Each NSDictionary will have 3 keys: @&quot;name&quot;, @&quot;audience_id&quot;,
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/activateManualExperiment:</TokenIdentifier>
+			<Abstract type="html">Activates a manual experiment with the given id. If it passes targeting, the experiment
+will be bucketed and marked as visited. This must be called after startOptimizelyWithAPIToken.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (BOOL)activateManualExperiment:(NSString *)experimentId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>experimentId</Name>
+					<Abstract type="html">The id of the experiment you wish to activate</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">boolean depending on whether or not we successfully activated the experiment. Turn on verbose logging for more debugging info</Abstract></ReturnValue>
+			<Anchor>//api/name/activateManualExperiment:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/activateAllManualExperiments</TokenIdentifier>
+			<Abstract type="html">Activates all manual experiments in your data file. If it passes targeting, the experiments
+will be bucketed and marked as visited. This must be called after startOptimizelyWithAPIToken.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (BOOL)activateAllManualExperiments</Declaration>
+			
+			<ReturnValue><Abstract type="html">boolean depending on whether or not we were able to activate all manual experiments. Turn on verbose logging for more debugging info.</Abstract></ReturnValue>
+			<Anchor>//api/name/activateAllManualExperiments</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/forceVariation:ofExperiment:</TokenIdentifier>
+			<Abstract type="html">Buckets the user into a particular variation of an experiment.
+This function must be called before startOptimizelyWithAPI.
+If the experimentId or variationId is invalid, there will be no effect.
+If the relevant data is not downloaded yet, nothing will be done.
+This function only takes effect if the app is running in normal mode.
+This function should be used for QA ONLY, since forcing a variation will clear out any saved experiment states for the user.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)forceVariation:(NSString *)variationId ofExperiment:(NSString *)experimentId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>variationId</Name>
+					<Abstract type="html">The id of the variation you wish to bucket the user into.</Abstract>
+				</Parameter><Parameter>
+					<Name>experimentId</Name>
+					<Abstract type="html">The id of the experiment you are bucketing within.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/forceVariation:ofExperiment:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/stringForKey:</TokenIdentifier>
 			<Abstract type="html">Returns the NSString idenitified by the provided key.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>

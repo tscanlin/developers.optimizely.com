@@ -24,6 +24,16 @@
         </Token>
         
         <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyExperimentDataStatePending</TokenIdentifier>
+            <Abstract type="html">Experiment is pending activation. Usually this means that you can now manually activate it through [Optimizely activateManualExperiment:]</Abstract>
+            <Declaration>OptimizelyExperimentDataStatePending</Declaration>
+            
+            <DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+            
+            <NodeRef refid="5"/>
+        </Token>
+        
+        <Token>
             <TokenIdentifier>//apple_ref/c/econst/OptimizelyExperimentDataStateRunning</TokenIdentifier>
             <Abstract type="html">Experiment is running</Abstract>
             <Declaration>OptimizelyExperimentDataStateRunning</Declaration>

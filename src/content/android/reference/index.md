@@ -177,6 +177,21 @@ You're now ready to implement your experiment using the Optimizely web editor:
 
 For more details, please see the [Code Blocks API Reference](/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html)
 
+### Register Code Block Callback
+
+By default, in Edit Mode, Optimizely's editor will apply code block branch changes once the code block is executed again.  However, there may be times where you want the new code block branch to be executed in your app without the screen being refreshed while you're making experiment changes. To do so, you can use the `Optimizely.CodeBlock` method `setCallback(new OptimizelyCodeBlock.Callback(){...})`
+
+An example implementation of this can be found below:
+
+```java
+OptimizelyCodeBlock myCodeBlock = Optimizely.codeBlock("myCodeBlock").setCallback(new OptimizelyCodeBlock.Callback() {
+		@Override
+    	public void onBranchChange() {
+			// Calling renderViews will allow us to execute the code that wraps our code block
+			renderViews();
+		}
+    }).withBranchNames("branch1", "branch2");
+```
 ### Phased Rollouts
 
 A common use case for Code Blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse [here](https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App).
@@ -213,7 +228,7 @@ Make sure to call `setCustomTag` prior to `startOptimizelyWithAPIToken` and any 
   }
 ```
 
-Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String)) for more details.
+Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String) for more details.
 
 ### Experiment Reload
 By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the background, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
@@ -369,7 +384,66 @@ To manually send events, in the appropriate function (e.g. where you make other 
 
 Please refer to the documentation for [trackEvent](/android/help/reference/com/optimizely/Optimizely.html#trackEvent%28String%29), and [sendEvents](/android/help/reference/com/optimizely/Optimizely.html#sendEvents%28%29)for more details.
 
-## Optimizely Debug
+## Manual Activation
+
+### Experiment Activation Modes
+
+There are two different types of activation modes for Optimizely Mobile experiments.
+
+#### Automatic (Default)
+By default, Optimizely buckets users and activates the experiment as soon as the app starts and the startOptimizely method is called (either synchronously or asynchronously). Experiments are marked as visited when the end user reaches an element that has been modified in the experiment.
+
+#### Manual
+In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Manual activation is only available for SDK versions 1.3.0 and above.
+
+*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions. 
+
+
+Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
+
+<img src="/assets/img/android/activation_mode.png" alt="Drawing" style="width: 50%;"/>
+
+### Use Cases
+#### Use Case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment. 
+
+Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting. 
+For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session. 
+With automatic activation mode, you can only target using tags set before the app was started (and thus set in a previous session).
+
+#### Use Case #2: Bucket only a subset of users who access less frequently used areas of your app.
+
+Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit. 
+For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling. 
+If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users. 
+
+#### Use Case #3: Quick-load assets for consistency.
+
+Remote assets distributed by the Optimizely CDN, such as images you upload to our editor, start loading asynchronously when the app starts. As a result, if any assets fail to load before an experiment is viewed due to slow internet speeds, the user is not showed the variation and is instead shown the control even though that user has been bucketed.
+The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results. 
+In manual activation mode, you can activate experiments right when you want to show them, giving the user’s device more time to load assets associated with that experiment.
+
+### Manual Activation Example
+
+```java
+// Calling start Optimizely will not activate any manual experiments.
+// Instead you have to activate them manually for users to see your experiment
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+                          
+...
+
+// You specify when you want to activate each manual experiment.
+// For use case #1 above, this can be useful if you want to wait until you 
+// have additional data for a user and then store that data as custom tags.
+// For example, we now know that the user is a VIP user so we set a tag for that
+Optimizely.setCustomTag("accountType", "VIP");
+    
+// Activate a manual experiment that takes the custom tag we just set into account 
+boolean success = Optimizely.activateManualExperiment(myExperimentId);
+```
+
+## Debugging Your Experiments
+
+### Adding an Event Listener
 Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.
 
 ```java
@@ -406,6 +480,74 @@ Clients can get notifications when various Optimizely events occur in the Optimi
                           messageType, source, payload));
     }
   });
+```
+
+### Experiment Data Object
+Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main functions: `getAllExperiments` and `getVisitedExperiments`.  `getAllExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `getVisitedExperiments` contains all experiments in your Optimizely project that a user has actually visited. You can also query for the `OptimizelyExperimentData` associated to a given experimentId by using `getExperimentDataById`.
+
+Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](/android/help/reference/com/optimizely/integration/OptimizelyExperimentData.html).
+
+```java
+// This will get all your experiments
+Map<String, OptimizelyExperimentData> allExperiments = Optimizely.getAllExperiments();
+
+// This will get all your visited experiments
+Map<String, OptimizelyExperimentData> visitedExperiments = Optimizely.getVisitedExperiments();
+
+// This will get the experiment with the corresponding experimentId
+OptimizelyExperimentData data = Optimizely.getExperimentDataById("EXPERIMENT_ID");
+```
+
+### Audience Information
+There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return a JSONArray of all the audiences associated with your project. Each audience is represented as an JSONObject and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started. 
+
+Here's an example below:
+```java
+// Make sure to call the helper functions after starting Optimizely
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+
+// Gets an array that holds all your project audiences
+JSONArray audiences = Optimizely.getAudiences();
+
+for(int i = 0; i < audiences.length(); i++) {
+    JSONObject audience = audiences.getJSONObject(i);
+    // You can access the metadata associated with each audience
+    // Here we're just getting each audience's audienceId
+    String audienceId = audience.getString("audience_id");
+    
+    // We can then check to see if the user currently satisfies those
+    // audience conditions
+    boolean included = Optimizely.isUserInAudience(audienceId);
+    Log.d("tag", "The user " + (included ? "is" : "isn't") + " included in this audience:" + audienceId);
+}
+```  
+
+### Forcing a Variation
+Sometimes you'll want to try out your experiment before it goes live and outside of preview mode. You may spend a lot of time re-bucketing yourself in order to get into all the experiment combinations. Now you can opt to force an experiment into a given variation with `forceVariation`. *You must force the variation before calling start Optimizely.*
+
+When you force a variation for a given experiment, we'll reset the app's userId and try to force that experiment/variation if they are both valid. This should be called before startOptimizely is called and keep in mind that you should only use this for testing your experiments. You should NOT ship this to your customers.
+
+Here's an example below:
+```java
+// Force the variation and experiment specified by those two ids
+Optimizely.forceVariation(myVariationId, myExperimentId);
+
+// Make sure to call it before start Optimizely is called
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+```
+
+To find a variation's ID, head to the experiment editor and click on the "Variation Settings" button on the black bar on the far left-hand side of the window.
+
+### Resetting QA State
+Uninstalling the app everytime to QA your builds with Optimizely can be quite tedious. Now you can use `resetUserBucketing` to clear any variations that the current app user may have already been bucketed into. This will also remove the cached data file. This is useful if you want to insure that you're treated as a new user each time you start the app. Keep in mind that you must call `resetUserBucketing` before you start Optimizely.
+
+Here's an example below:
+```java
+// Reset user bucketing
+Optimizely.resetUserBucketing(context);
+
+// Make sure to call it before start Optimizely is called
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
 ```
 
 ## Upgrading to a new SDK

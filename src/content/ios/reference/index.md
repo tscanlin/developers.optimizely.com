@@ -12,11 +12,8 @@ By default, Optimizely is initialized synchronously with a max 2 second timeout.
 
 ```obj-c
 [Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN
-launchOptions:launchOptions
-experimentsLoadedCallback:^(BOOL success, NSError *error)
-{
-   ...
-}];
+                          launchOptions:launchOptions
+              experimentsLoadedCallback:^(BOOL success, NSError *error) {...}];
 ```
 
 
@@ -172,7 +169,7 @@ For more details, please see the [Live Variables API Reference](/ios/help/html/C
 
 ### Register Variable Callback
 
-By default, in Edit Mode, Optimizely's editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForVariableWithKey](/ios/help/html/Classes/Optimizely.html#//api/name/registerCallbackForVariableWithKey:callback:) method.
+By default, in Edit Mode, Optimizely's editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForVariableWithKey:callback:](/ios/help/html/Classes/Optimizely.html#//api/name/registerCallbackForVariableWithKey:callback:) method.
 
 An example implementation of this can be found below:
 
@@ -293,6 +290,19 @@ You're now ready to implement your experiment using the Optimizely web editor:
 5. Once you've connected your app to the editor, you can later edit code blocks without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.
 
 For more details, please see the [Code Blocks API Reference](/ios/help/html/Classes/Optimizely.html#//api/name/codeBlocksWithKey:blockOne:defaultBlock:)
+
+### Register Code Block Callback
+
+By default, in Edit Mode, Optimizely's editor will apply code block branch changes once the code block is executed again.  However, there may be times where you want the new code block branch to be executed in your app without the screen being refreshed while you're making experiment changes.  To do so, you can use the [registerCallbackForCodeBlockWithKey:callback:](/ios/help/html/Classes/Optimizely.html#//api/name//registerCallbackForCodeBlockWithKey:callback:) method.
+
+An example implementation of this can be found below:
+
+```obj-c
+[Optimizely registerCallbackForCodeBlockWithKey:myCodeBlockKey callback:^() {
+	// Calling renderViews will allow us to execute the code that wraps our code block
+	[self renderViews];
+}];
+```
 
 ### Phased Rollouts
 
@@ -460,10 +470,64 @@ To manually send events, in the appropriate function (e.g. where you make other 
     //The rest of your handler
 }
 ```
+## Manual Activation
 
+### Experiment Activation Modes
 
+There are two different types of activation modes for Optimizely Mobile experiments.
 
-## Optimizely Debug
+#### Automatic (Default)
+By default, Optimizely buckets users and activates the experiment as soon as the app starts and the startOptimizely method is called (either synchronously or asynchronously). Experiments are marked as visited when the end user reaches an element that has been modified in the experiment.
+
+#### Manual
+In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Manual activation is only available for SDK versions 1.3.0 and above.
+
+*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions. 
+
+Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
+
+<img src="/assets/img/ios/activation_mode.png" alt="Drawing" style="width: 50%;"/>
+
+### Use Cases
+#### Use case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment. 
+
+Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting. 
+For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session. 
+With automatic activation mode, you can only target using tags set before the app was started (and thus set in a previous session).
+
+#### Use case #2: Bucket only a subset of users who access less frequently used areas of your app.
+
+Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit. 
+For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling. 
+If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users. 
+
+#### Use case #3: Quick-load assets for consistency.
+
+Remote assets distributed by the Optimizely CDN, such as images you upload to our editor, start loading asynchronously when the app starts. As a result, if any assets fail to load before an experiment is viewed due to slow internet speeds, the user is not showed the variation and is instead shown the control even though that user has been bucketed.
+The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results. 
+In manual activation mode, you can activate experiments right when you want to show them, giving the user’s device more time to load assets associated with that experiment.
+
+### Manual Activation Example
+
+```obj-c
+// Calling start Optimizely will not activate any manual experiments.
+// Instead you have to activate them manually for users to see your experiment
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+                          
+...
+
+// You specify when you want to activate each manual experiment.
+// For use case #1 above, this can be useful if you want to wait until you 
+// have additional data for a user and then store that data as custom tags.
+// For example, we now know that the user is a VIP user so we set a tag for that
+[Optimizely setValue:@"VIP" forCustomTag:@"accountType"];
+    
+// Activate a manual experiment that takes the custom tag we just set into account 
+BOOL success = [Optimizely activateManualExperiment:myExperimentId];
+```
+
+## Debugging Your Experiments
 
 For full details on how to use NSNotifications and the Experiment Data Object, you can refer to this [QA article](https://help.optimizely.com/hc/en-us/articles/205156117-QA-Your-Optimizely-iOS-Experiments) in Optiverse.
 
@@ -480,16 +544,14 @@ The following sample shows how to register for a notification:
 
 ```obj-c
 -(void)registerForOptimizelyNotifications {
-
     [[NSNotificationCenter defaultCenter] addObserver:self
 		selector:@selector(experimentDidGetViewed:)
 			name:OptimizelyExperimentVisitedNotification object:nil];
-
 }
 ```
 
 ### Experiment Data Object
-Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited.
+Optimizely's Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main objects: `allExperiments` and `visitedExperiments`.  `allExperiments` contains all running, paused, and draft experiments in your Optimizely project.  `visitedExperiments` contains all experiments in your Optimizely project that a user has actually visited. You can also query for the `OptimizelyExperimentData` associated to a given experimentId by using `getExperimentDataById:`.
 
 Each experiment is represented as an `OptimizelyExperimentData` object. For more info on the properties contained there, see the class reference for [OptimizelyExperimentData](/ios/help/html/Classes/OptimizelyExperimentData.html).
 
@@ -497,18 +559,72 @@ Sample usage of how this data looks is listed below:
 
  ```obj-c
 for (OptimizelyExperimentData *data in [Optimizely sharedInstance].allExperiments) {
-// Lists all running, paused, and draft experiments
-        NSLog(@"All Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long) data.visitedCount);
-
+	// Lists all running, paused, and draft experiments
+    NSLog(@"All Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long) data.visitedCount);
 }
 
 for (OptimizelyExperimentData *data in [Optimizely sharedInstance].visitedExperiments) {
-// Lists all experiments that a user has visited
-        NSLog(@"Visited Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long)data.visitedCount);
-
+	// Lists all experiments that a user has visited
+	NSLog(@"Visited Experiments: %@, %@, %u, visitedEver: %s, visitedCount: %ld", data.experimentName, data.variationName, data.state, data.visitedEver ? "true" : "false", (unsigned long)data.visitedCount);
 }
+
+// This will get the experiment with the corresponding experimentId
+OptimizelyExperimentData *data = [Optimizely getExperimentDataById:@"EXPERIMENT_ID"];
   ```
 
+### Audience Information
+There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return an array of all the audiences associated with your project. Each audience is represented as an NSDictionary and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience:` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started. 
+
+Here's an example below:
+```obj-c
+// Make sure to call the helper functions after starting Optimizely
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+  
+// Gets an array that holds all your project audiences
+NSArray *audiences = [Optimizely getAudiences];
+    
+for (NSDictionary *audience in audiences) {
+	// You can access the metadata associated with each audience
+    // Here we're just getting each audience's audienceId
+    NSString *audienceId = audience[@"audience_id"];
+        
+    // We can then check to see if the user currently satisfies those
+    // audience conditions
+    BOOL included = [Optimizely isUserInAudience:audienceId];
+    NSLog(@"The user %@ included in audience: %@", included ? @"is" : @"isn't", audienceId);
+}
+```  
+
+### Forcing a Variation
+Sometimes you'll want to try out your experiment before it goes live and outside of preview mode. You may spend a lot of time re-bucketing yourself in order to get into all the experiment combinations. Now you can opt to force an experiment into a given variation with `forceVariation:ofExperiment:`. *You must force the variation before calling start Optimizely.* 
+
+When you force a variation for a given experiment, we'll reset the app's userId and try to force that experiment/variation if they are both valid. This should be called before startOptimizely is called and keep in mind that you should only use this for testing your experiments. You should NOT ship this to your customers.
+
+Here's an example below:
+```obj-c
+// Force the variation and experiment specified by those two ids
+[Optimizely forceVariation:myVariationId ofExperiment:myExperimentId];
+
+// Make sure to call it before start Optimizely is called
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+```
+
+To find a variation's ID, head to the experiment editor and click on the "Variation Settings" button on the black bar on the far left-hand side of the window.
+
+### Resetting QA State
+Uninstalling the app everytime to QA your builds with Optimizely can be quite tedious. Now you can use `resetUserBucketing` to clear any variations that the current app user may have already been bucketed into. This will also remove the cached data file. This is useful if you want to insure that you're treated as a new user each time you start the app. Keep in mind that you must call `resetUserBucketing` before you start Optimizely.
+
+Here's an example below:
+```obj-c
+// Reset user bucketing
+[Optimizely resetUserBucketing];
+
+// Make sure to call it before start Optimizely is called
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+```
 
 ## Upgrading to a new SDK
 

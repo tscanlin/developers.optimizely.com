@@ -70,9 +70,13 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
+	<option value="//api/name/activateAllManualExperiments">&nbsp;&nbsp;&nbsp;&nbsp;+ activateAllManualExperiments</option>
+	
 	<option value="//api/name/activateAmplitudeIntegration">&nbsp;&nbsp;&nbsp;&nbsp;+ activateAmplitudeIntegration</option>
 	
 	<option value="//api/name/activateLocalyticsIntegration">&nbsp;&nbsp;&nbsp;&nbsp;+ activateLocalyticsIntegration</option>
+	
+	<option value="//api/name/activateManualExperiment:">&nbsp;&nbsp;&nbsp;&nbsp;+ activateManualExperiment:</option>
 	
 	<option value="//api/name/activateMixpanelIntegration">&nbsp;&nbsp;&nbsp;&nbsp;+ activateMixpanelIntegration</option>
 	
@@ -99,6 +103,8 @@
 	<option value="//api/name/enableGestureInAppStoreApp">&nbsp;&nbsp;&nbsp;&nbsp;+ enableGestureInAppStoreApp</option>
 	
 	<option value="//api/name/fetchNewDataFile">&nbsp;&nbsp;&nbsp;&nbsp;+ fetchNewDataFile</option>
+	
+	<option value="//api/name/forceVariation:ofExperiment:">&nbsp;&nbsp;&nbsp;&nbsp;+ forceVariation:ofExperiment:</option>
 	
 	<option value="//api/name/getAudiences">&nbsp;&nbsp;&nbsp;&nbsp;+ getAudiences</option>
 	
@@ -235,9 +241,13 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activateAllManualExperiments">activateAllManualExperiments</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activateAmplitudeIntegration">activateAmplitudeIntegration</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activateLocalyticsIntegration">activateLocalyticsIntegration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activateManualExperiment:">activateManualExperiment:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/activateMixpanelIntegration">activateMixpanelIntegration</a></span></li>
 	
@@ -264,6 +274,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enableGestureInAppStoreApp">enableGestureInAppStoreApp</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchNewDataFile">fetchNewDataFile</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/forceVariation:ofExperiment:">forceVariation:ofExperiment:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getAudiences">getAudiences</a></span></li>
 	
@@ -516,6 +528,24 @@ available as class methods.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/getAudiences">+&nbsp;getAudiences</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/activateManualExperiment:">+&nbsp;activateManualExperiment:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/activateAllManualExperiments">+&nbsp;activateAllManualExperiments</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/forceVariation:ofExperiment:">+&nbsp;forceVariation:ofExperiment:</a></code>
 	</span>
 	
 	
@@ -1328,6 +1358,48 @@ has viewed across all sessions. To get a list of all experiments, use <a href="#
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/activateAllManualExperiments" title="activateAllManualExperiments"></a>
+	<h3 class="subsubtitle method-title">activateAllManualExperiments</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Activates all manual experiments in your data file. If it passes targeting, the experiments
+will be bucketed and marked as visited. This must be called after startOptimizelyWithAPIToken.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BOOL)activateAllManualExperiments</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>boolean depending on whether or not we were able to activate all manual experiments. Turn on verbose logging for more debugging info.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/activateAmplitudeIntegration" title="activateAmplitudeIntegration"></a>
 	<h3 class="subsubtitle method-title">activateAmplitudeIntegration</h3>
 	
@@ -1396,6 +1468,58 @@ has viewed across all sessions. To get a list of all experiments, use <a href="#
 		<h4 class="method-subtitle">Discussion</h4>
 		<div class="warning"><p><strong>Warning:</strong> This currently <em>must</em> be called before <code>startOptimizelyWithAPIToken: launchOptions:</code> returns!</p></div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/activateManualExperiment:" title="activateManualExperiment:"></a>
+	<h3 class="subsubtitle method-title">activateManualExperiment:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Activates a manual experiment with the given id. If it passes targeting, the experiment
+will be bucketed and marked as visited. This must be called after startOptimizelyWithAPIToken.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BOOL)activateManualExperiment:(NSString *)<em>experimentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>experimentId</em></dt>
+			<dd><p>The id of the experiment you wish to activate</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>boolean depending on whether or not we successfully activated the experiment. Turn on verbose logging for more debugging info</p>
+	</div>
+	
+	
+	
+	
 	
 	
 	
@@ -2040,6 +2164,67 @@ of your app downloaded from the app store.</p>
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Optimizely.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/forceVariation:ofExperiment:" title="forceVariation:ofExperiment:"></a>
+	<h3 class="subsubtitle method-title">forceVariation:ofExperiment:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Buckets the user into a particular variation of an experiment.
+This function must be called before startOptimizelyWithAPI.
+If the experimentId or variationId is invalid, there will be no effect.
+If the relevant data is not downloaded yet, nothing will be done.
+This function only takes effect if the app is running in normal mode.
+This function should be used for QA ONLY, since forcing a variation will clear out any saved experiment states for the user.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)forceVariation:(NSString *)<em>variationId</em> ofExperiment:(NSString *)<em>experimentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>variationId</em></dt>
+			<dd><p>The id of the variation you wish to bucket the user into.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>experimentId</em></dt>
+			<dd><p>The id of the experiment you are bucketing within.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>DO NOT RELEASE WITH THIS FUNCTION. THIS FUNCTION IS FOR QA PURPOSES ONLY.</p>
+	</div>
 	
 	
 	
@@ -3729,7 +3914,7 @@ experimental change</p></dd>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Optimizely. All rights reserved. (Last updated: 2015-10-02)</span><br />
+						<p><span class="copyright">&copy; 2015 Optimizely. All rights reserved. (Last updated: 2015-11-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
