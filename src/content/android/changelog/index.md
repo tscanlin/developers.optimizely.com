@@ -29,6 +29,7 @@ Optimizely SDK automatically disables itself for that session if no running expe
 *Bug Fixes:*
 - Improved preview mode access from URL scheme consistency 
 - Improved visual editor button resizing consistency 
+- Fixed counting bug affecting custom events when used with UUID
 
 ### 1.2.4
 October 16, 2015
