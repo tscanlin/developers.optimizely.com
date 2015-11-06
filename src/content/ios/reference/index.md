@@ -355,11 +355,13 @@ For example, here's an use case where the user logs in, the developer sets a log
 
 Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. iPad app to iPhone app). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in `NSUserDefaults` and continue to use it until a new one is set.
 
-Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
+Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. UUID will not rebucket users who have seen a certain experiment already. *Regardless, make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.* 
 
 ```obj-c
 [Optimizely sharedInstance].userId = @"userid";
 ```
+
+Always set UUID before your experiment gets activated. For automatic experiments, this means setting UUID before you call start Optimizely. For manual experiments, this means setting UUID before you call activateManualExperiment.
 
 *This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
 

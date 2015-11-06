@@ -252,11 +252,13 @@ It is also possible to manually force Optimizely to reset all experiments and tr
 
 Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. Android phone to tablet). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in local storage and continue to use it until a new one is set.
 
-Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
+Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. UUID will not rebucket users who have seen a certain experiment already. *Regardless, make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.* 
 
 ```java
 Optimizely.setUserId("userid");
 ```
+
+Always set UUID before your experiment gets activated. For automatic experiments, this means setting UUID before you call start Optimizely. For manual experiments, this means setting UUID before you call activateManualExperiment.
 
 *This is a beta feature, and is subject to change.* To learn more, visit our [Help Center](https://help.optimizely.com/hc/en-us/articles/203626830), or consult our [API reference](/ios/help/html/Classes/Optimizely.html#//api/name/userId). For support, please visit [Optiverse](http://www.optiverse.com/) or contact your Customer Success Manager.
 
@@ -553,6 +555,30 @@ Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
 ## Upgrading to a new SDK
 
 1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
+
+  Here are some examples with Gradle:
+
+  - If you want to always stay up to date with our newest SDK version, allow Gradle to auto-update the Optimizely SDK:
+  ```
+  compile('com.optimizely:optimizely:+@aar') {
+        transitive = true
+    }
+  ```
+
+  - If you want to specify when you want to upgrade to monthly SDK feature releases (numbered v X.Y) and automatically upgrade to the newest incremental releases and hotfixes for that release (numbered v X.Y.Z), in this case all releases 1.3 and after and up to 1.4:
+  ```
+  compile('com.optimizely:optimizely:1.3+@aar') {
+        transitive = true
+    }
+  ```
+
+  - If you want to upgrade to a particular SDK version and stay at that version, in this case version 1.3:
+  ```
+  compile('com.optimizely:optimizely:1.3@aar') {
+      transitive = true
+  }
+  ```
+
 
 2. Starting with SDK version 1.1, Optimizely's Android SDK uses a unique URL scheme handler to help you edit and test your experiments.
 

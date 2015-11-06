@@ -511,9 +511,9 @@ window['optimizely'].push(["trackEvent", "purchase", {"revenue": 2395}]);
 
 ### Universal User ID (Beta)<a name="uuid"></a>
 
-Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will re-bucket visitors in all experiments so that visitors will see the same variation across devices and platforms. We will store this identifier in a cookie and continue to use it until a new one is set.
+Set a unique identifier (defined by you) to be used by Optimizely for bucketing and tracking identifiable users (e.g. logged in users) across different different devices and/or platforms. Once set, Optimizely will bucket visitors in all new and future experiments using the UUID to ensure that visitors will see the same variation across devices (e.g. Android phone to tablet). You can ensure this behavior and ensure consistent counting and bucketing across devices by using our Audiences feature to target users with a UUID. We store this identifier in a cookie and continue to use it until a new one is set.
 
-Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID (cookie) and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. *Make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
+Optimizely will track unique visitors in experiment results using this ID; we count an anonymous ID and a UUID as two distinct visitors, and if the the UUID is set, we disregard the anonymous ID when counting experiment traffic and goals.
 
 ```javascript
 window['optimizely'] = window['optimizely'] || [];
