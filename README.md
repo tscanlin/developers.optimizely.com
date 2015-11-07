@@ -2,7 +2,7 @@
 You can find the new developer documentation website here: [http://developers.optimizely.com](http://developers.optimizely.com)
 
 ### Prerequisites
-- Have [node.js](https://nodejs.org/) installed.
+- Have [node.js](https://nodejs.org/) installed. (You will need at minimum version 0.12.x)
 - Have [git ssh keys](https://help.github.com/articles/generating-ssh-keys/) setup.
 
 ### To install
