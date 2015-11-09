@@ -13,18 +13,18 @@ November 6, 2015
 
 *New Features:*
 - *Developer Improvements.* We've added a litany of testing methods to our SDK to help you debug your experiments much more quickly and easily
-isUserInAudience - Check if the user is in a particular audience
-getExperimentDataById - Get an experiment's metadata with that experiment's ID
-resetUserBucketing - Remove a user's bucketing information for all experiments
-forceVariationOfExperiment - Force a user into a certain experiment variation
+	- isUserInAudience - Check if the user is in a particular audience
+	- getExperimentDataById - Get an experiment's metadata with that experiment's ID
+	- resetUserBucketing - Remove a user's bucketing information for all experiments
+	- forceVariationOfExperiment - Force a user into a certain experiment variation
 Read more in-depth descriptions [here](/android/reference/index.html#debugging-your-experiments)
 - *Manual activation.* You can now manually specify, in code, when you want your experiments to activate (by default, all active experiments are activated when start Optimizely is called). Some important use cases include setting additional targeting metadata before activating an experiment and only bucketing users who visit a certain activity in your app
 Read more in-depth descriptions [here](/android/reference/index.html#experiment-activation-modes)
 - *Code Block Callbacks in Edit Mode.* Please note that code block callbacks will only work in edit mode
 - *Automatic Crash Disabling.* Our Android SDK is now more stable than ever!
-Optimizely-related crashes in the main thread will cause Optimizely SDK disable itself on that device until an Optimizely SDK version change or an app version change
-Optimizely-related crashes in background threads will cause the thread to quietly shut down
-Optimizely SDK automatically disables itself for that session if no running experiments are detected on app start
+	- Optimizely-related crashes in the main thread will cause Optimizely SDK disable itself on that device until an Optimizely SDK version change or an app version change
+	- Optimizely-related crashes in background threads will cause the thread to quietly shut down
+	- Optimizely SDK automatically disables itself for that session if no running experiments are detected on app start
 
 *Bug Fixes:*
 - Improved preview mode access from URL scheme consistency 
