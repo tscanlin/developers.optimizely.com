@@ -5,6 +5,12 @@ title: "Optimizely iOS SDK Changelog"
 
 # Optimizely iOS SDK Changelog
 
+### 1.3.1
+November 10, 2015
+
+*Bug Fixes:*
+- Fixed issue when archiving with the SDK
+
 ### 1.3.0
 November 6, 2015
 
