@@ -43,6 +43,7 @@ without code, but this API call supports tracking other behaviors like watching 
 - `type`: "event"
 - `eventName` (string): The "API name" for an event created in Optimizely, e.g. `add_to_cart`
 - `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
+  - `revenue` (integer): A special tag that denotes a revenue-generating event. Revenue should be an integer equal to 100 times the value. For example, a purchase of $79.99 or €79.99 would be `7999`. Revenue should only be attached to the final purchase to prevent double-counting, and if you've already tracked events using the legacy `trackEvent` method you should not re-instrument it again.
 
 #### Examples
 ```js
