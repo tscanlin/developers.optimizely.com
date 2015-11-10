@@ -699,7 +699,7 @@ You can now send lists to Optimizely via the REST API. Note that we currently li
 
 <h3 id="uploaded-lists-4-update-list">4. Update a list in Optimizely</h3>
 
-If you'd like periodically refresh your lists, please use the [update endpoint](http://localhost:4001/rest/reference/#update-list) to update an existing list.
+If you'd like periodically refresh your lists, please use the [update endpoint](/rest/reference/#update-list) to update an existing list.
 
 <h3 id="uploaded-lists-qa-your-integration">5. QA your integration</h3>
 
