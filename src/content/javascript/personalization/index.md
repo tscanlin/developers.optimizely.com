@@ -35,7 +35,7 @@ window['optimizely'].push({
 
 ### Events
 
-The event function captures visitor behavior and additional data. You can track clicks and pageviews in Optimizely
+The `event` method captures visitor behavior and additional data. You can track clicks and pageviews in Optimizely
 without code, but this API call supports tracking other behaviors like watching a video. These events can be used for measuring the results of a campaign, or for defining an audience based on behavior. [Learn more about events.](https://help.optimizely.com/hc/en-us/articles/210306928#events)
 
 #### Parameters
@@ -76,7 +76,7 @@ window['optimizely'].push({
 
 ### Pages
 
-The page function tracks the visitor's current context on a website. This context is used for both analytics ("track the number of views to the checkout page") and targeting ("run this experiment on the checkout page"). [Learn more about pages.](https://help.optimizely.com/hc/en-us/articles/210306928#pages)
+The `page` method tracks the visitor's current context on a website. This context is used for both analytics ("track the number of views to the checkout page") and targeting ("run this experiment on the checkout page"). [Learn more about pages.](https://help.optimizely.com/hc/en-us/articles/210306928#pages)
 
 Specifically, pushing a page has two effects:
  * Optimizely will track a pageview event for this page, incrementing the count of views to that page in analytics and recording the event in the user's behavioral profile
@@ -122,7 +122,7 @@ Tags are contextual metadata about pages and events. They identify what a user i
 There are three ways to capture this context:
  * Directly on an [event](#events), using the `tags` property.
  * Directly on a [page](#pages), using the `tags` property. These tags will be sent along with any event that happens on that page.
- * Finally, you can use this `tags` call directly to add context without activating a page and tracking a pageview. This is equivalent to the previous option, but it can be used when pages are already being activated using URL targeting.
+ * Finally, you can use this `tags` method directly to add context without activating a page and tracking a pageview. This is equivalent to the previous option, but it can be used when pages are already being activated using URL targeting.
 
 #### Parameters
 
@@ -145,7 +145,7 @@ window['optimizely'].push({
 
 ### Users
 
-The user function captures attributes of a user and stores them in a profile that persists across sessions and syncs across devices. These attributes are persisted in the browser's local storage and can be used for targeting and analysis.
+The `user` method captures attributes of a user and stores them in a profile that persists across sessions and syncs across devices. These attributes are persisted in the browser's local storage and can be used for targeting and analysis.
 
 You can also use this function to identify a user with a unique `userId`. If you don't provide an ID, we'll automatically generate an anonymous ID and persist it in a cookie. Providing your own userId allows you to target lists of users by their ID and integrate offline data. See [Uploaded Audience targeting](https://help.optimizely.com/hc/en-us/articles/206197347-Uploaded-Audience-Targeting-Create-audiences-based-on-lists-of-data) for more information.
 
@@ -227,7 +227,7 @@ utils.waitForElement('body').then(function(){
 });
 ```
 
-You could also use Custom CSS to make the same change without worrying about timing. CSS changes are applied by appending a `style` tag to the end of the `body` tag.
+You could also use the CSS option under Custom Code to make the same change without worrying about timing. CSS changes are applied by appending a `style` tag to the end of the `body` tag.
 
 ```css
 body {
