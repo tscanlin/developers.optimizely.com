@@ -1,8 +1,8 @@
   <!-- Row -->
   <section class="sidebyside">
-    <div class="lego-grid">
+    <div class="grid">
       <!-- Left column -->
-      <div class="lego-grid__cell width-1-2 explanation{% if fileName == "0-intro" %} intro{% endif %}">
+      <div class="grid__cell width--1-2 explanation{% if fileName == "0-intro" %} intro{% endif %}">
         <div class="soft-double--sides">
           <!-- Anchor link -->
           <!--{% if anchor %}<a name="{{anchor}}"></a>{% endif %}-->
@@ -103,7 +103,7 @@
       </div>
 
       <!-- Right column -->
-      <div class="lego-grid__cell width-1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+      <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
         <div class="toggle-section visible" data-toggle-section="curl">
 
 <!-- Indenting is weird here because of the <pre> tags -->

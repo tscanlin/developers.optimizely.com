@@ -17,9 +17,9 @@
     <div id="content" class="content">
       <!-- Row -->
       <section class="sidebyside">
-        <div class="lego-grid">
+        <div class="grid">
           <!-- Left column -->
-          <div class="lego-grid__cell width-1-2 soft-quad--left soft-double--right explanation intro">
+          <div class="grid__cell width--1-2 soft-quad--left soft-double--right explanation intro">
 
             <h2 id="audience-conditions">Audience Conditions</h2>
             <p></p><p>Audiences are defined using logical rules called conditions. Each condition is a rule like "Browser equals Chrome", and an audience is a Boolean combination of these rules, like "Browser equals Chrome OR Referrer matches the substring google.com".</p>
@@ -33,7 +33,7 @@
           </div>
 
           <!-- Right column -->
-          <div class="lego-grid__cell width-1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+          <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
 
 <!-- Indenting is weird here because of the <pre> tags -->
 <!-- Example JSON -->

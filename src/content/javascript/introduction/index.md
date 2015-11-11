@@ -13,6 +13,6 @@ Refer to the [API reference](/javascript/reference) to see the full capabilities
 
 If you have any questions about using the JavaScript API, please reach out to [developers@optimizely.com](mailto:developers@optimizely.com).
 
-<a class="lego-button lego-button--brand anchor--middle display--block width-200 text--center" href="../guide/index.html">
+<a class="button button--highlight anchor--middle display--block width-200 text--center" href="../guide/index.html">
 Get Started
 </a>
