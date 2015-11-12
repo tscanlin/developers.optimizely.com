@@ -209,7 +209,9 @@ Optimizely needs to connect to the internet to allow you to use our online edito
    ```xml
    <activity
      android:name=".MainActivity">
-     <!-- Existing intent-filters -->
+     <intent-filter>
+       <!-- Existing intent-filters -->
+     </intent-filter>
      <intent-filter>
        <action android:name="android.intent.action.VIEW" />
        <category android:name="android.intent.category.DEFAULT" />
