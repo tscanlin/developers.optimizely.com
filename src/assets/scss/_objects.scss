@@ -117,16 +117,16 @@
   }
 
   #api-token-input {
-    width: 85%;
+    width: 82%;
   }
 
-  .lego-form-note--bad-news {
+  .form-note--bad-news {
     display: none;
   }
 
   // Error state
-  .form-container.lego-form-bad-news {
-    .lego-form-note--bad-news {
+  .form-container.form-bad-news {
+    .form-note--bad-news {
       display: block;
     }
   }

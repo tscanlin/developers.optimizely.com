@@ -18,10 +18,10 @@ module.exports = function() {
       elm.addEventListener('click', function(e) {
         e.preventDefault();
         var target = e.target;
-        each.call(toggleContainer.querySelectorAll('.lego-button--brand'), function(el) {
-          el.classList.remove('lego-button--brand');
+        each.call(toggleContainer.querySelectorAll('.button--highlight'), function(el) {
+          el.classList.remove('button--highlight');
         });
-        target.classList.add('lego-button--brand');
+        target.classList.add('button--highlight');
 
         var toggleSectionId = target.getAttribute('data-toggle');
 

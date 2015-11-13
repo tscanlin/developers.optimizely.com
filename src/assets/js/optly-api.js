@@ -74,13 +74,13 @@ var curlGetTemplate = 'curl \\\n\
 var showTokenError = function() {
   var tokenContainer = $('.token-link');
   tokenContainer.find('.collapsible').removeClass('is-collapsed');
-  tokenContainer.find('.form-container').addClass('lego-form-bad-news');
+  tokenContainer.find('.form-container').addClass('form-bad-news');
 };
 
 var hideTokenError = function() {
   var tokenContainer = $('.token-link');
   tokenContainer.find('.collapsible').addClass('is-collapsed');
-  tokenContainer.find('.form-container').removeClass('lego-form-bad-news');
+  tokenContainer.find('.form-container').removeClass('form-bad-news');
 };
 
 $(document).ready(function() {

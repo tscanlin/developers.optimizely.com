@@ -8,7 +8,7 @@ var Clipboard = require('clipboard');
 module.exports = function() {
   // Add copy code buttons.
   var copyCodeTemplate = '<div class="copy-code-button">\
-  <svg class="lego-icon">\
+  <svg class="icon">\
     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#clipboard"></use>\
   </svg></div>';
 

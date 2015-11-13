@@ -8,7 +8,7 @@ This sample goes through a simplified version of our WordPress plug-in, which le
 
 To see the full source of our plug-in or download it to use on your own site, click the button below. Note that this plug-in is just a proof of concept -- we encourage you to fork it, improve it for your own needs, and share it with the community.
 
-<a class="lego-button" target="_blank" href="https://github.com/optimizely/wordpress-plugin">Download source code</a>
+<a class="button" target="_blank" href="https://github.com/optimizely/wordpress-plugin">Download source code</a>
 
 The plug-in uses jQuery to make the API calls, as described in our [AJAX code sample](#ajax).
 

@@ -3,26 +3,26 @@
     <pre class="display--inline-block">{{ type }}</pre>
     <span id="{{ anchor }}-sandbox-endpoint-prefix" class="push--left">{{ endpoint_prefix }}</span>
     {% if endpoint_option %}
-    <input type="text" class="lego-text-input no-border width-200" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
+    <input type="text" class="text-input no-border width-200" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
     {% else %}
-    <input type="text" class="lego-text-input no-border width-200" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
+    <input type="text" class="text-input no-border width-200" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
     {% endif %}
     {% if endpoint_suffix %}
     <span class="input-group-addon input-group-addon-extra" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
     {% else %}
     <span class="input-group-addon input-group-addon-extra hidden" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
     {% endif %}
-    <a class="lego-button lego-button--highlight sandbox_run float--right push-double--right" id="{{ anchor }}-sandbox">Run Request</a>
+    <a class="button button--highlight sandbox_run float--right push-double--right" id="{{ anchor }}-sandbox">Run Request</a>
   </div>
   <div class="soft-double--top">
     <div class="sandbox-code" id="{{ anchor }}-sandbox-request">
       <h4>Raw Request</h4>
-      <!-- <a class="lego-button lego-button--highlight float--right copy-btn" id="{{ anchor }}-sandbox-copy-btn" data-clipboard-target="{{ anchor }}-sandbox-raw-request">Copy</a> -->
+      <!-- <a class="button button--highlight float--right copy-btn" id="{{ anchor }}-sandbox-copy-btn" data-clipboard-target="{{ anchor }}-sandbox-raw-request">Copy</a> -->
       <pre><code class="bash" id="{{ anchor }}-sandbox-raw-request"></code></pre>
     </div>
 
-    <div class="lego-spinner-wrap text--center opacity--50 hidden" id="{{ anchor }}-sandbox-loader">
-      <div class="lego-spinner"></div>
+    <div class="spinner-wrap text--center opacity--50 hidden" id="{{ anchor }}-sandbox-loader">
+      <div class="spinner"></div>
     </div>
 
     <div class="sandbox-code" id="{{ anchor }}-sandbox-status">
