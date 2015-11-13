@@ -3,9 +3,9 @@
     <pre class="display--inline-block">{{ type }}</pre>
     <span id="{{ anchor }}-sandbox-endpoint-prefix" class="push--left">{{ endpoint_prefix }}</span>
     {% if endpoint_option %}
-    <input type="text" class="text-input no-border width-200" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
+    <input type="text" class="display--inline-block text-input no-border width--200" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
     {% else %}
-    <input type="text" class="text-input no-border width-200" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
+    <input type="text" class="display--inline-block text-input no-border width--200" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
     {% endif %}
     {% if endpoint_suffix %}
     <span class="input-group-addon input-group-addon-extra" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>

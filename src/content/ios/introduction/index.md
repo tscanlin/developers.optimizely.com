@@ -55,6 +55,6 @@ Get Ready, Get Set, Test!
 
 Any questions or feedback?  E-mail us at [mobile-support@optimizely.com](mailto:mobile-support@optimizely.com).
 
-<a class="button button--highlight anchor--middle display--block width-200 text--center" href="../getting-started/index.html">
+<a class="button button--highlight anchor--middle display--block width--200 text--center" href="../getting-started/index.html">
 Get Started
 </a>
