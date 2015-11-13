@@ -16,6 +16,6 @@ the complete Customer Profile across all data sources.
 
 <img src="/assets/img/dcp/customer_profiles.png">
 
-<div class="lego-attention lego-attention--warning push--bottom">
+<div class="attention attention--warning push--bottom">
 The APIs that follow use the domain: https://vis.optimizely.com/api/
 </div>

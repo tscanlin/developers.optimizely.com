@@ -20,6 +20,6 @@ stored in the `optimizelyEndUserId` cookie.
 You may retrieve a unified view of the customer using the [consolidated customer profile
 view](/rest/customer_profiles#consolidated-profile) API call.
 
-<div class="lego-attention lego-attention--warning push--bottom">
+<div class="attention attention--warning push--bottom">
 These APIs that follow use the domain https://vis.optimizely.com/api/
 </div>

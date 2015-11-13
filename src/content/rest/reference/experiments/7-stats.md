@@ -75,7 +75,7 @@ response: |
 ---
 The /stats endpoint is identical to the [/results](#get-results) endpoint, except that the **confidence** field (i.e. chance to beat baseline) has been replaced with result statistics provided by the <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200039895">Optimizely Stats Engine</a>.
 
-<div class="lego-attention lego-attention--warning push--bottom">
+<div class="attention attention--warning push--bottom">
 <b>All experiments started on or after January 21, 2015 have statistics computed by Optimizely Stats Engine.</b> For consistency with the Optimizely results page, we recommend you use the /stats endpoint instead of the /results endpoint for all experiments started on or after January 21, 2015. You can continue to use the /results endpoint for all experiments, regardless of start date.</div>
 
 The request requires an `experiment_id` and the response contains a list of JSON objects representing every combination of variations and goals that have been defined for that experiment. For example, if there are three variations and two goals defined for an experiment, the response will contain six JSON objects representing each `variation_id` and `goal_id` combination.

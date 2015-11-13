@@ -26,7 +26,7 @@ Creates a new DCP Service under your account.
 #### Required Fields
 - `name`
 
-<div class="lego-attention lego-attention--warning push--bottom">
+<div class="attention attention--warning push--bottom">
 *NOTE:* The DCP Service is not yet associated to any project. After creating a DCP Service, be sure to associate a
 project to the DCP Service using [update project](/rest/reference/index.html#update-project).
 </div>

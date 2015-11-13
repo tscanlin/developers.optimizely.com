@@ -7,7 +7,7 @@ title: "Optimizely Personalization Developer's Guide"
 
 [Optimizely Personalization](http://www.optimizely.com/personalization) extends the Optimizely developer platform with new capabilities like behavioral targeting, audience discovery, and customer profiles. It also introduces a new code editor for custom JavaScript and CSS with important differences in how code is written and executed. The sections below describe these changes and explain how you can use a new set of JavaScript APIs for instrumenting behavior and developing experiences.
 
-<div class="lego-attention lego-attention--warning push--bottom"><b>Note:</b> The documentation below only applies to <a href="http://www.optimizely.com/personalization" target="_blank">Optimizely Personalization</a>. In the future, many of these APIs will also be available for use in Optimizely Testing.</div>
+<div class="attention attention--warning push--bottom"><b>Note:</b> The documentation below only applies to <a href="http://www.optimizely.com/personalization" target="_blank">Optimizely Personalization</a>. In the future, many of these APIs will also be available for use in Optimizely Testing.</div>
 
 ## Implementation
 
