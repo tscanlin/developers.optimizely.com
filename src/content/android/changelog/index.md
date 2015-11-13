@@ -5,6 +5,14 @@ title: "Optimizely Android SDK Changelog"
 
 # Optimizely Android SDK Changelog
 
+### 1.3.1
+November 12, 2015
+
+*Bug Fixes:*
+- Optimizely will no longer disable itself if it crashes on the main thread for debug builds, only for release builds
+- Adjusted OkHttp dependency for increased stability
+
+
 ### 1.3.0
 November 6, 2015
 
