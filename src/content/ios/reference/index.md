@@ -536,7 +536,11 @@ For full details on how to use NSNotifications and the Experiment Data Object, y
 ### Subscribe to NSNotifications
 Optimizely provides a couple NSNotificationCenter notifications for developers to observe.  Some use cases for implementing a notification include debugging and a way to interact with your other analytics tools.
 
-`OptimizelyExperimentVisitedNotification` is triggered when an experiment is viewed by the user. The userInfo in the notification will have metadata which includes experiment Id, variation Id, experiment description and variation description for the experiment that was visited..
+`OptimizelyStartedNotification` is triggered when Optimizely has successfully completed startup.
+
+`OptimizelyFailedToStartNotification` is triggered when Optimizely has failed to complete startup.
+
+`OptimizelyExperimentVisitedNotification` is triggered when an experiment is viewed by the user. The userInfo in the notification will have metadata which includes experiment Id, variation Id, experiment description and variation description for the experiment that was visited.
 
 `OptimizelyGoalTriggeredNotification` is triggered when an Optimizely goal is tracked and a conversion is counted. The user info in the notification will list the experiment IDs for which this was counted as a conversion.
 
