@@ -1,10 +1,7 @@
 // Navigation classes.
 
-.nav {
+.nav-sidebar {
   background-color: #F2F5FA;
-  // & > .lego-nav > li > ul {
-  //   border-left: 2px solid map-get($ui-color, brand);
-  // }
 
   a {
     // color: white;
@@ -22,7 +19,7 @@
     padding-bottom: 3px;
   }
 
-  .main-section + .lego-nav {
+  .main-section + .nav {
     border-left: 2px solid #0095E7;
     margin-left: 5px;
   }

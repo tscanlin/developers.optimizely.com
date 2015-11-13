@@ -14,14 +14,14 @@
     </a>
 
     <div class="header-links display--inline-block vertical-align--top is-hidden-on-mobile">
-      <ul class="unstyled lego-nav">
+      <ul class="unstyled nav">
         <li class="push-double--right"><a href="/overview">Overview</a></li>
         <li class="position--relative push-double--right">
           <a href="/rest/introduction" data-collapser>
             Documentation
             <span class="lego-arrow-inline--down"></span>
           </a>
-          <ul class="unstyled lego-nav lego-nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
+          <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
             {% for key, item in paths.navigation %}
               {% if item.path !== '/samples/' && item.path !== '/overview/' && item.path !== '/integrations/' %}
                 <li class="push-half">
