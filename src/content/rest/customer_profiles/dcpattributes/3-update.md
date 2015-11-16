@@ -28,7 +28,7 @@ Updates the metadata of the specified attribute.
 #### Editable fields
 - `description`
 
-<div class="lego-attention lego-attention--warning push--bottom">
+<div class="attention attention--warning push--bottom">
 *NOTE:* Updates to an attribute's name, datatype, or version are not currently supported. We recommend archiving the
 existing attribute and creating a replacement, with the desired name, datatype, and format.
 </div>

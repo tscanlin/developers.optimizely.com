@@ -2,11 +2,18 @@
 
 // For dropdown in header
 .dropdown {
+  border-width: 0px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
   left: -10px;
   top: 30px;
   position: absolute;
+  visibility: visible;
   width: 120%;
+
+  & > li {
+    padding: 0px;
+    border-width: 0px;
+  }
 }
 
 // Used on the home page
@@ -117,16 +124,16 @@
   }
 
   #api-token-input {
-    width: 85%;
+    width: 82%;
   }
 
-  .lego-form-note--bad-news {
+  .form-note--bad-news {
     display: none;
   }
 
   // Error state
-  .form-container.lego-form-bad-news {
-    .lego-form-note--bad-news {
+  .form-container.form-bad-news {
+    .form-note--bad-news {
       display: block;
     }
   }
