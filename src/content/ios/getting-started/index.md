@@ -70,6 +70,8 @@ For new installations, please follow all steps. For upgrades, please follow step
 
 <h2 id="add-your-api-token">3. Add Your API token</h2>
 
+### Using Objective-C
+
 1. Now, you're ready to write some code!  Include this file at the top of your `AppDelegate` class implementation. This is usually found in a file called `AppDelegate.m` in the Project Navigator.
 
 	```obj-c
@@ -117,6 +119,56 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
         <img src="/assets/img/ios/sdk-detected.png" alt="Drawing" style="width: 80%;"/>
 
+### Using Swift
+
+1. Now, you're ready to write some code!  Include this file at the top of your `AppDelegate` class implementation. This is usually found in a file called `AppDelegate.swift` in the Project Navigator.
+
+	```swift
+	import Optimizely
+	```
+
+2. Add the following to the beginning of `application(_:didFinishLaunchingWithOptions:)` in your
+app delegate. The code can be copied from your `Project Code`, which you can find by selecting the appropriate iOS Project in your [Optimizely Dashboard](https://www.optimizely.com/dashboard).  For more details, you can refer back to [Step 1: Create an iOS project](#accountcreation).
+
+	```swift
+	// You can find the following code snippet in your project code.
+	
+	Optimizely.startOptimizelyWithAPIToken(YOUR_API_TOKEN, launchOptions:launchOptions);
+	
+	// The rest of your initialization code...
+	```		
+*Note: We recommend putting this code at the beginning of your `application(_:didFinishLaunchingWithOptions:)` function.*
+
+3. <a name="urlscheme"></a> In order to enter Edit Mode (which will allow your app to be detected by Optimizely's Editor), you'll have to define a URL scheme for Optimizely.
+
+   0. Add `Optimizely.handleOpenURL(_:)` to `application(_:openURL:)` in your app delegate.  This will notify Optimizely when the application has been loaded from a URL:
+
+         ```swift
+		func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) → Bool {
+			if Optimizely.handleOpenURL(url) {
+				return true
+			}
+			return false
+		}
+         ```
+
+   1. <a name="urlschemeInfo"></a> In the project editor, click on "Targets" -> Your app name -> "Info" tab.
+   2. Locate the section called "URL Types" and click the plus icon (+) to expand the section.
+   3. Paste the following into the field called "Identifer":
+
+         ```swift
+         com.optimizely
+         ```
+
+   4. Add `optly{PROJECT_ID}` to "URL Schemes."  Your Project ID is available at the bottom of the <a href="#project-code">Project Code</a> dialog box. For instance, if your Project ID is `123456`, your URL Scheme would be `optly123456`.
+      Once completed, your `URL Scheme` should look like this:
+      <img src="/assets/img/ios/project-plist.png" alt="Drawing" style="width: 100%; padding-bottom:10px;"/>
+
+   5. <a name="urllinkgenerate"></a>Once you run your app in DEBUG mode with the SDK installed, you should see the image below in your [Optimizely Dashboard](https://www.optimizely.com/dashboard).  Once the SDK is detected, the Create Experiment button will appear, and you can continue to Step 4 to create your experiment.
+
+        <img src="/assets/img/ios/sdk-detected.png" alt="Drawing" style="width: 80%;"/>
+
+
 <h2 id="create-an-experiment">4. Create an Experiment</h2>
 After creating an iOS project and installing the SDK, reference [this guide in our Knowledge Base](https://help.optimizely.com/hc/en-us/articles/202296994), which will walk you through how to set up an experiment.
 
@@ -149,26 +201,6 @@ Now that you've created an experiment and successfully installed the Optimizely 
        2. Background the app so that events are sent to our servers.
 <br  />
 5. Once you've checked all these steps, you're ready to release to the app store!  To learn more about how to use Optimizely's editor and get additional testing ideas, you can check out our articles in [Optiverse](https://help.optimizely.com/hc/en-us/sections/200666084-Mobile-Optimization).
-
-<h2 id="setup-with-swift">(Optional) SDK Setup with Swift</h2>
-
-1. Follow the installation steps above through [Step 2](#installation).
-2. Add an additional import statement for Optimizely: `import Optimizely`.
-3. The Objective-C `Project Code`, which you can find by selecting the appropriate iOS Project in your [Optimizely Dashboard](https://www.optimizely.com/dashboard) will need to be modified for a Swift project. For more details on finding your `Project Code`, you can refer back to [Step 1: Create an iOS project](#accountcreation). The original Objective-C project code should look like:
-
-      ```obj-c
-      [Optimizely startOptimizelyWithAPIToken:@"YOUR_API_TOKEN" launchOptions:launchOptions];
-      ```
-Copy your API token, and add the following to the beginning of `application:didFinishLaunchingWithOptions:` in your
-app delegate:
-
-      ```swift
-      Optimizely.startOptimizelyWithAPIToken("YOUR_API_TOKEN", launchOptions: launchOptions)
-
-      // The rest of your initialization code...
-      ```
-*Note: We recommend putting this code at the beginning of your `application:didFinishLaunchingWithOptions:` function.*
-4. At this point, you can jump back to [adding a URL scheme](#urlschemeInfo) in **Add Your App Token** and follow along with the rest of the setup instructions.
 
 ## Advanced Setup
 
