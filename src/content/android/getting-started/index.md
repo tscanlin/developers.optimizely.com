@@ -165,6 +165,9 @@ Open the Java source file corresponding to your app's main activity (the one dec
 
 Add the following to the end of your main activity's `onCreate()` function. The code can be copied from your `Implementation Settings`, which you can find by selecting on the appropriate Android Project in your [Optimizely Home](https://app.optimizely.com/projects).  For more details, you can refer back to [Step 2: Create an Android project](#accountcreation).
 
+*Note:
+   startOptimizelyWithAPIToken should be declared after your crash reporting tool is initialized.*
+
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -172,6 +175,8 @@ protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.activity_main);
 
     // more create logic
+    
+    // Crash reporting tool initialization
 
     // You can find the following code snippet in your project code.
     Optimizely.startOptimizelyWithAPIToken("<API Token>", getApplication());

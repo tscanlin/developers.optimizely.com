@@ -588,6 +588,9 @@ Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
    <activity
      android:name=".MainActivity">
      <intent-filter>
+       <!-- Existing intent-filters -->
+     </intent-filter>
+     <intent-filter>
        <action android:name="android.intent.action.VIEW" />
        <category android:name="android.intent.category.DEFAULT" />
        <category android:name="android.intent.category.BROWSABLE" />
