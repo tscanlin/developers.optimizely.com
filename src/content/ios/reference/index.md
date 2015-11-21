@@ -6,6 +6,16 @@ title: "Optimizely iOS SDK Reference"
 
 This section provides information on how to customize your SDK installation and code snippets for how to implement Optimizely's APIs.
 
+Key things you can do include:
+
+- [Programmatically connect to Optimizely's web editor](#programmatically-enable-edit-mode)
+- [Disable gesture](#disable-gesture) (The gesture is disabled by default in your live app)
+- [Disable the visual editor](#disable-visual-editor)
+- [Register live variables](#register-live-variables)
+- [Implement code blocks](#code-blocks)
+- [Custom Event and Revenue Tracking](#goal-tracking)
+- [Implement custom and default analytics integrations](#analytics-integrations)
+
 ## Custom Initialization
 
 By default, Optimizely is initialized synchronously with a max 2 second timeout.  Optimizely can also be initialized asynchronously, which is a non-blocking call.  If you choose to load Optimizely asynchronously, you will need to use the callback to ensure that Optimizely variables and code blocks are accessed after Optimizely start has been completed.  If Optimizely variables and code blocks are accessed prior to Optimizely start being completed, no experiments will run.
