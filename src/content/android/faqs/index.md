@@ -23,6 +23,7 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#cantseeappineditor">*Q:* My device is running the app but I can't see it in the editor.</a><br>
 <a href="#3rdparty">*Q:* Does Optimizely work with my other 3rd party SDKs?</a><br>
 <a href="#resultspage">*Q:* I am not seeing conversions or visitors on the results page.</a><br>
+<a href="#22andbelow">*Q:* I haven't gotten a chance yet to upgrade my app to API Level 23 and am using API Level 22 or below.  My app is not compiling after including Optimizely.</a><br>
 
 
 <a name="androidversion"></a>
@@ -116,3 +117,15 @@ To check that goals are triggering properly, you can use our developer APIs incl
 
 - Your experiment is running
 - Your goals are triggered properly
+
+<a name="22andbelow"></a>
+##### *I haven't gotten a chance yet to upgrade my app to API Level 23 and am using API Level 22 or below.  My app is not compiling after including Optimizely.*
+
+We have created a separate build that supports API level 8 - 22.  To use this version of Optimizely, you can add the following to your gradle file:
+
+```groovy
+compile ('com.optimizely:optimizely-legacy:+@aar') {
+        transitive = true
+}
+```
+

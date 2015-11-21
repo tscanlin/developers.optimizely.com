@@ -7,6 +7,16 @@ title: "Optimizely Android SDK Reference"
 
 This section provides information on how to customize your SDK installation and code snippets for how to implement Optimizely's APIs.
 
+Key things you can do include:
+
+- [Programmatically connect to Optimizely's web editor](#programmatically-enable-edit-mode)
+- [Disable gesture](#disable-gesture) (The gesture is disabled by default in your live app)
+- [Disable the visual editor](#disable-visual-editor)
+- [Register live variables](#register-live-variables)
+- [Implement code blocks](#code-blocks)
+- [Custom Event and Revenue Tracking](#goal-tracking)
+- [Implement custom and default analytics integrations](#analytics-integrations)
+
 ## Connecting to Optimizely's Editor
 
 It is highly recommended to use Optimizely's 'O' gesture to connect your app to Optimizely's editor.  However, there are other options should you choose not to implement Optimizely's URL scheme.
@@ -356,7 +366,6 @@ Installation:
 ```java
 Tracker tracker = GoogleAnalytics.getInstance(this).newTracker("TRACKER_ID");
 OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
-Optimizely.registerPlugin(new UniversalAnalyticsIntegration());
 ```
 
 ## Network Settings
