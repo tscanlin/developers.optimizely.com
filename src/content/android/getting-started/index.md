@@ -15,6 +15,10 @@ You can download the Android SDK through gradle/maven, manually from GitHub, or 
 
 [Releases](https://github.com/optimizely/Optimizely-Android-SDK/) | [Change History](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Changelog.md)
 
+##### *Android SDK Install Video*
+<iframe src="//fast.wistia.net/embed/iframe/poqkf6ok6s" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="720" height="450"></iframe>
+<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+
 <h2 id="sdk-installation">1. SDK Installation</h2>
 
 To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#using-gradle) (recommended for Android Studio users), [Maven](#using-maven) (recommended for IDEA/Eclipse users), or via [pic Installation](#manual-installation).

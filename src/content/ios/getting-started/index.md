@@ -16,6 +16,10 @@ You can download the iOS SDK through Cocoapods, download it manually from GitHub
 
 [ZIP](http://github.com/optimizely/Optimizely-iOS-SDK/zipball/master) | [TAR](http://github.com/optimizely/Optimizely-iOS-SDK/tarball/master) | [GitHub](http://github.com/optimizely/Optimizely-iOS-SDK)
 
+##### *iOS SDK Install Video*
+<iframe src="//fast.wistia.net/embed/iframe/5apoabzheh" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="720" height="450"></iframe>
+<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+
 <h2 id="create-an-ios-project">1. Create an iOS Project</h2>
 
 To create an iOS project, select "Create New Project" in the [Optimizely Dashboard](https://www.optimizely.com/dashboard):
