@@ -11,7 +11,7 @@ You can download the Android SDK through gradle/maven, manually from GitHub, or 
 
 <a href="https://fabric.io/kits/android/optimizely"><img src="/assets/img/mobile/fabric_button.png" style="width: 150px; height: 58px;"/></a>
 
-[JAR](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Optimizely-1.0.0-SNAPSHOT.jar) | [GitHub](https://github.com/optimizely/Optimizely-Android-SDK)
+[JAR](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Optimizely-1.3.2-SNAPSHOT.jar) | [GitHub](https://github.com/optimizely/Optimizely-Android-SDK)
 
 [Releases](https://github.com/optimizely/Optimizely-Android-SDK/) | [Change History](https://github.com/optimizely/Optimizely-Android-SDK/raw/master/Changelog.md)
 
