@@ -307,9 +307,17 @@ private void userCompletedPurchase() {
 
 ## Analytics Integrations
 
-You can also access the experiments and variations active for a given user directly using the `Optimizely.getVisitedExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments()).
+Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. 
 
-Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. Configuration instructions for each integration are below.
+Currently, we support the following frameworks in our Android SDK.  Detailed integration instructions can be found if you follow the respective link:
+- [Amplitude](https://help.optimizely.com/hc/en-us/articles/204963198)
+- [Localytics](https://help.optimizely.com/hc/en-us/articles/209645787)
+- [Mixpanel](https://help.optimizely.com/hc/en-us/articles/200040025)
+- [Universal Analytics](https://help.optimizely.com/hc/en-us/articles/204628347)
+
+For basic configuration instructions, you can scroll down to the 3rd party analytics tool to find code that needs to be added to the app.  For all integrations, Optimizely should be initialized *after* your third party analytics tool is initialized in your code.  Once you have followed the configuration instructions below, you can enable the integration through your Optimizely Project Dashboard.
+
+<img src="/assets/img/android/Localytics_Integration.png" alt="Drawing" style="width: 50%;"/>
 
 ### Amplitude
 
@@ -320,10 +328,6 @@ dependencies {
 }
 ```
 
-Installation:
-```java
-Optimizely.registerPlugin(new OptimizelyAmplitudeIntegration());
-```
 ### Localytics
 
 Gradle dependency:
@@ -331,11 +335,6 @@ Gradle dependency:
 dependencies {
 	compile(‘com.optimizely.localyticsintegration:+@aar’)
 }
-```
-
-Installation:
-```java
-Optimizely.registerPlugin(new OptimizelyLocalyticsIntegration());
 ```
 
 ### Mixpanel
@@ -350,7 +349,7 @@ dependencies {
 Installation:
 ```java
 MixpanelAPI mixpanelAPI = MixpanelAPI.getInstance(this, "API_TOKEN");
-Optimizely.registerPlugin(new OptimizelyMixpanelIntegration());
+Optimizely.startOptimizelyWithAPIToken("<API Token>", getApplication());
 ```
 
 ### Universal Analytics (Google Analytics)
@@ -368,7 +367,12 @@ Tracker tracker = GoogleAnalytics.getInstance(this).newTracker("TRACKER_ID");
 OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
 ```
 
+### Custom Integration
+
+You can also build your own analytics integrations by accessing the experiments and variations active for a given user directly using the `Optimizely.getVisitedExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments()).
+
 ## Network Settings
+
 There are only two instances when the Optimizely Android SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, the config file is automatically downloaded every 2 minutes. Event tracking data is automatically uploaded whenever the user leaves a screen of your application (on every `Activity.onPause`). The Optimizely Android SDK allows you to customize how often these network calls are made by:
 
 1. Customizing the 2 minute interval
