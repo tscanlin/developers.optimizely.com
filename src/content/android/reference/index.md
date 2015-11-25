@@ -312,7 +312,7 @@ Optimizely offers a number of configurable 3rd party analytics integrations in o
 Currently, we support the following frameworks in our Android SDK.  Detailed integration instructions can be found if you follow the respective link:
 - [Amplitude](https://help.optimizely.com/hc/en-us/articles/204963198)
 - [Localytics](https://help.optimizely.com/hc/en-us/articles/209645787)
-- [Mixpanel](https://help.optimizely.com/hc/en-us/articles/200040025)
+- [Mixpanel](#mixpanel)
 - [Universal Analytics](https://help.optimizely.com/hc/en-us/articles/204628347)
 
 For basic configuration instructions, you can scroll down to the 3rd party analytics tool to find code that needs to be added to the app.  For all integrations, Optimizely should be initialized *after* your third party analytics tool is initialized in your code.  Once you have followed the configuration instructions below, you can enable the integration through your Optimizely Project Dashboard.
