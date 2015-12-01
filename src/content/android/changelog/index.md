@@ -5,11 +5,24 @@ title: "Optimizely Android SDK Changelog"
 
 # Optimizely Android SDK Changelog
 
+### 1.3.3
+November 30, 2015
+
+*Bug Fixes:*
+- Fixed incompatibility with edit or preview mode on older Android devices (API 17 and below)
+
+### 1.3.2
+November 25, 2015
+
+*Bug Fixes:*
+- Optimizely will no longer completely disable itself if there are no running esperiments, which prevented users from starting the editor
+
+
 ### 1.3.1
 November 12, 2015
 
 *Bug Fixes:*
-- Optimizely will no longer disable itself if it crashes on the main thread for debug builds, only for release builds
+- Optimizely will not disable itself if it crashes on the main thread for debug builds, only for release builds
 - Adjusted OkHttp dependency for increased stability
 
 
