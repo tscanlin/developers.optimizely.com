@@ -309,9 +309,9 @@ This function is called after makeRequest has been executed for all the experime
 An example of a test page where a Google Analytics integration has been implemented: <a href="https://github.com/optimizely/Analytics-JS/blob/master/example.html">https://github.com/optimizely/Analytics-JS/blob/master/example.html</a>
 
 ## Mobile analytics
-Mobile analytics integrations allow customers to track Optimizely experiments in an external analytics tool. Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool. The following step-by-step guide describes how to implement an analytics integration for mobile through Optimizely provided plugins.The plugins allow you to capture information about which experiment is running and which variant is chosen for a visitor. 
+Mobile analytics integrations allow customers to track Optimizely experiments in an external analytics tool. Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool. The following step-by-step guide describes how to implement an analytics integration for mobile through Optimizely provided plugins.The plugins allow you to capture information about which experiment is running and which variant is chosen for a visitor.
 
-<h3 id="analytics-for-mobile-prerequisites">Prerequisites</h3> 
+<h3 id="analytics-for-mobile-prerequisites">Prerequisites</h3>
 
 - Your analytics platform can track Optimizely experiment and variation names by calling a SDK function or a REST API endpoint
 - The ability to create an Android or iOS library
@@ -471,8 +471,8 @@ public class ExamplePlugin implements OptimizelyPlugin {
 The plugin framework offers a lot of functionality, but for most analytics integrations the functions in the OptimizelyEventListener shown in the example are sufficient.
 
 ##### onOptimizelyExperimentVisited
-The function `onOptimizelyExperimentVisited` is triggered every time an experiment is shown to a user of the app. Every experiment has an ID and a name.The user will be randomly assigned to a variation of the experiment which also has an ID and a name. For the analytics integration, you'll want to use the experiment name and variation name. 
-In the example, the experiment name is stored in the String `propertyName` and the variation name is stored in `propertyValue`. Both the experiment name and variation name are assigned to a user. Use your analytics SDK or REST API to append this metadata to a user. An example of how to send the data with the Google Analytics Android SDK is by using <a href="https://developers.google.com/analytics/devguides/collection/android/v4/customdimsmets">custom dimensions</a>. 
+The function `onOptimizelyExperimentVisited` is triggered every time an experiment is shown to a user of the app. Every experiment has an ID and a name.The user will be randomly assigned to a variation of the experiment which also has an ID and a name. For the analytics integration, you'll want to use the experiment name and variation name.
+In the example, the experiment name is stored in the String `propertyName` and the variation name is stored in `propertyValue`. Both the experiment name and variation name are assigned to a user. Use your analytics SDK or REST API to append this metadata to a user. An example of how to send the data with the Google Analytics Android SDK is by using <a href="https://developers.google.com/analytics/devguides/collection/android/v4/customdimsmets">custom dimensions</a>.
 
 ##### onGoalTriggered
 The `onGoalTriggered` function is called everytime a goal that has been set in Optimizely is triggered by the user of the app. The `onGoalTriggered` function can be used to forward events to your SDK or REST API.
@@ -493,19 +493,15 @@ The Optimizely iOS SDK includes a interface called "OptimizelyPlugin" that you w
 @interface ExamplePlugin : NSObject<OptimizelyPlugin>
 
 @end
+OptimizelyRegisterPlugin(ExamplePlugin)
 
 @implementation ExamplePlugin
-@synthesize pluginId;
 
 /**
- * Initialize and set id
+ * Return the plugin ID
  */
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.pluginId = @"com.example.analytics";
-    }
-    return self;
+- (NSString *)pluginId {
+    return @"com.example.analytics";
 }
 
 /*
@@ -586,17 +582,17 @@ The Optimizely iOS SDK includes a interface called "OptimizelyPlugin" that you w
 
 @end
 ```
-The plugin framework offers a lot of functionality, but for most analytics integrations the observers in the `startWithOptimizely:(Optimizely *)optimizely withConfig:(NSDictionary *)config` function are most relevant. 
+The plugin framework offers a lot of functionality, but for most analytics integrations the observers in the `startWithOptimizely:(Optimizely *)optimizely withConfig:(NSDictionary *)config` function are most relevant.
 
 ##### OptimizelyExperimentVisitedNotification
-The function `OptimizelyExperimentVisitedNotification` is triggered everytime an experiment is shown to a user of the app. Every experiment has an ID and a name and the user will be randomly assigned to a variation of the experiment which also has an ID and a name. You need to use the experiment name and variation name for your analytics integration.In the example, the experiment name is stored in the NSString `property_name` and the variation name is stored in `property_value`. Both the experiment name and variation name are assigned to a user. Use your analytics SDK or REST API to append this metadata to a user. An example of how to send the data with the Google Analytics iOS SDK is by using <a href="https://developers.google.com/analytics/devguides/collection/ios/v3/customdimsmets#set-send">custom dimensions</a>. 
+The function `OptimizelyExperimentVisitedNotification` is triggered every time an experiment is shown to a user of the app. Every experiment has an ID and a name and the user will be randomly assigned to a variation of the experiment which also has an ID and a name. You need to use the experiment name and variation name for your analytics integration.In the example, the experiment name is stored in the NSString `property_name` and the variation name is stored in `property_value`. Both the experiment name and variation name are assigned to a user. Use your analytics SDK or REST API to append this metadata to a user. An example of how to send the data with the Google Analytics iOS SDK is by using <a href="https://developers.google.com/analytics/devguides/collection/ios/v3/customdimsmets#set-send">custom dimensions</a>.
 
 ##### OptimizelyGoalTriggeredNotification
-The `OptimizelyGoalTriggeredNotification` function is called everytime a goal that has been set in Optimizely is triggered by the user of the app. The `OptimizelyGoalTriggeredNotification` function can be used to forward Optimizely goal events to your SDK or REST API.
+The `OptimizelyGoalTriggeredNotification` function is called every time a goal that has been set in Optimizely is triggered by the user of the app. The `OptimizelyGoalTriggeredNotification` function can be used to forward Optimizely goal events to your SDK or REST API.
 
-<h3 id="register-plugin">4. Register plugin</h3>
+<h3 id="register-plugin">4. Enable plugin</h3>
 
-The code that you wrote in step 3 needs to be registered to become effective. If you used the class name ExamplePlugin, you need to use `Optimizely.registerPlugin(new ExamplePlugin());` to register the plugin in Android and `[[Optimizely sharedInstance].pluginRegistry registerPlugin:[[ExamplePlugin alloc] init]];` in iOS. 
+The code that you wrote in step 3 needs to be enabled to become effective. If you used the plugin id `"example_plugin"`, you need to use `Optimizely.whitelistPlugin("example_plugin", null);` to enable the plugin in Android and `[Optimizely whitelistPlugin:@"example_plugin"];` on iOS. Once your integration gets approved for the Optimizely dashboard, you can skip this step. On iOS, your users will need to include the header file (e.g. `ExamplePlugin.h`) which contains your registration macro (the call to `OptimizelyRegisterPlugin()`). On Android, your plugin will be detected by the classloader.
 
 
 <h3 id="mobile-qa-integration">5. QA integration</h3>
