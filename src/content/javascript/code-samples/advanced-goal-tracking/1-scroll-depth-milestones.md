@@ -50,3 +50,5 @@ js: |
 ---
 
 This function checks after each scroll event to see if a visitor has achieved certain scroll depth milestones. In the case of this example, custom events will be fired off when a visitor scrolls 25%, 50%, 75%, and 100% of the way down the page. Within the goals menu, you'll need to create custom event goals that correspond to the events below (e.g. "scroll25" for scrolling 25% of the way down the page).
+
+NOTE: This code uses jQuery's .scrollTop() method which is not included in Optimizely's trimmed version of jQuery. To use this code within your Optimizely experiment, you must either include the full version of jQuery in [Project Settings](https://help.optimizely.com/hc/en-us/articles/202480860-Project-Settings-JavaScript-jQuery#jS) or use a native version of jQuery on the page.
