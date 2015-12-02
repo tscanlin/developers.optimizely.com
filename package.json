@@ -31,7 +31,8 @@
     "highlight.js": "^8.9.1",
     "js-yaml": "^3.4.3",
     "optimizely-oui": "^6.0.0",
-    "smooth-scroll": "git://github.com/cferdinandi/smooth-scroll.git#6f748910b517eb2aa710bab1da9f59e32666e4c4"
+    "smooth-scroll": "git://github.com/cferdinandi/smooth-scroll.git#6f748910b517eb2aa710bab1da9f59e32666e4c4",
+    "xtend": "^4.0.1"
   },
   "devDependencies": {
     "browser-sync": "^2.9.12",

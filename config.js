@@ -1,9 +1,10 @@
+var extend = require('xtend');
 var build = './build/';
 var src = './src/';
 var assets = 'assets/';
 
 // Sections for each navigation item.
-var NAV_SECTIONS = {
+var BASE_NAV_SECTIONS = {
   'introduction': {
     path: 'introduction/',
     title: 'Introduction',
@@ -27,64 +28,28 @@ var NAV_SECTIONS = {
 };
 
 // Sections for each navigation item.
-var JS_NAV_SECTIONS = {
-  'introduction': {
-    path: 'introduction/',
-    title: 'Introduction',
-  },
-  'getting-started': {
-    path: 'getting-started/',
-    title: 'Getting started',
-  },
-  'reference': {
-    path: 'reference/',
-    title: 'Reference',
-  },
-  'faqs': {
-    path: 'faqs/',
-    title: 'FAQs',
-  },
-  'code-samples': {
-    path: 'code-samples/',
-    title: 'Code Samples',
-  },
+var JS_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'personalization': {
     path: 'personalization/',
     title: 'Personalization',
   }
-};
+});
 
 // Sections for each navigation item.
-var MOBILE_NAV_SECTIONS = {
-  'introduction': {
-    path: 'introduction/',
-    title: 'Introduction',
-  },
-  'getting-started': {
-    path: 'getting-started/',
-    title: 'Getting started',
-  },
+var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'guide': {
     path: 'guide/',
     title: 'Tutorial',
-  },
-  'reference': {
-    path: 'reference/',
-    title: 'Reference',
-  },
-  'faqs': {
-    path: 'faqs/',
-    title: 'FAQs',
-  },
-  'code-samples': {
-    path: 'code-samples/',
-    title: 'Code Samples',
   },
   'changelog': {
     path: 'changelog/',
     title: 'Changelog',
   },
-};
+  'articles': {
+    path: 'articles/',
+    title: 'Articles',
+  }
+});
 
 var paths = {
   // Used by gulp tasks to build / compile pages and assets.
@@ -113,7 +78,7 @@ var paths = {
     rest: {
       path: '/rest/',
       title: 'REST API',
-      sections: NAV_SECTIONS,
+      sections: BASE_NAV_SECTIONS,
     },
     javascript: {
       path: '/javascript/',
