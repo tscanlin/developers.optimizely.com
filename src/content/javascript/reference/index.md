@@ -385,6 +385,15 @@ If you set multiple values for the same tag key, the last value set before the O
 
 Note that for targeting purposes, values are all compared as strings.
 
+### Skip Pageview Tracking
+
+Skip pageview tracking.
+
+```javascript
+window['optimizely'] = window['optimizely'] || [];
+window.optimizely.push(["skipPageTracking"]);
+```
+
 ### Delay Pageview Tracking
 
 Delay pageview tracking by a specified number of milliseconds.
