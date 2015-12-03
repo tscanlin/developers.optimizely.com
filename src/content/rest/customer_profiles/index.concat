@@ -10,7 +10,6 @@ sections:
 - alias
 - profile_integrations
 
-topPath: '/rest/'
 section:
   path: 'customer_profiles/'
 relativePath: 'rest/customer_profiles/'

@@ -11,7 +11,9 @@ var path = require('path');
 var fs = require('fs');
 var handleErrors = require('../util/handleErrors');
 var paths = require('../../config').paths;
+var siteJson; // Cache reference to site JSON.
 
+// SWIG
 // Swig config.
 swig.setDefaults({
   cache: false,
@@ -36,67 +38,102 @@ swig.setFilter('stringify', filter_stringify);
 // Add swig-highlight for code highlighting.
 require('swig-highlight').apply(swig);
 
-function makeFile(filename, string) {
-  return new util.File({
-    cwd: '',
-    base: '',
-    path: filename,
-    contents: new Buffer(string)//eslint-disable-line
-  });
+
+// HELPERS
+function getKeyPath(keyPathArray, object) {
+  var currentPath = keyPathArray.shift();
+  var subObject;
+
+  if (object[currentPath]) {
+    subObject = object[currentPath];
+  }
+
+  if (keyPathArray.length) {
+    return getKeyPath(keyPathArray, subObject);
+  }
+
+  return subObject;
 }
+
 
 // Gulp task
 gulp.task('markdown2', ['data'], function() {
   return gulp.src([
-    path.join(paths.build, 'content.json'),
+    path.join(paths.src + paths.content, '**/*.md'),
+    // path.join(paths.build, 'content.json'),
   ])
   // .pipe(markdown())
   // This produces a JSON object with the front-matter and the HTML for the
   // markdown in a property called 'body'.
   .pipe(tap(function(file, t) {
-    var baseDir = file.base;
-    var json = JSON.parse(file.contents.toString());
-
-    function iterateGroup(directory, group, flatObject) {
-      for (var key in group) { //eslint-disable-line
-        var object = group[key];
-        if (object.template) {
-          var newProps = {
-            filePath: directory + '/' + key
-          };
-          console.log(newProps, flatObject);
-          object = extend(object, newProps)
-          flatObject[newProps.filePath] = object;
-        } else {
-          iterateGroup(directory + '/' + key, object, flatObject);
-        }
-      }
-      return flatObject;
+    if (!siteJson) {
+      siteJson = JSON.parse(fs.readFileSync(path.join(paths.build, 'content.json')));
     }
+    var relativePath = file.path
+      .split(file.base)
+      .join('')
+      .split('.md')
+      .join('');
+    var pathArray = relativePath.split('/');
+    var pathArrayCopy = [].concat(pathArray);
+    // console.log(file, relativePath, pathArray);
+    var dataObj = getKeyPath(pathArrayCopy, siteJson);
 
+    dataObj = extend(dataObj, {
+      relativePath: relativePath,
+      pathArray: pathArray,
+    });
 
-    for (var topDir in json) { //eslint-disable-line
-      var group = json[topDir];
-      var flatGroup = iterateGroup(topDir, group, {});
+    var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');
+    // var a = extend(dataObj);
+    // delete a.body;
+    // console.log(a);
+    file.contents = new Buffer(tpl(dataObj), 'utf8'); //eslint-disable-line
+    return file;
 
-      for (var file in flatGroup) { //eslint-disable-line
-        var obj = flatGroup[file];
-        var tpl = swig.compileFile(paths.templates + obj.template + '.html');
-        fs.writeFileSync(baseDir + file + '.html', tpl(obj));
-      }
-      console.log('G', topDir, flatGroup);
-
-      // console.log(topDir);
-      // for (var dirLvl2 in group) {
-      //   var group2 = group[dirLvl2];
-      //   console.log(dirLvl2);
-      //   if (group2.template) {
-      //     console.log(group2.template);
-      //     var tpl = swig.compileFile(paths.templates + template + '.html');
-      //     file.contents = new Buffer(tpl(json), 'utf8'); //eslint-disable-line
-      //   }
-      // }
-    }
+    // var baseDir = file.base;
+    // var json = JSON.parse(file.contents.toString());
+    //
+    // function iterateGroup(directory, group, flatObject) {
+    //   for (var key in group) { //eslint-disable-line
+    //     var object = group[key];
+    //     if (object.template) {
+    //       var newProps = {
+    //         filePath: directory + '/' + key
+    //       };
+    //       console.log(newProps, flatObject);
+    //       object = extend(object, newProps)
+    //       flatObject[newProps.filePath] = object;
+    //     } else {
+    //       iterateGroup(directory + '/' + key, object, flatObject);
+    //     }
+    //   }
+    //   return flatObject;
+    // }
+    //
+    //
+    // for (var topDir in json) { //eslint-disable-line
+    //   var group = json[topDir];
+    //   var flatGroup = iterateGroup(topDir, group, {});
+    //
+    //   for (var file in flatGroup) { //eslint-disable-line
+    //     var obj = flatGroup[file];
+    //     var tpl = swig.compileFile(paths.templates + obj.template + '.html');
+    //     fs.writeFileSync(baseDir + file + '.html', tpl(obj));
+    //   }
+    //   console.log('G', topDir, flatGroup);
+    //
+    //   // console.log(topDir);
+    //   // for (var dirLvl2 in group) {
+    //   //   var group2 = group[dirLvl2];
+    //   //   console.log(dirLvl2);
+    //   //   if (group2.template) {
+    //   //     console.log(group2.template);
+    //   //     var tpl = swig.compileFile(paths.templates + template + '.html');
+    //   //     file.contents = new Buffer(tpl(json), 'utf8'); //eslint-disable-line
+    //   //   }
+    //   // }
+    // }
 
 
     // var template = json.template || 'default';

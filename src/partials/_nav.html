@@ -4,46 +4,46 @@
     <ul class="unstyled nav nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
         <li class="push--bottom">
-          <a class="main-section{% if item.path === topPath %} active{% endif %}" href="{{ item.path }}"{% if item.path !== '/samples/' && item.path !== '/overview/' && item.path !== '/integrations/' %} data-collapser{% endif %}>{{ item.title }}</a>
+          <a class="main-section{% if item.path === pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' %} data-collapser{% endif %}>{{ item.title }}</a>
           <!-- TOC for overview, integrations, and code samples -->
-          {% if item.path === '/overview/' || item.path === '/integrations/' %}
+          {% if item.path === 'overview' || item.path === 'integrations' %}
             <ul class="unstyled nav nav--stacked epsilon toc"></ul>
           {% endif %}
 
           <!-- Sub sections -->
-          <ul class="unstyled nav nav--stacked epsilon soft--left collapsible{% if item.path !== topPath %} is-collapsed{% endif %}">
+          <ul class="unstyled nav nav--stacked epsilon soft--left collapsible{% if item.path !== pathArray[0] %} is-collapsed{% endif %}">
             {% for sub_key, section in item.sections %}
               <li>
-                <a class="section{% if item.path + section.path === '/' + relativePath %} active{% endif %}" href="{{ item.path }}{{ section.path }}index.html">{{ section.title }}</a>
+                <a class="section{% if relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
                 <ul class="unstyled nav nav--stacked toc"></ul>
               </li>
             {% endfor %}
 
             <!-- Add rest/conditions -->
-            {% if item.path === '/rest/' %}
+            {% if item.path === 'rest' %}
               <li>
-                <a class="section{% if section.path === 'conditions/' && item.path + section.path === '/' + relativePath %} active{% endif %}" href="{{ item.path }}conditions/index.html">Conditions</a>
+                <a class="section{% if section.path === 'conditions/' && relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/conditions/index.html">Conditions</a>
                 <ul class="unstyled nav nav--stacked toc"></ul>
               </li>
 
               {% if relativePath === 'rest/customer_profiles/' %}
                 <li>
-                  <a class="section{% if section.path === 'customer_profiles/' && item.path + section.path === '/' + relativePath %} active{% endif %}"
-                     href="{{ item.path }}customer_profiles/index.html">Dynamic Customer Profiles (Beta)</a>
+                  <a class="section{% if section.path === 'customer_profiles/' && relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}"
+                     href="/{{ item.path }}/customer_profiles/index.html">Dynamic Customer Profiles (Beta)</a>
                   <ul class="unstyled nav nav--stacked toc"></ul>
                 </li>
               {% endif %}
             {% endif %}
 
             <!-- Add links to auto generated docs -->
-            {% if item.path === '/ios/' %}
+            {% if item.path === 'ios' %}
               <li>
-                <a class="section" href="{{ item.path }}help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                <a class="section" href="/{{ item.path }}/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
               </li>
             {% endif %}
-            {% if item.path === '/android/' %}
+            {% if item.path === 'android' %}
               <li>
-                <a class="section" href="{{ item.path }}help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                <a class="section" href="/{{ item.path }}/help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
               </li>
             {% endif %}
           </ul>
