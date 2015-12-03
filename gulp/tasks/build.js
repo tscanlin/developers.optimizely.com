@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 
 gulp.task('build', [
-  'data',
-  'concat',
+  'markdown2',
+  // 'concat',
   'html-templates',
   'copy-files',
   'sass',

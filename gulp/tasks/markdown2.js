@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var extend = require('xtend');
 var browserSync = require('browser-sync');
 var swig = require('swig');
 var markedSwig = require('swig-marked');
@@ -7,6 +8,7 @@ var rename = require('gulp-rename');
 var tap = require('gulp-tap');
 var util = require('gulp-util');
 var path = require('path');
+var fs = require('fs');
 var handleErrors = require('../util/handleErrors');
 var paths = require('../../config').paths;
 
@@ -34,21 +36,69 @@ swig.setFilter('stringify', filter_stringify);
 // Add swig-highlight for code highlighting.
 require('swig-highlight').apply(swig);
 
+function makeFile(filename, string) {
+  return new util.File({
+    cwd: '',
+    base: '',
+    path: filename,
+    contents: new Buffer(string)//eslint-disable-line
+  });
+}
 
 // Gulp task
-gulp.task('data', function() {
+gulp.task('markdown2', ['data'], function() {
   return gulp.src([
-    path.join(paths.src + paths.content, '**/*.md'),
+    path.join(paths.build, 'content.json'),
   ])
-  .pipe(util.buffer())
-  .pipe(markdown())
+  // .pipe(markdown())
   // This produces a JSON object with the front-matter and the HTML for the
   // markdown in a property called 'body'.
   .pipe(tap(function(file, t) {
-    // console.log(file);
-    // console.log(file);
-    // var json = JSON.parse(file.contents.toString());
-    // console.log(json);
+    var baseDir = file.base;
+    var json = JSON.parse(file.contents.toString());
+
+    function iterateGroup(directory, group, flatObject) {
+      for (var key in group) { //eslint-disable-line
+        var object = group[key];
+        if (object.template) {
+          var newProps = {
+            filePath: directory + '/' + key
+          };
+          console.log(newProps, flatObject);
+          object = extend(object, newProps)
+          flatObject[newProps.filePath] = object;
+        } else {
+          iterateGroup(directory + '/' + key, object, flatObject);
+        }
+      }
+      return flatObject;
+    }
+
+
+    for (var topDir in json) { //eslint-disable-line
+      var group = json[topDir];
+      var flatGroup = iterateGroup(topDir, group, {});
+
+      for (var file in flatGroup) { //eslint-disable-line
+        var obj = flatGroup[file];
+        var tpl = swig.compileFile(paths.templates + obj.template + '.html');
+        fs.writeFileSync(baseDir + file + '.html', tpl(obj));
+      }
+      console.log('G', topDir, flatGroup);
+
+      // console.log(topDir);
+      // for (var dirLvl2 in group) {
+      //   var group2 = group[dirLvl2];
+      //   console.log(dirLvl2);
+      //   if (group2.template) {
+      //     console.log(group2.template);
+      //     var tpl = swig.compileFile(paths.templates + template + '.html');
+      //     file.contents = new Buffer(tpl(json), 'utf8'); //eslint-disable-line
+      //   }
+      // }
+    }
+
+
     // var template = json.template || 'default';
     //
     // var fileName = path.basename(file.path);
@@ -68,10 +118,10 @@ gulp.task('data', function() {
     // json.subPath = relativePath.split('/')[1] || '';
     //
     // var tpl = swig.compileFile(paths.templates + template + '.html');
-    // file.contents = new Buffer(tpl(json), 'utf8');
+    // file.contents = new Buffer(tpl(json), 'utf8'); //eslint-disable-line
   }))
   .pipe(rename({
-    extname: '.json',
+    extname: '.html',
   }))
   .pipe(gulp.dest(paths.build))
   .on('error', handleErrors)
