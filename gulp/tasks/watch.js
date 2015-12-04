@@ -21,8 +21,8 @@ gulp.task('watch', ['browser-sync'], function() {
     .on('error', handleErrors);
   gulp.watch(path.join(paths.src + paths.content, '**/*.md'), ['markdown2'])
     .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['html-templates', 'markdown2']) // , 'concat'
+  gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['markdown2']) // , 'concat'
     .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.templates, '**/*.html'), ['html-templates', 'markdown2']) // , 'concat'
+  gulp.watch(path.join(paths.src + paths.templates, '**/*.html'), ['markdown2']) // , 'concat'
     .on('error', handleErrors);
 });

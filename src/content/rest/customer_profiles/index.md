@@ -1,6 +1,7 @@
 ---
 template: page-sidebar--full
 title: "CP"
+includeSiblingData: true
 sections:
 - overview
 - dcpservices
@@ -9,7 +10,6 @@ sections:
 - customer_profiles
 - alias
 - profile_integrations
-
 section:
   path: 'customer_profiles/'
 relativePath: 'rest/customer_profiles/'

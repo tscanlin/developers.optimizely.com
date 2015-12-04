@@ -48,19 +48,17 @@ function getKeyPath(keyPathArray, object) {
     subObject = object[currentPath];
   }
 
-  // Add file path
-  if (subObject.template) {
-    // Change this to check if its the last PATH@@@@@@@@
-    // @@@@@@@
-    subObject.fileName = currentPath;
-  }
-
   if (keyPathArray.length) {
     return getKeyPath(keyPathArray, subObject);
   }
 
+  // Here keyPathArray has length of 0.
+  // If there are no more paths in keyPathArray then it is the filename.
+  subObject.fileName = currentPath;
+
+  console.log(currentPath, subObject.fileName);
   if (!subObject) {
-    console.log(keyPathArray, currentPath, object)
+    console.log(keyPathArray, currentPath, object);
   }
 
   // Return a de-referenced copy.
@@ -69,10 +67,9 @@ function getKeyPath(keyPathArray, object) {
 
 
 // Gulp task
-gulp.task('markdown2', ['data'], function() {
+gulp.task('markdown2', ['html-templates'], function() {
   return gulp.src([
     path.join(paths.src + paths.content, '**/*.md'),
-    // path.join(paths.build, 'content.json'),
   ])
   // .pipe(markdown())
   // This produces a JSON object with the front-matter and the HTML for the
@@ -89,7 +86,7 @@ gulp.task('markdown2', ['data'], function() {
     var pathArray = relativePath.split('/');
     var pathArrayCopy = [].concat(pathArray);
     // console.log(file, relativePath, pathArray);
-    var dataObj = getKeyPath(pathArrayCopy, siteJson);
+    var dataObj = getKeyPath(pathArrayCopy, extend({}, siteJson));
 
     if (!dataObj) {
       // console.log(pathArray, dataObj)
@@ -98,19 +95,18 @@ gulp.task('markdown2', ['data'], function() {
     dataObj = extend(dataObj, {
       relativePath: relativePath,
       pathArray: pathArray,
-      fileName: [].concat(pathArray).pop(),
     });
     // console.log(dataObj.fileName);
 
 
-    if (dataObj.includeParentData) {
+    if (dataObj.includeSiblingData) {
       pathArrayCopy = [].concat(pathArray);
       var thisKey = pathArrayCopy.pop();
-      var parentData = getKeyPath(pathArrayCopy, siteJson);
+      var siblingData = getKeyPath(pathArrayCopy, extend({}, siteJson));
       dataObj = extend(dataObj, {
-        parentData: parentData,
+        siblingData: siblingData,
       });
-      // delete dataObj.parentData[thisKey];
+      // delete dataObj.siblingData[thisKey];
     }
 
     var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');

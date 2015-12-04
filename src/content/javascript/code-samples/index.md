@@ -1,6 +1,7 @@
 ---
 template: page-sidebar--wider
 title: "Code Samples"
+includeSiblingData: true
 sections:
 - introduction
 - advanced-goal-tracking

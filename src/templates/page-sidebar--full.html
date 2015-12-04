@@ -29,11 +29,10 @@
       </div>
 
       {% for section in sections %}
-        {% for i, key in parentData[section] | sort %}
-          {{ parentData[section][key] | stringify }}
+        {% for i, key in siblingData[section] | sort %}
           {%
             include 'partials/_sidebyside.html'
-            parentData[section][key]
+            siblingData[section][key]
           %}
         {% endfor %}
       {% endfor %}
