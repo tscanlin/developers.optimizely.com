@@ -48,10 +48,22 @@ function getKeyPath(keyPathArray, object) {
     subObject = object[currentPath];
   }
 
+  // Add file path
+  if (subObject.template) {
+    // Change this to check if its the last PATH@@@@@@@@
+    // @@@@@@@
+    subObject.fileName = currentPath;
+  }
+
   if (keyPathArray.length) {
     return getKeyPath(keyPathArray, subObject);
   }
 
+  if (!subObject) {
+    console.log(keyPathArray, currentPath, object)
+  }
+
+  // Return a de-referenced copy.
   return subObject;
 }
 
@@ -79,15 +91,35 @@ gulp.task('markdown2', ['data'], function() {
     // console.log(file, relativePath, pathArray);
     var dataObj = getKeyPath(pathArrayCopy, siteJson);
 
+    if (!dataObj) {
+      // console.log(pathArray, dataObj)
+    }
+
     dataObj = extend(dataObj, {
       relativePath: relativePath,
       pathArray: pathArray,
+      fileName: [].concat(pathArray).pop(),
     });
+    // console.log(dataObj.fileName);
+
+
+    if (dataObj.includeParentData) {
+      pathArrayCopy = [].concat(pathArray);
+      var thisKey = pathArrayCopy.pop();
+      var parentData = getKeyPath(pathArrayCopy, siteJson);
+      dataObj = extend(dataObj, {
+        parentData: parentData,
+      });
+      // delete dataObj.parentData[thisKey];
+    }
 
     var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');
     // var a = extend(dataObj);
     // delete a.body;
     // console.log(a);
+    // if (relativePath === 'rest/reference/index') {
+    //   console.log(dataObj);
+    // }
     file.contents = new Buffer(tpl(dataObj), 'utf8'); //eslint-disable-line
     return file;
 
