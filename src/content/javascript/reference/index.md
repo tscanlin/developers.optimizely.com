@@ -458,6 +458,15 @@ window['optimizely'].push(["setCookieDomain", "www.example.com"]);
 
 In this example, the cookies Optimizely sets will be available only on ".www.example.com", ("www.example.com" and all of its subdomains), rather than on ".example.com", which is the default.
 
+### Skip Pageview Tracking
+
+Skip pageview tracking.
+
+```javascript
+window['optimizely'] = window['optimizely'] || [];
+window.optimizely.push(["skipPageTracking"]);
+```
+
 ### Third Party Cookie Opt Out
 
 Disable Optimizely's 3rd party cookies. You must call "optOutThirdPartyCookies" prior to loading the Optimizely snippet. This will prevent cross-domain visitor bucketing and measurement. For more information on Optimizely's use of cookies, please see our [Knowledge Base](https://help.optimizely.com/hc/en-us/articles/200040335).
