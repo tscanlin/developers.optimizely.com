@@ -8,7 +8,14 @@
     {% include 'partials/_nav.html' %}
 
     <div id="content" class="content soft-half--ends max-width--900">
-      {{ body | safe }}
+      {% for section in sections %}
+        {% for i, key in siblingData[section] | sort %}
+          {%
+            include 'partials/_inline.html'
+            siblingData[section][key]
+          %}
+        {% endfor %}
+      {% endfor %}
     </div>
   </main>
 

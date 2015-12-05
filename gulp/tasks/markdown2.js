@@ -103,9 +103,13 @@ gulp.task('markdown2', ['html-templates'], function() {
       delete dataObj.siblingData[thisKey];
     }
 
-    var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');
-    file.contents = new Buffer(tpl(dataObj), 'utf8'); //eslint-disable-line
-    return file;
+    if (dataObj.template
+      && dataObj.template !== 'inline'
+      && dataObj.template !== 'sidebyside') {
+      var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');
+      file.contents = new Buffer(tpl(dataObj), 'utf8'); //eslint-disable-line
+      return file;
+    }
   }))
   .pipe(rename({
     extname: '.html',
