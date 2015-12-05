@@ -41,12 +41,9 @@ gulp.task('data', function() {
   ])
   .pipe(util.buffer())
   .pipe(markdown())
-  // This produces a JSON object with the front-matter and the HTML for the
-  // markdown in a property called 'body'.
   .pipe(rename({
     extname: '.json',
   }))
   .pipe(gulp.dest(paths.build))
-  .on('error', handleErrors)
-  .pipe(browserSync.reload({stream: true}));
+  .on('error', handleErrors);
 });

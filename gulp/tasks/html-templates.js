@@ -23,9 +23,7 @@ var json = {
 
 var opts = {
   setup: function(swig) {
-    if (!siteJson) {
-      siteJson = JSON.parse(fs.readFileSync(path.join(paths.build, 'content.json')));
-    }
+    siteJson = JSON.parse(fs.readFileSync(path.join(paths.build, 'content.json')));
 
     swig.setDefaults({
       cache: false,
@@ -60,6 +58,5 @@ gulp.task('html-templates', ['data'], function() {
   ])
   .pipe(swig(opts))
   .on('error', handleErrors)
-  .pipe(gulp.dest(paths.build))
-  .pipe(browserSync.reload({stream: true}));
+  .pipe(gulp.dest(paths.build));
 });
