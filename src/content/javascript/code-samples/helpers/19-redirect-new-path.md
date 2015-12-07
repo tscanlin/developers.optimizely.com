@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Redirect - New path
 anchor: helpers-new-path
 js: |

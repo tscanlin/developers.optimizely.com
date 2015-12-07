@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Function - DOM mutation activation
 anchor: conditional-activation-dom-mutation
 js: |

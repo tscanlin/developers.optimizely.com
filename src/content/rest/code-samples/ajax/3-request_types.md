@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Request types
 anchor: ajax-request-types
 js: |

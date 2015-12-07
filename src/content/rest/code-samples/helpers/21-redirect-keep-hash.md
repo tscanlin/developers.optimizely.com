@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Redirect - Hash parameter
 anchor: helpers-keep-hash
 js: |

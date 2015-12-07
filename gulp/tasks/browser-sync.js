@@ -6,7 +6,7 @@ var paths = require('../../config').paths;
 gulp.task('browser-sync', function() {
   browserSync.init({
     // reloadDelay: 200,
-    reloadDebounce: 3500,
+    // reloadDebounce: 3500,
     notify: {
       styles: ['position:fixed;top:5px;right:5px;width:10px;height:10px;background:#c82144;border-radius:50%;overflow:hidden;color:#c82144;z-index:99999'],
     },

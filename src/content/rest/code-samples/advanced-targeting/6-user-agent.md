@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Target specific user agents
 anchor: user-agent
 js: |

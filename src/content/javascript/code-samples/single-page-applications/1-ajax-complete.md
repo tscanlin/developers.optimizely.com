@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: AJAX complete
 anchor: single-page-apps-ajax-complete
 js: |

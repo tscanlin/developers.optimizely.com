@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Polling - DOM element
 anchor: conditional-activation-dom-element
 js: |

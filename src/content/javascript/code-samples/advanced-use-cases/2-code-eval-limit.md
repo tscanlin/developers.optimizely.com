@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Execute code for X visits
 anchor: advanced-use-cases-code-eval-limit
 js: |

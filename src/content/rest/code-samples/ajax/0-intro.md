@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: API Calls with AJAX
 anchor: ajax
 ---

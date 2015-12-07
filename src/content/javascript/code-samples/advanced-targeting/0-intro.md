@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Custom JS conditions
 anchor: custom-js
 ---

@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Offline conversions
 anchor: technology-integrations-offline
 ---

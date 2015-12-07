@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Change page title
 anchor: advanced-use-cases-browserTab-test
 js: |

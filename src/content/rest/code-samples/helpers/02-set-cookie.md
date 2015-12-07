@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Set cookie
 anchor: helpers-set-cookie
 js: |

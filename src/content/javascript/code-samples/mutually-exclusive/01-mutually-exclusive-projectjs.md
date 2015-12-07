@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Tagging Experiment Names (Requires ProjectJS)
 anchor: mutually-exclusive-projectjs
 js: |

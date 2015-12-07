@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Calling the API
 anchor: calling-the-api
 js: |

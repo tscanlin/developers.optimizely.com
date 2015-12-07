@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 type: GET
 endpoint: projects/
 title: Connect a project

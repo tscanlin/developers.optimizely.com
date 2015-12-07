@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Event tracking
 anchor: advanced-goal-tracking
 ---
