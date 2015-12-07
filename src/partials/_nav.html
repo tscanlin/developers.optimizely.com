@@ -15,7 +15,18 @@
             {% for sub_key, section in item.sections %}
               <li>
                 <a class="section{% if relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
-                <ul class="unstyled nav nav--stacked toc"></ul>
+                {% if section.path !== 'articles' %}
+                  <ul class="unstyled nav nav--stacked toc"></ul>
+                {% endif %}
+                {% if section.path === 'articles' %}
+                  <ul class="unstyled nav nav--stacked">
+                    {% for articleId, articleObj in siblingData %}
+                      <li>
+                        <a class="soft--left{% if relativePath.indexOf(item.path + '/' + section.path + '/' + articleId) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/{{ articleId }}.html">{{ articleObj.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
               </li>
             {% endfor %}
 

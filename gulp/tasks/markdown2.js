@@ -93,14 +93,14 @@ gulp.task('markdown2', ['html-templates'], function() {
 
     if (dataObj.includeSiblingData) {
       pathArrayCopy = [].concat(pathArray);
-      var thisKey = pathArrayCopy.pop();
+      var thisKey = pathArrayCopy.pop(); // Should always be index so thisKey is not needed.
       var siblingData = getKeyPath(pathArrayCopy, siteJson);
       // Add fileName prop with helper function.
       addFileNameToObjectsWithTitle(siblingData);
       dataObj = extend(dataObj, {
         siblingData: siblingData,
       });
-      delete dataObj.siblingData[thisKey];
+      delete dataObj.siblingData['index'];
     }
 
     if (dataObj.template
