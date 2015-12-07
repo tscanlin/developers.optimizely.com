@@ -7,11 +7,15 @@
     <!--{% if anchor %}<a name="{{anchor}}"></a>{% endif %}-->
 
     <!-- Title -->
-    {% if fileName == "0-intro" %}
+    <!-- {% if fileName == "0-intro" %}
       <h2 id="{{anchor}}">{{title}}</h2>
     {% else %}
       <h3 id="{{anchor}}">{{title}}</h3>
-    {% endif %}
+    {% endif %} -->
+
+    <h1>{{ title }}</h1>
+
+    <p>{{ body | safe }}</p>
 
   </div>
 </section>
