@@ -19,10 +19,10 @@ gulp.task('watch', function() { //, ['browser-sync']
   // Watch tasks for html
   // gulp.watch(path.join(paths.src + paths.pages, '**/*.html'), ['html-templates'])
   //   .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.content, '**/*.md'), ['markdown2']) // ['markdown2'])
+  gulp.watch(path.join(paths.src + paths.content, '**/*.md'), ['browser-sync-reload']) // ['markdown2'])
     .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['markdown2']) // , 'concat'
+  gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['browser-sync-reload']) // , 'concat'
     .on('error', handleErrors);
-  gulp.watch(path.join(paths.src + paths.templates, '**/*.html'), ['markdown2']) // , 'concat'
+  gulp.watch(path.join(paths.src + paths.templates, '**/*.html'), ['browser-sync-reload']) // , 'concat'
     .on('error', handleErrors);
 });

@@ -1,10 +1,10 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var handleErrors = require('../util/handleErrors');
 var paths = require('../../config').paths;
 
 gulp.task('browser-sync', function() {
-  browserSync({
+  browserSync.init({
     // reloadDelay: 200,
     reloadDebounce: 3500,
     notify: {
@@ -15,6 +15,8 @@ gulp.task('browser-sync', function() {
       baseDir: paths.build,
     },
   });
+});
 
-  gulp.watch(paths.build + '**/*.html').on('change', browserSync.reload);
+gulp.task('browser-sync-reload', ['markdown2'], function() {
+  return browserSync.reload();
 });
