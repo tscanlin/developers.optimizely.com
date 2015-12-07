@@ -1,0 +1,17 @@
+<!-- Row -->
+<section>
+  <!-- Left column -->
+  <div class="soft-double--sides{% if fileName == "0-intro" %} intro{% endif %}">
+
+    <!-- Anchor link -->
+    <!--{% if anchor %}<a name="{{anchor}}"></a>{% endif %}-->
+
+    <!-- Title -->
+    {% if fileName == "0-intro" %}
+      <h2 id="{{anchor}}">{{title}}</h2>
+    {% else %}
+      <h3 id="{{anchor}}">{{title}}</h3>
+    {% endif %}
+
+  </div>
+</section>

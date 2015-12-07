@@ -1,7 +1,8 @@
 ---
-template: page-sidebar
+template: page-sidebar--wider
 title: "iOS Articles"
-pages:
-- article-test
-- article-test2
+includeSiblingData: true
+sections:
+- 1-article-test
+- 2-article-test
 ---

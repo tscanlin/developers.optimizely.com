@@ -9,6 +9,7 @@
 
     <div id="content" class="content soft-half--ends max-width--900">
       {% for section in sections %}
+        {{ siblingData | stringify }}
         {% for i, key in siblingData[section] | sort %}
           {% set object = siblingData[section][key] %}
           {%
