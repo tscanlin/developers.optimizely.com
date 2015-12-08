@@ -69,7 +69,7 @@ Live Variables allow you to designate variables in your app that can be assigned
 
 ```java
 public class MyActivity extends Activity {
-  private static LiveVariable<Float> discountVariable = Optimizely.floatForKey("Gravity", 9.8f /* default value */);
+  private static LiveVariable<Float> gravityVariable = Optimizely.floatForKey("Gravity", 9.8f /* default value */);
   private static LiveVariable<Boolean> enableGravityVariable = Optimizely.booleanForKey("EnableGravity", true /* default value */);
 
   private float updateSpeed(float currentSpeed) {
