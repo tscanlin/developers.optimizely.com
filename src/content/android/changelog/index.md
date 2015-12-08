@@ -5,6 +5,12 @@ title: "Optimizely Android SDK Changelog"
 
 # Optimizely Android SDK Changelog
 
+### 1.3.4
+December 7, 2015
+
+*Bug Fixes:*
+- Handles GSON crash when it creating it's adapter.  GSON crashes will cause the SDK to disable itself and not crash the host app.
+
 ### 1.3.3
 November 30, 2015
 
