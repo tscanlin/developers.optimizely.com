@@ -2,7 +2,12 @@
 template: page-sidebar
 partial: partials/_article-summary.html
 includeSiblingData: true
-title: "Optimizely iOS SDK Guide"
+title: "Article 1 Header"
+summary: |
+  Here is a summary
+  That can go on multiple lines
 ---
 
-### Getting started with Optimizely's iOS SDK 1111
+# Article 1 Header
+
+Some sample text.

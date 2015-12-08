@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var extend = require('xtend');
 var browserSync = require('browser-sync');
 var swig = require('swig');
 var markedSwig = require('swig-marked');
@@ -7,9 +8,12 @@ var rename = require('gulp-rename');
 var tap = require('gulp-tap');
 var util = require('gulp-util');
 var path = require('path');
+var fs = require('fs');
 var handleErrors = require('../util/handleErrors');
 var paths = require('../../config').paths;
+var siteJson; // Cache reference to site JSON.
 
+// SWIG
 // Swig config.
 swig.setDefaults({
   cache: false,
@@ -35,41 +39,82 @@ swig.setFilter('stringify', filter_stringify);
 require('swig-highlight').apply(swig);
 
 
+// HELPERS
+function getKeyPath(keyPathArray, object) {
+  var currentPath = keyPathArray.shift();
+  var subObject;
+
+  if (object[currentPath]) {
+    subObject = object[currentPath];
+  }
+
+  if (keyPathArray.length) {
+    return getKeyPath(keyPathArray, subObject);
+  }
+
+  // Return a de-referenced copy.
+  return extend({}, subObject);
+}
+
+function addFileNameToObjectsWithTitle(object) {
+  for (var section in object) { //eslint-disable-line
+    var item = object[section];
+    if (item.title) {
+      item.fileName = section;
+    } else {
+      addFileNameToObjectsWithTitle(item);
+    }
+  }
+  return object;
+}
+
+
 // Gulp task
-gulp.task('markdown', function() {
+gulp.task('markdown', ['html-templates'], function() {
   return gulp.src([
-      path.join(paths.src + paths.content, '**/*.md'),
-    ])
-    .pipe(markdown())
-    // This produces a JSON object with the front-matter and the HTML for the
-    // markdown in a property called 'body'.
-    .pipe(tap(function(file, t) {
-      var json = JSON.parse(file.contents.toString());
-      var template = json.template || 'default';
+    path.join(paths.src + paths.content, '**/*.md'),
+  ])
+  .pipe(tap(function(file, t) {
+    siteJson = JSON.parse(fs.readFileSync(path.join(paths.build, 'content.json')));
 
-      var fileName = path.basename(file.path);
-      json.fileName = fileName.replace(/\.[^/.]+$/, ''); // Get the file name without the extension.
+    var relativePath = file.path
+      .split(file.base)
+      .join('')
+      .split('.md')
+      .join('');
+    var pathArray = relativePath.split('/');
+    var pathArrayCopy = [].concat(pathArray);
+    var dataObj = getKeyPath(pathArrayCopy, siteJson);
 
-      // Split on the content path since that is the root.
-      var relativePath = file.path.split(paths.content)[1];
-      // Remove the filename from it.
-      relativePath = relativePath.split(fileName).join('');
-      json.relativePath = relativePath;
+    dataObj = extend(dataObj, {
+      relativePath: relativePath,
+      pathArray: pathArray,
+    });
 
-      // topPath for expanding sections.
-      var topPath = '/' + relativePath.split('/')[0] + '/';
-      json.topPath = topPath;
+    if (dataObj.includeSiblingData) {
+      pathArrayCopy = [].concat(pathArray);
+      var thisKey = pathArrayCopy.pop(); // Should always be index so thisKey is not needed.
+      var siblingData = getKeyPath(pathArrayCopy, siteJson);
+      // Add fileName prop with helper function.
+      addFileNameToObjectsWithTitle(siblingData);
+      dataObj = extend(dataObj, {
+        siblingData: siblingData,
+      });
+      delete dataObj.siblingData['index'];
+    }
 
-      // Ex: 'reference'
-      json.subPath = relativePath.split('/')[1] || '';
-
-      var tpl = swig.compileFile(paths.templates + template + '.html');
-      file.contents = new Buffer(tpl(json), 'utf8');
-    }))
-    .pipe(rename({
-      extname: '.html',
-    }))
-    .pipe(gulp.dest(paths.build))
-    .on('error', handleErrors)
-    .pipe(browserSync.reload({stream: true}));
+    if (dataObj.template
+      && dataObj.template !== 'inline'
+      && dataObj.template !== 'sidebyside') {
+      var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');
+      file.contents = new Buffer(tpl(dataObj), 'utf8'); //eslint-disable-line
+      return file;
+    }
+  }))
+  .pipe(rename({
+    extname: '.html',
+  }))
+  .pipe(gulp.dest(paths.build))
+  .on('error', handleErrors);
+  // .pipe(browserSync.reload({stream: true}));
 });

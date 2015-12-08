@@ -1,21 +1,9 @@
-<!-- Row -->
-<section>
-  <!-- Left column -->
-  <div class="soft-double--sides{% if fileName == "0-intro" %} intro{% endif %}">
+<section class="push-quad--bottom">
+  <a href="{{ fileName }}.html">
+    <h2 class="flush--top push--bottom">{{ title }}</h1>
 
-    <!-- Anchor link -->
-    <!--{% if anchor %}<a name="{{anchor}}"></a>{% endif %}-->
-
-    <!-- Title -->
-    <!-- {% if fileName == "0-intro" %}
-      <h2 id="{{anchor}}">{{title}}</h2>
-    {% else %}
-      <h3 id="{{anchor}}">{{title}}</h3>
-    {% endif %} -->
-
-    <h1>{{ title }}</h1>
-
-    <p>{{ body | safe }}</p>
-
-  </div>
+    {% if summary %}
+      <p class="color--base">{{ summary | safe }}</p>
+    {% endif %}
+  </a>
 </section>

@@ -17,6 +17,6 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('browser-sync-reload', ['markdown2'], function() {
+gulp.task('browser-sync-reload', ['markdown'], function() {
   return browserSync.reload();
 });
