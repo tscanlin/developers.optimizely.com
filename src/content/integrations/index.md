@@ -182,8 +182,6 @@ Not seeing the platform you’re looking for? Check out the <a href="https://hel
 
 *Analytics integrations* allow customers to track Optimizely experiments in an external analytics tool.  With the flip of a switch, Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool. The following step-by-step guide describes how to implement an analytics integration.
 
-*Note:* The following guide will not work for <a href="https://help.optimizely.com/hc/en-us/articles/200040675" target="_blank">redirect experiments</a>. If you'd like to support redirect experiments as part of the integration, please refer to the [Support for redirect experiments](#support-for-redirect-experiments) section below, which includes some helper code.
-
 <h3 id="analytics-prerequisites">Prerequisites</h3>
 
 - Your analytics platform can track Optimizely experiment and variation names
@@ -203,7 +201,7 @@ To verify that your experiment is running, do a hard refresh on the test page ou
 
 <h3 id="write-the-integration-code">3. Write the integration code</h3>
 
-To integrate with the analytics platform, you’ll need the Optimizely Experiment and Variation names that are running on the test page. This section describes the four JavaScript methods you’ll need to retrieve this information:
+To integrate with the analytics platform, you’ll need the Optimizely Experiment and Variation names that are running on the test page. This section describes the JavaScript methods you’ll need to retrieve this information:
 
 - `window["optimizely"] && window["optimizely"]["data"]`
 This line makes sure that Optimizely is loaded on the page.
@@ -213,21 +211,32 @@ This is an array of experiment ids for all the active experiments.
 This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation names for those experiments.
 - `window['optimizely'].data.experiments[experimentId].name`
 This is the name of the experiment specified with the experimentId variable.
+- `window["optimizely"].data.state.redirectExperiment`
+An object that if defined means a redirect experiment occurred on the previous page.
 
-Implement these four functions below the snippet on your test page. By combining the four functions, you will be able to access all the experiment names and variation names of all the running variations.
+Implement these methods below the Optimizely snippet on your test page. By combining the methods, you will be able to access all the experiment names and variation names. You can read more about the above methods in the <a href="/javascript/reference/index.html#the-data-object">JavaScript API reference</a>.
 
 ```xml
 <script>
-if (window["optimizely"] && window["optimizely"]["data"]) {
-    var activeExperiments = window['optimizely'].data.state.activeExperiments;
-    for (var i = 0; i < activeExperiments.length; i++) {
-        var experimentId = activeExperiments[i];
-        var variationName = window['optimizely'].data.state.variationNamesMap[experimentId];
-        var experimentName = window['optimizely'].data.experiments[experimentId].name;
-
-        // Use the experimentName and variationName value here to send information to your analytics platform
-
+if (window['optimizely'] && window['optimizely']['data']) {
+  var activeExperiments = window['optimizely'].data.state.activeExperiments;
+  if(window['optimizely'].data.state.redirectExperiment) {
+    var redirectExperimentId = window['optimizely'].data.state.redirectExperiment.experimentId;
+    var index = window['optimizely'].data.state.activeExperiments.indexOf(redirectExperimentId);
+    if(index === -1){
+      activeExperiments.push(redirectExperimentId);
     }
+    // Some analytics platforms have the ability to fix referrer values. Use optimizely.data.state.redirectExperiment.referrer to fix the referrer value here.
+
+  }
+
+  for (var i = 0; i < activeExperiments.length; i++) {
+    var experimentId = activeExperiments[i];
+    var variationName = window['optimizely'].data.state.variationNamesMap[experimentId];
+    var experimentName = window['optimizely'].data.experiments[experimentId].name;
+    // Use the experimentName and variationName value here to send information to your analytics platform
+
+  }
 }
 </script>
 ```
@@ -237,76 +246,6 @@ Where indicated in the above code snippet, implement the platform specific code.
 <h3 id="qa-integration">4. QA integration</h3>
 
 When the integration is successfully implemented, check your network traffic to see if all the data is correctly send to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic.
-
-### Support for redirect experiments
-
-To make it easier for anyone to implement an analytics integration that works with <a href="https://help.optimizely.com/hc/en-us/articles/200040675-Redirect-experiments-Test-separate-URLs-">redirect experiments</a> as well, we've open sourced some example JavaScript code at <a href="https://github.com/optimizely/Analytics-JS">https://github.com/optimizely/Analytics-JS</a>.
-
-The alternative implementation requires a different approach from that described in Step 3. Instead of doing Step 3 in the description above, do the following:
-
-Below the Optimizely snippet, add another snippet to the test page:
-```
-<script src="https://cdn.rawgit.com/optimizely/Analytics-JS/master/integrator.js"></script>
-```
-**Note:** There is no uptime guarantee for this file. Use your own servers to host the integrator.js file on a production environment.
-
-The Integrator snippet creates an abstraction around the logic that is required to support redirect experiments, fix referrer values, and create usable experiment names. Now, you simply need to implement three functions in the object.
-
-Below the Optimizely and Integrator snippet, add this code:
-
-```xml
-<script>
-window.integration = {
-  initialize: function () {
-
-  },
-  makeRequest: function (experimentId, variationIds) {
-
-  },
-  finish: function () {
-
-  }
-};
-
-// Register the integration
-window.integrator.registerIntegration(window.integration);
-</script>
-```
-
-The three functions to implement are initialize (optional), makeRequest (required) and finish (optional).
-
-#### initialize
-
-The function initialize runs before anything else happens. It allows you to implement logic to initialize the integration. In some cases, this isn't necessary.
-
-Example usage: Google Analytics uses referrer values. When a redirect occurs, the referrer value in the browser is not correct. The function window.integrator.redirect.getRedirectReferrer() returns the correct referrer value which can be used to overwrite the default value used by Google Analytics.
-
-#### makeRequest
-
-This function is called for every experiment that is running on the current page. In this function, implement the code that sends custom data to the analytics platform.
-
-The function arguments are the variation ID and the experiment id. The function `makeSendableNamesfunction (experimentId, variationIds, expLength, varLength, mvtVarLength, makeClean, prefix)` returns an object that contains names based on the experiment name and variation name related to the ids. The returned object has two values:
-
-- obj.variationName
-- obj.experimentName
-
-The parameters for the `makeSendableNamesfunction` are:
-
-- experimentId - The experiment id
-- variationsIds - The variation id
-- expLength - The maximum length of the experiment name
-- varLength - The maximum length of the variation name
-- mvtVarLength - The maximum length of all variation names in a mvt test
-- makeClean - Replace characters that are not allowed in URL query parameter with '_'
-- prefix - A prefix added to experiment names
-
-#### finish
-
-This function is called after makeRequest has been executed for all the experiments that are running on the page.
-
-#### Example
-
-An example of a test page where a Google Analytics integration has been implemented: <a href="https://github.com/optimizely/Analytics-JS/blob/master/example.html">https://github.com/optimizely/Analytics-JS/blob/master/example.html</a>
 
 ## Mobile analytics
 Mobile analytics integrations allow customers to track Optimizely experiments in an external analytics tool. Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool. The following step-by-step guide describes how to implement an analytics integration for mobile through Optimizely provided plugins.The plugins allow you to capture information about which experiment is running and which variant is chosen for a visitor.
@@ -597,7 +536,7 @@ The code that you wrote in step 3 needs to be enabled to become effective. If yo
 
 <h3 id="mobile-qa-integration">5. QA integration</h3>
 
-When the integration is successfully implemented, check your network traffic to see if all the data is correctly sending to the analytics platform. All the active experiments on the page in addition to a redirect experiment should be visible in the network traffic. You can use Charles for monitoring your Network traffic. There is a configuration guide for <a href="http://www.charlesproxy.com/documentation/configuration/browser-and-system-configuration/">using Charles with iOS and Android</a>.
+When the integration is successfully implemented, check your network traffic to see if all the data is correctly sending to the analytics platform. You can use Charles for monitoring your Network traffic. There is a configuration guide for <a href="http://www.charlesproxy.com/documentation/configuration/browser-and-system-configuration/">using Charles with iOS and Android</a>.
 
 ## Audiences
 

@@ -114,6 +114,17 @@ window['optimizely'].data.state.activeExperiments
 
 This is an array of experiment ids for all the active experiments.
 
+#### Active Experiments
+
+```javascript
+window['optimizely'].data.state.redirectExperiment
+```
+
+This is an object that is defined when a redirect variation ran on the previous page. If no Optimizely redirect occurred this object is `undefined`. When a redirect variation did occur the object contains:
+- The `experimentId` of the redirect experiment
+- The `variationId` of the redirect variation a user is bucketed in
+- The original `referrer` value from the previous page
+
 #### Variation Map
 
 ```javascript
