@@ -7,6 +7,7 @@
     "build": "gulp build",
     "deploy": "gulp clean && gulp build && git-directory-deploy --directory build",
     "gulp": "gulp",
+    "start": "gulp",
     "clean": "gulp clean",
     "test": "gulp test"
   },
