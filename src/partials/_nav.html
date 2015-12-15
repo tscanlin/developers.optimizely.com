@@ -18,7 +18,7 @@
                 {% if section.path !== 'articles' %}
                   <ul class="unstyled nav nav--stacked toc"></ul>
                 {% endif %}
-                {% if section.path === 'articles' %}
+                {% if section.path === 'articles' && relativePath.indexOf(item.path) === 0 %}
                   <ul class="unstyled nav nav--stacked">
                     {% for id, articleId in siblingData | sort %}
                       {% set article = siblingData[articleId] %}
