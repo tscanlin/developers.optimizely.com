@@ -360,6 +360,14 @@ window['optimizely'] = window['optimizely'] || [];
 window['optimizely'].push(["bucketVisitor", experimentId, variationId]);
 ```
 
+To prevent a pageview event from being fired when this call is made, set the third parameter to true.
+
+```javascript
+var doNotSendPageviewTracking = true;
+window['optimizely'] = window['optimizely'] || [];
+window['optimizely'].push(["bucketVisitor", experimentId, variationId, doNotSendPageviewTracking]);
+```
+
 Other ways to call this API:
 
 ```javascript
