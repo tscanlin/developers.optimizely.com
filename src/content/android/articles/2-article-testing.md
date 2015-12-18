@@ -4,14 +4,18 @@ partial: partials/_article-summary.html
 includeSiblingData: true
 title: "QA Optimizely Android Experiments"
 summary: |
-   - Learn how to use Optimizely developer tools to QA your Optimizely experiments
-   - Implement code samples of how to use Optimizely’s Experiment Data Object and NSNotifications to ensure your experiment is set up as expected
-   - You can find examples of how to use each of these methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found here.
+   Learn how to use Optimizely developer tools to QA your Optimizely experiments.
+   You can find examples of how to use each of the QA methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found [here]("/android/guide/index.html").
 
 
 ---
 
 # QA Optimizely Android Experiments
+
+*THIS ARTICLE WILL HELP YOU:*
+- Learn how to use Optimizely developer tools to QA your Optimizely experiments
+- Implement code samples of how to use Optimizely’s Experiment Data Object and [OptimizelyEventListener](/android/reference/index.html#adding-an-event-listener) to ensure your experiment is set up as expected
+- You can find examples of how to use each of these methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found [here](/android/guide/index.html).
 
 ### OVERVIEW
 
@@ -23,7 +27,7 @@ This lets you see your variation changes as your user would. You can easily ente
 
 *Developer debugging tools*
 
-You can take advantage of Optimizely’s [event listeners]("/android/reference/index.html#adding-an-event-listener") and the [data object]("/android/reference/index.html#custom-integration") in order to gain a better understanding of when your experiment is running. These tools will allow you to check that you are creating the experience, targeting the audience, and tracking the goals that you expect.
+You can take advantage of Optimizely’s [event listeners](/android/reference/index.html#adding-an-event-listener) and the [data object](/android/reference/index.html#custom-integration) in order to gain a better understanding of when your experiment is running. These tools will allow you to check that you are creating the experience, targeting the audience, and tracking the goals that you expect.
 
 
 TIP:
@@ -33,7 +37,7 @@ In the following sections, we'll provide steps to follow to QA your experiment.
 
 
 NOTE:
-> For information about the APIs that are being described in this article, including [listeners]("/android/reference/index.html#adding-an-event-listener") and experiment [data object]("/android/reference/index.html#custom-integration"), you can always refer back to our API documentation for definitions on how these methods work!
+> For information about the APIs that are being described in this article, including [listeners](/android/reference/index.html#adding-an-event-listener) and experiment [data object](/android/reference/index.html#custom-integration), you can always refer back to our API documentation for definitions on how these methods work!
 
 ### DEBUGGING YOUR EXPERIMENTS
 

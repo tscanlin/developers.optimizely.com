@@ -4,15 +4,19 @@ partial: partials/_article-summary.html
 includeSiblingData: true
 title: "How Optimizely's iOS SDK Works"
 summary: |
-   SDK Order of execution, experiment activation, and goals
-   - Understand how Optimizely's SDK executes in an app
-   - Understand the order of operations for how an experiment runs
-   - Use Optimizely's iOS and Android APIs to provide visibility into what experiments are running
-   - Activate experiments manually based on a user action (SDK versions 1.3 and above)
-   - Understand how conversions are counted in Optimizely
+   Learn about how Optimizely's iOS SDK Order of execution, experiment activation, and goals.
+   Specifically, the article discusses how Optimizely's SDK executes in an app, the order of operations for how an experiment runs,
+   and how conversions are counted in Optimizely.
 ---
 
 # How Optimizely's iOS SDK Works
+
+*THIS ARTICLE WILL HELP YOU:*
+- Understand how Optimizely's SDK executes in an app
+- Understand the order of operations for how an experiment runs
+- Use Optimizely's iOS and Android APIs to provide visibility into what experiments are running
+- Activate experiments manually based on a user action (SDK versions 1.3 and above)
+- Understand how conversions are counted in Optimizely
 
 ### OPTIMIZELY'S iOS SDK ORDER OF EXECUTION
 

@@ -262,7 +262,7 @@ It is also possible to manually force Optimizely to reset all experiments and tr
 
 Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. Android phone to tablet). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in local storage and continue to use it until a new one is set.
 
-Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. UUID will not rebucket users who have seen a certain experiment already. *Regardless, make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.* 
+Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. UUID will not rebucket users who have seen a certain experiment already. *Regardless, make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
 
 ```java
 Optimizely.setUserId("userid");
@@ -307,7 +307,7 @@ private void userCompletedPurchase() {
 
 ## Analytics Integrations
 
-Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package. 
+Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package.
 
 Currently, we support the following frameworks in our Android SDK.  Detailed integration instructions can be found if you follow the respective link:
 - [Amplitude](https://help.optimizely.com/hc/en-us/articles/204963198)
@@ -371,6 +371,8 @@ OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
 
 You can also build your own analytics integrations by accessing the experiments and variations active for a given user directly using the `Optimizely.getVisitedExperiments()` and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the [API documentation](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments()).
 
+When building your own analytics integration, the recommended time to access the `Optimizely.getVisitedExperiments()` data and send that to the analytics framework is in the method `onOptimizelyExperimentViewed(OptimizelyExperimentData experimentState)` which can be found when you add the [OptimizelyEventListener](/android/reference/index.html#adding-an-event-listener) to Optimizely.
+
 ## Network Settings
 
 There are only two instances when the Optimizely Android SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, the config file is automatically downloaded every 2 minutes. Event tracking data is automatically uploaded whenever the user leaves a screen of your application (on every `Activity.onPause`). The Optimizely Android SDK allows you to customize how often these network calls are made by:
@@ -411,7 +413,7 @@ By default, Optimizely buckets users and activates the experiment as soon as the
 #### Manual
 In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Manual activation is only available for SDK versions 1.3.0 and above.
 
-*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions. 
+*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions.
 
 
 Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
@@ -419,22 +421,22 @@ Toggle between manual and automatic activation mode from the Options > Activatio
 <img src="/assets/img/android/activation_mode.png" alt="Drawing" style="width: 50%;"/>
 
 ### Use Cases
-#### Use Case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment. 
+#### Use Case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment.
 
-Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting. 
-For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session. 
+Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting.
+For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session.
 With automatic activation mode, you can only target using tags set before the app was started (and thus set in a previous session).
 
 #### Use Case #2: Bucket only a subset of users who access less frequently used areas of your app.
 
-Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit. 
-For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling. 
-If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users. 
+Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit.
+For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling.
+If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users.
 
 #### Use Case #3: Quick-load assets for consistency.
 
 Remote assets distributed by the Optimizely CDN, such as images you upload to our editor, start loading asynchronously when the app starts. As a result, if any assets fail to load before an experiment is viewed due to slow internet speeds, the user is not showed the variation and is instead shown the control even though that user has been bucketed.
-The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results. 
+The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results.
 In manual activation mode, you can activate experiments right when you want to show them, giving the user’s device more time to load assets associated with that experiment.
 
 ### Manual Activation Example
@@ -443,16 +445,16 @@ In manual activation mode, you can activate experiments right when you want to s
 // Calling start Optimizely will not activate any manual experiments.
 // Instead you have to activate them manually for users to see your experiment
 Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
-                          
+
 ...
 
 // You specify when you want to activate each manual experiment.
-// For use case #1 above, this can be useful if you want to wait until you 
+// For use case #1 above, this can be useful if you want to wait until you
 // have additional data for a user and then store that data as custom tags.
 // For example, we now know that the user is a VIP user so we set a tag for that
 Optimizely.setCustomTag("accountType", "VIP");
-    
-// Activate a manual experiment that takes the custom tag we just set into account 
+
+// Activate a manual experiment that takes the custom tag we just set into account
 boolean success = Optimizely.activateManualExperiment(myExperimentId);
 ```
 
@@ -514,7 +516,7 @@ OptimizelyExperimentData data = Optimizely.getExperimentDataById("EXPERIMENT_ID"
 ```
 
 ### Audience Information
-There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return a JSONArray of all the audiences associated with your project. Each audience is represented as an JSONObject and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started. 
+There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return a JSONArray of all the audiences associated with your project. Each audience is represented as an JSONObject and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started.
 
 Here's an example below:
 ```java
@@ -529,7 +531,7 @@ for(int i = 0; i < audiences.length(); i++) {
     // You can access the metadata associated with each audience
     // Here we're just getting each audience's audienceId
     String audienceId = audience.getString("audience_id");
-    
+
     // We can then check to see if the user currently satisfies those
     // audience conditions
     boolean included = Optimizely.isUserInAudience(audienceId);

@@ -4,14 +4,18 @@ partial: partials/_article-summary.html
 includeSiblingData: true
 title: "QA Optimizely iOS Experiments"
 summary: |
-   - Learn how to use Optimizely developer tools to QA your Optimizely experiments
-   - Implement code samples of how to use Optimizely’s Experiment Data Object and NSNotifications to ensure your experiment is set up as expected
-   - You can find examples of how to use each of these methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found here.
+   Learn how to use Optimizely developer tools to QA your Optimizely experiments.
+   You can find examples of how to use each of the QA methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found [here]("/android/guide/index.html").
 
 
 ---
 
 # QA Optimizely iOS Experiments
+
+*THIS ARTICLE WILL HELP YOU:*
+- Learn how to use Optimizely developer tools to QA your Optimizely experiments
+- Implement code samples of how to use Optimizely’s Experiment Data Object and NSNotifications to ensure your experiment is set up as expected
+- You can find examples of how to use each of these methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found [here]("/ios/guide/index.html").
 
 ### OVERVIEW
 
