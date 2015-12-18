@@ -12,15 +12,15 @@ summary: |
 # How Optimizely's iOS SDK Works
 
 *THIS ARTICLE WILL HELP YOU:*
-- Understand how Optimizely's SDK executes in an app
-- Understand the order of operations for how an experiment runs
-- Use Optimizely's iOS and Android APIs to provide visibility into what experiments are running
-- Activate experiments manually based on a user action (SDK versions 1.3 and above)
-- Understand how conversions are counted in Optimizely
+- Understand *how Optimizely's SDK executes* in an app
+- Understand the *order of operations* for how an experiment runs
+- *Use Optimizely's iOS APIs* to provide visibility into what experiments are running
+- *Activate experiments manually* based on a user action (SDK versions 1.3 and above)
+- Understand *how conversions are counted* in Optimizely
 
 ### OPTIMIZELY'S iOS SDK ORDER OF EXECUTION
 
-The following diagram illustrates how experiments are activated by the Optimizely SDKs (iOS and Android).
+The following diagram illustrates how experiments are activated by the Optimizely SDK.
 
 <img src="/assets/img/ios/optimizely_sdk_execution.png" alt="Drawing" style="width: 100%;"/>
 
@@ -32,11 +32,11 @@ After downloading the data file, each experiment is evaluated to see if it can b
 TIP:
 > An experiment conflicts with another when you modify the same view, variable, or code block in multiple experiments. In this case, one of the experiments will not run. You can identify whether or not a conflict exists by looking at verboseLogging.
 
-> When the application resumes or is brought the foreground after being backgrounded, the Optimizely SDK runs through the same process as above, but does not attempt to download a new datafile. This means that some experiments that were running before may now stop, and some experiments that were not running before may start.
+When the application resumes or is brought the foreground after being backgrounded, the Optimizely SDK runs through the same process as above, but does not attempt to download a new datafile. This means that some experiments that were running before may now stop, and some experiments that were not running before may start.
 
 
 TIP:
-> refreshExperiments allows targeting conditions to be reevaluated while the app is running (and does not require an app to be foregrounded).
+> `refreshExperiments` allows targeting conditions to be reevaluated while the app is running (and does not require an app to be foregrounded).
 
 ### MOBILE EXPERIMENT STATES
 
@@ -61,31 +61,32 @@ You can use the following APIs on both iOS and Android to see the state of exper
 On iOS, you can call:
 
 ``[[Optimizely sharedInstance] allExperiments]``
-This returns an array of OptimizelyExperimentData objects that represent every experiment the SDK knows about
+- This returns an array of `OptimizelyExperimentData` objects that represent every experiment the SDK knows about
+
 ``[[Optimizely sharedInstance] visitedExperiments]``
-This returns an array of OptimizelyExpermentData objects that represent every experiment that has been seen and visited by the user across all sessions
+- This returns an array of `OptimizelyExpermentData` objects that represent every experiment that has been seen and visited by the user across all sessions
 
 *When is an experiment marked as viewed?*
 
 Once an experiment is running, it is marked as viewed the first time it is seen by an end user. For visual experiments, the first time a visual treatment is shown, the experiment is marked as viewed.
 
-For programmatic experiments, the first time a live variable or codeblock from that experiment is accessed, it is marked as viewed.
+For programmatic experiments, the first time a live variable or code block from that experiment is accessed, it is marked as viewed.
 
 The Optimizely SDKs keep track of which experiments have been visited across all sessions, as well as which experiments have been visited in a given session. Simply use the visitedExperiments API to get a list.
 
 
 TIP:
-> You can subscribe to NSNotifications for iOS or register a callback for Android to be notified when various Optimizely events occur in the SDK life cycle.
+> You can subscribe to [NSNotifications](/ios/reference/index.html#subscribe-to-nsnotifications) to be notified when various Optimizely events occur in the SDK life cycle.
 
 ### MANUAL ACTIVATION
 
-Similar to activation modes in web experiments, you can manually activate Optimizely for your mobile app. In essence, this will force Optimizely to re-evaluate based on an in-app API call. The two activation modes for mobile experiments are automatic (default) and manual. Manual activation is only available for SDK versions 1.3 and above.
+You can manually activate Optimizely for your mobile app. In essence, this will force Optimizely to re-evaluate based on an in-app API call. The two activation modes for mobile experiments are automatic (default) and manual. Manual activation is only available for SDK versions 1.3 and above.
 
-Automatic (Default): By default, Optimizely buckets users and activates the experiment as soon as the app starts and the `startOptimizelyWithAPIToken` method is called (either synchronously or asynchronously). Experiments are marked as visited when the end user reaches an element that has been modified in the experiment.
+*Automatic (Default):* By default, Optimizely buckets users and activates the experiment as soon as the app starts and the `startOptimizelyWithAPIToken` method is called (either synchronously or asynchronously). Experiments are marked as visited when the end user reaches an element that has been modified in the experiment.
 
-Manual: In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from `startOptimizelyWithAPIToken`, which loads the datafile and any remote assets, such as images. Check out the developer documentation on manual activation for iOS and Android.
+*Manual:* In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from `startOptimizelyWithAPIToken`, which loads the datafile and any remote assets, such as images. Check out the [developer documentation](/ios/reference/index.html#manual-activation) on manual activation.
 
-Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment. Manual activation does not bypass Audience conditions.
+*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions.
 
 Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
 
@@ -99,7 +100,7 @@ NOTE:
 
 
 
-#### Why would you want to use manual activation? We’ve outlined some use cases below.
+*Why would you want to use manual activation?* We’ve outlined some use cases below.
 
 *Use Case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment.*
 

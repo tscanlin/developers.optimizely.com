@@ -5,7 +5,7 @@ includeSiblingData: true
 title: "QA Optimizely iOS Experiments"
 summary: |
    Learn how to use Optimizely developer tools to QA your Optimizely experiments.
-   You can find examples of how to use each of the QA methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found [here]("/android/guide/index.html").
+   You can find examples of how to use each of the QA methods in Optimizely's TutorialApp, which can be [downloaded with the SDK](/ios/getting-started/index.html).  The corresponding guide can be found [here]("/android/guide/index.html").
 
 
 ---
@@ -19,7 +19,7 @@ summary: |
 
 ### OVERVIEW
 
-So you’ve created your experiment, finished your setup, and you’d like to QA your experiment to make sure it’s working correctly. There are two main ways to QA your experiment, which include: Preview Mode and Developer Debugging tools. This article will focus on how to QA your experiment with developer tools.
+So you’ve created your experiment, finished your setup, and you’d like to QA your experiment to make sure it’s working correctly. There are two main ways to QA your experiment, which include: [Preview Mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) and Developer Debugging tools. This article will focus on how to QA your experiment with developer tools.
 
 *Preview mode*
 
@@ -37,18 +37,17 @@ In the following sections, we'll provide steps to follow to QA your experiment.
 
 
 NOTE:
-> For information about the APIs that are being described in this article, including NSNotifications and experiment data object, you can always refer back to our API documentation for definitions on how these methods work!
+> For information about the APIs that are being described in this article, including [NSNotifications](/ios/reference/index.html#subscribe-to-nsnotifications) and [experiment data object](/ios/reference/index.html#experiment-data-object), you can always refer back to our [API documentation](/ios/help/html/index.html) for definitions on how these methods work!
 
 ### DEBUGGING YOUR EXPERIMENTS
 
 In addition to the methods laid out in this article, our Developer Docs provide additional methods for debugging your experiments:
 
-- Subscribe to NSNotifications (iOS only)
-- Adding an Event Listener (Android only)
-- Experiment Data Object (iOS, Android)
-- Audience Information (iOS, Android)
-- Forcing a Variation (iOS, Android)
-- Resetting QA State (iOS, Android)
+- [Subscribe to NSNotifications](/ios/reference/index.html#subscribe-to-nsnotifications)
+- [Experiment Data Object](/ios/reference/index.html#experiment-data-object)
+- [Audience Information](/ios/reference/index.html#audience-information)
+- [Forcing a Variation](/ios/reference/index.html#forcing-a-variation)
+- [Resetting QA State](/ios/reference/index.html#resetting-qa-state)
 
 ### RUN YOUR APP IN NORMAL MODE
 
@@ -70,7 +69,7 @@ TIP:
 
 
 NOTE:
-> Before pressing Start, you will want to make sure that you either have custom tags set up or a separate project in a staging environment so that your live users do not see your experiment.
+> Before pressing Start, you will want to make sure that you either have [custom tags](/ios/reference/index.html#custom-tags) set up or a separate project in a staging environment so that your live users do not see your experiment.
 
 <img src="/assets/img/start_experiment.png" alt="Drawing" style="width: 50%;"/>
 
@@ -84,7 +83,7 @@ An experiment is running when the datafile is successfully downloaded, the user 
 - `OptimizelyExperimentDataStateRunning`
 - `OptimizelyExperimentDataStateDeactivated`
 
-For more details about how an experiment can be in each of these states, refer to our documentation of how the SDK works.
+For more details about how an experiment can be in each of these states, refer to our documentation of [how the SDK works](/ios/articles/1-article-test.html).
 
 For iOS, you can check the experiment state by creating a variable to hold `allExperiments` array, and setting a breakpoint after in order to see the *\_state* property of the `OptimizelyExperimentData` object. An experiment will be marked as `OptimizelyExperimentDataStateRunning` if the experiment is running.
 
@@ -117,7 +116,7 @@ Now, once you’ve navigated to the view controller where your variation is, you
 
 *CHECK DIFFERENT VARIATIONS*
 
-Typically, if you want to check that different variations are working as expected, you can use Optimizely’s Preview functionality. If you want to test out different variations in normal mode, you'll have to delete the app from the device and re-install it. Optimizely stores which variation a users sees and makes sure they will always see this variation. Deleting the app treats the fresh installation as a new user.
+Typically, if you want to check that different variations are working as expected, you can use Optimizely’s [Preview functionality](https://help.optimizely.com/hc/en-us/articles/202296994-Get-Started-on-Mobile-Optimization#preview). If you want to test out different variations in normal mode, you'll have to delete the app from the device and re-install it. Optimizely stores which variation a users sees and makes sure they will always see this variation. Deleting the app treats the fresh installation as a new user.
 
 
 TIP:

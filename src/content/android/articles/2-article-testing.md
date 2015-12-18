@@ -5,7 +5,7 @@ includeSiblingData: true
 title: "QA Optimizely Android Experiments"
 summary: |
    Learn how to use Optimizely developer tools to QA your Optimizely experiments.
-   You can find examples of how to use each of the QA methods in Optimizely's TutorialApp, which can be downloaded with the SDK.  The corresponding guide can be found [here]("/android/guide/index.html").
+   You can find examples of how to use each of the QA methods in Optimizely's TutorialApp, which can be [downloaded with the SDK](/android/getting-started/index.html).  The corresponding guide can be found [here]("/android/guide/index.html").
 
 
 ---
@@ -19,7 +19,7 @@ summary: |
 
 ### OVERVIEW
 
-So you’ve created your experiment, finished your setup, and you’d like to QA your experiment to make sure it’s working correctly. There are two main ways to QA your experiment, which include: Preview Mode and Developer Debugging tools. This article will focus on how to QA your experiment with developer tools.
+So you’ve created your experiment, finished your setup, and you’d like to QA your experiment to make sure it’s working correctly. There are two main ways to QA your experiment, which include: [Preview Mode](https://help.optimizely.com/hc/en-us/articles/202296994#preview) and Developer Debugging tools. This article will focus on how to QA your experiment with developer tools.
 
 *Preview mode*
 
@@ -27,7 +27,7 @@ This lets you see your variation changes as your user would. You can easily ente
 
 *Developer debugging tools*
 
-You can take advantage of Optimizely’s [event listeners](/android/reference/index.html#adding-an-event-listener) and the [data object](/android/reference/index.html#custom-integration) in order to gain a better understanding of when your experiment is running. These tools will allow you to check that you are creating the experience, targeting the audience, and tracking the goals that you expect.
+You can take advantage of Optimizely’s [event listeners](/android/reference/index.html#adding-an-event-listener) and the [data object](/android/reference/index.html#experiment-data-object) in order to gain a better understanding of when your experiment is running. These tools will allow you to check that you are creating the experience, targeting the audience, and tracking the goals that you expect.
 
 
 TIP:
@@ -37,18 +37,17 @@ In the following sections, we'll provide steps to follow to QA your experiment.
 
 
 NOTE:
-> For information about the APIs that are being described in this article, including [listeners](/android/reference/index.html#adding-an-event-listener) and experiment [data object](/android/reference/index.html#custom-integration), you can always refer back to our API documentation for definitions on how these methods work!
+> For information about the APIs that are being described in this article, including [listeners](/android/reference/index.html#adding-an-event-listener) and experiment [data object](/android/reference/index.html#experiment-data-object), you can always refer back to our API documentation for definitions on how these methods work!
 
 ### DEBUGGING YOUR EXPERIMENTS
 
 In addition to the methods laid out in this article, our Developer Docs provide additional methods for debugging your experiments:
 
-- Subscribe to NSNotifications (iOS only)
-- Adding an Event Listener (Android only)
-- Experiment Data Object (iOS, Android)
-- Audience Information (iOS, Android)
-- Forcing a Variation (iOS, Android)
-- Resetting QA State (iOS, Android)
+- [Adding an Event Listener](/android/reference/index.html#adding-an-event-listener)
+- [Experiment Data Object](/android/reference/index.html#experiment-data-object)
+- [Audience Information](/android/reference/index.html#audience-information)
+- [Forcing a Variation](/android/reference/index.html#forcing-a-variation)
+- [Resetting QA State](/android/reference/index.html#resetting-qa-state)
 
 ### RUN YOUR APP IN NORMAL MODE
 
@@ -70,7 +69,7 @@ TIP:
 
 
 NOTE:
-> Before pressing Start, you will want to make sure that you either have custom tags set up or a separate project in a staging environment so that your live users do not see your experiment.
+> Before pressing Start, you will want to make sure that you either have [custom tags](/android/reference/index.html#custom-tags) set up or a separate project in a staging environment so that your live users do not see your experiment.
 
 <img src="/assets/img/start_experiment.png" alt="Drawing" style="width: 50%;"/>
 
@@ -84,7 +83,7 @@ An experiment is running when the datafile is successfully downloaded, the user 
 - `OptimizelyExperimentDataStateRunning`
 - `OptimizelyExperimentDataStateDeactivated`
 
-For more details about how an experiment can be in each of these states, refer to our documentation of how the SDK works.
+For more details about how an experiment can be in each of these states, refer to our documentation of [how the SDK works](/android/articles/1-article-testing.html).
 
 For Android, you can drill down into Optimizely's `allExperiments` data object by setting a breakpoint and see the same information about targeting and experiment state.
 
@@ -110,7 +109,7 @@ You can set breakpoints to view useful experiment data properties such as visite
 
 *CHECK DIFFERENT VARIATIONS*
 
-Typically, if you want to check that different variations are working as expected, you can use Optimizely’s Preview functionality. If you want to test out different variations in normal mode, you'll have to delete the app from the device and re-install it. Optimizely stores which variation a users sees and makes sure they will always see this variation. Deleting the app treats the fresh installation as a new user.
+Typically, if you want to check that different variations are working as expected, you can use Optimizely’s [Preview functionality](https://help.optimizely.com/hc/en-us/articles/202296994-Get-Started-on-Mobile-Optimization#preview). If you want to test out different variations in normal mode, you'll have to delete the app from the device and re-install it. Optimizely stores which variation a users sees and makes sure they will always see this variation. Deleting the app treats the fresh installation as a new user.
 
 TIP:
 > Optimizely’s Traffic Allocation will randomly bucket users into a variation based on the percentages that are set in the Optimizely Editor. When you change a variation’s traffic allocation mid-experiment, all new users will be allocated accordingly from then on.
