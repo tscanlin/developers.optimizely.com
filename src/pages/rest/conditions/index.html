@@ -6,7 +6,10 @@
     {%
       include 'partials/_nav.html'
       {
-        topPath: '/rest/',
+        pathArray: [
+          'rest',
+          'conditions'
+        ],
         section: {
           path: 'conditions/'
         },
@@ -89,7 +92,7 @@
   {% set condition = json.dimensions[type] %}
 
   {%
-    include 'templates/sidebyside.html'
+    include 'partials/_sidebyside.html'
     {
       title: condition.title,
       anchor: type,

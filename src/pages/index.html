@@ -1,14 +1,16 @@
 {%
   include 'partials/_head.html'
   {
-    page: "home"
+    page: 'home',
+    pathArray: ['index']
   }
 %}
 
 {%
   include 'partials/_header.html'
   {
-    page: "home"
+    page: 'home',
+    pathArray: ['index']
   }
 %}
 
@@ -39,28 +41,28 @@
       <div class="max-width--large anchor--middle">
         <div class="grid">
           <div class="grid__cell width--1-4 is-stacked-on-mobile text--center">
-            <a class="link--dark display--block" href="{{ paths.navigation.rest.path + paths.navigation.rest.sections.introduction.path }}">
+            <a class="link--dark display--block" href="{{ paths.navigation.rest.path + '/' + paths.navigation.rest.sections.introduction.path }}">
               <img src="assets/img/rest-icon.svg" class="img--circle display--inline-block">
               <h4 class="push-double--top weight--bold">{{ paths.navigation.rest.title }}</h4>
               <p class="push-half--bottom">Manage your Optimizely projects using code.</p>
             </a>
           </div>
           <div class="grid__cell width--1-4 is-stacked-on-mobile text--center">
-            <a class="link--dark display--block" href="{{ paths.navigation.javascript.path + paths.navigation.javascript.sections.introduction.path }}">
+            <a class="link--dark display--block" href="{{ paths.navigation.javascript.path + '/' + paths.navigation.javascript.sections.introduction.path }}">
               <img src="assets/img/js-icon.svg" class="img--circle display--inline-block">
               <h4 class="push-double--top weight--bold">{{ paths.navigation.javascript.title }}</h4>
               <p class="push-half--bottom">Customize the behavior of Optimizely on web pages.</p>
             </a>
           </div>
           <div class="grid__cell width--1-4 is-stacked-on-mobile text--center">
-            <a class="link--dark display--block" href="{{ paths.navigation.ios.path + paths.navigation.ios.sections.introduction.path }}">
+            <a class="link--dark display--block" href="{{ paths.navigation.ios.path + '/' + paths.navigation.ios.sections.introduction.path }}">
               <img src="assets/img/iOS-icon.svg" class="img--circle display--inline-block">
               <h4 class="push-double--top weight--bold">{{ paths.navigation.ios.title }}</h4>
               <p class="push-half--bottom">Create and run experiments in your iOS app.</p>
             </a>
           </div>
           <div class="grid__cell width--1-4 is-stacked-on-mobile text--center">
-            <a class="link--dark display--block" href="{{ paths.navigation.android.path + paths.navigation.android.sections.introduction.path }}">
+            <a class="link--dark display--block" href="{{ paths.navigation.android.path + '/' + paths.navigation.android.sections.introduction.path }}">
               <img src="assets/img/android-icon.svg" class="img--circle display--inline-block">
               <h4 class="push-double--top weight--bold">{{ paths.navigation.android.title }}</h4>
               <p class="push-half--bottom">Create and run experiments in your Android app.</p>
@@ -112,19 +114,19 @@
       </div>
       <div class="grid soft-quad--bottom">
         <div class="grid__cell width--1-3 is-stacked-on-mobile text--center">
-          <a class="link--dark" href="{{ paths.navigation.rest.path + 'code-samples/#results' }}">
+          <a class="link--dark" href="{{ paths.navigation.rest.path + '/code-samples/#results' }}">
             <h4 class="weight--bold">Pull data into internal reports</h4>
             <p class="flush">Get full access to Optimizely Stats Engine, so you can view the performance of your experiments and personalized experiences in the tool of your choice.</p>
           </a>
         </div>
         <div class="grid__cell width--1-3 is-stacked-on-mobile text--center">
-          <a class="link--dark" href="{{ paths.navigation.javascript.path + 'code-samples/#conditional' }}">
+          <a class="link--dark" href="{{ paths.navigation.javascript.path + '/code-samples/#conditional' }}">
             <h4 class="weight--bold">Conditionally activate experiments</h4>
             <p class="flush">Override Optimizely's default bucketing behavior, so you can customize when your experiments activate on web pages and in mobile apps.
           </a>
         </div>
         <div class="grid__cell width--1-3 is-stacked-on-mobile text--center">
-          <a class="link--dark" href="{{ paths.navigation.javascript.path + 'code-samples/#advanced-goal-tracking' }}">
+          <a class="link--dark" href="{{ paths.navigation.javascript.path + '/code-samples/#advanced-goal-tracking' }}">
             <h4 class="weight--bold">Track custom events</h4>
             <p class="flush">Track the actions and events that matter most to your business, so you can better target experiences and segment your Optimizely reports.</p>
           </a>

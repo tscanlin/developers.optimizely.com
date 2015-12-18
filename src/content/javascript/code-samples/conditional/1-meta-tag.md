@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Polling - Meta tag data
 anchor: conditional-activation-meta-tag
 html: |

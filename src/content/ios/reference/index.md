@@ -365,7 +365,7 @@ For example, here's an use case where the user logs in, the developer sets a log
 
 Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. iPad app to iPhone app). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in `NSUserDefaults` and continue to use it until a new one is set.
 
-Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. UUID will not rebucket users who have seen a certain experiment already. *Regardless, make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.* 
+Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. UUID will not rebucket users who have seen a certain experiment already. *Regardless, make sure to target your experiments to "Has Universal User ID" to ensure consistent counting and bucketing across devices.*
 
 ```obj-c
 [Optimizely sharedInstance].userId = @"userid";
@@ -436,7 +436,11 @@ Optimizely integrates with popular analytics frameworks to allow you to slice an
 
 *Note: You must instantiate your analytics SDK in `application:didFinishLaunchingWithOptions:` before calling `startOptimizelyWithAPIToken` and enabling any integrations.*
 
+### Custom Integration
+
 You can also access experiments and variations that a user has visited directly using the `[Optimizely sharedInstance].visitedExperiments` property and pass that data to internal or other analytics frameworks.  You can pass the values of `[Optimizely sharedInstance].visitedExperiments.experimentName` and `[Optimizely sharedInstance].visitedExperiments.variationName` to your analytics tool.  You can learn more about the [allExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/allExperiments) and [visitedExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/visitedExperiments) properties via our API reference.
+
+The recommended time to access data from the `[Optimizely sharedInstance].visitedExperiments` property is when the `OptimizelyExperimentVisitedNotification` is triggered.  For more details on the `OptimizelyExperimentVisitedNotification`, you can refer [here](/ios/reference/index.html#subscribe-to-nsnotifications).
 
 ## Network Settings
 There are only two instances when the Optimizely iOS SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, network calls are automatically made every 2 minutes.  The Optimizely iOS SDK allows you to customize how often these network calls are made by:
@@ -494,29 +498,29 @@ By default, Optimizely buckets users and activates the experiment as soon as the
 #### Manual
 In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Manual activation is only available for SDK versions 1.3.0 and above.
 
-*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions. 
+*Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.* Manual activation does not bypass Audience conditions.
 
 Toggle between manual and automatic activation mode from the Options > Activation Mode menu in the Editor:
 
 <img src="/assets/img/ios/activation_mode.png" alt="Drawing" style="width: 50%;"/>
 
 ### Use Cases
-#### Use case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment. 
+#### Use case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment.
 
-Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting. 
-For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session. 
+Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting.
+For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session.
 With automatic activation mode, you can only target using tags set before the app was started (and thus set in a previous session).
 
 #### Use case #2: Bucket only a subset of users who access less frequently used areas of your app.
 
-Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit. 
-For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling. 
-If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users. 
+Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit.
+For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling.
+If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users.
 
 #### Use case #3: Quick-load assets for consistency.
 
 Remote assets distributed by the Optimizely CDN, such as images you upload to our editor, start loading asynchronously when the app starts. As a result, if any assets fail to load before an experiment is viewed due to slow internet speeds, the user is not showed the variation and is instead shown the control even though that user has been bucketed.
-The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results. 
+The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results.
 In manual activation mode, you can activate experiments right when you want to show them, giving the user’s device more time to load assets associated with that experiment.
 
 ### Manual Activation Example
@@ -526,16 +530,16 @@ In manual activation mode, you can activate experiments right when you want to s
 // Instead you have to activate them manually for users to see your experiment
 [Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
                           launchOptions:launchOptions];
-                          
+
 ...
 
 // You specify when you want to activate each manual experiment.
-// For use case #1 above, this can be useful if you want to wait until you 
+// For use case #1 above, this can be useful if you want to wait until you
 // have additional data for a user and then store that data as custom tags.
 // For example, we now know that the user is a VIP user so we set a tag for that
 [Optimizely setValue:@"VIP" forCustomTag:@"accountType"];
-    
-// Activate a manual experiment that takes the custom tag we just set into account 
+
+// Activate a manual experiment that takes the custom tag we just set into account
 BOOL success = [Optimizely activateManualExperiment:myExperimentId];
 ```
 
@@ -589,22 +593,22 @@ OptimizelyExperimentData *data = [Optimizely getExperimentDataById:@"EXPERIMENT_
   ```
 
 ### Audience Information
-There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return an array of all the audiences associated with your project. Each audience is represented as an NSDictionary and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience:` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started. 
+There are a couple utility functions that you can use to help aid in debugging audiences. `getAudiences` will return an array of all the audiences associated with your project. Each audience is represented as an NSDictionary and you'll be able extract additional metadata through the following keys: `audience_id`, `conditions`, and `name`. From there you can check whether or not the user currently satisfy a given audience by calling `isUserInAudience:` with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started.
 
 Here's an example below:
 ```obj-c
 // Make sure to call the helper functions after starting Optimizely
 [Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
                           launchOptions:launchOptions];
-  
+
 // Gets an array that holds all your project audiences
 NSArray *audiences = [Optimizely getAudiences];
-    
+
 for (NSDictionary *audience in audiences) {
 	// You can access the metadata associated with each audience
     // Here we're just getting each audience's audienceId
     NSString *audienceId = audience[@"audience_id"];
-        
+
     // We can then check to see if the user currently satisfies those
     // audience conditions
     BOOL included = [Optimizely isUserInAudience:audienceId];
@@ -613,7 +617,7 @@ for (NSDictionary *audience in audiences) {
 ```  
 
 ### Forcing a Variation
-Sometimes you'll want to try out your experiment before it goes live and outside of preview mode. You may spend a lot of time re-bucketing yourself in order to get into all the experiment combinations. Now you can opt to force an experiment into a given variation with `forceVariation:ofExperiment:`. *You must force the variation before calling start Optimizely.* 
+Sometimes you'll want to try out your experiment before it goes live and outside of preview mode. You may spend a lot of time re-bucketing yourself in order to get into all the experiment combinations. Now you can opt to force an experiment into a given variation with `forceVariation:ofExperiment:`. *You must force the variation before calling start Optimizely.*
 
 When you force a variation for a given experiment, we'll reset the app's userId and try to force that experiment/variation if they are both valid. This should be called before startOptimizely is called and keep in mind that you should only use this for testing your experiments. You should NOT ship this to your customers.
 

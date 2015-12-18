@@ -1,5 +1,5 @@
 ---
-template: inline
+partial: partials/_inline.html
 title: Function - Button click
 anchor: conditional-activation-button-click
 js: |

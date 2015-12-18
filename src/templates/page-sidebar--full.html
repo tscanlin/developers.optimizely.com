@@ -28,7 +28,15 @@
         </ul>
       </div>
 
-      {{ body | safe }}
+      {% for section in sections %}
+        {% for i, key in siblingData[section] | sort %}
+          {%
+            include 'partials/_sidebyside.html'
+            siblingData[section][key]
+          %}
+        {% endfor %}
+      {% endfor %}
+
     </div>
   </main>
 

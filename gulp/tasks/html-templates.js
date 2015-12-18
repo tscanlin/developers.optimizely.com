@@ -7,6 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var handleErrors = require('../util/handleErrors');
 var paths = require('../../config').paths;
+var siteJson; // Cache reference to site JSON.
 
 try {
   var dimensions = yaml.safeLoad(fs.readFileSync('./src/pages/rest/conditions/dimensions.yaml', 'utf8'));
@@ -22,12 +23,15 @@ var json = {
 
 var opts = {
   setup: function(swig) {
+    siteJson = JSON.parse(fs.readFileSync(path.join(paths.build, 'content.json')));
+
     swig.setDefaults({
       cache: false,
       loader: swig.loaders.fs(paths.src),
       locals: {
         paths: paths,
         json: json,
+        siteJson: siteJson, // Holds master json file.
       },
     });
 
@@ -48,12 +52,11 @@ var opts = {
   },
 };
 
-gulp.task('html-templates', function() {
+gulp.task('html-templates', ['data'], function() {
   return gulp.src([
-      path.join(paths.src + paths.pages, '**/*.html'),
-    ])
-    .pipe(swig(opts))
-    .on('error', handleErrors)
-    .pipe(gulp.dest(paths.build))
-    .pipe(browserSync.reload({stream: true}));
+    path.join(paths.src + paths.pages, '**/*.html'),
+  ])
+  .pipe(swig(opts))
+  .on('error', handleErrors)
+  .pipe(gulp.dest(paths.build));
 });

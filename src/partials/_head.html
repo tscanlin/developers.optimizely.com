@@ -18,5 +18,5 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="//cdn.optimizely.com/js/5935064.js"></script>
   </head>
-  <body class="{{ topPath|replace('/', '', 'g') }}{% if subPath %} {{ subPath }}{% endif %}{% if page %} {{ page }}{% endif %}">
+  <body class="{{ pathArray[0] }}{% if pathArray[1] %} {{ pathArray[1] }}{% endif %}{% if page %} {{ page }}{% endif %}">
     {% include 'partials/_svg-symbols.svg' %}

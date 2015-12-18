@@ -1,0 +1,23 @@
+{%
+  include 'partials/_head.html'
+%}
+
+{% include 'partials/_header.html' %}
+
+  <main id="main" class="main has-nav">
+    {% include 'partials/_nav.html' %}
+
+    <div id="content" class="content soft-double max-width--reading">
+      {% for article in articles | sort %}
+        {% set object = siblingData[article] %}
+        {%
+          include object.partial
+          object
+        %}
+      {% endfor %}
+    </div>
+  </main>
+
+{% include 'partials/_footer.html' %}
+
+{% include 'partials/_foot.html' %}

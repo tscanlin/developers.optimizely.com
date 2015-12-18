@@ -1,90 +1,55 @@
+var extend = require('xtend');
 var build = './build/';
 var src = './src/';
 var assets = 'assets/';
 
 // Sections for each navigation item.
-var NAV_SECTIONS = {
+var BASE_NAV_SECTIONS = {
   'introduction': {
-    path: 'introduction/',
+    path: 'introduction',
     title: 'Introduction',
   },
   'getting-started': {
-    path: 'getting-started/',
+    path: 'getting-started',
     title: 'Getting started',
   },
   'reference': {
-    path: 'reference/',
+    path: 'reference',
     title: 'Reference',
   },
   'faqs': {
-    path: 'faqs/',
+    path: 'faqs',
     title: 'FAQs',
   },
   'code-samples': {
-    path: 'code-samples/',
+    path: 'code-samples',
     title: 'Code Samples',
   },
 };
 
 // Sections for each navigation item.
-var JS_NAV_SECTIONS = {
-  'introduction': {
-    path: 'introduction/',
-    title: 'Introduction',
-  },
-  'getting-started': {
-    path: 'getting-started/',
-    title: 'Getting started',
-  },
-  'reference': {
-    path: 'reference/',
-    title: 'Reference',
-  },
-  'faqs': {
-    path: 'faqs/',
-    title: 'FAQs',
-  },
-  'code-samples': {
-    path: 'code-samples/',
-    title: 'Code Samples',
-  },
+var JS_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'personalization': {
-    path: 'personalization/',
+    path: 'personalization',
     title: 'Personalization',
   }
-};
+});
 
 // Sections for each navigation item.
-var MOBILE_NAV_SECTIONS = {
-  'introduction': {
-    path: 'introduction/',
-    title: 'Introduction',
-  },
-  'getting-started': {
-    path: 'getting-started/',
-    title: 'Getting started',
-  },
+var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'guide': {
-    path: 'guide/',
+    path: 'guide',
     title: 'Tutorial',
   },
-  'reference': {
-    path: 'reference/',
-    title: 'Reference',
-  },
-  'faqs': {
-    path: 'faqs/',
-    title: 'FAQs',
-  },
-  'code-samples': {
-    path: 'code-samples/',
-    title: 'Code Samples',
-  },
   'changelog': {
-    path: 'changelog/',
+    path: 'changelog',
     title: 'Changelog',
   },
-};
+  'articles': {
+    path: 'articles',
+    title: 'Articles',
+  }
+});
 
 var paths = {
   // Used by gulp tasks to build / compile pages and assets.
@@ -107,34 +72,33 @@ var paths = {
   // Used in the UI to build the navigation.
   navigation: {
     overview: {
-      path: '/overview/',
+      path: 'overview',
       title: 'Overview',
     },
     rest: {
-      path: '/rest/',
+      path: 'rest',
       title: 'REST API',
-      sections: NAV_SECTIONS,
+      sections: BASE_NAV_SECTIONS,
     },
     javascript: {
-      path: '/javascript/',
+      path: 'javascript',
       title: 'JS API',
       sections: JS_NAV_SECTIONS,
     },
     ios: {
-      path: '/ios/',
+      path: 'ios',
       title: 'iOS SDK',
       sections: MOBILE_NAV_SECTIONS,
     },
     android: {
-      path: '/android/',
+      path: 'android',
       title: 'Android SDK',
       sections: MOBILE_NAV_SECTIONS,
     },
     integrations: {
-      path: '/integrations/',
+      path: 'integrations',
       title: 'Integrations',
     },
-
   },
 };
 
