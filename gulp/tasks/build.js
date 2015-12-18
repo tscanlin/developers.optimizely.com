@@ -5,5 +5,5 @@ gulp.task('build', [
   'sass',
   'browserify',
   'images',
-  'browser-sync-reload', // does 'markdown' and 'html-templates' too.
+  'markdown',
 ]);
