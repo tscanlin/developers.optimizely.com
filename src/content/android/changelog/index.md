@@ -5,8 +5,16 @@ title: "Optimizely Android SDK Changelog"
 
 # Optimizely Android SDK Changelog
 
+### 1.3.6
+December 21, 2015
+
+*Bug Fixes:*
+- Fixes internal task queueing error.  
+
 ### 1.3.5
 December 14, 2015
+
+*Bug Fixes:*
 - Fixes crash when handling GSON failure during SDK disabling.  This only selects a few specific devices.
 
 ### 1.3.4
@@ -19,7 +27,7 @@ December 7, 2015
 November 30, 2015
 
 *Bug Fixes:*
-- Fixed incompatibility with edit or preview mode on older Android devices (API 17 and below)
+- Fixes incompatibility with edit or preview mode on older Android devices (API 17 and below)
 
 ### 1.3.2
 November 25, 2015
