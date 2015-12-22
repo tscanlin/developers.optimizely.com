@@ -9,19 +9,19 @@ title: "Optimizely Android SDK Changelog"
 December 21, 2015
 
 *Bug Fixes:*
-- Fixes internal task queueing error.  
+- Fixes internal task queueing error
 
 ### 1.3.5
 December 14, 2015
 
 *Bug Fixes:*
-- Fixes crash when handling GSON failure during SDK disabling.  This only selects a few specific devices.
+- Fixes crash when handling GSON failure during SDK disabling.  This only selects a few specific devices
 
 ### 1.3.4
 December 7, 2015
 
 *Bug Fixes:*
-- Handles GSON crash when it creating GSON adapter.  GSON crashes will cause the SDK to disable itself and not crash the host app.
+- Handles GSON crash when it creating GSON adapter.  GSON crashes will cause the SDK to disable itself and not crash the host app
 
 ### 1.3.3
 November 30, 2015
