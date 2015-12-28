@@ -438,3 +438,50 @@ This listener fires whenever a page is activated, either due to URL targeting or
   - `name` (string): The user-friendly name, like "Homepage"
   - `apiName` (string): The API name for the page, used for manual activation
   - `category` (string): The category, like "homepage"
+
+## Debugging
+
+### Logging
+
+You can tell Optimizely to output its log to the browser's console log by using the query parameter `optimizely_log={level}`. For example, you can follow the high-level execution by adding `?optimizely_log=info`. The following levels are supported, and the default is off:
+
+- **OFF**: No logging
+- **ERROR**: Errors only
+- **WARN**: Warnings and errors
+- **INFO**: High-level information on campaigns, audiences, and event tracking
+- **DEBUG**: Detailed logging for debugging purposes
+- **ALL**: All logs
+
+### Campaign Activation
+
+You can use the [logging output](#logging) to see which campaigns are activating for a given a visitor, and which experience they will see.
+
+First, enable logging by adding `?optimizely_log=info` to a URL on your site. Then, open your browser's console to see the logging output. To make the log more readable, it may help to filter within the console log to "Optly /" so that other messages are hidden.
+
+![](/assets/img/js/init.png)
+
+The first few lines cover the initialization of the Optimizely client, including data like the active campaigns, events, and pages. You can use this section to confirm that the right data is being compiled into the snippet. Some of the terminology is slightly different from the user interface:
+- Campaigns are referred to as `layers`
+- Experiences within a campaign are listed as `experiments` within a layer, each of which has a single `variation`
+- Pages are referred to as `views`
+- `actions` are the set of changes that apply for a specific experience on a particular page
+
+To debug a specific campaign, you can search within the console (Cmd-F) for that campaign's ID. You can find the ID in the URL of the Optimizely interface. A campaign with the URL `https://app.optimizely.com/p13n/3563611614/layers/3558430129` has the ID `3558430129`. Searching for this ID will lead to a "decision event" in the logs, which captures Optimizely's decision about which experience should be shown for a given a campaign. This line is preceded by a section saying `Activating layer...` and followed by a section saying `Activated layer...`, and between these lines you can see the execution logic. For example:
+
+![](/assets/img/js/decision-no.png)
+
+In this example, the output is telling us that the visitor did not match any of the audiences in the campaign. Therefore, they weren't eligible for any experiences and no changes will actually be appied.
+
+![](/assets/img/js/decision-yes.png)
+
+In this example, the output tells us that the visitor qualified for two audiences: Shoe Shoppers and Cold Weather. Optimizely decided to serve the Shoe Shoppers experience because it was ranked higher (experiment 3559000019), and the visitor was randomly assigned to the personalized treatment rather than the holdback. Optimizely registed an Action, which included a set of changes like a new background image and new button text. Optimizely recorded the layer decision and then applied the changes.
+
+### Events and Tags
+
+To debug event tracking and visual tags, you can use the network tab to observe requests to Optimizely's log endpoint. For example, in Google Chrome, you can open the Developer Tools and then reload the page. When you click on the Network tab, you'll see all the network requests on that page. You can filter these requests to show only those made by Optimizely for tracking purposes by filtering to `p13nlog`. When you trigger an event, e.g. by clicking a button, you'll see it fire here. For example:
+
+![](/assets/img/js/event.png)
+
+In this example, we've triggered the Share button on the Product Detail Page. The `eventName` shows the API name of the event, and the `type` corresponds to the category in the Optimizely interface. For pages, `eventType = 'view-activated'` and the `eventName` will be the ID of the page.
+
+The `eventFeatures` show tags that were captured on the page. In this case, we can see tags picking up the product's category, subcategory, title, and price. `eventMetrics` show tags that are used as metrics on the results page, like revenue for a custom event. Finally, the `layerStates` show which campaigns the event will be attributed to.

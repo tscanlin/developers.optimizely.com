@@ -49,7 +49,9 @@ module.exports = function() {
           parentNode.appendChild(subGroup);
           parentNode = subGroup;
         } else if (currentHeadingLevel < lastHeadingLevel) {
-          parentNode = parentNode.parentNode;
+          for (var level = lastHeadingLevel; level > currentHeadingLevel; level--) {
+            parentNode = parentNode.parentNode;  
+          }          
         }
       }
 
