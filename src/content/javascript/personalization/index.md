@@ -482,6 +482,6 @@ To debug event tracking and visual tags, you can use the network tab to observe 
 
 ![](/assets/img/js/event.png)
 
-In this example, we've triggered the Share button on the Product Detail Page. The `eventName` shows the API name of the event, and the `type` corresponds to the category in the Optimizely interface.
+In this example, we've triggered the Share button on the Product Detail Page. The `eventName` shows the API name of the event, and the `type` corresponds to the category in the Optimizely interface. For pages, `eventType = 'view-activated'` and the `eventName` will be the ID of the page.
 
 The `eventFeatures` show tags that were captured on the page. In this case, we can see tags picking up the product's category, subcategory, title, and price. `eventMetrics` show tags that are used as metrics on the results page, like revenue for a custom event. Finally, the `layerStates` show which campaigns the event will be attributed to.
