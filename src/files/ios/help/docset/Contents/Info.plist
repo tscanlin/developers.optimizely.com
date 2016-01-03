@@ -12,9 +12,9 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	
-	
-	
+
+
+
 	<key>DocSetFallbackURL</key>
 	<string>http://www.optimizely.com/Optimizely</string>
 	<key>DocSetFeedName</key>
@@ -23,7 +23,7 @@
 	<string>http://www.optimizely.com/Optimizely/Optimizely.atom</string>
 	<key>DocSetMinimumXcodeVersion</key>
 	<string>3.0</string>
-	
+
 	<key>DashDocSetFamily</key>
 	<string>appledoc</string>
 	<key>DocSetPublisherIdentifier</key>
@@ -31,6 +31,6 @@
 	<key>DocSetPublisherName</key>
 	<string>Optimizely</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2015 Optimizely. All rights reserved.</string>
+	<string>Copyright © 2016 Optimizely. All rights reserved.</string>
 </dict>
 </plist>
