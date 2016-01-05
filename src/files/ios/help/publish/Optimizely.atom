@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
     <id>http://www.optimizely.com/Optimizely/Optimizely.atom/20151104142300</id>
     <title type="text">Optimizely Documentation</title>
-    <rights>Copyright © 2015 Optimizely. All rights reserved.</rights>
+    <rights>Copyright © 2016 Optimizely. All rights reserved.</rights>
     <link rel="self" href="http://www.optimizely.com/Optimizely/Optimizely.atom"></link>
     <docset:publisherName>Optimizely</docset:publisherName>
     <docset:publisherID>com.optimizely.documentation</docset:publisherID>
