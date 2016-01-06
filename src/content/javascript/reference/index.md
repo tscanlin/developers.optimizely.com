@@ -114,7 +114,7 @@ window['optimizely'].data.state.activeExperiments
 
 This is an array of experiment ids for all the active experiments.
 
-#### Active Experiments
+#### Redirect Experiment
 
 ```javascript
 window['optimizely'].data.state.redirectExperiment
