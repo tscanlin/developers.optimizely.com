@@ -17,7 +17,7 @@ response: |
   }
 ---
 
-Gets all customer IDs aliased to the Optimizely datasource customer ID.
+Get all customer IDs aliased to the Optimizely User ID.
 
 The `data` section of response is a map of datasource IDs to their corresponding Customer IDs, each aliased to the
 canonical Optimizely User ID.
