@@ -29,7 +29,7 @@ response: |
   }
 ---
 
-Create a Datasource for the specified DCP Service.
+Create a Datasource for the specified DCP Service.  The `dcp_service_id` is required in the URL.
 
 #### Required Fields
 - `name`

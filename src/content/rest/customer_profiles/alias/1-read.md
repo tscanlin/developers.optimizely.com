@@ -17,9 +17,9 @@ response: |
   }
 ---
 
-Get all customer IDs aliased to the Optimizely User ID.
+Get all customer IDs aliased to the specified Optimizely User ID.  The `dcp_service_id`, `optimizely_datasource_id`, and `optimizely_user_id` are required in the URL.
 
-The `data` section of response is a map of datasource IDs to their corresponding Customer IDs, each aliased to the
+The `data` section of the response is a map of datasource IDs to their corresponding Customer IDs, each aliased to the
 canonical Optimizely User ID.
 
 <div class="attention attention--warning push--bottom">

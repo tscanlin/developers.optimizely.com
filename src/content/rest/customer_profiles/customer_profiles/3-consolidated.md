@@ -28,5 +28,6 @@ response: |
   ]
 ---
 
-Gets the consolidated view of the customer profile for the specified DCP Service and Optimizely User. The profile is
-consolidated by [aliasing](/rest/customer_profiles#alias) across different datasources in the DCP Service.
+Get a consolidated view of a single customer profile.  The `dcp_service_id` and `optimizely_user_id` are required in the URL.
+
+The profile is consolidated by [aliasing](/rest/customer_profiles#alias) across different datasources in the DCP Service.

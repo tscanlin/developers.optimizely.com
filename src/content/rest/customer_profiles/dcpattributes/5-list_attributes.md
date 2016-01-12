@@ -30,6 +30,4 @@ response: |
     }
   ]
 ---
-Gets all attributes for the specified datasource.
-The response to [GET datasource](/rest/customer_profiles/index.html#read-dcpdatasource) also includes all attributes of
-that datasource.
+Get a list of all attributes in the specified datasource.  The `datasource_id` is required in the URL.

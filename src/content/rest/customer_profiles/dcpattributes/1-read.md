@@ -31,4 +31,4 @@ response: |
     "version": 1
   }
 ---
-Gets the metadata of the specified attribute.
+Get metadata for the specified attribute.  The `attribute_id` is required in the URL.

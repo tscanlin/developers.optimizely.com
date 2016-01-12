@@ -24,7 +24,7 @@ response: |
     "version": 1
   }
 ---
-Creates an attribute for a given datasource
+Create a single attribute for customer profiles in a datasource.  The `datasource_id` is required in the URL.
 
 #### Datatype options
 - "string"
