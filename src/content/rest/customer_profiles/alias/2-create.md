@@ -11,7 +11,7 @@ request:
     1232: "mkto1245433:213ad"
 ---
 
-Alias the customer ID of the specified datasource with the customer ID of the Optimizely datasource.
+Alias customer IDs to the specified Optimizely User ID.  The `dcp_service_id`, `optimizely_datasource_id`, and `optimizely_user_id` are required in the URL.
 
 In the example, the customer IDs corresponding to datasources *8905* and *1232* are now aliased to the Optimizely User
 ID *oeu1234.5678*. The Optimizely datasource ID is *678* and the DCP Service ID is *567*.

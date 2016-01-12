@@ -59,4 +59,4 @@ response: |
   ]
 ---
 
-Get all datasources for the specified DCPService
+Get a list of all datasources in the specified DCPService.  The `dcp_service_id` is required in the URL.

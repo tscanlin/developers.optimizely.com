@@ -23,7 +23,7 @@ response: |
     "version": 1
   }
 ---
-Updates the metadata of the specified attribute.
+Update a single attribute.  The `attribute_id` is required in the URL.
 
 #### Editable fields
 - `description`

@@ -21,7 +21,7 @@ response: |
   }
 ---
 
-Creates a new DCP Service under your account.
+Create a new DCP Service under your account.
 
 #### Required Fields
 - `name`

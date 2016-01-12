@@ -17,4 +17,4 @@ response: |
   }
 ---
 
-Gets the customer profile attributes for the specified DCP Service, datasource, and customer's ID in that datasource.
+Get a single customer profile.  The `dcp_service_id`, `datasource_id`, and `customer_id_in_datasource` are required in the URL.

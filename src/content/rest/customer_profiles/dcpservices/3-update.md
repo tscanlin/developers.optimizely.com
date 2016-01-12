@@ -21,7 +21,7 @@ response: |
     "s3_path": "dcp/567"
   }
 ---
-Update name of DCPService
+Update a single DCPService.  The `dcp_service_id` is required in the URL.
 
 #### Editable Fields
 - `name`

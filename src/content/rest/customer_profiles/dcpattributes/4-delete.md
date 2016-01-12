@@ -7,7 +7,7 @@ endpoint_option: 789
 title: Delete Attribute
 anchor: delete-dcpattribute
 ---
-Archives the specified attribute
+Archive a single attribute.  The `attribute_id` is required in the URL.
 
 Once an attribute is archived, you can no longer update or read Customer Profile data for this attribute. You can
 unarchive an attribute at any time.

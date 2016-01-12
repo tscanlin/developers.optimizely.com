@@ -29,7 +29,7 @@ response: |
   }
 ---
 
-Updates a Datasource.
+Update a Datasource.  The `datasource_id` is required in the URL.
 
 #### Editable fields
 - `name`

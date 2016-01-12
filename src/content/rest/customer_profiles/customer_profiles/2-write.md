@@ -21,11 +21,10 @@ response: |
   }
 ---
 
-Creates/Updates the attributes for the specified customer's profile; the DCP Service, datasource, and customer's ID in
-that datasource must be specified.
+Create or update a single customer profile.  The `dcp_service_id`, `datasource_id`, and `customer_id_in_datasource` are required in the URL.
 
-The request data is a set of key value pairs, where each key is the `name` of the
-[attribute](/rest/customer_profiles#dcp_attributes) and its `value` must conform to the attribute's datatype and format.
+The request data must be a JSON object, where each key is the `name` of an
+[attribute](/rest/customer_profiles#dcp_attributes) and each `value` must conform to the attribute's datatype and format.
 
 #### Note:
 - The specified attribute value overwrites any existing value specified earlier.

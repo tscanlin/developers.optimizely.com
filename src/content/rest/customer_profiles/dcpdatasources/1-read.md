@@ -42,5 +42,5 @@ response: |
   }
 ---
 
-Gets data of the specified datasource.
+Get metadata for the specified datasource.  The `datasource_id` is required in the URL.
 
