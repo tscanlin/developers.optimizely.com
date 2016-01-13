@@ -17,7 +17,7 @@ These APIs are similar to the [tracking calls in Optimizely Testing](/javascript
 
 Some legacy API calls like `trackEvent` will automatically trigger a new API call in this format. You don't need to reimplement event tracking if you've already set it up, but you can use the new API format to track additional tags for behavioral targeting (see below).
 
-#### Examples
+##### *Examples*
 ```js
 // Legacy format
 window['optimizely'].push(['trackEvent', 'watchedVideo']);
@@ -38,14 +38,14 @@ window['optimizely'].push({
 The `event` method captures visitor behavior and additional data. You can track clicks and pageviews in Optimizely
 without code, but this API call supports tracking other behaviors like watching a video. These events can be used for measuring the results of a campaign, or for defining an audience based on behavior. [Learn more about events.](https://help.optimizely.com/hc/en-us/articles/210306928#events)
 
-#### Parameters
+##### *Parameters*
 
 - `type`: "event"
 - `eventName` (string): The "API name" for an event created in Optimizely, e.g. `add_to_cart`
 - `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
   - `revenue` (integer): A special tag that denotes a revenue-generating event. Revenue should be an integer equal to 100 times the value. For example, a purchase of $79.99 or €79.99 would be `7999`. Revenue should only be attached to the final purchase to prevent double-counting, and if you've already tracked events using the legacy `trackEvent` method you should not re-instrument it again.
 
-#### Examples
+##### *Examples*
 ```js
 // Basic tracking
 window['optimizely'].push({
@@ -87,13 +87,13 @@ Pages can be created visually in Optimizely with URL targeting, but this API cal
 
 Page information is reset whenever the browser reloads.
 
-#### Parameters
+##### *Parameters*
 
 - `type`: "page"
 - `pageName` (string): The "API name" for a page created in Optimizely, e.g. `product_detail`. Choose the "manual activation" option in page creation to see or change this name.
 - `tags` (object): A single-level JSON object with metadata about the content on the page, e.g. the product being purchased.
 
-#### Examples
+##### *Examples*
 ```js
 window['optimizely'] = window['optimizely'] || [];
 
@@ -125,12 +125,12 @@ There are three ways to capture this context:
  * Directly on a [page](#pages), using the `tags` property. These tags will be sent along with any event that happens on that page.
  * Finally, you can use this `tags` method directly to add context without activating a page and tracking a pageview. This is equivalent to the previous option, but it can be used when pages are already being activated using URL targeting.
 
-#### Parameters
+##### *Parameters*
 
 - `type`: "tags"
 - `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
 
-#### Examples
+##### *Examples*
 ```js
 // Tracking the current product
 window['optimizely'].push({
@@ -151,13 +151,13 @@ The `user` method captures attributes of a user and stores them in a profile tha
 You can also use this function to identify a user with a unique `userId`. If you don't provide an ID, we'll automatically generate an anonymous ID and persist it in a cookie. Providing your own userId allows you to target lists of users by their ID and integrate offline data. See [Uploaded Audience targeting](https://help.optimizely.com/hc/en-us/articles/206197347-Uploaded-Audience-Targeting-Create-audiences-based-on-lists-of-data) for more information.
 
 
-#### Parameters
+##### *Parameters*
 
 - `type`: "user"
 - `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.
 - `attributes` (object): Metadata about a user, e.g. their home state. Attributes can be used for discovering and targeting audiences.
 
-#### Examples
+##### *Examples*
 ```js
 window['optimizely'] = window['optimizely'] || [];
 
@@ -355,13 +355,13 @@ utils.waitForElement('#pre-header-shipping-cont').then(function(headerElement) {
 
 This utility accepts a function that returns a boolean value and returns a `Promise` that resolves when the supplied function returns `true`.
 
-##### Parameters
+##### *Parameters*
 - `conditionFunction` (function): A function that will be executed periodically and returns a boolean value
 
-##### Returns
+##### *Returns*
 An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-##### Examples
+##### *Examples*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -380,7 +380,7 @@ utils.waitUntil(function() {
 
 As Optimizely runs on your site, you can hook into the snippet's execution and run your own code at different points by using the `addListener` API. Looking for other listeners? Contact us at [developers@optimizely.com](mailto:developers@optimizely.com).
 
-#### Parameters
+##### *Parameters*
 
 - `type`: "addListener"
 - `filter` (object): The events to listen for
@@ -388,7 +388,7 @@ As Optimizely runs on your site, you can hook into the snippet's execution and r
   - `name` (string)
 - `handler` (function): A callback to run when an event fires. The function takes a single `data` object that varies based on the event. 
 
-#### Examples
+##### *Examples*
 
 ```js
 
@@ -410,12 +410,12 @@ window.optimizely.push({
 
 This listener fires whenever a decision is made for a campaign. This means that Optimizely has chosen an audience/experience to display.
 
-#### Parameters
+##### *Parameters*
 
 - `type`: "lifecycle"
 - `name`: "layerDecided"
 
-#### Callback Parameters
+##### *Callback Parameters*
 
 - `data`: (object)
   - `layer`: (object) Details about the campaign
@@ -426,18 +426,52 @@ This listener fires whenever a decision is made for a campaign. This means that 
 
 This listener fires whenever a page is activated, either due to URL targeting or manual activation.
 
-#### Parameters
+##### *Parameters*
 
 - `type`: "lifecycle"
 - `name`: "viewActivated"
 
-#### Callback Parameters
+##### *Callback Parameters*
 
 - `data`: (object)
   - `id` (integer)
   - `name` (string): The user-friendly name, like "Homepage"
   - `apiName` (string): The API name for the page, used for manual activation
   - `category` (string): The category, like "homepage"
+
+### Customer Profiles
+
+<h4 id="getAttributeValue" class="subLink">getAttributeValue</h4>
+
+This utility returns the current customer's value for a content-enabled [customer profile attribute](http://developers.optimizely.com/rest/reference/#dcp_attributes).
+
+##### *Parameters*
+- `datasourceId` (number): Required
+- `attributeId` (number): Required if `attributeName` is not provided
+- `attributeName` (string): Required if `attributeId` is not provided.  Does not work if descriptive names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
+
+##### *Returns*
+- The uploaded attribute value, if a customer profile has been uploaded for the current user.
+- `undefined` if any of the following are true:
+  - A customer profile still needs to be [uploaded](http://developers.optimizely.com/rest/reference/#customer_profiles) for the current user.
+  - A customer profile has been uploaded, but it does not include the desired attribute.
+  - The Optimizely client is waiting for fresh data from the DCP service.
+- Throws an error if any of the following are true:
+  - The specified attribute does not exist.
+  - The specified attribute is not content-enabled.
+  - The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
+
+##### *Examples*
+```js
+// Retrieve the dcp library
+var dcp = window['optimizely'].get('dcp');
+
+// Specify a content-enabled attribute by ID.
+dcp.getAttributeValue({datasourceId: 123, attributeId: 456});
+
+// Specify a content-enabled attribute by name.
+dcp.getAttributeValue({datasourceId: 123, attributeName: 'Preferred Locale'});
+```
 
 ## Debugging
 
