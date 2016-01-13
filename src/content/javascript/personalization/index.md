@@ -439,6 +439,40 @@ This listener fires whenever a page is activated, either due to URL targeting or
   - `apiName` (string): The API name for the page, used for manual activation
   - `category` (string): The category, like "homepage"
 
+### Customer Profiles
+
+<h4 id="getAttributeValue" class="subLink">getAttributeValue</h4>
+
+This utility returns the current customer's value for a content-enabled [customer profile attribute](http://developers.optimizely.com/rest/reference/#dcp_attributes).
+
+##### *Parameters*
+- `datasourceId` (number): Required
+- `attributeId` (number): Required if `attributeName` is not provided
+- `attributeName` (string): Required if `attributeId` is not provided.  Does not work if descriptive names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
+
+##### *Returns*
+- The uploaded attribute value, if a customer profile has been uploaded for the current user.
+- `undefined` if any of the following are true:
+  - A customer profile still needs to be [uploaded](http://developers.optimizely.com/rest/reference/#customer_profiles) for the current user.
+  - A customer profile has been uploaded, but it does not include the desired attribute.
+  - The Optimizely client is waiting for fresh data from the DCP service.
+- Throws an error if any of the following are true:
+  - The specified attribute does not exist.
+  - The specified attribute is not content-enabled.
+  - The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
+
+##### *Examples*
+```js
+// Retrieve the dcp library
+var dcp = window['optimizely'].get('dcp');
+
+// Specify a content-enabled attribute by ID.
+dcp.getAttributeValue({datasourceId: 123, attributeId: 456});
+
+// Specify a content-enabled attribute by name.
+dcp.getAttributeValue({datasourceId: 123, attributeName: 'Preferred Locale'});
+```
+
 ## Debugging
 
 ### Logging
