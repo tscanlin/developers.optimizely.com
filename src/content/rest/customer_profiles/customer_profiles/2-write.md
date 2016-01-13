@@ -4,7 +4,7 @@ endpoint: customer_profile/567/678/oeu1234.5678
 endpoint_domain: https://vis.optimizely.com/api/
 type: POST
 title: Write customer profile
-anchor: update-customer-profile
+anchor: update-customer_profile
 request:
   data:
     "LTV": 10,

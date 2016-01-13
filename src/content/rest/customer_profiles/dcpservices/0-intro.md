@@ -24,7 +24,7 @@ customer attributes from other sources. Multiple Optimizely projects can be asso
 ##### Uploading Data
 To upload customer attributes from a particular source, [add a datasource](/rest//customer_profiles#create-dcpdatasource)
 to your DCP Service. Each DCP Service contains a provisioned [AWS](http://aws.amazon.com/) account used for bulk data
-uploads.  Details on uploading data to a datasource can be found [here](/rest/customer_profiles#dcp_datasources). You
+uploads.  Details on uploading data to a datasource can be found [here](/rest/customer_profiles#customer_profiles). You
 can upload customer attributes to a datasource in a streaming manner using the [customer profile
-APIs](/rest/customer_profiles#customer_profiles) or in bulk using the [datasources S3
+APIs](/rest/customer_profiles#update-customer_profile) or in bulk using the [datasources S3
 bucket](/rest/customer_profiles#bulk).

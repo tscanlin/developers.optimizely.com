@@ -27,13 +27,13 @@ response: |
 Create a single attribute for customer profiles in a datasource.  The `datasource_id` is required in the URL.
 
 #### Datatype options
-- "string"
-- "bool"
-- "long"
-- "double"
-- "datetime": Needs format to be a Datetime format
+- `"string"`
+- `"bool"`
+- `"long"`
+- `"double"`
+- `"datetime"`: Needs format to be a Datetime format
 
 #### Datetime format options
-- "yyyy-mm-dd": ISO_8601 UTC date format
-- "yyyy-mm-ddThh:mm:ssZ": ISO_8601 datetime format
-- "epoch": Epoch time in milliseconds
+- `"yyyy-mm-dd"`: ISO_8601 UTC date format
+- `"yyyy-mm-ddThh:mm:ssZ"`: ISO_8601 datetime format
+- `"epoch"`: Epoch time in milliseconds

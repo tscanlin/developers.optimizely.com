@@ -22,8 +22,6 @@ The APIs below can be used to create, update, and delete customer profiles.
 For a quick introduction to the REST API, refer to the [Getting started](/rest/getting-started) guide and check out our
 [FAQs](/rest/faqs).
 
-Note: Dynamic Customer Profiles are currently in Beta and are only available for whitelisted accounts. The APIs are
-subject to change based on feedback from early customers. If you would like early access to DCP please contact us at
-[customer_profiles@optimizely.com](mailto:customer_profiles@optimizely.com)! We are eager to hear your feedback!
+To enable DCP for your account, please contact [techpartners@optimizely.com](mailto:techpartners@optimizely.com)
 
 <img src="/assets/img/dcp/overview.png">
