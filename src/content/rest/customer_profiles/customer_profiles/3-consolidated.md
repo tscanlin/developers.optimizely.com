@@ -1,7 +1,7 @@
 ---
 template: sidebyside
-endpoint: consolidated_customer_profile_view/567/oeu1234.5678
-endpoint_prefix: consolidated_customer_profile_view/
+endpoint: consolidatedCustomerView/567/oeu1234.5678
+endpoint_prefix: consolidatedCustomerView/
 endpoint_domain: https://vis.optimizely.com/api/
 endpoint_option: 567
 type: GET
