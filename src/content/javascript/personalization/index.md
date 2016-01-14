@@ -443,7 +443,7 @@ This listener fires whenever a page is activated, either due to URL targeting or
 
 <h4 id="getAttributeValue" class="subLink">getAttributeValue</h4>
 
-This utility returns the current customer's value for a content-enabled [customer profile attribute](http://developers.optimizely.com/rest/reference/#dcp_attributes).
+This utility returns the current customer's value for a content-enabled [customer profile attribute](http://developers.optimizely.com/rest/customer-profiles/#dcp_attributes).
 
 ##### *Parameters*
 - `datasourceId` (number): Required
@@ -453,7 +453,7 @@ This utility returns the current customer's value for a content-enabled [custome
 ##### *Returns*
 - The uploaded attribute value, if a customer profile has been uploaded for the current user.
 - `undefined` if any of the following are true:
-  - A customer profile still needs to be [uploaded](http://developers.optimizely.com/rest/reference/#customer_profiles) for the current user.
+  - A customer profile still needs to be [uploaded](http://developers.optimizely.com/rest/customer-profiles/#customer_profiles) for the current user.
   - A customer profile has been uploaded, but it does not include the desired attribute.
   - The Optimizely client is waiting for fresh data from the DCP service.
 - Throws an error if any of the following are true:
