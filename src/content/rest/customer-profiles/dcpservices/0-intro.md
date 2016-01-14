@@ -22,7 +22,7 @@ will begin storing project-specific attributes. You may create other datasources
 customer attributes from other sources. Multiple Optimizely projects can be associated to a single DCP Service.
 
 ##### Uploading Data
-To upload customer attributes from a particular source, [add a datasource](/rest//customer_profiles#create-dcpdatasource)
+To upload customer attributes from a particular source, [add a datasource](/rest/customer-profiles#create-dcpdatasource)
 to your DCP Service. Each DCP Service contains a provisioned [AWS](http://aws.amazon.com/) account used for bulk data
 uploads.  Details on uploading data to a datasource can be found [here](/rest/customer-profiles#customer_profiles). You
 can upload customer attributes to a datasource in a streaming manner using the [customer profile
