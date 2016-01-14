@@ -27,7 +27,8 @@ response: |
     "exclude_names": null,
     "ip_anonymization": false,
     "ip_filter": "1.2.3.4",
-    "socket_token": "AABBCCDD~123456789"
+    "socket_token": "AABBCCDD~123456789",
+    "dcp_service_id": 121234
   }
 ---
 
@@ -42,3 +43,4 @@ response: |
 - `exclude_names`
 - `ip_anonymization`
 - `ip_filter`
+- `dcp_service_id`
