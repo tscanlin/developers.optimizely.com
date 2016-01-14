@@ -37,14 +37,6 @@
                 <a class="section{% if section.path === 'conditions/' && relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/conditions/index.html">Conditions</a>
                 <ul class="unstyled nav nav--stacked toc"></ul>
               </li>
-
-              {% if relativePath === 'rest/customer_profiles/index' %}
-                <li>
-                  <a class="section{% if section.path === 'customer_profiles/' && relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}"
-                     href="/{{ item.path }}/customer_profiles/index.html">Dynamic Customer Profiles (Beta)</a>
-                  <ul class="unstyled nav nav--stacked toc"></ul>
-                </li>
-              {% endif %}
             {% endif %}
 
             <!-- Add links to auto generated docs -->
