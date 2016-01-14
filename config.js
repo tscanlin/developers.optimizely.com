@@ -32,7 +32,15 @@ var JS_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'personalization': {
     path: 'personalization',
     title: 'Personalization',
-  }
+  },
+});
+
+// Sections for each navigation item.
+var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
+  'customer-profiles': {
+    path: 'customer-profiles',
+    title: 'Dynamic Customer Profiles',
+  },
 });
 
 // Sections for each navigation item.
@@ -78,7 +86,7 @@ var paths = {
     rest: {
       path: 'rest',
       title: 'REST API',
-      sections: BASE_NAV_SECTIONS,
+      sections: REST_NAV_SECTIONS,
     },
     javascript: {
       path: 'javascript',

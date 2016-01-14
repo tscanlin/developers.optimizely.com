@@ -11,6 +11,6 @@ sections:
 - alias
 - profile_integrations
 section:
-  path: 'customer_profiles/'
-relativePath: 'rest/customer_profiles/'
+  path: 'customer-profiles/'
+relativePath: 'rest/customer-profiles/'
 ---

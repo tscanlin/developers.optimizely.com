@@ -4,7 +4,7 @@ title: Alias
 anchor: alias
 ---
 
-Alias APIs are used to link customer IDs across [datasources](/rest/customer_profiles#dcp_datasources).
+Alias APIs are used to link customer IDs across [datasources](/rest/customer-profiles#dcp_datasources).
 
 <img src="/assets/img/dcp/alias.png">
 
@@ -18,7 +18,7 @@ are aliased to this ID. The Optimizely ID is either a
 stored in the `optimizelyEndUserId` cookie.
 
 You may retrieve a unified view of the customer using the [consolidated customer profile
-view](/rest/customer_profiles#consolidated-profile) API call.
+view](/rest/customer-profiles#consolidated-profile) API call.
 
 <div class="attention attention--warning push--bottom">
 These APIs that follow use the domain https://vis.optimizely.com/api/
