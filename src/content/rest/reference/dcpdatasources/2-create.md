@@ -38,5 +38,5 @@ Create a Datasource for the specified DCP Service.  The `dcp_service_id` is requ
   - `"query parameter"`
   - `"js_variable"`
   - `"uid"`
-- `keyfield_locator_name`: Name of keyfield locator. Required for all `keyfield_locator_types` except `"uid"`, and must
+- `keyfield_locator_name`: Name of customer ID locator. Required for all `keyfield_locator_types` except `"uid"`, and must
   match the regular expression `/^[a-zA-Z_][a-zA-Z_0-9\$]*$/`.

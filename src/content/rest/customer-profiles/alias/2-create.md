@@ -23,6 +23,6 @@ In this example, it is *678*.  The `customerId` for this call should be the Opti
 *oeu1234.5678*.
 </div>
 
-You do not need to use this API in order for aliases to be created.  If you can populate your
-[datasources](https://help.optimizely.com/hc/en-us/articles/216307487#add)' key field locators with customer IDs,
+You do not need to use this API in order for aliases to be created.  If you configure your
+[datasources](https://help.optimizely.com/hc/en-us/articles/216307487#add) with appropriate customer ID locators,
 Optimizely will automatically alias your customer IDs to Optimizely User IDs (as customers visit your website).

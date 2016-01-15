@@ -16,9 +16,8 @@ fields:
   dcp_service_id: The DCPService this datasource is associated with
   description: A short description
   is_optimizely: Boolean indicating if this is the Optimizely Datasource
-  keyfield_locator_type: Type of keyfield locator. The keyfield locator is the client location of this Datasource's
-                         customer id. Must be one of `"cookie"`, `"query parameter"`, `"js_variable"`, or `"uid"`.
-  keyfield_locator_name: Name of keyfield locator. Required for all `keyfield_locator_types` except `"uid"`, and must
+  keyfield_locator_type: Type of customer ID locator. Must be one of `"cookie"`, `"query parameter"`, `"js_variable"`, or `"uid"`.
+  keyfield_locator_name: Name of customer ID locator. Required for all `keyfield_locator_types` except `"uid"`, and must
                          match the regular expression `/^[a-zA-Z_][a-zA-Z_0-9\$]*$/`
   last_modified: Last modified date of this Datasource
   name: The name of the Datasource

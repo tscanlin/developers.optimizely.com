@@ -16,11 +16,13 @@ datasource allows you to send data to Optimizely without requiring you to reconc
 of reconciling data of the same customer across datasources can be achieved using the
 [alias](/rest/customer-profiles#alias) operation.
 
-When creating a Datasource, you will provide a key field locator type and name to enable Optimizely to perform aliasing
-for you. A key field locator is a location on your resource (e.g. web-page) where you can place the customer id for a
-particular datasource. Optimizely will read this information for each of your customers and alias each of the datasource
-customer ids to the canonical Optimizely user id (UID) assigned on the customer's device. In the figure, "Email
-Platform" has a key field locator type `cookie`, and name `email_platform_cookie_name`. You will place this datasource's
-customer id in a `cookie` named `email_platform_cookie_name`, which Optimizely can read and alias to the Optimizely UID.
+When creating a datasource, you will provide a customer ID locator (type and name), which tells Optimizely where we can
+find the customer ID on your web pages.  When a customer visits, Optimizely will read their customer ID (for each 
+datasource) and alias it to their Optimizely User ID.
+In the figure, the "Email Platform" datasource has a locator whose type is `cookie` and whose name is 
+`email_platform_cookie_name`.  In order for aliasing to work, you would have to place an appropriate customer ID
+(matching the customer ID for every row that you upload for this datasource) in a `cookie` named 
+`email_platform_cookie_name`.
 
-If you prefer to alias customer IDs by yourself, you can do so using the [alias](/rest/customer-profiles#alias) API.
+If you prefer to alias customer IDs manually, and if you know the corresponding Optimizely User ID for each of your
+customer IDs, you can do so using the [alias](/rest/customer-profiles#alias) API.
