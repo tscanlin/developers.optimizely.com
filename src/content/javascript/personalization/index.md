@@ -443,7 +443,7 @@ This listener fires whenever a page is activated, either due to URL targeting or
 
 <h4 id="getAttributeValue" class="subLink">getAttributeValue</h4>
 
-This utility returns the current customer's value for a content-enabled [customer profile attribute](/rest/customer-profiles/#dcp_attributes).
+This utility returns the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216307487#content_attributes) profile attribute.
 
 ##### *Parameters*
 - `datasourceId` (number): Required
@@ -451,15 +451,16 @@ This utility returns the current customer's value for a content-enabled [custome
 - `attributeName` (string): Required if `attributeId` is not provided.  Does not work if descriptive names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
 
 ##### *Returns*
-- The uploaded attribute value, if a customer profile has been uploaded for the current user.
-- `undefined` if any of the following are true:
-  - A customer profile still needs to be [uploaded](/rest/customer-profiles/#customer_profiles) for the current user.
-  - A customer profile has been uploaded, but it does not include the desired attribute.
-  - The Optimizely client is waiting for fresh data from the DCP service.
-- Throws an error if any of the following are true:
-  - The specified attribute does not exist.
-  - The specified attribute is not content-enabled.
-  - The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
+The uploaded attribute value, or `undefined` if any of the following are true:
+- A customer profile still needs to be [uploaded](https://help.optimizely.com/hc/en-us/articles/216307487#upload) for the current user.
+- A profile has been uploaded, but it does not include the desired attribute.
+- The Optimizely client is waiting for fresh data from the DCP service.
+
+##### *Throws*
+If any of the following are true:
+- The specified attribute does not exist
+- The attribute is not content-enabled
+- The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
 
 ##### *Examples*
 ```js
