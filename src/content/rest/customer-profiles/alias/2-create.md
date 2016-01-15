@@ -22,3 +22,7 @@ datasources](/rest/customer-profiles/#list-dcpservice-datasources) and finding t
 In this example, it is *678*.  The `customerId` for this call should be the Optimizely User ID. In this example, it is
 *oeu1234.5678*.
 </div>
+
+You do not need to use this API in order for aliases to be created.  If you can populate your
+[datasources](https://help.optimizely.com/hc/en-us/articles/216307487#add)' key field locators with customer IDs,
+Optimizely will automatically alias your customer IDs to Optimizely User IDs (as customers visit your website).
