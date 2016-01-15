@@ -10,10 +10,10 @@ This section walks through how to build an integration that uploads customer att
 
 ### Pre-requisites
 
-* Your application stores customer IDs (e.g. hashed email addresses or other unique IDs)
-* Customer IDs are not personally identifiable, according to Optimizely's
-  [Terms of Service](https://www.optimizely.com/terms/)
-* Customer IDs can be accessed via the customer's device (e.g. in a cookie, query parameter, or javascript variable)
+* Your application must store customer IDs (e.g. hashed email addresses or other unique IDs)
+* Customer IDs must not be [personally identifiable](https://help.optimizely.com/hc/en-us/articles/215757948),
+  as per Optimizely's [Terms of Service](https://www.optimizely.com/terms/)
+* Customer IDs must be accessible via the customer's device (e.g. in a cookie, query parameter, or JavaScript variable)
 * You are comfortable using REST APIs
 
 ### 1. Get Access

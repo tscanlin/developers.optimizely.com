@@ -11,7 +11,7 @@ To use these APIs, we recommend that you first read the sections on
 [DCP Services](/rest/customer-profiles#dcp_services), [datasources](/rest/customer-profiles#dcp_datasources),
 and [attributes](/rest/customer-profiles#dcp_attributes)
 
-Using the [consolidated customer profile view](/rest/customer-profiles#consolidated-profile) API call, you can retrieve
+Using the [consolidated customer profile](/rest/customer-profiles#consolidated-profile) API call, you can retrieve
 the complete Customer Profile across all data sources.
 
 <img src="/assets/img/dcp/customer_profiles.png">
