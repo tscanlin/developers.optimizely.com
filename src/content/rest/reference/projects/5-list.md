@@ -24,6 +24,7 @@ response: |
       "id": 819000157,
       "account_id": 555650815,
       "socket_token": "AABBCCDD~123456789"
+      "dcp_service_id": 121234 
     },
     {
       "code_revision": 12,
@@ -42,6 +43,7 @@ response: |
       "id": 859720118,
       "account_id": 555650815,
       "socket_token": "AABBCCDD~123456789"
+      "dcp_service_id": null 
     }
   ]
 ---
