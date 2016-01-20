@@ -33,6 +33,7 @@ response: |
         "description": "Predicted LTV, per growth team",
         "format": null,
         "id": 111,
+        "is_value_public": false,
         "name": "Long-term value"
       }, {
         "archived": false,
@@ -40,6 +41,7 @@ response: |
         "description": "Alexa rank",
         "format": null,
         "id": 222,
+        "is_value_public": false,
         "name": "alexa_rank"
       }],
       "aws_access_key": "AKfakekeyV8SH8XTJBUPO",

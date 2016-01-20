@@ -15,6 +15,7 @@ response: |
       "description": "Predicted LTV, per growth team",
       "format": null,
       "id": 789,
+      "is_value_public": false,
       "name": "Long-term value"
     },
     {
@@ -24,6 +25,7 @@ response: |
       "description": null,
       "format": null,
       "id": 790,
+      "is_value_public": true,
       "name": "most_viewed_category"
     }
   ]

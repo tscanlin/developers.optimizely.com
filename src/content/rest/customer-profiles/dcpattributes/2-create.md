@@ -19,6 +19,7 @@ response: |
     "description": "Predicted LTV, per growth team",
     "format": null,
     "id": 789,
+    "is_value_public": false,
     "last_modified": "2015-08-18T21:38:55.927680Z",
     "name": "Long-term value"
   }

@@ -18,6 +18,7 @@ response: |
     "description": null,
     "format": null,
     "id": 789,
+    "is_value_public": false,
     "last_modified": "2015-08-18T21:38:55.927680Z",
     "name": "is_high_value_customer"
   }
