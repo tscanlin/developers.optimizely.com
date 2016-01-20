@@ -34,7 +34,7 @@ response: |
         "format": null,
         "id": 111,
         "is_value_public": false,
-        "name": "Long-term value"
+        "name": "Life-time value"
       }, {
         "archived": false,
         "datatype": "long",

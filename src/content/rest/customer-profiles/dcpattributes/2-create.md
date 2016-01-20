@@ -7,9 +7,9 @@ type: POST
 title: Create Attribute
 anchor: create-dcpattribute
 request:
-  name: "LTV"
+  name: "Life-time value"
   datatype: "long"
-  description: "Long term value"
+  description: "Predicted LTV, per growth team"
 response: |
   {
     "archived": false,
@@ -21,7 +21,7 @@ response: |
     "id": 789,
     "is_value_public": false,
     "last_modified": "2015-08-18T21:38:55.927680Z",
-    "name": "Long-term value"
+    "name": "Life-time value"
   }
 ---
 Create a single attribute for customer profiles in a datasource.  The `datasource_id` is required in the URL.

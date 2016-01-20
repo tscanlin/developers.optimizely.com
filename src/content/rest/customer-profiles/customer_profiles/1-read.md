@@ -8,7 +8,7 @@ anchor: read-customer_profile
 response: |
   {
     "data": {
-      "LTV": 10,
+      "Life-time value": 10,
       "most_viewed_category": "jeans"
     },
     "dcpServiceId": "567",

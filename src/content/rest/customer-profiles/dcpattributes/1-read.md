@@ -28,7 +28,7 @@ response: |
     "id": 789,
     "is_value_public": false,
     "last_modified": "2015-08-18T21:38:55.927680Z",
-    "name": "Long-term value"
+    "name": "Life-time value"
   }
 ---
 Get metadata for the specified attribute.  The `attribute_id` is required in the URL.
