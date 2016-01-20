@@ -34,15 +34,13 @@ response: |
         "format": null,
         "id": 111,
         "name": "Long-term value"
-        "version": 1
       }, {
         "archived": false,
         "datatype": "long",
         "description": "Alexa rank",
         "format": null,
         "id": 222,
-        "name": "alexa_rank",
-        "version": 1
+        "name": "alexa_rank"
       }],
       "aws_access_key": "AKfakekeyV8SH8XTJBUPO",
       "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",

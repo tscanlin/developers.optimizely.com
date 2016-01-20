@@ -16,7 +16,6 @@ fields:
   last_modified: Last modified date of the attribute
   name: Name of the attribute. Used to identify an attribute across our REST APIs and bulk upload. Note that this
         name is case-sensitive.
-  version: Version of the attribute. Currently attribute incremental versioning is not yet supported
 response: |
   {
     "archived": false,
@@ -28,7 +27,6 @@ response: |
     "id": 789,
     "last_modified": "2015-08-18T21:38:55.927680Z",
     "name": "Long-term value"
-    "version": 1
   }
 ---
 Get metadata for the specified attribute.  The `attribute_id` is required in the URL.

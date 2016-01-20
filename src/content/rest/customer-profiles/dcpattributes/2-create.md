@@ -21,7 +21,6 @@ response: |
     "id": 789,
     "last_modified": "2015-08-18T21:38:55.927680Z",
     "name": "Long-term value"
-    "version": 1
   }
 ---
 Create a single attribute for customer profiles in a datasource.  The `datasource_id` is required in the URL.

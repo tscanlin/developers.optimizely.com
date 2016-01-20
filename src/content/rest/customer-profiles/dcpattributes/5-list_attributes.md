@@ -16,7 +16,6 @@ response: |
       "format": null,
       "id": 789,
       "name": "Long-term value"
-      "version": 1
     },
     {
       "archived": false,
@@ -26,7 +25,6 @@ response: |
       "format": null,
       "id": 790,
       "name": "most_viewed_category"
-      "version": 1
     }
   ]
 ---
