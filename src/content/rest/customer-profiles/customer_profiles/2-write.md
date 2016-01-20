@@ -7,12 +7,12 @@ title: Write customer profile
 anchor: update-customer_profile
 request:
   data:
-    "LTV": 10,
+    "Life-time value": 10,
     "most_viewed_category": "jeans"
 response: |
   {
     "data": {
-      "LTV": 10,
+      "Life-time value": 10,
       "most_viewed_category": "jeans"
     },
     "dcpServiceId": "567",

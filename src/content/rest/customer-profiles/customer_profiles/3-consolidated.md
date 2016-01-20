@@ -14,7 +14,7 @@ response: |
       "datasourceId": "789",
       "customerId": "oeu1234.5678"
       "data": {
-        "LTV": 10,
+        "Life-time value": 10,
         "most_viewed_category": "jeans"
       }
     },

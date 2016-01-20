@@ -12,11 +12,11 @@ response: |
       "archived": false,
       "datatype": "long",
       "dcp_datasource_id": 678,
-      "description": null,
+      "description": "Predicted LTV, per growth team",
       "format": null,
       "id": 789,
-      "name": "LTV"
-      "version": 1
+      "is_value_public": false,
+      "name": "Life-time value"
     },
     {
       "archived": false,
@@ -25,8 +25,8 @@ response: |
       "description": null,
       "format": null,
       "id": 790,
+      "is_value_public": true,
       "name": "most_viewed_category"
-      "version": 1
     }
   ]
 ---

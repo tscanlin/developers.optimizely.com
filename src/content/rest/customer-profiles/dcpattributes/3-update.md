@@ -18,9 +18,9 @@ response: |
     "description": null,
     "format": null,
     "id": 789,
+    "is_value_public": false,
     "last_modified": "2015-08-18T21:38:55.927680Z",
     "name": "is_high_value_customer"
-    "version": 1
   }
 ---
 Update a single attribute.  The `attribute_id` is required in the URL.
@@ -29,6 +29,6 @@ Update a single attribute.  The `attribute_id` is required in the URL.
 - `description`
 
 <div class="attention attention--warning push--bottom">
-*NOTE:* Updates to an attribute's name, datatype, or version are not currently supported. We recommend archiving the
+*NOTE:* Updates to an attribute's name or datatype are not currently supported. We recommend archiving the
 existing attribute and creating a replacement, with the desired name, datatype, and format.
 </div>

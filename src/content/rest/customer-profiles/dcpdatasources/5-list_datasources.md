@@ -30,19 +30,19 @@ response: |
       "attributes": [{
         "archived": false,
         "datatype": "long",
-        "description": "Long Term Value",
+        "description": "Predicted LTV, per growth team",
         "format": null,
         "id": 111,
-        "name": "LTV",
-        "version": 1
+        "is_value_public": false,
+        "name": "Life-time value"
       }, {
         "archived": false,
         "datatype": "long",
         "description": "Alexa rank",
         "format": null,
         "id": 222,
-        "name": "alexa_rank",
-        "version": 1
+        "is_value_public": false,
+        "name": "alexa_rank"
       }],
       "aws_access_key": "AKfakekeyV8SH8XTJBUPO",
       "aws_secret_key": "ailb234vK/fakekeyc8SH8SeGCh2leiuX",
