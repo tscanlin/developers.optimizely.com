@@ -16,11 +16,11 @@ response: |
     "created": "2015-08-18T21:38:55.927670Z",
     "datatype": "long",
     "dcp_datasource_id": 678,
-    "description": "Long term value",
+    "description": "Predicted LTV, per growth team",
     "format": null,
     "id": 789,
     "last_modified": "2015-08-18T21:38:55.927680Z",
-    "name": "LTV"
+    "name": "Long-term value"
     "version": 1
   }
 ---

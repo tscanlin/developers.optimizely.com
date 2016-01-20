@@ -12,10 +12,10 @@ response: |
       "archived": false,
       "datatype": "long",
       "dcp_datasource_id": 678,
-      "description": null,
+      "description": "Predicted LTV, per growth team",
       "format": null,
       "id": 789,
-      "name": "LTV"
+      "name": "Long-term value"
       "version": 1
     },
     {

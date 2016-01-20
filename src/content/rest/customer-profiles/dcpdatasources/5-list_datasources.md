@@ -30,10 +30,10 @@ response: |
       "attributes": [{
         "archived": false,
         "datatype": "long",
-        "description": "Long Term Value",
+        "description": "Predicted LTV, per growth team",
         "format": null,
         "id": 111,
-        "name": "LTV",
+        "name": "Long-term value"
         "version": 1
       }, {
         "archived": false,
