@@ -31,14 +31,6 @@
               </li>
             {% endfor %}
 
-            <!-- Add rest/conditions -->
-            {% if item.path === 'rest' %}
-              <li>
-                <a class="section{% if section.path === 'conditions/' && relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/conditions/index.html">Conditions</a>
-                <ul class="unstyled nav nav--stacked toc"></ul>
-              </li>
-            {% endif %}
-
             <!-- Add links to auto generated docs -->
             {% if item.path === 'ios' %}
               <li>

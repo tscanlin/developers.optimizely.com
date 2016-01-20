@@ -41,6 +41,10 @@ var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
     path: 'customer-profiles',
     title: 'Dynamic Customer Profiles',
   },
+  'conditions': {
+    path: 'conditions',
+    title: 'Conditions',
+  },
 });
 
 // Sections for each navigation item.
