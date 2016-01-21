@@ -4,9 +4,6 @@ title: "CP"
 includeSiblingData: true
 sections:
 - overview
-- dcpservices
-- dcpdatasources
-- dcpattributes
 - customer_profiles
 - alias
 - profile_integrations
