@@ -10,7 +10,7 @@ fields:
   archived: Whether the attribute is archived.
   created: Creation date of the attribute.
   datatype: Datatype of the attribute. Must be one of `"string"`, `"bool"`, `"long"`, `"double"`, `"datetime"`.
-  dcp_datasource_id: ID of the [datasource](/rest/customer-profiles/#dcp_datasources) to which the attribute belongs.
+  dcp_datasource_id: ID of the [datasource](/rest/reference/#dcp_datasources) to which the attribute belongs.
   description: Description of the attribute.
   format: When datatype is date, must be one of `"yyyy-mm-dd"`, `"yyyy-mm-ddThh:mm:ssZ"`, `"epoch"`.
   is_value_public: Whether the attribute can be used to deliver [content](https://help.optimizely.com/hc/en-us/articles/216497887).

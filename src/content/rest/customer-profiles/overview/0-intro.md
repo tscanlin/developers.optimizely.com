@@ -11,7 +11,7 @@ based on this view.
 
 A single customer profile contains attributes collected by Optimizely and attributes collected by you, or by services
 that you use, and provided to Optimizely to create a single view of the customer. These attributes are organized and
-stored by [datasource](/rest/customer-profiles#dcp_datasources) and linked across datasources using identity
+stored by [datasource](/rest/reference#dcp_datasources) and linked across datasources using identity
 [aliases](/rest/customer-profiles#alias).
 
 <img src="/assets/img/dcp/overview.png">
