@@ -31,5 +31,5 @@ The request data must be a JSON object, where each key is the `name` of an
 - The request may contain a subset of defined [attributes](/rest/reference#dcp_attributes).
 - If a key does not correspond to a registered [attribute](/rest/reference#dcp_attributes) `name`, the write
   will fail
-- If a value does not respect the [attribute's](/rest/referencedcp_attributes) `datatype`/`format`, the write
+- If a value does not respect the [attribute's](/rest/reference#dcp_attributes) `datatype`/`format`, the write
   will fail
