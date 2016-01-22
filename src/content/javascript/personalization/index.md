@@ -443,7 +443,7 @@ This listener fires whenever a page is activated, either due to URL targeting or
 
 <h4 id="getAttributeValue" class="subLink">getAttributeValue</h4>
 
-This utility returns the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216307487#content_attributes) profile attribute.
+This utility returns the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216497887) profile attribute.
 
 ##### *Parameters*
 - `datasourceId` (number): Required
