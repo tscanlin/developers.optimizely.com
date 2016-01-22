@@ -13,7 +13,7 @@ fields:
   dcp_datasource_id: ID of the [datasource](/rest/customer-profiles/#dcp_datasources) to which the attribute belongs.
   description: Description of the attribute.
   format: When datatype is date, must be one of `"yyyy-mm-dd"`, `"yyyy-mm-ddThh:mm:ssZ"`, `"epoch"`.
-  is_value_public: Whether the attribute can be used to deliver [content](https://help.optimizely.com/hc/en-us/articles/216307487#content_attributes).
+  is_value_public: Whether the attribute can be used to deliver [content](https://help.optimizely.com/hc/en-us/articles/216497887).
   last_modified: Last modified date of the attribute
   name: Name of the attribute. Used to identify an attribute across our REST APIs and bulk upload. Note that this
         name is case-sensitive.
