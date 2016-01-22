@@ -13,4 +13,7 @@ sections:
 - audiences
 - lists
 - dimensions
+- dcpservices
+- dcpdatasources
+- dcpattributes
 ---

@@ -1,6 +1,6 @@
 ---
 template: sidebyside
-title: Datasources
+title: DCP Datasources
 anchor: dcp_datasources
 ---
 

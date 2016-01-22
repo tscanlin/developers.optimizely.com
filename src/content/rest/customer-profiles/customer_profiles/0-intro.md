@@ -8,8 +8,8 @@ Customer Profiles are a collection of your customers' attributes across several 
 you to create, update, and read customer attributes for a single datasource.
 
 To use these APIs, we recommend that you first read the sections on
-[DCP Services](/rest/customer-profiles#dcp_services), [datasources](/rest/customer-profiles#dcp_datasources),
-and [attributes](/rest/customer-profiles#dcp_attributes)
+[DCP Services](/rest/reference#dcp_services), [datasources](/rest/reference#dcp_datasources),
+and [attributes](/rest/reference#dcp_attributes)
 
 Using the [consolidated customer profile](/rest/customer-profiles#consolidated-profile) API call, you can retrieve
 the complete Customer Profile across all data sources.
