@@ -19,10 +19,10 @@ stored by [datasource](/rest/reference#dcp_datasources) and linked across dataso
 Customer profiles can be used to create audiences for targeting, and exported for use in other integrations, or
 analysis.
 
-The APIs below can be used to create, update, and delete customer profiles.
-
-For a quick introduction to the REST API, refer to the [Getting started](/rest/getting-started) guide and check out our
-[FAQs](/rest/faqs).
+Use the customary [REST API](/rest/getting-started) to configure DCP [Services](/rest/reference/#dcp_services),
+[datasources](/rest/reference/#dcp_datasources), and
+[attributes](http://developers.optimizely.com/rest/reference/#dcp_attributes).  Then use the DCP REST API,
+detailed below, to work with individual customer profiles.
 
 To enable DCP for your account, please contact [techpartners@optimizely.com](mailto:techpartners@optimizely.com)
 
