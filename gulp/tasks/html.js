@@ -70,7 +70,7 @@ function addFileNameToObjectsWithTitle(object) {
 
 
 // Gulp task
-gulp.task('markdown', ['html-templates'], function() {
+gulp.task('html', ['html-templates'], function() {
   return gulp.src([
     path.join(paths.src + paths.content, '**/*.md'),
   ])

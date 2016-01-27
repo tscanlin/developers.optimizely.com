@@ -5,5 +5,5 @@ gulp.task('build', [
   'sass',
   'browserify',
   'images',
-  'markdown',
+  'html',
 ]);
