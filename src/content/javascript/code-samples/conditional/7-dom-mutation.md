@@ -37,7 +37,7 @@ js: |
           if (!observer) {
               // Watch for changes in the document
               observer = new MutationObserver(check);
-              observer.observe(doc.documentElement, {
+              observer.observe($(document), {
                   childList: true,
                   subtree: true
               });
@@ -50,15 +50,15 @@ js: |
           // Check the DOM for elements matching a stored selector
           for (var i = 0, len = listeners.length, listener, elements; i < len; i++) {
               listener = listeners[i];
-              // Query for elements matching the specified selector
-              elements = doc.querySelectorAll(listener.selector);
-              for (var j = 0, jLen = elements.length, element; j < jLen; j++) {
-                  element = elements[j];
-                if (!element.ready || listener.repeat) {
-                      // Invoke the callback with the element
-                      listener.fn.call(element, element);
-                  }
-              }
+                // Query for elements matching the specified selector
+                elements = $(listener.selector);
+                for (var j = 0, jLen = elements.length, element; j < jLen; j++) {
+                   element = elements[j];
+                  if (!element.ready || listener.repeat) {
+                       // Invoke the callback with the element
+                        listener.fn.call(element, element);
+                    }
+               }
           }
       }
 
