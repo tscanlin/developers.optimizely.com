@@ -496,20 +496,32 @@ First, enable logging by adding `?optimizely_log=info` to a URL on your site. Th
 ![](/assets/img/js/init.png)
 
 The first few lines cover the initialization of the Optimizely client, including data like the active campaigns, events, and pages. You can use this section to confirm that the right data is being compiled into the snippet. Some of the terminology is slightly different from the user interface:
-- Campaigns are referred to as `layers`
-- Experiences within a campaign are listed as `experiments` within a layer, each of which has a single `variation`
-- Pages are referred to as `views`
+- Experiences within a campaign are listed as `experiments` within a layer, each of which has a single `variation` with a set of `actions`.
 - `actions` are the set of changes that apply for a specific experience on a particular page
 
-To debug a specific campaign, you can search within the console (Cmd-F) for that campaign's ID. You can find the ID in the URL of the Optimizely interface. A campaign with the URL `https://app.optimizely.com/p13n/3563611614/layers/3558430129` has the ID `3558430129`. Searching for this ID will lead to a "decision event" in the logs, which captures Optimizely's decision about which experience should be shown for a given a campaign. This line is preceded by a section saying `Activating layer...` and followed by a section saying `Activated layer...`, and between these lines you can see the execution logic. For example:
+To debug a specific campaign, you can search within the console (Cmd-F) for that campaign's ID. You can find the ID in the URL of the Optimizely interface. A campaign with the URL `https://app.optimizely.com/p13n/3563611614/layers/3558430129` has the ID `3558430129`. Searching for this ID will show all log events related to that campaign. For example:
 
 ![](/assets/img/js/decision-no.png)
 
-In this example, the output is telling us that the visitor did not match any of the audiences in the campaign. Therefore, they weren't eligible for any experiences and no changes will actually be appied.
+In this example, the output is telling us that the visitor did not match any of the audiences in the campaign. Therefore, they weren't eligible for any experiences and no changes were applied.
 
-![](/assets/img/js/decision-yes.png)
+Now let's add the visitor to a campaign audience to apply a change:
 
-In this example, the output tells us that the visitor qualified for two audiences: Shoe Shoppers and Cold Weather. Optimizely decided to serve the Shoe Shoppers experience because it was ranked higher (experiment 3559000019), and the visitor was randomly assigned to the personalized treatment rather than the holdback. Optimizely registed an Action, which included a set of changes like a new background image and new button text. Optimizely recorded the layer decision and then applied the changes.
+![](/assets/img/js/full-screen.png)
+
+In this example, the output tells us that the visitor was in the Campaign "Homepage Offers". Let's take a closer look at some of the entries in the log:
+
+![](/assets/img/js/recording-decision.png)
+
+If we click on the Objects in the log to inspect them, we can see some of the details about the "decision ticket" (the information Optimizely uses in order to make a decision of which experience to show, if any) on the left of the arrow "->" and the "decision" (the selected experiment/variation, if any, and whether the visitor is in the layer holdback on the right hand side. In particular note the "audienceIds" property of the decision ticket which shows the IDs of the audiences the visitor was in at the time of the decision (in this case "4055203664").
+
+![](/assets/img/js/tracking-decision.png)
+
+Next we can see that Optimizely created a log event to track the decision. By inspecting the log event we can see that it has properties "decisionTicket" and "decision" corresponding to the objects we inspected above, as well as information about the client version, a guid and timestamp to track the event in Optimizely's logs, and others (event properties subject to change).
+
+![](/assets/img/js/action-executing.png)
+
+In addition to recording and tracking the decision, Optimizely applies the actions (changes) corresponding to the current view. By clicking on the Object to inspect, we can see that the action is associated with the current campaign (layerId) and selected experiment/variation (from the decision), and consists of a "changeSet" (list of changes), each of which describes a change to apply. The change detail above shows that the first change in the set is an "attribute" change which changes the "html" (innerHTML) of the ".hero__title" element to the string "Stylish new looks for p13n-ers". If there is an error applying this change, it will be logged here as well.    
 
 ### Events and Tags
 
