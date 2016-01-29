@@ -24,5 +24,9 @@ sidebysideToggles();
 var copyBtn = require('./copy-btn.js');
 copyBtn();
 
+// Add search functionality.
+var search = require('./search.js');
+search();
+
 // Include optimizelyApi for sandbox / interactive mode.
 var optimizelyApi = require('./optly-api.js');

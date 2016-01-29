@@ -1,0 +1,41 @@
+// Search styles.
+
+.search {
+  margin-left: auto;
+  position: relative;
+  width: 200px;
+
+  input {
+    padding-left: spacer(3);
+  }
+
+  &__icon {
+    width: 14px;
+    height: 16px;
+    position: absolute;
+    padding: spacer(1);
+    box-sizing: content-box;
+    pointer-events: none;
+  }
+
+  &__results {
+    @extend %lego-block-list-group;
+    display: none;
+    background: #fff;
+    position: absolute;
+    margin-top: 5px;
+    width: 100%;
+    font-size: 14px;
+    z-index: 2;
+
+    a:focus {
+      outline: 0;
+      background-color: map-fetch($color, background brand-light);
+    }
+
+    ul, ol, li {
+      list-style: none !important;
+      padding-left: 0 !important;
+    }
+  }
+}
