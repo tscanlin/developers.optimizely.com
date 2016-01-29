@@ -513,7 +513,7 @@ In this example, the output tells us that the visitor was in the Campaign "Homep
 
 ![](/assets/img/js/recording-decision.png)
 
-If we click on the Objects in the log to inspect them, we can see some of the details about the "decision ticket" (the information Optimizely uses in order to make a decision of which experience to show, if any) on the left of the arrow "->" and the "decision" (the selected experiment/variation, if any, and whether the visitor is in the layer holdback on the right hand side. In particular note the "audienceIds" property of the decision ticket which shows the IDs of the audiences the visitor was in at the time of the decision (in this case "4055203664").
+If we click on the Objects in the log to inspect them, we can see some of the details about the "decision ticket" (the information Optimizely uses in order to make a decision of which experience to show, if any) on the left of the arrow "->" and the "decision" (the selected experiment/variation, if any, and whether the visitor is in the layer holdback) on the right hand side. In particular note the "audienceIds" property of the decision ticket which shows the IDs of the audiences the visitor was in at the time of the decision (in this case "4055203664").
 
 ![](/assets/img/js/tracking-decision.png)
 
