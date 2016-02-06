@@ -24,9 +24,12 @@ sidebysideToggles();
 var copyBtn = require('./copy-btn.js');
 copyBtn();
 
-// Add search functionality.
-var search = require('./search.js');
-search();
-
 // Include optimizelyApi for sandbox / interactive mode.
-var optimizelyApi = require('./optly-api.js');
+var optimizelyApi = require('./optly-api.js'); // eslint-disable-line
+
+// DOCSEARCH
+window.docsearch({
+  apiKey: 'cda6ef128f16e7689d91dabb1821d23a',
+  indexName: 'optimizely',
+  inputSelector: '#site-search',
+});

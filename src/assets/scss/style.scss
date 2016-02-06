@@ -1,19 +1,18 @@
 // ## Developer Docs Variables
 @import 'variables';
 
-// # LEGO
-// ## Core functions and mixins
-@import 'core/partials/elements/functions';
-@import 'core/partials/elements/mixins';
-// ## Core polyfills
-@import 'core/core-polyfills';
-// ## Core variables
-@import 'core/core-variables';
-// ## Core partials
-@import 'core/core-partials';
+// ## OUI functions and mixins
+@import 'oui/partials/elements/functions';
+@import 'oui/partials/elements/mixins';
+@import 'oui/oui-variables';
+@import 'oui/oui-partials';
+
 // ## LEGO-DESKTOP
 @import 'lego-desktop/layout';
 @import 'lego-desktop/type';
+
+// ## 3rd Party
+@import '3rd-party/docsearch';
 
 
 // # Developer Docs Styles
@@ -24,7 +23,6 @@
 // ## Module styles
 @import 'nav';
 @import 'objects';
-@import 'search';
 @import 'syntax';
 
 // ## State styles
@@ -33,13 +31,14 @@
 
 
 // ## Trumps
-// Trumps use `!important` classes for overrides and should always be loaded last.
-@import 'core/partials/trumps/background';
-@import 'core/partials/trumps/layout';
-@import 'core/partials/trumps/margin';
-@import 'core/partials/trumps/padding';
-@import 'core/partials/trumps/type';
-@import 'core/partials/trumps/sizing';
+@import 'oui/partials/trumps/background';
+@import 'oui/partials/trumps/borders';
+@import 'oui/partials/trumps/layout';
+@import 'oui/partials/trumps/margin';
+@import 'oui/partials/trumps/padding';
+@import 'oui/partials/trumps/type';
+@import 'oui/partials/trumps/sizing';
+
 
 // ## Mobile styles
 @import 'mobile';
