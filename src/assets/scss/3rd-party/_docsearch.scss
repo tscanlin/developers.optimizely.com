@@ -109,7 +109,7 @@
 
 @media (min-width: 568px) {
   .aa-dropdown-menu {
-    min-width: 400px;
+    min-width: 300px;
   }
   .algolia-docsearch-suggestion--text {
     display: block;
@@ -120,7 +120,7 @@
 
 @media (min-width: 768px) {
   .aa-dropdown-menu {
-    min-width: 400px;
+    min-width: 300px;
   }
   .algolia-docsearch-suggestion {
     display: table;
@@ -180,6 +180,7 @@ $searchBackground: rgb(4,57,81);
   background-color: $searchBackground;
   border: 0;
   padding: 0;
+  line-height: 1.2;
   border-radius: 5px;
   color: white;
 
@@ -192,16 +193,18 @@ $searchBackground: rgb(4,57,81);
 .algolia-docsearch-suggestion--category-header {
   background: transparent;
   font-weight: 600;
+  font-size: 16px !important;
 }
 
-.algolia-docsearch-suggestion--subcategory-column {
+.algolia-docsearch-suggestion--subcategory-column,
+.algolia-docsearch-suggestion--subcategory-inline {
   display: none;
 }
 
 .algolia-docsearch-suggestion {
   color: currentColor;
   border: 0;
-  margin: 15px auto;
+  padding: 15px 10px;
 }
 
 .algolia-docsearch-suggestion--title {
@@ -210,18 +213,18 @@ $searchBackground: rgb(4,57,81);
 
 .algolia-docsearch-suggestion--content {
   font-weight: 200;
-  opacity: 0.8;
-  padding-bottom: 2px;
+  // opacity: 0.8;
+  padding: 0;
 }
 
 .algolia-docsearch-suggestion--text {
   line-height: 1.2;
+  padding: 0;
 }
 
 .algolia-docsearch-suggestion--category-header,
 .algolia-docsearch-suggestion--content {
-  padding-bottom: 2px;
-  padding-top: 0;
+  padding: 0
 }
 
 .algolia-docsearch-footer {
@@ -235,9 +238,10 @@ $searchBackground: rgb(4,57,81);
 
 .algolia-docsearch-suggestion--highlight {
   background: transparent !important;
-  color: rgb(24,127,223) !important;
+  color: #0095E7 !important;
+  font-size: inherit !important;
 }
 
 .aa-cursor {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 129, 186, 0.3);
 }
