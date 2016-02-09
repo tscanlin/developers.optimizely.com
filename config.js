@@ -111,6 +111,10 @@ var paths = {
       path: 'integrations',
       title: 'Integrations',
     },
+    canvas: {
+      path: 'canvas',
+      title: 'Canvas',
+    },
   },
 };
 
