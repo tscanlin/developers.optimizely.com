@@ -28,7 +28,8 @@ copyBtn();
 var optimizelyApi = require('./optly-api.js'); // eslint-disable-line
 
 // DOCSEARCH
-window.docsearch({
+var docsearch = require('./3rd-party/docsearch.js');
+docsearch({
   apiKey: 'cda6ef128f16e7689d91dabb1821d23a',
   indexName: 'optimizely',
   inputSelector: '#site-search',
