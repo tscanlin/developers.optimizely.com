@@ -265,13 +265,13 @@ var utils = window['optimizely'].get('utils');
 
 <h4 id="waitForElement" class="subLink">waitForElement</h4>
 
-This utility returns a `Promise` that is resolved as soon as an element appears in the DOM matching the supplied selector.
+This utility returns a `Promise` that will be resolved as soon as an element appears in the DOM matching the supplied selector.
 
 ##### *Parameters*
 - `selector` (string): CSS selector, ex. ".product-item"
 
 ##### *Returns*
-An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that is resolved with the matching element.
+An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will be resolved with the matching element.
 
 ##### *Examples*
 ```js
@@ -472,6 +472,48 @@ dcp.getAttributeValue({datasourceId: 123, attributeId: 456});
 
 // Specify a content-enabled attribute by name.
 dcp.getAttributeValue({datasourceId: 123, attributeName: 'Preferred Locale'});
+```
+
+<h4 id="waitForAttributeValue" class="subLink">waitForAttributeValue</h4>
+
+This utility returns a `Promise` that will be resolved as soon as Optimizely receives the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216497887) profile attribute.
+
+##### *Parameters*
+- `datasourceId` (number): Required
+- `attributeId` (number): Required if `attributeName` is not provided
+- `attributeName` (string): Required if `attributeId` is not provided.  Does not work if descriptive names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
+
+##### *Returns*
+An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that
+will be resolved with the uploaded attribute value, or with `undefined` if any of the following are true:
+- A customer profile still needs to be [uploaded](https://help.optimizely.com/hc/en-us/articles/216307487#upload) for the current user.
+- A profile has been uploaded, but it does not include the desired attribute.
+
+If your campaign does not [target a DCP Audience](https://help.optimizely.com/hc/en-us/articles/216497887#campaign),
+then it is possible that profile data will not be fetched and the Promise will not be resolved.
+
+##### *Throws*
+If any of the following are true:
+- The specified attribute does not exist
+- The attribute is not content-enabled
+- The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
+
+##### *Examples*
+```js
+// Retrieve the dcp library
+var dcp = window['optimizely'].get('dcp');
+
+// Specify a content-enabled attribute by ID.
+dcp.waitForAttributeValue({datasourceId: 123, attributeId: 456}).then(
+  function (attributeValue) {
+  }
+);
+
+// Specify a content-enabled attribute by name.
+dcp.waitForAttributeValue({datasourceId: 123, attributeName: 'Preferred Locale'}).then(
+  function (attributeValue) {
+  }
+);
 ```
 
 ## Debugging
