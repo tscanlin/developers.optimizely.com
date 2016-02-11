@@ -14,25 +14,33 @@
     </a>
 
     <div class="header-links display--inline-block vertical-align--top is-hidden-on-mobile">
-      <ul class="unstyled nav">
-        <li class="push-double--right"><a href="/overview">Overview</a></li>
-        <li class="position--relative push-double--right">
-          <a href="/rest/introduction" data-collapser>
-            Documentation
-            <span class="arrow-inline--down"></span>
-          </a>
-          <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
-            {% for key, item in paths.navigation %}
-              {% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' %}
-                <li class="push-half">
-                  <a href="/{{ item.path }}/introduction/">{{ item.title }}</a>
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </li>
-        <li class="flush"><a href="http://community.optimizely.com/t5/Developers/bd-p/Developers" target="_blank">Discussion</a></li>
-        <!-- <li><a href="https://help.optimizely.com/hc/en-us">Help</a></li> -->
-      </ul>
+      <div class="position--relative display--inline-block push-double--right">
+        <input type="text" id="site-search" placeholder="Search" class="text-input text-input--small reverse soft-triple--right width--200">
+        <svg class="icon input-icon__right reverse cursor--pointer">
+          <use xlink:href="#search-16"></use>
+        </svg>
+      </div>
+
+      <div class="display--inline-block">
+        <ul class="unstyled nav">
+          <li class="push-double--right"><a href="/overview">Overview</a></li>
+          <li class="position--relative push-double--right">
+            <a href="/rest/introduction" data-collapser>
+              Documentation
+              <span class="arrow-inline--down"></span>
+            </a>
+            <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
+              {% for key, item in paths.navigation %}
+                {% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' %}
+                  <li class="push-half">
+                    <a href="/{{ item.path }}/introduction/">{{ item.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+          <li class="flush"><a href="http://community.optimizely.com/t5/Developers/bd-p/Developers" target="_blank">Discussion</a></li>
+        </ul>
+      </div>
     </div>
   </header>
