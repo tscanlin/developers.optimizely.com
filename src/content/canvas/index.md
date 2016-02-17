@@ -17,7 +17,7 @@ experiments and create any number of experiments based on these templates. The e
 tab, which looks and feels like part of the native Optimizely product, is in fact an iframe to an application hosted
 entirely outside of Optimizely and integrated via Canvas.
 
-<img src="/assets/img/canvas/templates_app_screenshot.png">
+<img src="/assets/img/canvas/templates_app_screenshot.png" />
 
 Optimizely Canvas empowers developers to build rich experiences on the Optimizely platform in an incredibly
 low-friction way. We're excited to see what you build!
@@ -49,11 +49,11 @@ with the updated information.
 Once you've received confirmation that your app is available, you'll find it listed in the *Integrations* tab of any
 project under the account(s) you requested we whitelist:
 
-<img src="/assets/img/canvas/turning_on_an_app.png">
+<img src="/assets/img/canvas/turning_on_an_app.png" />
 
 After you switch the app to "On", you'll see a new tab appear in your project navigation:
 
-<img src="/assets/img/canvas/templates_tab_closeup.png">
+<img src="/assets/img/canvas/templates_tab_closeup.png" style="width: 60%;" />
 
 If you click this tab, your app's URL will be loaded via an iframe below the tab, with a signed payload as described
 below.
