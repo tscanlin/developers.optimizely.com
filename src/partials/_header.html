@@ -31,7 +31,7 @@
             </a>
             <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
               {% for key, item in paths.navigation %}
-                {% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' %}
+                {% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' && item.path !== 'canvas' %}
                   <li class="push-half">
                     <a href="/{{ item.path }}/introduction/">{{ item.title }}</a>
                   </li>

@@ -3,47 +3,50 @@
   <div class="nav-sidebar">
     <ul class="unstyled nav nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
-        <li class="push--bottom">
-          <a class="main-section{% if item.path === pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' %} data-collapser{% endif %}>{{ item.title }}</a>
-          <!-- TOC for overview, integrations, and code samples -->
-          {% if item.path === 'overview' || item.path === 'integrations' %}
-            <ul class="unstyled nav nav--stacked epsilon toc"></ul>
-          {% endif %}
+        <!-- TODO: Show Canvas section when we launch the public beta -->
+        {% if item.path != 'canvas' %}
+            <li class="push--bottom">
+              <a class="main-section{% if item.path === pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' %} data-collapser{% endif %}>{{ item.title }}</a>
+              <!-- TOC for overview, integrations, and code samples -->
+              {% if item.path === 'overview' || item.path === 'integrations' %}
+                <ul class="unstyled nav nav--stacked epsilon toc"></ul>
+              {% endif %}
 
-          <!-- Sub sections -->
-          <ul class="unstyled nav nav--stacked epsilon soft--left collapsible{% if item.path !== pathArray[0] %} is-collapsed{% endif %}">
-            {% for sub_key, section in item.sections %}
-              <li>
-                <a class="section{% if relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
-                {% if section.path !== 'articles' %}
-                  <ul class="unstyled nav nav--stacked toc"></ul>
-                {% endif %}
-                {% if section.path === 'articles' && relativePath.indexOf(item.path) === 0 %}
-                  <ul class="unstyled nav nav--stacked">
-                    {% for id, articleId in siblingData | sort %}
-                      {% set article = siblingData[articleId] %}
-                      <li>
-                        <a class="soft--left{% if relativePath.indexOf(item.path + '/' + section.path + '/' + articleId) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/{{ article.fileName }}.html">{{ article.title }}</a>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
-            {% endfor %}
+              <!-- Sub sections -->
+              <ul class="unstyled nav nav--stacked epsilon soft--left collapsible{% if item.path !== pathArray[0] %} is-collapsed{% endif %}">
+                {% for sub_key, section in item.sections %}
+                  <li>
+                    <a class="section{% if relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
+                    {% if section.path !== 'articles' %}
+                      <ul class="unstyled nav nav--stacked toc"></ul>
+                    {% endif %}
+                    {% if section.path === 'articles' && relativePath.indexOf(item.path) === 0 %}
+                      <ul class="unstyled nav nav--stacked">
+                        {% for id, articleId in siblingData | sort %}
+                          {% set article = siblingData[articleId] %}
+                          <li>
+                            <a class="soft--left{% if relativePath.indexOf(item.path + '/' + section.path + '/' + articleId) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/{{ article.fileName }}.html">{{ article.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
 
-            <!-- Add links to auto generated docs -->
-            {% if item.path === 'ios' %}
-              <li>
-                <a class="section" href="/{{ item.path }}/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
-              </li>
-            {% endif %}
-            {% if item.path === 'android' %}
-              <li>
-                <a class="section" href="/{{ item.path }}/help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
-              </li>
-            {% endif %}
-          </ul>
-        </li>
+                <!-- Add links to auto generated docs -->
+                {% if item.path === 'ios' %}
+                  <li>
+                    <a class="section" href="/{{ item.path }}/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                  </li>
+                {% endif %}
+                {% if item.path === 'android' %}
+                  <li>
+                    <a class="section" href="/{{ item.path }}/help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                  </li>
+                {% endif %}
+              </ul>
+            </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>
