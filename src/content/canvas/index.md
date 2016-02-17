@@ -130,9 +130,10 @@ is revoked by the user.
 ## Design Requirements
 
 To the extent possible, all apps must follow Optimizely design patterns as described at
-http://design.optimizely.com, including using the
-<a href="http://design.optimizely.com/oui/index.html" target="_blank">Optimizely User Interface (OUI)</a> custom CSS
-framework.
+http://design.optimizely.com, including using the Optimizely User Interface (OUI).
+
+See https://github.com/optimizely/oui/blob/devel/README.md for a technical guide to installing OUI in your project,
+and see http://design.optimizely.com/oui/core/api for documentation of the many UI components provided by OUI.
 
 ## Security Guidance
 
