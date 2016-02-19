@@ -8,6 +8,8 @@
     {% include 'partials/_nav.html' %}
 
     <div id="content" class="content soft-double max-width--reading">
+      <h1 class="push-quad--bottom">Articles</h1>
+
       {% for article in articles | sort %}
         {% set object = siblingData[article] %}
         {%
