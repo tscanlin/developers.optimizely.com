@@ -170,7 +170,7 @@ Open the Java source file corresponding to your app's main activity (the one dec
 Add the following to the end of your main activity's `onCreate()` function. The code can be copied from your `Implementation Settings`, which you can find by selecting on the appropriate Android Project in your [Optimizely Home](https://app.optimizely.com/projects).  For more details, you can refer back to [Step 2: Create an Android project](#accountcreation).
 
 *Note:
-   startOptimizelyWithAPIToken should be declared after your crash reporting tool is initialized.*
+   startOptimizelyWithAPIToken should be declared after your crash reporting tool is initialized and must be initialized on the UI (main) thread to coordinate with the activity lifecycle.*
 
 ```java
 @Override
@@ -179,7 +179,7 @@ protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.activity_main);
 
     // more create logic
-    
+
     // Crash reporting tool initialization
 
     // You can find the following code snippet in your project code.
@@ -202,6 +202,9 @@ protected void onCreate(Bundle savedInstanceState) {
     Optimizely.startOptimizelyAsync("<API Token>", getApplication(), mOptimizelyEventListener);
 }
 ```
+
+*Note:
+   startOptimizelyAsync must be initialized on the UI (main) thread to coordinate with the activity lifecycle.*
 
 Optimizely needs to connect to the internet to allow you to use our online editor and to download new experiments once you've published them. If you don't already have the `INTERNET` permission declared in your `AndroidManifest.xml`, you will need to add the following permission line:
 
