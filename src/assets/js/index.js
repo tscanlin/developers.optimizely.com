@@ -31,6 +31,6 @@ var optimizelyApi = require('./optly-api.js'); // eslint-disable-line
 var docsearch = require('./3rd-party/docsearch.js');
 docsearch({
   apiKey: 'cda6ef128f16e7689d91dabb1821d23a',
-  indexName: 'optimizely2',
+  indexName: 'optimizely-developers',
   inputSelector: '#site-search',
 });
