@@ -17,8 +17,6 @@ gulp.task('watch', function() {
     .on('error', handleErrors);
 
   // Watch tasks for html
-  gulp.watch(path.join(paths.src + paths.pages, '**/*.html'), ['browser-sync-reload'])
-    .on('error', handleErrors);
   gulp.watch(path.join(paths.src + paths.content, '**/*.md'), ['browser-sync-reload'])
     .on('error', handleErrors);
   gulp.watch(path.join(paths.src + paths.partials, '**/*.html'), ['browser-sync-reload'])

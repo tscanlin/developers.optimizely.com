@@ -9,9 +9,22 @@ var tap = require('gulp-tap');
 var util = require('gulp-util');
 var path = require('path');
 var fs = require('fs');
+var yaml = require('js-yaml');
 var handleErrors = require('../util/handleErrors');
 var paths = require('../../config').paths;
 var siteJson; // Cache reference to site JSON.
+
+try {
+  var dimensions = yaml.safeLoad(fs.readFileSync('./src/data/conditions/dimensions.yaml', 'utf8'));
+  var dimensions_meta = yaml.safeLoad(fs.readFileSync('./src/data/conditions/dimensions-meta.yaml', 'utf8'));
+} catch (e) {
+  console.log(e);
+}
+
+var json = {
+  dimensions: dimensions,
+  dimensions_meta: dimensions_meta,
+};
 
 // SWIG
 // Swig config.
@@ -20,6 +33,7 @@ swig.setDefaults({
   loader: swig.loaders.fs(paths.src),
   locals: {
     paths: paths,
+    json: json,
   },
 });
 
@@ -70,7 +84,7 @@ function addFileNameToObjectsWithTitle(object) {
 
 
 // Gulp task
-gulp.task('html', ['html-templates'], function() {
+gulp.task('html', function() {
   return gulp.src([
     path.join(paths.src + paths.content, '**/*.md'),
   ])
