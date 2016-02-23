@@ -87,6 +87,7 @@ The `unhashed_base64_context` component is base64-encoded JSON with this format:
          {"access_token": "abcdefg1234543",
           "token_type": "bearer",
           "expires_in": 7200}
+    }
 }
 ```
 
