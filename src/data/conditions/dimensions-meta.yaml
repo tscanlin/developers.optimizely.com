@@ -153,11 +153,3 @@ time_and_day:
       "type": "time_and_day",
       "value": "07:00_11:00_monday,tuesday,wednesday,thursday,friday"
     }
-
-source_type:
-  usage: ""
-  example: |
-    {
-      "type": "source_type",
-      "value": "referral"
-    }
