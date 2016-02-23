@@ -84,7 +84,7 @@ function addFileNameToObjectsWithTitle(object) {
 
 
 // Gulp task
-gulp.task('html', function() {
+gulp.task('html', ['data'], function() {
   return gulp.src([
     path.join(paths.src + paths.content, '**/*.md'),
   ])
