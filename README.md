@@ -7,7 +7,7 @@ You can find the new developer documentation website here: [http://developers.op
 
 ### To install
 
-Clone the repository
+Clone the repository (with ssh)
 
 ```sh
 git clone git@github.com:optimizely/developers.optimizely.com.git
@@ -58,6 +58,13 @@ ulimit -n 2560
 ```
 
 and then restart `npm run start`.
+
+If you get a message asking for a username / password then you probably cloned the repo with https instead of ssh. You will need to switch origin to use ssh. Also make sure you have your ssh key in github.
+
+```sh
+git remote rm origin
+git remote add origin git@github.com:optimizely/developers.optimizely.com.git
+```
 
 ### Contributing
 
