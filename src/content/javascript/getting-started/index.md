@@ -13,7 +13,7 @@ If you don't have an Optimizely account already, just sign up for a [free develo
 
 ### 2. Implement the Optimizely Snippet
 
-If you are not already running Optimizely, you'll need to add the Optimizely Snippet to the head section of your web page. See [Implementing the Optimizely Snippet](https://help.optimizely.com/hc/en-us/articles/200040095) for detailed instructions on how to add the Optimizely Snippet for your project. You may also want to see
+If you are not already running Optimizely, you'll need to add the Optimizely Snippet to the head section of your web page. See [Implementing the Optimizely Snippet](https://help.optimizely.com/hc/en-us/articles/200040095) for detailed instructions on how to add the Optimizely Snippet for your project.
 
 ### 3. Start an experiment
 
