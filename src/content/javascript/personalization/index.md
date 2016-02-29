@@ -205,7 +205,7 @@ The execution model for JavaScript has been revamped in Optimizely Personalizati
 
 *Custom code and visual changes are separated*. When you make a change in the visual editor, you won't see the corresponding jQuery in the code box. Instead, the change is stored in a JSON data structure and applied at runtime. Each visual change is applied when the selector it applies to is ready.
 
-*Custom code runs immediately*. Because visual and code changes are mixed together, Optimizely Testing polls for each line separately and tries to run it when elements were ready. In Personalization, we've removed this behavior so that your code runs exactly as written, *often before the DOM is ready*. 
+*Custom code runs immediately*. Because visual and code changes are mixed together, Optimizely Testing polls for each line separately and tries to run it when elements were ready. In Personalization, we've removed this behavior so that your code runs exactly as written, *often before the DOM is ready*.
 
 Please note this means that some code that works in Optimizely Testing may *not* work in Personalization. For example, the following code would have no effect if the Optimizely snippet is in the head tag because the body element doesn't exist at the time when the code runs:
 
@@ -217,9 +217,9 @@ To delay running the code until the whole page is loaded, you can use jQuery's `
 
 ```js
 // Change the background when the DOM is ready (may cause flashing)
-$(document).ready(function() { 
+$(document).ready(function() {
   $("body").css("background-color", "red");
-}); 
+});
 
 // Change the background as soon as the body element loads (no flash)
 var utils = window['optimizely'].get('utils');
@@ -376,6 +376,53 @@ utils.waitUntil(function() {
 });
 ```
 
+
+<h4 id="data" class="subLink">data</h4>
+
+Returns an object exposing static data fields.
+
+##### *Returns*
+- `Object`:
+  - `accountId` (string)
+  - `projectId` (string)
+  - `revision` (string)
+  - `dcpServiceId` (string|null)
+  - `audiences` (object):
+    - `id` (object): The audience id
+      - `id` (string): The audience id
+      - `name` (string)
+      - `conditions` (array): Conditions the visitor must have to be in the audience
+  - `campaigns` (object):
+    - `id` (object): The campaign id
+      - `id` (string): The campaign id
+      - `name` (string)
+      - `policy` (string): ordered (personalization) or random (A/B test)
+      - `holdback` (BasisPoints): 0 - 100
+      - `weightDistributions` (object|null): Traffic allocation among the experiments in the campaign
+      - `activation` (object|null)
+      - `changes` (array|null): An array of changes
+      - `commitId` (string|null)
+      - `experiments` (array): An array of the experiments in the campaign
+      - `integrationSettings` (object)
+      - `viewIds` (array): An array of view ids (strings) associated with the campaign
+  - `events` (object):
+    - `id` (string): The event id
+      - `id` (string): The event id
+      - `name` (string|null): The event name
+      - `apiName` (string)
+      - `category` (string): Added to Cart, Saved, Shared, Searched, Purchased, Converted, Signed Up, Subscribed, Other
+      - `eventType` (string): click, custom, engagement, or pageview
+      - `eventFilter` (object|null): Filter type of string or target selector
+      - `viewId` (string|null)
+  - `pages` (object):
+    - `id` (string): The page id
+      - `id` (string): The page id
+      - `name` (string|null): The page name
+      - `apiName` (string)
+      - `category` (string): Article, Cart, Category, Checkout, Home, Landing Page, Pricing, Product Detail, Search Results, Other
+      - `static conditions` (array)
+      - `tags` (array)
+
 ### Listeners
 
 As Optimizely runs on your site, you can hook into the snippet's execution and run your own code at different points by using the `addListener` API. Looking for other listeners? Contact us at [developers@optimizely.com](mailto:developers@optimizely.com).
@@ -386,7 +433,7 @@ As Optimizely runs on your site, you can hook into the snippet's execution and r
 - `filter` (object): The events to listen for
   - `type` (string)
   - `name` (string)
-- `handler` (function): A callback to run when an event fires. The function takes a single `data` object that varies based on the event. 
+- `handler` (function): A callback to run when an event fires. The function takes a single `data` object that varies based on the event.
 
 ##### *Examples*
 
@@ -563,7 +610,7 @@ Next we can see that Optimizely created a log event to track the decision. By in
 
 ![](/assets/img/js/action-executing.png)
 
-In addition to recording and tracking the decision, Optimizely applies the actions (changes) corresponding to the current view. By clicking on the Object to inspect, we can see that the action is associated with the current campaign (layerId) and selected experiment/variation (from the decision), and consists of a "changeSet" (list of changes), each of which describes a change to apply. The change detail above shows that the first change in the set is an "attribute" change which changes the "html" (innerHTML) of the ".hero__title" element to the string "Stylish new looks for p13n-ers". If there is an error applying this change, it will be logged here as well.    
+In addition to recording and tracking the decision, Optimizely applies the actions (changes) corresponding to the current view. By clicking on the Object to inspect, we can see that the action is associated with the current campaign (layerId) and selected experiment/variation (from the decision), and consists of a "changeSet" (list of changes), each of which describes a change to apply. The change detail above shows that the first change in the set is an "attribute" change which changes the "html" (innerHTML) of the ".hero__title" element to the string "Stylish new looks for p13n-ers". If there is an error applying this change, it will be logged here as well.
 
 ### Events and Tags
 
