@@ -423,6 +423,62 @@ Returns an object exposing static data fields.
       - `static conditions` (array)
       - `tags` (array)
 
+##### *Example*
+```js
+// Retrieve the data object
+var staticData = window['optimizely'].get('data');
+
+// The fields described above are now available in the staticData object.
+});
+```
+
+
+<h4 id="session" class="subLink">session</h4>
+
+##### *Returns*
+- `Object`:
+  - `lastSessionTimestamp` (number|0)
+  - `sessionId` (string|null)
+
+
+<h4 id="visitorId" class="subLink">visitorId</h4>
+
+##### *Returns*
+- `Object`:
+  - `randomId` (string|null): If no UUID is available, Optimizely will generate a random visitor id
+  - `UUID` (string|null): Your unique identifier for a user (universally unique identifier)
+
+
+<h4 id="visitor" class="subLink">visitor</h4>
+
+##### *Returns*
+- `Object`:
+  - `IP` (string): The visitor's IP address
+  - `browserId` (string)
+  - `browserVersion` (string)
+  - `campaign` (string|null): The campaign the visitor is in
+  - `cookies` (object): The visitor's optimizely cookies
+  - `currentTimestamp` (number)
+  - `custom` (object)
+  - `dcpData` (object): Indicates personalized content delivered via named or unnamed DCP attributes
+  - `defaultBehavior` (object): Includes default values for a variety of properties, such as average events per session, most viewed page, average revenue per order last 60 days, etc.
+  - `device` (string): The visitor's device (e.g., desktop, laptop, etc.)
+  - `events` (array)
+  - `first_session` (boolean): True if it is the visitor's first session
+  - `language` (string)
+  - `lists` (object)
+  - `location` (object): Includes fields for city, continent, country, and region
+  - `platform` (object):
+    - `id` (string)
+    - `version` (string)
+  - `queryParams` (array)
+  - `referrer` (string|null)
+  - `source_type` (string|null)
+  - `visitorId` (string|null): The visitor's randomly generated Optimizely ID
+  - `visitorUUID` (string|null): Your unique identifier for a user
+
+
+
 ### Listeners
 
 As Optimizely runs on your site, you can hook into the snippet's execution and run your own code at different points by using the `addListener` API. Looking for other listeners? Contact us at [developers@optimizely.com](mailto:developers@optimizely.com).
