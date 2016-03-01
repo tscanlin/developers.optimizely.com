@@ -494,6 +494,8 @@ var campaignStates = stateModule.getCampaignStates();
 
 getCampaignStates()
 
+Returns a map of campaign states, indexed by campaign id.
+
 ##### *Returns*
 - `Object`:
   - `campaignId` (string)
@@ -505,6 +507,10 @@ getCampaignStates()
     - `reason` (string|null): Reason why experiment or variation id is null
 
 getPageStates()
+
+Returns a map of page states, indexed by page id.
+
+##### *Returns*
 - `Object`:
   - `pageId` (string)
     - `id` (string)
