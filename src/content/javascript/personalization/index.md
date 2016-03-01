@@ -410,7 +410,7 @@ Returns an object exposing static data fields.
       - `id` (string): The event id
       - `name` (string|null): The event name
       - `apiName` (string)
-      - `category` (string): Added to Cart, Saved, Shared, Searched, Purchased, Converted, Signed Up, Subscribed, Other
+      - `category` (string): added to cart, saved, shared, searched, purchased, converted, signed up, subscribed, other
       - `eventType` (string): click, custom, engagement, or pageview
       - `eventFilter` (object|null): Filter type of string or target selector
       - `viewId` (string|null)
@@ -419,7 +419,7 @@ Returns an object exposing static data fields.
       - `id` (string): The page id
       - `name` (string|null): The page name
       - `apiName` (string)
-      - `category` (string): Article, Cart, Category, Checkout, Home, Landing Page, Pricing, Product Detail, Search Results, Other
+      - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
       - `static conditions` (array)
       - `tags` (array)
 
@@ -477,6 +477,54 @@ var staticData = window['optimizely'].get('data');
   - `visitorId` (string|null): The visitor's randomly generated Optimizely ID
   - `visitorUUID` (string|null): Your unique identifier for a user
 
+
+<h4 id="state" class="subLink">state</h4>
+
+Returns a module exposing several functions to access information about the current visitor's state
+
+##### *Example*
+```js
+// Access the state module
+var stateModule = window['optimizely'].get('state');
+
+// Use the state module to access the campaign states
+var campaignStates = stateModule.getCampaignStates();
+});
+```
+
+getCampaignStates()
+
+##### *Returns*
+- `Object`:
+  - `campaignId` (string)
+    - `id` (string)
+    - `campaignName` (string)
+    - `audiences` (array)
+    - `experiment` (object|null)
+    - `variation` (object|null)
+    - `reason` (string|null): Reason why experiment or variation id is null
+
+getPageStates()
+- `Object`:
+  - `pageId` (string)
+    - `id` (string)
+    - `apiName` (string)
+    - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
+    - `isActive` (boolean)
+    - `metadata` (object)
+    - `name` (string)
+    - `static conditions` (array)
+    - `tags` (array)
+
+isGlobalHoldback()
+
+##### *Returns*
+- boolean: whether the visitor is in the global holdback
+
+getActivationId()
+
+##### *Returns*
+- string: current activation ID
 
 
 ### Listeners
