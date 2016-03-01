@@ -8,7 +8,7 @@ The following SDK Install Steps will allow you to install the SDK and run experi
 
 ## SDK Download
 
-You can download the iOS SDK through Cocoapods, download it manually from GitHub, or install it through Fabric: 
+You can download the iOS SDK through Cocoapods, download it manually from GitHub, or install it through Fabric:
 
 [![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
 
@@ -63,7 +63,7 @@ For new installations, please follow all steps. For upgrades, please follow step
    * AudioToolbox.framework
    * CFNetwork.framework
    * Foundation.framework
-   * libicucore.dylib
+   * libicucore.tbd (libicucore.dylib for XCode 7.0 and below)
    * libsqlite3.dylib
    * MobileCoreServices.framework
    * Security.framework
@@ -136,9 +136,9 @@ app delegate. The code can be copied from your `Project Code`, which you can fin
 
 	```swift
 	// You can find the following code snippet in your project code.
-	
+
 	Optimizely.startOptimizelyWithAPIToken(YOUR_API_TOKEN, launchOptions:launchOptions);
-	
+
 	// The rest of your initialization code...
 	```		
 *Note: We recommend putting this code at the beginning of your `application(_:didFinishLaunchingWithOptions:)` function.*
