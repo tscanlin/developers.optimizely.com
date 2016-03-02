@@ -377,7 +377,7 @@ utils.waitUntil(function() {
 ```
 
 
-<h4 id="data" class="subLink">data</h4>
+### Data
 
 Returns an object exposing static data fields.
 
@@ -433,23 +433,36 @@ var staticData = window['optimizely'].get('data');
 ```
 
 
-<h4 id="session" class="subLink">session</h4>
+### Session
 
 ##### *Returns*
 - `Object`:
   - `lastSessionTimestamp` (number|0)
   - `sessionId` (string|null)
 
+##### *Example*
+```js
+// Retrieve the session object
+var sessionData = window['optimizely'].get('session');
+});
+```
 
-<h4 id="visitorId" class="subLink">visitorId</h4>
+
+### Visitor ID
 
 ##### *Returns*
 - `Object`:
   - `randomId` (string|null): If no UUID is available, Optimizely will generate a random visitor id
   - `UUID` (string|null): Your unique identifier for a user (universally unique identifier)
 
+##### *Example*
+```js
+// Retrieve the visitor ID data object
+var visitorIdData = window['optimizely'].get('visitorId');
+});
+```
 
-<h4 id="visitor" class="subLink">visitor</h4>
+### Visitor
 
 ##### *Returns*
 - `Object`:
@@ -477,8 +490,16 @@ var staticData = window['optimizely'].get('data');
   - `visitorId` (string|null): The visitor's randomly generated Optimizely ID
   - `visitorUUID` (string|null): Your unique identifier for a user
 
+##### *Example*
+```js
+// Retrieve the visitor profile
+var visitorProfile = window['optimizely'].get('visitor');
 
-<h4 id="state" class="subLink">state</h4>
+// The fields described above are now available in the visitorProfile object.
+});
+```
+
+### State
 
 Returns a module exposing several functions to access information about the current visitor's state
 
@@ -492,7 +513,7 @@ var campaignStates = stateModule.getCampaignStates();
 });
 ```
 
-<h5 id="getCampaignStates" class="subLink">getCampaignStates()</h5>
+<h4 id="getCampaignStates" class="subLink">getCampaignStates()</h4>
 
 Returns a map of campaign states, indexed by campaign id.
 
@@ -506,7 +527,7 @@ Returns a map of campaign states, indexed by campaign id.
     - `variation` (object|null)
     - `reason` (string|null): Reason why experiment or variation id is null
 
-<h5 id="getPageStates" class="subLink">getPageStates()</h5>
+<h4 id="getPageStates" class="subLink">getPageStates()</h4>
 
 Returns a map of page states, indexed by page id.
 
@@ -522,12 +543,12 @@ Returns a map of page states, indexed by page id.
     - `static conditions` (array)
     - `tags` (array)
 
-<h5 id="isGlobalHoldback" class="subLink">isGlobalHoldback()</h5>
+<h4 id="isGlobalHoldback" class="subLink">isGlobalHoldback()</h4>
 
 ##### *Returns*
 - boolean: whether the visitor is in the global holdback
 
-<h5 id="getActivationId" class="subLink">getActivationId()</h5>
+<h4 id="getActivationId" class="subLink">getActivationId()</h4>
 
 ##### *Returns*
 - string: current activation ID
