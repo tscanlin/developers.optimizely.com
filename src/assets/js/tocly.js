@@ -50,8 +50,8 @@ module.exports = function() {
           parentNode = subGroup;
         } else if (currentHeadingLevel < lastHeadingLevel) {
           for (var level = lastHeadingLevel; level > currentHeadingLevel; level--) {
-            parentNode = parentNode.parentNode;  
-          }          
+            parentNode = parentNode.parentNode;
+          }
         }
       }
 
@@ -96,10 +96,13 @@ module.exports = function() {
     var top = document.documentElement.scrollTop || body.scrollTop;
     var headerHeight = header.offsetHeight;
 
-    if (top > headerHeight) {
-      header.classList.remove('background--brand-darker');
-    } else {
-      header.classList.add('background--brand-darker');
+    // Change background of header, but only on home page.
+    if (body.classList.contains('home')) {
+      if (top > headerHeight) {
+        header.classList.remove('background--brand-darker');
+      } else {
+        header.classList.add('background--brand-darker');
+      }
     }
 
     if (nav) {

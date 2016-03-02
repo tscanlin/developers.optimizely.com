@@ -18,10 +18,10 @@ module.exports = function() {
       elm.addEventListener('click', function(e) {
         e.preventDefault();
         var target = e.target;
-        each.call(toggleContainer.querySelectorAll('.button--highlight'), function(el) {
-          el.classList.remove('button--highlight');
+        each.call(toggleContainer.querySelectorAll('.background--brand'), function(el) {
+          el.classList.remove('background--brand');
         });
-        target.classList.add('button--highlight');
+        target.classList.add('background--brand');
 
         var toggleSectionId = target.getAttribute('data-toggle');
 
