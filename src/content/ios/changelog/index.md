@@ -5,6 +5,38 @@ title: "Optimizely iOS SDK Changelog"
 
 # Optimizely iOS SDK Changelog
 
+### 1.4.0
+February 25, 2016
+
+*New Features:*
+
+  * *Plugins Rearchitecture:* We've spent some time thinking about how Optimizely can integrate with other plugins. We want to enable 3rd parties to build point solutions that leverage Optimizely's platform in new ways.
+    * `[Optimizely registerPlugin:(id<OptimizelyPlugin>) plugin]` - register a plugin.
+    * Use this method if your app is in Swift instead of `[Optimizely activateAmplitudeIntegration]`, `[Optimizely activateLocalyticsIntegration]`, or `[Optimizely activateMixpanelIntegration]`.
+    * If are using a custom Plugin in Objective-C, use the `OptimizelyRegisterPlugin` macro from OptimizelyPlugin.h
+  * *Developer Improvements:* We want to enable customers to use the [offline conversions](https://help.optimizely.com/hc/en-us/articles/200040195-Tracking-offline-conversion-events-with-Optimizely) API to its full potential, so we've exposed essential parameters needed to send offline conversion events.
+    * `[Optimizely getDimensions]` - get an NSArray of all OptimizelyDimensions in the SDK.
+    * `[Optimizely sharedInstance].universalUserId` - your custom Universal User Id for the end user. Set the universalUserId to identify the end user across devices. More info can be found [here](https://help.optimizely.com/hc/en-us/articles/203626830-Universal-User-ID-Beta)
+    * `[Optimizely sharedInstance].optimizelyEndUserId` - read only property to get the Optimizely End User Id created by the Optimizely SDK.
+  * *New Headers:*
+    * OptimizelyDimension.h - A representation of the data in an individual Optimizely Dimension. Read more about Dimensions [here](https://help.optimizely.com/hc/en-us/articles/200040865-Dimensions-Capture-visitor-data-through-the-API).
+    * OptimizelyPlugin.h - Integrations allow customers to track Optimizely experiments in an external tool. A plugin written on the Optimizely platform can edit views, live variables, and code blocks. [Read more](http://developers.optimizely.com/integrations/#mobile-analytics).
+
+*Bug Fixes:*
+
+* Fixed an issue with tracking revenue goals with an empty string description.
+
+*Deprecated Methods:*
+
+* `[Optimizely sharedInstance].userId` is now deprecated. Please use either `universalUserId` or `optimizelyEndUserId` instead.
+
+*Breaking Changes:*
+
+* *Optimizely Plugins:* These methods are no longer needed to activate the Optimizely Integrations. The integrations must be activated from the web editor by flipping them to the ON position. Read more about integrations [here](https://help.optimizely.com/hc/en-us/articles/203729580-Introduction-to-Optimizely-Integrations).
+  * [`[Optimizely activateAmplitudeIntegration]`](https://help.optimizely.com/hc/en-us/articles/204963198-Integrating-Optimizely-with-Amplitude-for-iOS-and-Android) - activate the Amplitude integration via the Integrations tab in the web editor.
+  * [`Optimizely activateLocalyticsIntegration]`](https://help.optimizely.com/hc/en-us/articles/209645787-Integrating-Optimizely-with-Localytics-for-iOS-and-Android) - activate the Localytics integration via the Integrations tab in the web editor.
+  * [`[Optimizely activateMixpanelIntegration]`](https://help.optimizely.com/hc/en-us/articles/200040025-Integrating-Optimizely-with-Mixpanel-Web-iOS-and-Android-) -  activate the Mixpanel integration via the Integrations tab in the web editor.
+
 ### 1.3.2
 November 20, 2015
 
@@ -37,20 +69,20 @@ Read more in-depth descriptions [here](/ios/reference/index.html#debugging-your-
 - *Manual activation.* You can now manually specify, in code, when you want your experiments to activate (by default, all active experiments are activated when start Optimizely is called). Some important use cases include setting additional targeting metadata before activating an experiment and only bucketing users who visit a certain activity in your app
 Read more in-depth descriptions [here](/ios/reference/index.html#experiment-activation-modes)
 - *New notification types:*
-  - OptimizelyFailedToStartNotification 
+  - OptimizelyFailedToStartNotification
   - OptimizelyStartedNotification
 - *Code Block Callbacks in Edit Mode.* Please note that code block callbacks will only work in edit mode
 
 *Bug Fixes:*
-- Fixed bug in language Audience condition 
+- Fixed bug in language Audience condition
 
-### 1.2.2 
+### 1.2.2
 October 12, 2015
 
 *Bug Fixes*
 - Fixed more warnings in Xcode 7
 
-### 1.2.1 
+### 1.2.1
 October 6, 2015
 
 *Bug Fixes*
