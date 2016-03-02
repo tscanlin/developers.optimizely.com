@@ -1,4 +1,4 @@
-  <header id="header" class="header justify background--super-dark background--brand-darker">
+  <header id="header" class="header justify background--super-dark{% if page === 'home' %} background--brand-darker{% endif %}">
     {% if page !== 'home' %}
     <div class="link--reverse hidden is-inline-block-on-mobile nav-toggle">
       <label for="toggle-nav-checkbox">
