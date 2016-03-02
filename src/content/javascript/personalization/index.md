@@ -492,7 +492,7 @@ var campaignStates = stateModule.getCampaignStates();
 });
 ```
 
-getCampaignStates()
+<h5 id="getCampaignStates" class="subLink">getCampaignStates()</h5>
 
 Returns a map of campaign states, indexed by campaign id.
 
@@ -506,7 +506,7 @@ Returns a map of campaign states, indexed by campaign id.
     - `variation` (object|null)
     - `reason` (string|null): Reason why experiment or variation id is null
 
-getPageStates()
+<h5 id="getPageStates" class="subLink">getPageStates()</h5>
 
 Returns a map of page states, indexed by page id.
 
@@ -522,12 +522,12 @@ Returns a map of page states, indexed by page id.
     - `static conditions` (array)
     - `tags` (array)
 
-isGlobalHoldback()
+<h5 id="isGlobalHoldback" class="subLink">isGlobalHoldback()</h5>
 
 ##### *Returns*
 - boolean: whether the visitor is in the global holdback
 
-getActivationId()
+<h5 id="getActivationId" class="subLink">getActivationId()</h5>
 
 ##### *Returns*
 - string: current activation ID
