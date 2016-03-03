@@ -1,0 +1,27 @@
+{%
+  include 'partials/_head.html'
+%}
+
+{% include 'partials/_header.html' %}
+
+  <main id="main" class="main has-nav">
+    {% include 'partials/_nav.html' %}
+
+    <div id="content" class="content">
+      {% include 'partials/_sidebar-toggles.html' %}
+
+      {% for section in sections %}
+        {% for i, key in siblingData[section] | sort %}
+          {%
+            include 'partials/_multi-example.html'
+            siblingData[section][key]
+          %}
+        {% endfor %}
+      {% endfor %}
+
+    </div>
+  </main>
+
+{% include 'partials/_footer.html' %}
+
+{% include 'partials/_foot.html' %}

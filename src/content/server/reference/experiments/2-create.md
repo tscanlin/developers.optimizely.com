@@ -7,38 +7,30 @@ endpoint_suffix: /experiments/
 type: POST
 anchor: create-experiment
 title: Create a new experiment
-request:
-  edit_url: https://mysite.com/products/
-  description: My Experiment Name
-response: |
-  {
-    "id": 791495413,
-    "project_id": 1234,
-    // ... (other fields omitted)
-    "percentage_included": 10000,
-    "is_multivariate": false,
-    "variation_ids": [
-      800227656,
-      800227657
-    ],
-    "status": "Not started",
-    "url_conditions": [
+code_examples:
+  python:
+    request: |
+      from datetime import datetime
+      now = datetime.now()
+      mm = str(now.month)
+      dd = str(now.day)
+      yyyy = str(now.year)
+      hour = str(now.hour)
+      mi = str(now.minute)
+      ss = str(now.second)
+      print mm + "/" + dd + "/" + yyyy + " " + hour + ":" + mi + ":" + ss
+    response: |
       {
-        "index": 0,
-        "match_type": "simple",
-        "created": "2014-04-12T19:10:53.806640Z",
-        "value": "https://mysite.com/products",
-        "last_modified": "2014-04-12T19:10:53.806650Z",
-        "negate": false
+        foo: "bar"
       }
-    ],
-    "description": "My Experiment Name",
-    "activation_mode": "immediate",
-    "custom_css": "",
-    "custom_js": "",
-    "experiment_type": "ab",
-  }
-
+  java:
+    request: |
+      String a = String.valueOf(2);   //integer to numeric string
+      int i = Integer.parseInt(a); //numeric string to an int
+    response: |
+      {
+        foo: "bar"
+      }
 ---
 
 The `project_id` is required in the URL, and the `description` and `edit_url` are required in the body. The [other editable arguments](#update-experiment) are all optional.

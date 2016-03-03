@@ -1,0 +1,69 @@
+  <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation{% if fileName == "0-intro" %} intro{% endif %}">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          {% if fileName == "0-intro" %}
+            <h2 id="{{anchor}}">{{title}}</h2>
+          {% else %}
+            <h3 id="{{anchor}}">
+              {{title}}
+              {% if meta.warning %}<span> (deprecated)</span>{% endif %}
+            </h3>
+          {% endif %}
+
+          <!-- Endpoint -->
+          {% if type and endpoint %}
+            <pre>{{ type }} {{ endpoint }}</pre>
+          {% endif %}
+
+          <!-- Description -->
+          {{ body | safe }}
+
+          <!-- Arguments -->
+          {% if fields %}
+            <h4>Definitions</h4>
+            <table class="table">
+            {% for key, f in fields %}
+              <tr><td align="left"><b>{{ key }}</b></td><td class="desc">{{ f | marked }}</td></tr>
+            {% endfor %}
+            </table>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+
+        {% for code in code_examples %}
+          <div class="toggle-section visible" data-toggle-section="{{ code }}">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- Example Request -->
+{% if code.request %}
+<h4>Example Request</h4>
+<pre>
+{% highlight 'json' %}
+{{ code.request | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+<!-- Example Response -->
+{% if code.response %}
+<h4>Example Response</h4>
+<pre>
+{% highlight 'json' %}
+{{ code.response | safe }}
+{% endhighlight %}
+</pre>
+{% endif %}
+
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
