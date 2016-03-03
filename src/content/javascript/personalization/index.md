@@ -429,7 +429,6 @@ Returns an object exposing static data fields.
 var staticData = window['optimizely'].get('data');
 
 // The fields described above are now available in the staticData object.
-});
 ```
 
 
@@ -444,7 +443,6 @@ var staticData = window['optimizely'].get('data');
 ```js
 // Retrieve the session object
 var sessionData = window['optimizely'].get('session');
-});
 ```
 
 
@@ -459,7 +457,6 @@ var sessionData = window['optimizely'].get('session');
 ```js
 // Retrieve the visitor ID data object
 var visitorIdData = window['optimizely'].get('visitorId');
-});
 ```
 
 ### Visitor
@@ -496,7 +493,7 @@ var visitorIdData = window['optimizely'].get('visitorId');
 var visitorProfile = window['optimizely'].get('visitor');
 
 // The fields described above are now available in the visitorProfile object.
-});
+$("#username").text(visitorProfile.custom.userName);
 ```
 
 ### State
@@ -510,7 +507,6 @@ var stateModule = window['optimizely'].get('state');
 
 // Use the state module to access the campaign states
 var campaignStates = stateModule.getCampaignStates();
-});
 ```
 
 <h4 id="getCampaignStates" class="subLink">getCampaignStates()</h4>
