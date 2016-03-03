@@ -5,6 +5,43 @@ title: "Optimizely Android SDK Changelog"
 
 # Optimizely Android SDK Changelog
 
+### 1.4.1
+February 29, 2016
+
+*Bug Fixes:*
+
+* Gives visibility back to public API method `Optimizely.trackViewGoal(String)` which is used to track view goals when using Fragments.
+
+### 1.4.0
+February 25, 2016
+
+*New Features:*
+
+* *Developer Improvements:* We want to enable customers to use the [offline conversions](https://help.optimizely.com/hc/en-us/articles/200040195-Tracking-offline-conversion-events-with-Optimizely) API to its full potential, so we've exposed essential parameters needed to send offline conversion events.
+	* `Optimizely.getDimensions()` - get an ArrayList of all OptimizelyDimensions in the SDK.
+	* `Optimizely.getUniversalUserId(Context)` & `Optimizely.setUniversalUserId(Context, String)` - your custom Universal User Id for the end user. Set the universalUserId to identify the end user across devices. More info can be found [here](https://help.optimizely.com/hc/en-us/articles/203626830-Universal-User-ID-Beta)
+	* `Optimizely.optimizelyEndUserId(Context)` - read only property to get the Optimizely End User Id created by the Optimizely SDK.
+* *New Classes:*
+	* OptimizelyDimension.Java - A representation of the data in an individual Optimizely Dimension. Read more about Dimensions [here](https://help.optimizely.com/hc/en-us/articles/200040865-Dimensions-Capture-visitor-data-through-the-API).
+* *Performance Improvements:*
+	* Added a way to selectively include Optimizely SDK code to reduce method counts against DEX issues.
+	* Improved performance for SDK startup
+	* Upgraded to OKHTTP version 3
+
+*Bug Fixes:*
+
+* Fixed an issue with tracking revenue goals with an empty string description.
+
+*Deprecated Methods:*
+
+* `Optimizely.getUserId(Context)` & `Optimizely.setUserId(Context, String)` are now deprecated. Please use either `universalUserId` or `optimizelyEndUserId` instead.
+
+### 1.3.7
+January 5, 2016
+
+*Bug Fixes:*
+* Fix Audience evaluator bug.
+
 ### 1.3.6
 December 21, 2015
 
