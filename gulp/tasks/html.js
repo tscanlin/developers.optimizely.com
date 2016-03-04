@@ -15,9 +15,12 @@ var paths = require('../../config').paths;
 var siteJson; // Cache reference to site JSON.
 
 // Configure nunjucks.
-nunjucks.configure({ autoescape: true });
-var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('./src/'), {
+// nunjucks.configure({ autoescape: true });
+var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('./src/', {
+  noCache: true,
+}), {
   throwOnUndefined: false,
+  noCache: true,
 });
 nunjucksMarkdown.register(env, marked);
 

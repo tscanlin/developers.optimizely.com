@@ -16,18 +16,20 @@
           <ul class="unstyled nav nav--stacked epsilon soft--left collapsible{% if item.path !== pathArray[0] %} is-collapsed{% endif %}">
             {% for sub_key, section in item.sections %}
               <li>
-                <a class="section{% if relativePath.indexOf(item.path + '/' + section.path) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
-                {% if section.path !== 'articles' %}
+                <a class="section{% if relativePath.indexOf(item.path + '/' + section.path) != -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
+                {% if section.path != 'articles' %}
                   <ul class="unstyled nav nav--stacked toc"></ul>
                 {% endif %}
-                {% if section.path === 'articles' && relativePath.indexOf(item.path) === 0 %}
+                {% if section.path == 'articles' and relativePath.indexOf(item.path) == 0 %}
                   <ul class="unstyled nav nav--stacked">
-                    {% for id, articleId in siblingData | sort %}
-                      {% set article = siblingData[articleId] %}
-                      <li>
-                        <a class="soft--left{% if relativePath.indexOf(item.path + '/' + section.path + '/' + articleId) !== -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/{{ article.fileName }}.html">{{ article.title }}</a>
-                      </li>
-                    {% endfor %}
+                    <!-- Only show sibling data if it exists. -->
+                    {% if siblingData %}
+                      {% for articleId, article in siblingData | dictsort %}
+                        <li>
+                          <a class="soft--left{% if relativePath.indexOf(item.path + '/' + section.path + '/' + articleId) != -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/{{ article.fileName }}.html">{{ article.title }}</a>
+                        </li>
+                      {% endfor %}
+                    {% endif %}
                   </ul>
                 {% endif %}
               </li>
