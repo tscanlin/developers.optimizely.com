@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Polling - JavaScript variable
 anchor: conditional-activation-js-variable
 js: |

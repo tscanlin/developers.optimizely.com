@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Single page apps
 anchor: single-page-apps
 ---

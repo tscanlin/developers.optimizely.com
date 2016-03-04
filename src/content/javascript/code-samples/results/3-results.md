@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 type: GET
 endpoint: experiments/1234/results
 title: Get results

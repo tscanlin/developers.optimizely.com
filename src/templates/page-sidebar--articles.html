@@ -1,7 +1,4 @@
-{%
-  include 'partials/_head.html'
-%}
-
+{% include 'partials/_head.html' %}
 {% include 'partials/_header.html' %}
 
   <main id="main" class="main has-nav">
@@ -9,17 +6,11 @@
 
     <div id="content" class="content soft-double max-width--reading">
       <h1 class="push-quad--bottom">Articles</h1>
-
-      {% for article in articles | sort %}
-        {% set object = siblingData[article] %}
-        {%
-          include object.partial
-          object
-        %}
+      {% for article, object in siblingData | dictsort %}
+        {% include 'partials/' + object.partial %}
       {% endfor %}
     </div>
   </main>
 
 {% include 'partials/_footer.html' %}
-
 {% include 'partials/_foot.html' %}

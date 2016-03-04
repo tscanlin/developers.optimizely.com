@@ -1,21 +1,17 @@
 {% include 'partials/_head.html' %}
-
 {% include 'partials/_header.html' %}
 
+{% set pathArray = [
+  'rest',
+  'conditions'
+] %}
+{% set section = {
+  path: 'conditions/'
+} %}
+{% set relativePath = 'rest/conditions/' %}
+
   <main id="main" class="main has-nav">
-    {%
-      include 'partials/_nav.html'
-      {
-        pathArray: [
-          'rest',
-          'conditions'
-        ],
-        section: {
-          path: 'conditions/'
-        },
-        relativePath: 'rest/conditions/'
-      }
-    %}
+    {% include 'partials/_nav.html' %}
 
     <div id="content" class="content">
       <!-- Row -->
@@ -36,53 +32,55 @@
           </div>
 
           <!-- Right column -->
-          <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+          <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint or response or js or html %} empty{% endif %}">
 
 <!-- Indenting is weird here because of the <pre> tags -->
 <!-- Example JSON -->
 <h4>Example JSON</h4>
 <pre>
-{% highlight 'js' %}
-  // Condition Grammar: "conditions" should be any value of the form
-  ["and", **]
-  ["or" , **]
-  ["not",  *]
-  "{..}" // an object with keys like ('type', 'value', 'match_type', 'name') and string values
-  // ** = one or more values from the list above
-  // * = one value of the form listed above
+{% markdown %}
+```js
+// Condition Grammar: "conditions" should be any value of the form
+["and", **]
+["or" , **]
+["not",  *]
+"{..}" // an object with keys like ('type', 'value', 'match_type', 'name') and string values
+// ** = one or more values from the list above
+// * = one value of the form listed above
 
 
-  // Chrome users on SpringSale or FallSale campaign
+// Chrome users on SpringSale or FallSale campaign
+[
+  "and",
+  {
+    "type": "browser",
+    "value": "gc"
+  },
   [
-    "and",
+    "or",
     {
-      "type": "browser",
-      "value": "gc"
+      "type": "query",
+      "name": "utm_campaign",
+      "value": "SpringSale"
     },
-    [
-      "or",
-      {
-        "type": "query",
-        "name": "utm_campaign",
-        "value": "SpringSale"
-      },
-      {
-        "type": "query",
-        "name": "utm_campaign",
-        "value": "FallSale"
-      },
-    ]
-  ]
-
-  // Visitor is not on Firefox
-  [
-    "not",
     {
-      "type": "browser",
-      "value": "ff"
-    }
+      "type": "query",
+      "name": "utm_campaign",
+      "value": "FallSale"
+    },
   ]
-{% endhighlight %}
+]
+
+// Visitor is not on Firefox
+[
+  "not",
+  {
+    "type": "browser",
+    "value": "ff"
+  }
+]
+```
+{% endmarkdown %}
 </pre>
           </div>
         </div>
@@ -90,22 +88,19 @@
 
 {% for type, meta in json.dimensions_meta %}
   {% set condition = json.dimensions[type] %}
+  {% set object = {
+    condition: condition,
+    title: condition.title,
+    anchor: type,
+    meta: meta,
+    jsonExample: meta.example
+  } %}
 
-  {%
-    include 'partials/_sidebyside.html'
-    {
-      title: condition.title,
-      anchor: type,
-      condition: condition,
-      meta: meta,
-      jsonExample: meta.example
-    }
-  %}
+  {% include 'partials/_sidebyside.html' %}
 {% endfor %}
 
   </div>
 </main>
 
 {% include 'partials/_footer.html' %}
-
 {% include 'partials/_foot.html' %}

@@ -1,39 +1,39 @@
 <div class="push-quad--top soft-triple--top white">
   <div class="delta">
-    <pre class="display--inline-block">{{ type }}</pre>
-    <span id="{{ anchor }}-sandbox-endpoint-prefix" class="push--left">{{ endpoint_prefix }}</span>
-    {% if endpoint_option %}
-    <input type="text" class="display--inline-block text-input no-border width--200" id="{{ anchor }}-sandbox-endpoint-option" placeholder="{{ endpoint_option }}">
+    <pre class="display--inline-block">{{ object.type }}</pre>
+    <span id="{{ object.anchor }}-sandbox-endpoint-prefix" class="push--left">{{ object.endpoint_prefix }}</span>
+    {% if object.endpoint_option %}
+    <input type="text" class="display--inline-block text-input no-border width--200" id="{{ object.anchor }}-sandbox-endpoint-option" placeholder="{{ object.endpoint_option }}">
     {% else %}
-    <input type="text" class="display--inline-block text-input no-border width--200" id="{{ anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ endpoint_option }}" disabled>
+    <input type="text" class="display--inline-block text-input no-border width--200" id="{{ object.anchor }}-sandbox-endpoint-option" style="visibility: hidden;" placeholder="{{ object.endpoint_option }}" disabled>
     {% endif %}
-    {% if endpoint_suffix %}
-    <span class="input-group-addon input-group-addon-extra" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
+    {% if object.endpoint_suffix %}
+    <span class="input-group-addon input-group-addon-extra" id="{{ object.anchor }}-sandbox-endpoint-suffix">{{ object.endpoint_suffix }}</span>
     {% else %}
-    <span class="input-group-addon input-group-addon-extra hidden" id="{{ anchor }}-sandbox-endpoint-suffix">{{ endpoint_suffix }}</span>
+    <span class="input-group-addon input-group-addon-extra hidden" id="{{ object.anchor }}-sandbox-endpoint-suffix">{{ object.endpoint_suffix }}</span>
     {% endif %}
-    <a class="button button--highlight sandbox_run float--right push-double--right" id="{{ anchor }}-sandbox">Run Request</a>
+    <a class="button button--highlight sandbox_run float--right push-double--right" id="{{ object.anchor }}-sandbox">Run Request</a>
   </div>
   <div class="soft-double--top">
-    <div class="sandbox-code" id="{{ anchor }}-sandbox-request">
+    <div class="sandbox-code" id="{{ object.anchor }}-sandbox-request">
       <h4>Raw Request</h4>
-      <!-- <a class="button button--highlight float--right copy-btn" id="{{ anchor }}-sandbox-copy-btn" data-clipboard-target="{{ anchor }}-sandbox-raw-request">Copy</a> -->
-      <pre><code class="bash" id="{{ anchor }}-sandbox-raw-request"></code></pre>
+      <!-- <a class="button button--highlight float--right copy-btn" id="{{ object.anchor }}-sandbox-copy-btn" data-clipboard-target="{{ object.anchor }}-sandbox-raw-request">Copy</a> -->
+      <pre><code class="bash" id="{{ object.anchor }}-sandbox-raw-request"></code></pre>
     </div>
 
-    <div class="spinner-wrap text--center opacity--50 hidden" id="{{ anchor }}-sandbox-loader">
+    <div class="spinner-wrap text--center opacity--50 hidden" id="{{ object.anchor }}-sandbox-loader">
       <div class="spinner"></div>
     </div>
 
-    <div class="sandbox-code" id="{{ anchor }}-sandbox-status">
+    <div class="sandbox-code" id="{{ object.anchor }}-sandbox-status">
       <h4>Response Status</h4>
       <pre style="color:white;"></pre>
     </div>
-    <div class="sandbox-code" id="{{ anchor }}-sandbox-headers">
+    <div class="sandbox-code" id="{{ object.anchor }}-sandbox-headers">
       <h4>Response Headers</h4>
       <pre style="color:white;"></pre>
     </div>
-    <div class="sandbox-code" id="{{ anchor }}-sandbox-response">
+    <div class="sandbox-code" id="{{ object.anchor }}-sandbox-response">
       <h4>Request Output</h4>
       <pre class="max-scroll--large"><code class="json"></code></pre>
     </div>

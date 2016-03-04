@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Experiment results (pre-Stats-Engine)
 anchor: results
 ---

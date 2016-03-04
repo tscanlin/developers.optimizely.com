@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Redirect- Same path different domain
 anchor: helpers-diff-domain
 js: |

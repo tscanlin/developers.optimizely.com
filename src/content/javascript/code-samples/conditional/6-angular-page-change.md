@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Function - Angular page change
 anchor: conditional-activation-angular-page-change
 js: |

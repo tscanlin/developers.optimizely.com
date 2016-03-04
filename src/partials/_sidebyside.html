@@ -5,41 +5,45 @@
       <div class="grid__cell width--1-2 explanation{% if fileName == "0-intro" %} intro{% endif %}">
         <div class="soft-double--sides">
           <!-- Title -->
-          {% if fileName == "0-intro" %}
-            <h2 id="{{anchor}}">{{title}}</h2>
+          {% if object.fileName == "0-intro" %}
+            <h2 id="{{object.anchor}}">{{object.title}}</h2>
           {% else %}
-            <h3 id="{{anchor}}">
-              {{title}}
-              {% if meta.warning %}<span> (deprecated)</span>{% endif %}
+            <h3 id="{{object.anchor}}">
+              {{object.title}}
+              {% if object.meta.warning %}<span> (deprecated)</span>{% endif %}
             </h3>
           {% endif %}
 
           <!-- Used for rest/conditions -->
-          {% if meta.warning %}<div class="attention attention--warning push--bottom">{{ meta.warning }}</div>{% endif %}
-          {% if condition.fields %}
+          {% if object.meta.warning %}<div class="attention attention--warning push--bottom">{{ object.meta.warning }}</div>{% endif %}
+          {% if object.condition.fields %}
             <ul>
               <li><b>type</b>: <code>{{type}}</code>
 
-              {% if condition.fields.name.required %}
+              {% if object.condition.fields.name.required %}
               <li><b>name</b>: required
               {% endif %}
 
-              {% if condition.fields.match_type %}
-              <li><b>match_type</b>: {% if condition.fields.match_type.required %}required{% else %}optional{% endif %}</li>
+              {% if object.condition.fields.match_type %}
+              <li><b>match_type</b>: {% if object.condition.fields.match_type.required %}required{% else %}optional{% endif %}</li>
               {% endif %}
 
-              {% if condition.fields.value %}
-              <li><b>value</b>: {% if condition.fields.value.required %}required{% else %}optional{% endif %}</li>
+              {% if object.condition.fields.value %}
+              <li><b>value</b>: {% if object.condition.fields.value.required %}required{% else %}optional{% endif %}</li>
               {% endif %}
             </ul>
 
             <p>
-            {% if meta.usage %}{{meta.usage | marked}}{% endif %}
-            {% if condition.fields.value.values %}
+            {% if object.meta.usage %}
+            {% markdown %}
+              {{ object.meta.usage }}
+            {% endmarkdown %}
+            {% endif %}
+            {% if object.condition.fields.value.values %}
             Acceptable values are:
 
             <table class="growable table">
-              {% for value in condition.fields.value.values %}
+              {% for value in object.condition.fields.value.values %}
                 <tr>
                   <td><code>{{value.value}}</code></td>
                   <td>
@@ -55,10 +59,10 @@
             {% endif %}
             </p>
 
-            {% if condition.fields.value.disallowed_values %}
+            {% if object.condition.fields.value.disallowed_values %}
             <p>Any string value is allowed except:
               <ul>
-              {% for value in condition.fields.value.disallowed_values %}
+              {% for value in object.condition.fields.value.disallowed_values %}
               <li><code>{{value}}</code></li>
               {% endfor %}
               </ul>
@@ -66,10 +70,10 @@
             {% endif %}
 
 
-            {% if condition.fields.match_type.values %}
+            {% if object.condition.fields.match_type.values %}
             <p>The <code>match_type</code> can be:
               <ul>
-              {% for match_type in condition.fields.match_type.values %}
+              {% for match_type in object.condition.fields.match_type.values %}
               <li><code>{{match_type.value}}</code> {{match_type.text}}</li>
               {% endfor %}
               </ul>
@@ -80,19 +84,23 @@
 
 
           <!-- Endpoint -->
-          {% if type and endpoint %}
-            <pre>{{ type }} {{ endpoint }}</pre>
+          {% if object.type and object.endpoint %}
+            <pre>{{ object.type }} {{ object.endpoint }}</pre>
           {% endif %}
 
           <!-- Description -->
-          {{ body | safe }}
+          {{ object.body | safe }}
 
           <!-- Arguments -->
-          {% if fields %}
+          {% if object.fields %}
             <h4>Definitions</h4>
             <table class="table">
-            {% for key, f in fields %}
-              <tr><td align="left"><b>{{ key }}</b></td><td class="desc">{{ f | marked }}</td></tr>
+            {% for key, f in object.fields %}
+              <tr><td align="left"><b>{{ key }}</b></td><td class="desc">
+                {% markdown %}
+                {{ f }}
+                {% endmarkdown %}
+              </td></tr>
             {% endfor %}
             </table>
           {% endif %}
@@ -100,88 +108,102 @@
       </div>
 
       <!-- Right column -->
-      <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+      <div class="grid__cell width--1-2 code-container{% if object.fileName == "0-intro" %} intro{% endif %}{% if object.endpoint or object.response or object.js or object.html %} empty{% endif %}">
         <div class="toggle-section visible" data-toggle-section="curl">
 
 <!-- Indenting is weird here because of the <pre> tags -->
 
 <!-- Example request -->
-{% if endpoint %}
+{% if object.endpoint %}
 <h4>Example Request</h4>
 <pre>
-{% highlight 'bash' %}
+{% markdown %}
+```bash
 curl \
-  -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
+  -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if object.request %}
   -H "Content-Type: application/json" \
-  -d '{{ request | stringify }}' \{% endif %}
-  {% if type %}-X {{type}} {% endif %}"{% if endpoint_domain %}{{ endpoint_domain }}{% else %}https://www.optimizelyapis.com/experiment/v1/{% endif %}{{ endpoint | safe }}"
-{% endhighlight %}
+  -d '{{ object.request | dump }}' \{% endif %}
+  {% if type %}-X {{object.type}} {% endif %}"{% if endpoint_domain %}{{ endpoint_domain }}{% else %}https://www.optimizelyapis.com/experiment/v1/{% endif %}{{ object.endpoint | safe }}"
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example response -->
-{% if response %}
+{% if object.response %}
 <h4>Example Response</h4>
 <pre>
-{% highlight 'json' %}
-{{ response | safe }}
-{% endhighlight %}
+{% markdown %}
+```json
+{{ object.response | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example HTML -->
-{% if html %}
+{% if object.html %}
 <h4>Example HTML</h4>
 <pre>
-{% highlight 'html' %}
-{{ html | safe }}
-{% endhighlight %}
+{% markdown %}
+```html
+{{ object.html | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example JS -->
-{% if js %}
+{% if object.js %}
 <h4>Example Javascript</h4>
 <pre>
-{% highlight 'js' %}
-{{ js | safe }}
-{% endhighlight %}
+{% markdown %}
+```js
+{{ object.js | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example JSON (for rest/conditions) -->
-{% if jsonExample %}
+{% if object.jsonExample %}
 <h4>Example JSON</h4>
 <pre>
-{% highlight 'js' %}
-{{ jsonExample | safe }}
-{% endhighlight %}
+{% markdown %}
+```js
+{{ object.jsonExample | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example URL -->
-{% if request_url %}
+{% if object.request_url %}
 <h4>Example URL</h4>
 <pre>
-{% highlight 'html' %}
-{{ request_url | safe }}
-{% endhighlight %}
+{% markdown %}
+```html
+{{ object.request_url | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example Request -->
-{% if curl %}
+{% if object.curl %}
 <h4>Example Request</h4>
 <pre>
-{% highlight 'bash' %}
-{{ curl | safe }}
-{% endhighlight %}
+{% markdown %}
+```bash
+{{ object.curl | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
         </div>
         <div class="toggle-section" data-toggle-section="interactive">
-          {% if endpoint and type == "GET" %}
+          {% if object.endpoint and object.type == "GET" %}
             {% include 'partials/_sandbox.html' %}
           {% endif %}
         </div>

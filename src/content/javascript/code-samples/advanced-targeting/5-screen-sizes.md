@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Target visitors based on screen size
 anchor: screen-sizes
 js: |

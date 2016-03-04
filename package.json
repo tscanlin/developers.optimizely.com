@@ -31,6 +31,9 @@
     "compass-mixins": "^0.12.7",
     "highlight.js": "^8.9.1",
     "js-yaml": "^3.4.3",
+    "marked": "^0.3.5",
+    "nunjucks": "^2.3.0",
+    "nunjucks-markdown": "^1.1.0",
     "optimizely-oui": "^9.0.0",
     "smooth-scroll": "git://github.com/cferdinandi/smooth-scroll.git#6f748910b517eb2aa710bab1da9f59e32666e4c4",
     "xtend": "^4.0.1"
