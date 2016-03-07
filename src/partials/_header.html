@@ -31,9 +31,14 @@
             </a>
             <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
               {% for key, item in paths.navigation %}
-                {% if item.path !== 'samples' && item.path !== 'overview' && item.path !== 'integrations' && item.path !== 'canvas' %}
+                {% if item.path === 'rest' || item.path === 'javascript' || item.path === 'ios' || item.path === 'android' %}
                   <li class="push-half">
                     <a href="/{{ item.path }}/introduction/">{{ item.title }}</a>
+                  </li>
+                {% endif %}
+                {% if item.path == 'integrations' %}
+                  <li class="push-half">
+                    <a href="/{{ item.path }}/">{{ item.title }}</a>
                   </li>
                 {% endif %}
               {% endfor %}
