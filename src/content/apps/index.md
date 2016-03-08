@@ -220,7 +220,7 @@ To get started quickly with OUI, check out these codepens:
 * <a href="http://codepen.io/kwalker3690/pen/pyjoLb?editors=1000" target="_blank">Right Sidebar</a>
 
 #### Further Reading
-Our designers and UI engineers have put together a guide on **Designing Apps in Optimizely Canvas** just for you. In the guide you’ll find more information including headers and subtabs Dos and Don’ts, adding icons to your project, and more. [Read the guide Designing Apps in Optimizely Canvas now &rarr;](http://link.optimizely.com/canvas-design-guide)
+Our designers and [UI engineers](https://medium.com/design-optimizely/why-we-hire-ui-engineers-on-optimizely-s-design-team-b2a789553b79#.3ieh5ajxp) have put together a guide on **Designing Apps in Optimizely Canvas** just for you. In the guide you’ll find more information including headers and subtabs Dos and Don’ts, adding icons to your project, and more. [Read the guide Designing Apps in Optimizely Canvas now &rarr;](http://link.optimizely.com/canvas-design-guide)
 
 
 <h3 id="security-guidance">Security Guidance</h3>
