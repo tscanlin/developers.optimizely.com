@@ -3,7 +3,7 @@ template: page-sidebar
 title: "Apps<sup>beta</sup>"
 ---
 
-# Apps<sup>beta</sup> Developer Guide
+<h1 id="apps-developers-guide">Apps<sup> beta</sup> Developer Guide</h1>
 
 **Welcome! This page walks you through everything you need to know so you can build apps using Optimizely.**
 
@@ -13,7 +13,7 @@ In addition to our APIs, we’ve also built the Optimizely Canvas<sup>beta</sup>
 
 We’re excited for customers and developers to leverage these powerful tools to build apps that extend the Optimizely experience.
 
-## What is Optimizely Canvas <sup>beta</sup>?
+<h2 id="what-is-canvas">What is Optimizely Canvas<sup> beta</sup>?</h2>
 
 Optimizely Canvas allows developers to embed third-party applications directly in the Optimizely interface using an iframe.
 
@@ -35,7 +35,13 @@ would like to provide feedback, then please chat with us at
 
 ## Getting Started
 
-<h3 id="register-your-app">1. Register your app</h3>
+<h3 id="ideate">1. Come up with an idea for your app</h3>
+
+Need an app idea? <a href="#">Check out the Optiverse for app ideas (TODO: ADD LINK HERE)</a> that have been suggested by the community!
+
+You can also get inspiration from our existing apps by going to your Optimizely Dashboard and clicking on the “Apps” tab.
+
+<h3 id="register-your-app">2. Register your app</h3>
 
 If you'd like to develop an app using Optimizely Canvas, register your app through the form
 <a href="http://link.optimizely.com/canvas-registration-form" target="_blank">here</a>. After initial setup, you can
@@ -43,7 +49,7 @@ iterate on your app indefinitely without depending on the Optimizely team.
 
 While we cannot guarantee it, we aim to complete initial setup within one business day of your request.
 
-<h3 id="turn-on-your-app">2. Turn on your app</h3>
+<h3 id="turn-on-your-app">3. Turn on your app</h3>
 
 Once you've received confirmation that your app is available, you'll find it listed in the *Integrations* tab of any project under the account(s) you requested we whitelist:
 
@@ -57,7 +63,7 @@ If you click this tab, your app's URL will be loaded via an iframe below the tab
 below.
 
 
-<h3 id="canvas-payload">3. Use the Canvas payload</h3>
+<h3 id="canvas-payload">4. Use the Canvas payload</h3>
 
 #### The Canvas Payload
 
@@ -127,15 +133,15 @@ lasts for 2 hours (7,200 seconds). See the <a href="#faqs">FAQs</a> for informat
 is revoked by the user.
 
 
-<h3 id="build-your-app">4. Build your app using our App Guidelines </h3>
+<h3 id="build-your-app">5. Build your app using our App Guidelines </h3>
 
 In order for us to accept your app, and for the app review process to go smoothly, please use our app guidelines to build your app. See the <a href="#app-guidelines">App Guidelines</a> sections for more.
 
-<h3 id="submit-your-app">5. Submit your app</h3>
+<h3 id="submit-your-app">6. Submit your app</h3>
 
 Once you've built your app, send us an email at [developers@optimizely.com](mailto:developers@optimizely.com). We will start the app review process and work with you to get it listed on the Optimizely platform.
 
-<h3 id="change-app-config">6. Change your app's configuration (optional)</h3>
+<h3 id="change-app-config">7. Change your app's configuration (optional)</h3>
 
 If at any time you need to change your app's configuration (such as the display name, the app URL, or the app logo),
 just re-submit the <a href="http://link.optimizely.com/canvas-registration-form" target="_blank">registration form</a>
@@ -249,6 +255,16 @@ apps will have unique attack vectors and security requirements that developers s
 * Provide an emergency contact in your app's UI and documentation (preferably a team).
 * Contact Optimizely as soon as possible, and at latest within 24 hours, in the event of a compromise.
 
+<h2 id="resources">Resources</h2>
+
+Here is the definitive list of documents related to developing an App in Optimizely Canvas:
+
+* [Apps<sup>beta</sup> Developer Guide](http://developers.optimizely.com/apps) (these docs)
+* [Optimizely Design Guide: OUI](http://design.optimizely.com/oui/index.html)
+* [Designing Apps in Optimizely Canvas](http://link.optimizely.com/canvas-design-guide)
+* Canvas App ideas @ Optiverse (community driven) ##TODO: add link
+
+
 <h2 id="faqs">FAQs</h2>
 
 #### What do I do if the access token from the signed request expires or is revoked?
@@ -264,5 +280,6 @@ Every time a user clicks the tab for your app from a different tab, or reloads a
 receive a fresh signed request with a new OAuth access token.
 
 #### How can I contact you?
-If you're developing an app or would like to provide feedback, please chat with us at [https://gitter.im/optimizely/apps](https://gitter.im/optimizely/apps).
+If you're developing an app or would like to provide feedback or get help, please chat with us at [https://gitter.im/optimizely/apps](https://gitter.im/optimizely/apps) or email us at [developers@optimizely.com](developers@optimizely.com).
+
 If you've built your app and are ready to submit, please email us at [developers@optimizely.com](developers@optimizely.com) and we'll start the app review process.
