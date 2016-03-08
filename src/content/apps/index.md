@@ -168,8 +168,7 @@ These SDKs help with decoding the `signed_request` parameter to get the Canvas c
 
 <h3 id="content-requirements">Content Requirements</h3>
 
-* All apps must include a **Terms of Service** in the UI.
-* All apps must include **contact information** in your app's UI and documentation (preferably for a team).
+All apps must include a **Terms of Service** in the UI.
 
 
 <h3 id="design-requirements">Design Requirements</h3>
@@ -253,6 +252,7 @@ apps will have unique attack vectors and security requirements that developers s
 * Do not redirect the initial Canvas request to another URL.
 * Provide an emergency contact in your app's UI and documentation (preferably a team).
 * Contact Optimizely as soon as possible, and at latest within 24 hours, in the event of a compromise.
+* All apps must include emergency contact information in your app's UI and documentation (preferably for a team).
 
 <h2 id="resources">Resources</h2>
 

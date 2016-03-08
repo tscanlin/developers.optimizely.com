@@ -3,7 +3,7 @@ template: page-sidebar
 title: "Integrations"
 ---
 
-# Integrations
+# Integrations Developer Guide
 
 *Welcome! This page walks you through everything you need to build an integration using Optimizely APIs.*
 
