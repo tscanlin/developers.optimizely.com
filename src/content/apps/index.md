@@ -59,8 +59,7 @@ After you switch the app to "On", you'll see a new tab appear in your project na
 
 <img src="/assets/img/canvas/templates_tab_closeup.png" style="width: 60%;" />
 
-If you click this tab, your app's URL will be loaded via an iframe below the tab, with a signed payload as described
-below.
+If you click this tab, your app's URL will be loaded via an iframe below the tab, with a signed payload as described in <a href="#canvas-payload">4. Use the Canvas payload</a>.
 
 
 <h3 id="canvas-payload">4. Use the Canvas payload</h3>
@@ -222,7 +221,7 @@ To get started quickly with OUI, check out these codepens:
 * <a href="http://codepen.io/kwalker3690/pen/pyjoLb?editors=1000" target="_blank">Right Sidebar</a>
 
 #### Further Reading
-Our designers and UI engineers have put together a wonderful guide on **Designing Apps in Optimizely Canvas** just for you. In the guide you’ll find more information including headers and subtabs Dos and Don’ts, adding icons to your project, and more. [Read the guide Designing Apps in Optimizely Canvas now &rarr;](http://link.optimizely.com/canvas-design-guide)
+Our designers and UI engineers have put together a guide on **Designing Apps in Optimizely Canvas** just for you. In the guide you’ll find more information including headers and subtabs Dos and Don’ts, adding icons to your project, and more. [Read the guide Designing Apps in Optimizely Canvas now &rarr;](http://link.optimizely.com/canvas-design-guide)
 
 
 <h3 id="security-guidance">Security Guidance</h3>
