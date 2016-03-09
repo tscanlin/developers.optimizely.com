@@ -60,8 +60,7 @@ When you create an experiment, Optimizely will also fill in associated data by d
 <div class="hidden" data-toggle-section="java-code">
 <h4>Java Snippet</h4>
 
-<pre><code class="hljs lang-java">#!/usr/bin/java
-// Some java code sample
+<pre><code class="hljs lang-java">// Some java code sample
 </code></pre>
 </div>
 
