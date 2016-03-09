@@ -17,7 +17,7 @@ These APIs are similar to the [tracking calls in Optimizely Testing](/javascript
 
 Some legacy API calls like `trackEvent` will automatically trigger a new API call in this format. You don't need to reimplement event tracking if you've already set it up, but you can use the new API format to track additional tags for behavioral targeting (see below).
 
-##### *Examples*
+##### *Usage*
 ```js
 // Legacy format
 window['optimizely'].push(['trackEvent', 'watchedVideo']);
@@ -45,7 +45,7 @@ without code, but this API call supports tracking other behaviors like watching 
 - `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
   - `revenue` (integer): A special tag that denotes a revenue-generating event. Revenue should be an integer equal to 100 times the value. For example, a purchase of $79.99 or €79.99 would be `7999`. Revenue should only be attached to the final purchase to prevent double-counting, and if you've already tracked events using the legacy `trackEvent` method you should not re-instrument it again.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Basic tracking
 window['optimizely'].push({
@@ -93,7 +93,7 @@ Page information is reset whenever the browser reloads.
 - `pageName` (string): The "API name" for a page created in Optimizely, e.g. `product_detail`. Choose the "manual activation" option in page creation to see or change this name.
 - `tags` (object): A single-level JSON object with metadata about the content on the page, e.g. the product being purchased.
 
-##### *Examples*
+##### *Usage*
 ```js
 window['optimizely'] = window['optimizely'] || [];
 
@@ -130,7 +130,7 @@ There are three ways to capture this context:
 - `type`: "tags"
 - `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Tracking the current product
 window['optimizely'].push({
@@ -157,7 +157,7 @@ You can also use this function to identify a user with a unique `userId`. If you
 - `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.
 - `attributes` (object): Metadata about a user, e.g. their home state. Attributes can be used for discovering and targeting audiences.
 
-##### *Examples*
+##### *Usage*
 ```js
 window['optimizely'] = window['optimizely'] || [];
 
@@ -273,7 +273,7 @@ This utility returns a `Promise` that will be resolved as soon as an element app
 ##### *Returns*
 An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will be resolved with the matching element.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -299,7 +299,7 @@ This utility provides a subset of the functionality of a [MutationObserver](http
 ##### *Returns*
 A function that can be executed to cancel observation
 
-##### *Example*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -322,7 +322,7 @@ This is a convenience wrapper for `setInterval`.
 ##### *Returns*
 A function that can be executed to cancel polling.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -361,7 +361,7 @@ This utility accepts a function that returns a boolean value and returns a `Prom
 ##### *Returns*
 An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -389,7 +389,7 @@ As Optimizely runs on your site, you can hook into the snippet's execution and r
   - `name` (string)
 - `handler` (function): A callback to run when an event fires. The function takes a single `data` object that varies based on the event.
 
-##### *Examples*
+##### *Usage*
 
 ```js
 
@@ -464,7 +464,7 @@ If any of the following are true:
 - The attribute is not content-enabled
 - The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the dcp library
 var dcp = window['optimizely'].get('dcp');
@@ -500,7 +500,7 @@ If any of the following are true:
 - The attribute is not content-enabled
 - The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the dcp library
 var dcp = window['optimizely'].get('dcp');
