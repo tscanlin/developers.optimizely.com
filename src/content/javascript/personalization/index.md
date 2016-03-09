@@ -17,7 +17,7 @@ These APIs are similar to the [tracking calls in Optimizely Testing](/javascript
 
 Some legacy API calls like `trackEvent` will automatically trigger a new API call in this format. You don't need to reimplement event tracking if you've already set it up, but you can use the new API format to track additional tags for behavioral targeting (see below).
 
-##### *Examples*
+##### *Usage*
 ```js
 // Legacy format
 window['optimizely'].push(['trackEvent', 'watchedVideo']);
@@ -45,7 +45,7 @@ without code, but this API call supports tracking other behaviors like watching 
 - `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
   - `revenue` (integer): A special tag that denotes a revenue-generating event. Revenue should be an integer equal to 100 times the value. For example, a purchase of $79.99 or €79.99 would be `7999`. Revenue should only be attached to the final purchase to prevent double-counting, and if you've already tracked events using the legacy `trackEvent` method you should not re-instrument it again.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Basic tracking
 window['optimizely'].push({
@@ -93,7 +93,7 @@ Page information is reset whenever the browser reloads.
 - `pageName` (string): The "API name" for a page created in Optimizely, e.g. `product_detail`. Choose the "manual activation" option in page creation to see or change this name.
 - `tags` (object): A single-level JSON object with metadata about the content on the page, e.g. the product being purchased.
 
-##### *Examples*
+##### *Usage*
 ```js
 window['optimizely'] = window['optimizely'] || [];
 
@@ -130,7 +130,7 @@ There are three ways to capture this context:
 - `type`: "tags"
 - `tags` (object): A single-level JSON object with metadata about an event, e.g. the product being purchased.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Tracking the current product
 window['optimizely'].push({
@@ -157,7 +157,7 @@ You can also use this function to identify a user with a unique `userId`. If you
 - `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.
 - `attributes` (object): Metadata about a user, e.g. their home state. Attributes can be used for discovering and targeting audiences.
 
-##### *Examples*
+##### *Usage*
 ```js
 window['optimizely'] = window['optimizely'] || [];
 
@@ -273,7 +273,7 @@ This utility returns a `Promise` that will be resolved as soon as an element app
 ##### *Returns*
 An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will be resolved with the matching element.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -299,7 +299,7 @@ This utility provides a subset of the functionality of a [MutationObserver](http
 ##### *Returns*
 A function that can be executed to cancel observation
 
-##### *Example*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -322,7 +322,7 @@ This is a convenience wrapper for `setInterval`.
 ##### *Returns*
 A function that can be executed to cancel polling.
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -361,7 +361,7 @@ This utility accepts a function that returns a boolean value and returns a `Prom
 ##### *Returns*
 An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the utils library
 var utils = window['optimizely'].get('utils');
@@ -377,179 +377,6 @@ utils.waitUntil(function() {
 ```
 
 
-### Data
-
-Returns an object exposing static data fields.
-
-##### *Returns*
-- `Object`:
-  - `accountId` (string)
-  - `projectId` (string)
-  - `revision` (string)
-  - `dcpServiceId` (string|null)
-  - `audiences` (object):
-    - `id` (object): The audience id
-      - `id` (string): The audience id
-      - `name` (string)
-      - `conditions` (array): Conditions the visitor must have to be in the audience
-  - `campaigns` (object):
-    - `id` (object): The campaign id
-      - `id` (string): The campaign id
-      - `name` (string)
-      - `policy` (string): ordered (personalization) or random (A/B test)
-      - `holdback` (BasisPoints): 0 - 100
-      - `weightDistributions` (object|null): Traffic allocation among the experiments in the campaign
-      - `activation` (object|null)
-      - `changes` (array|null): An array of changes
-      - `commitId` (string|null)
-      - `experiments` (array): An array of the experiments in the campaign
-      - `integrationSettings` (object)
-      - `viewIds` (array): An array of view ids (strings) associated with the campaign
-  - `events` (object):
-    - `id` (string): The event id
-      - `id` (string): The event id
-      - `name` (string|null): The event name
-      - `apiName` (string)
-      - `category` (string): added to cart, saved, shared, searched, purchased, converted, signed up, subscribed, other
-      - `eventType` (string): click, custom, engagement, or pageview
-      - `eventFilter` (object|null): Filter type of string or target selector
-      - `viewId` (string|null)
-  - `pages` (object):
-    - `id` (string): The page id
-      - `id` (string): The page id
-      - `name` (string|null): The page name
-      - `apiName` (string)
-      - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
-      - `static conditions` (array)
-      - `tags` (array)
-
-##### *Example*
-```js
-// Retrieve the data object
-var staticData = window['optimizely'].get('data');
-
-// The fields described above are now available in the staticData object.
-```
-
-
-### Session
-
-##### *Returns*
-- `Object`:
-  - `lastSessionTimestamp` (number|0)
-  - `sessionId` (string|null)
-
-##### *Example*
-```js
-// Retrieve the session object
-var sessionData = window['optimizely'].get('session');
-```
-
-
-### Visitor ID
-
-##### *Returns*
-- `Object`:
-  - `randomId` (string|null): If no UUID is available, Optimizely will generate a random visitor id
-  - `UUID` (string|null): Your unique identifier for a user (universally unique identifier)
-
-##### *Example*
-```js
-// Retrieve the visitor ID data object
-var visitorIdData = window['optimizely'].get('visitorId');
-```
-
-### Visitor
-
-##### *Returns*
-- `Object`:
-  - `IP` (string): The visitor's IP address
-  - `browserId` (string)
-  - `browserVersion` (string)
-  - `campaign` (string|null): The campaign the visitor is in
-  - `cookies` (object): The visitor's optimizely cookies
-  - `currentTimestamp` (number)
-  - `custom` (object)
-  - `dcpData` (object): Indicates personalized content delivered via named or unnamed DCP attributes
-  - `defaultBehavior` (object): Includes default values for a variety of properties, such as average events per session, most viewed page, average revenue per order last 60 days, etc.
-  - `device` (string): The visitor's device (e.g., desktop, laptop, etc.)
-  - `events` (array)
-  - `first_session` (boolean): True if it is the visitor's first session
-  - `language` (string)
-  - `lists` (object)
-  - `location` (object): Includes fields for city, continent, country, and region
-  - `platform` (object):
-    - `id` (string)
-    - `version` (string)
-  - `queryParams` (array)
-  - `referrer` (string|null)
-  - `source_type` (string|null)
-  - `visitorId` (string|null): The visitor's randomly generated Optimizely ID
-  - `visitorUUID` (string|null): Your unique identifier for a user
-
-##### *Example*
-```js
-// Retrieve the visitor profile
-var visitorProfile = window['optimizely'].get('visitor');
-
-// The fields described above are now available in the visitorProfile object.
-$("#username").text(visitorProfile.custom.userName);
-```
-
-### State
-
-Returns a module exposing several functions to access information about the current visitor's state
-
-##### *Example*
-```js
-// Access the state module
-var stateModule = window['optimizely'].get('state');
-
-// Use the state module to access the campaign states
-var campaignStates = stateModule.getCampaignStates();
-```
-
-<h4 id="getCampaignStates" class="subLink">getCampaignStates()</h4>
-
-Returns a map of campaign states, indexed by campaign id.
-
-##### *Returns*
-- `Object`:
-  - `campaignId` (string)
-    - `id` (string)
-    - `campaignName` (string)
-    - `audiences` (array)
-    - `experiment` (object|null)
-    - `variation` (object|null)
-    - `reason` (string|null): Reason why experiment or variation id is null
-
-<h4 id="getPageStates" class="subLink">getPageStates()</h4>
-
-Returns a map of page states, indexed by page id.
-
-##### *Returns*
-- `Object`:
-  - `pageId` (string)
-    - `id` (string)
-    - `apiName` (string)
-    - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
-    - `isActive` (boolean)
-    - `metadata` (object)
-    - `name` (string)
-    - `static conditions` (array)
-    - `tags` (array)
-
-<h4 id="isGlobalHoldback" class="subLink">isGlobalHoldback()</h4>
-
-##### *Returns*
-- boolean: whether the visitor is in the global holdback
-
-<h4 id="getActivationId" class="subLink">getActivationId()</h4>
-
-##### *Returns*
-- string: current activation ID
-
-
 ### Listeners
 
 As Optimizely runs on your site, you can hook into the snippet's execution and run your own code at different points by using the `addListener` API. Looking for other listeners? Contact us at [developers@optimizely.com](mailto:developers@optimizely.com).
@@ -562,7 +389,7 @@ As Optimizely runs on your site, you can hook into the snippet's execution and r
   - `name` (string)
 - `handler` (function): A callback to run when an event fires. The function takes a single `data` object that varies based on the event.
 
-##### *Examples*
+##### *Usage*
 
 ```js
 
@@ -613,6 +440,7 @@ This listener fires whenever a page is activated, either due to URL targeting or
   - `apiName` (string): The API name for the page, used for manual activation
   - `category` (string): The category, like "homepage"
 
+
 ### Customer Profiles
 
 <h4 id="getAttributeValue" class="subLink">getAttributeValue</h4>
@@ -636,7 +464,7 @@ If any of the following are true:
 - The attribute is not content-enabled
 - The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the dcp library
 var dcp = window['optimizely'].get('dcp');
@@ -672,7 +500,7 @@ If any of the following are true:
 - The attribute is not content-enabled
 - The attribute is specified by name even though names are [masked](https://help.optimizely.com/hc/en-us/articles/208997878-Project-Settings-Privacy#masking_descriptive_names) in the Optimizely client
 
-##### *Examples*
+##### *Usage*
 ```js
 // Retrieve the dcp library
 var dcp = window['optimizely'].get('dcp');
@@ -689,6 +517,175 @@ dcp.waitForAttributeValue({datasourceId: 123, attributeName: 'Preferred Locale'}
   }
 );
 ```
+
+## Reading data and state
+
+`optimizely.get` can also be used to get read-only information about the current visitor, sessions, and running campaigns. 
+
+### Data
+
+Returns an object exposing static data fields.
+
+##### *Usage*
+```js
+// Retrieve the data object
+var staticData = window['optimizely'].get('data');
+```
+
+##### *Returns*
+- `Object`:
+  - `accountId` (string)
+  - `projectId` (string)
+  - `revision` (string)
+  - `dcpServiceId` (string|null)
+  - `audiences` (object):
+    - `id` (object): The audience id
+      - `id` (string): The audience id
+      - `name` (string)
+      - `conditions` (array): Conditions the visitor must have to be in the audience
+  - `campaigns` (object):
+    - `id` (object): The campaign id
+      - `id` (string): The campaign id
+      - `name` (string)
+      - `policy` (string): ordered (personalization) or random (A/B test)
+      - `holdback` (BasisPoints): 0 - 100
+      - `weightDistributions` (object|null): Traffic allocation among the experiments in the campaign
+      - `activation` (object|null)
+      - `changes` (array|null): An array of changes
+      - `commitId` (string|null)
+      - `experiments` (array): An array of the experiments in the campaign
+      - `integrationSettings` (object)
+      - `viewIds` (array): An array of view ids (strings) associated with the campaign
+  - `events` (object):
+    - `id` (string): The event id
+      - `id` (string): The event id
+      - `name` (string|null): The event name
+      - `apiName` (string)
+      - `category` (string): added to cart, saved, shared, searched, purchased, converted, signed up, subscribed, other
+      - `eventType` (string): click, custom, engagement, or pageview
+      - `eventFilter` (object|null): Filter type of string or target selector
+      - `viewId` (string|null)
+  - `pages` (object):
+    - `id` (string): The page id
+      - `id` (string): The page id
+      - `name` (string|null): The page name
+      - `apiName` (string)
+      - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
+      - `static conditions` (array)
+      - `tags` (array)
+
+### Session
+
+##### *Usage*
+```js
+// Retrieve the session object
+var sessionData = window['optimizely'].get('session');
+```
+
+##### *Returns*
+- `Object`:
+  - `lastSessionTimestamp` (number|0)
+  - `sessionId` (string|null)
+
+### Visitor ID
+
+##### *Usage*
+```js
+// Retrieve the visitor ID data object
+var visitorIdData = window['optimizely'].get('visitorId');
+```
+##### *Returns*
+- `Object`:
+  - `randomId` (string|null): If no UUID is available, Optimizely will generate a random visitor id
+  - `UUID` (string|null): Your unique identifier for a user (universally unique identifier)
+
+### Visitor
+
+##### *Usage*
+```js
+// Retrieve the visitor profile
+var visitorProfile = window['optimizely'].get('visitor');
+$("#username").text(visitorProfile.custom.userName);
+```
+
+##### *Returns*
+- `Object`:
+  - `IP` (string): The visitor's IP address
+  - `browserId` (string)
+  - `browserVersion` (string)
+  - `campaign` (string|null): The campaign the visitor is in
+  - `cookies` (object): The visitor's optimizely cookies
+  - `currentTimestamp` (number)
+  - `custom` (object)
+  - `dcpData` (object): Indicates personalized content delivered via named or unnamed DCP attributes
+  - `defaultBehavior` (object): Includes default values for a variety of properties, such as average events per session, most viewed page, average revenue per order last 60 days, etc.
+  - `device` (string): The visitor's device (e.g., desktop, laptop, etc.)
+  - `events` (array)
+  - `first_session` (boolean): True if it is the visitor's first session
+  - `language` (string)
+  - `lists` (object)
+  - `location` (object): Includes fields for city, continent, country, and region
+  - `platform` (object):
+    - `id` (string)
+    - `version` (string)
+  - `queryParams` (array)
+  - `referrer` (string|null)
+  - `source_type` (string|null)
+  - `visitorId` (string|null): The visitor's randomly generated Optimizely ID
+  - `visitorUUID` (string|null): Your unique identifier for a user
+
+### State
+
+Returns a module exposing several functions to access information about the current visitor's state
+
+##### *Usage*
+```js
+// Access the state module
+var stateModule = window['optimizely'].get('state');
+
+// Use the state module to access the campaign states
+var campaignStates = stateModule.getCampaignStates();
+```
+
+<h4 id="getCampaignStates" class="subLink">getCampaignStates()</h4>
+
+Returns a map of campaign states, indexed by campaign id.
+
+##### *Returns*
+- `Object`:
+  - `campaignId` (string)
+    - `id` (string)
+    - `campaignName` (string)
+    - `audiences` (array)
+    - `experiment` (object|null)
+    - `variation` (object|null)
+    - `reason` (string|null): Reason why experiment or variation id is null
+
+<h4 id="getPageStates" class="subLink">getPageStates()</h4>
+
+Returns a map of page states, indexed by page id.
+
+##### *Returns*
+- `Object`:
+  - `pageId` (string)
+    - `id` (string)
+    - `apiName` (string)
+    - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
+    - `isActive` (boolean)
+    - `metadata` (object)
+    - `name` (string)
+    - `static conditions` (array)
+    - `tags` (array)
+
+<h4 id="isGlobalHoldback" class="subLink">isGlobalHoldback()</h4>
+
+##### *Returns*
+- boolean: whether the visitor is in the global holdback
+
+<h4 id="getActivationId" class="subLink">getActivationId()</h4>
+
+##### *Returns*
+- string: current activation ID
 
 ## Debugging
 
