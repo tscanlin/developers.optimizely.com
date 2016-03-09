@@ -5,6 +5,14 @@ title: "Optimizely Android SDK Changelog"
 
 # Optimizely Android SDK Changelog
 
+### 1.4.2
+March 8, 2016
+
+*Bug Fixes:*
+
+*  Adjusts bundled Proguard rules so that they only keep the minimum required by Optimizely and work with our new modules.
+*  Fixes issue where SDK would not start up while starting asynchronously due to thread pool starvation.
+
 ### 1.4.1
 February 29, 2016
 
