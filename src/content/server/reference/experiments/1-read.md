@@ -1,5 +1,5 @@
 ---
-template: _multi-example.html
+template: multi-example
 endpoint: experiments/15/
 endpoint_prefix: experiments/
 endpoint_option: 15

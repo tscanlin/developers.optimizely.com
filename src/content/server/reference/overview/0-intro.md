@@ -1,5 +1,5 @@
 ---
-template: _multi-example.html
+template: multi-example
 title: Overview
 anchor: overview
 ---
