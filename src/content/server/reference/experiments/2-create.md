@@ -9,31 +9,32 @@ anchor: create-experiment
 title: Create a new experiment
 code_examples:
   python:
+    lang: python
     request: |
       from datetime import datetime
       now = datetime.now()
       mm = str(now.month)
-      dd = str(now.day)
-      yyyy = str(now.year)
-      hour = str(now.hour)
-      mi = str(now.minute)
-      ss = str(now.second)
       print mm + "/" + dd + "/" + yyyy + " " + hour + ":" + mi + ":" + ss
     response: |
       {
-        foo: "bar"
+        "foo": "bar"
       }
   java:
+    lang: java
     request: |
       String a = String.valueOf(2);   //integer to numeric string
       int i = Integer.parseInt(a); //numeric string to an int
     response: |
       {
-        foo: "bar"
+        "foo": "bar"
       }
 ---
 
 The `project_id` is required in the URL, and the `description` and `edit_url` are required in the body. The [other editable arguments](#update-experiment) are all optional.
+
+When you create an experiment, Optimizely will also fill in associated data by default. These defaults mimic the behavior of Optimizely's editor and include
+
+When you create an experiment, Optimizely will also fill in associated data by default. These defaults mimic the behavior of Optimizely's editor and include
 
 When you create an experiment, Optimizely will also fill in associated data by default. These defaults mimic the behavior of Optimizely's editor and include:
 

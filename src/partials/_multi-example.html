@@ -38,7 +38,7 @@
       <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
 
         {% for code in code_examples %}
-          <div class="toggle-section visible" data-toggle-section="{{ code }}">
+          <div class="toggle-section{% if code.lang == 'python' %} visible{% endif %}" data-toggle-section="{{ code.lang }}-code">
 
 <!-- Indenting is weird here because of the <pre> tags -->
 
@@ -46,9 +46,11 @@
 {% if code.request %}
 <h4>Example Request</h4>
 <pre>
-{% highlight 'json' %}
+{% marked %}
+```{{ code.lang }}
 {{ code.request | safe }}
-{% endhighlight %}
+```
+{% endmarked %}
 </pre>
 {% endif %}
 
@@ -56,9 +58,11 @@
 {% if code.response %}
 <h4>Example Response</h4>
 <pre>
-{% highlight 'json' %}
+{% marked %}
+```json
 {{ code.response | safe }}
-{% endhighlight %}
+```
+{% endmarked %}
 </pre>
 {% endif %}
 
