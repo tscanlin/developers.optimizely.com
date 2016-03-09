@@ -45,20 +45,24 @@ When you create an experiment, Optimizely will also fill in associated data by d
 - Immediate `activation_mode`, rather than manual.
 - The `experiment_type` will be a normal A/B test, rather than a multivariate or multipage test.
 
-<div class="hidden visible" data-toggle-section="python-code">
-  <h4>Python Snippet</h4>
+<!-- Code snippets inline would need to be written with HTML -->
 
-  <pre><code class="hljs lang-python">#!/usr/bin/env python
-  # Some python code sample
-  </code></pre>
+<!-- Python Snippet -->
+<div class="hidden visible" data-toggle-section="python-code">
+<h4>Python Snippet</h4>
+
+<pre><code class="hljs lang-python">#!/usr/bin/env python
+# Some python code sample
+</code></pre>
 </div>
 
+<!-- Java Snippet -->
 <div class="hidden" data-toggle-section="java-code">
-  <h4>Java Snippet</h4>
+<h4>Java Snippet</h4>
 
-  <pre><code class="hljs lang-java">
-  // Some java code sample
-  </code></pre>
+<pre><code class="hljs lang-java">#!/usr/bin/java
+// Some java code sample
+</code></pre>
 </div>
 
 More explanations about the above snippets...
