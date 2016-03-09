@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: _multi-example.html
 title: Overview
 anchor: overview
 ---

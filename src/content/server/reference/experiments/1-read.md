@@ -1,5 +1,5 @@
 ---
-template: sidebyside
+template: _multi-example.html
 endpoint: experiments/15/
 endpoint_prefix: experiments/
 endpoint_option: 15
