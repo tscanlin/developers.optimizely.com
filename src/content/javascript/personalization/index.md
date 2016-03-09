@@ -538,41 +538,37 @@ var staticData = window['optimizely'].get('data');
   - `projectId` (string)
   - `revision` (string)
   - `dcpServiceId` (string|null)
-  - `audiences` (object):
-    - `id` (object): The audience id
-      - `id` (string): The audience id
-      - `name` (string)
-      - `conditions` (array): Conditions the visitor must have to be in the audience
-  - `campaigns` (object):
-    - `id` (object): The campaign id
-      - `id` (string): The campaign id
-      - `name` (string)
-      - `policy` (string): ordered (personalization) or random (A/B test)
-      - `holdback` (BasisPoints): 0 - 100
-      - `weightDistributions` (object|null): Traffic allocation among the experiments in the campaign
-      - `activation` (object|null)
-      - `changes` (array|null): An array of changes
-      - `commitId` (string|null)
-      - `experiments` (array): An array of the experiments in the campaign
-      - `integrationSettings` (object)
-      - `viewIds` (array): An array of view ids (strings) associated with the campaign
-  - `events` (object):
+  - `audiences` (object) Object mapping Audience ID to:
+    - `id` (string): The audience id
+    - `name` (string)
+    - `conditions` (array): Conditions the visitor must have to be in the audience
+  - `campaigns` (object) Object mapping Campaign ID to:
+    - `id` (string): The campaign id
+    - `name` (string)
+    - `policy` (string): ordered (personalization) or random (A/B test)
+    - `holdback` (BasisPoints): 0 - 100
+    - `weightDistributions` (object|null): Traffic allocation among the experiments in the campaign
+    - `activation` (object|null)
+    - `changes` (array|null): An array of changes
+    - `commitId` (string|null)
+    - `experiments` (array): An array of the experiments in the campaign
+    - `integrationSettings` (object)
+    - `viewIds` (array): An array of view ids (strings) associated with the campaign
+  - `events` (object) Object mapping Event ID to:
     - `id` (string): The event id
-      - `id` (string): The event id
-      - `name` (string|null): The event name
-      - `apiName` (string)
-      - `category` (string): added to cart, saved, shared, searched, purchased, converted, signed up, subscribed, other
-      - `eventType` (string): click, custom, engagement, or pageview
-      - `eventFilter` (object|null): Filter type of string or target selector
-      - `viewId` (string|null)
-  - `pages` (object):
+    - `name` (string|null): The event name
+    - `apiName` (string)
+    - `category` (string): added to cart, saved, shared, searched, purchased, converted, signed up, subscribed, other
+    - `eventType` (string): click, custom, engagement, or pageview
+    - `eventFilter` (object|null): Filter type of string or target selector
+    - `viewId` (string|null)
+  - `pages` (object) Object mapping Page ID to:
     - `id` (string): The page id
-      - `id` (string): The page id
-      - `name` (string|null): The page name
-      - `apiName` (string)
-      - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
-      - `static conditions` (array)
-      - `tags` (array)
+    - `name` (string|null): The page name
+    - `apiName` (string)
+    - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
+    - `static conditions` (array)
+    - `tags` (array)
 
 ### Session
 
@@ -652,30 +648,28 @@ var campaignStates = stateModule.getCampaignStates();
 Returns a map of campaign states, indexed by campaign id.
 
 ##### *Returns*
-- `Object`:
-  - `campaignId` (string)
-    - `id` (string)
-    - `campaignName` (string)
-    - `audiences` (array)
-    - `experiment` (object|null)
-    - `variation` (object|null)
-    - `reason` (string|null): Reason why experiment or variation id is null
+- `Object` Object mapping Campaign ID to:
+  - `id` (string)
+  - `campaignName` (string)
+  - `audiences` (array)
+  - `experiment` (object|null)
+  - `variation` (object|null)
+  - `reason` (string|null): Reason why experiment or variation id is null
 
 <h4 id="getPageStates" class="subLink">getPageStates()</h4>
 
 Returns a map of page states, indexed by page id.
 
 ##### *Returns*
-- `Object`:
-  - `pageId` (string)
-    - `id` (string)
-    - `apiName` (string)
-    - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
-    - `isActive` (boolean)
-    - `metadata` (object)
-    - `name` (string)
-    - `static conditions` (array)
-    - `tags` (array)
+- `Object` Object mapping Page ID to:
+  - `id` (string)
+  - `apiName` (string)
+  - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
+  - `isActive` (boolean)
+  - `metadata` (object)
+  - `name` (string)
+  - `static conditions` (array)
+  - `tags` (array)
 
 <h4 id="isGlobalHoldback" class="subLink">isGlobalHoldback()</h4>
 
