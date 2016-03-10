@@ -5,6 +5,16 @@ title: "Optimizely iOS SDK Changelog"
 
 # Optimizely iOS SDK Changelog
 
+### 1.4.2
+March 9, 2016
+
+*Bug Fixes:*
+
+* We made a merge error and the internal version is 1.4.2 instead of 1.4.0. We are trying to make all affected files consistent with 1.4.2 since customers are already using 1.4.2.
+
+### 1.4.1
+Skipped
+
 ### 1.4.0
 February 25, 2016
 
