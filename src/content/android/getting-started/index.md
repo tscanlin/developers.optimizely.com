@@ -176,6 +176,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
 2. Were you able to connect to Optimizely's Visual Editor?  Before your release to the app store, you will want to make sure that `Optimizely.setEditGestureEnabled(false)` is called before `Optimizely.startOptimizelyWithAPIToken`.
 
 3. (Optional) If you have a separate project for development and production, you can run your experiments in your development environment to check that results are updating and that you are seeing the different variations are being seen.
+    - A useful debugging tool is to enable logging (be sure to disable this feature when your app is live in the Play Store) `Optimizely.setVerboseLogging(true);` For each event that is triggered, you will see a log statement. Be sure to check that verboseLogging is not enabled in production.
     - You will want to make sure that each experiment does not make changes to the same element (otherwise only one of the experiments will run).
     - Optimizely tracks unique visitors, so that we make sure that the same user sees the same experience.  If you would like to check that you are getting a random experience, you will need to delete the app to be counted as a new visitor.
     - By default, Optimizely sends network calls every 2 minutes or upon backgrounding. (You can find more details about modifying the SDK network settings [here](#networksettings)). In order to check that your event data is being updated in the Optimizely Results Page as expected, you can either:
@@ -184,15 +185,6 @@ Now that you've created an experiment and successfully installed the Optimizely 
 
 4. Once you've checked all these steps, you're ready to release to the Play Store!
  
-### Verbose Logging
-
-To get a clearer idea of what's going on in your Optimizely SDK and your experiments, you can enable verbose logging. Do this with `Optimizely.setVerboseLogging` before starting Optimizely:
-
-```
-Optimizely.setVerboseLogging(true);
-Optimizely.startOptimizelyWithAPIToken(<API TOKEN>, getApplication(), mOptimizelyEventListener);
-```
-
 ## Advanced Setup
 
 Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the Play Store:
