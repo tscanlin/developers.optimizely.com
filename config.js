@@ -109,8 +109,16 @@ var paths = {
     },
     server: {
       path: 'server',
-      title: 'Server Side',
+      title: 'Server-Side SDKs',
       sections: {
+        'introduction': {
+          path: 'introduction',
+          title: 'Introduction',
+        },
+         'getting-started': {
+          path: 'getting-started',
+          title: 'Getting started',
+        },
         'reference': {
           path: 'reference',
           title: 'Reference',
