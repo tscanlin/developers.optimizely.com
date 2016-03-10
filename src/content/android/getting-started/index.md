@@ -162,6 +162,7 @@ See this section on [configuring the visual editor](#configure_visual_editor).
 <h2 id="qa">5. QA</h2>
 
 ### Preview Mode
+
 Preview mode allows you to force your app into a certain variation for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, select your desired variation, open the variation settings drawer, and click `Preview`
 
 <img src="/assets/img/mobile/launch-preview.png" alt="Enter Preview Mode" />
@@ -182,6 +183,15 @@ Now that you've created an experiment and successfully installed the Optimizely 
        2. Background the app so that events are sent to our servers.
 
 4. Once you've checked all these steps, you're ready to release to the Play Store!
+ 
+### Verbose Logging
+
+To get a clearer idea of what's going on in your Optimizely SDK and your experiments, you can enable verbose logging. Do this with `Optimizely.setVerboseLogging` before starting Optimizely:
+
+```
+Optimizely.setVerboseLogging(true);
+Optimizely.startOptimizelyWithAPIToken(<API TOKEN>, getApplication(), mOptimizelyEventListener);
+```
 
 ## Advanced Setup
 
