@@ -119,6 +119,7 @@ gulp.task('html', ['data'], function() {
 
     if (dataObj.template
       && dataObj.template !== 'inline'
+      && dataObj.template !== 'multi-example'
       && dataObj.template !== 'sidebyside') {
       var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');
       file.contents = new Buffer(tpl(dataObj), 'utf8'); //eslint-disable-line
