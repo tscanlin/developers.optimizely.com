@@ -7,6 +7,10 @@ title: "Apps<sup>beta</sup>"
 
 **Welcome! This page walks you through everything you need to know so you can build apps using Optimizely.**
 
+<div class="attention attention--warning push-double--bottom">
+**If you don't see Optimizely Apps in your dashboard**, or if you have trouble accessing Apps the product, please email [developers@optimizely.com](mailto:developers@optimizely.com).
+</div>
+
 At Optimizely, we’re working hard to expand our developer platform to empower customers and developers to extend and integrate with Optimizely in new ways.
 
 In addition to our APIs, we’ve also built the Optimizely Canvas<sup>beta</sup> framework, which allows developers to embed custom experiences inside the native Optimizely interface.
@@ -17,13 +21,23 @@ We’re excited for customers and developers to leverage these powerful tools to
 
 Optimizely Canvas allows developers to embed third-party applications directly in the Optimizely interface using an iframe.
 
+
+<img src="/assets/img/apps/full-width.png" />
+
+<p class="muted line--tight proceed"><i>Your App will be shown directly under a unique tab of your naming. This location will provide a canvas space for the full width of the page.</i></p>
+
 Such applications are context-aware, meaning Optimizely informs the app about a user’s attributes like their account ID and current project ID.
 
 Optimizely also provides apps embedded in Canvas with **OAuth credentials** for the current user, allowing the app to interact with Optimizely’s REST APIs on behalf of the user and build truly rich and seamless experiences.
 
-For instance, below is a screenshot of the **Templates** app, which allows users to create re-usable base templates for experiments and create any number of experiments based on these templates. The entire interface below the Templates tab—which looks and feels like part of the native Optimizely product—is in fact an iframe to an application hosted entirely outside of Optimizely and integrated via Canvas.
+For instance, below is a screenshot of the **Headline Testing** app, which allows users to create article headline experiments in just a few clicks without using the Optimizely visual editor. The entire interface below the Headline Testing tab—which looks and feels like part of the native Optimizely product—is in fact an iframe to an application hosted entirely outside of Optimizely and integrated via Canvas.
 
-<img src="/assets/img/canvas/templates_app_screenshot.png" />
+<img src="/assets/img/apps/headline-testing-screenshot.png" />
+
+And here's a screenshot of the **Sheets Embed** app, which allows users to access Google spreadsheets related to their Optimizely projects directly within Optimizely.
+
+<img src="/assets/img/apps/sheets-embed-screenshot.png" />
+
 
 Optimizely Canvas empowers developers to build rich experiences on the Optimizely platform in an incredibly low-friction way. In fact, you can use whatever tech stack you’d like. We're excited to see what you build!
 
@@ -37,7 +51,7 @@ would like to provide feedback, then please chat with us at
 
 <h3 id="ideate">1. Come up with an idea for your app</h3>
 
-Need an app idea? <a href="#">Check out the Optiverse for app ideas (TODO: ADD LINK HERE)</a> that have been suggested by the community!
+Need an app idea? <a href="https://optimize.ly/app-ideas" target="_blank">Check out the Optiverse</a> for app ideas that have been suggested by the community!
 
 You can also get inspiration from our existing apps by going to your Optimizely Dashboard and clicking on the “Apps” tab.
 
@@ -51,7 +65,7 @@ While we cannot guarantee it, we aim to complete initial setup within one busine
 
 <h3 id="turn-on-your-app">3. Turn on your app</h3>
 
-Once you've received confirmation that your app is available, you'll find it listed in the *Integrations* tab of any project under the account(s) you requested we whitelist:
+Once you've received confirmation that your app is available, you'll find it listed in the *Apps* tab of any project under the account(s) you requested we whitelist:
 
 <img src="/assets/img/canvas/turning_on_an_app.png" />
 
@@ -59,7 +73,7 @@ After you switch the app to "On", you'll see a new tab appear in your project na
 
 <img src="/assets/img/canvas/templates_tab_closeup.png" style="width: 60%;" />
 
-If you click this tab, your app's URL will be loaded via an iframe below the tab, with a signed payload as described in <a href="#canvas-payload">4. Use the Canvas payload</a>.
+If you click this tab, your app's URL will be loaded via an iframe below the tab, with a signed payload as described below in <a href="#canvas-payload">Section 4. Use the Canvas payload</a>.
 
 
 <h3 id="canvas-payload">4. Use the Canvas payload</h3>
@@ -173,14 +187,12 @@ All apps must include a **Terms of Service** in the UI.
 
 <h3 id="design-requirements">Design Requirements</h3>
 
-To the extent possible, all apps must follow Optimizely design patterns as described at <a href="http://design.optimizely.com" target="_blank">http://design.optimizely.com</a>.
-
-Apps should use the <a href="http://design.optimizely.com/oui/index.html" target="_blank">Optimizely User Interface (OUI)</a> to maintain consistency with the Optimizely platform.
+In order to provide a great user experience that feels like a core part of Optimizely, we recommend using our open source CSS framework, [OUI (Optimizely User Interface)](http://design.optimizely.com/oui/index.html). This framework defines standard components — grids, buttons, form elements, breadcrumbs — that are cross-browser compatible and easily combined into larger interfaces. It's also the same CSS framework that Optimizely's engineers use to build Optimizely.
 
 You can get started with OUI in two ways:
 
-1. via our pre-compiled version, as described here, or,
-2. via our `optimizely-oui` npm module. Read <a href="https://github.com/optimizely/oui/blob/devel/README.md" target="_blank">https://github.com/optimizely/oui/blob/devel/README.md</a> for more.
+1. Use the pre-compiled version, as described below (recommended).
+2. Or, use the `optimizely-oui` npm module. Read <a href="https://github.com/optimizely/oui/blob/devel/README.md" target="_blank">https://github.com/optimizely/oui/blob/devel/README.md</a> for more.
 
 #### Pre-compiled CSS
 
@@ -213,6 +225,12 @@ Here is a basic HTML template to get started using OUI:
 #### OUI Core Components
 As you add each component style to your app, reference the <a href="http://design.optimizely.com/oui/core/api/" target="_blank">OUI Core Components</a> to learn the semantic markup for each component.
 
+#### Designing your app
+In addition to aligning to the OUI style, please be aware of the context within which you’re designing your app. Since Optimizely’s header is at the top of the page, **you should avoid adding in a secondary header to the top of your app**. A secondary header will confuse users and will create an awkward information architecture.
+
+Secondly, all the contents inside Optimizely’s UI is left aligned. **You should avoid center aligning the contents of your app** as this will be inconsistent with Optimizely’s UI.
+
+<img src="/assets/img//apps/anti-pattern.png" />
 #### Codepens
 
 To get started quickly with OUI, check out these codepens:
@@ -220,7 +238,9 @@ To get started quickly with OUI, check out these codepens:
 * <a href="http://codepen.io/kwalker3690/pen/pyjoLb?editors=1000" target="_blank">Right Sidebar</a>
 
 #### Further Reading
-Our designers and [UI engineers](https://medium.com/design-optimizely/why-we-hire-ui-engineers-on-optimizely-s-design-team-b2a789553b79#.3ieh5ajxp) have put together a guide on **Designing Apps in Optimizely Canvas** just for you. In the guide you’ll find more information including headers and subtabs Dos and Don’ts, adding icons to your project, and more. [Read the guide Designing Apps in Optimizely Canvas now &rarr;](http://link.optimizely.com/canvas-design-guide)
+* [Optimizely OUI on Github](https://github.com/optimizely/oui) (includes instructions for using [SVG icons](https://github.com/optimizely/oui#svg-icons), too)
+* [OUI Documentation](http://design.optimizely.com/oui/index.html)
+* [Optimizely’s Design Guide](http://design.optimizely.com/design-patterns/index.html), which includes [brand colors](http://design.optimizely.com/brand/colors.html) and [design patterns](http://design.optimizely.com/design-patterns/product/index.html).
 
 
 <h3 id="security-guidance">Security Guidance</h3>
@@ -258,10 +278,15 @@ apps will have unique attack vectors and security requirements that developers s
 
 Here is the definitive list of documents related to developing an App in Optimizely Canvas:
 
-* [Apps<sup>beta</sup> Developer Guide](http://developers.optimizely.com/apps) (these docs)
+##### Design:
+* [Optimizely OUI on Github](https://github.com/optimizely/oui)
 * [Optimizely Design Guide: OUI](http://design.optimizely.com/oui/index.html)
-* [Designing Apps in Optimizely Canvas](http://link.optimizely.com/canvas-design-guide)
-* Canvas App ideas @ Optiverse (community driven) ##TODO: add link
+* [Optimizely Design Guide: Product Design Patterns](http://design.optimizely.com/design-patterns/product/index.html)
+
+##### Development:
+* [Canvas App ideas @ Optiverse](https://optimize.ly/app-ideas) (community driven)
+* [Apps<sup>beta</sup> Developer Guide](http://developers.optimizely.com/apps) (these docs)
+
 
 
 <h2 id="faqs">FAQs</h2>
