@@ -7,7 +7,7 @@ title: "Optimizely Android SDK Guide"
 
 ## SDK Download
 
-You can download the Android SDK through gradle/maven, manually from GitHub, or install it through Fabric.
+You can download the Android SDK through gradle or install it through Fabric.
 
 <a href="https://fabric.io/kits/android/optimizely"><img src="/assets/img/mobile/fabric_button.png" style="width: 150px; height: 58px;"/></a>
 
@@ -21,7 +21,7 @@ You can download the Android SDK through gradle/maven, manually from GitHub, or 
 
 <h2 id="sdk-installation">1. SDK Installation</h2>
 
-To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#using-gradle) (recommended for Android Studio users), [Maven](#using-maven) (recommended for IDEA/Eclipse users), or via [pic Installation](#manual-installation).
+To use Optimizely for Android you must first integrate the SDK into your app using [Gradle](#using-gradle).
 
 **We strongly recommend using a version control system (such as [Git](http://git-scm.com/)) and checking in your app before installing Optimizely.**
 
@@ -52,97 +52,6 @@ dependencies {
     }
 }
 ```
-
-### Using Maven
-
-0. Your project must be set up to build with Maven. Refer to [Maven in 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) guide if you haven't yet configured your project to work with Maven.
-
-1. Our SDK only supports Android API 14 (Ice Cream Sandwich) and above, so please make sure your `AndroidManifest.xml` specifies a [minimum sdk](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html) of 14 (or above). Then, add the Optimizely repository and the dependency to your `pom.xml`:
-
-Repository:
-
-```xml
-<repository>
-  <id>optimizely</id>
-  <name>Optimizely</name>
-  <url>http://dl.bintray.com/optimizely/optimizely</url>
-</repository>
-```
-
-Dependency:
-
-```xml
-<dependency>
-    <groupId>com.optimizely</groupId>
-    <artifactId>optimizely</artifactId>
-    <version>LATEST</version>
-</dependency>
-```
-
-<a name="manualinstall"></a>
-### Manual Installation
-
-**Dependencies**
-The Optimizely SDK depends on:
-
-  - Google's [GSON](http://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.3/gson-2.3.jar) library.
-  - The [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4) library.
-  - Square's popular [OkHTTP](http://search.maven.org/remote_content?filepath=com/squareup/okhttp/okhttp/2.3.0/okhttp-2.3.0.jar) library
-  - OkHTTP depends on [OkIO](https://search.maven.org/remote_content?g=com.squareup.okio&a=okio&v=LATEST)
-
-  [Download](https://github.com/optimizely/Optimizely-Android-SDK/) the latest jar file.
-
-### Eclipse
- If you are using ADT (Eclipse), copy the dependencies and Optimizely.jar to your `libs/` folder inside your project:
-
-  <img src="/assets/img/android/eclipse-libs.png" alt="Eclipse Project Structure" style="width: 40%;"/>
-
- Then right-click on each dependency jar as well as Optimizely.jar and select `Build Path > Add to Build Path`:
-
-  <img src="/assets/img/android/eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
-
-### IntelliJ IDEA
-If you are using IntelliJ with the Android plug-in, add each dependency jar and Optimizely.jar as a library dependency for your app module:
-
-Under Project Structure > Libraries click the `+` button.
-  <img src="/assets/img/android/ij-add-library.png" alt="IntelliJ Module Library Step 1" style="width: 80%;"/>
-
-Select the Optimizely.jar library (you may wish to copy the jar into your project before this step).
-  <img src="/assets/img/android/ij-locate-optimizely.png" alt="IntelliJ Module Library Step 2" style="width: 80%;"/>
-
-Select your application module as a target for the library.
-  <img src="/assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
-
-### Proguard
-
-The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
-
-```
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
-
-# Gson specific classes
--keep class sun.misc.Unsafe { *; }
-#-keep class com.google.gson.stream.** { *; }
-
-# Classes that will be serialized/deserialized over Gson
-
-# OkIO and OkHTTP
--keep class com.optimizely.JSON.** { *; }
--dontwarn okio.**
-
--dontwarn com.squareup.okhttp.**
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
-
--dontwarn com.optimizely.integrations.**
--dontwarn com.mixpanel.android.mpmetrics.MixpanelApiRetriever*
--dontwarn com.amplitude.api.OptimizelyAmplitudeBridge
-```
-
-### Android Studio
-If you are using Android Studio, please see the [Gradle](#using-gradle) configuration above.
 
 <h2 id="create-an-android-project">2. Create an Android Project</h2>
 
