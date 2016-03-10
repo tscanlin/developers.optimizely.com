@@ -111,10 +111,10 @@ var paths = {
       path: 'integrations',
       title: 'Integrations',
     },
-    canvas: {
-      path: 'canvas',
-      title: 'Canvas',
-    },
+    apps: {
+      path: 'apps',
+      title: 'Apps'
+    }
   },
 };
 
