@@ -1,26 +1,37 @@
 ---
 template: page-sidebar
-title: "Apps<sup>beta</sup>"
+title: "Apps"
 ---
 
-<h1 id="apps-developers-guide">Apps<sup> beta</sup> Developer Guide</h1>
+<h1 id="apps-developers-guide">Apps Developer Guide</h1>
 
 **Welcome! This page walks you through everything you need to know so you can build apps using Optimizely.**
 
 <div class="attention attention--warning push-double--bottom">
-**If you don't see Optimizely Apps in your dashboard**, or if you have trouble accessing Apps the product, please email [developers@optimizely.com](mailto:developers@optimizely.com).
+**Optimizely Canvas is a beta feature, and we're eager to hear your feedback!** If you're developing an app or
+would like to provide feedback, then please chat with us at
+<a href="https://gitter.im/optimizely/apps" target="_blank">https://gitter.im/optimizely/apps</a>.
+<br><br>
+**If you don't see Apps in your dashboard**, or if you have trouble accessing Apps the product, please email [developers@optimizely.com](mailto:developers@optimizely.com).
 </div>
+
 
 At Optimizely, we’re working hard to expand our developer platform to empower customers and developers to extend and integrate with Optimizely in new ways.
 
-In addition to our APIs, we’ve also built the Optimizely Canvas<sup>beta</sup> framework, which allows developers to embed custom experiences inside the native Optimizely interface.
+In addition to our APIs, we’ve also built the Optimizely Canvas framework, which allows developers to embed custom experiences inside the native Optimizely interface.
 
 We’re excited for customers and developers to leverage these powerful tools to build apps that extend the Optimizely experience.
 
-<h2 id="what-is-canvas">What is Optimizely Canvas<sup> beta</sup>?</h2>
+<h2 id="what-are-apps">What are Optimizely Apps?</h2>
 
-Optimizely Canvas allows developers to embed third-party applications directly in the Optimizely interface using an iframe.
+You may already be familiar with Optimizely Integrations. Integrations are connectors between Optimizely and other technologies. You can read more about developing your own integrations [here](/integrations/).
 
+Optimizely Apps are extensions to Optimizely that don’t depend on other technologies. They can be third-party applications that integrate with Optimizely using Optimizely Canvas.
+
+
+<h2 id="what-is-canvas">What is Optimizely Canvas?</h2>
+
+Optimizely Canvas allows developers to embed Optimizely Apps directly in the Optimizely interface using an iframe.
 
 <img src="/assets/img/apps/full-width.png" />
 
@@ -30,24 +41,22 @@ Such applications are context-aware, meaning Optimizely informs the app about a 
 
 Optimizely also provides apps embedded in Canvas with **OAuth credentials** for the current user, allowing the app to interact with Optimizely’s REST APIs on behalf of the user and build truly rich and seamless experiences.
 
-For instance, below is a screenshot of the **Headline Testing** app, which allows users to create article headline experiments in just a few clicks without using the Optimizely visual editor. The entire interface below the Headline Testing tab—which looks and feels like part of the native Optimizely product—is in fact an iframe to an application hosted entirely outside of Optimizely and integrated via Canvas.
+<h2 id="example-apps">Example Apps</h2>
+
+#### Headline Testing
+Headline Testing allows users to create article headline experiments in just a few clicks without using the Optimizely visual editor. The entire interface below the Headline Testing tab—which looks and feels like part of the native Optimizely product—is in fact an iframe to an application hosted entirely outside of Optimizely and integrated via Canvas.
 
 <img src="/assets/img/apps/headline-testing-screenshot.png" />
 
-And here's a screenshot of the **Sheets Embed** app, which allows users to access Google spreadsheets related to their Optimizely projects directly within Optimizely.
+#### Sheets Embed
+Sheets Embed allows users to access Google spreadsheets related to their Optimizely projects directly within Optimizely.
 
 <img src="/assets/img/apps/sheets-embed-screenshot.png" />
 
 
-Optimizely Canvas empowers developers to build rich experiences on the Optimizely platform in an incredibly low-friction way. In fact, you can use whatever tech stack you’d like. We're excited to see what you build!
-
-<div class="attention attention--warning push--bottom">
-**Optimizely Canvas is a beta feature, and we're eager to hear your feedback!** If you're developing an app or
-would like to provide feedback, then please chat with us at
-<a href="https://gitter.im/optimizely/apps" target="_blank">https://gitter.im/optimizely/apps</a>.
-</div>
-
 ## Getting Started
+
+Optimizely Canvas empowers developers to build rich experiences on the Optimizely platform in an incredibly low-friction way. In fact, you can use whatever tech stack you’d like. We're excited to see what you build!
 
 <h3 id="ideate">1. Come up with an idea for your app</h3>
 
@@ -285,7 +294,7 @@ Here is the definitive list of documents related to developing an App in Optimiz
 
 ##### Development:
 * [Canvas App ideas @ Optiverse](https://optimize.ly/app-ideas) (community driven)
-* [Apps<sup>beta</sup> Developer Guide](http://developers.optimizely.com/apps) (these docs)
+* [Apps Developer Guide](http://developers.optimizely.com/apps) (these docs)
 
 
 
