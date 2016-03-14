@@ -185,7 +185,7 @@ These SDKs help with decoding the `signed_request` parameter to get the Canvas c
 
 * [Node SDK](https://www.npmjs.com/package/optimizely-canvas-sdk)
 * [Python SDK](https://github.com/optimizely/canvas_python_SDK)
-* [PHP SDK](https://github.com/conversion-com/optimizely-canvas-php-starter-kit) by Conversion.com
+* [PHP SDK](https://github.com/conversion-com/optimizely-canvas-php-starter-kit) by [Conversion.com](http://conversion.com/)
 
 ## App Guidelines
 
