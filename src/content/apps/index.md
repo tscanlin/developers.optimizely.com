@@ -146,7 +146,7 @@ client secret must be used to perform the verification and is a **highly sensiti
 
 #### Canvas SDKs
 
-We've developed SDKs to help with decoding the `signed_request` parameter. Check out <a href="#canvas-sdks">our section on Canvas SDKs below</a>.
+We've developed SDKs to help with decoding the `signed_request` parameter. Check out <a href="#starter-kits-sdks">our section on Canvas SDKs below</a>.
 
 #### Access Token Expiration
 
