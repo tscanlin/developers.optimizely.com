@@ -222,7 +222,7 @@ Here is a basic HTML template to get started using OUI:
     <title>Base OUI Template</title>
 
     <!-- OUI CSS -->
-    <link rel="stylesheet" href="//d2uaiq63sgqwfs.cloudfront.net/8.0.0/oui.css">
+    <link rel="stylesheet" href="//d2uaiq63sgqwfs.cloudfront.net/9.0.1/oui.css">
 
   </head>
   <body>
