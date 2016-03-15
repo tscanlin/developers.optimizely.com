@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="description" content="Optimizely Developer Documentation">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
 
+    <!-- Demandbase -->
     <script>
       (function(d,b,a,s,e) {
         var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
@@ -14,8 +16,6 @@
         fs.parentNode.insertBefore(t, fs);
       })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
     </script>
-
-    <link rel="stylesheet" href="/assets/css/style.css">
 
     <!-- Heap Analytics -->
     <script type="text/javascript">
@@ -25,7 +25,8 @@
       }
     </script>
 
-    <script src="//cdn.optimizely.com/js/5935064.js"></script>
+    <!-- Optimizely -->
+    <script src="//cdn.optimizely.com/js/4391536040.js"></script>
   </head>
   <body class="{{ pathArray[0] }}{% if pathArray[1] %} {{ pathArray[1] }}{% endif %}{% if page %} {{ page }}{% endif %}">
     {% include 'partials/_svg-symbols.svg' %}
