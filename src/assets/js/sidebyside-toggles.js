@@ -8,12 +8,13 @@ module.exports = function() {
   var each = [].forEach;
   var body = document.body;
 
-  // Enable toggles for sandbox / interactive mode in REST reference section.
-  if (body.classList.contains('rest') && body.classList.contains('reference')) {
-    var toggleContainer = body.querySelector('.sidebyside-toggles');
+  // Enable toggles anywhere.
+  var toggleClass = 'visible';
+  var toggleContainer = body.querySelector('.sidebyside-toggles');
+
+  if (toggleContainer !== null) {
     var allToggleSections = body.querySelectorAll('[data-toggle-section]');
     var toggles = toggleContainer.querySelectorAll('.toggle');
-    var toggleClass = 'visible';
     each.call(toggles, function(elm) {
       elm.addEventListener('click', function(e) {
         e.preventDefault();
