@@ -34,6 +34,16 @@ code_examples:
             key: "BOOKING_COMPLETE"
           },
         ],
+        dimensions: [
+          {
+            id: "5910296728",
+            key: "DEVICE"
+          },
+          {
+            id: "5910296728",
+            key: "AD_SOURCE"
+          }
+        ],
       }
   java:
     lang: java
@@ -65,6 +75,16 @@ code_examples:
             id: "8182957192",
             key: "BOOKING_COMPLETE"
           },
+        ],
+        dimensions: [
+          {
+            id: "5910296728",
+            key: "DEVICE"
+          },
+          {
+            id: "5910296728",
+            key: "AD_SOURCE"
+          }
         ],
       }
  

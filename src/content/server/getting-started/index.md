@@ -21,7 +21,7 @@ To set up a server-side experiment, you'll first need to create a *Custom Projec
 
 ### 3. Create an experiment
 
-You can create server-side experiment in a custom project by clicking on *New Experiment*. All you need to create an experiment is an *Experiment Key* (i.e. a unique identifier for your experiment to be referenced in code) and one or more *Variation Keys* (i.e. identifiers for the variations you'd like test in your code). Optionally, you can also specify what traffic allocation you'd like to send to the experiment and variations. In the example below, we're create an experiment with the following parameters:
+You can create a server-side experiment in a custom project by clicking on *New Experiment*. All you need to create an experiment is an *Experiment Key* (i.e. a unique identifier for your experiment to be referenced in code) and one or more *Variation Keys* (i.e. identifiers for the variations you'd like test in your code). Optionally, you can also specify what traffic allocation you'd like to send to the experiment and variations. In the example below, we're create an experiment with the following parameters:
 
 * *Experiment Key:* `SEARCH_RANKING_TEST_24`
 * *Variation Key 1:* `ALGORITHM_A`
@@ -33,7 +33,7 @@ You can create server-side experiment in a custom project by clicking on *New Ex
 
 ### 4. Create goals for the experiment
 
-You'll need to create at least one goal for your experiment, e.g. a conversion event or revenue. To do so, go to the *Goals* tab and click on *New Goal*. Like experiments and variations, you'll need to specify a *Goal Key* that can be used to track that goal in your code. In this example, we've used `BOOKING_COMPLETE` as the goal and added it to the `SEARCH_RANKING_TEST_24` experiment.
+You'll need to create at least one goal for your experiment, e.g. a conversion event. To do so, go to the *Goals* tab and click on *New Goal*. Like experiments and variations, you'll need to specify a *Goal Key* that can be used to track that goal in your code. In this example, we've used `BOOKING_COMPLETE` as the goal and added it to the `SEARCH_RANKING_TEST_24` experiment.
 
 <img src="../../../assets/img/create-custom-goal.gif">
 
