@@ -107,24 +107,6 @@ var paths = {
       title: 'Android SDK',
       sections: MOBILE_NAV_SECTIONS,
     },
-    server: {
-      path: 'server',
-      title: 'Server-Side SDKs',
-      sections: {
-        'introduction': {
-          path: 'introduction',
-          title: 'Introduction',
-        },
-         'getting-started': {
-          path: 'getting-started',
-          title: 'Getting started',
-        },
-        'reference': {
-          path: 'reference',
-          title: 'Reference',
-        },
-      },
-    },
     integrations: {
       path: 'integrations',
       title: 'Integrations',

@@ -37,10 +37,12 @@ code_examples:
         dimensions: [
           {
             id: "5910296728",
+            segmentId: "9581738457"
             key: "DEVICE"
           },
           {
             id: "5910296728",
+            segmentId: "7581658482"
             key: "AD_SOURCE"
           }
         ],
@@ -79,10 +81,12 @@ code_examples:
         dimensions: [
           {
             id: "5910296728",
+            segmentId: "9581738457"
             key: "DEVICE"
           },
           {
             id: "5910296728",
+            segmentId: "7581658482"
             key: "AD_SOURCE"
           }
         ],
