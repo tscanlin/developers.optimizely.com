@@ -10,18 +10,18 @@ anchor: consolidated-profile
 response: |
   [
     {
-      "dcpServiceId": "567"
+      "dcpServiceId": "567",
       "datasourceId": "789",
-      "customerId": "oeu1234.5678"
+      "customerId": "oeu1234.5678",
       "data": {
         "Life-time value": 10,
         "most_viewed_category": "jeans"
       }
     },
     {
-      "dcpServiceId": "567"
+      "dcpServiceId": "567",
       "datasourceId": "790",
-      "customerId": "sfdc1223a3_ji$ddd"
+      "customerId": "sfdc1223a3_ji$ddd",
       "data": {
         "mrr": 10000
       }

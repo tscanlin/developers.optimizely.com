@@ -9,7 +9,7 @@ response: |
   {
    "dcpServiceId": "567",
    "datasourceId": "678",
-   "customerId": "oeu1234.5678"
+   "customerId": "oeu1234.5678",
    "data": {
      "8905": "sfdc1223a3_ji$ddd",
      "1232": "mkto1245433:213ad"
