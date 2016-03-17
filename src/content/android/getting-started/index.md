@@ -7,7 +7,7 @@ title: "Optimizely Android SDK Guide"
 
 ## SDK Download
 
-You can download the Android SDK through gradle/maven, manually from GitHub, or install it through Fabric.
+You can download the Android SDK through gradle or install it through Fabric.
 
 <a href="https://fabric.io/kits/android/optimizely"><img src="/assets/img/mobile/fabric_button.png" style="width: 150px; height: 58px;"/></a>
 
@@ -21,7 +21,7 @@ You can download the Android SDK through gradle/maven, manually from GitHub, or 
 
 <h2 id="sdk-installation">1. SDK Installation</h2>
 
-To use Optimizely for Android you must first integrate the SDK into your app. You can either install the Optimizely SDK using [Gradle](#using-gradle) (recommended for Android Studio users), [Maven](#using-maven) (recommended for IDEA/Eclipse users), or via [pic Installation](#manual-installation).
+To use Optimizely for Android you must first integrate the SDK into your app using [Gradle](#using-gradle).
 
 **We strongly recommend using a version control system (such as [Git](http://git-scm.com/)) and checking in your app before installing Optimizely.**
 
@@ -52,97 +52,6 @@ dependencies {
     }
 }
 ```
-
-### Using Maven
-
-0. Your project must be set up to build with Maven. Refer to [Maven in 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) guide if you haven't yet configured your project to work with Maven.
-
-1. Our SDK only supports Android API 14 (Ice Cream Sandwich) and above, so please make sure your `AndroidManifest.xml` specifies a [minimum sdk](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html) of 14 (or above). Then, add the Optimizely repository and the dependency to your `pom.xml`:
-
-Repository:
-
-```xml
-<repository>
-  <id>optimizely</id>
-  <name>Optimizely</name>
-  <url>http://dl.bintray.com/optimizely/optimizely</url>
-</repository>
-```
-
-Dependency:
-
-```xml
-<dependency>
-    <groupId>com.optimizely</groupId>
-    <artifactId>optimizely</artifactId>
-    <version>LATEST</version>
-</dependency>
-```
-
-<a name="manualinstall"></a>
-### Manual Installation
-
-**Dependencies**
-The Optimizely SDK depends on:
-
-  - Google's [GSON](http://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.3/gson-2.3.jar) library.
-  - The [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4) library.
-  - Square's popular [OkHTTP](http://search.maven.org/remote_content?filepath=com/squareup/okhttp/okhttp/2.3.0/okhttp-2.3.0.jar) library
-  - OkHTTP depends on [OkIO](https://search.maven.org/remote_content?g=com.squareup.okio&a=okio&v=LATEST)
-
-  [Download](https://github.com/optimizely/Optimizely-Android-SDK/) the latest jar file.
-
-### Eclipse
- If you are using ADT (Eclipse), copy the dependencies and Optimizely.jar to your `libs/` folder inside your project:
-
-  <img src="/assets/img/android/eclipse-libs.png" alt="Eclipse Project Structure" style="width: 40%;"/>
-
- Then right-click on each dependency jar as well as Optimizely.jar and select `Build Path > Add to Build Path`:
-
-  <img src="/assets/img/android/eclipse-add-build-path.png" alt="Eclipse add to build path" style="width:60%"/>
-
-### IntelliJ IDEA
-If you are using IntelliJ with the Android plug-in, add each dependency jar and Optimizely.jar as a library dependency for your app module:
-
-Under Project Structure > Libraries click the `+` button.
-  <img src="/assets/img/android/ij-add-library.png" alt="IntelliJ Module Library Step 1" style="width: 80%;"/>
-
-Select the Optimizely.jar library (you may wish to copy the jar into your project before this step).
-  <img src="/assets/img/android/ij-locate-optimizely.png" alt="IntelliJ Module Library Step 2" style="width: 80%;"/>
-
-Select your application module as a target for the library.
-  <img src="/assets/img/android/ij-confirm-library.png" alt="IntelliJ Module Library Step 3" style="width: 80%;"/>
-
-### Proguard
-
-The Optimizely SDK works with the default ProGuard rules (found in SDK/tools/proguard/proguard-android.txt) with the following addenda for the GSON serialization:
-
-```
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
-
-# Gson specific classes
--keep class sun.misc.Unsafe { *; }
-#-keep class com.google.gson.stream.** { *; }
-
-# Classes that will be serialized/deserialized over Gson
-
-# OkIO and OkHTTP
--keep class com.optimizely.JSON.** { *; }
--dontwarn okio.**
-
--dontwarn com.squareup.okhttp.**
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
-
--dontwarn com.optimizely.integrations.**
--dontwarn com.mixpanel.android.mpmetrics.MixpanelApiRetriever*
--dontwarn com.amplitude.api.OptimizelyAmplitudeBridge
-```
-
-### Android Studio
-If you are using Android Studio, please see the [Gradle](#using-gradle) configuration above.
 
 <h2 id="create-an-android-project">2. Create an Android Project</h2>
 
@@ -253,6 +162,7 @@ See this section on [configuring the visual editor](#configure_visual_editor).
 <h2 id="qa">5. QA</h2>
 
 ### Preview Mode
+
 Preview mode allows you to force your app into a certain variation for a given experiment in order to check that your app and the experiment are both running smoothly. To enter preview mode, connect your device to the editor, select your desired variation, open the variation settings drawer, and click `Preview`
 
 <img src="/assets/img/mobile/launch-preview.png" alt="Enter Preview Mode" />
@@ -266,6 +176,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
 2. Were you able to connect to Optimizely's Visual Editor?  Before your release to the app store, you will want to make sure that `Optimizely.setEditGestureEnabled(false)` is called before `Optimizely.startOptimizelyWithAPIToken`.
 
 3. (Optional) If you have a separate project for development and production, you can run your experiments in your development environment to check that results are updating and that you are seeing the different variations are being seen.
+    - A useful debugging tool is to enable logging (be sure to disable this feature when your app is live in the Play Store) `Optimizely.setVerboseLogging(true);` For each event that is triggered, you will see a log statement. Be sure to check that verboseLogging is not enabled in production.
     - You will want to make sure that each experiment does not make changes to the same element (otherwise only one of the experiments will run).
     - Optimizely tracks unique visitors, so that we make sure that the same user sees the same experience.  If you would like to check that you are getting a random experience, you will need to delete the app to be counted as a new visitor.
     - By default, Optimizely sends network calls every 2 minutes or upon backgrounding. (You can find more details about modifying the SDK network settings [here](#networksettings)). In order to check that your event data is being updated in the Optimizely Results Page as expected, you can either:
@@ -273,7 +184,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
        2. Background the app so that events are sent to our servers.
 
 4. Once you've checked all these steps, you're ready to release to the Play Store!
-
+ 
 ## Advanced Setup
 
 Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the Play Store:
