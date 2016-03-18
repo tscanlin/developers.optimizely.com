@@ -186,7 +186,7 @@ Not seeing the platform you’re looking for? Check out the <a href="https://hel
 
 Optimizely has a REST API and a JavaScript API. Read this section to make your integration trackable if you are using the JavaScript REST API for you integration. If you only use the JavaScript API, go to the [Tracking JavaScript integrations](/integrations/#tracking-javascript-integrations) section.
 
-Our REST API has two authentication mechanisms: token based an OAuth 2.0 based. Currently your integration is using token based authentication. To track the usage of the integration it is important that you implement OAuth 2.0 based authentication. Instruction on how to move from token based to OAuth 2.0 based authentication are documented here in the [OAuth section of the REST API reference](/rest/reference/index.html#oauth)
+Our REST API has two authentication mechanisms: token based an OAuth 2.0 based. To track the usage of the integration it is important that you implement OAuth 2.0 based authentication. Instruction on how to use OAuth 2.0 based authentication are documented here in the [OAuth section of the REST API reference](/rest/reference/index.html#oauth)
 
 If you have questions about implementing the tracking method please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
 
@@ -201,7 +201,7 @@ If you don't have an Optimizely developer account, just sign up for a <a href="h
 ### 2. Register your application
 Sign in to the account and navigate to <a target="_blank" href="https://app.optimizely.com/accountsettings/apps/developers">https://app.optimizely.com/accountsettings/apps/developers</a>.
 
-On this page, click on "Register a new application"
+On this page, click on "Register a new application".
 
 <img src="/assets/img/integrations/tracking_register.png">
 
@@ -210,7 +210,7 @@ Fill in the fields with the following values:
 - *Redirect URI*: your homepage
 - *Client Type*: Public
 
-Click apply.
+Click *Apply*.
 
 ### 3. Copy the generated client ID
 Copy the client ID that has been generated:
@@ -228,6 +228,8 @@ window.optimizely.push({
  'OAuthClientId': 5352110138 // This is the OAuth Client ID you've copied in the previous step.
 });
 ```
+
+Replace the OAuthClientId with the client ID copied in the previous step.
 
 ## Analytics
 
@@ -293,6 +295,16 @@ if (window['optimizely'] && window['optimizely']['data']) {
 ```
 
 Where indicated in the above code snippet, implement the platform specific code.
+
+<h3 id="track-analytics-integration">4. Make your integration trackable</h3>
+
+To allow Optimizely to make data driven decisions it is important to identify customers using integrations. If you want to partner with Optimizely, it is important that you make your integration trackable. For the analytics integratoin described in this section, you can follow the steps described in [Tracking JavaScript integrations](/integrations/#tracking-javascript-integrations).
+
+The benefits of making your integration trackable:
+- Better support your integration and our mutual customers
+- Allowing us to better understand which functionality has made the biggest impact on the customer experience
+- Ability to determine where to invest more time for improvements
+- For integration built with the REST API, an improved customer experience
 
 <h3 id="qa-integration">4. QA integration</h3>
 
@@ -605,7 +617,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 
 <h3 id="register-your-application">2. Register your application</h3>
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send audiences to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send audiences to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="create-a-test-page">3. Create a test page</h3>
 
@@ -636,7 +648,9 @@ When you created the Optimizely audience in the previous step, you received an a
 
 To verify that the integration works, select an audience within your platform that you are sure you will be in. Trigger the procedure to create a corresponding Optimizely audience.
 
-Verify that the audience creation has worked by going to `https://app.optimizely.com/projects/{{ project_id }}/audiences`. The audience that has been created should show up in the list.
+Verify that the audience creation has worked by going to `https://app.optimizely.com/projects/{{ project_id }}/audiences`. The audience that has been created should show up in the list. Your audience should also show up in your dashboard:
+
+<img src="/assets/img/integrations/audience_saved_audience.png">
 
 When the audience is in the list, create and start an experiment that uses the audience. Go to your [Experiment Dashboard](https://app.optimizely.com/projects/) and click on New Experiment. Open the Audience Builder (shown below) in the Optimizely Editor.
 
@@ -644,7 +658,7 @@ When the audience is in the list, create and start an experiment that uses the a
 
 In the audience builder click on "Add a Saved Audience". Select the create audience and click on "add".
 
-<img src="/assets/img/integrations/audience_saved_audience.png">
+<img src="/assets/img/integrations/audience_builder_2.png">
 
 Go to the test page you have created. Verify that the experiment is running when the uploading of the experiment is done (approximately 2 minutes after saving an experiment). You can verify if the experiment is running by doing a hard refresh on the test page. Open the JavaScript console and execute `optimizely.activeExperiments`. The console will output an array with your experiment ID.
 
@@ -677,11 +691,15 @@ Uploaded Lists are a feature restricted to select Enterprise customers and devel
 <h3 id="uploaded-lists-2-register-your-application">2. Register your application</h3>
 
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="uploaded-lists-3-create-a-list">3. Create a list in Optimizely</h3>
 
 You can now send lists to Optimizely via the REST API. Note that we currently limit list sizes to 5MB. If you want to send larger lists, please contact [developers@optimizely.com](mailto:developers@optimizely.com) with more information, including what size lists you hope to send via the API. [Learn how to create an uploaded list in Optimizely via the REST API](/rest/reference/#create-list).
+
+An example of the Optimizely REST API call and the result with CURL is displayed here:
+
+<img src="/assets/img/integrations/list_rest.png">
 
 <h3 id="uploaded-lists-4-update-list">4. Update a list in Optimizely</h3>
 
@@ -713,7 +731,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 <h3 id="content-register-your-application">2. Register your application</h3>
 
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="create-a-configuration-form-authentication-and-project-selection">3. Create a configuration form: authentication and project selection</h3>
 
@@ -810,7 +828,7 @@ In order to track conversion events in Optimizely, a [custom event goal](https:/
 
 There are two ways you can create a custom event goal:
 
-* *Option 1: Create custom event goal via the REST API (preferred).* For a seamless experience, you can create a custom event goal on behalf of the customer using the REST API. If you are using the REST API, we highly recommend using [OAuth 2.0](/rest/reference/index.html#oauth) to authenticate with Optimizely. [Learn how to create goals via the REST API](/rest/reference/index.html#create-goal). The goal type field needs to have the value "1". A commonly used value for the "event" field is `phone_call_conversion`.
+* *Option 1: Create custom event goal via the REST API (preferred).* For a seamless experience, you can create a custom event goal on behalf of the customer using the REST API. If you are using the REST API, we require using [OAuth 2.0](/rest/reference/index.html#oauth) to authenticate with Optimizely. [Learn how to create goals via the REST API](/rest/reference/index.html#create-goal). The goal type field needs to have the value "1". A commonly used value for the "event" field is `phone_call_conversion`.
 
 * *Option 2: Ask the customer to create custom event goal manually.* The easiest way for you to implement this integration is to instruct the customer to do a couple of manual steps. Instruct the customer to login to their Optimizely account and create a custom event goal for an experiment manually. You may want to require the customer to use a pre-specified name for the goal, e.g. `phone_call_conversion`, so you can reference it later. [Learn how to create custom event goals in Optimizely](https://help.optimizely.com/hc/en-us/articles/200039925#add).
 
@@ -941,7 +959,17 @@ function generateConversionUrl(goalname, value) {
 
 ```
 
-<h3 id="conversion-5-qa-integration">5. QA your integration</h3>
+<h3 id="track-conversion-integration">5. Make your integration trackable</h3>
+
+To allow Optimizely to make data driven decisions it is important to identify customers using integrations. If you want to partner with Optimizely, it is important that you make your integration trackable. For the analytics integratoin described in this section, you can follow the steps described in [Tracking JavaScript integrations](/integrations/#tracking-javascript-integrations).
+
+The benefits of making your integration trackable:
+- Better support your integration and our mutual customers
+- Allowing us to better understand which functionality has made the biggest impact on the customer experience
+- Ability to determine where to invest more time for improvements
+- For integration built with the REST API, an improved customer experience
+
+<h3 id="conversion-5-qa-integration">6. QA your integration</h3>
 
 To verify that the integration works, create an Optimizely experiment that includes the custom event goal in question. Then send visitor test traffic through your experiment and fire the offline conversion goals. Check your results page for the experiment. It should now include data on how many visitors and offline conversions have occurred for this experiment.
 
@@ -960,7 +988,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 <h3 id="snippet-register-your-application">2. Register your application</h3>
 
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application who want to install the Optimizely snippet. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application who want to install the Optimizely snippet. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="snippet-create-a-configuration-form">3. Create a configuration form</h3>
 
