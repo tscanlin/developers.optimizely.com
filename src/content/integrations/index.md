@@ -20,9 +20,9 @@ At any time, if you have questions about building integrations please email [dev
 
 If you would like to partner with Optimizely to help support your integration, we highly recommend you apply for the [Technology Partner Program](http://optimizely.com/partners/technology/join). Becoming a partner includes many benefits including hands-on developer support and marketing benefits to help promote your integration to Optimizely customers. For more information about requirements and benefits of the Technology Partner Program <a href="http://pages.optimizely.com/rs/361-GER-922/images/Optimizely%20Technology%20Partners.pdf" target="_blank">click here</a>.
 
-<h3 id="create-an-optimizely-account">1. Create an Optimizely account</h3>
+<h3 id="create-an-optimizely-account">1. Create an Optimizely developer account</h3>
 
-If you don't have an Optimizely account, just sign up for a [free developer account](https://www.optimizely.com/?modal=devsignup). This account will give you access to <a href="https://help.optimizely.com/hc/en-us/articles/200040055-Optimizely-Pricing-Plan-changes-upgrading-and-downgrading#comparison">the full set of Optimizely features</a> and API access, but with limited traffic allocation. No credit card required.
+If you don't have an Optimizely developer account, just sign up for a [free developer account](https://www.optimizely.com/?modal=devsignup). This account will give you access to <a href="https://help.optimizely.com/hc/en-us/articles/200040055-Optimizely-Pricing-Plan-changes-upgrading-and-downgrading#comparison">the full set of Optimizely features</a> and API access, but with limited traffic allocation. No credit card required.
 
 <h3 id="apply-to-technology-partner-program">2. Apply to Technology Partner Program</h3>
 
@@ -32,11 +32,15 @@ Please fill out the <a href="https://www.optimizely.com/partners/technology/join
 
 There are many ways to integrate with Optimizely depending on your needs. To decide how to best integrate with our platform, please see the chart of [Integration Types](#integration-types) below which includes some common types of integrations built by customers and partners. Each integration type includes a step-by-step guide including example code that you can use to build the integration. If none of these integration types meet your needs, please refer to our [REST API documentation](/rest).
 
-<h3 id="submit-integration-for-qa">4. Submit integration for QA</h3>
+<h3 id="track-your-integration">4. Make your integration trackable</h3>
+
+By making your integration trackable by Optimizely we can evaluate which API functions are the most valuable to our partners. It is important for Optimizely to know which integration is being used by out customers. Making your integration trackable is easy. If you use the REST api, make sure you use OAuth 2.0 to authenticate. If you use the JavaScript API, follow the instructions in the [Tracking integrations](/integrations/#tracking-integrations) section.
+
+<h3 id="submit-integration-for-qa">5. Submit integration for QA</h3>
 
 Once you have been approved as an Optimizely Technology Partner, please email your Partner Manager with information on how to test your integration. Our team is eager to provide feedback and make sure the integration works as expected. Please include any relevant documentation on the integration that you've built, as well as instructions on how to access a demo account.
 
-<h3 id="promote-your-integration">5. Promote your integration</h3>
+<h3 id="promote-your-integration">6. Promote your integration</h3>
 
 After Optimizely has tested and approved your integration, you can work with your Partner Manager to get your integration listed in the [Technology Partner Directory](http://optimizely.com/partners/technology). As a Technology Partner you will also receive a Marketing Playbook that provides detailed guidance on the best way to promote your integration to Optimizely customers.
 
@@ -178,6 +182,53 @@ Integrations with Optimizely typically fall into one of the following categories
 
 Not seeing the platform you’re looking for? Check out the <a href="https://help.optimizely.com/hc/en-us/articles/203729580" target="_blank">full list of platforms</a> that Optimizely integrates with.
 
+## Tracking REST integrations
+
+Optimizely has a REST API and a JavaScript API. Read this section to make your integration trackable if you are using the JavaScript REST API for you integration. If you only use the JavaScript API, go to the [Tracking JavaScript integrations](/integrations/#tracking-javascript-integrations) section.
+
+Our REST API has two authentication mechanisms: token based an OAuth 2.0 based. Currently your integration is using token based authentication. To track the usage of the integration it is important that you implement OAuth 2.0 based authentication. Instruction on how to move from token based to OAuth 2.0 based authentication are documented here in the [OAuth section of the REST API reference](/rest/reference/index.html#oauth)
+
+If you have questions about implementing the tracking method please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
+
+## Tracking JavaScript integrations
+Optimizely has a REST API and a JavaScript API. Read this section to make your integration trackable if you are using the JavaScript API for you integration. If you only use the REST API, go to the [Tracking REST integrations](/integrations/#tracking-rest-integrations) section.
+
+If you have questions about implementing the tracking method please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
+
+### 1. Create an Optimizely developer account
+If you don't have an Optimizely developer account, just sign up for a <a href="https://www.optimizely.com/?modal=devsignup" target="_blank">free developer account</a>. This account will give you access to <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200040055-Optimizely-Pricing-Plan-changes-upgrading-and-downgrading#comparison">the full set of Optimizely features</a> and API access, but with limited traffic allocation. No credit card required.
+
+### 2. Register your application
+Sign in to the account and navigate to <a target="_blank" href="https://app.optimizely.com/accountsettings/apps/developers">https://app.optimizely.com/accountsettings/apps/developers</a>.
+
+On this page, click on "Register a new application"
+
+<img src="/assets/img/integrations/tracking_register.png">
+
+Fill in the fields with the following values:
+- *Application Name*: the name of your product
+- *Redirect URI*: your homepage
+- *Client Type*: Public
+
+Click apply.
+
+### 3. Copy the generated client ID
+Copy the client ID that has been generated:
+
+<img src="/assets/img/integrations/tracking_client_id.png">
+
+### 4. Include the tracking function in your integration
+
+Include the following JavaScript function on top of the integration:
+
+```javascript
+window.optimizely = window.optimizely || [];
+window.optimizely.push({
+ 'type': 'integration',
+ 'OAuthClientId': 5352110138 // This is the OAuth Client ID you've copied in the previous step.
+});
+```
+
 ## Analytics
 
 *Analytics integrations* allow customers to track Optimizely experiments in an external analytics tool.  With the flip of a switch, Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool. The following step-by-step guide describes how to implement an analytics integration.
@@ -189,7 +240,7 @@ Not seeing the platform you’re looking for? Check out the <a href="https://hel
 
 <h3 id="add-the-snippet">1. Add the snippet</h3>
 
-To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out this <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">step-by-step</a> guide in our knowledge base.
+To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out this <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">step-by-step</a> guide in our knowledge base.
 
 <h3 id="create-and-start-an-experiment">2. Create and start an experiment</h3>
 
