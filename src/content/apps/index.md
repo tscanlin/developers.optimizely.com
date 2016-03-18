@@ -189,10 +189,13 @@ These SDKs help with decoding the `signed_request` parameter to get the Canvas c
 
 ## App Guidelines
 
+<h3 id="technical-considerations">Technical Considerations</h3>
+
+All links must open externally in a new Tab or Window. i.e: `target="_blank"`
+
 <h3 id="content-requirements">Content Requirements</h3>
 
 All apps must include a **Terms of Service** in the UI.
-
 
 <h3 id="design-requirements">Design Requirements</h3>
 
