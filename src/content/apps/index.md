@@ -193,7 +193,6 @@ These SDKs help with decoding the `signed_request` parameter to get the Canvas c
 
 All apps must include a **Terms of Service** in the UI.
 
-
 <h3 id="design-requirements">Design Requirements</h3>
 
 In order to provide a great user experience that feels like a core part of Optimizely, we recommend using our open source CSS framework, [OUI (Optimizely User Interface)](http://design.optimizely.com/oui/index.html). This framework defines standard components — grids, buttons, form elements, breadcrumbs — that are cross-browser compatible and easily combined into larger interfaces. It's also the same CSS framework that Optimizely's engineers use to build Optimizely.
@@ -282,6 +281,10 @@ apps will have unique attack vectors and security requirements that developers s
 * Provide an emergency contact in your app's UI and documentation (preferably a team).
 * Contact Optimizely as soon as possible, and at latest within 24 hours, in the event of a compromise.
 * All apps must include emergency contact information in your app's UI and documentation (preferably for a team).
+
+<h3 id="technical-requirements">Other Technical Requirements</h3>
+
+All links must open externally in a new tab or window, i.e: `target="_blank"`
 
 <h2 id="resources">Resources</h2>
 
