@@ -1,12 +1,10 @@
 var gulp = require('gulp');
 var extend = require('xtend');
-var browserSync = require('browser-sync');
 var nunjucks = require('nunjucks');
 var nunjucksMarkdown = require('nunjucks-markdown');
 var marked = require('marked');
 var rename = require('gulp-rename');
 var tap = require('gulp-tap');
-var util = require('gulp-util');
 var path = require('path');
 var fs = require('fs');
 var yaml = require('js-yaml');
@@ -28,7 +26,7 @@ try {
   var dimensions = yaml.safeLoad(fs.readFileSync('./src/data/conditions/dimensions.yaml', 'utf8'));
   var dimensions_meta = yaml.safeLoad(fs.readFileSync('./src/data/conditions/dimensions-meta.yaml', 'utf8'));
 } catch (e) {
-  console.log(e);
+  console.log(e); // eslint-disable-line
 }
 
 var json = {
