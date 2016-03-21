@@ -3,8 +3,6 @@
   <div class="nav-sidebar">
     <ul class="unstyled nav nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
-        <!-- TODO: Show Canvas section when we launch the public beta -->
-        {% if item.path != 'canvas' %}
         <li class="push--bottom">
           <a class="main-section{% if item.path == pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.path != 'samples' and item.path != 'overview' and item.path != 'integrations' and item.path != 'apps' %} data-collapser{% endif %}>{{ item.title }}</a>
           <!-- TOC for overview, integrations, apps, and code samples -->
@@ -48,7 +46,6 @@
             {% endif %}
           </ul>
         </li>
-        {% endif %}
       {% endfor %}
     </ul>
   </div>
