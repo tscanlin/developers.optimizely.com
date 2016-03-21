@@ -6,7 +6,7 @@ code_examples:
   python:
     lang: python
     request: |
-      optimizely = optimizely.Optimizely('5928310293')
+      optimizely = optimizely.Optimizely(5928310293)
   java:
     lang: java
     request: |
