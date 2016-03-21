@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Headline testing
 anchor: technology-integrations-cms
 ---

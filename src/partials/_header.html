@@ -1,5 +1,5 @@
-  <header id="header" class="header justify background--super-dark{% if page === 'home' %} background--brand-darker{% endif %}">
-    {% if page !== 'home' %}
+  <header id="header" class="header justify background--super-dark{% if page == 'home' %} background--brand-darker{% endif %}">
+    {% if page != 'home' %}
     <div class="link--reverse hidden is-inline-block-on-mobile nav-toggle">
       <label for="toggle-nav-checkbox">
         <svg class="icon">
@@ -31,12 +31,12 @@
             </a>
             <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
               {% for key, item in paths.navigation %}
-                {% if item.path === 'rest' || item.path === 'javascript' || item.path === 'ios' || item.path === 'android' %}
+                {% if item.path == 'rest' or item.path == 'javascript' or item.path == 'ios' or item.path == 'android' %}
                   <li class="push-half">
                     <a href="/{{ item.path }}/introduction/">{{ item.title }}</a>
                   </li>
                 {% endif %}
-                {% if item.path == 'integrations' || item.path == 'apps' %}
+                {% if item.path == 'integrations' or item.path == 'apps' %}
                   <li class="push-half">
                     <a href="/{{ item.path }}/">{{ item.title }}</a>
                   </li>

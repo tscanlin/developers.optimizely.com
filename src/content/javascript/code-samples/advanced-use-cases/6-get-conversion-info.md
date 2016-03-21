@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Get offline conversion parameters
 anchor: advanced-use-cases-get-conversion-info
 js: |

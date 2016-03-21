@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 var extend = require('xtend');
 var browserSync = require('browser-sync');
-var swig = require('swig');
-var markedSwig = require('swig-marked');
-var markdown = require('gulp-markdown-to-json');
+var nunjucks = require('nunjucks');
+var nunjucksMarkdown = require('nunjucks-markdown');
+var marked = require('marked');
 var rename = require('gulp-rename');
 var tap = require('gulp-tap');
 var util = require('gulp-util');
@@ -13,6 +13,16 @@ var yaml = require('js-yaml');
 var handleErrors = require('../util/handleErrors');
 var paths = require('../../config').paths;
 var siteJson; // Cache reference to site JSON.
+
+// Configure nunjucks.
+// nunjucks.configure({ autoescape: true });
+var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('./src/', {
+  noCache: true,
+}), {
+  throwOnUndefined: false,
+  noCache: true,
+});
+nunjucksMarkdown.register(env, marked);
 
 try {
   var dimensions = yaml.safeLoad(fs.readFileSync('./src/data/conditions/dimensions.yaml', 'utf8'));
@@ -25,32 +35,6 @@ var json = {
   dimensions: dimensions,
   dimensions_meta: dimensions_meta,
 };
-
-// SWIG
-// Swig config.
-swig.setDefaults({
-  cache: false,
-  loader: swig.loaders.fs(paths.src),
-  locals: {
-    paths: paths,
-    json: json,
-  },
-});
-
-// Use markdown with swig (as a filter and a tag).
-markedSwig.useFilter(swig);
-markedSwig.useTag(swig);
-
-// Add stringify filter to swig.
-// From: https://github.com/paularmstrong/swig/issues/582
-function filter_stringify(input) {
-  return JSON.stringify(input);
-}
-filter_stringify.safe = true;
-swig.setFilter('stringify', filter_stringify);
-
-// Add swig-highlight for code highlighting.
-require('swig-highlight').apply(swig);
 
 
 // HELPERS
@@ -107,7 +91,7 @@ gulp.task('html', ['data'], function() {
 
     if (dataObj.includeSiblingData) {
       pathArrayCopy = [].concat(pathArray);
-      var thisKey = pathArrayCopy.pop(); // Should always be index so thisKey is not needed.
+      pathArrayCopy.pop(); // Should always be index so thisKey is not needed.
       var siblingData = getKeyPath(pathArrayCopy, siteJson);
       // Add fileName prop with helper function.
       addFileNameToObjectsWithTitle(siblingData);
@@ -117,12 +101,17 @@ gulp.task('html', ['data'], function() {
       delete dataObj.siblingData['index'];
     }
 
+    // Add global variables, paths and json objects.
+    dataObj.paths = paths;
+    dataObj.json = json;
+
     if (dataObj.template
       && dataObj.template !== 'inline'
       && dataObj.template !== 'multi-example'
       && dataObj.template !== 'sidebyside') {
-      var tpl = swig.compileFile(paths.templates + dataObj.template + '.html');
-      file.contents = new Buffer(tpl(dataObj), 'utf8'); //eslint-disable-line
+      var filePath = path.resolve(paths.src + paths.templates + dataObj.template + '.html');
+      // console.log(filePath, dataObj, env.render(filePath, dataObj));
+      file.contents = new Buffer(env.render(filePath, dataObj), 'utf8'); //eslint-disable-line
       return file;
     }
   }))

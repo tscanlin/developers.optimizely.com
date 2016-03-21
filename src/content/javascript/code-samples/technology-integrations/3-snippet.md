@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Snippet implementation
 anchor: technology-integrations-snippet
 ---

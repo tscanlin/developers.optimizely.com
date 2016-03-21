@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Target pages based on meta values
 anchor: meta-values
 js: |

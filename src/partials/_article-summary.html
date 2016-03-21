@@ -1,8 +1,12 @@
 <section class="push-quad--bottom">
-  <a href="{{ fileName }}.html">
-    <h2 class="flush--top push--bottom">{{ title }}</h1>
+  <a href="{{ object.fileName }}.html">
+    <h2 class="flush--top push--bottom">{{ object.title }}</h1>
   </a>
-  {% if summary %}
-    <p class="color--base">{{ summary | marked }}</p>
+  {% if object.summary %}
+    <p class="color--base">
+      {% markdown %}
+      {{ object.summary }}
+      {% endmarkdown %}
+    </p>
   {% endif %}
 </section>

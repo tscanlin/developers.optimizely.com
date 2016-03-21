@@ -1,18 +1,8 @@
-{%
-  include 'partials/_head.html'
-  {
-    page: 'home',
-    pathArray: ['index']
-  }
-%}
+{% set page = 'home' %}
+{% set pathArray = ['index'] %}
 
-{%
-  include 'partials/_header.html'
-  {
-    page: 'home',
-    pathArray: ['index']
-  }
-%}
+{% include 'partials/_head.html' %}
+{% include 'partials/_header.html' %}
 
   <main class="main">
     <div class="background--super-dark hero text--center">
@@ -148,5 +138,4 @@
   </main>
 
 {% include 'partials/_footer.html' %}
-
 {% include 'partials/_foot.html' %}

@@ -1,6 +1,6 @@
 ---
 template: page-sidebar
-partial: partials/_article-summary.html
+partial: _article-summary.html
 includeSiblingData: true
 title: "How Optimizely's iOS SDK Works"
 summary: |

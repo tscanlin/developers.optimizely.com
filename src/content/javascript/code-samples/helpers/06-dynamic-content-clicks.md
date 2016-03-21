@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Track clicks on dynamic content
 anchor: helpers-dynamic--content-clicks
 js: |

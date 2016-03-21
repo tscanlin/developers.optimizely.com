@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Create an audience
 endpoint: projects/43523/audiences/
 anchor: audiences-create

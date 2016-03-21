@@ -1,98 +1,114 @@
 <!-- Row -->
 <section>
   <!-- Left column -->
-  <div class="soft-double--sides{% if fileName == "0-intro" %} intro{% endif %}">
+  <div class="soft-double--sides{% if object.fileName == "0-intro" %} intro{% endif %}">
 
     <!-- Anchor link -->
     <!--{% if anchor %}<a name="{{anchor}}"></a>{% endif %}-->
 
     <!-- Title -->
-    {% if fileName == "0-intro" %}
-      <h2 id="{{anchor}}">{{title}}</h2>
+    {% if object.fileName == "0-intro" %}
+      <h2 id="{{object.anchor}}">{{object.title}}</h2>
     {% else %}
-      <h3 id="{{anchor}}">{{title}}</h3>
+      <h3 id="{{object.anchor}}">{{object.title}}</h3>
     {% endif %}
 
     <!-- Endpoint -->
-    {% if type and endpoint %}
-      <pre>{{ type }} {{ endpoint }}</pre>
+    {% if object.type and object.endpoint %}
+      <pre>{{ object.type }} {{ object.endpoint }}</pre>
     {% endif %}
 
     <!-- Description -->
-    {{ body | safe }}
+    {{ object.body | safe }}
 
 <!-- Indenting is weird here because of the <pre> tags -->
 
-<!-- Example request -->
-{% if endpoint %}
+<!-- Example request-->
+{% if object.endpoint %}
 <h4>Example Request</h4>
 <pre>
-{% highlight 'bash' %}
+{% markdown %}
+```bash
 curl \
-  -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if request %}
+  -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if object.request %}
   -H "Content-Type: application/json" \
-  -d '{{ request | stringify }}' \{% endif %}
-  {% if type %}-X {{type}} {% endif %}"https://www.optimizelyapis.com/experiment/v1/{{ endpoint }}"
-{% endhighlight %}
+  -d '{{ object.request | dump }}' \{% endif %}
+  {% if object.type %}-X {{object.type}} {% endif %}"https://www.optimizelyapis.com/experiment/v1/{{ object.endpoint }}"
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example response -->
-{% if response %}
+{% if object.response %}
 <h4>Example Response</h4>
 <pre>
-{% highlight 'json' %}
-{{ response | safe }}
-{% endhighlight %}
+{% markdown %}
+```json
+{{ object.response | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example HTML -->
-{% if html %}
+{% if object.html %}
 <h4>Example HTML</h4>
 <pre>
-{% highlight 'html' %}
-{{ html | safe }}
-{% endhighlight %}
+{% markdown %}
+```html
+{{ object.html | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example JS -->
-{% if js %}
+{% if object.js %}
 <h4>Example Javascript</h4>
 <pre>
-{% highlight 'js' %}
-{{ js | safe }}
-{% endhighlight %}
+{% markdown %}
+```js
+{{ object.js | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example URL -->
-{% if request_url %}
+{% if object.request_url %}
 <h4>Example URL</h4>
 <pre>
-{% highlight 'bash' %}
-{{ request_url | safe }}
-{% endhighlight %}
+{% markdown %}
+```bash
+{{ object.request_url | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
 <!-- Example Request -->
-{% if curl %}
+{% if object.curl %}
 <h4>Example Request</h4>
 <pre>
-{% highlight 'bash' %}
-{{ curl | safe }}
-{% endhighlight %}
+{% markdown %}
+```bash
+{{ object.curl | safe }}
+```
+{% endmarkdown %}
 </pre>
 {% endif %}
 
     <!-- Arguments -->
-    {% if fields %}
+    {% if object.fields %}
       <h4>Definitions</h4>
       <table class="table">
-      {% for key, f in fields %}
-        <tr><td align="left"><b>{{ key }}</b></td><td class="desc">{{ f | marked }}</td></tr>
+      {% for key, f in object.fields %}
+        <tr><td align="left"><b>{{ key }}</b></td><td class="desc">
+          {% markdown %}
+          {{ f }}
+          {% endmarkdown %}
+        </td></tr>
       {% endfor %}
       </table>
     {% endif %}

@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Uploaded lists
 anchor: uploaded-lists
 ---

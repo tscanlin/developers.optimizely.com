@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Assign visitors
 anchor: audiences-assign
 js: |

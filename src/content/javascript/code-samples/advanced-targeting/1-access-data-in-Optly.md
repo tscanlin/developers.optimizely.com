@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Access data on page
 anchor: advanced-targeting-data-access
 js: |

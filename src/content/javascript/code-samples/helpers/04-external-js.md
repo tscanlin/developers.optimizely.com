@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Load external JavaScript
 anchor: helpers-external-js
 js: |

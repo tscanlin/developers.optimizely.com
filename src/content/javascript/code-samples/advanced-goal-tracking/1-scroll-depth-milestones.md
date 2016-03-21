@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Scroll depth
 anchor: advanced-goal-tracking-scroll-depth-milestones
 js: |

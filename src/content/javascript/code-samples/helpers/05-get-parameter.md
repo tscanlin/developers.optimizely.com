@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Get query parameter value
 anchor: helpers-get-parameter
 js: |

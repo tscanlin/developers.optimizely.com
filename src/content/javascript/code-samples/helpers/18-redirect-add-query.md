@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Redirect - Query parameter
 anchor: helpers-add-query-param
 js: |

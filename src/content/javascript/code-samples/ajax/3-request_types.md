@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Request types
 anchor: ajax-request-types
 js: |

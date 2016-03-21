@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Function - AJAX response
 anchor: conditional-activation-ajax-complete
 js: |

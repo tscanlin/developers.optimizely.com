@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Poll for element
 anchor: helpers-poll-for-element
 js: |

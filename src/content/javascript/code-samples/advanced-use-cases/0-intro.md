@@ -1,5 +1,5 @@
 ---
-partial: partials/_inline.html
+partial: _inline.html
 title: Advanced use cases
 anchor: advanced-use-cases
 ---
