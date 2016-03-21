@@ -1,18 +1,18 @@
 <?xml version="1.0" standalone="no"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
-    <id>http://www.optimizely.com/Optimizely/Optimizely.atom/20151104142300</id>
+    <id>http://www.optimizely.com/Optimizely/Optimizely.atom/20160309181937</id>
     <title type="text">Optimizely Documentation</title>
     <rights>Copyright © 2016 Optimizely. All rights reserved.</rights>
     <link rel="self" href="http://www.optimizely.com/Optimizely/Optimizely.atom"></link>
     <docset:publisherName>Optimizely</docset:publisherName>
     <docset:publisherID>com.optimizely.documentation</docset:publisherID>
-    <updated>2015-11-04T14:23:00-08:00</updated>
+    <updated>2016-03-09T18:19:37-08:00</updated>
     <entry>
-        <id>tag:www.optimizely.com,2015-11-4:com.optimizely.Optimizely/1.0.0</id>
+        <id>tag:www.optimizely.com,2016-03-9:com.optimizely.Optimizely/1.0.0</id>
         <title type="text">Optimizely Documentation</title>
-        <updated>2015-11-04T14:23:00-08:00</updated>
+        <updated>2016-03-09T18:19:37-08:00</updated>
         <content type="text">Optimizely Documentation (v1.0.0)</content>
-        <link rel="enclosure" type="application/octet-stream" href="http:/www.optimizely.com/Optimizely/com.optimizely.Optimizely-1.0.xar" length="168245"></link>
+        <link rel="enclosure" type="application/octet-stream" href="http:/www.optimizely.com/Optimizely/com.optimizely.Optimizely-1.0.xar" length="209686"></link>
         <docset:identifier>com.optimizely.Optimizely</docset:identifier>
         <docset:version>1.0.0</docset:version>
         <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>

@@ -1,51 +1,242 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/OptimizelyInitializationState.html">
+	<File path="Protocols/OptimizelyPlugin.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/OptimizelyInitializationState</TokenIdentifier>
-			<Abstract type="html">Enumeration type showing the status of the current Optimizely singleton&apos;s state,
-regarding whether it has started, is in the process of starting up, or has not been
-started.</Abstract>
-			<DeclaredIn>Optimizely.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intf/OptimizelyPlugin</TokenIdentifier>
+			<Abstract type="html">This protocol must be implemented by classes which wish to integrate with Optimizely
+via the Plugin System. For more information on creating a plugin see our documentation:</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
             
 			
 			<NodeRef refid="6"/>
 		</Token>
 		
 		
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/OptimizelyInitializationStateIsNotStarted</TokenIdentifier>
-            <Abstract type="html">The Optimizely singleton has not started.</Abstract>
-            <Declaration>OptimizelyInitializationStateIsNotStarted</Declaration>
-            
-            <DeclaredIn>Optimizely.h</DeclaredIn>
-            
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/setPluginId:</TokenIdentifier>
+			<Abstract type="html">Each plugin must choose a unique identifier. The bundle name of the plugin is usually
+sufficient. For example: &apos;com.optimizely.crashreporting&apos;
+This property will be queried after the plugin initialization but before start is called.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *pluginId</Declaration>
+			
+			
+			<Anchor>//api/name/pluginId</Anchor>
             <NodeRef refid="6"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/OptimizelyInitializationStateIsStarting</TokenIdentifier>
-            <Abstract type="html">The Optimizely singleton is starting and initializing required components.
-This helps to avoid double initialization.
-     </Abstract>
-            <Declaration>OptimizelyInitializationStateIsStarting</Declaration>
-            
-            <DeclaredIn>Optimizely.h</DeclaredIn>
-            
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/pluginId</TokenIdentifier>
+			<Abstract type="html">Each plugin must choose a unique identifier. The bundle name of the plugin is usually
+sufficient. For example: &apos;com.optimizely.crashreporting&apos;
+This property will be queried after the plugin initialization but before start is called.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *pluginId</Declaration>
+			
+			
+			<Anchor>//api/name/pluginId</Anchor>
             <NodeRef refid="6"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/OptimizelyInitializationStateIsStarted</TokenIdentifier>
-            <Abstract type="html">The Optimizely singleton has started and all required components are initialized.</Abstract>
-            <Declaration>OptimizelyInitializationStateIsStarted</Declaration>
-            
-            <DeclaredIn>Optimizely.h</DeclaredIn>
-            
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/OptimizelyPlugin/pluginId</TokenIdentifier>
+			<Abstract type="html">Each plugin must choose a unique identifier. The bundle name of the plugin is usually
+sufficient. For example: &apos;com.optimizely.crashreporting&apos;
+This property will be queried after the plugin initialization but before start is called.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *pluginId</Declaration>
+			
+			
+			<Anchor>//api/name/pluginId</Anchor>
             <NodeRef refid="6"/>
-        </Token>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/getDependencies</TokenIdentifier>
+			<Abstract type="html">Declare all dependencies on other plugins here. This selector will be queried
+before start is called, but after initialization.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (NSSet *)getDependencies</Declaration>
+			
+			<ReturnValue><Abstract type="html">a list of plugin identifiers</Abstract></ReturnValue>
+			<Anchor>//api/name/getDependencies</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/shouldHandleTouchEvents</TokenIdentifier>
+			<Abstract type="html">true if this plugin should receive and handle touch events. This selector
+will be queried after start has been called.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)shouldHandleTouchEvents</Declaration>
+			
+			<ReturnValue><Abstract type="html">true if this plugin should receive and handle touch events. This selector
+will be queried after start has been called.</Abstract></ReturnValue>
+			<Anchor>//api/name/shouldHandleTouchEvents</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/startWithOptimizely:withConfig:</TokenIdentifier>
+			<Abstract type="html">Initialize the plugin and start any listeners or threads.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)startWithOptimizely:(Optimizely *)optimizely withConfig:(NSDictionary *)config</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>optimizely</Name>
+					<Abstract type="html">A reference to the Optimizely singleton so that services can be accessed</Abstract>
+				</Parameter><Parameter>
+					<Name>config</Name>
+					<Abstract type="html">The config object for this plugin from the data file</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">true if the plugin was started successfully, false otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/startWithOptimizely:withConfig:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/stop</TokenIdentifier>
+			<Abstract type="html">Stop the extension and clean up any objects that are owned by the extension.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (void)stop</Declaration>
+			
+			
+			<Anchor>//api/name/stop</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/getLiveVariables</TokenIdentifier>
+			<Abstract type="html">Declare all LiveVariable keys that this plugin wishes to modify. This selector
+will be queried after start has been called. May return nil if this plugin
+does not modify live variables.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (NSSet *)getLiveVariables</Declaration>
+			
+			<ReturnValue><Abstract type="html">a set of strings which correspond to the LiveVariable key names.</Abstract></ReturnValue>
+			<Anchor>//api/name/getLiveVariables</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/getCodeBlocks</TokenIdentifier>
+			<Abstract type="html">Declare all CodeBlock keys that this plugin wishes to modify. This selector
+will be queried after start has been called. May return nil if this plugin
+does not modify code blocks.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (NSSet *)getCodeBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">a set of strings which correspond to the CodeBlock key names.</Abstract></ReturnValue>
+			<Anchor>//api/name/getCodeBlocks</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/evaluateLiveVariableOfType:forKey:defaultValue:</TokenIdentifier>
+			<Abstract type="html">Evaluate the given live variable and return the value. The value must be
+of the type denoted by cls. The default value should be returned if the plugin
+does not care</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (id)evaluateLiveVariableOfType:(Class)cls forKey:(NSString *)key defaultValue:(id)defaultValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>cls</Name>
+					<Abstract type="html">the class of the expected type</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">the name of the live variable</Abstract>
+				</Parameter><Parameter>
+					<Name>defaultValue</Name>
+					<Abstract type="html">the default value for the live variable</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">the calculated value for the live variable</Abstract></ReturnValue>
+			<Anchor>//api/name/evaluateLiveVariableOfType:forKey:defaultValue:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/evaluateCodeBlockForKey:</TokenIdentifier>
+			<Abstract type="html">Evaluate the given code block and return the name of the branch that should
+be executed. Nil may be returned if the plugin does not care.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)evaluateCodeBlockForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">the name of the code block</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">the name of the branch to execute.</Abstract></ReturnValue>
+			<Anchor>//api/name/evaluateCodeBlockForKey:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/processTouchEvent:</TokenIdentifier>
+			<Abstract type="html">If shouldHandleTouchEvents returns true, touch events will be passed to the plugin.
+This selector will be queried after start has been called.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (void)processTouchEvent:(UIEvent *)event</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>event</Name>
+					<Abstract type="html">The event that the plugin will process</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/processTouchEvent:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/dimensionNames</TokenIdentifier>
+			<Abstract type="html">Declare the dimension names that this plugin handles.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (NSSet *)dimensionNames</Declaration>
+			
+			<ReturnValue><Abstract type="html">nil or a NSSet of dimension names</Abstract></ReturnValue>
+			<Anchor>//api/name/dimensionNames</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/OptimizelyPlugin/evaluateDimension:withCondition:</TokenIdentifier>
+			<Abstract type="html">Evaluate a dimension name against it&apos;s condition.</Abstract>
+			<DeclaredIn>OptimizelyPlugin.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)evaluateDimension:(NSString *)dimensionName withCondition:(NSDictionary *)condition</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dimensionName</Name>
+					<Abstract type="html">name of the condition to evaluate.  Useful for switching on the different dimension names supported
+by this plugin.</Abstract>
+				</Parameter><Parameter>
+					<Name>condition</Name>
+					<Abstract type="html">NSDictionary containing key value pairs used by the Optimizely dimension evaluator, i.e.:
+{ &quot;name: &quot;skymosity.currentTemperature&quot;, &quot;value&quot;: &quot;10:60&quot;, &quot;matchtype&quot;: &quot;range&quot;, &quot;contenttype&quot; : &quot;thirdpartydimension&quot; }</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">true if the condition passes for the given dimension name and false if it doesn&apos;t.</Abstract></ReturnValue>
+			<Anchor>//api/name/evaluateDimension:withCondition:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
         
         
 	</File>

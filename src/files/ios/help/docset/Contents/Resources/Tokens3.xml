@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/OptimizelyExperimentData.html">
+	<File path="Classes/OptimizelyDimension.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/OptimizelyExperimentData</TokenIdentifier>
-			<Abstract type="html">This class represents the data for the current state of your Optimizely experiment object.
-You can choose to access various properties to figure out the current experiment state
-within Optimizely.</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/OptimizelyDimension</TokenIdentifier>
+			<Abstract type="html">This class represents the data about an individual dimension.
+You can choose to access various properties dimension to debug or send offline conversions.</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
             
 			
 			<NodeRef refid="3"/>
@@ -15,509 +14,188 @@ within Optimizely.</Abstract>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setAudiences:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the audiences currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/setDimensionName:</TokenIdentifier>
+			<Abstract type="html">The name of the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *audiences</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionName</Declaration>
 			
 			
-			<Anchor>//api/name/audiences</Anchor>
+			<Anchor>//api/name/dimensionName</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/audiences</TokenIdentifier>
-			<Abstract type="html">Property that tells you the audiences currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/dimensionName</TokenIdentifier>
+			<Abstract type="html">The name of the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *audiences</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionName</Declaration>
 			
 			
-			<Anchor>//api/name/audiences</Anchor>
+			<Anchor>//api/name/dimensionName</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/audiences</TokenIdentifier>
-			<Abstract type="html">Property that tells you the audiences currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyDimension/dimensionName</TokenIdentifier>
+			<Abstract type="html">The name of the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *audiences</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionName</Declaration>
 			
 			
-			<Anchor>//api/name/audiences</Anchor>
+			<Anchor>//api/name/dimensionName</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setExperimentId:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Id</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/setDimensionId:</TokenIdentifier>
+			<Abstract type="html">The unique identifier for the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionId</Declaration>
 			
 			
-			<Anchor>//api/name/experimentId</Anchor>
+			<Anchor>//api/name/dimensionId</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/experimentId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Id</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/dimensionId</TokenIdentifier>
+			<Abstract type="html">The unique identifier for the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionId</Declaration>
 			
 			
-			<Anchor>//api/name/experimentId</Anchor>
+			<Anchor>//api/name/dimensionId</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/experimentId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Id</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyDimension/dimensionId</TokenIdentifier>
+			<Abstract type="html">The unique identifier for the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentId</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionId</Declaration>
 			
 			
-			<Anchor>//api/name/experimentId</Anchor>
+			<Anchor>//api/name/dimensionId</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setExperimentName:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Name</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/setDimensionValue:</TokenIdentifier>
+			<Abstract type="html">The value of the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionValue</Declaration>
 			
 			
-			<Anchor>//api/name/experimentName</Anchor>
+			<Anchor>//api/name/dimensionValue</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/experimentName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Name</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/dimensionValue</TokenIdentifier>
+			<Abstract type="html">The value of the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionValue</Declaration>
 			
 			
-			<Anchor>//api/name/experimentName</Anchor>
+			<Anchor>//api/name/dimensionValue</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/experimentName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the experiment Name</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyDimension/dimensionValue</TokenIdentifier>
+			<Abstract type="html">The value of the dimension *</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *experimentName</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionValue</Declaration>
 			
 			
-			<Anchor>//api/name/experimentName</Anchor>
+			<Anchor>//api/name/dimensionValue</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setIsManual:</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your experiment is a manual activation experiment.</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/setDimensionDescription:</TokenIdentifier>
+			<Abstract type="html">A description of the dimension
+May be null</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) BOOL isManual</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionDescription</Declaration>
 			
 			
-			<Anchor>//api/name/isManual</Anchor>
+			<Anchor>//api/name/dimensionDescription</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/isManual</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your experiment is a manual activation experiment.</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/dimensionDescription</TokenIdentifier>
+			<Abstract type="html">A description of the dimension
+May be null</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) BOOL isManual</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionDescription</Declaration>
 			
 			
-			<Anchor>//api/name/isManual</Anchor>
+			<Anchor>//api/name/dimensionDescription</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/isManual</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your experiment is a manual activation experiment.</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyDimension/dimensionDescription</TokenIdentifier>
+			<Abstract type="html">A description of the dimension
+May be null</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) BOOL isManual</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionDescription</Declaration>
 			
 			
-			<Anchor>//api/name/isManual</Anchor>
+			<Anchor>//api/name/dimensionDescription</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setLocked:</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
-was making a conflicting change or your assets did not finish downloading in time</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/setDimensionAPIName:</TokenIdentifier>
+			<Abstract type="html">A unique name to refer to this dimension when tracking data in a client-side API call
+May be null</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionAPIName</Declaration>
 			
 			
-			<Anchor>//api/name/locked</Anchor>
+			<Anchor>//api/name/dimensionAPIName</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/locked</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
-was making a conflicting change or your assets did not finish downloading in time</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/dimensionAPIName</TokenIdentifier>
+			<Abstract type="html">A unique name to refer to this dimension when tracking data in a client-side API call
+May be null</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionAPIName</Declaration>
 			
 			
-			<Anchor>//api/name/locked</Anchor>
+			<Anchor>//api/name/dimensionAPIName</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/locked</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your was locked out of activation, because another experiment
-was making a conflicting change or your assets did not finish downloading in time</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyDimension/dimensionAPIName</TokenIdentifier>
+			<Abstract type="html">A unique name to refer to this dimension when tracking data in a client-side API call
+May be null</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, readonly) BOOL locked</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) NSString *dimensionAPIName</Declaration>
 			
 			
-			<Anchor>//api/name/locked</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setState:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
-			
-			
-			<Anchor>//api/name/state</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/state</TokenIdentifier>
-			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
-			
-			
-			<Anchor>//api/name/state</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/state</TokenIdentifier>
-			<Abstract type="html">Property that tells you the state of the experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (readonly) OptimizelyExperimentDataState state</Declaration>
-			
-			
-			<Anchor>//api/name/state</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setTargetingConditions:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
-			
-			
-			<Anchor>//api/name/targetingConditions</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/targetingConditions</TokenIdentifier>
-			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
-			
-			
-			<Anchor>//api/name/targetingConditions</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/targetingConditions</TokenIdentifier>
-			<Abstract type="html">Property that tells you the targeting conditions currently associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *targetingConditions</Declaration>
-			
-			
-			<Anchor>//api/name/targetingConditions</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setTargetingMet:</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
-			
-			
-			<Anchor>//api/name/targetingMet</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/targetingMet</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
-			
-			
-			<Anchor>//api/name/targetingMet</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/targetingMet</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not your user has met targeting conditions</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL targetingMet</Declaration>
-			
-			
-			<Anchor>//api/name/targetingMet</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariations:</TokenIdentifier>
-			<Abstract type="html">Property that stores the dictionary representation of all variations associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSArray *variations</Declaration>
-			
-			
-			<Anchor>//api/name/variations</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variations</TokenIdentifier>
-			<Abstract type="html">Property that stores the dictionary representation of all variations associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSArray *variations</Declaration>
-			
-			
-			<Anchor>//api/name/variations</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variations</TokenIdentifier>
-			<Abstract type="html">Property that stores the dictionary representation of all variations associated with this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSArray *variations</Declaration>
-			
-			
-			<Anchor>//api/name/variations</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationId:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the active variation Id (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
-			
-			
-			<Anchor>//api/name/variationId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the active variation Id (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
-			
-			
-			<Anchor>//api/name/variationId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationId</TokenIdentifier>
-			<Abstract type="html">Property that tells you the active variation Id (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationId</Declaration>
-			
-			
-			<Anchor>//api/name/variationId</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVariationName:</TokenIdentifier>
-			<Abstract type="html">Property that tells you the active variation Name (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
-			
-			
-			<Anchor>//api/name/variationName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/variationName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the active variation Name (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
-			
-			
-			<Anchor>//api/name/variationName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/variationName</TokenIdentifier>
-			<Abstract type="html">Property that tells you the active variation Name (can be nil if not bucketed)</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly, strong) NSString *variationName</Declaration>
-			
-			
-			<Anchor>//api/name/variationName</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVisitedCount:</TokenIdentifier>
-			<Abstract type="html">Property that counts the number of times the user has seen this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) NSUInteger visitedCount</Declaration>
-			
-			
-			<Anchor>//api/name/visitedCount</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/visitedCount</TokenIdentifier>
-			<Abstract type="html">Property that counts the number of times the user has seen this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) NSUInteger visitedCount</Declaration>
-			
-			
-			<Anchor>//api/name/visitedCount</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/visitedCount</TokenIdentifier>
-			<Abstract type="html">Property that counts the number of times the user has seen this experiment</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) NSUInteger visitedCount</Declaration>
-			
-			
-			<Anchor>//api/name/visitedCount</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVisitedEver:</TokenIdentifier>
-			<Abstract type="html">Property that computes whether or not the user has seen this experiment in their lifetime</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL visitedEver</Declaration>
-			
-			
-			<Anchor>//api/name/visitedEver</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/visitedEver</TokenIdentifier>
-			<Abstract type="html">Property that computes whether or not the user has seen this experiment in their lifetime</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL visitedEver</Declaration>
-			
-			
-			<Anchor>//api/name/visitedEver</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/visitedEver</TokenIdentifier>
-			<Abstract type="html">Property that computes whether or not the user has seen this experiment in their lifetime</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL visitedEver</Declaration>
-			
-			
-			<Anchor>//api/name/visitedEver</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/setVisitedThisSession:</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not the user has seen this experiment this session</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL visitedThisSession</Declaration>
-			
-			
-			<Anchor>//api/name/visitedThisSession</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyExperimentData/visitedThisSession</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not the user has seen this experiment this session</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL visitedThisSession</Declaration>
-			
-			
-			<Anchor>//api/name/visitedThisSession</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyExperimentData/visitedThisSession</TokenIdentifier>
-			<Abstract type="html">Property that tells you whether or not the user has seen this experiment this session</Abstract>
-			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, readonly) BOOL visitedThisSession</Declaration>
-			
-			
-			<Anchor>//api/name/visitedThisSession</Anchor>
+			<Anchor>//api/name/dimensionAPIName</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		

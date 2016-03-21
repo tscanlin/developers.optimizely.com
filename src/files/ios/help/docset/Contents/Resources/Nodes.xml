@@ -15,19 +15,29 @@
 						<NodeRef refid="2"/>
 						<NodeRef refid="3"/>
 						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
 						
 					</Subnodes>
 				</Node>
 				
 				
                 
+				<Node>
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="6"/>
+						
+					</Subnodes>
+				</Node>
+				
                 
 				<Node>
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="5"/>
-						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
 						
 					</Subnodes>
 				</Node>
@@ -37,7 +47,7 @@
                     <Name>Blocks</Name>
                     <Path>index.html</Path>
                     <Subnodes>
-                        <NodeRef refid="7"/>
+                        <NodeRef refid="9"/>
                         
                     </Subnodes>
                 </Node>
@@ -114,6 +124,33 @@
             
         </Node>
 		<Node id="3" type="file" documentType="reference">
+            <Name>OptimizelyDimension</Name>
+            <Path>Classes/OptimizelyDimension.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/OptimizelyDimension.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/OptimizelyDimension.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/OptimizelyDimension.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="4" type="file" documentType="reference">
             <Name>OptimizelyExperimentData</Name>
             <Path>Classes/OptimizelyExperimentData.html</Path>
             
@@ -140,7 +177,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="4" type="file" documentType="reference">
+		<Node id="5" type="file" documentType="reference">
             <Name>OptimizelyVariableKey</Name>
             <Path>Classes/OptimizelyVariableKey.html</Path>
             
@@ -169,19 +206,52 @@
         </Node>
 		
 		
-        
-        <Node id="5" type="file" documentType="reference">
+        <Node id="6" type="file" documentType="reference">
+            <Name>OptimizelyPlugin</Name>
+            <Path>Protocols/OptimizelyPlugin.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Protocols/OptimizelyPlugin.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Protocols/OptimizelyPlugin.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Protocols/OptimizelyPlugin.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Protocols/OptimizelyPlugin.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
+		
+        <Node id="7" type="file" documentType="reference">
             <Name>OptimizelyExperimentDataState</Name>
             <Path>Constants/OptimizelyExperimentDataState.html</Path>
             
         </Node>
-		<Node id="6" type="file" documentType="reference">
+		<Node id="8" type="file" documentType="reference">
             <Name>OptimizelyInitializationState</Name>
             <Path>Constants/OptimizelyInitializationState.html</Path>
             
         </Node>
 		
-        <Node id="7" type="file" documentType="reference">
+        <Node id="9" type="file" documentType="reference">
             <Name>OptimizelySuccessBlock</Name>
             <Path>Blocks/OptimizelySuccessBlock.html</Path>
             
