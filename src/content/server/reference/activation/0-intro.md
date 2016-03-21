@@ -19,19 +19,20 @@ code_examples:
   java:
     lang: java
     request: |
-      bucketing_id = hash("user@company.com");
-      experiment_key = "SEARCH_RANKING_EXP_24";
-      OptimizelyDimensions dimensions = new OptimizelyDimensions();
-      dimensions.add("DEVICE", "iPhone");
-      dimensions.add("AD_SOURCE", "my_campaign");
- 
-      variation = optimizely.activate(bucketing_id, experiment_key, dimensions);
+      String bucketingId = "user@company.com";
+      String experimentKey = "SEARCH_RANKING_EXP_24";
       
-      if (variation == null || variation == "ALGORITHM_A") {
-        // execute code for algorithm A
-      }
-      if (variation == "ALGORITHM_B") {
-        // execute code for algorithm B
+      Map<String, String> dimensions = new HashMap<String, String>();
+      dimensions.put("DEVICE", "iPhone");
+      dimensions.put("AD_SOURCE", "my_campaign");
+ 
+      Variation variation = optimizely.activate(experimentKey, bucketingId, dimensions);
+      if (variation.is("ALGORITHM_A")) {
+          // execute code for algorithm A
+      } else if (variation.is("ALGORITHM_B")) {
+          // execute code for algorithm B
+      } else {
+          // execute code for default algorithm 
       }
 ---
 
