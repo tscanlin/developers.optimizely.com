@@ -16,9 +16,9 @@ tocly();
 var collapsible = require('./collapsible.js');
 collapsible();
 
-// Add sidebysideToggles for interactive mode on /rest/reference.
-var sidebysideToggles = require('./sidebyside-toggles.js');
-sidebysideToggles();
+// Add toggler for interactive mode on /rest/reference.
+var toggler = require('./toggler.js');
+toggler();
 
 // Add copy code buttons.
 var copyBtn = require('./copy-btn.js');

@@ -42,7 +42,7 @@
       <div class="grid__cell width--1-2 code-container{% if object.fileName == "0-intro" %} intro{% endif %}{% if object.endpoint or object.response or object.code_examples %} empty{% endif %}">
 
         {% for key, code in object.code_examples %}
-          <div class="toggle-section{% if code.lang == 'python' %} visible{% endif %}" data-toggle-section="{{ code.lang }}-code">
+          <div class="hidden{% if code.lang == 'python' %} visible{% endif %}" data-toggle-section="{{ code.lang }}-code">
 
 <!-- Indenting is weird here because of the <pre> tags -->
 
