@@ -6,11 +6,11 @@ code_examples:
   python:
     lang: python
     request: |
-      user_id = hash('user@company.com')
+      bucketing_id = hash('user@company.com')
       experiment_key = 'SEARCH_RANKING_EXP_24'
-      dimensions = {"DEVICE": "iPhone", "AD_SOURCE": "my_campaign"}
+      dimensions = {'DEVICE': 'iPhone', 'AD_SOURCE': 'my_campaign'}
       
-      variation = optimizely.activate(experiment_key, user_id, dimensions)
+      variation = optimizely.activate(bucketing_id, experiment_key, dimensions=dimensions)
       
       if variation == None OR variation == 'ALGORITHM_A':
         # execute code for algorithm A
@@ -19,13 +19,13 @@ code_examples:
   java:
     lang: java
     request: |
-      user_id = hash("user@company.com");
+      bucketing_id = hash("user@company.com");
       experiment_key = "SEARCH_RANKING_EXP_24";
       OptimizelyDimensions dimensions = new OptimizelyDimensions();
       dimensions.add("DEVICE", "iPhone");
       dimensions.add("AD_SOURCE", "my_campaign");
  
-      variation = optimizely.activate(experiment_key, user_id, dimensions);
+      variation = optimizely.activate(bucketing_id, experiment_key, dimensions);
       
       if (variation == null || variation == "ALGORITHM_A") {
         // execute code for algorithm A
