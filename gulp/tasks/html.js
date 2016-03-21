@@ -91,7 +91,7 @@ gulp.task('html', ['data'], function() {
 
     if (dataObj.includeSiblingData) {
       pathArrayCopy = [].concat(pathArray);
-      var thisKey = pathArrayCopy.pop(); // Should always be index so thisKey is not needed.
+      pathArrayCopy.pop(); // Should always be index so thisKey is not needed.
       var siblingData = getKeyPath(pathArrayCopy, siteJson);
       // Add fileName prop with helper function.
       addFileNameToObjectsWithTitle(siblingData);
@@ -110,7 +110,7 @@ gulp.task('html', ['data'], function() {
       && dataObj.template !== 'multi-example'
       && dataObj.template !== 'sidebyside') {
       var filePath = path.resolve(paths.src + paths.templates + dataObj.template + '.html');
-      // console.log(filePath, env.render(filePath, dataObj));
+      // console.log(filePath, dataObj, env.render(filePath, dataObj));
       file.contents = new Buffer(env.render(filePath, dataObj), 'utf8'); //eslint-disable-line
       return file;
     }

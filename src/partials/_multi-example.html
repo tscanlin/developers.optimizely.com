@@ -2,32 +2,36 @@
   <section class="sidebyside">
     <div class="grid">
       <!-- Left column -->
-      <div class="grid__cell width--1-2 explanation{% if fileName == "0-intro" %} intro{% endif %}">
+      <div class="grid__cell width--1-2 explanation{% if object.fileName == "0-intro" %} intro{% endif %}">
         <div class="soft-double--sides">
           <!-- Title -->
-          {% if fileName == "0-intro" %}
-            <h2 id="{{anchor}}">{{title}}</h2>
+          {% if object.fileName == "0-intro" %}
+            <h2 id="{{object.anchor}}">{{object.title}}</h2>
           {% else %}
-            <h3 id="{{anchor}}">
-              {{title}}
-              {% if meta.warning %}<span> (deprecated)</span>{% endif %}
+            <h3 id="{{object.anchor}}">
+              {{object.title}}
+              {% if object.meta and object.meta.warning %}<span> (deprecated)</span>{% endif %}
             </h3>
           {% endif %}
 
           <!-- Endpoint -->
-          {% if type and endpoint %}
-            <pre>{{ type }} {{ endpoint }}</pre>
+          {% if object.type and object.endpoint %}
+            <pre>{{ object.type }} {{ object.endpoint }}</pre>
           {% endif %}
 
           <!-- Description -->
-          {{ body | safe }}
+          {{ object.body | safe }}
 
           <!-- Arguments -->
-          {% if fields %}
+          {% if object.fields %}
             <h4>Definitions</h4>
             <table class="table">
-            {% for key, f in fields %}
-              <tr><td align="left"><b>{{ key }}</b></td><td class="desc">{{ f | marked }}</td></tr>
+            {% for key, f in object.fields %}
+              <tr><td align="left"><b>{{ key }}</b></td><td class="desc">
+                {% markdown %}
+                  {{ f | safe }}
+                {% endmarkdown %}
+              </td></tr>
             {% endfor %}
             </table>
           {% endif %}
@@ -35,9 +39,9 @@
       </div>
 
       <!-- Right column -->
-      <div class="grid__cell width--1-2 code-container{% if fileName == "0-intro" %} intro{% endif %}{% if endpoint || response || js || html %} empty{% endif %}">
+      <div class="grid__cell width--1-2 code-container{% if object.fileName == "0-intro" %} intro{% endif %}{% if object.endpoint or object.response or object.code_examples %} empty{% endif %}">
 
-        {% for code in code_examples %}
+        {% for key, code in object.code_examples %}
           <div class="toggle-section{% if code.lang == 'python' %} visible{% endif %}" data-toggle-section="{{ code.lang }}-code">
 
 <!-- Indenting is weird here because of the <pre> tags -->
@@ -46,11 +50,11 @@
 {% if code.request %}
 <h4>Example Request</h4>
 <pre>
-{% marked %}
+{% markdown %}
 ```{{ code.lang }}
 {{ code.request | safe }}
 ```
-{% endmarked %}
+{% endmarkdown %}
 </pre>
 {% endif %}
 
@@ -58,11 +62,11 @@
 {% if code.response %}
 <h4>Example Response</h4>
 <pre>
-{% marked %}
+{% markdown %}
 ```json
 {{ code.response | safe }}
 ```
-{% endmarked %}
+{% endmarkdown %}
 </pre>
 {% endif %}
 
