@@ -207,7 +207,7 @@ You can get started with OUI in two ways:
 Install the pre-compiled version of OUI in your application:
 
 ```
-<link rel="stylesheet" href="//d2uaiq63sgqwfs.cloudfront.net/9.0.1/oui.css">
+<link rel="stylesheet" href="https://oui.cdn.optimizely.com/9.0.1/oui.css">
 ```
 
 For the latest version, replace the `9.0.1` with the <a href="https://github.com/optimizely/oui/releases" target="_blank">latest release</a>.
@@ -221,7 +221,7 @@ Here is a basic HTML template to get started using OUI:
     <title>Base OUI Template</title>
 
     <!-- OUI CSS -->
-    <link rel="stylesheet" href="//d2uaiq63sgqwfs.cloudfront.net/9.0.1/oui.css">
+    <link rel="stylesheet" href="https://oui.cdn.optimizely.com/9.0.1/oui.css">
 
   </head>
   <body>
