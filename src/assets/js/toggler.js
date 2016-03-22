@@ -24,13 +24,16 @@ module.exports = function() {
       elm.addEventListener('click', function(e) {
         e.preventDefault();
         var target = e.target;
-        var toggleTriggerClass = target.getAttribute(TOGGLE_TRIGGER_CLASS_ATTRIBUTE);
+        // Support multiple classes.
+        var toggleTriggerClasses = target.getAttribute(TOGGLE_TRIGGER_CLASS_ATTRIBUTE).split(' ');
         var toggleSectionId = target.getAttribute(TOGGLE_TRIGGER_ATTRIBUTE);
 
-        each.call(toggleContainer.querySelectorAll('.' + toggleTriggerClass), function(el) {
-          el.classList.remove(toggleTriggerClass);
+        each.call(toggleContainer.querySelectorAll('.' + toggleTriggerClasses.join('.')), function(el) {
+          // Support multiple classes.
+          el.classList.remove.apply(el.classList, toggleTriggerClasses);
         });
-        target.classList.add(toggleTriggerClass);
+        // Support multiple classes.
+        target.classList.add.apply(target.classList, toggleTriggerClasses);
 
         // Remove visible class from all toggle sections.
         each.call(toggleSections, function(el) {

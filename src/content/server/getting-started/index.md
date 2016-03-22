@@ -3,7 +3,16 @@ template: page-sidebar
 title: "Optimizely Server-Side Testing Guide"
 ---
 
-# Getting started with Server-Side Testing
+<h1 id="getting-started-with-server-side-testing" class="flush--bottom">Getting started with Server-Side Testing</h1>
+
+<div class="js-toggle-container cf">
+  <ul class="nav unstyled float--right">
+    <li class="z-index--2"><a class="muted weight--bold color--brand" href="#" data-toggle-trigger="python-code" data-toggle-trigger-class="color--brand">Python</a></li>
+    <li class="z-index--2"><a class="muted weight--bold" href="#" data-toggle-trigger="java-code" data-toggle-trigger-class="color--brand">Java</a></li>
+  </ul>
+</div>
+
+<hr class="rule">
 
 Create your first server-side test in 5 minutes!
 
