@@ -27,7 +27,6 @@ var BASE_NAV_SECTIONS = {
   },
 };
 
-// Sections for each navigation item.
 var JS_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'personalization': {
     path: 'personalization',
@@ -35,7 +34,6 @@ var JS_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   },
 });
 
-// Sections for each navigation item.
 var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'customer-profiles': {
     path: 'customer-profiles',
@@ -47,7 +45,6 @@ var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   },
 });
 
-// Sections for each navigation item.
 var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'guide': {
     path: 'guide',
@@ -60,8 +57,12 @@ var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'articles': {
     path: 'articles',
     title: 'Articles',
-  }
+  },
 });
+
+var SERVER_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS);
+delete SERVER_NAV_SECTIONS ['faqs'];
+delete SERVER_NAV_SECTIONS ['code-samples'];
 
 var paths = {
   // Used by gulp tasks to build / compile pages and assets.
@@ -107,14 +108,19 @@ var paths = {
       title: 'Android SDK',
       sections: MOBILE_NAV_SECTIONS,
     },
+    server: {
+      path: 'server',
+      title: 'Server',
+      sections: SERVER_NAV_SECTIONS,
+    },
     integrations: {
       path: 'integrations',
       title: 'Integrations',
     },
     apps: {
       path: 'apps',
-      title: 'Apps'
-    }
+      title: 'Apps',
+    },
   },
 };
 
