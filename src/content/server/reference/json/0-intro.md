@@ -103,4 +103,4 @@ This JSON file contains all of the "instructions" needed to activate experiments
 You can fetch the JSON file in two ways:
 
 * *Use the Optimizely CDN.*  For example, if the ID of your project is `12345` you can access the file at http://cdn.optimizely.com/json/12345.json.
-* *Use the Optimziely REST API.* (Details TBD)
+* *Use the Optimizely REST API.* (Details TBD)
