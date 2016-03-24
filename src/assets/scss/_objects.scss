@@ -44,11 +44,6 @@
 	}
 }
 
-// Toggle section
-.toggle-section {
-  display: none;
-}
-
 // Copy code button in the top right corner of code samples.
 .copy-code-button {
   color: white;
@@ -106,7 +101,7 @@
 }
 
 // Styles for entering tokens (for interactive mode)
-.sidebyside-toggles {
+.toggle-container--fixed {
   position: fixed;
   margin-left: calc(50% - 160px);
   width: calc(50% - 140px);

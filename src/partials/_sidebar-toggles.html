@@ -1,9 +1,9 @@
 <!-- Toggles for interactive mode -->
 {% if relativePath == 'rest/reference/index' %}
-  <div class="sidebyside-toggles soft-double--sides soft--ends background--brand-darker">
+  <div class="js-toggle-container toggle-container--fixed soft-double--sides soft--ends background--brand-darker">
     <ul class="nav unstyled">
-      <li class="z-index--2"><a class="toggle button button--small button--plain reverse background--brand" href="#" data-toggle="curl">CURL</a></li>
-      <li class="z-index--2"><a class="toggle button button--small button--plain reverse" href="#" data-toggle="interactive">Interactive Mode</a></li>
+      <li class="z-index--2"><a class="button button--small button--plain reverse background--brand" href="#" data-toggle-trigger="curl" data-toggle-trigger-class="background--brand">CURL</a></li>
+      <li class="z-index--2"><a class="button button--small button--plain reverse" href="#" data-toggle-trigger="interactive" data-toggle-trigger-class="background--brand">Interactive Mode</a></li>
       <li class="flush token-link text--right soft-double--right">
         <a class="button button--small display--inline-block" href="#" data-collapser>Enter API Token</a>
         <div class="collapsible is-collapsed background--white rounded-box text--left">
@@ -21,10 +21,10 @@
 {% endif %}
 
 {% if relativePath == 'server/reference/index' %}
-  <div class="sidebyside-toggles soft-double--sides soft--ends background--brand-darker">
+  <div class="js-toggle-container toggle-container--fixed soft-double--sides soft--ends background--brand-darker">
     <ul class="nav unstyled">
-      <li class="z-index--2"><a class="toggle button button--small button--plain reverse background--brand" href="#" data-toggle="python-code">Python</a></li>
-      <li class="z-index--2"><a class="toggle button button--small button--plain reverse" href="#" data-toggle="java-code">Java</a></li>
+      <li class="z-index--2"><a class="button button--small button--plain reverse background--brand" href="#" data-toggle-trigger="python-code" data-toggle-trigger-class="background--brand">Python</a></li>
+      <li class="z-index--2"><a class="button button--small button--plain reverse" href="#" data-toggle-trigger="java-code" data-toggle-trigger-class="background--brand">Java</a></li>
     </ul>
   </div>
 {% endif %}

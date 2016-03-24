@@ -109,7 +109,7 @@
 
       <!-- Right column -->
       <div class="grid__cell width--1-2 code-container{% if object.fileName == "0-intro" %} intro{% endif %}{% if object.endpoint or object.response or object.js or object.html %} empty{% endif %}">
-        <div class="toggle-section visible" data-toggle-section="curl">
+        <div class="hidden visible" data-toggle-section="curl">
 
 <!-- Indenting is weird here because of the <pre> tags -->
 
@@ -202,7 +202,7 @@ curl \
 {% endif %}
 
         </div>
-        <div class="toggle-section" data-toggle-section="interactive">
+        <div class="hidden" data-toggle-section="interactive">
           {% if object.endpoint and object.type == "GET" %}
             {% include 'partials/_sandbox.html' %}
           {% endif %}
