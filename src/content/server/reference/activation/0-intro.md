@@ -15,7 +15,7 @@ code_examples:
       if variation == None OR variation == 'ALGORITHM_A':
         # execute code for algorithm A
       if variation == 'ALGORITHM_B':
-        # execute code for algorithm A
+        # execute code for algorithm B
   java:
     lang: java
     request: |

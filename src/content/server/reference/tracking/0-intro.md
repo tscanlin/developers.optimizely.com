@@ -6,7 +6,7 @@ code_examples:
   python:
     lang: python
     request: |
-        optimizely.track(bucketing_id, 'BOOKING_COMPLETE')
+        optimizely.track_event(bucketing_id, 'BOOKING_COMPLETE')
   java:
     lang: java
     request: |
