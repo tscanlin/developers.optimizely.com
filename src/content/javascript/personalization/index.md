@@ -753,7 +753,7 @@ You can create a widget under **Implementation > Widgets**. Each widget has a un
 
 Once you create the widget, you'll land in the Widget Builder. In the left sidebar, you can add optional fields. Each field defines a property that can be customized on the widget. For example, on a popup, you could provide fields to customize the message, the call to action, the width and height, and the timing of when it should appear.
 
-Each field requires an API name, which you can use to reference it in HTML. For example, if you create a field called Height, you can reference it in HTML as `{{ widget.height }}` or in JS as ``widget.height``. The label is a human readable name like "Popup Height", and you can add an optional default value like `400`.
+Each field requires an API name, which you can use to reference it in HTML. For example, if you create a field with the **API Name** "height", you can reference it in HTML as `{{ widget.height }}` or in JS as ``widget.height``. The **Label** is a human readable name like "Popup Height", and you can add an optional **Default Value** like `400`.
 
 ### Building the widget
 
@@ -777,7 +777,7 @@ You can reference field values by using the API name on the widget object like `
 
 Some widgets may not need any CSS because they inherit styles from the page itself. However, you can add additional styling in the CSS box. This will be injected on the page through a `<style>` tag.
 
-Note that CSS doesn't support field values, so if you want to use those in styling you can do it directly in the HTML, e.g. `<div class="banner" style="background-color: {{widget.color}}">`.
+Note that CSS doesn't support field values, so if you want to use those in styling you can do it directly in the HTML via inline styles, e.g. `<div class="banner" style="background-color: {{widget.color}}">`.
 
 ##### Example
 ```
@@ -836,7 +836,7 @@ recommender.fetchRecommendations(productId).then(function(recos) {
 
 #### Undo JS
 
-Undo JS is used to "clean up" after a widget. It's primarily used in the editor, when changing field values or removing an existing widget. Undo JS should remove the element and any other side-effects.
+Undo JS is used to "clean up" after a widget. It's used in the editor, when changing field values or removing an existing widget. Undo JS should remove the element and any other side-effects.
 
 One way to write undo JS is to use the `widget.$instance` value. For example, you could create a widget with HTML starting like this:
 ```html
