@@ -20,7 +20,7 @@
 .background--super-dark {
 	background-color: #031E2A;
 
-	a, h2, p {
+	&:not(.hero) a, h2, p {
 		color: white;
 	}
 	h4 {
