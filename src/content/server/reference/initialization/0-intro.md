@@ -12,6 +12,10 @@ code_examples:
     request: |
       Optimizely optimizely = Optimizely.builder(projectWatcher, eventHandler)
           .build();
+  ruby:
+    lang: ruby
+    request: |
+      optimizely = Optimizely::Optimizely.new(project_id)
 ---
 
 To run experiments using Optimizely you'll need to instatiate an `Optimizely` object in your code. You'll need to include the ID of a Custom Project as an input parameter.

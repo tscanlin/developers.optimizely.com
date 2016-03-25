@@ -91,6 +91,50 @@ code_examples:
           }
         ],
       }
+  ruby:
+    lang: ruby
+    request: |
+      {
+        projectId: "5810298591",
+        accountId: "4910295812",
+        revision: "10",
+        experiments: [
+          {
+            variations: [
+              {
+                id: "9501848592",
+                key: "ALGORITHM_A",
+                endOfRange: 4999
+              }
+              {
+                id: "1849205928",
+                key: "ALGORITHM_B",
+                endOfRange: 9999
+              }
+            ],
+            id: "5928401928",
+            key: "SEARCH_RANKING_TEST_24"
+          },
+        ],
+        events: [
+          {
+            id: "8182957192",
+            key: "BOOKING_COMPLETE"
+          },
+        ],
+        dimensions: [
+          {
+            id: "5910296728",
+            segmentId: "9581738457"
+            key: "DEVICE"
+          },
+          {
+            id: "5910296728",
+            segmentId: "7581658482"
+            key: "AD_SOURCE"
+          }
+        ],
+      }
  
 ---
 

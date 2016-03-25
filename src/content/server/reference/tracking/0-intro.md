@@ -11,6 +11,10 @@ code_examples:
     lang: java
     request: |
         optimizely.trackEvent("BOOKING_COMPLETE", bucketingId);
+  ruby:
+    lang: ruby
+    request: |
+        optimizely.track_event(bucketing_id, 'BOOKING_COMPLETE')
 ---
 
 You can easily track Optimizely goals from your code as shown in the example to the right. Optimizely takes care of making sure that goals are tracked only for experiments that are mapped to them.
