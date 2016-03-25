@@ -9,6 +9,7 @@ title: "Optimizely Server-Side Testing Guide"
   <ul class="nav unstyled float--right">
     <li class="z-index--2"><a class="muted weight--bold color--brand" href="#" data-toggle-trigger="python-code" data-toggle-trigger-class="color--brand">Python</a></li>
     <li class="z-index--2"><a class="muted weight--bold" href="#" data-toggle-trigger="java-code" data-toggle-trigger-class="color--brand">Java</a></li>
+    <li class="z-index--2"><a class="muted weight--bold" href="#" data-toggle-trigger="ruby-code" data-toggle-trigger-class="color--brand">Ruby</a></li>
   </ul>
 </div>
 
