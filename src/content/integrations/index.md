@@ -32,9 +32,9 @@ Please fill out the <a href="https://www.optimizely.com/partners/technology/join
 
 There are many ways to integrate with Optimizely depending on your needs. To decide how to best integrate with our platform, please see the chart of [Integration Types](#integration-types) below which includes some common types of integrations built by customers and partners. Each integration type includes a step-by-step guide including example code that you can use to build the integration. If none of these integration types meet your needs, please refer to our [REST API documentation](/rest).
 
-<h3 id="track-your-integration">4. Make your integration trackable</h3>
+<h3 id="track-your-integration">4. Register your integration</h3>
 
-By making your integration trackable by Optimizely, we can evaluate which API functions are the most valuable to our partners. It is important for Optimizely to know which integrations are being used by which of our customers. Making your integration trackable is easy. If you use the REST API, make sure you use OAuth 2.0 to authenticate. If you use the JavaScript API, follow the instructions in the [Tracking integrations](/integrations/#tracking-integrations) section.
+We require all Technology Partners to formally register their integration to Optimizely so we can better track which APIs are most important to our partners. Registering your integration is easy. If your integration is using the REST API, we require you use OAuth 2.0 authentication and register your integration as an OAuth client . If your integration is using the JavaScript API, we also require you to make a one-line API call. The steps to register your integration are described in the [Register your integration section](#register-integration)
 
 <h3 id="submit-integration-for-qa">5. Submit integration for QA</h3>
 
@@ -182,23 +182,19 @@ Integrations with Optimizely typically fall into one of the following categories
 
 Not seeing the platform you’re looking for? Check out the <a href="https://help.optimizely.com/hc/en-us/articles/203729580" target="_blank">full list of platforms</a> that Optimizely integrates with.
 
-## Tracking integrations that use the REST API
+<h2 id="register-integration">Register your integration</h2>
 
-Optimizely has a REST API and a JavaScript API. Read this section to make your integration trackable if you are using the REST API for you integration. If you only use the JavaScript API, go to the [Tracking JavaScript integrations](/integrations/#tracking-javascript-integrations) section.
+We require all partners that have an integration to register an OAuth 2.0 client. Using OAuth 2.0 provides the following benefits:
+- We can better support your integration and our mutual customers
+- Allowing us to better understand which functionality has made the biggest impact on the customer experience
+- Ability to determine where to invest more time for improvements
+- For integrations that use the REST API, OAuth 2.0 provides a better, more transparent customer experience
 
-Our REST API has two authentication mechanisms: token-based and OAuth 2.0 based. To track the usage of the integration, it is important that you implement OAuth 2.0 authentication. Instruction on how to use OAuth 2.0 authentication are documented here in the [OAuth section of the REST API reference](/rest/reference/index.html#oauth)
+If you have questions about registering your integration, please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
 
-If you have questions about implementing the tracking method, please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
+The following step-by-step guide describes how register an OAuth 2.0 client.
 
-## Tracking JavaScript integrations
-Optimizely has a REST API and a JavaScript API. Read this section to make your integration trackable if you are using the JavaScript API for your integration and not the REST API. If you use the REST API, go to the [Tracking REST integrations](/integrations/#tracking-rest-integrations) section.
-
-If you have questions about implementing the tracking method please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
-
-### 1. Create an Optimizely developer account
-If you don't have an Optimizely developer account, just sign up for a <a href="https://www.optimizely.com/?modal=devsignup" target="_blank">free developer account</a>. This account will give you access to <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200040055-Optimizely-Pricing-Plan-changes-upgrading-and-downgrading#comparison">the full set of Optimizely features</a> and API access, but with limited traffic allocation. No credit card required.
-
-### 2. Register an OAuth client for your integration
+### 1. Create an OAuth 2.0 client for your integration
 Sign in to the account and navigate to <a target="_blank" href="https://app.optimizely.com/accountsettings/apps/developers">https://app.optimizely.com/accountsettings/apps/developers</a>.
 
 On this page, click on "Register a new application".
@@ -208,18 +204,17 @@ On this page, click on "Register a new application".
 Fill in the fields with the following values:
 - *Application Name*: the name of your integration
 - *Redirect URI*: your homepage
-- *Client Type*: Public
+- *Client Type*: can be Public or Confidential, depending on your application. If you integration only uses the JavaScript API, use "Public". The client type for an integration that uses the REST API depends on your setup. You can find more information about client types [here](http://localhost:4009/rest/reference/index.html#grant-types).
 
 Click *Apply*.
 
-### 3. Copy the generated client ID
-Copy the client ID that has been generated:
+### 2. Implement API specific requirements
 
-<img src="/assets/img/integrations/tracking_client_id.png">
+<span id='rest-registering'>**Integrations that use the REST API**</span><br>
+We require every integration that uses the REST API to authenticate with the OAuth 2.0 client that you created in the previous step. Authentication with an OAuth 2.0 client is described in the [REST API reference](/rest/reference/index.html#authorization).
 
-### 4. Include the tracking function in your integration
-
-Include the following JavaScript function at the top of your integration's JavaScript:
+<span id='js-registering'>**Integrations that use the JavaScript API**</span><br>
+If your integration is using the JavaScript API, we also require you to make a one-line API call at the top of your integration's JavaScript:
 
 ```javascript
 window.optimizely = window.optimizely || [];
@@ -229,7 +224,9 @@ window.optimizely.push({
 });
 ```
 
-Replace the OAuthClientId with the client ID copied in the previous step.
+The client ID used in the on-line API call can be found here:
+
+<img src="/assets/img/integrations/tracking_client_id.png">
 
 ## Analytics
 
@@ -295,16 +292,6 @@ if (window['optimizely'] && window['optimizely']['data']) {
 ```
 
 Where indicated in the above code snippet, implement the platform specific code.
-
-<h3 id="track-analytics-integration">4. Make your integration trackable</h3>
-
-By making your integration trackable by Optimizely, we can evaluate which API functions are the most valuable to our partners. It is important for Optimizely to know which integrations are being used by which of our customers. For the integration described in this section, you can follow the steps described in [Tracking JavaScript integrations](/integrations/#tracking-javascript-integrations).
-
-The benefits of making your integration trackable:
-- Better support your integration and our mutual customers
-- Allowing us to better understand which functionality has made the biggest impact on the customer experience
-- Ability to determine where to invest more time for improvements
-- Integrations that use the OAuth flow provide a better, more transparent customer experience
 
 <h3 id="qa-integration">4. QA integration</h3>
 
@@ -957,17 +944,7 @@ function generateConversionUrl(goalname, value) {
 
 ```
 
-<h3 id="track-conversion-integration">5. Make your integration trackable</h3>
-
-By making your integration trackable by Optimizely, we can evaluate which API functions are the most valuable to our partners. It is important for Optimizely to know which integrations are being used by which of our customers. For the integration described in this section, you can follow the steps described in [Tracking JavaScript integrations](/integrations/#tracking-javascript-integrations).
-
-The benefits of making your integration trackable:
-- Better support your integration and our mutual customers
-- Allowing us to better understand which functionality has made the biggest impact on the customer experience
-- Ability to determine where to invest more time for improvements
-- Integrations that use the OAuth flow provide a better, more transparent customer experience
-
-<h3 id="conversion-5-qa-integration">6. QA your integration</h3>
+<h3 id="conversion-5-qa-integration">5. QA your integration</h3>
 
 To verify that the integration works, create an Optimizely experiment that includes the custom event goal in question. Then send visitor test traffic through your experiment and fire the offline conversion goals. Check your results page for the experiment. It should now include data on how many visitors and offline conversions have occurred for this experiment.
 
