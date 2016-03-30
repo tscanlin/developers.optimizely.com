@@ -6,6 +6,7 @@ echo "Running deploy script"
 
 # exit if its not the master branch
 echo "Branch: $TRAVIS_BRANCH"
+echo "Is a Pull Request: $TRAVIS_PULL_REQUEST"
 
 if [ "$TRAVIS_BRANCH" != "master" ]
 then
