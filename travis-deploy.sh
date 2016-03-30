@@ -2,31 +2,33 @@
 # See https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db
 set -o errexit
 
+# Info.
 echo "Running deploy script"
-
-# exit if its not the master branch
 echo "Branch: $TRAVIS_BRANCH"
 echo "Is a Pull Request: $TRAVIS_PULL_REQUEST"
 
+# Exit if the branch is not the master branch.
 if [ "$TRAVIS_BRANCH" != "master" ]
 then
   echo "This commit was made against the $TRAVIS_BRANCH and not the master. No deploy."
   exit 0
 fi
 
+# Exit if the commit is a pull request.
+# We only want to build / deploy when pull requests are merged into master.
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   echo "This commit is a pull request. No deploy."
   exit 0
 fi
 
-# config
+# Git config.
 git config --global user.email "nobody@nobody.org"
 git config --global user.name "Travis CI"
 
-# build steps (taken care of beforehand)
+# Build steps (taken care of beforehand)
 
-# deploy
+# Deploy.
 cd build
 git init
 git add .
