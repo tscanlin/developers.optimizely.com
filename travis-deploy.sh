@@ -13,6 +13,11 @@ then
   exit 0
 fi
 
+if [ "$TRAVIS_PULL_REQUEST" != "true" ]
+then
+  echo "This commit is not a pull request. No deploy."
+  exit 0
+fi
 
 # config
 git config --global user.email "nobody@nobody.org"
