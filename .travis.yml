@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "4.1"
+sudo: false
+install:
+- npm install
+script:
+- npm run clean:build
+after_success:
+- bash ./travis-deploy
+env:
+  global:
+    - GITHUB_REPO: "optimizely/developers.optimizely.com"
+    - secure: "w9sfH3H9wiCrWpdK8eAemdQUHRKBGki+HfJ3HgpUfq6Nbl9V1eIrZnjxaQmiw3IyZ5gc5bJqb/zcbyk5Mvp9exrZLLzLLpUb9Y/FddpADmN/ONO4iRaq+6Tony3RJRgA/kDcrt46iF48K3CEMGNaT+MR/cjQ3h3FT5QKms8t+lAva/bbBQrFmIw+hzJ4MZZK531h7ECTKXx8ZGnKuVgQ3ukFlDae9HxJI4j7nB9PCZ/PkoRrZ2xf9f4x6MVH9A37EzTOAadazwGzPwHHXJytrdzhGC+I81Ns9pHHaezxzMcGZ3GWZS2jCixdLCh74h06WaH4IAI7ONrPfqKY1vu1LZpOWjN1lGzOAJ6ksWbrFSwrgCiSGG90ShoAYL6rQqjHhPS1a7fsL4e5PrelqQR0HRbnGmkbK0E4o10tOkeI6sTl42zsNwkn0NiER+Vz+TMB2895LxhloeuWHY7vqrAm6aflHj4+fZp29lzsKYf5iKfETE9bHEY/AhVh/GtgEOVfuMUls+ithXOr/E2ewYdaz1Qyb5npSCYmgrBdoHFrrQKNgL70MjLxu9mVcNmf7O14oDi0UnTriOXSRljQSmW+1C+A82006iLdReuQlmO+weRG3U/tAhiz+7h3/t5LzU4pant7NE7Hg7oh23H/qQk39/ZRiG5r8n8i9TvU2/iL8rY="
