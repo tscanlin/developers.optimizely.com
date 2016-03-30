@@ -2,6 +2,8 @@
 # See https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db
 set -o errexit
 
+echo "Running deploy script"
+
 # exit if its not the master branch
 if [ "$TRAVIS_BRANCH" != "master" ]
 then
@@ -20,6 +22,5 @@ git config --global user.name "Travis CI"
 cd build
 git init
 git add .
-rev=$(git rev-parse --short HEAD)
-git commit -m "Deploy (${rev}) to Github Pages"
+git commit -m "Deploy to Github Pages"
 git push --force --quiet "https://${GITHUB_TOKEN}@$github.com/${GITHUB_REPO}.git" master:gh-pages > /dev/null 2>&1
