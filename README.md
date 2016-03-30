@@ -28,7 +28,7 @@ npm run start
 
 ### To deploy
 
-> Deploys now happen automatically (using travis) on any commits into the master branch (PR or direct) as long as it still builds successfully. Deploys through travis usually take 2-5 mins to complete. However, the below steps will still work if you need to force a deploy from your local branch.
+**Deploys now happen automatically** (using travis) on any commits into the master branch (PR or direct) as long as it still builds successfully. Deploys through travis usually take 2-5 mins to complete. However, the below steps will still work if you need to force a deploy from your local branch.
 
 **IMPORTANT:** Make sure you have pulled the latest changes from the master branch (by running `git pull`) *AND* also make sure that you have verified the changes on the site running locally, then run:
 
