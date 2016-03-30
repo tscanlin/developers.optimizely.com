@@ -28,13 +28,13 @@ If you don't have an Optimizely developer account, just sign up for a [free deve
 
 Please fill out the <a href="https://www.optimizely.com/partners/technology/join/" target="_blank">Technology Partner Program form</a> to apply for the program. We recommend that you apply for the program before you start developing an integration so we can provide you with appropriate guidance using the Optimizely APIs and plan for launch.
 
-<h3 id="build-your-integration">3. Build your integration</h3>
+<h3 id="track-your-integration">3. Register your integration</h3>
+
+We require all Technology Partners to formally register their integration to Optimizely so we can better track which APIs are most important to our partners. Registering your integration is easy. If your integration is using the REST API, we require you use OAuth 2.0 authentication and register your integration as an OAuth client . If your integration is using the JavaScript API, we also require you to make a one-line API call. The steps to register your integration are described in the [Register your integration section](#register-integration).
+
+<h3 id="build-your-integration">4. Build your integration</h3>
 
 There are many ways to integrate with Optimizely depending on your needs. To decide how to best integrate with our platform, please see the chart of [Integration Types](#integration-types) below which includes some common types of integrations built by customers and partners. Each integration type includes a step-by-step guide including example code that you can use to build the integration. If none of these integration types meet your needs, please refer to our [REST API documentation](/rest).
-
-<h3 id="track-your-integration">4. Register your integration</h3>
-
-We require all Technology Partners to formally register their integration to Optimizely so we can better track which APIs are most important to our partners. Registering your integration is easy. If your integration is using the REST API, we require you use OAuth 2.0 authentication and register your integration as an OAuth client . If your integration is using the JavaScript API, we also require you to make a one-line API call. The steps to register your integration are described in the [Register your integration section](#register-integration)
 
 <h3 id="submit-integration-for-qa">5. Submit integration for QA</h3>
 
@@ -182,13 +182,15 @@ Integrations with Optimizely typically fall into one of the following categories
 
 Not seeing the platform you’re looking for? Check out the <a href="https://help.optimizely.com/hc/en-us/articles/203729580" target="_blank">full list of platforms</a> that Optimizely integrates with.
 
-<h2 id="register-integration">Register your integration</h2>
+<h2 id="register-integration">Registration</h2>
 
 We require all partners that have an integration to register an OAuth 2.0 client. Using OAuth 2.0 provides the following benefits:
 - We can better support your integration and our mutual customers
-- Allowing us to better understand which functionality has made the biggest impact on the customer experience
-- Ability to determine where to invest more time for improvements
+- It will allow us to better understand which functionality has made the biggest impact on the customer experience
+- It gives us the ability to determine where to invest more time for improvements
 - For integrations that use the REST API, OAuth 2.0 provides a better, more transparent customer experience
+
+**If your integration does not use the REST API, creating an OAuth 2.0 client is still a required step.**
 
 If you have questions about registering your integration, please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
 
