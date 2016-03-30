@@ -6,6 +6,7 @@ echo "Running deploy script"
 
 # exit if its not the master branch
 echo "Branch: $TRAVIS_BRANCH"
+echo "Is a Pull Request: $TRAVIS_PULL_REQUEST"
 
 if [ "$TRAVIS_BRANCH" != "master" ]
 then
@@ -13,9 +14,9 @@ then
   exit 0
 fi
 
-if [ "$TRAVIS_PULL_REQUEST" != "true" ]
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
-  echo "This commit is not a pull request. No deploy."
+  echo "This commit is a pull request. No deploy."
   exit 0
 fi
 
