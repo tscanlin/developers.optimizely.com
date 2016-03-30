@@ -7,7 +7,7 @@ install:
 script:
 - npm run clean:build
 after_success:
-- bash ./travis-deploy
+- bash ./travis-deploy.sh
 env:
   global:
     - GITHUB_REPO: "optimizely/developers.optimizely.com"
