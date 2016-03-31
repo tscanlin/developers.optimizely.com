@@ -20,23 +20,27 @@ At any time, if you have questions about building integrations please email [dev
 
 If you would like to partner with Optimizely to help support your integration, we highly recommend you apply for the [Technology Partner Program](http://optimizely.com/partners/technology/join). Becoming a partner includes many benefits including hands-on developer support and marketing benefits to help promote your integration to Optimizely customers. For more information about requirements and benefits of the Technology Partner Program <a href="http://pages.optimizely.com/rs/361-GER-922/images/Optimizely%20Technology%20Partners.pdf" target="_blank">click here</a>.
 
-<h3 id="create-an-optimizely-account">1. Create an Optimizely account</h3>
+<h3 id="create-an-optimizely-account">1. Create an Optimizely developer account</h3>
 
-If you don't have an Optimizely account, just sign up for a [free developer account](https://www.optimizely.com/?modal=devsignup). This account will give you access to <a href="https://help.optimizely.com/hc/en-us/articles/200040055-Optimizely-Pricing-Plan-changes-upgrading-and-downgrading#comparison">the full set of Optimizely features</a> and API access, but with limited traffic allocation. No credit card required.
+If you don't have an Optimizely developer account, just sign up for a [free developer account](https://www.optimizely.com/?modal=devsignup). This account will give you access to <a href="https://help.optimizely.com/hc/en-us/articles/200040055-Optimizely-Pricing-Plan-changes-upgrading-and-downgrading#comparison">the full set of Optimizely features</a> and API access, but with limited traffic allocation. No credit card required.
 
 <h3 id="apply-to-technology-partner-program">2. Apply to Technology Partner Program</h3>
 
 Please fill out the <a href="https://www.optimizely.com/partners/technology/join/" target="_blank">Technology Partner Program form</a> to apply for the program. We recommend that you apply for the program before you start developing an integration so we can provide you with appropriate guidance using the Optimizely APIs and plan for launch.
 
-<h3 id="build-your-integration">3. Build your integration</h3>
+<h3 id="track-your-integration">3. Register your integration</h3>
+
+We require all Technology Partners to formally register their integration to Optimizely so we can better track which APIs are most important to our partners. Registering your integration is easy. If your integration is using the REST API, we require you use OAuth 2.0 authentication and register your integration as an OAuth client . If your integration is using the JavaScript API, we also require you to make a one-line API call. The steps to register your integration are described in the [Register your integration section](#register-integration).
+
+<h3 id="build-your-integration">4. Build your integration</h3>
 
 There are many ways to integrate with Optimizely depending on your needs. To decide how to best integrate with our platform, please see the chart of [Integration Types](#integration-types) below which includes some common types of integrations built by customers and partners. Each integration type includes a step-by-step guide including example code that you can use to build the integration. If none of these integration types meet your needs, please refer to our [REST API documentation](/rest).
 
-<h3 id="submit-integration-for-qa">4. Submit integration for QA</h3>
+<h3 id="submit-integration-for-qa">5. Submit integration for QA</h3>
 
 Once you have been approved as an Optimizely Technology Partner, please email your Partner Manager with information on how to test your integration. Our team is eager to provide feedback and make sure the integration works as expected. Please include any relevant documentation on the integration that you've built, as well as instructions on how to access a demo account.
 
-<h3 id="promote-your-integration">5. Promote your integration</h3>
+<h3 id="promote-your-integration">6. Promote your integration</h3>
 
 After Optimizely has tested and approved your integration, you can work with your Partner Manager to get your integration listed in the [Technology Partner Directory](http://optimizely.com/partners/technology). As a Technology Partner you will also receive a Marketing Playbook that provides detailed guidance on the best way to promote your integration to Optimizely customers.
 
@@ -178,6 +182,54 @@ Integrations with Optimizely typically fall into one of the following categories
 
 Not seeing the platform you’re looking for? Check out the <a href="https://help.optimizely.com/hc/en-us/articles/203729580" target="_blank">full list of platforms</a> that Optimizely integrates with.
 
+<h2 id="register-integration">Registration</h2>
+
+We require all partners that have an integration to register an OAuth 2.0 client. Using OAuth 2.0 provides the following benefits:
+- We can better support your integration and our mutual customers
+- It will allow us to better understand which functionality has made the biggest impact on the customer experience
+- It gives us the ability to determine where to invest more time for improvements
+- For integrations that use the REST API, OAuth 2.0 provides a better, more transparent customer experience
+
+**If your integration does not use the REST API, creating an OAuth 2.0 client is still a required step.**
+
+If you have questions about registering your integration, please email [integrationsupport@optimizely.com](mailto:integrationsupport@optimizely.com).
+
+The following step-by-step guide describes how register an OAuth 2.0 client.
+
+### 1. Create an OAuth 2.0 client for your integration
+Sign in to the account and navigate to <a target="_blank" href="https://app.optimizely.com/accountsettings/apps/developers">https://app.optimizely.com/accountsettings/apps/developers</a>.
+
+On this page, click on "Register a new application".
+
+<img src="/assets/img/integrations/tracking_register.png">
+
+Fill in the fields with the following values:
+- *Application Name*: the name of your integration
+- *Redirect URI*: your homepage
+- *Client Type*: can be Public or Confidential, depending on your application. If you integration only uses the JavaScript API, use "Public". The client type for an integration that uses the REST API depends on your setup. You can find more information about client types [here](http://localhost:4009/rest/reference/index.html#grant-types).
+
+Click *Apply*.
+
+### 2. Implement API specific requirements
+
+<span id='rest-registering'>**Integrations that use the REST API**</span><br>
+We require every integration that uses the REST API to authenticate with the OAuth 2.0 client that you created in the previous step. Authentication with an OAuth 2.0 client is described in the [REST API reference](/rest/reference/index.html#authorization).
+
+<span id='js-registering'>**Integrations that use the JavaScript API**</span><br>
+If your integration is using the JavaScript API, we also require you to make a one-line API call at the top of your integration's JavaScript:
+
+```javascript
+window.optimizely = window.optimizely || [];
+window.optimizely.push({
+ 'type': 'integration',
+ 'OAuthClientId': 5352110138 // This is the OAuth Client ID you've copied in the previous step.
+});
+```
+
+The client ID used in the on-line API call can be found here:
+
+<img src="/assets/img/integrations/tracking_client_id.png">
+
 ## Analytics
 
 *Analytics integrations* allow customers to track Optimizely experiments in an external analytics tool.  With the flip of a switch, Optimizely can append experiment data to analytics tracking code, so customers can see the impact of their experiments in their analytics tool. The following step-by-step guide describes how to implement an analytics integration.
@@ -189,7 +241,7 @@ Not seeing the platform you’re looking for? Check out the <a href="https://hel
 
 <h3 id="add-the-snippet">1. Add the snippet</h3>
 
-To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out this <a href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">step-by-step</a> guide in our knowledge base.
+To get started, install the Optimizely snippet on your test page. This is the page you’ll test your integration on. The snippet should be added as high up in the &lt;head&gt; tag as possible. To learn how to install the Optimizely snippet, check out this <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200040095-Implement-the-Optimizely-Snippet">step-by-step</a> guide in our knowledge base.
 
 <h3 id="create-and-start-an-experiment">2. Create and start an experiment</h3>
 
@@ -554,7 +606,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 
 <h3 id="register-your-application">2. Register your application</h3>
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send audiences to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send audiences to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="create-a-test-page">3. Create a test page</h3>
 
@@ -587,13 +639,15 @@ To verify that the integration works, select an audience within your platform th
 
 Verify that the audience creation has worked by going to `https://app.optimizely.com/projects/{{ project_id }}/audiences`. The audience that has been created should show up in the list.
 
+<img src="/assets/img/integrations/audience_saved_audience.png">
+
 When the audience is in the list, create and start an experiment that uses the audience. Go to your [Experiment Dashboard](https://app.optimizely.com/projects/) and click on New Experiment. Open the Audience Builder (shown below) in the Optimizely Editor.
 
 <img src="/assets/img/integrations/audience_builder.png">
 
 In the audience builder click on "Add a Saved Audience". Select the create audience and click on "add".
 
-<img src="/assets/img/integrations/audience_saved_audience.png">
+<img src="/assets/img/integrations/audience_builder_2.png">
 
 Go to the test page you have created. Verify that the experiment is running when the uploading of the experiment is done (approximately 2 minutes after saving an experiment). You can verify if the experiment is running by doing a hard refresh on the test page. Open the JavaScript console and execute `optimizely.activeExperiments`. The console will output an array with your experiment ID.
 
@@ -625,12 +679,15 @@ Uploaded Lists are a feature restricted to select Enterprise customers and devel
 
 <h3 id="uploaded-lists-2-register-your-application">2. Register your application</h3>
 
-
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="uploaded-lists-3-create-a-list">3. Create a list in Optimizely</h3>
 
 You can now send lists to Optimizely via the REST API. Note that we currently limit list sizes to 5MB. If you want to send larger lists, please contact [developers@optimizely.com](mailto:developers@optimizely.com) with more information, including what size lists you hope to send via the API. [Learn how to create an uploaded list in Optimizely via the REST API](/rest/reference/#create-list).
+
+An example of the Optimizely REST API call and the result with CURL is displayed here:
+
+<img src="/assets/img/integrations/list_rest.png">
 
 <h3 id="uploaded-lists-4-update-list">4. Update a list in Optimizely</h3>
 
@@ -661,8 +718,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 
 <h3 id="content-register-your-application">2. Register your application</h3>
 
-
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="create-a-configuration-form-authentication-and-project-selection">3. Create a configuration form: authentication and project selection</h3>
 
@@ -759,7 +815,7 @@ In order to track conversion events in Optimizely, a [custom event goal](https:/
 
 There are two ways you can create a custom event goal:
 
-* *Option 1: Create custom event goal via the REST API (preferred).* For a seamless experience, you can create a custom event goal on behalf of the customer using the REST API. If you are using the REST API, we highly recommend using [OAuth 2.0](/rest/reference/index.html#oauth) to authenticate with Optimizely. [Learn how to create goals via the REST API](/rest/reference/index.html#create-goal). The goal type field needs to have the value "1". A commonly used value for the "event" field is `phone_call_conversion`.
+* *Option 1: Create custom event goal via the REST API (preferred).* For a seamless experience, you can create a custom event goal on behalf of the customer using the REST API. If you are using the REST API, we require using [OAuth 2.0](/rest/reference/index.html#oauth) to authenticate with Optimizely. [Learn how to create goals via the REST API](/rest/reference/index.html#create-goal). The goal type field needs to have the value "1". A commonly used value for the "event" field is `phone_call_conversion`.
 
 * *Option 2: Ask the customer to create custom event goal manually.* The easiest way for you to implement this integration is to instruct the customer to do a couple of manual steps. Instruct the customer to login to their Optimizely account and create a custom event goal for an experiment manually. You may want to require the customer to use a pre-specified name for the goal, e.g. `phone_call_conversion`, so you can reference it later. [Learn how to create custom event goals in Optimizely](https://help.optimizely.com/hc/en-us/articles/200039925#add).
 
@@ -909,7 +965,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 <h3 id="snippet-register-your-application">2. Register your application</h3>
 
 
-We highly recommend that you use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application who want to install the Optimizely snippet. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application who want to install the Optimizely snippet. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
 
 <h3 id="snippet-create-a-configuration-form">3. Create a configuration form</h3>
 
