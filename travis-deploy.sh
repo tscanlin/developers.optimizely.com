@@ -25,12 +25,13 @@ fi
 # Git config.
 git config --global user.email "nobody@nobody.org"
 git config --global user.name "Travis CI"
+COMMIT_MESSAGE = git log -1 --pretty=%B
 
-# Build steps (taken care of beforehand)
+# Build steps (optional).
 
 # Deploy.
 cd build
 git init
 git add .
-git commit -m "Deploy: $TRAVIS_COMMIT_MESSAGE"
+git commit -m "Deploy: $COMMIT_MESSAGE"
 git push --force --quiet "https://${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git" master:gh-pages > /dev/null 2>&1
