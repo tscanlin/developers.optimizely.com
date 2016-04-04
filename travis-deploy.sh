@@ -25,7 +25,7 @@ fi
 # Git config.
 git config --global user.email "nobody@nobody.org"
 git config --global user.name "Travis CI"
-COMMIT_MESSAGE = git log -1 --pretty=%B
+COMMIT_MESSAGE=git log -1 --pretty=%B
 
 # Build steps (optional).
 
