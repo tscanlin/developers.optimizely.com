@@ -18,4 +18,4 @@ code_examples:
       optimizely = Optimizely::Optimizely.new(project_id)
 ---
 
-To run experiments using Optimizely you'll need to instatiate an `Optimizely` object in your code. You'll need to include the ID of a Custom Project as an input parameter.
+To run experiments using Optimizely you'll need to instantiate an `Optimizely` object in your code. You'll need to include the ID of a Custom Project as an input parameter.
