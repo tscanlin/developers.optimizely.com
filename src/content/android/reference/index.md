@@ -568,7 +568,7 @@ Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
 ```
 
 ### Verbose Logging
-Enabling verbose logging allows you to view detailed log output. This will provide more information about your Live Variables, Code Blocks, and more.
+Enabling verbose logging allows you to view detailed log output. This will provide more information about experiments and its goals, your Live Variables, Code Blocks, and more.
 
 ```java
 // Enable verbose logging
