@@ -647,7 +647,7 @@ Here's an example below:
 ```
 
 ### Verbose Logging
-You can get detailed log output by enabling verbose logging. This will give you a lot of information about your experiments and its goals, your Live Variables, Code Blocks, and more. Here's how:
+Enabling verbose logging allows you to view detailed log output. This will provide more information about your Live Variables, Code Blocks, and more.
 
 ```obj-c
 // Enable verbose logging
