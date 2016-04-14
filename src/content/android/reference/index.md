@@ -567,6 +567,17 @@ Optimizely.resetUserBucketing(context);
 Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
 ```
 
+### Verbose Logging
+Enabling verbose logging allows you to view detailed log output. This will provide more information about experiments and its goals, your Live Variables, Code Blocks, and more.
+
+```java
+// Enable verbose logging
+Optimizely.setVerboseLogging(true);
+
+// Make sure to call it before start Optimizely is called
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+```
+
 ## Upgrading to a new SDK
 
 1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.

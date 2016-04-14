@@ -646,6 +646,18 @@ Here's an example below:
                           launchOptions:launchOptions];
 ```
 
+### Verbose Logging
+Enabling verbose logging allows you to view detailed log output. This will provide more information about experiments and its goals, your Live Variables, Code Blocks, and more.
+
+```obj-c
+// Enable verbose logging
+[Optimizely sharedInstance].verboseLogging = YES;
+
+// Make sure to call it before start Optimizely is called
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+```
+
 ## Upgrading to a new SDK
 
 To keep up with SDK updates, you can refer to our [change log](https://github.com/optimizely/Optimizely-iOS-SDK/blob/master/CHANGELOG.md).
