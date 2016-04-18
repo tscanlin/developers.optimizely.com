@@ -803,7 +803,7 @@ body {
 
 ### Apply JS
 
-The Apply JS code is used to inject the widget onto the page. At a minimum, it should take the HTML and insert it at a selector (which can itself be specified as a field, or hard-coded). Some widgets will also have more complex logic, like calling out to an external service.
+The Apply JS code is used to inject the widget onto the page. At a minimum, it should take the HTML and insert it at a selector (which can itself be specified as a field, or hard-coded). You can use [utilities like waitForElement](#waitForElement) to [control the timing](#timing) of how your code runs. Some widgets will also have more complex logic, like calling out to an external service.
 
 The scope of the apply JS code includes:
 - `widget`: the configuration of the widget, including all fields as properties e.g. `widget.height`
@@ -816,11 +816,17 @@ When all the template data is available immediately, `widget.$html` will automat
 
 ##### Examples
 ```js
+var utils = window.optimizely.get('utils');
+
 // Insert at a hard-coded position
-$('body').prepend(widget.$html);
+$(document).ready(function() {
+  $('body').prepend(widget.$html);  
+})
 
 // Let the user choose the selector
-$(widget.selector).append(widget.$html)
+utils.waitForElement(widget.selector).then(function() {
+  $(widget.selector).append(widget.$html)  
+})
 
 // Render using asynchronous data
 recommender.fetchRecommendations(productId).then(function(recos) {
