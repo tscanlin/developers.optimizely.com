@@ -123,7 +123,7 @@ curl \
   -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \{% if object.request %}
   -H "Content-Type: application/json" \
   -d '{{ object.request | dump | safe }}' \{% endif %}
-  {% if type %}-X {{object.type}} {% endif %}"{% if endpoint_domain %}{{ endpoint_domain }}{% else %}https://www.optimizelyapis.com/experiment/v1/{% endif %}{{ object.endpoint | safe }}"
+  {% if type %}-X {{object.type}} {% endif %}"{% if object.endpoint_domain %}{{ object.endpoint_domain }}{% else %}https://www.optimizelyapis.com/experiment/v1/{% endif %}{{ object.endpoint | safe }}"
 ```
 {% endmarkdown %}
 </pre>
