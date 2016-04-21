@@ -178,6 +178,7 @@ We've built starter kits and SDKs for developers interested in building on the O
 We've put together starter kits to help kickstart your app development. Check this section in the future for more. We welcome contributions of libraries in other languages.
 
 * [Python Canvas Starter Kit](https://github.com/optimizely/canvas-getting-started-python)
+* [Node Canvas Starter Kit](https://github.com/optimizely/canvas-node-quickstart)
 
 <h4 id="canvas-sdks">Canvas SDKs</h4>
 
