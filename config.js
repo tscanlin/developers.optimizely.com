@@ -45,6 +45,7 @@ var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   },
 });
 
+
 var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'guide': {
     path: 'guide',
@@ -125,6 +126,12 @@ var paths = {
       title: 'Integrations',
       singlePage: true,
       showInHeaderDropdown: true,
+    },
+    data: {
+      path: 'data',
+      title: 'Raw Data Export',
+      hiddenSection: true,
+      singlePage: true
     },
     apps: {
       path: 'apps',
