@@ -3,11 +3,12 @@
   <div class="nav-sidebar">
     <ul class="unstyled nav nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
-        {% if item.path != 'server' or item.path == 'server' and pathArray[0] == 'server' %}
+        <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+        {% if item.hiddenSection != true or item.path == pathArray[0] %}
         <li class="push--bottom">
-          <a class="main-section{% if item.path == pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.path != 'samples' and item.path != 'overview' and item.path != 'integrations' and item.path != 'apps' %} data-collapser{% endif %}>{{ item.title }}</a>
-          <!-- TOC for overview, integrations, apps, and code samples -->
-          {% if item.path == 'overview' or item.path == 'integrations' or item.path == 'apps' %}
+          <a class="main-section{% if item.path == pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.singlePage != true %} data-collapser{% endif %}>{{ item.title }}</a>
+          <!-- TOC for single pages -->
+          {% if item.singlePage == true %}
             <ul class="unstyled nav nav--stacked epsilon toc"></ul>
           {% endif %}
 
