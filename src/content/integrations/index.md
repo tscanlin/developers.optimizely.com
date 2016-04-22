@@ -38,7 +38,7 @@ There are many ways to integrate with Optimizely depending on your needs. To dec
 
 <h3 id="submit-integration-for-qa">5. Submit integration for QA</h3>
 
-Once you have been approved as an Optimizely Technology Partner, please email your Partner Manager with information on how to test your integration. Our team is eager to provide feedback and make sure the integration works as expected. Please include any relevant documentation on the integration that you've built, as well as instructions on how to access a demo account.
+Our team is eager to provide feedback and make sure the integration works as expected. Please go through the Integration Checklist before submitting your integration to <a href="mailto:techpartners@optimizely.com">techpartners@optimizely.com</a> to make the review process as quick and smooth as possible. You can find the checklist in the <a href="#integration-checklist">Integration Checklist</a> section.
 
 <h3 id="promote-your-integration">6. Promote your integration</h3>
 
@@ -181,6 +181,97 @@ Integrations with Optimizely typically fall into one of the following categories
 <br>
 
 Not seeing the platform you’re looking for? Check out the <a href="https://help.optimizely.com/hc/en-us/articles/203729580" target="_blank">full list of platforms</a> that Optimizely integrates with.
+
+
+
+## Integration Checklist
+
+We will review Optimizely Integrations submitted to the [techpartners@optimizely.com](mailto:techpartners@optimizely.com).
+
+Follow this guide to help your integration go through the review process quickly and smoothly. We've highlighted the most important elements for your integration listing.
+
+This guide does not replace or supersede our [Developer Policy](https://www.optimizely.com/terms-development/), which must be adhered to at all times. The Developer Policy is listed here: [https://www.optimizely.com/terms-development/](https://www.optimizely.com/terms-development/).
+
+### QA details
+
+#### Sandbox account
+
+Set up a working account that can be used by Optimizely employees to do functional testing.
+
+#### Instructions
+
+Provide high level testing instructions for an Optimizely employee to QA your integration. During the QA process, our engineers check the expected behaviour. We aim to partner with great products, so we also expect to not encounter serious bugs in the product during QA.
+
+### Listing
+
+#### Appropriate name
+
+Your integration's name should not infringe upon a trademark or copyright for any other products or services. Also, if you have any reference to Optimizely in the Integration name, we will ask you to remove it. You can find our [brand guidelines](http://design.optimizely.com/) here: [http://design.optimizely.com/](http://design.optimizely.com/). For an integration we recommend using your product name or a combination of your company name and your product name. Examples:
+- Your company name is XYZ and your product name is Product:
+XYZ Product
+- Your company name (XYZ) is the same as your product:
+XYZ
+
+### Logos
+
+Optimizely needs two versions of your logo:
+
+- One for the partner directory:
+ [https://www.optimizely.com/partners/technology/](https://www.optimizely.com/partners/technology/)
+- One for the integrations dashboard:
+  <img src="/assets/img/integrations/checklist.png">
+
+The following guidelines should be followed when creating an integration of application logo that will appear in Optimizely.
+
+#### Designing the Logo:
+
+- Avoid putting an edge or border around the image
+- Avoid drop shadows if possible. It's OK to use small shadows for contrast.
+- Make the logo face the screen. Don't put perspective on it.
+- Logo should be able to be shown on both white and light grey backgrounds.
+- Logo should be square with no rounded edges.
+- Logo should be a PNG file
+
+#### Optimizely Logos
+
+- Don't use the Optimizely logo (original or modified) in any logo.
+- Don't use any icons or logos that can be found in the Optimizely application, as this could confuse users.
+
+#### Logo for integrations dashboard
+
+- Logo should be exactly 200 x 200 px.
+
+#### Logo for partner directory
+
+- Minimum size for the logo: 280 x 80 px
+- Maximum size for the logo: 500 x160 px
+
+### Installation link
+
+This is how customers install your integration, so it's important to make it as easy as possible. It should contain:
+
+- Information about your services
+- Information about how the integration interacts with Optimizely
+
+### Customer support link
+
+As part of your submission to the Directory, you agree to "Keep your Integration updated and your support channel active" so please ensure that the link you provide is to an active and responsive support channel.
+
+### Customer support email
+
+Please make sure this is an email address that you check regularly and is clearly connected to your app.
+
+### Registering your app
+
+Make sure your integration activity is visible to Optimizely. Go through the steps described here:
+
+[http://developers.optimizely.com/integrations/#register-integration](http://developers.optimizely.com/integrations/#register-integration)
+
+### Submit all information
+
+Use all the information from above to fill in this [form](https://goo.gl/YhGzmd).
+
+
 
 <h2 id="register-integration">Registration</h2>
 
