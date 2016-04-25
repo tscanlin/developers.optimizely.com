@@ -27,6 +27,24 @@ var BASE_NAV_SECTIONS = {
   },
 };
 
+
+var DATA_NAV_SECTIONS = {
+  'introduction': {
+    path: 'introduction',
+    title: 'Introduction',
+  },
+  'events': {
+    path: 'events',
+    title: 'Events',
+    singlePage: true,
+  },
+  'export': {
+    path: 'export',
+    title: 'Data Export',
+    singlePage: true,
+  },
+};
+
 var JS_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'personalization': {
     path: 'personalization',
@@ -129,9 +147,9 @@ var paths = {
     },
     data: {
       path: 'data',
-      title: 'Raw Data Export',
+      title: 'Data Access',
+      sections: DATA_NAV_SECTIONS,
       hiddenSection: true,
-      singlePage: true
     },
     apps: {
       path: 'apps',
