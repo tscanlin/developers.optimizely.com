@@ -36,12 +36,10 @@ var DATA_NAV_SECTIONS = {
   'events': {
     path: 'events',
     title: 'Events',
-    singlePage: true,
   },
   'export': {
     path: 'export',
     title: 'Data Export',
-    singlePage: true,
   },
 };
 
