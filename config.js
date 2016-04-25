@@ -35,11 +35,11 @@ var DATA_NAV_SECTIONS = {
   },
   'events': {
     path: 'events',
-    title: 'Events',
+    title: 'Event API',
   },
   'export': {
     path: 'export',
-    title: 'Data Export',
+    title: 'Raw Data Export',
   },
 };
 

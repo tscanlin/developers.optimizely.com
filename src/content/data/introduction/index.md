@@ -5,8 +5,9 @@ title: "Optimizely Data Access"
 
 # Optimizely Data
 
-*The Optimizely Events API allows you import/export data from Optimizely*
+*Accessing data within Optimizely*
 
+{insert text about events API & raw data access}
 
 <a class="button button--highlight anchor--middle display--block width--200 text--center" href="../getting-started/index.html">
 Get Started
