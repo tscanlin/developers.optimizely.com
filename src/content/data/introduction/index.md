@@ -7,8 +7,8 @@ title: "Optimizely Data Access"
 
 *Accessing data within Optimizely*
 
-{insert text about events API & raw data access}
+{sampel text}
 
-<a class="button button--highlight anchor--middle display--block width--200 text--center" href="../getting-started/index.html">
+<!-- <a class="button button--highlight anchor--middle display--block width--200 text--center" href="../getting-started/index.html"> 
 Get Started
-</a>
+</a> -->
