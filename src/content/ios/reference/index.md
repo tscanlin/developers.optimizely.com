@@ -633,6 +633,8 @@ Here's an example below:
 
 To find a variation's ID, head to the experiment editor and click on the "Variation Settings" button on the black bar on the far left-hand side of the window.
 
+**Note your experiment must not be paused for forceVariation to take effect.**
+
 ### Resetting QA State
 Uninstalling the app everytime to QA your builds with Optimizely can be quite tedious. Now you can use `resetUserBucketing` to clear any variations that the current app user may have already been bucketed into. This will also remove the cached data file. This is useful if you want to insure that you're treated as a new user each time you start the app. Keep in mind that you must call `resetUserBucketing` before you start Optimizely.
 
