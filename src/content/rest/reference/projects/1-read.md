@@ -10,7 +10,8 @@ fields:
   project_name: The name of the project in Optimizely
   project_status: Can be `Active` or `Archived`
   account_id: The account the project is associated with
-  include_jquery: Should be `true` or `false`
+  include_jquery: Should be `true` or `false`. If set to `false` the recommended version will be used.
+  library: The prefered Javascript library you would like to include. Must set `include_jquery` to `true`
   project_javascript: The JavaScript code which runs before Optimizely on all pages, **regardless** of whether or not there is a running experiment.
   enable_force_variation: Set to `true` to enable the [force variation parameter](https://help.optimizely.com/hc/en-us/articles/202480860#force_variations)
   exclude_disabled_experiments: Set to `true` to [remove paused and draft experiments](https://help.optimizely.com/hc/en-us/articles/202480860#draft_pause) from the snippet
