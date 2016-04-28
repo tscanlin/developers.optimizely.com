@@ -94,7 +94,8 @@ in the width or height fields in the visual editor. We are working on an update 
 
 <a name="proguard"></a>
 ##### *Q: Do I need to include any ProGuard configuration rules to use the Optimizely SDK?*
-*A:* Refer [here](/android/getting-started/index.html#proguard) for ProGuard configuration rules to include to support Optimizely's SDK.
+*A:* No. Proguard rules are bundled with our SDK as of version 1.2.2.
+
 <a name="permissions"></a>
 ##### *Q: Does the Optimizely SDK require any permissions?*
 *A:* The Optimizely SDK only requires the [INTERNET](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET) permission.
