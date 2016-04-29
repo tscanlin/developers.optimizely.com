@@ -11,7 +11,7 @@ fields:
   project_status: Can be `Active` or `Archived`
   account_id: The account the project is associated with
   include_jquery: Either `true` or `false`. If set to `true`, the recommended version (1.11.3) will be used.
-  library: The prefered jQuery library you would like to use with your snippet. We support the following: `jquery-1.6.4-full`, `jquery-1.6.4-trim`, `jquery-1.11.3-full`, and `jquery-1.11.3-trim`. If you do not want to include jQuery, set this field to `none` and `include_jquery` to `false`.
+  library: The prefered jQuery library you would like to use with your snippet. We support the following `jquery-1.6.4-full`, `jquery-1.6.4-trim`, `jquery-1.11.3-full`, and `jquery-1.11.3-trim`. If you do not want to include jQuery, set this field to `none` and `include_jquery` to `false`.
   project_javascript: The JavaScript code which runs before Optimizely on all pages, **regardless** of whether or not there is a running experiment.
   enable_force_variation: Set to `true` to enable the [force variation parameter](https://help.optimizely.com/hc/en-us/articles/202480860#force_variations)
   exclude_disabled_experiments: Set to `true` to [remove paused and draft experiments](https://help.optimizely.com/hc/en-us/articles/202480860#draft_pause) from the snippet
