@@ -132,7 +132,7 @@ var paths = {
     },
     server: {
       path: 'server',
-      title: 'Server',
+      title: 'Server-Side SDKs',
       sections: SERVER_NAV_SECTIONS,
       // Hide if its a hidden section unless its the current path (users go direct to the url)
       hiddenSection: true,

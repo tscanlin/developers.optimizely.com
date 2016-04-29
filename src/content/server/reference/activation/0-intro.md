@@ -6,47 +6,54 @@ code_examples:
   python:
     lang: python
     request: |
-      bucketing_id = hash('user@company.com')
-      experiment_key = 'SEARCH_RANKING_EXP_24'
-      dimensions = {'DEVICE': 'iPhone', 'AD_SOURCE': 'my_campaign'}
-      
-      variation = optimizely.activate(bucketing_id, experiment_key, dimensions=dimensions)
-      
-      if variation == None OR variation == 'ALGORITHM_A':
-        # execute code for algorithm A
-      if variation == 'ALGORITHM_B':
-        # execute code for algorithm B
+      experiment_key = 'my_experiment'
+      user_id = 'user123'      
+
+      # Conditionally activate an experiment for the provided user
+      variation = optimizely.activate(experiment_key, user_id)
+
+      if variation == 'variation_a':
+        # execute code for variation A
+      elif variation == 'variation_b':
+        # execute code for variation B
+      else:
+        # execute default code
   java:
     lang: java
     request: |
-      String bucketingId = "user@company.com";
-      String experimentKey = "SEARCH_RANKING_EXP_24";
+      String experimentKey = "my_experiment";
+      String userId = "user123";
       
-      Map<String, String> dimensions = new HashMap<String, String>();
-      dimensions.put("DEVICE", "iPhone");
-      dimensions.put("AD_SOURCE", "my_campaign");
- 
-      Variation variation = optimizely.activate(experimentKey, bucketingId, dimensions);
-      if (variation.is("ALGORITHM_A")) {
-          // execute code for algorithm A
-      } else if (variation.is("ALGORITHM_B")) {
-          // execute code for algorithm B
+      // Conditionally activate an experiment for the provided user 
+      Variation variation = optimizely.activate(experimentKey, userId);
+
+      if (variation.is("variation_a")) {
+          // execute code for variation A
+      } else if (variation.is("variation_b")) {
+          // execute code for variation B
       } else {
-          // execute code for default algorithm 
+          // execute default code
       }
   ruby:
     lang: ruby
     request: |
-      bucketing_id = 'user@company.com'
-      experiment_key = 'SEARCH_RANKING_EXP_24'
-      dimensions = {'DEVICE' => 'iPhone', 'AD_SOURCE' => 'my_campaign'}
+      experiment_key = 'my_experiment'
+      user_id = 'user123'
 
-      variation = optimizely.activate(bucketing_id, experiment_key, dimensions=dimensions)
+      # Conditionally activate an experiment for the provided user
+      variation = optimizely.activate(experiment_key, user_id)
 
-      if variation == nil || variation == 'ALGORITHM_A'
-        # execute code for algorithm A
-      if variation == 'ALGORITHM_B'
-        # execute code for algorithm B
+      if variation == 'variation_a'
+        # execute code for variation A
+      elsif variation == 'variation_b'
+        # execute code for variation B
+      else
+        # execute default code
+        # execute default code
 ---
 
-Add code to activate an experiment! The `activate` call should be used to conditionally activate an experiment for a user depending on the audience criteria and randomized bucketing handled by Optimizely. If the experiment is active for that user, the function returns a variation. Make sure that your code adequately deals with the case when the user is not bucketed in the experiment or the experiment hasn't been defined in the JSON.
+Use the `activate` function to run an experiment in your code.
+
+The `activate` call will conditionally activate an experiment for a user based on the provided experiment key and a randomized hash of the provided user ID. If the experiment is active for that user, the function returns the variation that should be executed for that user. If the experiment is not active for the provided user, or the experiment isn't recognized in the datafile, the function returns `None` or `Null`. Make sure that your code adequately deals with the case when the experiment is not activated i.e. execute the default variation.
+
+<div class="attention attention--warning push--bottom">*Please note:* in cases where an experiment is activated for a user, the SDK will log an event to Optimizely servers to record that the user was bucketed.</div>

@@ -1,7 +1,7 @@
 ---
 template: multi-example
-title: Project JSON
-anchor: json
+title: Datafile
+anchor: datafile
 code_examples:
   python:
     lang: python
@@ -15,35 +15,35 @@ code_examples:
             variations: [
               {
                 id: "9501848592",
-                key: "ALGORITHM_A",
+                key: "variation_a",
                 endOfRange: 4999
               }
               {
                 id: "1849205928",
-                key: "ALGORITHM_B",
+                key: "variation_b",
                 endOfRange: 9999
               }
             ],
             id: "5928401928",
-            key: "SEARCH_RANKING_TEST_24"
+            key: "my_experiment"
           },
         ],
         events: [
           {
             id: "8182957192",
-            key: "BOOKING_COMPLETE"
+            key: "booking_complete"
           },
         ],
         dimensions: [
           {
             id: "5910296728",
             segmentId: "9581738457"
-            key: "DEVICE"
+            key: "device"
           },
           {
             id: "5910296728",
             segmentId: "7581658482"
-            key: "AD_SOURCE"
+            key: "ad_source"
           }
         ],
       }
@@ -59,35 +59,35 @@ code_examples:
             variations: [
               {
                 id: "9501848592",
-                key: "ALGORITHM_A",
+                key: "variation_a",
                 endOfRange: 4999
               }
               {
                 id: "1849205928",
-                key: "ALGORITHM_B",
+                key: "variation_b",
                 endOfRange: 9999
               }
             ],
             id: "5928401928",
-            key: "SEARCH_RANKING_TEST_24"
+            key: "my_experiment"
           },
         ],
         events: [
           {
             id: "8182957192",
-            key: "BOOKING_COMPLETE"
+            key: "booking_complete"
           },
         ],
         dimensions: [
           {
             id: "5910296728",
             segmentId: "9581738457"
-            key: "DEVICE"
+            key: "device"
           },
           {
             id: "5910296728",
             segmentId: "7581658482"
-            key: "AD_SOURCE"
+            key: "ad_source"
           }
         ],
       }
@@ -103,48 +103,50 @@ code_examples:
             variations: [
               {
                 id: "9501848592",
-                key: "ALGORITHM_A",
+                key: "variation_a",
                 endOfRange: 4999
               }
               {
                 id: "1849205928",
-                key: "ALGORITHM_B",
+                key: "variation_b",
                 endOfRange: 9999
               }
             ],
             id: "5928401928",
-            key: "SEARCH_RANKING_TEST_24"
+            key: "my_experiment"
           },
         ],
         events: [
           {
             id: "8182957192",
-            key: "BOOKING_COMPLETE"
+            key: "booking_complete"
           },
         ],
         dimensions: [
           {
             id: "5910296728",
             segmentId: "9581738457"
-            key: "DEVICE"
+            key: "device"
           },
           {
             id: "5910296728",
             segmentId: "7581658482"
-            key: "AD_SOURCE"
+            key: "ad_source"
           }
         ],
       }
  
 ---
 
-All of Optimizely's Server-Side SDKs work by reading from a JSON configuration file that represents the experiments you've set up for the project. For example, the JSON at right represents the project from the [Getting started](/server/getting-started) guide.
+All of Optimizely's Server-Side SDKs work by reading from a project datafile in JSON format that represents the experiments you've set up for the project. For example, the datafile at right represents the project from the [Getting started](/server/getting-started) guide.
 
-<div class="attention attention--warning push--bottom">*Please note:* The format of this JSON configuration is still under development and subject to change.</div>
+This datafile compactly represents all of the "instructions" needed to activate experiments in your code and send conversion events back to Optimizely. Unless you are building your own SDK, there shouldn't be any need to interact with the datafile directly.
 
-This JSON file contains all of the "instructions" needed to activate experiments in your code and send conversion events back to Optimizely.
+<div class="attention attention--warning push--bottom">*Please note:* The format of the datafile is still not finalized and subject to change.</div>
 
-You can fetch the JSON file in two ways:
+You can fetch the datafile for your Optimizely project in two ways:
 
 * *Use the Optimizely CDN.*  For example, if the ID of your project is `12345` you can access the file at http://cdn.optimizely.com/json/12345.json.
 * *Use the Optimizely REST API.* (Details TBD)
+
+Additionally, we provide a webhook that can be used to notify your servers when there is an update to the datafile.  (Details TBD)

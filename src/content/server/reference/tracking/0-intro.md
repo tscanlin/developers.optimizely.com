@@ -1,20 +1,32 @@
 ---
 template: multi-example
-title: Goal tracking
+title: Event tracking
 anchor: tracking
 code_examples:
   python:
     lang: python
     request: |
-        optimizely.track_event(bucketing_id, 'BOOKING_COMPLETE')
+        event_key = 'booking_complete'
+        user_id = 'user123'
+
+        # Track a conversion event for the provided user
+        optimizely.track(event_key, user_id)
   java:
     lang: java
     request: |
-        optimizely.trackEvent("BOOKING_COMPLETE", bucketingId);
+        eventKey = "booking_complete";
+        userId = "user123";
+
+        // Track a conversion event for the provided user
+        optimizely.track(eventKey, userId);
   ruby:
     lang: ruby
     request: |
-        optimizely.track_event(bucketing_id, 'BOOKING_COMPLETE')
+        event_key = 'booking_complete'
+        user_id = 'user123'
+
+        # Track a conversion event for the provided user
+        optimizely.track(event_key, user_id)
 ---
 
-You can easily track Optimizely goals from your code as shown in the example to the right. Optimizely takes care of making sure that goals are tracked only for experiments that are mapped to them.
+You can easily track Optimizely goals from your code as shown in the example to the right. Note that you don't need to pass the assigned experiments or variations; Optimizely will drop any conversion events for users that are not part of an experiment that includes the goal.

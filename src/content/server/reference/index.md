@@ -1,12 +1,13 @@
 ---
 template: page-sidebar--multi-example
-title: "Optimizely Server Side API Reference"
+title: "Optimizely Server-Side SDK Reference"
 includeSiblingData: true
 sections:
  - overview
  - installation
- - json
  - initialization
  - activation
+ - targeting
  - tracking
+ - datafile
 ---
