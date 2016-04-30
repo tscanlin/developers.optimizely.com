@@ -37,6 +37,7 @@
     "nunjucks-markdown": "^1.1.0",
     "optimizely-oui": "^9.0.0",
     "smooth-scroll": "git://github.com/cferdinandi/smooth-scroll.git#6f748910b517eb2aa710bab1da9f59e32666e4c4",
+    "tocbot": "^2.0.0",
     "xtend": "^4.0.1"
   },
   "devDependencies": {

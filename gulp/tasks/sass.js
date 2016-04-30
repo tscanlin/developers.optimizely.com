@@ -14,6 +14,7 @@ gulp.task('sass', function() {
       errLogToConsole: true,
       includePaths: [
         require('optimizely-oui').includePath,
+        'node_modules',
       ],
     }))
     .on('error', handleErrors)
