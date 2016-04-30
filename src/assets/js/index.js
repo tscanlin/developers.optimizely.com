@@ -14,7 +14,6 @@ tocbot.init({
   contentSelector: 'body',
   tocSelector: '.active + .toc',
   headingSelector: 'h2, h3, h4.subLink',
-  fixedSidebarOffset: Infinity,
 });
 
 // Add collapsible directive for nav and header dropdown.
