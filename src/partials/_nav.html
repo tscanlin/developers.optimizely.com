@@ -9,11 +9,11 @@
           <a class="main-section{% if item.path == pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.singlePage != true %} data-collapser{% endif %}>{{ item.title }}</a>
           <!-- TOC for single pages -->
           {% if item.singlePage == true %}
-            <ul class="unstyled nav nav--stacked epsilon toc"></ul>
+            <ul class="unstyled nav nav--stacked epsilon toc push--ends"></ul>
           {% endif %}
 
           <!-- Sub sections -->
-          <ul class="unstyled nav nav--stacked epsilon soft--left collapsible{% if item.path != pathArray[0] %} is-collapsed{% endif %}">
+          <ul class="unstyled nav nav--stacked epsilon push--ends collapsible{% if item.path != pathArray[0] %} is-collapsed{% endif %}">
             {% for sub_key, section in item.sections %}
               <li>
                 <a class="section{% if relativePath.indexOf(item.path + '/' + section.path) != -1 %} active{% endif %}" href="/{{ item.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
