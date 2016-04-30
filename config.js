@@ -1,7 +1,8 @@
+var path = require('path');
 var extend = require('xtend');
-var build = './build/';
-var src = './src/';
-var assets = 'assets/';
+var build = 'build';
+var src = 'src';
+var assets = 'assets';
 
 // Sections for each navigation item.
 var BASE_NAV_SECTIONS = {
@@ -87,16 +88,16 @@ var paths = {
   build: build,
 
   assets: assets,
-  img: assets + 'img/',
-  js: assets + 'js/',
-  scss: assets + 'scss/',
-  css: assets + 'css/',
+  img: path.join(assets, 'img'),
+  js: path.join(assets, 'js'),
+  scss: path.join(assets, 'scss'),
+  css: path.join(assets, 'css'),
 
-  content: 'content/',
-  files: 'files/',
-  pages: 'pages/',
-  partials: 'partials/',
-  templates: 'templates/',
+  content: 'content',
+  files: 'files',
+  pages: 'pages',
+  partials: 'partials',
+  templates: 'templates',
 
 
   // Used in the UI to build the navigation.

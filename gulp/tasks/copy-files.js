@@ -5,7 +5,7 @@ var paths = require('../../config').paths;
 
 gulp.task('copy-files', function() {
   return gulp.src([
-      path.join(paths.src + paths.files, '**/*'),
+      path.join(paths.src, paths.files, '**/*'),
     ])
     .on('error', handleErrors)
     .pipe(gulp.dest(paths.build));

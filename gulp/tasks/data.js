@@ -9,7 +9,7 @@ var paths = require('../../config').paths;
 // Gulp task
 gulp.task('data', function() {
   return gulp.src([
-    path.join(paths.src + paths.content, '**/*.md'),
+    path.join(paths.src, paths.content, '**/*.md'),
   ])
   .pipe(util.buffer())
   .pipe(markdown())

@@ -8,7 +8,7 @@ var paths = require('../../config').paths;
 // var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function() {
-  return gulp.src(path.join(paths.src + paths.scss, '*.scss'))
+  return gulp.src(path.join(paths.src, paths.scss, '*.scss'))
     .pipe(sourcemaps.init())
     .pipe(sass({
       errLogToConsole: true,
@@ -19,6 +19,6 @@ gulp.task('sass', function() {
     .on('error', handleErrors)
     .pipe(sourcemaps.write())
     // .pipe(autoprefixer({ browsers: ['last 2 version'] }))
-    .pipe(gulp.dest(paths.build + paths.css))
+    .pipe(gulp.dest(path.join(paths.build, paths.css)))
     .pipe(browserSync.reload({stream: true}));
 });

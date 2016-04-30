@@ -8,14 +8,14 @@ var paths = require('../../config').paths;
 
 gulp.task('images', function() {
   return gulp.src([
-      path.join(paths.src + paths.img, '**/*.gif'),
-      path.join(paths.src + paths.img, '**/*.svg'),
-      path.join(paths.src + paths.img, '**/*.png'),
-      path.join(paths.src + paths.img, '**/*.gif'),
-    ])
-    .pipe(changed(paths.build + paths.img)) // Ignore unchanged files
-    // .pipe(imagemin()) // Optimize
-    .on('error', handleErrors)
-    .pipe(gulp.dest(paths.build + paths.img))
-    .pipe(browserSync.reload({stream: true}));
+    path.join(paths.src, paths.img, '**/*.gif'),
+    path.join(paths.src, paths.img, '**/*.svg'),
+    path.join(paths.src, paths.img, '**/*.png'),
+    path.join(paths.src, paths.img, '**/*.gif'),
+  ])
+  .pipe(changed(path.join(paths.build, paths.img))) // Ignore unchanged files
+  // .pipe(imagemin()) // Optimize
+  .on('error', handleErrors)
+  .pipe(gulp.dest(path.join(paths.build, paths.img)))
+  .pipe(browserSync.reload({stream: true}));
 });

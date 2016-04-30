@@ -40,7 +40,7 @@ function getKeyPath(keyPathArray, object) {
   var currentPath = keyPathArray.shift();
   var subObject;
 
-  if (object[currentPath]) {
+  if (object && object[currentPath]) {
     subObject = object[currentPath];
   }
 
@@ -68,7 +68,7 @@ function addFileNameToObjectsWithTitle(object) {
 // Gulp task
 gulp.task('html', ['data'], function() {
   return gulp.src([
-    path.join(paths.src + paths.content, '**/*.md'),
+    path.join(paths.src, paths.content, '**/*.md'),
   ])
   .pipe(tap(function(file, t) {
     siteJson = JSON.parse(fs.readFileSync(path.join(paths.build, 'content.json')));
@@ -78,7 +78,7 @@ gulp.task('html', ['data'], function() {
       .join('')
       .split('.md')
       .join('');
-    var pathArray = relativePath.split('/');
+    var pathArray = relativePath.split(path.sep);
     var pathArrayCopy = [].concat(pathArray);
     var dataObj = getKeyPath(pathArrayCopy, siteJson);
 
@@ -103,13 +103,15 @@ gulp.task('html', ['data'], function() {
     dataObj.paths = paths;
     dataObj.json = json;
 
+    console.log(fs.readFileSync(path.resolve(path.join(paths.src, paths.templates, dataObj.template + '.html'))).toString())
+    console.log(dataObj.template)
     if (dataObj.template
       && dataObj.template !== 'inline'
       && dataObj.template !== 'multi-example'
       && dataObj.template !== 'sidebyside') {
-      var filePath = path.resolve(paths.src + paths.templates + dataObj.template + '.html');
-      // console.log(filePath, dataObj, env.render(filePath, dataObj));
-      file.contents = new Buffer(env.render(filePath, dataObj), 'utf8'); //eslint-disable-line
+      var filePath = path.resolve(path.join(paths.src, paths.templates, dataObj.template + '.html'));
+      // console.log(filePath, JSON.stringify(dataObj).slice(0, 30));
+      file.contents = new Buffer(env.render(fs.readFileSync(filePath).toString(), dataObj), 'utf8'); //eslint-disable-line
       return file;
     }
   }))
