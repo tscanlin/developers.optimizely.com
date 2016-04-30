@@ -2,7 +2,7 @@
 
 // Left line before pseudo element.
 .toc-link::before {
-  background-color: #0095E7;
+  background-color: #0081BA;
   content: ' ';
   display: inline-block;
   height: inherit;
@@ -13,7 +13,7 @@
 }
 
 .is-active-link::before {
-  background-color: #00415D;
+  background-color: #0095E7;
 }
 
 .toc-list {

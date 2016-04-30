@@ -9,7 +9,8 @@
     display: inline-block;
   }
 
-  .active {
+  .active,
+  .is-active-link {
     color: #0095E7;
     font-weight:400;
   }
