@@ -1,6 +1,6 @@
 {
   "name": "developers.optimizely.com",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "developer documentation for optimizely",
   "main": "gulpfile.js",
   "scripts": {
