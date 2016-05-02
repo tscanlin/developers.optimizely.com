@@ -10,11 +10,15 @@ hljs.initHighlightingOnLoad();
 
 // Add 'tocbot' to generate a table of contents.
 var tocbot = require('tocbot');
-tocbot.init({
-  contentSelector: 'body',
-  tocSelector: '.active + .toc',
-  headingSelector: 'h2, h3, h4.subLink',
-});
+try {
+  tocbot.init({
+    contentSelector: 'body',
+    tocSelector: '.active + .toc',
+    headingSelector: 'h2, h3, h4.subLink',
+  });
+} catch (e) {
+  console.warn(e);
+}
 
 // Add collapsible directive for nav and header dropdown.
 var collapsible = require('./collapsible.js');
