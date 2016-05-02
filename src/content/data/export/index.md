@@ -1,16 +1,37 @@
 ---
 template: page-sidebar
-title: "Raw Data Export"
+title: "Event Data Export"
 ---
-# Raw Data Export Developer Guide
+# Event Data Export Guide
 
-*Welcome! This page walks you through everything for Raw Data Export*
 
-## Intro 
+## Intro
 
-TBA
+Event Data Export allows developers to access all of their Optimizely event data. This data is computed daily and contain the last 24 hours of events for all A/B testing experiments in an account. The data will be written securely to an S3 bucket, which you can then programmatically access via Amazon’s APIs and a set of secure credentials provided by Optimizely.
 
-## Reference
+You can use Event Data Export to integrate Optimizely experiment data with your own data warehouse.
+
+<div class="attention attention--warning push--bottom">If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</div>
+
+## Availability 
+
+Currently, this feature is available to Enterprise customers; please reach out to your CSM if you wish to utilize this feature. 
+
+## Technical Details 
+
+Data is written out for all experiments in all projects running under an Optimizely account, and one file will be written per experiment per day. Each file will contain 24 hours worth of data, thru midnight UTC of the previous night. These files are gzipped tab-delimited files with the format described below. Also, if you currently receive a data export via the Technical Support team, the data will be in the same format as the current exports, with the addition of one column indicating user_agent for web experiment data. There is also a standard header row.
+
+The S3 bucket location will follow the format: `/optimizely-export/{account_id}/{project_id}/yyyy/mm/dd/{file_name}`
+
+The file name follows the format: `experiment_id-yyyy-mm-dd.tsv.gz` . Example: `123-2016-03-20.tsv.gz`
+
+<img alt="Data Export Chart" width="500px" src="/assets/img/data/data-export-chart.png" />
+
+
+### Status File
+
+A status file will be provided to track the success or failure of that day's experiment event files. This file is named `status.yaml` and is included in the daily folder per project. The format contains: `failed_exports`, `successful_exports`, and a timestamp in UTC seconds since epoch.
+
 
 ### Web Data Dictionary 
 
@@ -111,6 +132,10 @@ TBA
       </tr>
    </tbody>
 </table>
+
+**Please Note**: 
+   * Any fields after this are your segmented audiences or dimension names.
+   * Adding or removing segments or dimensions could alter the layout of the event data files. Please account for this if you build an automated import of this data.  
 
 
 ### Android Dictionary 
@@ -299,3 +324,7 @@ TBA
       </tr>
    </tbody>
 </table>
+
+#### **Please Note** 
+
+Data is de-duplicated on the results screen but not in the Event Data Export. Revenue goals are never de-duplicated. Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
