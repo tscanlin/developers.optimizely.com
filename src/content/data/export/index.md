@@ -11,6 +11,8 @@ Event Data Export allows developers to access all of their Optimizely event data
 
 You can use Raw Data Export to integrate Optimizely experiment data with your own data warehouse.
 
+<div class="attention attention--warning push--bottom">If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</div>
+
 ## Availability 
 
 Currently, this feature is available to Enterprise customers; please reach out to your CSM if you wish to utilize this feature. 
