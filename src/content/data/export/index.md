@@ -9,7 +9,7 @@ title: "Event Data Export"
 
 Event Data Export allows developers to access all of their Optimizely event data. This data is computed daily and contain the last 24 hours of events for all A/B testing experiments in an account. The data will be written securely to an S3 bucket, which you can then programmatically access via Amazon’s APIs and a set of secure credentials provided by Optimizely.
 
-You can use Raw Data Export to integrate Optimizely experiment data with your own data warehouse.
+You can use Event Data Export to integrate Optimizely experiment data with your own data warehouse.
 
 <div class="attention attention--warning push--bottom">If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</div>
 
