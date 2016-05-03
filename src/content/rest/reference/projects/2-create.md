@@ -19,7 +19,7 @@ response: |
     "library": "jquery-1.6.4-trim",
     "include_jquery": false,
     "js_file_size": 23693,
-    "project_javascript": null
+    "project_javascript": null,
     "enable_force_variation": false,
     "exclude_disabled_experiments": false,
     "exclude_names": null,
