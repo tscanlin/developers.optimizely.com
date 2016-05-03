@@ -34,7 +34,7 @@ To run experiments from an Optimizely project you'll need to instantiate an `Opt
 <div class="attention attention--warning push--bottom">*Please note:* instantiating the Optimizely object should be done once and not on every request. Please make sure to call this during class initialization or as a global variable.</div>
 </div>
 
-<div class="hidden visible" data-toggle-section="ruby-code">
+<div class="hidden" data-toggle-section="ruby-code">
 To run experiments from an Optimizely project you'll need to instantiate an `Optimizely` object in your code. You'll need to include the ID of a Custom Project as an input parameter.
 
 <p>
@@ -42,7 +42,7 @@ To run experiments from an Optimizely project you'll need to instantiate an `Opt
 <div class="attention attention--warning push--bottom">*Please note:* instantiating the Optimizely object should be done once and not on every request. Please make sure to call this during class initialization or as a global variable.</div>
 </div>
 
-<div class="hidden visible" data-toggle-section="java-code">
+<div class="hidden" data-toggle-section="java-code">
 Interaction with the SDK should be done through the top-level `Optimizely` object, which can be created using the associated `builder`. Once created, this object can be safely shared across threads; it's therefore recommended that a single `Optimizely` object be initialized per application instance.
 
 <p><p>
