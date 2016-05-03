@@ -67,7 +67,7 @@ A status file will be provided to track the success or failure of that day's exp
       <tr>
          <td align="left"><b>user_id</b></td>
          <td class="desc">
-            <p>he unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
+            <p>The unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
          </td>
       </tr>
       <tr>
