@@ -28,13 +28,13 @@ The Event API can be used to send conversion goals to Optimizely. See below for 
 * `d`: Account ID
 * `a`: Project ID
 * `x`: Experiment/Variation mapping per visitor
-* `u`: A unique identifier to track a visitor 
+* `u`: A unique identifier to track a visitor
 * `n`: Event goal name
 * `g`: (Optional) Goal ID(s)
 * `v`: (Optional) Integer that represents a goal’s value
 * `time`: (Optional) Timestamp
 
-Logging conversion event data follows this format: 
+Logging conversion event data follows this format:
 
 ```bash
 http://1234567.log.optimizely.com/event?a=1234567
@@ -46,7 +46,7 @@ http://1234567.log.optimizely.com/event?a=1234567
                                &d=8511325
                                &s983745985=gc
                                &time=1462472175
-    
+
 ```
 
 ### Parameter Reference
@@ -61,14 +61,14 @@ http://1234567.log.optimizely.com/event?a=1234567
       `<script src="//cdn.optimizely.com/js/{project_id}.js"></script>` </p>
          </td>
       </tr>
-         
+
          <tr>
          <td align="left"><b>`x`</b></td>
          <td class="desc">
         <p>**Experiment/Variation mapping**.
       These parameters specify which experiments and corresponding variations a given visitor has seen. Every call must inform Optimizely what experiment and variation a visitor was a part of. If a user is a part of multiple experiments you can specify multiple parameters as shown below. </p>
-      <br /><br />
-      <i>Single Experiment:</i> 
+
+      <i>Single Experiment:</i>
       <br />
       `x{experiment_id}={varation_id1}`
       <br /><br />
@@ -78,13 +78,11 @@ http://1234567.log.optimizely.com/event?a=1234567
       <br /><br />
 
       <p>Developers must maintain their own bucket mapping by sending Optimizely the exposed experiment, as well as each variation the visitor has seen (or bucketed into). If you're tracking events for an Optimizely web project these mappings may be found in the "optimizelyBuckets" cookie, whose value is of the following form:
-      `%7B%22987654321%22%3A%221111111%22%2C%22876543210%22%3A%222222222_3333333%22%7D` 
+      `%7B%22987654321%22%3A%221111111%22%2C%22876543210%22%3A%222222222_3333333%22%7D`
       <br />
       or, after applying <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">decodeURIComponent()</a>.
       <br /><br />
       If you're ever curious what these IDs are for a given experiment, you can always find them by navigating to the Optimizely Editor, then selecting <em>Options > Diagnostic Report</em>.</p>
-
-      <br />
        </p>
          </td>
       </tr>
@@ -107,9 +105,8 @@ http://1234567.log.optimizely.com/event?a=1234567
               <tr>
          <td align="left"><b>`u`</b></td>
          <td class="desc">
-            <p>**User ID**. A unique user identifier for tracking and bucketing. </p>  
-            
-      <p>On web, our client uses a cookie to track the user and generates a unique user_id that is also stored in the cookie. Similarly, on iOS & Android the SDKs leverage a similar method for tracking users.</p>
+            <p>**User ID**. A unique user identifier for tracking and bucketing.</p>
+            <p>On web, our client uses a cookie to track the user and generates a unique user_id that is also stored in the cookie. Similarly, on iOS & Android the SDKs leverage a similar method for tracking users.</p>
 
       <!--
       <p>With other channels, the developer can choose an appropriate identifier. We recommend a universal user id -- if users are logged in a hashed email is logical, otherwise a first party cookie. </p>
@@ -148,21 +145,21 @@ http://1234567.log.optimizely.com/event?a=1234567
 
 
 ## Other Considerations
-* The API will always return a 200: OK response 
+* The API will always return a 200: OK response
 
 
 ## Give it a try
 
-Let’s build our own GET request to test this endpoint. We can confirm the data has been received by viewing the experiment results. 
+Let’s build our own GET request to test this endpoint. We can confirm the data has been received by viewing the experiment results.
 
-* In the optimizely dashboard create a new experiment. 
+* In the optimizely dashboard create a new experiment.
 * Record the project_id & experiment_id, which can be found in the URL `https://app.optimizely.com/projects/{proejct_id}/experiments/{experiment_id}`.
 * Create a new variation. View the experiment results page. Click Options-> Diagnostic Report. Record a variation Id from this report under Variation Summary.
 * Add a new goal with a tracked custom event. Record this name as your event_key
 * Record the goal_id by clicking the "Goals" tab at the project level and examining the URL `https://app.optimizely.com/projects/{project_id}/goals/{goal_id}`.
 * Record your account_id from account settings
 * Provide a user identifier. For this purpose we can use a random string (i.e afsdfk).
-* We now have all the information to build a request. You can also find these identifiers via the REST API. 
+* We now have all the information to build a request. You can also find these identifiers via the REST API.
 * Build your request using the correct format: `http://{project_id}.log.optimizely.com/event?a={project_id}&n={event_key}&u={user_id}&x{variation_id}={experiment_id}&g={goal_id}&d={account_id}`.
 * Use your web browser to complete this request. Remember, no response will be shown. After a minute or two, you should see the conversion event in your results page!
 
@@ -170,8 +167,8 @@ Let’s build our own GET request to test this endpoint. We can confirm the data
 
 #### Sending Impression Data
 Our Event API also supports sending impressions, in addition to conversion events --although this isn’t necessary unless you are building for another channel like a custom server-side solution.
-  
-Within Optimizely an impression is logged when a visitor is bucketed into an experiment variation . Simply put, the visitor has met the criteria for the experiment and has been exposed to a variation. On the web, an impression would translate to a page view. This concept is a bit more complicated on other channels. For example, we decide to run an experiment on our search algorithm targeted to Japanese users. An impression is logged when a Japanese user interacts with the search algorithm and is successfully bucketed into a variation. An impression becomes a conversion event when the visitor completes a goal. In our example, the visitor uses the search algorithm to find flights and completes a booking (the conversion event). 
+
+Within Optimizely an impression is logged when a visitor is bucketed into an experiment variation . Simply put, the visitor has met the criteria for the experiment and has been exposed to a variation. On the web, an impression would translate to a page view. This concept is a bit more complicated on other channels. For example, we decide to run an experiment on our search algorithm targeted to Japanese users. An impression is logged when a Japanese user interacts with the search algorithm and is successfully bucketed into a variation. An impression becomes a conversion event when the visitor completes a goal. In our example, the visitor uses the search algorithm to find flights and completes a booking (the conversion event).
 
 Again, our web and mobile products handle impressions out of the box, so tracking them explicitly would only be necessary when building on other channels. To do so, you must set the goal_id to the experiment_id. It’s important to note that each unique visitor will count towards your MUV limit.
 
@@ -184,7 +181,7 @@ Example:
                                &goal_id={experiment_id}
                                &account_id = 8511325
                                &segment_value_983745985=chrome
-``` 
+```
 <hr><br/>
 
 <div class="attention attention--warning push--bottom">If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</div>
