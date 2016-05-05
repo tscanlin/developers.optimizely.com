@@ -229,34 +229,24 @@ protected void onCreate(Bundle savedInstanceState) {
 Make sure to call `setCustomTag` prior to `startOptimizelyWithAPIToken` and any time custom tag values are expected to change.  To do that you can make the `setValue:forCustomTag:` call in the following ways:
 
 - Prior to `startOptimizelyWithAPIToken` so that Optimizely knows all of the targeting conditions prior to experiment activation
-- `setCustomTag` can also be called in conjunction with `refreshExperimentData` while the app is still running.  For more details on how this works, you can refer to the section below.
-
-```java
-  private void userDidLogIn(String username) {
-    Optimizely.setCustomTag("returning_customer", "true");
-    Optimizely.refreshExperimentData();
-  }
-```
+- `setCustomTag` can also be called in conjunction with `refreshExperiments` while the app is still running.  For more details on how this works, you can refer to the section below.
 
 Please refer to our [API Docs](/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String) for more details.
 
 ### Experiment Reload
-By default, Optimizely will try to activate experiments whenever the user opens the app. This includes when the app might be live in the background, but not visible to the user. If you want experiment activation to occur only when your app is "cold started," you can disable the activation behavior by calling
+[refreshExperiments](/android/help/reference/com/optimizely/Optimizely.html#refreshExperiments%28%29) should be called any time custom tag values are expected to change.  [refreshExperiments](/android/help/reference/com/optimizely/Optimizely.html#refreshExperiments%28%29) allows Optimizely to take into account a user's newly added or changed custom tag values and re-buckets users based on updated targeting.
 
-```java
-      Optimizely.setshouldReloadExperimentsOnForegrounding(false);
-```
+For example, here's a use case where the user logs in, the developer sets a logged in custom tag, and then calls [refreshExperiments](/android/help/reference/com/optimizely/Optimizely.html#refreshExperiments%28%29):
 
-It is also possible to manually force Optimizely to reset all experiments and try to re-bucket the user from "scratch." One example where this is useful is in setting the user ID manually:
 
 ```java
   private void userDidLogIn(String username) {
-    Optimizely.setUserId(username);
-    Optimizely.refreshExperimentData();
+    Optimizely.setCustomTag("returning_customer", "true");
+    Optimizely.refreshExperiments();
   }
 ```
 
-**Note: Using `refreshExperimentData()` may damage the statistical validity of your conversion events because the user has potentially seen multiple variations of your experiment!**
+*Note: [Manually activated](#manual-activation) experiments will need to be re-activated after refreshExperments for the new audience conditions to take effect.*
 
 ### Universal User ID (Beta)
 
