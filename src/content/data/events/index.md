@@ -180,7 +180,6 @@ Example:
                                &variation_id_987654321=1111111
                                &goal_id={experiment_id}
                                &account_id = 8511325
-                               &segment_value_983745985=chrome
 ```
 <br/>
 <p>If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</p>
