@@ -174,12 +174,12 @@ Again, our web and mobile products handle impressions out of the box, so trackin
 
 Example:
 ```
- http://1234567.log.optimizely.com/event?project_id=1234567
-                               &event_key=example_event
-                               &user_id=1316548451038r0
-                               &variation_id_987654321=1111111
-                               &goal_id={experiment_id}
-                               &account_id = 8511325
+ http://1234567.log.optimizely.com/event?a=1234567
+                               &n=example_event
+                               &u=1316548451038r0
+                               &x987654321=1111111
+                               &g={experiment_id}
+                               &d=8511325
 ```
 <br/>
 <p>If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</p>
