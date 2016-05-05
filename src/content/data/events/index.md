@@ -25,18 +25,18 @@ The Event API can be used to send conversion goals to Optimizely. See below for 
 
 ### Parameter Overview
 
-* `d`: (Required) Account ID
-* `a`: (Required) Project ID
-* `x`: (Required) Experiment/Variation mapping per visitor
-* `u `:(Required) A unique identifier to track a visitor 
-* `n`: (Required) Event goal name
-* `g`: Goal ID(s)
-* `v`: Integer that represents a goal’s value
-* `time`: Timestamp
+* `d`: Account ID
+* `a`: Project ID
+* `x`: Experiment/Variation mapping per visitor
+* `u`: A unique identifier to track a visitor 
+* `n`: Event goal name
+* `g`: (Optional) Goal ID(s)
+* `v`: (Optional) Integer that represents a goal’s value
+* `time`: (Optional) Timestamp
 
 Logging conversion event data follows this format: 
 
-```
+```bash
 http://1234567.log.optimizely.com/event?a=1234567
                                &n=example_event
                                &u=1316548451038r0
@@ -45,8 +45,8 @@ http://1234567.log.optimizely.com/event?a=1234567
                                &g=1234567
                                &d=8511325
                                &s983745985=gc
-                               &time=(UTC TODO:Matt)
-		
+                               &time=1462472175
+    
 ```
 
 ### Parameter Reference
@@ -58,86 +58,86 @@ http://1234567.log.optimizely.com/event?a=1234567
          <td align="left"><b>`a`</b></td>
          <td class="desc">
             <p>**Project ID**. This is your project ID. It can be found in the web dashboard or in your Optimizely snippet. <br />
-			`<script src="//cdn.optimizely.com/js/{project_id}.js"></script>` </p>
+      `<script src="//cdn.optimizely.com/js/{project_id}.js"></script>` </p>
          </td>
       </tr>
          
          <tr>
-         <td align="left"><b>(Required) x </b></td>
+         <td align="left"><b>`x`</b></td>
          <td class="desc">
-			  <p>**Experiment/Variation mapping**.
-			These parameters specify which experiments and corresponding variations a given visitor has seen. Every call must inform Optimizely what experiment and variation a visitor was a part of. If a user is a part of multiple experiments you can specify multiple parameters as shown below. 
-			<br /><br />
-			<i>Single Experiment:</i> 
-			<br />
-			`x{experiment_id}={varation_id1}`
-			<br /><br />
-			<i>Multiple Experiments:</i>
-			<br />
-			`x{experiment_id1}={varation_id1}&x{exeriment_id2}={varation_id2}`
-			<br /><br />
+        <p>**Experiment/Variation mapping**.
+      These parameters specify which experiments and corresponding variations a given visitor has seen. Every call must inform Optimizely what experiment and variation a visitor was a part of. If a user is a part of multiple experiments you can specify multiple parameters as shown below. </p>
+      <br /><br />
+      <i>Single Experiment:</i> 
+      <br />
+      `x{experiment_id}={varation_id1}`
+      <br /><br />
+      <i>Multiple Experiments:</i>
+      <br />
+      `x{experiment_id1}={varation_id1}&x{exeriment_id2}={varation_id2}`
+      <br /><br />
 
-			Developers must maintain their own bucket mapping by sending Optimizely the exposed experiment, as well as each variation the visitor has seen (or bucketed into). If you're tracking events for an Optimizely web project these mappings may be found in the "optimizelyBuckets" cookie, whose value is of the following form:
-			`%7B%22987654321%22%3A%221111111%22%2C%22876543210%22%3A%222222222_3333333%22%7D` 
-			<br />
-			or, after applying `decodeURIComponent()` (TODO: Matt -> find a code block to explain this - Spencer)
-			<br /><br />
-			If you're ever curious what these IDs are for a given experiment, you can always find them by navigating to the Optimizely Editor, then selecting <em>Options > Diagnostic Report</em>.
+      <p>Developers must maintain their own bucket mapping by sending Optimizely the exposed experiment, as well as each variation the visitor has seen (or bucketed into). If you're tracking events for an Optimizely web project these mappings may be found in the "optimizelyBuckets" cookie, whose value is of the following form:
+      `%7B%22987654321%22%3A%221111111%22%2C%22876543210%22%3A%222222222_3333333%22%7D` 
+      <br />
+      or, after applying <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">decodeURIComponent()</a>.
+      <br /><br />
+      If you're ever curious what these IDs are for a given experiment, you can always find them by navigating to the Optimizely Editor, then selecting <em>Options > Diagnostic Report</em>.</p>
 
-			<br /><br />
-			 </p>
+      <br />
+       </p>
          </td>
       </tr>
 
         <tr>
-         <td align="left"><b>(Required) n</b></td>
+         <td align="left"><b>`n`</b></td>
          <td class="desc">
-            <p>**Event Key**. The unique string that identifies the conversion event. For web projects, this is the Custom Event To Track field. (TODO: add screenshot) </p>
+            <p>**Event Key**. The unique string that identifies the conversion event. For web projects, this is the Custom Event To Track field.</p><img src="/assets/img/data/custom-event.png" alt="Custom Event Field Screenshot" style="max-width:56%">
          </td>
       </tr>
 
 
         <tr>
-         <td align="left"><b>(Required) d</b></td>
+         <td align="left"><b>`d`</b></td>
          <td class="desc">
             <p>**Account ID**. Your Optimizely account ID. This can be found in <a href="https://app.optimizely.com/accountsettings/account/overview">account settings</a>. </p>
          </td>
       </tr>
 
               <tr>
-         <td align="left"><b>u </b></td>
+         <td align="left"><b>`u`</b></td>
          <td class="desc">
-            <p>**User Id**. A unique user identifier for tracking and bucketing. </p>  
+            <p>**User ID**. A unique user identifier for tracking and bucketing. </p>  
             
-			<p>On web, our client uses a cookie to track the user and generates a unique user_id that is also stored in the cookie. Similarly, on iOS & Android the SDKs leverage a similar method for tracking users.</p>
+      <p>On web, our client uses a cookie to track the user and generates a unique user_id that is also stored in the cookie. Similarly, on iOS & Android the SDKs leverage a similar method for tracking users.</p>
 
-			<!--
-			<p>With other channels, the developer can choose an appropriate identifier. We recommend a universal user id -- if users are logged in a hashed email is logical, otherwise a first party cookie. </p>
+      <!--
+      <p>With other channels, the developer can choose an appropriate identifier. We recommend a universal user id -- if users are logged in a hashed email is logical, otherwise a first party cookie. </p>
 
-			<p>Lastly, it’s important to note that user_ids should not be generated haphazardly (i.e a random generator) because each unique user counts towards a monthly quota (MUVs) . If you’ve seen a user previously, it’s important to consistently use their identifier. We also don’t recommend using Personal Identifying Information (PII) as the identifier, so hashing an email address is preferred.</p>
-			-->
+      <p>Lastly, it’s important to note that user_ids should not be generated haphazardly (i.e a random generator) because each unique user counts towards a monthly quota (MUVs) . If you’ve seen a user previously, it’s important to consistently use their identifier. We also don’t recommend using Personal Identifying Information (PII) as the identifier, so hashing an email address is preferred.</p>
+      -->
 
          </td>
       </tr>
 
 
         <tr>
-         <td align="left"><b>g </b></td>
+         <td align="left"><b>`g`</b><br /><i>(Optional)</i></td>
          <td class="desc">
-            <p>**Goal ID**. Each goal in your project has a unique goal ID. The can be fetched through the [REST API](http://developers.optimizely.com/rest/reference/index.html#goals)
- </p>
+            <p>**Goal ID**. Each goal in your project has a unique goal ID. The can be fetched through the [REST API](http://developers.optimizely.com/rest/reference/index.html#goals). You can send multiple goals to Optimizely in the same request. Let’s say you have the goals “landed on a page” and “cart checkout”. Both of these goals can be triggered by a single event, so you would send an array of goals IDs back to Optimizely. Ex: `g=12345,4324234`
+      </p>
          </td>
       </tr>
 
            <tr>
-         <td align="left"><b>v </b></td>
+         <td align="left"><b>`v`</b><br /><i>(Optional)</i></td>
          <td class="desc">
             <p>**Goal Value**. An integer denoting the value of your goal. Within Optimizely, every goal can have a value associated. For example, if your goal is revenue, the monetary value $5.00 is represented by `v=500`. </p>
          </td>
       </tr>
 
          <tr>
-         <td align="left"><b>time</b></td>
+         <td align="left"><b>`time`</b><br /> <i>(Optional)</i></td>
          <td class="desc">
             <p>**Timestamp**. Timestamps can be provided using the parameter `timestamp` in epoch time in seconds. This is helpful if conversions are not sent in real time and have been recorded previously. Optimizely will then correctly backdate these events. Ex: `time=1461708557` </p>
          </td>
@@ -148,8 +148,6 @@ http://1234567.log.optimizely.com/event?a=1234567
 
 
 ## Other Considerations
-* You can send multiple goals to Optimizely in the same request. Let’s say you have the goals “landed on a page” and “cart checkout”. Both of these goals can be triggered by a single event, so you would send an array of goals IDs back to Optimizely. Ex: `g=12345,4324234`
-
 * The API will always return a 200: OK response 
 
 
