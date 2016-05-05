@@ -30,7 +30,8 @@ The file name follows the format: `experiment_id-yyyy-mm-dd.tsv.gz` . Example: `
 
 ### Status File
 
-A status file will be provided to track the success or failure of that day's experiment event files. This file is named `status.yaml` and is included in the daily folder per project. The format contains: `failed_exports`, `successful_exports`, and a timestamp in UTC seconds since epoch.
+A status file will be provided to track the success or failure of that day's experiment event files. This file is named `status.yaml` and is included in the daily folder per project. The format contains: `failed_exports`, `successful_exports`, and a timestamp in UTC seconds since epoch. View a <b>sample YAML <a href="/data/sample-status.yaml">file</a>.</b>
+
 
 
 ### Web Data Dictionary 
