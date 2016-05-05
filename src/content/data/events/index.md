@@ -182,6 +182,5 @@ Example:
                                &account_id = 8511325
                                &segment_value_983745985=chrome
 ```
-<hr><br/>
-
-<div class="attention attention--warning push--bottom">If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</div>
+<br/>
+<p>If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</p>
