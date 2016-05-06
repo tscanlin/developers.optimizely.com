@@ -921,19 +921,6 @@ If you created the custom event goal using the REST API, use the value you chose
 
 In addition to the providing a custom event goal name, you'll also need to specify information about the visitor so Optimizely knows how to tie the conversion event back to the experiment and variation that was shown. All of this information can be fetched from a browser using the [JS API](/js). For convenience, we've provided some helper functions that you can use to collect all of the necessary information:
 
-#### Account ID
-
-```javascript
-/**
- * Gets the Optimizely Account ID installed on this page
- *
- * @return {Number} the account id
- */
-function getAccountId() {
-    return optimizely.getAccountId();
-}
-```
-
 #### Project ID
 
 ```javascript
@@ -956,7 +943,6 @@ function getProjectId() {
  * @return {String} a string that displays all the experiments and variations in a list of query parameters
  */
 function getVariationsInParameters() {
-
     var variations = JSON.parse(decodeURIComponent(getCookie("optimizelyBuckets")));
     resultstring = "";
     for (var variation in variations) {
@@ -1002,8 +988,9 @@ function getUserId() {
 Once you know the required information about a visitor and the name of the custom event goal you want to track, you can create an offline conversion using a GET request in this format:
 
 ```http
-http://{{project_id}}.log.optimizely.com/event?a=1
-                               &n={{goal identified}}}
+http://{{ project_id }}.log.optimizely.com/event
+                               ?a={{ project_id }}
+                               &n={{ goal identified }}
                                &u={{ Optimizely user id }}
                                &x{{experiment id 1}}={{variation id 1}}
                                &s{{segment id 1}}={{segment value 1}}
@@ -1012,7 +999,7 @@ http://{{project_id}}.log.optimizely.com/event?a=1
 To learn more about the expected format of these parameters see
 [Tracking offline conversion events with Optimizely](https://help.optimizely.com/hc/en-us/articles/200040195).
 
-The following function can be used to construct a valid offline conversion URL using the sample JavaScript  functions above:
+The following function can be used to construct a valid offline conversion URL using the sample JavaScript functions above:
 
 ```javascript
 /**
@@ -1026,9 +1013,7 @@ The following function can be used to construct a valid offline conversion URL u
  */
 function generateConversionUrl(goalname, value) {
     var goalname = decodeURIComponent(goalname) == goalname ? encodeURIComponent(goalname) : goalname;
-
-
-    var result = "http://" + getProjectId() + ".log.optimizely.com/event?a=" + getAccountId() + "&n=" + goalname + "&u=" + getUserId() + getVariationsInParameters() + getSegmentsInParameters();
+    var result = "http://" + getProjectId() + ".log.optimizely.com/event?a=" + getProjectId() + "&n=" + goalname + "&u=" + getUserId() + getVariationsInParameters() + getSegmentsInParameters();
     if (typeof (value) != "undefined") {
         result += "&v=" + value;
     }
