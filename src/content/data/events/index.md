@@ -152,12 +152,12 @@ http://1234567.log.optimizely.com/event?a=1234567
 
 Let’s build our own GET request to test this endpoint. We can confirm the data has been received by viewing the experiment results.
 
-* In the optimizely dashboard create a new experiment.
+* In the Optimizely dashboard create a new experiment
 * Record the project_id & experiment_id, which can be found in the URL `https://app.optimizely.com/projects/{proejct_id}/experiments/{experiment_id}`.
-* Create a new variation. View the experiment results page. Click Options-> Diagnostic Report. Record a variation Id from this report under Variation Summary.
-* Add a new goal with a tracked custom event. Record this name as your event_key
-* Record the goal_id by clicking the "Goals" tab at the project level and examining the URL `https://app.optimizely.com/projects/{project_id}/goals/{goal_id}`.
-* Record your account_id from account settings
+* Create a new variation. In the editor click Options-> Diagnostic Report. Record a variation ID from this report under Variation Summary
+* Add a new goal with a Tracked Custom Event. Record this name as your event_key
+* Record the goal_id by clicking the "Goals" tab at the project level and examining the URL `https://app.optimizely.com/projects/{project_id}/goals/{goal_id}`
+* Record your account_id from [Account Settings](https://app.optimizely.com/accountsettings/account/overview)
 * Provide a user identifier. For this purpose we can use a random string (i.e afsdfk).
 * We now have all the information to build a request. You can also find these identifiers via the REST API.
 * Build your request using the correct format: `http://{project_id}.log.optimizely.com/event?a={project_id}&n={event_key}&u={user_id}&x{variation_id}={experiment_id}&g={goal_id}&d={account_id}`.
