@@ -158,6 +158,43 @@ var paths = {
   },
 };
 
+
+var javascript = {
+  path: 'javascript',
+  title: 'JS API',
+  sections: JS_NAV_SECTIONS,
+  showInHeaderDropdown: true,
+};
+
+var ios = {
+  path: 'ios',
+  title: 'iOS SDK',
+  sections: MOBILE_NAV_SECTIONS,
+  showInHeaderDropdown: true,
+};
+
+var nav = {};
+nav.solutions = {
+  javascript: javascript,
+  ios: ios,
+  android: android,
+  server: server,
+  android: {
+    path: 'android',
+    title: 'Android SDK',
+    sections: MOBILE_NAV_SECTIONS,
+    showInHeaderDropdown: true,
+  },
+  server: {
+    path: 'server',
+    title: 'Server-Side SDKs',
+    sections: SERVER_NAV_SECTIONS,
+    // Hide if its a hidden section unless its the current path (users go direct to the url)
+    hiddenSection: true,
+  },
+}
+
 module.exports = {
   paths: paths,
+  nav: nav,
 };

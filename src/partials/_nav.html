@@ -1,6 +1,42 @@
 <input id="toggle-nav-checkbox" class="hidden" type="checkbox">
 <nav id="nav">
   <div class="nav-sidebar">
+
+    <div class="soft-double">
+      <ul class="unstyled line--loose delta push-double--bottom">
+        <li>Overview</li>
+      </ul>
+
+      <label class="label caps milli muted">Solutions</label>
+      <ul class="unstyled line--loose delta push-double--bottom">
+        <li>Web</li>
+        <li>iOS</li>
+        <li>Android</li>
+        <li>Server</li>
+      </ul>
+
+      <label class="label caps milli muted">Management</label>
+      <ul class="unstyled line--loose delta push-double--bottom">
+        <li>REST API</li>
+      </ul>
+
+      <label class="label caps milli muted">Data Services</label>
+      <ul class="unstyled line--loose delta push-double--bottom">
+        <li>Event Data Export</li>
+        <li>Event API (ingest)</li>
+        <li>DCP</li>
+        <li>Results</li>
+      </ul>
+
+      <label class="label caps milli muted">Add-ons</label>
+      <ul class="unstyled line--loose delta push-double--bottom">
+        <li>Event Data Export</li>
+        <li>Event API (ingest)</li>
+        <li>DCP</li>
+        <li>Results</li>
+      </ul>
+    </div>
+
     <ul class="unstyled nav nav--stacked soft-double delta">
       {% for key, item in paths.navigation %}
         <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
