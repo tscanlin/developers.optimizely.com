@@ -158,6 +158,18 @@ var paths = {
   },
 };
 
+// New nav object.
+var nav = {};
+
+var overview = {
+  path: 'overview',
+  title: 'Overview',
+  singlePage: true,
+};
+
+nav.overview = {
+  overview: overview,
+};
 
 var javascript = {
   path: 'javascript',
@@ -173,26 +185,72 @@ var ios = {
   showInHeaderDropdown: true,
 };
 
-var nav = {};
+var android = {
+  path: 'android',
+  title: 'Android SDK',
+  sections: MOBILE_NAV_SECTIONS,
+  showInHeaderDropdown: true,
+};
+
+var server = {
+  path: 'server',
+  title: 'Server-Side SDKs',
+  sections: SERVER_NAV_SECTIONS,
+  // Hide if its a hidden section unless its the current path (users go direct to the url)
+  hiddenSection: true,
+};
+
 nav.solutions = {
   javascript: javascript,
   ios: ios,
   android: android,
   server: server,
-  android: {
-    path: 'android',
-    title: 'Android SDK',
-    sections: MOBILE_NAV_SECTIONS,
-    showInHeaderDropdown: true,
-  },
-  server: {
-    path: 'server',
-    title: 'Server-Side SDKs',
-    sections: SERVER_NAV_SECTIONS,
-    // Hide if its a hidden section unless its the current path (users go direct to the url)
-    hiddenSection: true,
-  },
-}
+};
+
+var rest = {
+  path: 'rest',
+  title: 'REST API',
+  sections: REST_NAV_SECTIONS,
+  showInHeaderDropdown: true,
+};
+
+nav.management = {
+  rest: rest,
+};
+
+var data = {
+  path: 'data',
+  title: 'Data Access',
+  sections: DATA_NAV_SECTIONS,
+  hiddenSection: true,
+};
+
+nav.dataServices = {
+  data: data,
+};
+
+var integrations = {
+  path: 'integrations',
+  title: 'Integrations',
+  singlePage: true,
+  showInHeaderDropdown: true,
+};
+
+var apps = {
+  path: 'apps',
+  title: 'Apps',
+  singlePage: true,
+  showInHeaderDropdown: true,
+};
+
+nav.addOns = {
+  integrations: integrations,
+  apps: apps,
+};
+
+nav.community = {
+  // data: data,
+};
 
 module.exports = {
   paths: paths,
