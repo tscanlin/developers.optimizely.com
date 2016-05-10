@@ -6,4 +6,5 @@ gulp.task('build', [
   'browserify',
   'images',
   'html',
+  'redirects',
 ]);

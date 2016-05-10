@@ -97,65 +97,6 @@ var paths = {
   pages: 'pages/',
   partials: 'partials/',
   templates: 'templates/',
-
-
-  // Used in the UI to build the navigation.
-  // navigation: {
-  //   overview: {
-  //     path: 'overview',
-  //     title: 'Overview',
-  //     singlePage: true,
-  //   },
-  //   rest: {
-  //     path: 'rest',
-  //     title: 'REST API',
-  //     sections: REST_NAV_SECTIONS,
-  //     showInHeaderDropdown: true,
-  //   },
-  //   javascript: {
-  //     path: 'javascript',
-  //     title: 'JS API',
-  //     sections: JS_NAV_SECTIONS,
-  //     showInHeaderDropdown: true,
-  //   },
-  //   ios: {
-  //     path: 'ios',
-  //     title: 'iOS SDK',
-  //     sections: MOBILE_NAV_SECTIONS,
-  //     showInHeaderDropdown: true,
-  //   },
-  //   android: {
-  //     path: 'android',
-  //     title: 'Android SDK',
-  //     sections: MOBILE_NAV_SECTIONS,
-  //     showInHeaderDropdown: true,
-  //   },
-  //   server: {
-  //     path: 'server',
-  //     title: 'Server-Side SDKs',
-  //     sections: SERVER_NAV_SECTIONS,
-  //     // Hide if its a hidden section unless its the current path (users go direct to the url)
-  //     hiddenSection: true,
-  //   },
-  //   integrations: {
-  //     path: 'integrations',
-  //     title: 'Integrations',
-  //     singlePage: true,
-  //     showInHeaderDropdown: true,
-  //   },
-  //   data: {
-  //     path: 'data',
-  //     title: 'Data Access',
-  //     sections: DATA_NAV_SECTIONS,
-  //     hiddenSection: true,
-  //   },
-  //   apps: {
-  //     path: 'apps',
-  //     title: 'Apps',
-  //     singlePage: true,
-  //     showInHeaderDropdown: true,
-  //   },
-  // },
 };
 
 // New nav object.
@@ -271,7 +212,7 @@ nav.community = {
   sections: []
 };
 
-
+// Add new nav data to paths object.
 paths.nav = nav;
 paths.leftNav = [
   'overview',
@@ -294,6 +235,10 @@ paths.allSections = {
   apps: apps,
 };
 
+// Declare redirects.
+var redirects = require('./redirects.js');
+
 module.exports = {
   paths: paths,
+  redirects: redirects,
 };
