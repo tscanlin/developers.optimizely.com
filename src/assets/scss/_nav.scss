@@ -8,8 +8,8 @@
     display: inline-block;
   }
 
-  .active,
-  .is-active-link {
+  // .is-active-link,
+  .active {
     color: #0095E7;
     font-weight:400;
   }
@@ -19,7 +19,7 @@
   }
 
   .collapsible:not(.is-collapsed) {
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   }
 
   .nav {
