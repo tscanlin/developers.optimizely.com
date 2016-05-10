@@ -29,10 +29,10 @@ var BASE_NAV_SECTIONS = {
 
 
 var DATA_NAV_SECTIONS = {
- // 'introduction': {
- //   path: 'introduction',
- //   title: 'Introduction',
- // },
+  'introduction': {
+    path: 'introduction',
+    title: 'Introduction',
+  },
   'events': {
     path: 'events',
     title: 'Event API',

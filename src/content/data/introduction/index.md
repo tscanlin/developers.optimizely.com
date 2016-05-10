@@ -13,10 +13,16 @@ The [Event API](http://developers.optimizely.com/data/events) ingests data point
 
 If you have any questions, please reach out to [developers@optimizely.com](mailto:developers@optimizely.com).
 
-<a class="button button--highlight anchor--left display--block width--200 text--center" href="http://developers.optimizely.com/data/events">
+<br />
+
+<div class="flex flex-justified--between soft-quad--sides">
+
+<a class="button button--highlight display--block width--200 text--center" href="http://developers.optimizely.com/data/events">
 Event API
 </a>
 
-<a class="button button--highlight anchor--right display--block width--200 text--center" href="http://developers.optimizely.com/data/export">
+<a class="button button--highlight display--block width--200 text--center" href="http://developers.optimizely.com/data/export">
 Event Data Export
 </a>
+
+</div>
