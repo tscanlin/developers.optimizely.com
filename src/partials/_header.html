@@ -30,7 +30,7 @@
               <span class="arrow-inline--down"></span>
             </a>
             <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
-              {% for key, item in paths.navigation %}
+              {% for key, item in paths.allSections %}
                 {% if item.showInHeaderDropdown == true %}
                   <li class="push-half">
                     <a href="/{{ item.path }}/">{{ item.title }}</a>
