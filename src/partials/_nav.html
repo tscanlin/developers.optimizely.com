@@ -3,23 +3,65 @@
   <div class="nav-sidebar">
 
     <div class="soft-double">
-      <ul class="unstyled line--loose delta push-double--bottom">
-        <li>Overview</li>
-      </ul>
+      {% for key in paths.leftNav %}
+        {% if paths.nav[key].hidden != true %}
+          {% if paths.nav[key].label != false %}
+            <label class="label caps milli muted">{{ paths.nav[key].label }}</label>
+          {% endif %}
+          <ul class="unstyled delta push-double--bottom">
+            {% for topSection in paths.nav[key].sections %}
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              {% if topSection.hiddenSection != true or topSection.path == pathArray[0] %}
+                <li>
+                  <a class="main-section{% if topSection.path == pathArray[0] %} active{% endif %}" href="/{{ topSection.path }}"{% if topSection.singlePage != true %} data-collapser{% endif %}>{{ topSection.title }}</a>
 
-      <label class="label caps milli muted">Solutions</label>
-      <ul class="unstyled line--loose delta push-double--bottom">
-        <li>Web</li>
-        <li>iOS</li>
-        <li>Android</li>
-        <li>Server</li>
-      </ul>
+                  <!-- TOC for single pages -->
+                  {% if topSection.singlePage == true %}
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  {% endif %}
 
-      <label class="label caps milli muted">Management</label>
-      <ul class="unstyled line--loose delta push-double--bottom">
-        <li>REST API</li>
-      </ul>
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible{% if topSection.path != pathArray[0] %} is-collapsed{% endif %}">
+                    {% for sub_key, section in topSection.sections %}
+                      <li>
+                        <a class="section{% if relativePath.indexOf(topSection.path + '/' + section.path) != -1 %} active{% endif %}" href="/{{ topSection.path }}/{{ section.path }}/index.html">{{ section.title }}</a>
+                        {% if section.path != 'articles' %}
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        {% endif %}
+                        {% if section.path == 'articles' and relativePath.indexOf(topSection.path) == 0 %}
+                          <ul class="unstyled nav nav--stacked">
+                            <!-- Only show sibling data if it exists. -->
+                            {% if siblingData %}
+                              {% for articleId, article in siblingData | dictsort %}
+                                <li>
+                                  <a class="soft--left{% if relativePath.indexOf(topSection.path + '/' + section.path + '/' + articleId) != -1 %} active{% endif %}" href="/{{ topSection.path }}/{{ section.path }}/{{ article.fileName }}.html">{{ article.title }}</a>
+                                </li>
+                              {% endfor %}
+                            {% endif %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
 
+                    <!-- Add links to auto generated docs -->
+                    {% if topSection.path == 'ios' %}
+                      <li>
+                        <a class="section" href="/{{ topSection.path }}/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    {% endif %}
+                    {% if topSection.path == 'android' %}
+                      <li>
+                        <a class="section" href="/{{ topSection.path }}/help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    {% endif %}
+                  </ul>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endfor %}
+      <!--
       <label class="label caps milli muted">Data Services</label>
       <ul class="unstyled line--loose delta push-double--bottom">
         <li>Event Data Export</li>
@@ -34,21 +76,21 @@
         <li>Event API (ingest)</li>
         <li>DCP</li>
         <li>Results</li>
-      </ul>
+      </ul> -->
     </div>
 
-    <ul class="unstyled nav nav--stacked soft-double delta">
+    <!-- <ul class="unstyled nav nav--stacked soft-double delta hidden">
       {% for key, item in paths.navigation %}
-        <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+        <!-- Hide if its a hidden section unless its the current path (users go direct to the url) --
         {% if item.hiddenSection != true or item.path == pathArray[0] %}
         <li class="push--bottom">
           <a class="main-section{% if item.path == pathArray[0] %} active{% endif %}" href="/{{ item.path }}"{% if item.singlePage != true %} data-collapser{% endif %}>{{ item.title }}</a>
-          <!-- TOC for single pages -->
+          <!-- TOC for single pages --
           {% if item.singlePage == true %}
             <ul class="unstyled nav nav--stacked epsilon toc push--ends"></ul>
           {% endif %}
 
-          <!-- Sub sections -->
+          <!-- Sub sections --
           <ul class="unstyled nav nav--stacked epsilon push--ends collapsible{% if item.path != pathArray[0] %} is-collapsed{% endif %}">
             {% for sub_key, section in item.sections %}
               <li>
@@ -58,7 +100,7 @@
                 {% endif %}
                 {% if section.path == 'articles' and relativePath.indexOf(item.path) == 0 %}
                   <ul class="unstyled nav nav--stacked">
-                    <!-- Only show sibling data if it exists. -->
+                    <!-- Only show sibling data if it exists. --
                     {% if siblingData %}
                       {% for articleId, article in siblingData | dictsort %}
                         <li>
@@ -71,7 +113,7 @@
               </li>
             {% endfor %}
 
-            <!-- Add links to auto generated docs -->
+            <!-- Add links to auto generated docs --
             {% if item.path == 'ios' %}
               <li>
                 <a class="section" href="/{{ item.path }}/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
@@ -86,6 +128,6 @@
         </li>
         {% endif %}
       {% endfor %}
-    </ul>
+    </ul> -->
   </div>
 </nav>

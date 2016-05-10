@@ -100,66 +100,67 @@ var paths = {
 
 
   // Used in the UI to build the navigation.
-  navigation: {
-    overview: {
-      path: 'overview',
-      title: 'Overview',
-      singlePage: true,
-    },
-    rest: {
-      path: 'rest',
-      title: 'REST API',
-      sections: REST_NAV_SECTIONS,
-      showInHeaderDropdown: true,
-    },
-    javascript: {
-      path: 'javascript',
-      title: 'JS API',
-      sections: JS_NAV_SECTIONS,
-      showInHeaderDropdown: true,
-    },
-    ios: {
-      path: 'ios',
-      title: 'iOS SDK',
-      sections: MOBILE_NAV_SECTIONS,
-      showInHeaderDropdown: true,
-    },
-    android: {
-      path: 'android',
-      title: 'Android SDK',
-      sections: MOBILE_NAV_SECTIONS,
-      showInHeaderDropdown: true,
-    },
-    server: {
-      path: 'server',
-      title: 'Server-Side SDKs',
-      sections: SERVER_NAV_SECTIONS,
-      // Hide if its a hidden section unless its the current path (users go direct to the url)
-      hiddenSection: true,
-    },
-    integrations: {
-      path: 'integrations',
-      title: 'Integrations',
-      singlePage: true,
-      showInHeaderDropdown: true,
-    },
-    data: {
-      path: 'data',
-      title: 'Data Access',
-      sections: DATA_NAV_SECTIONS,
-      hiddenSection: true,
-    },
-    apps: {
-      path: 'apps',
-      title: 'Apps',
-      singlePage: true,
-      showInHeaderDropdown: true,
-    },
-  },
+  // navigation: {
+  //   overview: {
+  //     path: 'overview',
+  //     title: 'Overview',
+  //     singlePage: true,
+  //   },
+  //   rest: {
+  //     path: 'rest',
+  //     title: 'REST API',
+  //     sections: REST_NAV_SECTIONS,
+  //     showInHeaderDropdown: true,
+  //   },
+  //   javascript: {
+  //     path: 'javascript',
+  //     title: 'JS API',
+  //     sections: JS_NAV_SECTIONS,
+  //     showInHeaderDropdown: true,
+  //   },
+  //   ios: {
+  //     path: 'ios',
+  //     title: 'iOS SDK',
+  //     sections: MOBILE_NAV_SECTIONS,
+  //     showInHeaderDropdown: true,
+  //   },
+  //   android: {
+  //     path: 'android',
+  //     title: 'Android SDK',
+  //     sections: MOBILE_NAV_SECTIONS,
+  //     showInHeaderDropdown: true,
+  //   },
+  //   server: {
+  //     path: 'server',
+  //     title: 'Server-Side SDKs',
+  //     sections: SERVER_NAV_SECTIONS,
+  //     // Hide if its a hidden section unless its the current path (users go direct to the url)
+  //     hiddenSection: true,
+  //   },
+  //   integrations: {
+  //     path: 'integrations',
+  //     title: 'Integrations',
+  //     singlePage: true,
+  //     showInHeaderDropdown: true,
+  //   },
+  //   data: {
+  //     path: 'data',
+  //     title: 'Data Access',
+  //     sections: DATA_NAV_SECTIONS,
+  //     hiddenSection: true,
+  //   },
+  //   apps: {
+  //     path: 'apps',
+  //     title: 'Apps',
+  //     singlePage: true,
+  //     showInHeaderDropdown: true,
+  //   },
+  // },
 };
 
 // New nav object.
 var nav = {};
+
 
 var overview = {
   path: 'overview',
@@ -168,8 +169,12 @@ var overview = {
 };
 
 nav.overview = {
-  overview: overview,
+  label: false,
+  sections: [
+    overview
+  ]
 };
+
 
 var javascript = {
   path: 'javascript',
@@ -201,10 +206,13 @@ var server = {
 };
 
 nav.solutions = {
-  javascript: javascript,
-  ios: ios,
-  android: android,
-  server: server,
+  label: 'Solutions',
+  sections: [
+    javascript,
+    ios,
+    android,
+    server,
+  ]
 };
 
 var rest = {
@@ -215,7 +223,10 @@ var rest = {
 };
 
 nav.management = {
-  rest: rest,
+  label: 'Management',
+  sections: [
+    rest
+  ]
 };
 
 var data = {
@@ -226,7 +237,10 @@ var data = {
 };
 
 nav.dataServices = {
-  data: data,
+  label: 'Data Services',
+  sections: [
+    data
+  ],
 };
 
 var integrations = {
@@ -244,15 +258,42 @@ var apps = {
 };
 
 nav.addOns = {
+  label: 'Add Ons',
+  sections: [
+    integrations,
+    apps
+  ],
+};
+
+nav.community = {
+  label: '',
+  hidden: true,
+  sections: []
+};
+
+
+paths.nav = nav;
+paths.leftNav = [
+  'overview',
+  'solutions',
+  'management',
+  'dataServices',
+  'addOns',
+  'community',
+];
+// Used on homepage.
+paths.allSections = {
+  overview: overview,
+  javascript: javascript,
+  ios: ios,
+  android: android,
+  server: server,
+  rest: rest,
+  data: data,
   integrations: integrations,
   apps: apps,
 };
 
-nav.community = {
-  // data: data,
-};
-
 module.exports = {
   paths: paths,
-  nav: nav,
 };

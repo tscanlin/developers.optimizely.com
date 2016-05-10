@@ -4,7 +4,6 @@
   background-color: #F2F5FA;
 
   a {
-    // color: white;
     color: #00415D;
     display: inline-block;
   }
@@ -15,8 +14,15 @@
     font-weight:400;
   }
 
-  .main-section + .nav {
-    // border-left: 2px solid #0095E7;
-    // margin-left: 5px;
+  .main-section {
+    margin: 3px 0;
+  }
+
+  .collapsible:not(.is-collapsed) {
+    margin-bottom: 3px;
+  }
+
+  .nav {
+    line-height: 1.5;
   }
 }
