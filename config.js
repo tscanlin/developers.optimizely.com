@@ -119,31 +119,31 @@ nav.overview = {
 
 var javascript = {
   path: 'javascript',
-  title: 'JS API',
+  title: 'Web',
   sections: JS_NAV_SECTIONS,
   showInHeaderDropdown: true,
 };
 
 var ios = {
   path: 'ios',
-  title: 'iOS SDK',
+  title: 'iOS',
   sections: MOBILE_NAV_SECTIONS,
   showInHeaderDropdown: true,
 };
 
 var android = {
   path: 'android',
-  title: 'Android SDK',
+  title: 'Android',
   sections: MOBILE_NAV_SECTIONS,
   showInHeaderDropdown: true,
 };
 
 var server = {
   path: 'server',
-  title: 'Server-Side SDKs',
+  title: 'Server-Side',
   sections: SERVER_NAV_SECTIONS,
   // Hide if its a hidden section unless its the current path (users go direct to the url)
-  hiddenSection: true,
+  hiddenSection: false,
 };
 
 nav.solutions = {
@@ -174,7 +174,6 @@ var data = {
   path: 'data',
   title: 'Data Access',
   sections: DATA_NAV_SECTIONS,
-  hiddenSection: true,
 };
 
 nav.dataServices = {
