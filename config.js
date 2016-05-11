@@ -39,7 +39,7 @@ var DATA_NAV_SECTIONS = {
   },
   'export': {
     path: 'export',
-    title: 'Event Data Export',
+    title: 'Data Export',
   },
 };
 

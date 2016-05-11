@@ -9,7 +9,7 @@ title: "Optimizely Data Access"
 
 The [Event API](http://developers.optimizely.com/data/events) ingests data points directly from applications, whether it's on the web, mobile or a custom server-side implementation. This allows developers to send custom event data to Optimizely’s logging servers. Our own web & mobile clients leverage this API in sending impression and event conversion data to Optimizely. 
 
-[Event Data Export](http://developers.optimizely.com/data/export) supports a full export of all Optimizely event data. This data is computed and bucketed on a daily basis and compressed in a tsv format. Developers can use this this data to further analyze experimentation on the Optimizely platform.  
+[Data Export](http://developers.optimizely.com/data/export) supports a full export of all Optimizely event data. This data is computed and bucketed on a daily basis and compressed in a tsv format. Developers can use this this data to further analyze experimentation on the Optimizely platform.  
 
 If you have any questions, please reach out to [developers@optimizely.com](mailto:developers@optimizely.com).
 
@@ -22,7 +22,7 @@ Event API
 </a>
 
 <a class="button button--highlight display--block width--200 text--center" href="http://developers.optimizely.com/data/export">
-Event Data Export
+Data Export
 </a>
 
 </div>

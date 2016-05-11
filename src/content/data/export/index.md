@@ -1,15 +1,15 @@
 ---
 template: page-sidebar
-title: "Event Data Export"
+title: "Data Export"
 ---
-# Event Data Export Guide
+#Data Export Guide
 
 
 ## Intro
 
-Event Data Export allows developers to access all of their Optimizely event data. This data is computed daily and contain the last 24 hours of events for all A/B testing experiments in an account. The data will be written securely to an S3 bucket, which you can then programmatically access via Amazon’s APIs and a set of secure credentials provided by Optimizely.
+Data Export allows developers to access all of their Optimizely event data. This data is computed daily and contain the last 24 hours of events for all A/B testing experiments in an account. The data will be written securely to an S3 bucket, which you can then programmatically access via Amazon’s APIs and a set of secure credentials provided by Optimizely.
 
-You can use Event Data Export to integrate Optimizely experiment data with your own data warehouse.
+You can use Data Export to integrate Optimizely experiment data with your own data warehouse.
 
 <div class="attention attention--warning push--bottom">If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</div>
 
@@ -328,4 +328,4 @@ A status file will be provided to track the success or failure of that day's exp
 
 #### **Please Note** 
 
-Data is de-duplicated on the results screen but not in the Event Data Export. Revenue goals are never de-duplicated. Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
+Data is de-duplicated on the results screen but not in the Data Export. Revenue goals are never de-duplicated. Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
