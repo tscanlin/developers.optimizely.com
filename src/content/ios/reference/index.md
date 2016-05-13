@@ -349,7 +349,6 @@ From there, to create an experiment [targeting a Custom Tag](https://help.optimi
 
 [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) should be called any time custom tag values are expected to change.  [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments) allows Optimizely to take into account a user's newly added or changed custom tag values and re-buckets users based on updated targeting.
 
-For example, here's an use case where the user logs in, the developer sets a logged in custom tag, and then calls [refreshExperiments](/ios/help/html/Classes/Optimizely.html#//api/name/refreshExperiments):
 
 
 ```obj-c
@@ -642,6 +641,8 @@ Here's an example below:
 
 To find a variation's ID, head to the experiment editor and click on the "Variation Settings" button on the black bar on the far left-hand side of the window.
 
+**Note your experiment must not be paused for forceVariation to take effect.**
+
 ### Resetting QA State
 Uninstalling the app everytime to QA your builds with Optimizely can be quite tedious. Now you can use `resetUserBucketing` to clear any variations that the current app user may have already been bucketed into. This will also remove the cached data file. This is useful if you want to insure that you're treated as a new user each time you start the app. Keep in mind that you must call `resetUserBucketing` before you start Optimizely.
 
@@ -649,6 +650,18 @@ Here's an example below:
 ```obj-c
 // Reset user bucketing
 [Optimizely resetUserBucketing];
+
+// Make sure to call it before start Optimizely is called
+[Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
+                          launchOptions:launchOptions];
+```
+
+### Verbose Logging
+Enabling verbose logging allows you to view detailed log output. This will provide more information about experiments and its goals, your Live Variables, Code Blocks, and more.
+
+```obj-c
+// Enable verbose logging
+[Optimizely sharedInstance].verboseLogging = YES;
 
 // Make sure to call it before start Optimizely is called
 [Optimizely startOptimizelyWithAPIToken:myOptimizelyAPIKey
