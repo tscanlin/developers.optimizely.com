@@ -49,7 +49,7 @@ code_examples:
       attributes = {'DEVICE' => 'iPhone', 'AD_SOURCE' => 'my_campaign'}
 
       # Conditionally activate an experiment for the provided user
-      variation = optimizely.activate(experiment_key, user_id, attributes=attributes)
+      variation = optimizely.activate(experiment_key, user_id, attributes)
 
       if variation == 'variation_a'
         # execute code for variation A

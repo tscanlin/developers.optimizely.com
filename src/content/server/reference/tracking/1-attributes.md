@@ -33,7 +33,7 @@ code_examples:
         attributes = {'DEVICE' => 'iPhone', 'AD_SOURCE' => 'my_campaign'}
 
         # Track a conversion event for the provided user
-        optimizely.track(event_key, user_id, attributes=attributes)
+        optimizely.track(event_key, user_id, attributes)
 ---
 
 If you'd like to be able to segment your experiments based on attributes of your users, you should include the optional `attributes` argument to the `track` function call. This is necessary even if you included the attributes in the corresponding `activate` call.

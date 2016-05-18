@@ -39,9 +39,9 @@ code_examples:
       require_relative 'optimizely/event_dispatcher'
 
       optimizely = Optimizely::Optimizely.new(datafile,
-                                              event_dispatcher=EventDispatcher.new,
-                                              logger=NoOpLogger.new,
-                                              error_handler=NoOpErrorHandler.new)
+                                              EventDispatcher.new,
+                                              NoOpLogger.new,
+                                              NoOpErrorHandler.new)
 ---
 
 You can optionally provide a number of parameters to the `Optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
