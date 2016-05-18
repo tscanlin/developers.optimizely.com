@@ -5,9 +5,9 @@ includeSiblingData: true
 sections:
  - overview
  - installation
+ - import
  - initialization
  - activation
- - targeting
  - tracking
  - datafile
 ---
