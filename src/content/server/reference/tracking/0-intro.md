@@ -30,3 +30,5 @@ code_examples:
 ---
 
 You can easily track Optimizely goals from your code as shown in the example to the right. Note that you don't need to pass the assigned experiments or variations; Optimizely will drop any conversion events for users that are not part of an experiment that includes the goal.
+
+<div class="attention attention--warning push--bottom">*Please note:* in cases where an experiment is activated for a user, the SDK will log an event to Optimizely servers to record the conversion event.</div>

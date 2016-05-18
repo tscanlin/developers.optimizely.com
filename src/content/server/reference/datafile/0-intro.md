@@ -149,4 +149,4 @@ You can fetch the datafile for your Optimizely project in two ways:
 * *Use the Optimizely CDN.*  For example, if the ID of your project is `12345` you can access the file at http://cdn.optimizely.com/json/12345.json.
 * *Use the Optimizely REST API.* (Details TBD)
 
-Additionally, we provide a webhook that can be used to notify your servers when there is an update to the datafile.  (Details TBD)
+If you'd like your server to use the most up-to-date version of the datafile, we recommend setting up a webhook that will send a request to your servers every time there is an update to the datafile. You can setup webhooks in the Custom Project interface under *Settings > Webhooks*.
