@@ -66,21 +66,15 @@ A status file will be provided to track the success or failure of that day's exp
          </td>
       </tr>
       <tr>
-         <td align="left"><b>user_id</b></td>
-         <td class="desc">
-            <p>The unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
-         </td>
-      </tr>
-      <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
             <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
          </td>
       </tr>
       <tr>
-         <td align="left"><b>ppid</b></td>
+         <td align="left"><b>uuid</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is your API-provided unique ID you want to track in lieu of the optimizelyEndUserId cookie value (aka  <a href="https://help.optimizely.com/hc/en-us/articles/203626830"> UUID</a>).</p>
+            <p> Similar in scope to end_user_id, but this is the customer's API-provided unique ID they want to track in lieu of the optimizelyEndUserId cookie value.  This was renamed from the legacy ppid on Thursday 5/19/2016.</p>
          </td>
       </tr>
       <tr>
@@ -170,33 +164,21 @@ A status file will be provided to track the success or failure of that day's exp
          </td>
       </tr>
       <tr>
-         <td align="left"><b>user_id</b></td>
-         <td class="desc">
-            <p>he unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
-         </td>
-      </tr>
-      <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
             <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
          </td>
       </tr>
       <tr>
-         <td align="left"><b>ppid</b></td>
+         <td align="left"><b>uuid</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is your API-provided unique ID you want to track in lieu of the optimizelyEndUserId cookie value (aka  <a href="https://help.optimizely.com/hc/en-us/articles/203626830"> UUID</a>).</p>
+            <p>  Similar in scope to end_user_id, but this is the customer's API-provided unique ID they want to track in lieu of the anonymous value.  This was renamed from the legacy ppid on Thursday 5/19/2016.</p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>user_ip</b></td>
          <td class="desc">
             <p> IP of the user associated with this tracking call.</p>
-         </td>
-      </tr>
-      <tr>
-         <td align="left"><b>user_agent</b></td>
-         <td class="desc">
-            <p> User-Agent header passed from the browser.</p>
          </td>
       </tr>
       <tr>
@@ -264,33 +246,21 @@ A status file will be provided to track the success or failure of that day's exp
          </td>
       </tr>
       <tr>
-         <td align="left"><b>user_id</b></td>
-         <td class="desc">
-            <p>he unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
-         </td>
-      </tr>
-      <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
             <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
          </td>
       </tr>
       <tr>
-         <td align="left"><b>ppid</b></td>
+         <td align="left"><b>uuid</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is your API-provided unique ID you want to track in lieu of the optimizelyEndUserId cookie value (aka  <a href="https://help.optimizely.com/hc/en-us/articles/203626830"> UUID</a>).</p>
+            <p> Similar in scope to end_user_id, but this is the customer's API-provided unique ID they want to track in lieu of the anonymous value.  This was renamed from the legacy ppid on Thursday 5/19/2016.</p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>user_ip</b></td>
          <td class="desc">
             <p> IP of the user associated with this tracking call.</p>
-         </td>
-      </tr>
-      <tr>
-         <td align="left"><b>user_agent</b></td>
-         <td class="desc">
-            <p> User-Agent header passed from the browser.</p>
          </td>
       </tr>
       <tr>
