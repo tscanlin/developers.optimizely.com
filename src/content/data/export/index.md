@@ -130,7 +130,8 @@ A status file will be provided to track the success or failure of that day's exp
 
 **Please Note**: 
    * Any fields after this are your segmented audiences or dimension names.
-   * Adding or removing segments or dimensions could alter the layout of the event data files. Please account for this if you build an automated import of this data.  
+   * Adding or removing segments or dimensions could alter the layout of the event data files. Please account for this if you build an automated import of this data. 
+   * Data is de-duplicated on the results screen but not in the Data Export. Revenue goals are never de-duplicated. Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
 
 
 ### Android Dictionary 
@@ -295,7 +296,3 @@ A status file will be provided to track the success or failure of that day's exp
       </tr>
    </tbody>
 </table>
-
-#### **Please Note** 
-
-Data is de-duplicated on the results screen but not in the Data Export. Revenue goals are never de-duplicated. Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
