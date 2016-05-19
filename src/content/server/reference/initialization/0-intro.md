@@ -16,6 +16,11 @@ code_examples:
     lang: ruby
     request: |
       optimizely = Optimizely::Optimizely.new(datafile)
+  javascript:
+    lang: javascript
+    request: |
+      var datafile = {};
+      var optimizely = optimizely.createInstance({ datafile: datafile });
 ---
 
 <div class="hidden visible" data-toggle-section="python-code">

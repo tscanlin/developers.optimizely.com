@@ -42,6 +42,19 @@ code_examples:
                                               EventDispatcher.new,
                                               NoOpLogger.new,
                                               NoOpErrorHandler.new)
+  javascript:
+    lang: javascript
+    request: |
+      var defaultLogger = require(optimizely-testing-sdk-node/lib/core/logger);
+      var defaultErrorHandler = require(optimizely-testing-sdk-node/lib/core/error_handler);
+      var defaultEventDispatcher = require(optimizely-testing-sdk-node/lib/core/event_dispatcher);
+
+      optimizely = optimizely.createInstance({
+        datafile: datafile,
+        errorHandler: defaultErrorHandler,
+        eventDispatcher: defaultEventDispatcher,
+        logger: defaultLogger.createLogger(),
+      });
 ---
 
 You can optionally provide a number of parameters to the `Optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.

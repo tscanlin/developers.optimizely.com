@@ -19,18 +19,18 @@ code_examples:
         # execute code for variation B
       else:
         # execute default code
- 
+
   java:
     lang: java
     request: |
       String experimentKey = "my_experiment";
       String userId = "user123";
-      
+
       Map<String, String> attributes = new HashMap<String, String>();
       attributes.put("DEVICE", "iPhone");
       attributes.put("AD_SOURCE", "my_campaign");
 
-      // Conditionally activate a experiment for the provided user 
+      // Conditionally activate a experiment for the provided user
       Variation variation = optimizely.activate(experimentKey, bucketingId, attributes);
 
       if (variation.is("variation_a")) {
@@ -40,7 +40,7 @@ code_examples:
       } else {
           // execute default code
       }
- 
+
   ruby:
     lang: ruby
     request: |
@@ -57,6 +57,23 @@ code_examples:
         # execute code for variation B
       else
         # execute default code
+
+  javascript:
+    lang: javascript
+    request: |
+      var experimentKey = 'my_experiment';
+      var userId = 'user123';
+      var attributes = { 'device': 'iphone', 'ad_source': 'my_campaign' };
+
+      // Conditionally activate an experiment for the provided user
+      var variation = optimizely.activate(experimentKey, userId, attributes);
+      if (variation == 'variation_a') {
+        // execute code for variation A
+      } else if (variation == 'variation_b') {
+        // execute code for variation B
+      } else {
+        // execute default code
+      }
 ---
 
 If you'd like to be able to segment your experiments based on attributes of your users, you should include the optional `attributes` argument to the `activate` function call. Optimizely will include these attributes when logging the experiment so you can segment them on the Optimizely results page.
