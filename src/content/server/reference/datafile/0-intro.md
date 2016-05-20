@@ -12,6 +12,9 @@ code_examples:
         revision: "10",
         experiments: [
           {
+            status: "Not started",
+            audienceIds: [],
+            percentage: 9500,
             variations: [
               {
                 id: "9501848592",
@@ -56,6 +59,9 @@ code_examples:
         revision: "10",
         experiments: [
           {
+            status: "Not started",
+            audienceIds: [],
+            percentage: 9500,
             variations: [
               {
                 id: "9501848592",
@@ -100,6 +106,9 @@ code_examples:
         revision: "10",
         experiments: [
           {
+            status: "Not started",
+            audienceIds: [],
+            percentage: 9500,
             variations: [
               {
                 id: "9501848592",
@@ -144,6 +153,9 @@ code_examples:
         revision: "10",
         experiments: [
           {
+            status: "Not started",
+            audienceIds: [],
+            percentage: 9500,
             variations: [
               {
                 id: "9501848592",
