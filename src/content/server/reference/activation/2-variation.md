@@ -34,7 +34,7 @@ code_examples:
       var userId = 'user123';
 
       // Get the active variation for the provided user
-      variation = optimizely.getVariation(experimentKey, userId);
+      var variation = optimizely.getVariation(experimentKey, userId);
 ---
 
 If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use the code shown at right.

@@ -56,14 +56,16 @@ code_examples:
       var userId = 'user123';
 
       // Conditionally activate an experiment for the provided user
-      var variation = optimizely.activate(experimentKey, userId);
-      if (variation == 'variation_a') {
-        // execute code for variation A
-      } else if (variation == 'variation_b') {
-        // execute code for variation B
-      } else {
-        // execute default code
-      }
+      optimizely.activate(experimentKey, userId)
+        .then(function(variation) {
+          if (variation == 'variation_a') {
+            // execute code for variation A
+          } else if (variation == 'variation_b') {
+            // execute code for variation B
+          } else {
+            // execute default code
+          }
+        });
 ---
 
 Use the `activate` function to run an experiment in your code.
