@@ -297,6 +297,6 @@ A status file will be provided to track the success or failure of that day's exp
    </tbody>
 </table>
 
-**Please Note:(iOS & Android)**
+**Please Note: (web, iOS & Android)**
 
 * Data is de-duplicated on the results screen but not in the Data Export. Revenue goals are never de-duplicated.
