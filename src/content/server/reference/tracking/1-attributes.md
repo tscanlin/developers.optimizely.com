@@ -34,6 +34,18 @@ code_examples:
 
         # Track a conversion event for the provided user
         optimizely.track(event_key, user_id, attributes)
+  javascript:
+    lang: javascript
+    request: |
+        var eventKey = 'booking_complete';
+        var userId = 'user123';
+        var attributes = { 'device': 'iPhone', 'ad_source': 'my_campaign' };
+
+        // Track a conversion event for the provided user
+        optimizely.track(eventKey, userId, attributes)
+          .then(function() {
+            // conversion has been tracked
+          });
 ---
 
 If you'd like to be able to segment your experiments based on attributes of your users, you should include the optional `attributes` argument to the `track` function call. This is necessary even if you included the attributes in the corresponding `activate` call.

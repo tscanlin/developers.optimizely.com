@@ -15,6 +15,13 @@ code_examples:
     lang: ruby
     request: |
       require "optimizely"
+  javascript:
+    lang: javascript
+    request: |
+      var optimizely = require('optimizely-testing-sdk-node');
+
+      // or ES6
+      import optimizely from 'optimizely-testing-sdk-node'
 ---
 
 Import the Optimizely library into your code as shown.

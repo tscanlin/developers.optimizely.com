@@ -10,6 +10,10 @@ code_examples:
       compile files('libs/core-api-0.1.15.jar')
       compile files('libs/core-httpclient-impl-0.1.15.jar')
   ruby:
+  javascript:
+    lang: javascript
+    request: |
+      npm install path/to/optimizely-testing-sdk-node --save
 ---
 
 <div class="hidden" data-toggle-section="java-code">
