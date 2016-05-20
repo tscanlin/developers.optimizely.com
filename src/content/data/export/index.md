@@ -68,7 +68,7 @@ A status file will be provided to track the success or failure of that day's exp
       <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
+            <p> This is the anonymous optimizelyEndUserId cookie value.  It represents a unique visitor.</p>
          </td>
       </tr>
       <tr>
@@ -131,7 +131,7 @@ A status file will be provided to track the success or failure of that day's exp
 **Please Note**: 
    * Any fields after this are your segmented audiences or dimension names.
    * Adding or removing segments or dimensions could alter the layout of the event data files. Please account for this if you build an automated import of this data. 
-   * Data is de-duplicated on the results screen but not in the Data Export. Revenue goals are never de-duplicated. Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
+   * Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
 
 
 ### Android Dictionary 
@@ -167,7 +167,7 @@ A status file will be provided to track the success or failure of that day's exp
       <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
+            <p>  This is the anonymous optimizelyEndUserId value.  It represents a unique visitor.</p>
          </td>
       </tr>
       <tr>
@@ -185,13 +185,13 @@ A status file will be provided to track the success or failure of that day's exp
       <tr>
          <td align="left"><b>revenue</b></td>
          <td class="desc">
-            <p> If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.</p>
+            <p>  If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.  For event_name values of "mobile_session," this will also show the length of the session in seconds..</p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>event_name</b></td>
          <td class="desc">
-            <p> The event name of the tracking call, for pageviews this is the URL of the page, for engagement it is 'engagement', for everything else it is the custom event name.</p>
+            <p>  The event name of the tracking call.  A value of "mobile_session" means a new session was recorded (a session is a period of activity during which the app is foregrounded, without a break longer than 30 seconds).  A value of "visitor-event" shows the first time a visitor sees an experiment.  A tap or view goal will show the view name with #tap or #view appended.  For everything else it is the custom event name.</p>
          </td>
       </tr>
       <tr>
@@ -242,14 +242,14 @@ A status file will be provided to track the success or failure of that day's exp
       <tr>
          <td align="left"><b>variation_id</b></td>
          <td class="desc">
-            <p>The id we use to identify the variation the user saw. This should correspond to the variation id in the Diagnostic Report in the Options menu of the Visual Editor.
+            <p>The id we use to identify the variation the user saw. This should correspond to the variation id in the Diagnostic Report in the Options menu of the Editor.
             </p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
+            <p>This is the anonymous optimizelyEndUserId value set in NSUserDefaults.  It represents a unique visitor.</p>
          </td>
       </tr>
       <tr>
@@ -267,13 +267,13 @@ A status file will be provided to track the success or failure of that day's exp
       <tr>
          <td align="left"><b>revenue</b></td>
          <td class="desc">
-            <p> If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.</p>
+            <p>  If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.  For event_name values of "mobile_session," this will also show the length of the session in seconds.</p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>event_name</b></td>
          <td class="desc">
-            <p> The event name of the tracking call, for pageviews this is the URL of the page, for engagement it is 'engagement', for everything else it is the custom event name.</p>
+            <p> The event name of the tracking call.  A value of "mobile_session" means a new session was recorded (a session is a period of activity during which the app is foregrounded, without a break longer than 30 seconds).  A value of "visitor-event" shows the first time a visitor sees an experiment.  A tap or view goal will show the view name with #tap or #view appended.  For everything else it is the custom event name.</p>
          </td>
       </tr>
       <tr>
@@ -296,3 +296,7 @@ A status file will be provided to track the success or failure of that day's exp
       </tr>
    </tbody>
 </table>
+
+**Please Note:(iOS & Android)**
+
+* Data is de-duplicated on the results screen but not in the Data Export. Revenue goals are never de-duplicated.
