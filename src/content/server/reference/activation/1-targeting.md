@@ -68,9 +68,9 @@ code_examples:
       // Conditionally activate an experiment for the provided user
       optimizely.activate(experimentKey, userId, attributes)
         .then(function(variation) {
-          if (variation == 'variation_a') {
+          if (variation === 'variation_a') {
             // execute code for variation A
-          } else if (variation == 'variation_b') {
+          } else if (variation === 'variation_b') {
             // execute code for variation B
           } else {
             // execute default code

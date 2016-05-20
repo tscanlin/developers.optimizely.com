@@ -44,7 +44,7 @@ code_examples:
         // Track a conversion event for the provided user
         optimizely.track(eventKey, userId, attributes)
           .then(function() {
-            // conversion tracked
+            // conversion has been tracked
           });
 ---
 
