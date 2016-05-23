@@ -943,10 +943,9 @@ function getProjectId() {
  * @return {String} a string that displays all the experiments and variations in a list of query parameters
  */
 function getVariationsInParameters() {
-    var variations = JSON.parse(decodeURIComponent(getCookie("optimizelyBuckets")));
     resultstring = "";
-    for (var variation in variations) {
-        resultstring += "&x" + variation + "=" + variations[variation];
+    for (var exp in optimizely.data.state.variationIdsMap) {
+        resultstring += "&x" + exp + "=" + optimizely.data.state.variationIdsMap[exp].join("_");
     }
     return resultstring;
 }
@@ -961,10 +960,9 @@ function getVariationsInParameters() {
  * @return {String} a string that displays all the segments and their values in a list of query parameters
  */
 function getSegmentsInParameters() {
-    var segments = JSON.parse(decodeURIComponent(getCookie("optimizelySegments")));
     var resultstring = "";
-    for (var seg in segments) {
-        resultstring += "&s" + seg + "=" + segments[seg];
+    for (var seg in optimizely.data.visitor.segments) {
+        resultstring += "&s" + seg + "=" + optimizely.data.visitor.segments[seg];
     }
     return resultstring;
 }
