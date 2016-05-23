@@ -572,7 +572,7 @@ Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
 
 ## Upgrading to a new SDK
 
-1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
+1. If you are using Gradle, simply replace the dependency declaration in your `build.gradle` with a dependency on the new version.
 
   Here are some examples with Gradle:
 
@@ -583,16 +583,16 @@ Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
     }
   ```
 
-  - If you want to specify when you want to upgrade to monthly SDK feature releases (numbered v X.Y) and automatically upgrade to the newest incremental releases and hotfixes for that release (numbered v X.Y.Z), in this case all releases 1.3 and after and up to 1.4:
+  - If you want to specify when you want to upgrade to monthly SDK feature releases (numbered v X.Y) and automatically upgrade to the newest incremental releases and hotfixes for that release (numbered v X.Y.Z), in this case all releases 1.3 and after and up to 1.5:
   ```
   compile('com.optimizely:optimizely:1.3+@aar') {
         transitive = true
     }
   ```
 
-  - If you want to upgrade to a particular SDK version and stay at that version, in this case version 1.3:
+  - If you want to upgrade to a particular SDK version and stay at that version, in this case version 1.4.2:
   ```
-  compile('com.optimizely:optimizely:1.3@aar') {
+  compile('com.optimizely:optimizely:1.4.2@aar') {
       transitive = true
   }
   ```
@@ -625,4 +625,4 @@ If you are using manual integration, please repeat the [Manual Installation Step
 
 ## Uninstalling Optimizely
 
-If you installed via Maven or Gradle, simply remove the dependency on Optimizely. If you installed manually, you need to delete Optimizely.jar from your app.
+Simply remove the dependency on Optimizely from your `build.gradle`. If you installed manually, you need to delete Optimizely.jar from your app.
