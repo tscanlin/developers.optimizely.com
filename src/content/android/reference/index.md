@@ -209,6 +209,9 @@ A common use case for Code Blocks are phased rollouts.  Phased rollouts allow yo
 ## Custom Targeting
 
 ### Attributes
+
+Use attributes to segment your experiment results for more insight. This allows you to drill down into experiment results and discover how certain segments of users are behaving differently. This will allow you to create future experiments targeted to them.
+
 To set the value for an Attribute use one of these four methods.
 ```java
 boolean success = Optimizely.setValueForAttributeId(String, String);
