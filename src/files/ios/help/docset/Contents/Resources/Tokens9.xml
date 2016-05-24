@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/OptimizelyRunningMode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/OptimizelyRunningMode</TokenIdentifier>
+			<Abstract type="html">Enumeration type describes the current running mode of Optimizely</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+            
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyRunningModeNormal</TokenIdentifier>
+            <Abstract type="html">Optimizely is running as it would for a generic user.
+Experiments are loaded from a data file and there is no connection
+to the editor.
+     </Abstract>
+            <Declaration>OptimizelyRunningModeNormal</Declaration>
+            
+            <DeclaredIn>Optimizely.h</DeclaredIn>
+            
+            <NodeRef refid="9"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyRunningModeEdit</TokenIdentifier>
+            <Abstract type="html">The app is available to be edited on the web client.
+Socket connections are open to the editor.
+     </Abstract>
+            <Declaration>OptimizelyRunningModeEdit</Declaration>
+            
+            <DeclaredIn>Optimizely.h</DeclaredIn>
+            
+            <NodeRef refid="9"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyRunningModePreview</TokenIdentifier>
+            <Abstract type="html">The app is previewing variation(s) for some set of experiments.
+The device may be connected to the editor in order to send
+debug logs, if that was specified in the preview config file.
+     </Abstract>
+            <Declaration>OptimizelyRunningModePreview</Declaration>
+            
+            <DeclaredIn>Optimizely.h</DeclaredIn>
+            
+            <NodeRef refid="9"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

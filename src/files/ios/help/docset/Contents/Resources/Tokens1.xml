@@ -222,54 +222,12 @@ to Optimizely and fetches the newest experiment data file.</Abstract>
 					<Name>revenueAmount</Name>
 					<Abstract type="html">The revenue amount in cents associated with the event</Abstract>
 				</Parameter><Parameter>
-					<Name>description:</Name>
-					<Abstract type="html">a description of the revenue</Abstract>
+					<Name>description</Name>
+					<Abstract type="html">The description of the revenue. This will only be shown in the raw event log.</Abstract>
 				</Parameter>
 			</Parameters>
 			
 			<Anchor>//api/name/trackRevenue:withDescription:</Anchor>
-            <NodeRef refid="1"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/registerCallbackForVariableWithKey:callback:</TokenIdentifier>
-			<Abstract type="html">This method registers a callback method for when a given variable is changed.
-Method signature is: void (^callback)(NSString *, id)</Abstract>
-			<DeclaredIn>Optimizely.h</DeclaredIn>
-			
-			<Declaration>+ (void)registerCallbackForVariableWithKey:(OptimizelyVariableKey *)key callback:(void ( ^ ) ( NSString *, id ))callback</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>key</Name>
-					<Abstract type="html">The Optimizely key associated with the variable you want to watch</Abstract>
-				</Parameter><Parameter>
-					<Name>callback</Name>
-					<Abstract type="html">The callback method that will be invoked whenever the variable is changed. It takes in two parameters, the first being the key of the changed variable and the second is the variable&apos;s new value</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/registerCallbackForVariableWithKey:callback:</Anchor>
-            <NodeRef refid="1"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/registerCallbackForCodeBlockWithKey:callback:</TokenIdentifier>
-			<Abstract type="html">This method registers a callback method for when a given code block is changed.
-Method signature is: void (^callback)()</Abstract>
-			<DeclaredIn>Optimizely.h</DeclaredIn>
-			
-			<Declaration>+ (void)registerCallbackForCodeBlockWithKey:(OptimizelyCodeBlocksKey *)key callback:(void ( ^ ) ( ))callback</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>key</Name>
-					<Abstract type="html">The Optimizely key associated with the code block you want to watch</Abstract>
-				</Parameter><Parameter>
-					<Name>callback</Name>
-					<Abstract type="html">The callback method that will be invoked whenever the code block is changed.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/registerCallbackForCodeBlockWithKey:callback:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
@@ -312,7 +270,7 @@ The ID is available in the bottom of the experiment details panel from the proje
 			<Declaration>+ (BOOL)isUserInAudience:(NSString *)audienceId</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>audienceId:</Name>
+					<Name>audienceId</Name>
 					<Abstract type="html">The audienceId that we&apos;re trying to check against</Abstract>
 				</Parameter>
 			</Parameters>
@@ -407,6 +365,111 @@ This function should be used for QA ONLY, since forcing a variation will clear o
 			</Parameters>
 			
 			<Anchor>//api/name/forceVariation:ofExperiment:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/getAttributes</TokenIdentifier>
+			<Abstract type="html">This method returns a copy of all attributes that are defined in the data file.
+If this is called before Optimizely starts, it will return an empty array.
+If there are no attributes, it will return an empty array.
+Each attribute will be an index in the NSArray represented by an instance of the OptimizelyAttribute class.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (NSArray *)getAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/getAttributes</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/getAttributeValueForAttributeId:</TokenIdentifier>
+			<Abstract type="html">This method gets the current value of the Optimizely Attribute object with the input attribute Id.
+If attribute Id is nil, it will return nil.
+If this method is called before Optimizely is started, it will return what is currently stored.
+After Optimizely is started, if there is no corresponding OptimizelyAttribute object with that attribute Id, it will return nil.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (NSString *)getAttributeValueForAttributeId:(NSString *)attributeId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>attributeId</Name>
+					<Abstract type="html">The id of the OptimizelyAttribute object whose value is being queried.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The value of the OptimizelyAttribute object if found.</Abstract></ReturnValue>
+			<Anchor>//api/name/getAttributeValueForAttributeId:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/getAttributeValueForAttributeApiName:</TokenIdentifier>
+			<Abstract type="html">This method gets the current value of the Optimizely Attribute object with the input attribute API Name.
+If attribute API Name is nil, it will return nil.
+If this method is called before Optimizely is started, it will return what is currently stored.
+After Optimizely is started, if there is no corresponding OptimizelyAttribute object with that attribute API Name, it will return nil.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (NSString *)getAttributeValueForAttributeApiName:(NSString *)attributeApiName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>attributeApiName</Name>
+					<Abstract type="html">The API Name of the OptimizelyAttribute object whose value is being queried.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The value of the OptimizelyAttribute object if found.</Abstract></ReturnValue>
+			<Anchor>//api/name/getAttributeValueForAttributeApiName:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/setValue:forAttributeId:</TokenIdentifier>
+			<Abstract type="html">This method sets the value for a attribute with the corresponding Id.
+If attributeId is nil, it will return NO.
+If this method is called before Optimizely is started, it will return YES.
+It will be unable to check if the attributeId is valid and will only store the key value pair.
+If this method is called after Optimizely is started, it will return YES if it properly sets the value.
+If there is no corresponding OptimizelyAttribute, it will return NO.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (BOOL)setValue:(NSString *)value forAttributeId:(NSString *)attributeId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">The value to set the OptimizelyAttribute to.</Abstract>
+				</Parameter><Parameter>
+					<Name>attributeId</Name>
+					<Abstract type="html">The attribute Id of the OptimizelyAttribute you want to modify.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if the value is successfully set. NO otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/setValue:forAttributeId:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/setValue:forAttributeApiName:</TokenIdentifier>
+			<Abstract type="html">This method sets the value for a attribute with the corresponding API Name.
+If attributeApiName is nil, it will return NO.
+If this method is called before Optimizely is started, it will return YES.
+It will be unable to check if the attributeApiName is valid and will only store the key value pair.
+If this method is called after Optimizely is started, it will return YES if it properly sets the value.
+If there is no corresponding OptimizelyAttribute, it will return NO.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (BOOL)setValue:(NSString *)value forAttributeApiName:(NSString *)attributeApiName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">The value to set the OptimizelyAttribute to.</Abstract>
+				</Parameter><Parameter>
+					<Name>attributeApiName</Name>
+					<Abstract type="html">The attribute API Name of the OptimizelyAttribute you want to modify.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if the value is successfully set. NO otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/setValue:forAttributeApiName:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
@@ -530,6 +593,26 @@ This function should be used for QA ONLY, since forcing a variation will clear o
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/registerCallbackForVariableWithKey:callback:</TokenIdentifier>
+			<Abstract type="html">This method registers a callback that is run when the given variable is changed.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerCallbackForVariableWithKey:(OptimizelyVariableKey *)key callback:(void ( ^ ) ( NSString *, id ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The Optimizely key associated with the variable you want to watch</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">The callback method that will be invoked whenever the variable is changed. It takes in two parameters, the first being the key of the changed variable and the second is the variable&apos;s new value</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerCallbackForVariableWithKey:callback:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/codeBlocksWithKey:blockOne:defaultBlock:</TokenIdentifier>
 			<Abstract type="html">This method allows you to define a code block based experiment with one alternative.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
@@ -640,6 +723,26 @@ This function should be used for QA ONLY, since forcing a variation will clear o
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/registerCallbackForCodeBlockWithKey:callback:</TokenIdentifier>
+			<Abstract type="html">This method registers a callback that is run when the given code block is changed.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerCallbackForCodeBlockWithKey:(OptimizelyCodeBlocksKey *)key callback:(void ( ^ ) ( ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The Optimizely key associated with the code block you want to watch</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">The callback method that will be invoked whenever the code block is changed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerCallbackForCodeBlockWithKey:callback:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/ignoreUIViewSubclassesWithNames:</TokenIdentifier>
 			<Abstract type="html">Stores the set of classes that Optimizely will ignore generating OptimizelyIds for.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
@@ -648,47 +751,11 @@ This function should be used for QA ONLY, since forcing a variation will clear o
 			<Parameters>
 				<Parameter>
 					<Name>viewSubclassesToIgnoreForTagging</Name>
-					<Abstract type="html">A set of all the string class names that you want Optmizely to ignore generating Ids for.</Abstract>
+					<Abstract type="html">A set of all string class names for which Optimizely will not generate IDs.</Abstract>
 				</Parameter>
 			</Parameters>
 			
 			<Anchor>//api/name/ignoreUIViewSubclassesWithNames:</Anchor>
-            <NodeRef refid="1"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/set:</TokenIdentifier>
-			<Abstract type="html">@deprecated.  Use allExperiments or visitedExperiments.</Abstract>
-			<DeclaredIn>Optimizely.h</DeclaredIn>
-			
-			<Declaration>@property (readonly, strong, nonatomic) NSArray *__attribute ( ( deprecated ( &quot;Use allExperiments or visitedExperiments&quot; )</Declaration>
-			
-			
-			<Anchor>//api/name/)</Anchor>
-            <NodeRef refid="1"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/)</TokenIdentifier>
-			<Abstract type="html">@deprecated.  Use allExperiments or visitedExperiments.</Abstract>
-			<DeclaredIn>Optimizely.h</DeclaredIn>
-			
-			<Declaration>@property (readonly, strong, nonatomic) NSArray *__attribute ( ( deprecated ( &quot;Use allExperiments or visitedExperiments&quot; )</Declaration>
-			
-			
-			<Anchor>//api/name/)</Anchor>
-            <NodeRef refid="1"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/)</TokenIdentifier>
-			<Abstract type="html">@deprecated.  Use allExperiments or visitedExperiments.</Abstract>
-			<DeclaredIn>Optimizely.h</DeclaredIn>
-			
-			<Declaration>@property (readonly, strong, nonatomic) NSArray *__attribute ( ( deprecated ( &quot;Use allExperiments or visitedExperiments&quot; )</Declaration>
-			
-			
-			<Anchor>//api/name/)</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
@@ -876,47 +943,83 @@ has viewed across all sessions. To get a list of all experiments, use allExperim
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/setUserId:</TokenIdentifier>
-			<Abstract type="html">A unique identifier for the current user.
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/setUniversalUserId:</TokenIdentifier>
+			<Abstract type="html">A unique identifier that can be set. It is used to identify end users across platforms.
 If a custom identifier is provided, it must be set prior to calling +startWithProjectId:launchOptions:.
-Defaults to the device UUIDString if no identifier is provided.
-Setting the userId to nil will reset the UUID.</Abstract>
+Setting the universalUserId to nil will clear the UUID.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, strong) NSString *userId</Declaration>
+			<Declaration>@property (nonatomic, readwrite, strong) NSString *universalUserId</Declaration>
 			
 			
-			<Anchor>//api/name/userId</Anchor>
+			<Anchor>//api/name/universalUserId</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/userId</TokenIdentifier>
-			<Abstract type="html">A unique identifier for the current user.
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/universalUserId</TokenIdentifier>
+			<Abstract type="html">A unique identifier that can be set. It is used to identify end users across platforms.
 If a custom identifier is provided, it must be set prior to calling +startWithProjectId:launchOptions:.
-Defaults to the device UUIDString if no identifier is provided.
-Setting the userId to nil will reset the UUID.</Abstract>
+Setting the universalUserId to nil will clear the UUID.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, strong) NSString *userId</Declaration>
+			<Declaration>@property (nonatomic, readwrite, strong) NSString *universalUserId</Declaration>
 			
 			
-			<Anchor>//api/name/userId</Anchor>
+			<Anchor>//api/name/universalUserId</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/userId</TokenIdentifier>
-			<Abstract type="html">A unique identifier for the current user.
+			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/universalUserId</TokenIdentifier>
+			<Abstract type="html">A unique identifier that can be set. It is used to identify end users across platforms.
 If a custom identifier is provided, it must be set prior to calling +startWithProjectId:launchOptions:.
-Defaults to the device UUIDString if no identifier is provided.
-Setting the userId to nil will reset the UUID.</Abstract>
+Setting the universalUserId to nil will clear the UUID.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, strong) NSString *userId</Declaration>
+			<Declaration>@property (nonatomic, readwrite, strong) NSString *universalUserId</Declaration>
 			
 			
-			<Anchor>//api/name/userId</Anchor>
+			<Anchor>//api/name/universalUserId</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/setOptimizelyEndUserId:</TokenIdentifier>
+			<Abstract type="html">This is a unique ID generated by the Optimizely SDK.
+An Optimizely End User ID is assigned to each of the end users who successfully start the SDK.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *optimizelyEndUserId</Declaration>
+			
+			
+			<Anchor>//api/name/optimizelyEndUserId</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/optimizelyEndUserId</TokenIdentifier>
+			<Abstract type="html">This is a unique ID generated by the Optimizely SDK.
+An Optimizely End User ID is assigned to each of the end users who successfully start the SDK.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *optimizelyEndUserId</Declaration>
+			
+			
+			<Anchor>//api/name/optimizelyEndUserId</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/optimizelyEndUserId</TokenIdentifier>
+			<Abstract type="html">This is a unique ID generated by the Optimizely SDK.
+An Optimizely End User ID is assigned to each of the end users who successfully start the SDK.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *optimizelyEndUserId</Declaration>
+			
+			
+			<Anchor>//api/name/optimizelyEndUserId</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
@@ -1143,42 +1246,73 @@ config file.</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/activateMixpanelIntegration</TokenIdentifier>
-			<Abstract type="html">This activates the Optimizely SDK&apos;s Mixpanel integration. This behaves identically to web,
-which you can read about here,
-except that it cannot (yet) be activated through the website.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/setMode:</TokenIdentifier>
+			<Abstract type="html">Returns the running mode of Optimizely.
+The default value is OptimizelyRunningModeNormal.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
-			<Declaration>+ (void)activateMixpanelIntegration</Declaration>
+			<Declaration>@property (nonatomic, readonly) OptimizelyRunningMode mode</Declaration>
 			
 			
-			<Anchor>//api/name/activateMixpanelIntegration</Anchor>
+			<Anchor>//api/name/mode</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/activateAmplitudeIntegration</TokenIdentifier>
-			<Abstract type="html">This activates the Optimizely SDK&apos;s Amplitude integration. You can read more about this
-here.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/mode</TokenIdentifier>
+			<Abstract type="html">Returns the running mode of Optimizely.
+The default value is OptimizelyRunningModeNormal.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
-			<Declaration>+ (void)activateAmplitudeIntegration</Declaration>
+			<Declaration>@property (nonatomic, readonly) OptimizelyRunningMode mode</Declaration>
 			
 			
-			<Anchor>//api/name/activateAmplitudeIntegration</Anchor>
+			<Anchor>//api/name/mode</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/activateLocalyticsIntegration</TokenIdentifier>
-			<Abstract type="html">This activates the Optimizely SDK&apos;s Localytics integration. You can read more about this
-here</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/mode</TokenIdentifier>
+			<Abstract type="html">Returns the running mode of Optimizely.
+The default value is OptimizelyRunningModeNormal.</Abstract>
 			<DeclaredIn>Optimizely.h</DeclaredIn>
 			
-			<Declaration>+ (void)activateLocalyticsIntegration</Declaration>
+			<Declaration>@property (nonatomic, readonly) OptimizelyRunningMode mode</Declaration>
 			
 			
-			<Anchor>//api/name/activateLocalyticsIntegration</Anchor>
+			<Anchor>//api/name/mode</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/registerPlugin:</TokenIdentifier>
+			<Abstract type="html">Registers the given plugin. This function should be called by the end user if the
+plugin that they wish to use does not implement auto-registry, or if your project is
+written in Swift (which lacks macro support). Plugin maintainers
+should prefer using the OptimizelyRegisterPlugin macro from OptimizelyPlugin.h</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerPlugin:(id&lt;OptimizelyPlugin&gt;)plugin</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>plugin</Name>
+					<Abstract type="html">the plugin instance to register. Only one plugin instance should be created.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerPlugin:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Optimizely/getDimensions</TokenIdentifier>
+			<Abstract type="html">@deprecated. Use getAttributes.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>+ (NSArray *)getDimensions</Declaration>
+			
+			
+			<Anchor>//api/name/getDimensions</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
@@ -1394,6 +1528,42 @@ variation of this test.</Abstract>
 			</Parameters>
 			
 			<Anchor>//api/name/codeTest:withBlocks:defaultBlock:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/set:</TokenIdentifier>
+			<Abstract type="html">  @deprecated.  Use allExperiments or visitedExperiments.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, strong, nonatomic) NSArray *__attribute ( ( deprecated ( &quot;Use allExperiments or visitedExperiments&quot; )</Declaration>
+			
+			
+			<Anchor>//api/name/)</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Optimizely/)</TokenIdentifier>
+			<Abstract type="html">  @deprecated.  Use allExperiments or visitedExperiments.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, strong, nonatomic) NSArray *__attribute ( ( deprecated ( &quot;Use allExperiments or visitedExperiments&quot; )</Declaration>
+			
+			
+			<Anchor>//api/name/)</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Optimizely/)</TokenIdentifier>
+			<Abstract type="html">  @deprecated.  Use allExperiments or visitedExperiments.</Abstract>
+			<DeclaredIn>Optimizely.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, strong, nonatomic) NSArray *__attribute ( ( deprecated ( &quot;Use allExperiments or visitedExperiments&quot; )</Declaration>
+			
+			
+			<Anchor>//api/name/)</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
