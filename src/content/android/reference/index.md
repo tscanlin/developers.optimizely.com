@@ -208,6 +208,35 @@ A common use case for Code Blocks are phased rollouts.  Phased rollouts allow yo
 
 ## Custom Targeting
 
+### Attributes
+
+Use attributes to segment your experiment results for more insight. This allows you to drill down into experiment results and discover how certain segments of users are behaving differently. This will allow you to create future experiments targeted to them.
+
+To set the value for an Attribute use one of these four methods.
+```java
+boolean success = Optimizely.setValueForAttributeId(String, String);
+boolean success = Optimizely.setValueForAttributeApiName(String, String);
+boolean success = Optimizely.setValueForAttributeId(String, String, Context);
+boolean success = Optimizely.setValueForAttributeApiName(String, String Context);
+```
+Both methods will return a boolean that determines whether the value was successfully set for the Attribute. If the string you passed in for the Attribute Id or the Attribute API Name do not match an Attribute in your project, it will return false. If Optimizely was able to locate the Attribute and set the value, it will return true. If you are using these methods before starting Optimizely, you MUST pass in the current Context. When the latter 2 methods are called before starting Optimziely they will always return true even if the Attribute Id or Attribute API Name do not match an existing Attribute. If you use both `setValueForAttributeId(String, String, Context)` and `setValueForAttributeApiName(String, String, Context)` before starting Optimizely for the same attribute, `setValueForAttributeId(String, String, Context)` will override `setValueForAttributeApiName(String, String, Context)` when the Attribute is initialized.
+
+To get the current value of an Attribute use one of these two methods.
+```java
+String value = Optimizely.getValueForAttributeId(String);
+String value = Optimizely.getValueForAttributeApiName(String);
+String value = Optimziely.getValueForAttributeId(String, Context);
+String value = Optimizely.getValueForAttributeApiName(String, Context);
+```
+
+Both methods will return an `String` object whose value is the current value for the associated Attribute. If the Attribute does not exist, it will return `null`. If you use these methods before starting Optimizely, you MUST passin the current Context. When called before starting Optimizely, they will return the last value you provided through the corresponding `setValueForAttributeId(String, String, Context):` or `setValueForAttributeApiName(String, String, Context)` call. But `getValueForAttributeId(String, Context)` will not be able to return the value for an Attribute whose value you have attempted to set through `setValueForAttributeApiName(String, String, Context)`. Likewise, `getValueForAttributeApiName(String, Context)` will not be able to return the value for an Attribute whose value you have attempted to set through `setValueForAttributeId(String, String, Context)`.
+
+To get an Array of all the current Attributes, use
+```obj-c
+ArrayList<OptimizelyAttribute> *attributes = Optimizely.getAttributes();
+```
+This method returns a copy of all attributes that are defined in the data file. If this is called before Optimizely starts, it will return an empty array. If there are no attributes, it will return an empty array. Each attribute will be an index in the ArrayList represented by an instance of the `OptimizelyAttribute` class.
+
 ### Custom Tags
 Custom Tags allow you to target users based on variables and attributes before Optimizely starts. You will be able to run your experiment and target visitors based on those custom attributes, effectively **only** bucketing those who meet your targeting conditions.
 To create an experiment targeting a Custom Tag, open the Optimizely editor, click on "Options", followed by "Targeting" and selecting "Custom Tag" within the Optimizely editor.
