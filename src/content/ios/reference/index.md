@@ -320,6 +320,29 @@ A common use case for Code Blocks are phased rollouts.  Phased rollouts allow yo
 
 ## Custom Targeting
 
+### Attributes
+To set the value for an Attribute use one of these two methods.
+```obj-c
+BOOL success = [Optimizely setValue:@"value" forAttributeId:@"attributeId"];
+BOOL success = [Optimizely setValue:@"value" forAttributeApiName:@"attributeApiName"];
+```
+Both methods will return a boolean that determines whether the value was successfully set for the Attribute. If the string you passed in for the Attribute Id or the Attribute API Name do not match an Attribute in your project, it will return false. If Optimizely was able to locate the Attribute and set the value, it will return true. If you are using these methods before starting Optimizely, they will always return true even if the Attribute Id or Attribute API Name do not match an existing Attribute. If you use both `setValue:forAttributeId:` and `setValue:forAttributeApiName:` before starting Optimizely for the same attribute, `setValue:forAttributeId:` will override `setValue:forAttributeApiName:` when the Attribute is initialized.
+
+To get the current value of an Attribute use one of these two methods.
+```obj-c
+NSString *value = [Optimizely getValueForAttributeId:@"attributeId"];
+NSString *value = [Optimizely getValueForAttributeApiName:@"attributeApiName"];
+```
+
+Both methods will return an `NSString` object whose value is the current value for the associated Attribute. If the Attribute does not exist, it will return `nil`. If you use these methods before starting Optimizely, they will return the last value you provided through the corresponding `setValue:forAttributeId:` or `setValue:forAttributeApiName:` call. But `getValueForAttributeId:` will not be able to return the value for an Attribute whose value you have attempted to set through `setValue:forAttributeApiName:`. Likewise, `getValueForAttributeApiName:` will not be able to return the value for an Attribute whose value you have attempted to set through `setValue:forAttributeId:`.
+
+To get an Array of all the current Attributes, use
+```obj-c
+NSArray *attributes = [Optimizely getAttributes];
+```
+This method returns a copy of all attributes that are defined in the data file. If this is called before Optimizely starts, it will return an empty array. If there are no attributes, it will return an empty array. Each attribute will be an index in the NSArray represented by an instance of the `OptimizelyAttribute` class.
+
+
 ### Custom Tags
 Custom Tags allow you to target users based on variables and attributes. You will be able to run your experiment and target visitors based on those custom attributes, effectively **only** bucketing those who meet your targeting conditions.  To be able to use Custom Tags in Optimizely, there are some lines of code that need to be added to your app.
 
