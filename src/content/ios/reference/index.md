@@ -79,6 +79,8 @@ If you decide you do not want views to be automatically tagged with an optimizel
 
 If you decide you want to exclusively use Live Variables and Code Blocks, you can set the  [disableSwizzle](/ios/help/html/Classes/Optimizely.html#//api/name/disableSwizzle) property to YES.
 
+**Note: Disabling the Visual Editor will also disable the ability for us to track view goals and tap goals. If you disable the Visual Editor, you'll need to rely only on custom event goals to track conversions.**
+
 ## Register Live Variables
 
 [Live Variables](/ios/help/html/Classes/Optimizely.html#task_Live%20Variables) allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity.  In order to create an Optimizely Live Variable, first define a corresponding `OptimizelyVariableKey` as follows:
