@@ -63,6 +63,8 @@ Optimizely.setOptimizelyId("price_text_label", priceTextView);
 
 If you decide you want to exclusively use Live Variables and Code Blocks, you can set [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled%28boolean%29) to false.
 
+**Note: Disabling the Visual Editor will also disable the ability for us to track view goals and tap goals. If you disable the Visual Editor, you'll need to rely only on custom event goals to track conversions.**
+
 ## Register Live Variables
 
 Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables are declared as static variables in your code and then can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new styling. Live variables must be declared as static variables in your app in order for the Optimizely Editor to detect them.
