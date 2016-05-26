@@ -51,15 +51,12 @@ var JS_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
 });
 
 var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
-  'customer-profiles': {
-    path: 'customer-profiles',
-    title: 'Dynamic Customer Profiles',
-  },
   'conditions': {
     path: 'conditions',
     title: 'Conditions',
   },
 });
+
 
 
 var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
@@ -176,10 +173,16 @@ var data = {
   sections: DATA_NAV_SECTIONS,
 };
 
+var dcp = {
+  path: 'data/customer-profiles',
+  title: 'Dynamic Customer Profiles (DCP)',
+}
+
 nav.dataServices = {
   label: 'Data Services',
   sections: [
-    data
+    data,
+    dcp
   ],
 };
 
