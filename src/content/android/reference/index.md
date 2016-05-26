@@ -314,7 +314,7 @@ private void userDidSwipeTask() {
 ```
 As of SDK version 1.1, if you aren't sure of the exact spelling of your custom goal string, you can trigger custom events in your simulator or connected device, and the strings will appear in the dialog in the order they were triggered.
 
-For more details and to learn about tap and view goals, refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
+For more details and to learn about tap and view goals, refer to the following [guide](https://help.optimizely.com/Track_Conversion_Goals/Mobile_Goals%3A_Measure_the_success_of_your_experiment) from our Knowledge Base.
 
 ### Revenue Tracking
 The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add a Saved Goal", hover over the "Total Revenue" goal, and click the "Add" button. In order to track this goal, use the revenue API by passing an integer number of cents:

@@ -157,7 +157,7 @@ After creating an Android project and installing the SDK, click the `Create Expe
 
 The Optimizely Android SDK identifies Views within your application using the view hierarchy of the view-- in some cases you may need to specify your own ID or mark a specific view in a collection view as unique.
 
-See this section on [configuring the visual editor](#configure_visual_editor).
+See this section on [configuring the visual editor](//developers.optimizely.com/android/reference/index.html#visual-editor-configuration).
 
 <h2 id="qa">5. QA</h2>
 
