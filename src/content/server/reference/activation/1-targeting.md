@@ -57,6 +57,7 @@ code_examples:
         # execute code for variation B
       else
         # execute default code
+      end
 
   javascript:
     lang: javascript
