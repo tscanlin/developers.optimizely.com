@@ -63,7 +63,7 @@ Optimizely.setOptimizelyId("price_text_label", priceTextView);
 
 If you decide you want to exclusively use Live Variables and Code Blocks, you can set [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled%28boolean%29) to false.
 
-**Note: Disabling the Visual Editor will also disable the ability for us to track view goals and tap goals. If you disable the Visual Editor, you'll need to rely only on custom event goals to track conversions.**
+**Note: Disabling the Visual Editor will also disable the ability to track tap goals. If you disable the Visual Editor, you'll need to rely only on view goals and custom event goals to track conversions.**
 
 ## Register Live Variables
 

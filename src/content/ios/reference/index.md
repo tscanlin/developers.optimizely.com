@@ -79,7 +79,7 @@ If you decide you do not want views to be automatically tagged with an optimizel
 
 If you decide you want to exclusively use Live Variables and Code Blocks, you can set the  [disableSwizzle](/ios/help/html/Classes/Optimizely.html#//api/name/disableSwizzle) property to YES.
 
-**Note: Disabling the Visual Editor will also disable the ability for us to track view goals and tap goals. If you disable the Visual Editor, you'll need to rely only on custom event goals to track conversions.**
+**Note: Disabling the Visual Editor will also disable the ability to track tap goals. If you disable the Visual Editor, you'll need to rely only on view goals and custom event goals to track conversions.**
 
 ## Register Live Variables
 
