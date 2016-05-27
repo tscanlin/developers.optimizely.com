@@ -160,10 +160,17 @@ var rest = {
   showInHeaderDropdown: true,
 };
 
+var oauth = {
+  path: 'oauth',
+  title: 'OAuth 2.0'
+
+}
+
 nav.management = {
   label: 'Management',
   sections: [
-    rest
+    rest,
+    oauth
   ]
 };
 
@@ -178,11 +185,17 @@ var dcp = {
   title: 'Dynamic Customer Profiles (DCP)',
 }
 
+var results = {
+  path: 'results',
+  title: 'Result Endpoint'
+}
+
 nav.dataServices = {
   label: 'Data Services',
   sections: [
     data,
-    dcp
+    dcp,
+    results
   ],
 };
 
@@ -200,18 +213,33 @@ var apps = {
   showInHeaderDropdown: true,
 };
 
+var extensions = {
+path: 'extensions',
+title: 'Extensions',
+singlePage: true,
+showInHeaderDropdown: true,
+}
+
 nav.addOns = {
   label: 'Add Ons',
   sections: [
     integrations,
-    apps
+    apps,
+    extensions
   ],
 };
 
+var community = {
+  path: 'community',
+  title: '3rd Party Libraries'
+
+}
+
 nav.community = {
-  label: '',
-  hidden: true,
-  sections: []
+  label: 'Community',
+  sections: [
+    community
+  ]
 };
 
 // Add new nav data to paths object.
