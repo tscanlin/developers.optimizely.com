@@ -58,7 +58,6 @@ var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
 });
 
 
-
 var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'guide': {
     path: 'guide',
@@ -162,8 +161,8 @@ var rest = {
 
 var oauth = {
   path: 'oauth',
-  title: 'OAuth 2.0'
-
+  title: 'OAuth 2.0',
+  singlePage: true,
 }
 
 nav.management = {
@@ -214,10 +213,10 @@ var apps = {
 };
 
 var extensions = {
-path: 'extensions',
-title: 'Extensions',
-singlePage: true,
-showInHeaderDropdown: true,
+  path: 'extensions',
+  title: 'Extensions',
+  singlePage: true,
+  showInHeaderDropdown: true,
 }
 
 nav.addOns = {
