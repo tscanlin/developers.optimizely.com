@@ -176,18 +176,18 @@ nav.management = {
 
 var data = {
   path: 'data',
-  title: 'Data Access',
+  title: 'Event Access',
   sections: DATA_NAV_SECTIONS,
 };
 
 var dcp = {
   path: 'data/customer-profiles',
-  title: 'Dynamic Customer Profiles (DCP)',
+  title: 'Customer Profiles',
 }
 
 var results = {
   path: 'results',
-  title: 'Result Endpoint'
+  title: 'Experiment Results'
 }
 
 nav.dataServices = {
@@ -229,16 +229,16 @@ nav.addOns = {
   ],
 };
 
-var community = {
-  path: 'community',
-  title: '3rd Party Libraries'
-
-}
+var libs = {
+  path: 'libs',
+  title: 'Libraries',
+  singlePage: true
+};
 
 nav.community = {
   label: 'Community',
   sections: [
-    community
+    libs
   ]
 };
 
@@ -263,6 +263,7 @@ paths.allSections = {
   data: data,
   integrations: integrations,
   apps: apps,
+  libs: libs
 };
 
 // Declare redirects.
