@@ -6,9 +6,9 @@
       {% for key in paths.leftNav %}
         {% if paths.nav[key].hidden != true %}
           {% if paths.nav[key].label != false %}
-            <label class="label caps milli muted">{{ paths.nav[key].label }}</label>
+            <label class="label caps micro muted">{{ paths.nav[key].label }}</label>
           {% endif %}
-          <ul class="unstyled delta push-double--bottom">
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
             {% for topSection in paths.nav[key].sections %}
               <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
               {% if topSection.hiddenSection != true or topSection.path == pathArray[0] %}
