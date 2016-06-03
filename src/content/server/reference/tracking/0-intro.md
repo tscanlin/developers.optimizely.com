@@ -27,6 +27,19 @@ code_examples:
 
         # Track a conversion event for the provided user
         optimizely.track(event_key, user_id)
+  javascript:
+    lang: javascript
+    request: |
+        var eventKey = 'booking_complete';
+        var userId = 'user123';
+
+        // Track a conversion event for the provided user
+        optimizely.track(eventKey, userId)
+          .then(function() {
+            // conversion has been tracked
+          });
 ---
 
 You can easily track Optimizely goals from your code as shown in the example to the right. Note that you don't need to pass the assigned experiments or variations; Optimizely will drop any conversion events for users that are not part of an experiment that includes the goal.
+
+<div class="attention attention--warning push--bottom">*Please note:* in cases where an experiment is activated for a user, the SDK will log an event to Optimizely servers to record the conversion event.</div>

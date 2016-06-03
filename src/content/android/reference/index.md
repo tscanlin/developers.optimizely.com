@@ -63,9 +63,11 @@ Optimizely.setOptimizelyId("price_text_label", priceTextView);
 
 If you decide you want to exclusively use Live Variables and Code Blocks, you can set [setVisualExperimentsEnabled](/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled%28boolean%29) to false.
 
+**Note: Disabling the Visual Editor will also disable the ability to track tap goals. If you disable the Visual Editor, you'll need to rely only on view goals and custom event goals to track conversions.**
+
 ## Register Live Variables
 
-Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables are declared as static variables in your code and then can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new styling. Live variables must be declared as static variables in your app in order for the Optimizely Editor to detect them.
+Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely's editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new styling.
 
 ```java
 public class MyActivity extends Activity {
@@ -208,6 +210,35 @@ A common use case for Code Blocks are phased rollouts.  Phased rollouts allow yo
 
 ## Custom Targeting
 
+### Attributes
+
+Use attributes to segment your experiment results for more insight. This allows you to drill down into experiment results and discover how certain segments of users are behaving differently. This will allow you to create future experiments targeted to them.
+
+To set the value for an Attribute use one of these four methods.
+```java
+boolean success = Optimizely.setValueForAttributeId(String, String);
+boolean success = Optimizely.setValueForAttributeApiName(String, String);
+boolean success = Optimizely.setValueForAttributeId(String, String, Context);
+boolean success = Optimizely.setValueForAttributeApiName(String, String Context);
+```
+Both methods will return a boolean that determines whether the value was successfully set for the Attribute. If the string you passed in for the Attribute Id or the Attribute API Name do not match an Attribute in your project, it will return false. If Optimizely was able to locate the Attribute and set the value, it will return true. If you are using these methods before starting Optimizely, you MUST pass in the current Context. When the latter 2 methods are called before starting Optimziely they will always return true even if the Attribute Id or Attribute API Name do not match an existing Attribute. If you use both `setValueForAttributeId(String, String, Context)` and `setValueForAttributeApiName(String, String, Context)` before starting Optimizely for the same attribute, `setValueForAttributeId(String, String, Context)` will override `setValueForAttributeApiName(String, String, Context)` when the Attribute is initialized.
+
+To get the current value of an Attribute use one of these two methods.
+```java
+String value = Optimizely.getValueForAttributeId(String);
+String value = Optimizely.getValueForAttributeApiName(String);
+String value = Optimziely.getValueForAttributeId(String, Context);
+String value = Optimizely.getValueForAttributeApiName(String, Context);
+```
+
+Both methods will return an `String` object whose value is the current value for the associated Attribute. If the Attribute does not exist, it will return `null`. If you use these methods before starting Optimizely, you MUST passin the current Context. When called before starting Optimizely, they will return the last value you provided through the corresponding `setValueForAttributeId(String, String, Context):` or `setValueForAttributeApiName(String, String, Context)` call. But `getValueForAttributeId(String, Context)` will not be able to return the value for an Attribute whose value you have attempted to set through `setValueForAttributeApiName(String, String, Context)`. Likewise, `getValueForAttributeApiName(String, Context)` will not be able to return the value for an Attribute whose value you have attempted to set through `setValueForAttributeId(String, String, Context)`.
+
+To get an Array of all the current Attributes, use
+```obj-c
+ArrayList<OptimizelyAttribute> *attributes = Optimizely.getAttributes();
+```
+This method returns a copy of all attributes that are defined in the data file. If this is called before Optimizely starts, it will return an empty array. If there are no attributes, it will return an empty array. Each attribute will be an index in the ArrayList represented by an instance of the `OptimizelyAttribute` class.
+
 ### Custom Tags
 Custom Tags allow you to target users based on variables and attributes before Optimizely starts. You will be able to run your experiment and target visitors based on those custom attributes, effectively **only** bucketing those who meet your targeting conditions.
 To create an experiment targeting a Custom Tag, open the Optimizely editor, click on "Options", followed by "Targeting" and selecting "Custom Tag" within the Optimizely editor.
@@ -283,7 +314,7 @@ private void userDidSwipeTask() {
 ```
 As of SDK version 1.1, if you aren't sure of the exact spelling of your custom goal string, you can trigger custom events in your simulator or connected device, and the strings will appear in the dialog in the order they were triggered.
 
-For more details and to learn about tap and view goals, refer to the following [article](https://help.optimizely.com/hc/en-us/articles/200039925#add) from our Knowledge Base.
+For more details and to learn about tap and view goals, refer to the following [guide](https://help.optimizely.com/Track_Conversion_Goals/Mobile_Goals%3A_Measure_the_success_of_your_experiment) from our Knowledge Base.
 
 ### Revenue Tracking
 The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click "Goals", then "Add a Saved Goal", hover over the "Total Revenue" goal, and click the "Add" button. In order to track this goal, use the revenue API by passing an integer number of cents:
@@ -572,7 +603,7 @@ Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
 
 ## Upgrading to a new SDK
 
-1. If you are using Maven or Gradle, simply replace the dependency declaration in your `pom.xml` or `build.gradle` with a dependency on the new version.
+1. If you are using Gradle, simply replace the dependency declaration in your `build.gradle` with a dependency on the new version.
 
   Here are some examples with Gradle:
 
@@ -583,16 +614,16 @@ Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
     }
   ```
 
-  - If you want to specify when you want to upgrade to monthly SDK feature releases (numbered v X.Y) and automatically upgrade to the newest incremental releases and hotfixes for that release (numbered v X.Y.Z), in this case all releases 1.3 and after and up to 1.4:
+  - If you want to specify when you want to upgrade to monthly SDK feature releases (numbered v X.Y) and automatically upgrade to the newest incremental releases and hotfixes for that release (numbered v X.Y.Z), in this case all releases 1.3 and after and up to 1.5:
   ```
   compile('com.optimizely:optimizely:1.3+@aar') {
         transitive = true
     }
   ```
 
-  - If you want to upgrade to a particular SDK version and stay at that version, in this case version 1.3:
+  - If you want to upgrade to a particular SDK version and stay at that version, in this case version 1.4.2:
   ```
-  compile('com.optimizely:optimizely:1.3@aar') {
+  compile('com.optimizely:optimizely:1.4.2@aar') {
       transitive = true
   }
   ```
@@ -625,4 +656,4 @@ If you are using manual integration, please repeat the [Manual Installation Step
 
 ## Uninstalling Optimizely
 
-If you installed via Maven or Gradle, simply remove the dependency on Optimizely. If you installed manually, you need to delete Optimizely.jar from your app.
+Simply remove the dependency on Optimizely from your `build.gradle`. If you installed manually, you need to delete Optimizely.jar from your app.

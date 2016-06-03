@@ -10,6 +10,7 @@ title: "Optimizely Server-Side Testing Guide"
     <li class="z-index--2"><a class="muted weight--bold color--brand" href="#" data-toggle-trigger="python-code" data-toggle-trigger-class="color--brand">Python</a></li>
     <li class="z-index--2"><a class="muted weight--bold" href="#" data-toggle-trigger="java-code" data-toggle-trigger-class="color--brand">Java</a></li>
     <li class="z-index--2"><a class="muted weight--bold" href="#" data-toggle-trigger="ruby-code" data-toggle-trigger-class="color--brand">Ruby</a></li>
+    <li class="z-index--2"><a class="muted weight--bold" href="#" data-toggle-trigger="node-code" data-toggle-trigger-class="color--brand">Node</a></li>
   </ul>
 </div>
 

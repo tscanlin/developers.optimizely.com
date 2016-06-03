@@ -1,15 +1,15 @@
 ---
 template: page-sidebar
-title: "Event Data Export"
+title: "Data Export"
 ---
-# Event Data Export Guide
+# Data Export Guide
 
 
 ## Intro
 
-Event Data Export allows developers to access all of their Optimizely event data. This data is computed daily and contain the last 24 hours of events for all A/B testing experiments in an account. The data will be written securely to an S3 bucket, which you can then programmatically access via Amazon’s APIs and a set of secure credentials provided by Optimizely.
+Data Export allows developers to access all of their Optimizely event data. This data is computed daily and contain the last 24 hours of events for all A/B testing experiments in an account. The data will be written securely to an S3 bucket, which you can then programmatically access via Amazon’s APIs and a set of secure credentials provided by Optimizely.
 
-You can use Event Data Export to integrate Optimizely experiment data with your own data warehouse.
+You can use Data Export to integrate Optimizely experiment data with your own data warehouse.
 
 <div class="attention attention--warning push--bottom">If you have any questions, please contact [developers@optimizely.com](mailto:developers@optimizely.com) for help.</div>
 
@@ -66,21 +66,15 @@ A status file will be provided to track the success or failure of that day's exp
          </td>
       </tr>
       <tr>
-         <td align="left"><b>user_id</b></td>
-         <td class="desc">
-            <p>The unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
-         </td>
-      </tr>
-      <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
+            <p> This is the anonymous optimizelyEndUserId cookie value.  It represents a unique visitor.</p>
          </td>
       </tr>
       <tr>
-         <td align="left"><b>ppid</b></td>
+         <td align="left"><b>uuid</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is your API-provided unique ID you want to track in lieu of the optimizelyEndUserId cookie value (aka  <a href="https://help.optimizely.com/hc/en-us/articles/203626830"> UUID</a>).</p>
+            <p> Similar in scope to end_user_id, but this is the customer's API-provided unique ID they want to track in lieu of the optimizelyEndUserId cookie value.  This was renamed from the legacy ppid on Thursday 5/19/2016.</p>
          </td>
       </tr>
       <tr>
@@ -136,7 +130,8 @@ A status file will be provided to track the success or failure of that day's exp
 
 **Please Note**: 
    * Any fields after this are your segmented audiences or dimension names.
-   * Adding or removing segments or dimensions could alter the layout of the event data files. Please account for this if you build an automated import of this data.  
+   * Adding or removing segments or dimensions could alter the layout of the event data files. Please account for this if you build an automated import of this data. 
+   * Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
 
 
 ### Android Dictionary 
@@ -170,21 +165,15 @@ A status file will be provided to track the success or failure of that day's exp
          </td>
       </tr>
       <tr>
-         <td align="left"><b>user_id</b></td>
-         <td class="desc">
-            <p>he unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
-         </td>
-      </tr>
-      <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
+            <p>  This is the anonymous optimizelyEndUserId value.  It represents a unique visitor.</p>
          </td>
       </tr>
       <tr>
-         <td align="left"><b>ppid</b></td>
+         <td align="left"><b>uuid</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is your API-provided unique ID you want to track in lieu of the optimizelyEndUserId cookie value (aka  <a href="https://help.optimizely.com/hc/en-us/articles/203626830"> UUID</a>).</p>
+            <p>  Similar in scope to end_user_id, but this is the customer's API-provided unique ID they want to track in lieu of the anonymous value.  This was renamed from the legacy ppid on Thursday 5/19/2016.</p>
          </td>
       </tr>
       <tr>
@@ -194,21 +183,15 @@ A status file will be provided to track the success or failure of that day's exp
          </td>
       </tr>
       <tr>
-         <td align="left"><b>user_agent</b></td>
-         <td class="desc">
-            <p> User-Agent header passed from the browser.</p>
-         </td>
-      </tr>
-      <tr>
          <td align="left"><b>revenue</b></td>
          <td class="desc">
-            <p> If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.</p>
+            <p>  If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.  For event_name values of "mobile_session," this will also show the length of the session in seconds..</p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>event_name</b></td>
          <td class="desc">
-            <p> The event name of the tracking call, for pageviews this is the URL of the page, for engagement it is 'engagement', for everything else it is the custom event name.</p>
+            <p>  The event name of the tracking call.  A value of "mobile_session" means a new session was recorded (a session is a period of activity during which the app is foregrounded, without a break longer than 30 seconds).  A value of "visitor-event" shows the first time a visitor sees an experiment.  A tap or view goal will show the view name with #tap or #view appended.  For everything else it is the custom event name.</p>
          </td>
       </tr>
       <tr>
@@ -259,26 +242,20 @@ A status file will be provided to track the success or failure of that day's exp
       <tr>
          <td align="left"><b>variation_id</b></td>
          <td class="desc">
-            <p>The id we use to identify the variation the user saw. This should correspond to the variation id in the Diagnostic Report in the Options menu of the Visual Editor.
+            <p>The id we use to identify the variation the user saw. This should correspond to the variation id in the Diagnostic Report in the Options menu of the Editor.
             </p>
-         </td>
-      </tr>
-      <tr>
-         <td align="left"><b>user_id</b></td>
-         <td class="desc">
-            <p>he unique user id that we use to de-duplicate binary events, also used to count the total number of unique monthly visitors for billing purposes. Please note that the raw data is not de-duplicated.</p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>end_user_id</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is the <code>optimizelyEndUserId </code> cookie value.</p>
+            <p>This is the anonymous optimizelyEndUserId value set in NSUserDefaults.  It represents a unique visitor.</p>
          </td>
       </tr>
       <tr>
-         <td align="left"><b>ppid</b></td>
+         <td align="left"><b>uuid</b></td>
          <td class="desc">
-            <p> Similar in scope to user_id, but this is your API-provided unique ID you want to track in lieu of the optimizelyEndUserId cookie value (aka  <a href="https://help.optimizely.com/hc/en-us/articles/203626830"> UUID</a>).</p>
+            <p> Similar in scope to end_user_id, but this is the customer's API-provided unique ID they want to track in lieu of the anonymous value.  This was renamed from the legacy ppid on Thursday 5/19/2016.</p>
          </td>
       </tr>
       <tr>
@@ -288,21 +265,15 @@ A status file will be provided to track the success or failure of that day's exp
          </td>
       </tr>
       <tr>
-         <td align="left"><b>user_agent</b></td>
-         <td class="desc">
-            <p> User-Agent header passed from the browser.</p>
-         </td>
-      </tr>
-      <tr>
          <td align="left"><b>revenue</b></td>
          <td class="desc">
-            <p> If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.</p>
+            <p>  If applicable, the amount of the transaction in cents (399 corresponds to $3.99). This will only be populated with a non-zero value for revenue goals.  For event_name values of "mobile_session," this will also show the length of the session in seconds.</p>
          </td>
       </tr>
       <tr>
          <td align="left"><b>event_name</b></td>
          <td class="desc">
-            <p> The event name of the tracking call, for pageviews this is the URL of the page, for engagement it is 'engagement', for everything else it is the custom event name.</p>
+            <p> The event name of the tracking call.  A value of "mobile_session" means a new session was recorded (a session is a period of activity during which the app is foregrounded, without a break longer than 30 seconds).  A value of "visitor-event" shows the first time a visitor sees an experiment.  A tap or view goal will show the view name with #tap or #view appended.  For everything else it is the custom event name.</p>
          </td>
       </tr>
       <tr>
@@ -326,6 +297,6 @@ A status file will be provided to track the success or failure of that day's exp
    </tbody>
 </table>
 
-#### **Please Note** 
+**Please Note: (web, iOS & Android)**
 
-Data is de-duplicated on the results screen but not in the Event Data Export. Revenue goals are never de-duplicated. Redirect tests might have the redirect page views out of order due to the timing of the log request being sent to our system.
+* Data is de-duplicated on the results screen but not in the Data Export. Revenue goals are never de-duplicated.

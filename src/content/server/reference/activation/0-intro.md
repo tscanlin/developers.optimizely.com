@@ -7,7 +7,7 @@ code_examples:
     lang: python
     request: |
       experiment_key = 'my_experiment'
-      user_id = 'user123'      
+      user_id = 'user123'
 
       # Conditionally activate an experiment for the provided user
       variation = optimizely.activate(experiment_key, user_id)
@@ -23,8 +23,8 @@ code_examples:
     request: |
       String experimentKey = "my_experiment";
       String userId = "user123";
-      
-      // Conditionally activate an experiment for the provided user 
+
+      // Conditionally activate an experiment for the provided user
       Variation variation = optimizely.activate(experimentKey, userId);
 
       if (variation.is("variation_a")) {
@@ -49,7 +49,24 @@ code_examples:
         # execute code for variation B
       else
         # execute default code
-        # execute default code
+      end
+  javascript:
+    lang: javascript
+    request: |
+      var experimentKey = 'my_experiment';
+      var userId = 'user123';
+
+      // Conditionally activate an experiment for the provided user
+      optimizely.activate(experimentKey, userId)
+        .then(function(variation) {
+          if (variation === 'variation_a') {
+            // execute code for variation A
+          } else if (variation === 'variation_b') {
+            // execute code for variation B
+          } else {
+            // execute default code
+          }
+        });
 ---
 
 Use the `activate` function to run an experiment in your code.

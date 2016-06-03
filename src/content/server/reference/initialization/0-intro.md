@@ -6,39 +6,48 @@ code_examples:
   python:
     lang: python
     request: |
-      optimizely = optimizely.Optimizely(PROJECT_ID)
+      optimizely = optimizely.Optimizely(datafile)
   java:
     lang: java
     request: |
-      // Creates an async event handler with a max buffer of 20,000 events
-      // and a single dispatcher thread
-      AsyncEventHandler eventHandler = new AsyncEventHandler(20000, 1);
-
-      // Creates a project watcher that refreshes the datafile every 5 minutes
-      PeriodicProjectWatcher projectWatcher =
-          new PeriodicProjectWatcher(PROJECT_ID, 5, TimeUnit.MINUTES);
-
       Optimizely optimizely = Optimizely.builder(projectWatcher, eventHandler)
           .build();
   ruby:
     lang: ruby
     request: |
-      optimizely = Optimizely::Optimizely.new(PROJECT_ID)
+      optimizely = Optimizely::Optimizely.new(datafile)
+  javascript:
+    lang: javascript
+    request: |
+      var datafile = {};
+      var optimizely = optimizely.createInstance({ datafile: datafile });
 ---
 
 <div class="hidden visible" data-toggle-section="python-code">
-To run experiments from an Optimizely project you'll need to instantiate an `Optimizely` object in your code. You'll need to include the ID of a Custom Project as an input parameter.
+To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
 <p>
 
+<div class="hidden visible" data-toggle-section="python-code">
+To construct the `Optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
+
+<p>
+
+<div class="hidden visible" data-toggle-section="python-code">
 <div class="attention attention--warning push--bottom">*Please note:* instantiating the Optimizely object should be done once and not on every request. Please make sure to call this during class initialization or as a global variable.</div>
 </div>
 
 <div class="hidden" data-toggle-section="ruby-code">
-To run experiments from an Optimizely project you'll need to instantiate an `Optimizely` object in your code. You'll need to include the ID of a Custom Project as an input parameter.
+To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
 <p>
 
+<div class="hidden" data-toggle-section="ruby-code">
+To construct the `Optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
+
+<p>
+
+<div class="hidden" data-toggle-section="ruby-code">
 <div class="attention attention--warning push--bottom">*Please note:* instantiating the Optimizely object should be done once and not on every request. Please make sure to call this during class initialization or as a global variable.</div>
 </div>
 
