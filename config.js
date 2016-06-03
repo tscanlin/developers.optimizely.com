@@ -138,8 +138,7 @@ var server = {
   path: 'server',
   title: 'Server-Side',
   sections: SERVER_NAV_SECTIONS,
-  // Hide if its a hidden section unless its the current path (users go direct to the url)
-  hiddenSection: false,
+  hiddenSection: true,
 };
 
 nav.solutions = {
@@ -168,10 +167,16 @@ var oauth = {
 nav.management = {
   label: 'Management',
   sections: [
-    rest,
-    oauth
+    rest
   ]
 };
+
+nav.authentication = {
+  label: "Authentication",
+  sections: [
+    oauth
+  ]
+}
 
 var events = {
   path: 'events',
@@ -194,7 +199,7 @@ var results = {
 nav.dataServices = {
   label: 'Data Services',
   sections: [
-    events,
+  // hidding events 
     dcp,
     results
   ],
@@ -249,9 +254,10 @@ paths.leftNav = [
   'overview',
   'solutions',
   'management',
+  'authentication',
   'dataServices',
   'addOns',
-  'community',
+  'community'
 ];
 // Used on homepage.
 paths.allSections = {

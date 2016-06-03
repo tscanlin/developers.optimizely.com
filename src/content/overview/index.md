@@ -76,10 +76,7 @@ This section explains the inner workings of Optimizely, including key terminolog
 
 ### Architecture
 
-The diagram below provides an overview of the REST API, JS API, iOS SDK, and Android SDK. Your application can integrate with Optimizely in two ways:
-
-* *Server-side:* Use the REST API to customize your optimization workflow.
-* *Client-side:* Use the JS API, iOS SDK, or Android SDK to customize the behavior of Optimizely in a web page or app.
+The diagram below provides an overview of the REST API, JS API, iOS SDK, and Android SDK. Your application can integrate with Optimizely on the following channels: Web, iOS & Android.
 
 <img src="../../assets/img/optimizely-experience-architecture.svg">
 

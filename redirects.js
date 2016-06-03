@@ -29,4 +29,11 @@ module.exports = {
   'server/index.html': {
     redirectTo: 'reference/index.html'
   },
+  'rest/reference/index.html#oauth': {
+    redirectTo: 'oauth' 
+  },
+  'rest/customer-profiles/index.html': {
+    redirectTo: 'customer-profiles/'
+  }
+
 };
