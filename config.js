@@ -182,6 +182,7 @@ var events = {
   path: 'events',
   title: 'Event Access',
   sections: DATA_NAV_SECTIONS,
+  hiddenSection: true,
 };
 
 var dcp = {
@@ -199,7 +200,7 @@ var results = {
 nav.dataServices = {
   label: 'Data Services',
   sections: [
-  // hidding events 
+    events,
     dcp,
     results
   ],

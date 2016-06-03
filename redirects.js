@@ -1,12 +1,10 @@
 module.exports = {
+  // Default redirects from before (relative redirects).
   'android/index.html': {
     redirectTo: 'introduction/index.html'
   },
   'canvas/index.html': {
     redirectTo: '../apps/index.html'
-  },
-  'data/index.html': {
-    redirectTo: 'introduction/index.html'
   },
   'ios/index.html': {
     redirectTo: 'introduction/index.html'
@@ -29,20 +27,34 @@ module.exports = {
   'server/index.html': {
     redirectTo: 'reference/index.html'
   },
-  'rest/reference/index.html#oauth': {
-    redirectTo: '/oauth'
-  },
+
+  // Absolute path redirects.
   'rest/customer-profiles/index.html': {
-    redirectTo: '/customer-profiles'
+    redirectTo: '/customer-profiles/index.html'
+  },
+
+  // Data export and Event API redirects.
+  'data/index.html': {
+    redirectTo: '/events/introduction/index.html'
+  },
+  'data/export/index.html': {
+    redirectTo: '/events/export/index.html'
+  },
+  'data/events/index.html': {
+    redirectTo: '/events/api/index.html'
+  },
+
+  // URL hash redirects.
+  'rest/reference/index.html#oauth': {
+    redirectTo: '/oauth/index.html'
   },
   'rest/reference/index.html#get-results': {
-    redirectTo: '/results/#get-results'
+    redirectTo: '/results/index.html#get-results'
   },
   'rest/reference/index.html#get-stats': {
-    redirectTo: '/results/#get-stats'
+    redirectTo: '/results/index.html#get-stats'
   },
   'javascript/personalization/index.html#widgets': {
-    redirectTo: '/extensions'
+    redirectTo: '/extensions/index.html'
   }
-
 };
