@@ -55,7 +55,7 @@ delete JS_NAV_SECTIONS['faqs'];
 var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
   'conditions': {
     path: 'conditions',
-    title: 'Conditions',
+    title: 'Audience Conditions',
   },
 });
 
@@ -74,6 +74,8 @@ var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
     title: 'Articles',
   },
 });
+
+delete MOBILE_NAV_SECTIONS['code-samples'];
 
 var SERVER_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS);
 delete SERVER_NAV_SECTIONS['faqs'];

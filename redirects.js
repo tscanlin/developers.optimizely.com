@@ -51,6 +51,9 @@ module.exports = {
   'rest/reference/index.html#oauth': {
     redirectTo: '/oauth/index.html'
   },
+  'rest/reference/index.html#libraries': {
+    redirectTo: '/libs/index.html'
+  },
   'rest/reference/index.html#get-results': {
     redirectTo: '/results/index.html#get-results'
   },
