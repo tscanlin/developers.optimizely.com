@@ -5,11 +5,8 @@ title: "Overview"
 
 ## Welcome!
 
-*This site contains resources for developers who want to extend and integrate with Optimizely in new ways.*
+*This site contains resources for developers who want to extend, integrate and build with Optimizely in new ways.*
 
-While you can get Optimizely up and running without writing code, many companies greatly benefit from a custom optimization solution that isn't provided by Optimizely out-of-the-box. This site describes what you can do with the Optimizely platform and detailed documentation to help you build custom solutions for your needs.
-
-<img src="../../assets/img/optimizely-experience-architecture.svg">
 
 ### Getting started
 
