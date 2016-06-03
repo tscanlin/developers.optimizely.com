@@ -37,6 +37,9 @@ module.exports = {
   'data/index.html': {
     redirectTo: '/events/introduction/index.html'
   },
+  'data/introduction/index.html': {
+    redirectTo: '/events/introduction/index.html'
+  },
   'data/export/index.html': {
     redirectTo: '/events/export/index.html'
   },
