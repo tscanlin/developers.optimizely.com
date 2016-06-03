@@ -33,8 +33,8 @@ var DATA_NAV_SECTIONS = {
     path: 'introduction',
     title: 'Introduction',
   },
-  'events': {
-    path: 'events',
+  'api': {
+    path: 'api',
     title: 'Event API',
   },
   'export': {
@@ -173,26 +173,28 @@ nav.management = {
   ]
 };
 
-var data = {
-  path: 'data',
+var events = {
+  path: 'events',
   title: 'Event Access',
   sections: DATA_NAV_SECTIONS,
 };
 
 var dcp = {
-  path: 'data/customer-profiles',
+  path: 'customer-profiles',
   title: 'Customer Profiles',
+  singlePage: true,
 }
 
 var results = {
   path: 'results',
-  title: 'Experiment Results'
+  title: 'Experiment Results',
+  singlePage: true,
 }
 
 nav.dataServices = {
   label: 'Data Services',
   sections: [
-    data,
+    events,
     dcp,
     results
   ],
@@ -259,7 +261,7 @@ paths.allSections = {
   android: android,
   server: server,
   rest: rest,
-  data: data,
+  events: events,
   integrations: integrations,
   apps: apps,
   libs: libs

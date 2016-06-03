@@ -3,7 +3,7 @@ template: page-sidebar
 title: "Extensions"
 ---
 
-## Extensions
+<h2 class="js-toc-ignore">Extensions</h2>
 
 Widgets are reusable templates for making changes in the visual editor. A developer can build a widget with HTML, CSS, and JavaScript. Then, a non-technical user can insert the widget in the editor and tweak parameters. For example, a developer could build a carousel widget styled for a homepage and coded to rotate between images, and then a merchandiser could insert it and choose the right images for a specific campaign.
 
@@ -30,7 +30,7 @@ You can reference field values by using the API name on the widget object like `
 ##### Example
 ```
 <div class="banner" style="background-color: {{widget.color}}">
-  {{{ widget.text }}}. 
+  {{{ widget.text }}}.
   <a href="{{widget.link}}">{{{ widget.link_text }}}</a>
 </div>
 ```
@@ -60,7 +60,7 @@ Note that CSS doesn't support field values, so if you want to use those in styli
 }
 
 body {
- margin-top: 45px; 
+ margin-top: 45px;
 }
 ```
 
