@@ -12,6 +12,7 @@ Want your library listed here? Send an email to [developers@optimizely.com](mail
 ### Optimizely Built
 
 * [Python](https://github.com/optimizely/optimizely-client-python)
+* [Node.js](https://github.com/optimizely/optimizely-node)
 
 ### Community Built
 
