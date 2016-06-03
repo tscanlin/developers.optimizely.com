@@ -30,10 +30,19 @@ module.exports = {
     redirectTo: 'reference/index.html'
   },
   'rest/reference/index.html#oauth': {
-    redirectTo: 'oauth' 
+    redirectTo: '/oauth' 
   },
   'rest/customer-profiles/index.html': {
-    redirectTo: 'customer-profiles/'
+    redirectTo: '/customer-profiles'
+  },
+  'rest/reference/index.html#get-results': {
+    redirectTo: '/results/#get-results'
+  },
+  'rest/reference/index.html#get-stats': {
+    redirectTo: '/results/#get-stats'
+  },
+  'javascript/personalization/index.html#widgets': {
+    redirectTo: '/extensions'
   }
 
 };
