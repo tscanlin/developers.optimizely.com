@@ -30,7 +30,7 @@ module.exports = {
     redirectTo: 'reference/index.html'
   },
   'rest/reference/index.html#oauth': {
-    redirectTo: '/oauth' 
+    redirectTo: '/oauth'
   },
   'rest/customer-profiles/index.html': {
     redirectTo: '/customer-profiles'
