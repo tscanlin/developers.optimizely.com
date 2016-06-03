@@ -5,7 +5,7 @@ endpoint_prefix: experiments/
 endpoint_option: 1234
 endpoint_suffix: /results
 type: GET
-title: Get experiment results
+title: Legacy results
 anchor: get-results
 fields:
   variation_id: ID of the variation. If the experiment is a multivariate test, this field is a list of variation IDs delimited by the “_” character. (The field is a string rather than an integer to support this case.)
