@@ -76,4 +76,4 @@ To help debug template rendering issues, it's very helpful to try and locate the
 
 Contributions are welcome! If you could read our [Contributor License Agreement](https://github.com/optimizely/developers.optimizely.com/blob/master/src/files/docs/OptimizelyCLA.pdf), fill out [this form](https://docs.google.com/forms/d/1jbwkDOTLOrG1461OkwC65KK8JdOcKOX7UILrsQmbgbg/viewform), and open your pull request against the master branch that would be great.
 
-Also, please tag @tscanlin in general PRs for this repository and I can ensure the proper content owners are also tagged. Thanks!
+Also, please tag @mauerbac in general PRs for this repository and I can ensure the proper content owners are also tagged. Thanks!
