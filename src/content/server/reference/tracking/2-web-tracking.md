@@ -1,10 +1,10 @@
 ---
 template: multi-example
-title: Tracking on the client
+title: Tracking on the web
 anchor: webtracking
 ---
 
-If you'd like to track events on the client (via JavaScript) instead of on the server, you can use the JavaScript SDK. Please email (Developers@optimizely)[developers@optimizely.com] to get a hold of the SDK
+If you'd like to track events on the web, client-side (via JavaScript) instead of on the server, you can use the JavaScript SDK. Please email [Developers@optimizely](developers@optimizely.com) to get a hold of the SDK.
 
 Instructions for using the SDK:
 
