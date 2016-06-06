@@ -21,7 +21,7 @@ If you have any questions, please reach out to [developers@optimizely.com](mailt
 Event API
 </a>
 
-<a class="button button--highlight display--block width--200 text--center" href="/events/events">
+<a class="button button--highlight display--block width--200 text--center" href="/events/export">
 Event Data Export
 </a>
 
