@@ -62,5 +62,8 @@ module.exports = {
   },
   'javascript/personalization/index.html#widgets': {
     redirectTo: '/extensions/index.html'
-  }
+  },
+  'events/events/index.html': {
+    redirectTo: '/events/export/index.html'
+  },
 };
