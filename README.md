@@ -2,7 +2,7 @@
 You can find the new developer documentation website here: [http://developers.optimizely.com](http://developers.optimizely.com)
 
 ### Prerequisites
-- Have [node.js](https://nodejs.org/) installed. (You will need at minimum version 0.12.x)
+- Have [node.js](https://nodejs.org/) installed. (>= 0.12.x)
 - Have [git ssh keys](https://help.github.com/articles/generating-ssh-keys/) setup.
 
 ### To install
@@ -67,6 +67,10 @@ If you get a message asking for a username / password then you probably cloned t
 git remote rm origin
 git remote add origin git@github.com:optimizely/developers.optimizely.com.git
 ```
+
+If you get an error saying `Template render error: dictsort filter: val must be an object` it usually means that the markdown files for more complex templates like `page-sidebar--full.html` are missing or not named properly.
+
+To help debug template rendering issues, it's very helpful to try and locate the file where the error is coming from. One way this can be done is by changing the markdown extension to something other than `.md`, that way you can get the site to compile and narrow down which file is causing issues.
 
 ### Contributing
 

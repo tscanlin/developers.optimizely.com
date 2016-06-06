@@ -4,7 +4,6 @@ title: "Optimizely REST API Reference"
 includeSiblingData: true
 sections:
 - overview
-- oauth
 - projects
 - experiments
 - schedules

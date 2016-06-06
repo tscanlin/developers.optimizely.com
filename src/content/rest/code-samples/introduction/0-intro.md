@@ -9,8 +9,6 @@ Be sure to modify the code appropriately before running in production!
 
 #### Table of Contents
 
-* *Experiment results:* Utilize these code samples to better understand Optimizely's [/results endpoint](/samples/#results). This endpoint provides high-level insights from Optimizely's Stats Engine.
-
 * *Audiences:* If you have data about the visitors to a site, you can use our platform to group those visitors into [Optimizely Audiences](/samples/#audiences). This makes it easy to target content to different audiences and segment experiment results.
 
 * *Uploaded Lists:* If you already have lists of your users, you can easily import those lists into Optimizely using our [uploaded lists](/samples/#user-lists) feature for list targeting purposes.

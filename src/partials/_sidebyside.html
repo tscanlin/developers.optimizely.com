@@ -6,7 +6,7 @@
         <div class="soft-double--sides">
           <!-- Title -->
           {% if object.fileName == "0-intro" %}
-            <h2 id="{{object.anchor}}">{{object.title}}</h2>
+            <h2 id="{{object.anchor}}" class="{% if object.ignoreTitleForToc %}js-toc-ignore{% endif %}">{{object.title}}</h2>
           {% else %}
             <h3 id="{{object.anchor}}">
               {{object.title}}

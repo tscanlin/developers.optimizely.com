@@ -1,6 +1,7 @@
 ---
 template: sidebyside
 title: OAuth 2.0
+ignoreTitleForToc: true
 anchor: oauth
 ---
 

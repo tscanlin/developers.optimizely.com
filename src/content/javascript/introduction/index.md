@@ -3,7 +3,7 @@ template: page-sidebar
 title: "Optimizely JS API"
 ---
 
-# Optimizely JS API
+# Optimizely on the Web
 
 *The Optimizely JavaScript API provides a way for developers to modify the default behavior of Optimizely on web pages.*
 

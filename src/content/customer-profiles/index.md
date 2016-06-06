@@ -1,13 +1,10 @@
 ---
 template: page-sidebar--full
-title: "CP"
+title: "Customer Profiles"
 includeSiblingData: true
 sections:
 - overview
 - customer_profiles
 - alias
 - profile_integrations
-section:
-  path: 'customer-profiles/'
-relativePath: 'rest/customer-profiles/'
 ---

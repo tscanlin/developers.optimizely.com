@@ -4,23 +4,29 @@
   background-color: #F2F5FA;
 
   a {
-    // color: white;
     color: #00415D;
     display: inline-block;
   }
 
-  .active,
-  .is-active-link {
+  .label {
+    margin-bottom: 2px;
+  }
+
+  // .is-active-link,
+  .active {
     color: #0095E7;
     font-weight:400;
   }
 
-  li {
-    line-height: 1.6;
+  .main-section {
+    margin: 3px 0;
   }
 
-  .main-section + .nav {
-    // border-left: 2px solid #0095E7;
-    // margin-left: 5px;
+  .collapsible:not(.is-collapsed) {
+    margin-bottom: 4px;
+  }
+
+  .nav {
+    line-height: 1.5;
   }
 }
