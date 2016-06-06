@@ -1,12 +1,14 @@
 ---
 template: multi-example
-title: Tracking on the web
+title: Tracking on the client
 anchor: webtracking
 ---
 
-If you'd like to track events on the web (via Javascript) instead of on the server, you can use the [Javascript SDK](https://github.com/optimizely/optimizely-testing-sdk-javascript):
+If you'd like to track events on the client (via JavaScript) instead of on the server, you can use the JavaScript SDK. Please email (Developers@optimizely)[developers@optimizely.com] to get a hold of the SDK
 
-1. Grab the `optimizely.min.js` file and include it in your Javascript bundle via webpack or your preferred bundling tool. You can also just add it as a script tag `<script type="text/javascript" src="../path_to/optimizely.min.js"`
+Instructions for using the SDK:
+
+1. Grab the `optimizely.min.js` file and include it in your JavaScript bundle via webpack or your preferred bundling tool. You can also just add it as a script tag `<script type="text/javascript" src="../path_to/optimizely.min.js"`
 
 2. This SDK exposes the same APIs as the rest of the SDKs. You need to create an instance of the `Optimizely` object and pass it the datafile:
 ```optimizelyInstance = optimizely.createInstance({
