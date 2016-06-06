@@ -185,8 +185,7 @@ nav.authentication = {
 var events = {
   path: 'events',
   title: 'Event Access',
-  sections: DATA_NAV_SECTIONS,
-  hiddenSection: true,
+  sections: DATA_NAV_SECTIONS
 };
 
 var dcp = {
