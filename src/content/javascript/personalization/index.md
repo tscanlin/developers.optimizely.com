@@ -520,7 +520,7 @@ dcp.waitForAttributeValue({datasourceId: 123, attributeName: 'Preferred Locale'}
 
 ## Reading data and state
 
-`optimizely.get` can also be used to get read-only information about the current visitor, sessions, and running campaigns. 
+`optimizely.get` can also be used to get read-only information about the current visitor, sessions, and running campaigns.
 
 ### Data
 
@@ -588,7 +588,7 @@ var sessionData = window['optimizely'].get('session');
 ##### *Usage*
 ```js
 // Retrieve the visitor ID data object
-var visitorIdData = window['optimizely'].get('visitorId');
+var visitorIdData = window['optimizely'].get('visitor_id');
 ```
 ##### *Returns*
 - `Object`:
