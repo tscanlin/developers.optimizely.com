@@ -46,6 +46,9 @@ module.exports = {
   'data/events/index.html': {
     redirectTo: '/events/api/index.html'
   },
+  'events/events/index.html': {
+    redirectTo: '/events/export/index.html'
+  },
 
   // URL hash redirects.
   'rest/reference/index.html#oauth': {
@@ -62,8 +65,5 @@ module.exports = {
   },
   'javascript/personalization/index.html#widgets': {
     redirectTo: '/extensions/index.html'
-  },
-  'events/events/index.html': {
-    redirectTo: '/events/export/index.html'
   },
 };
