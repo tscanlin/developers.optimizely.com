@@ -16,15 +16,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Add 'tocbot' to generate a table of contents.
   var tocbot = require('tocbot');
-  try {
-    tocbot.init({
-      contentSelector: 'body',
-      tocSelector: '.active + .toc',
-      headingSelector: 'h2, h3, h4.subLink',
-    });
-  } catch (e) {
-    console.warn(e);
-  }
+  tocbot.init({
+    contentSelector: 'body',
+    tocSelector: '.active + .toc',
+    headingSelector: 'h2, h3, h4.subLink',
+  });
 
   // Add collapsible directive for nav and header dropdown.
   var collapsible = require('./collapsible.js');
