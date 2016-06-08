@@ -218,7 +218,7 @@ window['optimizely'].data.visitor.location.region
 window['optimizely'].data.visitor.location.country
 ```
 
-For Enterprise customers only, this is an object containing information about the visitor's location. Specifically, this object contains the names of the visitor's city, region, and country, if detected.
+For Enterprise customers only, this is an object containing information about the visitor's location. You will need to include an Audience with geo-targeting enabled or an Audience with segmentation turned on with geo-targeting enabled for this API call to return location values. Specifically, this object contains the names of the visitor's city, region, and country, if detected.
 
 Region can also be a territory, such as Canadian province, Indian state, or German state. For US states and Canadian provinces, the string will be the standard two-letter abbreviation of the state, e.g. "NH" for New Hampshire, "DC" for the District of Columbia, and "ON" for Ontario. In some cases, the region string could refer to different places. For example, "MN" could be Minnesota, the US state, or Manipur, the Indian state. The region information should be used in conjunction with the country information, in order to be sure the region is for the correct country.
 
