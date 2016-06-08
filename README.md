@@ -1,7 +1,9 @@
-# Optimizely's Developers Site
-You can find the new developer documentation website here: [http://developers.optimizely.com](http://developers.optimizely.com)
+# Optimizely's Developer Documentation [![optimizely-travis](https://api.travis-ci.org/optimizely/developers.optimizely.com.svg)](https://travis-ci.org/optimizely/developers.optimizely.com)
+
+The repository for [http://developers.optimizely.com](http://developers.optimizely.com)
 
 ### Prerequisites
+
 - Have [node.js](https://nodejs.org/) installed. (>= 0.12.x)
 - Have [git ssh keys](https://help.github.com/articles/generating-ssh-keys/) setup.
 
