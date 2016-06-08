@@ -46,8 +46,8 @@ must be registered prior to customer profile data being uploaded to that datasou
 
 ### 6. Upload data
 
-[Write customer profile](/rest/customer-profiles#update-customer_profile) attribute values for the registered
-attributes. You can also [bulk upload](/rest/customer-profiles#bulk) attribute data by dropping a CSV (comma-separated values)
+[Write customer profile](/customer-profiles/index.html#update-customer_profile) attribute values for the registered
+attributes. You can also [bulk upload](/customer-profiles/index.html#bulk) attribute data by dropping a CSV (comma-separated values)
 file into the datasource's S3 Import path: `optimizely-import/<s3_path>`; the
 [s3_path](/rest/reference#read-dcpdatasource) is included in the Datasource's metadata.
 

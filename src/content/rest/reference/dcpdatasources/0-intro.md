@@ -14,7 +14,7 @@ a different way to identify the same customer. For example, the customer identif
 Warehouse" could be the same customer identified by `OEU_1` in "Optimizely Datasource". Organizing customer data by
 datasource allows you to send data to Optimizely without requiring you to reconcile data across datasources. This task
 of reconciling data of the same customer across datasources can be achieved using the
-[alias](/rest/customer-profiles#alias) operation.
+[alias](/customer-profiles/index.html#alias) operation.
 
 When creating a datasource, you will provide a customer ID locator (type and name), which tells Optimizely where we can
 find the customer ID on your web pages.  When a customer visits, Optimizely will read their customer ID (for each 
@@ -25,4 +25,4 @@ In the figure, the "Email Platform" datasource has a locator whose type is `cook
 `email_platform_cookie_name`.
 
 If you prefer to alias customer IDs manually, and if you know the corresponding Optimizely User ID for each of your
-customer IDs, you can do so using the [alias](/rest/customer-profiles#alias) API.
+customer IDs, you can do so using the [alias](/customer-profiles/index.html#alias) API.

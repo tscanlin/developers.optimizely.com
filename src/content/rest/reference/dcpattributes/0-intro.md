@@ -13,4 +13,4 @@ data processing systems feasible.
 <img src="/assets/img/dcp/attributes.png">
 
 Use the Attributes APIs below to register and manage attribute metadata for a given datasource, and the [customer
-profile](/rest/customer-profiles/#customer_profiles) APIs to upload and update attribute values.
+profile](/customer-profiles/index.html#customer_profiles) APIs to upload and update attribute values.

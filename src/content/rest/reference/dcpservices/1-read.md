@@ -32,4 +32,4 @@ response: |
 Get metadata for a single DCP Service.  The `dcp_service_id` is required in the URL.
 
 Every DCP Service is provisioned with AWS credentials; you may use these
-credentials to upload data in [bulk to a datasource specific S3 path](/rest/customer-profiles#bulk)
+credentials to upload data in [bulk to a datasource specific S3 path](/customer-profiles/index.html#bulk)
