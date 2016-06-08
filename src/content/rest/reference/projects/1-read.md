@@ -18,7 +18,7 @@ fields:
   exclude_names: Set to `true` to [mask descriptive names](https://help.optimizely.com/hc/en-us/articles/202480860#masking_descriptive_names)
   ip_filtering: The same string that you'll find in Optimizely under Project Settings > IP Filtering, or `null` if it's not set.
   socket_token: The token used to identify your mobile app to Optimizely
-  dcp_service_id: The ID of the [Dynamic Customer Profile Service](http://developers.optimizely.com/rest/reference#dcp_services) associated with this project.
+  dcp_service_id: The ID of the [Dynamic Customer Profile Service](/rest/reference#dcp_services) associated with this project.
 response: |
   {
     "id": 859720118,

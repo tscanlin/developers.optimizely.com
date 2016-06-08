@@ -31,4 +31,4 @@ response: |
 
 Get a consolidated view of a single customer profile.  The `dcp_service_id` and `optimizely_user_id` are required in the URL.
 
-The profile is consolidated by [aliasing](/customer-profiles/index.html#alias) across different datasources in the DCP Service.
+The profile is consolidated by [aliasing](#alias) across different datasources in the DCP Service.

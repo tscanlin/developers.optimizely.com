@@ -120,7 +120,7 @@ The `unhashed_base64_context` component is base64-encoded JSON with this format:
 }
 ```
 
-You can use this information to identify the user, discern their current account and project, and issue any REST API requests on their behalf using their OAuth access token, as described in our [REST API Authentication](http://developers.optimizely.com/rest/reference/index.html#authentication-oauth) docs.
+You can use this information to identify the user, discern their current account and project, and issue any REST API requests on their behalf using their OAuth access token, as described in our [REST API Authentication](/oauth/index.html#authentication-oauth) docs.
 
 With this information, the possibilities for building rich experiences directly in the Optimizely product are endless.
 

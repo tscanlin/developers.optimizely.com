@@ -121,7 +121,7 @@ http://1234567.log.optimizely.com/event?a=1234567
         <tr>
          <td align="left"><b>`g`</b><br /><i>(Optional)</i></td>
          <td class="desc">
-            <p>**Goal ID**. Each goal in your project has a unique goal ID. The can be fetched through the [REST API](http://developers.optimizely.com/rest/reference/index.html#goals). You can send multiple goals to Optimizely in the same request. Let’s say you have the goals “landed on a page” and “cart checkout”. Both of these goals can be triggered by a single event, so you would send an array of goals IDs back to Optimizely. Ex: `g=12345,4324234`
+            <p>**Goal ID**. Each goal in your project has a unique goal ID. The can be fetched through the [REST API](/rest/reference/index.html#goals). You can send multiple goals to Optimizely in the same request. Let’s say you have the goals “landed on a page” and “cart checkout”. Both of these goals can be triggered by a single event, so you would send an array of goals IDs back to Optimizely. Ex: `g=12345,4324234`
       </p>
          </td>
       </tr>

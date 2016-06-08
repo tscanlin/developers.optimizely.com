@@ -157,7 +157,7 @@ After creating an Android project and installing the SDK, click the `Create Expe
 
 The Optimizely Android SDK identifies Views within your application using the view hierarchy of the view-- in some cases you may need to specify your own ID or mark a specific view in a collection view as unique.
 
-See this section on [configuring the visual editor](//developers.optimizely.com/android/reference/index.html#visual-editor-configuration).
+See this section on [configuring the visual editor](/android/reference/index.html#visual-editor-configuration).
 
 <h2 id="qa">5. QA</h2>
 
@@ -184,7 +184,7 @@ Now that you've created an experiment and successfully installed the Optimizely 
        2. Background the app so that events are sent to our servers.
 
 4. Once you've checked all these steps, you're ready to release to the Play Store!
- 
+
 ## Advanced Setup
 
 Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the Play Store:

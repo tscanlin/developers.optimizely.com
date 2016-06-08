@@ -12,26 +12,26 @@ May 23, 2016
 
 * **Optimizely Attributes:** You can now create Optimizely Attributes for iOS in the project dashboard. These attributes can be used to segment results on the results page and for audience targeting. New APIs to get and set the value for attributes have been created. More details can be found [here](https://help.optimizely.com/Target_Your_Visitors/Mobile_Attributes).
 
- * You can set an attribute's value by using either 
+ * You can set an attribute's value by using either
 ```
 [Optimizely setValue:(NSString *)value forAttributeId:(NSString*)attributeId]
 ```
-or 
+or
 ```
 [Optimizely setValue:(NSString *)value forAttributeApiName:(NSString *)attributeApiName].
 ```
- * You can get an attribute's current value by using either 
+ * You can get an attribute's current value by using either
 ```
 [Optimizely getAttributeValueForAttributeId:(NSString *)attributeId]
 ```
-or 
+or
 ```
 [Optimizely getAttributeValueForAttributeApiName:(NSString *)attributeApiName].
 ```
- * You can get a copy of all attributes by calling [Optimizely getAttributes]. This replaces the previous 
-``` 
-[Optimizely getDimensions] 
-``` 
+ * You can get a copy of all attributes by calling [Optimizely getAttributes]. This replaces the previous
+```
+[Optimizely getDimensions]
+```
 call.
 
 * **New Headers:**
@@ -79,7 +79,7 @@ February 25, 2016
     * `[Optimizely sharedInstance].optimizelyEndUserId` - read only property to get the Optimizely End User Id created by the Optimizely SDK.
   * *New Headers:*
     * OptimizelyDimension.h - A representation of the data in an individual Optimizely Dimension. Read more about Dimensions [here](https://help.optimizely.com/hc/en-us/articles/200040865-Dimensions-Capture-visitor-data-through-the-API).
-    * OptimizelyPlugin.h - Integrations allow customers to track Optimizely experiments in an external tool. A plugin written on the Optimizely platform can edit views, live variables, and code blocks. [Read more](http://developers.optimizely.com/integrations/#mobile-analytics).
+    * OptimizelyPlugin.h - Integrations allow customers to track Optimizely experiments in an external tool. A plugin written on the Optimizely platform can edit views, live variables, and code blocks. [Read more](/integrations/#mobile-analytics).
 
 *Bug Fixes:*
 

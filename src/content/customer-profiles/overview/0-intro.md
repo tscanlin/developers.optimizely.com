@@ -12,7 +12,7 @@ based on this view.
 A single customer profile contains attributes collected by Optimizely and attributes collected by you, or by services
 that you use, and provided to Optimizely to create a single view of the customer. These attributes are organized and
 stored by [datasource](/rest/reference#dcp_datasources) and linked across datasources using identity
-[aliases](/customer-profiles/index.html#alias).
+[aliases](#alias).
 
 <img src="/assets/img/dcp/overview.png">
 
@@ -21,7 +21,7 @@ analysis.
 
 Use the customary [REST API](/rest/getting-started) to configure DCP [Services](/rest/reference/#dcp_services),
 [datasources](/rest/reference/#dcp_datasources), and
-[attributes](http://developers.optimizely.com/rest/reference/#dcp_attributes).  Then use the DCP REST API,
+[attributes](/rest/reference/#dcp_attributes).  Then use the DCP REST API,
 detailed below, to work with individual customer profiles.
 
 To enable DCP for your account, please contact [techpartners@optimizely.com](mailto:techpartners@optimizely.com)

@@ -697,7 +697,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 
 <h3 id="register-your-application">2. Register your application</h3>
 
-We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send audiences to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send audiences to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/oauth/index.html).
 
 <h3 id="create-a-test-page">3. Create a test page</h3>
 
@@ -770,7 +770,7 @@ Uploaded Lists are a feature restricted to select Enterprise customers and devel
 
 <h3 id="uploaded-lists-2-register-your-application">2. Register your application</h3>
 
-We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/oauth/index.html).
 
 <h3 id="uploaded-lists-3-create-a-list">3. Create a list in Optimizely</h3>
 
@@ -809,11 +809,11 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 
 <h3 id="content-register-your-application">2. Register your application</h3>
 
-We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application and periodically send lists to Optimizely in the background. [Learn how to connect to Optimizely using OAuth 2.0](/oauth/index.html).
 
 <h3 id="create-a-configuration-form-authentication-and-project-selection">3. Create a configuration form: authentication and project selection</h3>
 
-Users can authenticate your application to use the REST API using OAuth 2.0. You can find a description on how to implement OAuth authentication <a href="http://developers.optimizely.com/rest/reference/index.html#oauth">here</a>.
+Users can authenticate your application to use the REST API using OAuth 2.0. You can find a description on how to implement OAuth authentication <a href="/oauth/index.html">here</a>.
 
 After connecting with Optimizely you can use the REST API to get all the projects for the account that the user has authenticated with. To get all the project names and their corresponding project IDs, use the <a href="/rest/reference/index.html#list-projects">list-projects</a> REST API call.
 
@@ -906,7 +906,7 @@ In order to track conversion events in Optimizely, a [custom event goal](https:/
 
 There are two ways you can create a custom event goal:
 
-* *Option 1: Create custom event goal via the REST API (preferred).* For a seamless experience, you can create a custom event goal on behalf of the customer using the REST API. If you are using the REST API, we require using [OAuth 2.0](/rest/reference/index.html#oauth) to authenticate with Optimizely. [Learn how to create goals via the REST API](/rest/reference/index.html#create-goal). The goal type field needs to have the value "1". A commonly used value for the "event" field is `phone_call_conversion`.
+* *Option 1: Create custom event goal via the REST API (preferred).* For a seamless experience, you can create a custom event goal on behalf of the customer using the REST API. If you are using the REST API, we require using [OAuth 2.0](/oauth/index.html) to authenticate with Optimizely. [Learn how to create goals via the REST API](/rest/reference/index.html#create-goal). The goal type field needs to have the value "1". A commonly used value for the "event" field is `phone_call_conversion`.
 
 * *Option 2: Ask the customer to create custom event goal manually.* The easiest way for you to implement this integration is to instruct the customer to do a couple of manual steps. Instruct the customer to login to their Optimizely account and create a custom event goal for an experiment manually. You may want to require the customer to use a pre-specified name for the goal, e.g. `phone_call_conversion`, so you can reference it later. [Learn how to create custom event goals in Optimizely](https://help.optimizely.com/hc/en-us/articles/200039925#add).
 
@@ -1041,7 +1041,7 @@ Depending on your [Optimizely plan type](https://help.optimizely.com/hc/en-us/ar
 <h3 id="snippet-register-your-application">2. Register your application</h3>
 
 
-We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application who want to install the Optimizely snippet. [Learn how to connect to Optimizely using OAuth 2.0](/rest/reference/#oauth).
+We require you to use OAuth 2.0 to authenticate with the Optimizely REST API. This will allow you to provide a seamless experience to users in your application who want to install the Optimizely snippet. [Learn how to connect to Optimizely using OAuth 2.0](/oauth/index.html).
 
 <h3 id="snippet-create-a-configuration-form">3. Create a configuration form</h3>
 

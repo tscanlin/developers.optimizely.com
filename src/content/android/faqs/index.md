@@ -114,7 +114,7 @@ in the width or height fields in the visual editor. We are working on an update 
 
 To be counted as a visitor and show up on the results page, you actually have to see the change that you made to the app (i.e. the Live Variable code has to actually execute or you have to see the change you made via the visual editor).  Goals are only sent to the server every 2 minutes (the app must be open for at least 2 minutes), or you need to background the app in order for events store locally to be sent to the server.
 
-To check that goals are triggering properly, you can use our developer APIs including: [OptimizelyEventListener](http://developers.optimizely.com/android/help/reference/com/optimizely/integration/OptimizelyEventListener.html) and [getVisitedExperiments](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments(%29) to check that:
+To check that goals are triggering properly, you can use our developer APIs including: [OptimizelyEventListener](/android/help/reference/com/optimizely/integration/OptimizelyEventListener.html) and [getVisitedExperiments](/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments(%29) to check that:
 
 - Your experiment is running
 - Your goals are triggered properly
@@ -129,4 +129,3 @@ compile ('com.optimizely:optimizely-legacy:+@aar') {
         transitive = true
 }
 ```
-
