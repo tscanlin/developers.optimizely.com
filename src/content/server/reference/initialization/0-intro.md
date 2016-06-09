@@ -33,10 +33,6 @@ To construct the `Optimizely` object, you'll need to provide the `datafile` as a
 
 <p>
 
-<div class="hidden visible" data-toggle-section="python-code">
-<div class="attention attention--warning push--bottom">*Please note:* instantiating the Optimizely object should be done once and not on every request. Please make sure to call this during class initialization or as a global variable.</div>
-</div>
-
 <div class="hidden" data-toggle-section="ruby-code">
 To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
@@ -46,10 +42,6 @@ To run experiments with Optimizely you'll need to instantiate an `Optimizely` ob
 To construct the `Optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
 
 <p>
-
-<div class="hidden" data-toggle-section="ruby-code">
-<div class="attention attention--warning push--bottom">*Please note:* instantiating the Optimizely object should be done once and not on every request. Please make sure to call this during class initialization or as a global variable.</div>
-</div>
 
 <div class="hidden" data-toggle-section="java-code">
 Interaction with the SDK should be done through the top-level `Optimizely` object, which can be created using the associated `builder`. Once created, this object can be safely shared across threads; it's therefore recommended that a single `Optimizely` object be initialized per application instance.
