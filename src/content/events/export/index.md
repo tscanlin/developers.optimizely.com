@@ -15,7 +15,7 @@ You can use Data Export to access Optimizely experiment data with your own data 
 
 ## Availability 
 
-Currently, this feature is available to Enterprise customers; please reach out to your Customer Success Manager if you wish to utilize this feature. 
+Currently, this feature is available to Enterprise customers; please reach out to your Customer Success Manager if you wish to utilize this feature. If you do not have a CSM, you may email [developers@optimizely.com](mailto:developers@optimizely.com) to verify your plan and eligibility. 
 
 ## Technical Details 
 
