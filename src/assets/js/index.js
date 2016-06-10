@@ -4,9 +4,15 @@
  * @author Tim Scanlin (tim.scanlin@optimizely.com)
  */
 
-// Add redirect js for redirecting url hashes.
+// Add redirect.js for redirecting url hashes.
 var redirect = require('./redirect.js');
 redirect();
+
+// Add ls.js for managing and persisting state with localStorage.
+var LS = require('./ls.js');
+var ls = LS({
+  uniqueKey: 'oDevDocs',
+});
 
 // Wait until DOM content has loaded.
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -44,4 +50,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     indexName: 'optimizely-developers',
     inputSelector: '#site-search',
   });
+
+
+  // Initialize toggles from localStorage state.
+  if (ls.getItem('lang')) {
+    var el = document.querySelector('[data-toggle-trigger="' + ls.getItem('lang') + '-code"]')
+    var event = new Event('click');
+    if (el) {
+      el.dispatchEvent(event);
+    }
+  }
 });

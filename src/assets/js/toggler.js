@@ -8,11 +8,18 @@ module.exports = function() {
   var each = [].forEach;
   var body = document.body;
 
+  // Add state.js for managing and persisting state.
+  var LS = require('./ls.js');
+  var ls = LS({
+    uniqueKey: 'oDevDocs',
+  });
+
   // Constants.
   var TOGGLE_CONTAINER_CLASS = 'js-toggle-container';
   var TOGGLE_SECTION_ATTRIBUTE = 'data-toggle-section';
   var TOGGLE_TRIGGER_ATTRIBUTE = 'data-toggle-trigger';
   var TOGGLE_TRIGGER_CLASS_ATTRIBUTE = 'data-toggle-trigger-class';
+  var TOGGLE_TRIGGER_PROP_ATTRIBUTE = 'data-toggle-trigger-prop';
   var TOGGLE_CLASS = 'visible';
 
   var toggleContainer = body.querySelector('.' + TOGGLE_CONTAINER_CLASS);
@@ -27,6 +34,13 @@ module.exports = function() {
         // Support multiple classes.
         var toggleTriggerClasses = target.getAttribute(TOGGLE_TRIGGER_CLASS_ATTRIBUTE).split(' ');
         var toggleSectionId = target.getAttribute(TOGGLE_TRIGGER_ATTRIBUTE);
+        var toggleProp = target.getAttribute(TOGGLE_TRIGGER_PROP_ATTRIBUTE);
+
+        // Persist value in localStorage if it has TOGGLE_TRIGGER_PROP_ATTRIBUTE.
+        if (toggleProp) {
+          var val = toggleSectionId.split('-code').join('');
+          ls.setItem(toggleProp, val);
+        }
 
         each.call(toggleContainer.querySelectorAll('.' + toggleTriggerClasses.join('.')), function(el) {
           // Support multiple classes.
