@@ -202,6 +202,6 @@ This datafile compactly represents all of the "instructions" needed to activate 
 You can fetch the datafile for your Optimizely project in two ways:
 
 * *Use the Optimizely CDN.*  For example, if the ID of your project is `12345` you can access the file at https://cdn.optimizely.com/json/12345.json.
-* *Use the Optimizely REST API.* For example, if the ID of your proejct is `12345` you can access the file at https://www.optimizelyapis.com/experiment/v1/projects/12345/json. Please note that as with other requests to the REST API, you will have to [authenticate with an API token](/rest/getting-started).
+* *Use the Optimizely REST API.* For example, if the ID of your project is `12345` you can access the file at https://www.optimizelyapis.com/experiment/v1/projects/12345/json. Please note that as with other requests to the REST API, you will have to [authenticate with an API token](/rest/getting-started).
 
 If you'd like your server to use the most up-to-date version of the datafile, we recommend setting up a webhook that will send a request to your servers every time there is an update to the datafile. You can setup webhooks in the Custom Project interface under *Settings > Webhooks*.
