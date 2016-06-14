@@ -31,7 +31,7 @@ code_examples:
       attributes.put("AD_SOURCE", "my_campaign");
 
       // Conditionally activate a experiment for the provided user
-      Variation variation = optimizely.activate(experimentKey, bucketingId, attributes);
+      Variation variation = optimizely.activate(experimentKey, userId, attributes);
 
       if (variation.is("variation_a")) {
           // execute code for variation A

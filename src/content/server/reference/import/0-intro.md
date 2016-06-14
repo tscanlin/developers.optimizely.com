@@ -10,7 +10,7 @@ code_examples:
   java:
     lang: java
     request: |
-      package com.optimizely.ab;
+      import com.optimizely.ab.Optimizely;
   ruby:
     lang: ruby
     request: |

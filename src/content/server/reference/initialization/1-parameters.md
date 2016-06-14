@@ -3,8 +3,8 @@ template: multi-example
 title: Custom configuration
 anchor: configuration
 fields:
-  Event dispatcher: You can optionally change how the SDK dispatches events to Optimizely, by providing a function that takes a URL and decides how to send the request. You should provide your own event dispatcher if you have particular networking requirements on your servers that aren't met by our default dispatcher.
-  Logger: You can provide a logging method that logs messages given certain actions that occur in the SDK. You can write your own logger if you would like to customize what messages are shown either a staging or production environment.
+  Event dispatcher: You can optionally change how the SDK dispatches events to Optimizely, by providing a request handling function that takes a URL and query parameters as arguments. You should provide your own event dispatcher if you have particular networking requirements on your servers that aren't met by our default dispatcher.
+  Logger: You can provide a logging method that logs messages when certain events occur in the SDK. You can write your own logger if you would like to customize things like message formatting or minimum logging levels. For the Java SDK, we require the use of an [SLF4J](http://www.slf4j.org) implementation.
   Error handler: You should override Optimizely's error handling if you would like to take custom actions when exceptions are raised. If you are using the SDK in production then you will want to handle exceptions elegantly.
 code_examples:
   python:
@@ -21,15 +21,17 @@ code_examples:
   java:
     lang: java
     request: |
+      import com.optimizely.ab.Optimizely;
+      import com.optimizely.ab.event.AsyncEventHandler;
+
+      String datafile = "{}";
       // Creates an async event handler with a max buffer of 20,000 events
       // and a single dispatcher thread
-      AsyncEventHandler eventHandler = new AsyncEventHandler(20000, 1);
-
-      // Creates a project watcher that refreshes the datafile every 5 minutes
-      PeriodicProjectWatcher projectWatcher =
-          new PeriodicProjectWatcher(PROJECT_ID, 5, TimeUnit.MINUTES);
-
-      Optimizely optimizely = Optimizely.builder(projectWatcher, eventHandler)
+      EventHandler eventHandler = new AsyncEventHandler(20000, 1);
+      // Creates an error handler that throws exceptions on errors
+      ErrorHandler errorHandler = new RaiseExceptionErrorHandler();
+      Optimizely optimizely = Optimizely.builder(datafile, eventHandler)
+          .withErrorHandler(errorHandler);
           .build();
   ruby:
     lang: ruby
