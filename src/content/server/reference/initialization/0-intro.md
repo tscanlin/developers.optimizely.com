@@ -10,7 +10,14 @@ code_examples:
   java:
     lang: java
     request: |
-      Optimizely optimizely = Optimizely.builder(projectWatcher, eventHandler)
+      import com.optimizely.ab.Optimizely;
+      import com.optimizely.ab.event.AsyncEventHandler;
+
+      String datafile = "{}";
+      // Creates an async event handler with a max buffer of 20,000 events
+      // and a single dispatcher thread
+      EventHandler eventHandler = new AsyncEventHandler(20000, 1);
+      Optimizely optimizely = Optimizely.builder(datafile, eventHandler)
           .build();
   ruby:
     lang: ruby
@@ -44,10 +51,9 @@ To construct the `Optimizely` object, you'll need to provide the `datafile` as a
 <p>
 
 <div class="hidden" data-toggle-section="java-code">
-Interaction with the SDK should be done through the top-level `Optimizely` object, which can be created using the associated `builder`. Once created, this object can be safely shared across threads; it's therefore recommended that a single `Optimizely` object be initialized per application instance.
+To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
-<p><p>
+<p>
 
-By default, all exceptions originating from the SDK are suppressed. For example, attempting to activate an experiment that does not exist in the project config will cause an error to be logged, and for the "control" variation to be returned. To enable exceptions, call `throwExceptions()` when building the Optimizely object.
-
-</div>
+<div class="hidden" data-toggle-section="java-code">
+To construct the `Optimizely` object, you'll need to provide a `datafile` String and an `EventHandler` object as arguments to the `Optimizely.builder` function. The `datafile` is a JSON representation of your project and contains all of the information needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section. `eventHandler` in the example to the right is instantiated as the provided asynchronous implementation.</div>

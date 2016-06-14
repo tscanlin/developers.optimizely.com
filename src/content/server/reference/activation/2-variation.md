@@ -1,6 +1,6 @@
 ---
 template: multi-example
-title: Variation assignment
+title: Retrieving a variation assignment
 anchor: variation
 code_examples:
   python:
