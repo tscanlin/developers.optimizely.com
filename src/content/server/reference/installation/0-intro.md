@@ -35,7 +35,7 @@ The supplied `pom` files define the module dependencies.
 <p>
 
 <div class="hidden" data-toggle-section="java-code">
-`core-httpclient-impl` requires `org.apache.httpcomponents:httpclient:4.5.2` and provides an asynchronous event dispatcher which is described in the [Initialization](#initialization") section. This library isn't required and you may provide a custom `EventHandler` implementation which uses a different networking stack.
+`core-httpclient-impl` requires `org.apache.httpcomponents:httpclient:4.5.2` and provides an asynchronous event dispatcher which is described in the [Initialization](#initialization) section. This library isn't required and you may provide a custom `EventHandler` implementation which uses a different networking stack.
 </div>
 
 <p>
