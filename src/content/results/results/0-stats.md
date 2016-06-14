@@ -48,7 +48,7 @@ response: |
       "difference": 0.014,
       "difference_confidence_interval_min": 0.008,
       "difference_confidence_interval_max": 0.020,
-      "visitors_until_significance": 100,
+      "visitors_until_statistically_significant": 100,
       "is_revenue": false,
     },
     {
@@ -68,15 +68,16 @@ response: |
       "difference": 0,
       "difference_confidence_interval_min": 0,
       "difference_confidence_interval_max": 0,
-      "visitors_until_significance": 100,
+      "visitors_until_statistically_significant": 100,
       "is_revenue": false,
     }
   ]
 ---
-The /stats endpoint is identical to the [/results](#get-results) endpoint, except that the **confidence** field (i.e. chance to beat baseline) has been replaced with result statistics provided by the <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200039895">Optimizely Stats Engine</a>.
+Use the /stats endpoint to get the top-level results of an experiment, computed using the <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200039895">Optimizely Stats Engine</a>.
 
 <div class="attention attention--warning push--bottom">
-<b>All experiments started on or after January 21, 2015 have statistics computed by Optimizely Stats Engine.</b> For consistency with the Optimizely results page, we recommend you use the /stats endpoint instead of the /results endpoint for all experiments started on or after January 21, 2015. You can continue to use the /results endpoint for all experiments, regardless of start date.</div>
+<b>Stats Engine is only available for experiments started on or after January 21, 2015.</b> For older experiments, you must use the <a href="#get-results">/results</a> endpoint. Those results will match what you see on the Optimizely results page.
+</div>
 
 The request requires an `experiment_id` and the response contains a list of JSON objects representing every combination of variations and goals that have been defined for that experiment. For example, if there are three variations and two goals defined for an experiment, the response will contain six JSON objects representing each `variation_id` and `goal_id` combination.
 

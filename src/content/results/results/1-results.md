@@ -63,10 +63,12 @@ response: |
     },
   ]
 ---
-Use the results endpoint to get the top-level results of an experiment, including number of visitors, number of conversions, and chance to beat baseline for each variation.
+Use the /results endpoint to get the top-level results of an experiment, computed using a traditional t-test.
 
 <div class="attention attention--warning push--bottom">
-<b>All experiments started on or after January 21, 2015 have statistics computed by Optimizely Stats Engine.</b> For consistency with the Optimizely results page, we recommend you use the <a href="#get-stats">/stats</a> endpoint instead of the /results endpoint for all experiments started on or after January 21, 2015. You can continue to use the /results endpoint for all experiments, regardless of start date.</div>
+<b>Experiments started on or after January 21, 2015 also have statistics computed by Stats Engine.</b> For consistency with the Optimizely results page, we recommend you use the <a href="#get-stats">/stats</a> endpoint instead of the /results endpoint for those experiments.</div>
+
+The /results endpoint differs in several ways from the [/stats](#get-stats) endpoint.  In particular, it returns a **confidence** field instead of **statistical_significance**, and the value is computed using a traditional t-test rather than <a target="_blank" href="https://help.optimizely.com/hc/en-us/articles/200039895">Stats Engine</a>.  **confidence** represents the "Chance to Beat Baseline" that you may find on the results page for old experiments.
 
 The request requires an `experiment_id` and the response contains a list of JSON objects representing every combination of variations and goals that have been defined for that experiment. For example, if there are three variations and two goals defined for an experiment, the response will contain six JSON objects representing each `variation_id` and `goal_id` combination.
 
