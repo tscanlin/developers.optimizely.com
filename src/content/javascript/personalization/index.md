@@ -148,13 +148,10 @@ window['optimizely'].push({
 
 The `user` method captures attributes of a user and stores them in a profile that persists across sessions and syncs across devices. These attributes are persisted in the browser's local storage and can be used for targeting and analysis.
 
-You can also use this function to identify a user with a unique `userId`. If you don't provide an ID, we'll automatically generate an anonymous ID and persist it in a cookie. Providing your own userId allows you to target lists of users by their ID and integrate offline data. See [Uploaded Audience targeting](https://help.optimizely.com/hc/en-us/articles/206197347-Uploaded-Audience-Targeting-Create-audiences-based-on-lists-of-data) for more information.
-
 
 ##### *Parameters*
 
 - `type`: "user"
-- `userId` (string): Your unique identifier for a user, or null to use Optimizely's ID.
 - `attributes` (object): Metadata about a user, e.g. their home state. Attributes can be used for discovering and targeting audiences.
 
 ##### *Usage*
@@ -164,22 +161,6 @@ window['optimizely'] = window['optimizely'] || [];
 // Attach extra information to an anonymous visitor
 window['optimizely'].push({
   type: "user",
-  attributes: {
-    frequentFlyerStatus: "Gold",
-    frequentFlyerMiles: 25600
-  }
-});
-
-// Alias an anonymous user to a known userId
-window['optimizely'].push({
-  type: "user",
-  userId: "834092"
-});
-
-// Combine both calls
-window['optimizely'].push({
-  type: "user",
-  userId: "834092",
   attributes: {
     frequentFlyerStatus: "Gold",
     frequentFlyerMiles: 25600
