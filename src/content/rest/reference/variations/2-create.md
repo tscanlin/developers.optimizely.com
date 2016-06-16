@@ -31,8 +31,3 @@ Whenever possible, you should also include the correct `weight` and update the o
 
 Note that newly created experiments come with two variations created automatically, so you may need to PUT a variation rather than POSTing it.
 
-#### Known issues
-
-Traffic allocation may not always be set correctly. Changes to the `weight` or `is_paused` property should be double-checked on optimizely.com.
-
-We're working on fixing this issue now. Please contact [developers@optimizely.com](mailto:developers@optimizely.com) to be updated when it is fixed.
