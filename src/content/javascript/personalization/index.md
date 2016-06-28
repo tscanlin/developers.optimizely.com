@@ -36,7 +36,7 @@ window['optimizely'].push({
 ### Events
 
 The `event` method captures visitor behavior and additional data. You can track clicks and pageviews in Optimizely
-without code, but this API call supports tracking other behaviors like watching a video. These events can be used for measuring the results of a campaign, or for defining an audience based on behavior. [Learn more about events.](https://help.optimizely.com/hc/en-us/articles/210306928#events)
+without code, but this API call supports tracking other behaviors like watching a video. These events can be used for measuring the results of a campaign, or for defining an audience based on behavior. [Learn more about events.](https://help.optimizely.com/Get_Started/Six_core_concepts_of_Optimizely_Personalization#events)
 
 ##### *Parameters*
 
@@ -420,6 +420,44 @@ This listener fires whenever a page is activated, either due to URL targeting or
   - `name` (string): The user-friendly name, like "Homepage"
   - `apiName` (string): The API name for the page, used for manual activation
   - `category` (string): The category, like "homepage"
+
+
+### Behavior
+
+<h4 id="query" class="subLink">query</h4>
+
+##### *Parameters*
+This API accepts a behavioral [query object](/behavior/#query-objects).
+
+##### *Returns*
+Depending on which clauses are included in the specified query object, this API will return one of the following types of values:
+- A simple value like a number, a boolean, a string, or any other value that may have been specified in a tag.  May be `undefined` if the specified tag was not set on the filtered event.
+- A list containing multiple simple values.
+- An [event object](/behavior/#event-objects).
+- A list containing multiple events.
+
+##### *Usage*
+```js
+var behavior = window['optimizely'].get('behavior');
+
+// Return a list of page names, sorted by viewing frequency.
+behavior.query({
+  "version": "0.2",
+  "filter": {
+    "field": ["type"],
+    "value": "pageview"
+  },
+  "pick": {
+    "field": ["name"]
+  },
+  "sort": [
+    {
+      "field": ["frequency"],
+      "direction": "descending"
+    }
+  ]
+});
+```
 
 
 ### Customer Profiles
