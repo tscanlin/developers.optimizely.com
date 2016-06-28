@@ -192,6 +192,7 @@ var behavior = {
   path: 'behavior',
   title: 'Customer Behavior',
   singlePage: true,
+  hiddenSection: true,
 }
 
 var dcp = {
