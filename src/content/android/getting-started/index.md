@@ -77,9 +77,9 @@ Open the Java source file corresponding to your app's main activity (the one dec
   ```
 
 Add the following to the end of your main activity's `onCreate()` function. The code can be copied from your `Implementation Settings`, which you can find by selecting on the appropriate Android Project in your [Optimizely Home](https://app.optimizely.com/projects).  For more details, you can refer back to [Step 2: Create an Android project](#accountcreation).
+   
+<div class="attention attention--warning push--bottom">Optimizely must be started from your main launcher activity's `onCreate()` method. Starting anywhere else, such as `Application#onCreate()` will not be supported and may lead to unpredictable behavior.</div>
 
-*Note:
-   startOptimizelyWithAPIToken should be declared after your crash reporting tool is initialized and must be initialized on the UI (main) thread to coordinate with the activity lifecycle.*
 
 ```java
 @Override
