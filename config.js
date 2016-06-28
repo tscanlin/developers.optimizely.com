@@ -188,6 +188,12 @@ var events = {
   sections: DATA_NAV_SECTIONS
 };
 
+var behavior = {
+  path: 'behavior',
+  title: 'Customer Behavior',
+  singlePage: true,
+}
+
 var dcp = {
   path: 'customer-profiles',
   title: 'Customer Profiles',
@@ -204,6 +210,7 @@ nav.dataServices = {
   label: 'Data Services',
   sections: [
     events,
+    behavior,
     dcp,
     results
   ],
