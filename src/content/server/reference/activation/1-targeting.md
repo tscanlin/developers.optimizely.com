@@ -67,16 +67,15 @@ code_examples:
       var attributes = { 'device': 'iphone', 'ad_source': 'my_campaign' };
 
       // Conditionally activate an experiment for the provided user
-      optimizely.activate(experimentKey, userId, attributes)
-        .then(function(variation) {
-          if (variation === 'variation_a') {
-            // execute code for variation A
-          } else if (variation === 'variation_b') {
-            // execute code for variation B
-          } else {
-            // execute default code
-          }
-        });
+      var variation = optimizely.activate(experimentKey, userId, attributes);
+
+      if (variation === 'variation_a') {
+        // execute code for variation A
+      } else if (variation === 'variation_b') {
+        // execute code for variation B
+      } else {
+        // execute default code
+      }
 ---
 
 If you'd like to be able to segment your experiments based on attributes of your users, you should include the optional `attributes` argument to the `activate` function call. Optimizely will include these attributes when logging the experiment so you can segment them on the Optimizely results page.
