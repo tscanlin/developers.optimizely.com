@@ -34,8 +34,9 @@ A status file will be provided to track the success or failure of that day's exp
 
 
 
-### Web Data
+### Web Dictionary
 
+<h5> <a href="/data/web_sample.tsv"> Sample File </a></h5>
 
 <h4>Definitions</h4>
 <table class="table">
@@ -136,6 +137,8 @@ A status file will be provided to track the success or failure of that day's exp
 
 ### Android Dictionary 
 
+<h5> <a href="/data/android_sample.tsv"> Sample File </a></h5>
+
 <h4>Definitions</h4>
 <table class="table">
    <tbody>
@@ -217,6 +220,8 @@ A status file will be provided to track the success or failure of that day's exp
 
 
 ### iOS Dictionary 
+
+<h5> <a href="/data/ios_sample.tsv"> Sample File </a></h5>
 
 <h4>Definitions</h4>
 <table class="table">
