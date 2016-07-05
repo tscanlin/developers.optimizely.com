@@ -58,5 +58,18 @@ code_examples:
         logger: defaultLogger.createLogger(),
       });
 ---
+<div class="hidden visible" data-toggle-section="python-code">
+  You can optionally provide a number of parameters to the `Optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
 
-You can optionally provide a number of parameters to the `Optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+<div class="hidden visible" data-toggle-section="java-code">
+  You can optionally provide a number of parameters to the `Optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
+
+<div class="hidden visible" data-toggle-section="ruby-code">
+  You can optionally provide a number of parameters to the `Optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
+
+<div class="hidden visible" data-toggle-section="javascript-code">
+  You can optionally provide a number of parameters to the `optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
