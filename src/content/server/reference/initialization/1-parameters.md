@@ -36,9 +36,9 @@ code_examples:
   ruby:
     lang: ruby
     request: |
-      require_relative 'optimizely/error_handler'
-      require_relative 'optimizely/event_builder'
       require_relative 'optimizely/event_dispatcher'
+      require_relative 'optimizely/logger'
+      require_relative 'optimizely/error_handler'
 
       optimizely = Optimizely::Optimizely.new(datafile,
                                               EventDispatcher.new,
