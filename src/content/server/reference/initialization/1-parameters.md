@@ -40,10 +40,10 @@ code_examples:
       require_relative 'optimizely/logger'
       require_relative 'optimizely/error_handler'
 
-      optimizely = Optimizely::Optimizely.new(datafile,
-                                              EventDispatcher.new,
-                                              NoOpLogger.new,
-                                              NoOpErrorHandler.new)
+      optimizely = Optimizely::Project.new(datafile,
+                                           EventDispatcher.new,
+                                           NoOpLogger.new,
+                                           NoOpErrorHandler.new)
   javascript:
     lang: javascript
     request: |
@@ -67,7 +67,7 @@ code_examples:
 </div>
 
 <div class="hidden visible" data-toggle-section="ruby-code">
-  You can optionally provide a number of parameters to the `Optimizely` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+  You can optionally provide a number of parameters to the `Project` constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
 </div>
 
 <div class="hidden visible" data-toggle-section="javascript-code">
