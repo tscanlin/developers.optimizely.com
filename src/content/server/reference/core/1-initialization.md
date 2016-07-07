@@ -6,10 +6,14 @@ code_examples:
   python:
     lang: python
     request: |
+      import optimizely
+
       optimizely = optimizely.Optimizely(datafile)
   java:
     lang: java
     request: |
+      import com.optimizely.ab.Optimizely;
+
       import com.optimizely.ab.Optimizely;
       import com.optimizely.ab.event.AsyncEventHandler;
 
@@ -22,10 +26,17 @@ code_examples:
   ruby:
     lang: ruby
     request: |
+      require "optimizely"
+
       optimizely = Optimizely::Optimizely.new(datafile)
   javascript:
     lang: javascript
     request: |
+      var optimizely = require('optimizely-testing-sdk-node');
+
+      // or ES6
+      import optimizely from 'optimizely-testing-sdk-node'
+
       var datafile = {};
       var optimizely = optimizely.createInstance({ datafile: datafile });
 
@@ -37,6 +48,8 @@ code_examples:
 ---
 
 <div class="hidden visible" data-toggle-section="python-code">
+<p>First, you'll need to import the Optimizely library into your code as shown.</p>
+
 To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
 <p>
@@ -47,6 +60,8 @@ To construct the `Optimizely` object, you'll need to provide the `datafile` as a
 <p>
 
 <div class="hidden" data-toggle-section="ruby-code">
+<p>First, you'll need to import the Optimizely library into your code as shown. </p>
+
 To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
 <p>
@@ -57,6 +72,8 @@ To construct the `Optimizely` object, you'll need to provide the `datafile` as a
 <p>
 
 <div class="hidden" data-toggle-section="java-code">
+<p>First, you'll need to import the Optimizely library into your code as shown.</p>
+
 To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
 <p>
@@ -67,6 +84,8 @@ To construct the `Optimizely` object, you'll need to provide a `datafile` String
 <p>
 
 <div class="hidden" data-toggle-section="javascript-code">
+<p>First, you'll need to import the Optimizely library into your code as shown.</p>
+
 To run experiments with Optimizely you'll need to instantiate an `optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
 <p>

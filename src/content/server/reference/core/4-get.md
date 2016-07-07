@@ -1,6 +1,6 @@
 ---
 template: multi-example
-title: Retrieving a variation assignment
+title: Get variation
 anchor: variation
 code_examples:
   python:
@@ -37,4 +37,4 @@ code_examples:
       var variation = optimizely.getVariation(experimentKey, userId);
 ---
 
-If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use the code shown at right.
+If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use `get_variation` as shown in the code shown at right.

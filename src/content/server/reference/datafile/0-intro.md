@@ -193,9 +193,9 @@ code_examples:
       }
 ---
 
-All of Optimizely's Server-Side SDKs work by reading from a project datafile in JSON format that represents the experiments you've set up for the project. For example, the datafile at right represents the project from the [Getting started](/server/getting-started) guide.
+The datafile compactly represents all of the "instructions" needed to activate experiments in your code and send conversion events back to Optimizely. The SDKs work by reading from a datafile in JSON format which represents the experiments you've set up for the project. For example, the datafile at right represents the project from the [Getting started](/server/getting-started) guide.
 
-This datafile compactly represents all of the "instructions" needed to activate experiments in your code and send conversion events back to Optimizely. Unless you are building your own SDK, there shouldn't be any need to interact with the datafile directly.
+Unless you are building your own SDK, there shouldn't be any need to interact with the datafile directly.
 
 <div class="attention attention--warning push--bottom">*Please note:* The format of the datafile is still not finalized and subject to change.</div>
 
