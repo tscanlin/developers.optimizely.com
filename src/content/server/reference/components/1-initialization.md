@@ -13,8 +13,6 @@ code_examples:
     lang: java
     request: |
       import com.optimizely.ab.Optimizely;
-
-      import com.optimizely.ab.Optimizely;
       import com.optimizely.ab.event.AsyncEventHandler;
 
       String datafile = "{}";
