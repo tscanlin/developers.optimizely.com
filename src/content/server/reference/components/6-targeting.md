@@ -1,6 +1,6 @@
 ---
 template: multi-example
-title: Including user attributes
+title: User attributes
 anchor: targeting
 code_examples:
   python:

@@ -4,8 +4,8 @@ title: "Optimizely Server-Side SDK Reference"
 includeSiblingData: true
 sections:
  - overview
- - datafile
  - installation
- - core
- - additional
+ - datafile
+ - basic
+ - components
 ---
