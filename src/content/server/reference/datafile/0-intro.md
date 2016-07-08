@@ -19,12 +19,12 @@ code_examples:
               {
                 id: "9501848592",
                 key: "variation_a",
-                endOfRange: 4999
+                endOfRange: 5000
               }
               {
                 id: "1849205928",
                 key: "variation_b",
-                endOfRange: 9999
+                endOfRange: 10000
               }
             ],
             id: "5928401928",
@@ -66,12 +66,12 @@ code_examples:
               {
                 id: "9501848592",
                 key: "variation_a",
-                endOfRange: 4999
+                endOfRange: 5000
               }
               {
                 id: "1849205928",
                 key: "variation_b",
-                endOfRange: 9999
+                endOfRange: 10000
               }
             ],
             id: "5928401928",
@@ -113,12 +113,12 @@ code_examples:
               {
                 id: "9501848592",
                 key: "variation_a",
-                endOfRange: 4999
+                endOfRange: 5000
               }
               {
                 id: "1849205928",
                 key: "variation_b",
-                endOfRange: 9999
+                endOfRange: 10000
               }
             ],
             id: "5928401928",
@@ -160,12 +160,12 @@ code_examples:
               {
                 id: "9501848592",
                 key: "variation_a",
-                endOfRange: 4999
+                endOfRange: 5000
               }
               {
                 id: "1849205928",
                 key: "variation_b",
-                endOfRange: 9999
+                endOfRange: 10000
               }
             ],
             id: "5928401928",
