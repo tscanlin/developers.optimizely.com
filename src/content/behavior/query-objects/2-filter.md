@@ -108,20 +108,19 @@ Note that you can filter by [`["age"]`](http://localhost:4000/behavior/#field-id
 These <span id="comparators">*comparators*</span> are usable on all fields:
 - `"eq"`: Requires the field value to roughly equal the filter's `value`.  For strings, this is case-insensitive, as well as leading- and trailing-whitespace-insensitive.
 - `"is"`: Requires the field value to exactly equal the filter's `value`.
-- `"in"`: Requires the field value to be contained in the filter's `value`, which must be an `["array", "of", "acceptable", "values", 1, 2, 3]`.  For strings, this is case-insensitive, as well as leading- and trailing-whitespace-insensitive.
+- `"in"`: Requires the field value to be contained in the filter's `value`, which must be an `["array", "of", "acceptable", "values", "such as", 2, "and", true]`.  For strings, this is case-insensitive, as well as leading- and trailing-whitespace-insensitive.
 - `"contains"`: Requires the field value, which must be an array, to contain the filter's `value` according to `indexOf`.  For strings, this is case-insensitive.
 - `"exists"`: Requires the field value to be defined; the filter need not specify a `value`.  This is only useful for tags, since top-level fields are defined for every event.
 
-The following <span id="string-comparators">*string comparators*</span> can be used on string fields like `type`,
-`name`, `category` and also on string tags:
+The following <span id="string-comparators">*string comparators*</span> can be used on string fields like `type`, `name`, `category` and also on string tags:
 - `"regex"`: Requires the field value to match the filter's `value`, which must be either a case-insensitive RegExp `"pattern"`, or a `["pattern", "flags"]` array
 
-The following <span id="number-comparators">*number comparators*</span> can be used on numeric fields like `time`, `age` and also on numeric tags like `revenue`:
-- `"gt"`: Requires the field value to be greater than the filter's `value`.
-- `"gte"`: Requires the field value to be greater than or equal to the filter's `value`.
-- `"lt"`: Requires the field value to be less than the filter's `value`.
-- `"lte"`: Requires the field value to be less than or equal to the filter's `value`.
-- `"between"`: Requires the field value to be in the inclusive interval specified by the filter's `value`, e.g. [123, 456].
+The following <span id="number-comparators">*number comparators*</span> can be used on numeric fields like `time`, `age` and also on numeric tags like `revenue`.  These comparators automatically reject non-numeric field values.
+- `"gt"`: Requires the field value to be greater than the filter's `value`, which must be a number.
+- `"gte"`: Requires the field value to be greater than or equal to the filter's `value`, which must be a number.
+- `"lt"`: Requires the field value to be less than the filter's `value`, which must be a number.
+- `"lte"`: Requires the field value to be less than or equal to the filter's `value`, which must be a number.
+- `"between"`: Requires the field value to be in the inclusive interval specified by the filter's `value`, which must be an array of two numbers.
 
 If `comparator` is omitted, it defaults to `"eq"`.
 

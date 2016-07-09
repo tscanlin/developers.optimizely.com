@@ -62,4 +62,4 @@ The following <span id="mathematical-aggregators">*mathematical aggregators*</id
 - `"max"`: Reduce the list by choosing the largest of the numeric values.
 - `"min"`: Reduce the list by choosing the smallest of the numeric values.
 
-Non-numeric values are ignored when evaluating a mathematical aggregator, as if those values didn't exist at all.  This ensures, for example, that an `"avg"` computation is not diluted through zero-filling of `undefined` values.  Note that JavaScript numbers like `NaN`, `+Infinity`, and `-Infinity` are still recognized and can strong affect the result of the aggregation.
+Non-numeric values are ignored when evaluating a mathematical aggregator, as if those values didn't exist at all.  This ensures, for example, that an `"avg"` computation is not diluted through zero-filling of `undefined` values.  Note that JavaScript numbers like `NaN`, `+Infinity`, and `-Infinity` are still recognized and can severely affect the result of the aggregation.
