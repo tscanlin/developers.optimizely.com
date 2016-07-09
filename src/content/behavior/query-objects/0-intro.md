@@ -5,7 +5,7 @@ anchor: query-objects
 js: |
   // Query object
   {
-    "version": 0.2
+    "version": "0.2"
   }
 
   // Resulting value
