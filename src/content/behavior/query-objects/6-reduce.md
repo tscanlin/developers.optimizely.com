@@ -3,7 +3,7 @@ template: sidebyside
 title: 6. reduce
 anchor: reduce
 js: |
-  // Query object
+  // Query for the single most recent event
   {
     "version": "0.2",
     "sort": [
@@ -18,23 +18,37 @@ js: |
       "n": 0
     }
   }
+  // Result:
+  {
+    "type": "pageview",
+    "name": "AB_product_page",
+    "category": "product_detail",
+    "tags": {
+      "price": 14700,
+      "product_name": "Derby Tier Backpack"
+    },
+    "time": 2222222222000
+  }
 
-  // Resulting value: the single most recent event.
-
-  // Query object
+  // Query for the average price across all product page views
   {
     "version": "0.2",
+    "filter": [
+      {
+        "field": ["type"],
+        "value": "pageview"
+      }
+    ],
     "pick": {
-      "field": ["tags", "revenue"],
+      "field": ["tags", "price"],
     },
     // Reduce a list of picked field values into a single value.
     "reduce": {
-      "aggregator": "sum"
+      "aggregator": "avg"
     }
   }
-
-  // Resulting value: the sum of all defined values for the "revenue" tag.
-  4200
+  // Result:
+  13750
 ---
 You can `reduce` a list of values into a single value using an `aggregator`.
 

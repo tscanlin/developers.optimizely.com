@@ -3,7 +3,76 @@ template: sidebyside
 title: 2. filter
 anchor: filter
 js: |
-  // Query object
+  // Query for events that demonstrate interest in the "Scout Backpack".
+  {
+    "version": "0.2",
+    "filter": [
+      {
+        "field": ["tags", "product_name"],
+        "value": "Scout Backpack"
+      }
+    ]
+  }
+  // Result:
+  [
+    {
+      "type": "pageview",
+      "name": "AB_product_page",
+      "category": "product_detail",
+      "tags": {
+        "price": 12800,
+        "product_name": "Scout Backpack"
+      },
+      "time": 1111111115000
+    },
+    {
+      "type": "click",
+      "name": "AB_add_to_cart",
+      "category": "add_to_cart",
+      "tags": {
+        "price": 12800,
+        "product_name": "Scout Backpack",
+        "quantity": 1
+      },
+      "time": 1111111119000
+    }
+  ]
+
+  // Query for add-to-cart events where the price was at least $50.00.
+  {
+    "version": "0.2",
+    "filter": [
+      {
+        "field": ["type"],
+        "value": "click"
+      },
+      {
+        "field": ["category"],
+        "value": "add_to_cart"
+      },
+      {
+        "field": ["tags", "price"],
+        "comparator": "gte",
+        "value": 5000
+      }
+    ]
+  }
+  // Result:
+  [
+    {
+      "type": "click",
+      "name": "AB_add_to_cart",
+      "category": "add_to_cart",
+      "tags": {
+        "price": 12800,
+        "product_name": "Scout Backpack",
+        "quantity": 1
+      },
+      "time": 1111111119000
+    }
+  ]
+
+  // Query for pageview events that happened between 7 and 14 days ago.
   {
     "version": "0.2",
     "filter": [
@@ -12,33 +81,25 @@ js: |
         "value": "pageview"
       },
       {
-        "field": ["name"],
-        "value": "full_product_page"
-      },
-      {
-        "field": ["tags", "product_sku"],
-        "comparator": "exists"
-      }
-    ]
-  }
-
-  // Resulting value: list of pageview events from the `"full_product_page"` page that have a value for the `"product_sku"` tag,
-  // TODO
-
-  // Query object
-  {
-    "version": "0.2",
-    "filter": [
-      {
         "field": ["age"],
         "comparator": "between",
         "value": [7*24*60*60*1000, 14*24*60*60*1000]
       }
     ]
   }
-
-  // Resulting value: list of events that happened between 7 and 14 days ago.
-  // TODO
+  // Result:
+  [
+    {
+      "type": "pageview",
+      "name": "AB_product_page",
+      "category": "product_detail",
+      "tags": {
+        "price": 14700,
+        "product_name": "Derby Tier Backpack"
+      },
+      "time": 2222222222000
+    }
+  ]
 ---
 You can `filter` the results by passing in an array of filters, each comprising a [`field`](#field-identifiers), `comparator`, and `value`.  This narrows down the query to those events that match (all) filters.
 
