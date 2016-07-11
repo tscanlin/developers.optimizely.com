@@ -3,11 +3,11 @@ template: sidebyside
 title: 5. sort by frequency
 anchor: frequency-sort
 js: |
-  // Query object
+  // Query for unique tag values sorted from most frequent to least frequent
   {
     "version": "0.2",
     "pick": {
-      "field": ["name"]
+      "field": ["tags", "product_name"]
     },
     "sort": [
       {
@@ -16,12 +16,10 @@ js: |
       }
     ]
   }
-
-  // Resulting value: a list of unique event names sorted from most frequent to least frequent:
+  // Result:
   [
-    "learn_more",
-    "full_product_page",
-    "add_to_cart"
+    "Scout Backpack",
+    "Derby Tier Backpack"
   ]
 ---
 If field values are being [picked](#pick) out of events, you can `sort` those values by `["frequency"]`, either `"ascending"` or `"descending"`.

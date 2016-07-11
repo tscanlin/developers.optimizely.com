@@ -3,7 +3,7 @@ template: sidebyside
 title: 4. pick
 anchor: pick
 js: |
-  // Query object
+  // Query for tag values, sorted from most recent to least recent.
   {
     "version": "0.2",
     "sort": [
@@ -13,18 +13,14 @@ js: |
       }
     ],
     "pick": {
-      "field": ["name"]
+      "field": ["tags", "product_name"]
     }
   }
-
-  // Resulting value: a list of event names sorted from most recent to least recent.
+  // Result:
   [
-    "full_product_page",
-    "add_to_cart",
-    "learn_more",
-    "learn_more",
-    "learn_more",
-    "full_product_page"
+    "Derby Tier Backpack",
+    "Scout Backpack",
+    "Scout Backpack"
   ]
 ---
 You can `pick` the values for a single field out of an array of (potentially [filtered](#filter) and

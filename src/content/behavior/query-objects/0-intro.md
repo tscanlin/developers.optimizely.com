@@ -5,80 +5,51 @@ anchor: query-objects
 js: |
   // Query object
   {
-    "version": 0.2
+    "version": "0.2"
   }
-
-  // Resulting value
+  // Result:
   [
     {
       "type": "pageview",
-      "name": "full_product_page",
-      "category": "product_detail",
+      "name": "AB_landing_page",
+      "category": "landing_page",
       "tags": {
-        "product_sku": "428977",
-        "product_desc": "Clamshell Button 12mm",
-        "product_cat": "button"
+        "theme": "urban_explorer"
       },
-      "time": 1447046231000
-    },
-    {
-      "type": "click",
-      "name": "learn_more",
-      "category": "product_detail",
-      "tags": {
-        product_sku: "428977",
-        product_desc: "Clamshell Button 12mm",
-        product_cat: "button",
-      }
-      "time": 1447047054000
-    },
-    {
-      "type": "click",
-      "name": "learn_more",
-      "category": "product_detail",
-      "tags": {
-        product_sku: "428977",
-        product_desc: "Clamshell Button 12mm",
-        product_cat: "button",
-      }
-      "time": 1447047060000
-    },
-    {
-      "type": "click",
-      "name": "learn_more",
-      "category": "product_detail",
-      "tags": {
-        product_sku: "428977",
-        product_desc: "Clamshell Button 12mm",
-        product_cat: "button",
-      }
-      "time": 1447047101000
-    },
-    {
-      "type": "custom",
-      "name": "add_to_cart",
-      "category": "product_detail",
-      "tags": {
-        product_sku: "428977",
-        product_desc: "Clamshell Button 12mm",
-        product_cat: "button",
-        quantity: 1
-      },
-      "time": 1447047135000
+      "time": 1111111111000
     },
     {
       "type": "pageview",
-      "name": "full_product_page",
+      "name": "AB_product_page",
       "category": "product_detail",
       "tags": {
-        product_sku: "428700",
-        product_desc: "Plastic Button 12mm Blue",
-        product_cat: "button"
+        "price": 12800,
+        "product_name": "Scout Backpack"
       },
-      "time": 1447048771000
+      "time": 1111111115000
+    },
+    {
+      "type": "click",
+      "name": "AB_add_to_cart",
+      "category": "add_to_cart",
+      "tags": {
+        "price": 12800,
+        "product_name": "Scout Backpack",
+        "quantity": 1
+      },
+      "time": 1111111119000
+    },
+    {
+      "type": "pageview",
+      "name": "AB_product_page",
+      "category": "product_detail",
+      "tags": {
+        "price": 14700,
+        "product_name": "Derby Tier Backpack"
+      },
+      "time": 2222222222000
     }
   ]
-  // TODO: pick a more concise example
 ---
 Behavioral queries are specified using JSON objects.
 
