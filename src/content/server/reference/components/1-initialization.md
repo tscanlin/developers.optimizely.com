@@ -61,8 +61,7 @@ To construct the `Optimizely` object, you'll need to provide the `datafile` as a
 <div class="hidden" data-toggle-section="ruby-code">
 <p>First, you'll need to import the Optimizely library into your code as shown. </p>
 
-To run experiments with Optimizely you'll need to instantiate a `Project` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
-
+To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
 
 <p>
 
