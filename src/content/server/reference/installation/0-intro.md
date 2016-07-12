@@ -10,10 +10,13 @@ code_examples:
       compile files('libs/core-api-{VERSION}.jar')
       compile files('libs/core-httpclient-impl-{VERSION}.jar')
   ruby:
+    lang: ruby
+    request: |
+      gem install optimizely-sdk
   javascript:
     lang: javascript
     request: |
-      npm install path/to/optimizely-testing-sdk-node --save
+      npm install optimizely-server-sdk --save
 ---
 
 <div class="hidden" data-toggle-section="java-code">
@@ -39,6 +42,13 @@ The supplied `pom` files define the module dependencies.
 </div>
 
 <p>
+
+<div class="hidden" data-toggle-section="ruby-code">
+The gem for the Ruby SDK is distributed through [RubyGems](https://rubygems.org/gems/optimizely-sdk). To install, simply use `gem` or bundler to install the gem `optimizely-sdk`.
+</div>
+
+<p>
+
 
 <div class="attention attention--warning push--bottom">
 Our server-side SDKs are not yet generally available to Optimizely customers. Please contact [developers@optimizely.com](mailto:developers@optimizely.com) if you are interested in getting early access or giving us feedback.

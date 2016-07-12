@@ -26,7 +26,8 @@ code_examples:
     request: |
       require "optimizely"
 
-      optimizely = Optimizely::Optimizely.new(datafile)
+      optimizely = Optimizely::Project.new(datafile)
+
   javascript:
     lang: javascript
     request: |
@@ -60,12 +61,13 @@ To construct the `Optimizely` object, you'll need to provide the `datafile` as a
 <div class="hidden" data-toggle-section="ruby-code">
 <p>First, you'll need to import the Optimizely library into your code as shown. </p>
 
-To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
+To run experiments with Optimizely you'll need to instantiate a `Project` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
+
 
 <p>
 
 <div class="hidden" data-toggle-section="ruby-code">
-To construct the `Optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
+To construct the `Project` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
 
 <p>
 

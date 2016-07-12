@@ -426,8 +426,12 @@ This listener fires whenever a page is activated, either due to URL targeting or
 
 <h4 id="query" class="subLink">query</h4>
 
+This API function runs a behavioral query over the [events](https://help.optimizely.com/Get_Started/Six_core_concepts_of_Optimizely_Personalization#events) that have taken place on this device.
+
+Currently, the API only considers events that took place before the most recent activation of the Optimizely snippet.  You must reload the page if you want to query over events that took place on the current page load.
+
 ##### *Parameters*
-This API accepts a behavioral [query object](/behavior/#query-objects).
+- `query` (object): A [behavioral query object](/behavior/#query-objects)
 
 ##### *Returns*
 Depending on which clauses are included in the specified query object, this API will return one of the following types of values:
@@ -464,7 +468,7 @@ behavior.query({
 
 <h4 id="getAttributeValue" class="subLink">getAttributeValue</h4>
 
-This utility returns the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216497887) profile attribute.
+This API function returns the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216497887) profile attribute.
 
 ##### *Parameters*
 - `datasourceId` (number): Required
@@ -497,7 +501,7 @@ dcp.getAttributeValue({datasourceId: 123, attributeName: 'Preferred Locale'});
 
 <h4 id="waitForAttributeValue" class="subLink">waitForAttributeValue</h4>
 
-This utility returns a `Promise` that will be resolved as soon as Optimizely receives the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216497887) profile attribute.
+This API function returns a `Promise` that will be resolved as soon as Optimizely receives the current customer's value for a [content-enabled](https://help.optimizely.com/hc/en-us/articles/216497887) profile attribute.
 
 ##### *Parameters*
 - `datasourceId` (number): Required
