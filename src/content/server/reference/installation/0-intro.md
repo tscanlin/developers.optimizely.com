@@ -16,7 +16,7 @@ code_examples:
   javascript:
     lang: javascript
     request: |
-      npm install path/to/optimizely-testing-sdk-node --save
+      npm install optimizely-server-sdk --save
 ---
 
 <div class="hidden" data-toggle-section="java-code">

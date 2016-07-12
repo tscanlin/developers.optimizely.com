@@ -18,10 +18,10 @@ code_examples:
   javascript:
     lang: javascript
     request: |
-      var optimizely = require('optimizely-testing-sdk-node');
+      var optimizely = require('optimizely-server-sdk');
 
       // or ES6
-      import optimizely from 'optimizely-testing-sdk-node'
+      import optimizely from 'optimizely-server-sdk'
 ---
 
 Import the Optimizely library into your code as shown.
