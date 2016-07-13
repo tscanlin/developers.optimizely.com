@@ -18,7 +18,7 @@ code_examples:
       String userId = "user123";
 
       // Get the active variation for the provided user
-      Variation variation = optimizely.getActiveVariation(experimentKey, userId);
+      Variation variation = optimizely.getVariation(experimentKey, userId);
   ruby:
     lang: ruby
     request: |
@@ -37,4 +37,18 @@ code_examples:
       var variation = optimizely.getVariation(experimentKey, userId);
 ---
 
-If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use `get_variation` as shown in the code shown at right.
+<div class="hidden" data-toggle-section="java-code">
+  If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use `getVariation` as shown in the code shown at right.
+</div>
+
+<div class="hidden" data-toggle-section="javascript-code">
+  If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use `getVariation` as shown in the code shown at right.
+</div>
+
+<div class="hidden" data-toggle-section="ruby-code">
+  If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use `get_variation` as shown in the code shown at right.
+</div>
+
+<div class="hidden" data-toggle-section="python-code">
+  If you've already called `activate` and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use `get_variation` as shown in the code shown at right.
+</div>
