@@ -4,6 +4,9 @@ title: SDK installation
 anchor: installation
 code_examples:
   python:
+    lang: python
+    request:
+      pip install optimizely-sdk
   java:
     lang: java
     request: |
@@ -18,6 +21,10 @@ code_examples:
     request: |
       npm install optimizely-server-sdk --save
 ---
+
+<div class="hidden" data-toggle-section="python-code">
+The Python SDK is distributed through [PyPi](https://pypi.python.org/pypi?name=optimizely-sdk&:action=display). To install, simply use `pip` or add `optimizely-sdk` to your `requirements.txt`.
+</div>
 
 <div class="hidden" data-toggle-section="java-code">
 Currently, packages are supplied directly rather than being made available through a public maven repository. To add the modules to your project, add a `libs` directory under your project root. Drop the provided JARs into that directory and add the lines shown at right to your `build.gradle`.
