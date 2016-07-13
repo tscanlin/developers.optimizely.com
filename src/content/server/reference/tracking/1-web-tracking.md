@@ -4,7 +4,7 @@ title: Tracking on the web
 anchor: webtracking
 ---
 
-If you'd like to track events on the web, client-side (via JavaScript) instead of on the server, you can use the JavaScript SDK. Please email <developers@optimizely.com> to get a hold of the SDK.
+If you'd like to track events on the web, client-side (via JavaScript) instead of on the server, you can use the JavaScript SDK. This SDK is available via [npm](https://www.npmjs.com/package/optimizely-client-sdk).
 
 Instructions for using the SDK:
 
