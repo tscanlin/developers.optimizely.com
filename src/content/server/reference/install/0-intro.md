@@ -49,6 +49,11 @@ The gem for the Ruby SDK is distributed through [RubyGems](https://rubygems.org/
 
 <p>
 
+<div class="hidden" data-toggle-section="javascript-code">
+The Node SDK is distributed through [npm](https://www.npmjs.com/package/optimizely-server-sdk). To install, simply run `npm install optimizely-server-sdk --save`.
+</div>
+
+<p>
 
 <div class="attention attention--warning push--bottom">
 Our server-side SDKs are not yet generally available to Optimizely customers. Please contact [developers@optimizely.com](mailto:developers@optimizely.com) if you are interested in getting early access or giving us feedback.
