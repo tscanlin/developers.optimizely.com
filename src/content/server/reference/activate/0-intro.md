@@ -44,7 +44,7 @@ code_examples:
       user_id = 'user123'
 
       # Conditionally activate an experiment for the provided user
-      variation = optimizely.activate(experiment_key, user_id)
+      variation = project.activate(experiment_key, user_id)
 
       if variation == 'variation_a'
         # execute code for variation A

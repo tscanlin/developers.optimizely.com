@@ -140,7 +140,7 @@ var android = {
 
 var server = {
   path: 'server',
-  title: 'Server-Side',
+  title: 'Server',
   sections: SERVER_NAV_SECTIONS,
   hiddenSection: true,
 };

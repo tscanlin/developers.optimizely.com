@@ -1,6 +1,6 @@
 ---
 template: multi-example
-title: Including user attributes
+title: User attributes
 anchor: targeting
 code_examples:
   python:
@@ -12,13 +12,6 @@ code_examples:
 
       # Conditionally activate an experiment for the provided user
       variation = optimizely.activate(experiment_key, user_id, attributes)
-
-      if variation == 'variation_a':
-        # execute code for variation A
-      elif variation == 'variation_b':
-        # execute code for variation B
-      else:
-        # execute default code
 
   java:
     lang: java
@@ -33,14 +26,6 @@ code_examples:
       // Conditionally activate a experiment for the provided user
       Variation variation = optimizely.activate(experimentKey, userId, attributes);
 
-      if (variation.is("variation_a")) {
-          // execute code for variation A
-      } else if (variation.is("variation_b")) {
-          // execute code for variation B
-      } else {
-          // execute default code
-      }
-
   ruby:
     lang: ruby
     request: |
@@ -50,14 +35,6 @@ code_examples:
 
       # Conditionally activate an experiment for the provided user
       variation = optimizely.activate(experiment_key, user_id, attributes)
-
-      if variation == 'variation_a'
-        # execute code for variation A
-      elsif variation == 'variation_b'
-        # execute code for variation B
-      else
-        # execute default code
-      end
 
   javascript:
     lang: javascript
@@ -69,15 +46,8 @@ code_examples:
       // Conditionally activate an experiment for the provided user
       var variation = optimizely.activate(experimentKey, userId, attributes);
 
-      if (variation === 'variation_a') {
-        // execute code for variation A
-      } else if (variation === 'variation_b') {
-        // execute code for variation B
-      } else {
-        // execute default code
-      }
 ---
 
 If you'd like to be able to segment your experiments based on attributes of your users, you should include the optional `attributes` argument to the `activate` function call. Optimizely will include these attributes when logging the experiment so you can segment them on the Optimizely results page.
 
-Passing attributes to activation will also allow you to target your experiments to a particular audience you've defined in Optimizely. If the provided experiment is targeted to an audience, Optimizely will evaluate whether the user falls in an audience that is associated with the experiment before bucketing.
+Passing attributes will also allow you to target your experiments to a particular audience you've defined in Optimizely. If the provided experiment is targeted to an audience, Optimizely will evaluate whether the user falls in an audience that is associated with the experiment before bucketing.
