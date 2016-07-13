@@ -62,6 +62,3 @@ The Node SDK is distributed through [npm](https://www.npmjs.com/package/optimize
 
 <p>
 
-<div class="attention attention--warning push--bottom">
-Our server-side SDKs are not yet generally available to Optimizely customers. Please contact [developers@optimizely.com](mailto:developers@optimizely.com) if you are interested in getting early access or giving us feedback.
-</div>
