@@ -47,9 +47,9 @@ code_examples:
   javascript:
     lang: javascript
     request: |
-      var defaultLogger = require(optimizely-testing-sdk-node/lib/core/logger);
-      var defaultErrorHandler = require(optimizely-testing-sdk-node/lib/core/error_handler);
-      var defaultEventDispatcher = require(optimizely-testing-sdk-node/lib/core/event_dispatcher);
+      var defaultLogger = require(optimizely-server-sdk/lib/core/logger);
+      var defaultErrorHandler = require(optimizely-server-sdk/lib/core/error_handler);
+      var defaultEventDispatcher = require(optimizely-server-sdk/lib/core/event_dispatcher);
 
       optimizely = optimizely.createInstance({
         datafile: datafile,
