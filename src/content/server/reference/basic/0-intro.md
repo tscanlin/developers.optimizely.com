@@ -53,11 +53,11 @@ code_examples:
     request: |
       require "optimizely"
 
-      # instantiate Optimizely object
-      optimizely = Optimizely::Optimizely.new(datafile)
+      # instantiate Project object
+      project = Optimizely::Project.new(datafile)
 
       # activate user in the experiment
-      variation = optimizely.activate(experiment_key, user_id)
+      variation = project.activate(experiment_key, user_id)
 
       if variation == 'variation_a'
         # execute code for variation A
@@ -68,7 +68,7 @@ code_examples:
       end
 
       # track conversion event
-      optimizely.track(event_key, user_id)
+      project.track(event_key, user_id)
 
   javascript:
     lang: javascript
@@ -98,4 +98,3 @@ code_examples:
 
 <p>The SDK can be used to activate experiments and track events in your code. First, you need to [**instantiate**](/server/reference/index.html#initialization) Optimizely. Then you'll want to call [**activate()**](/server/reference/index.html#activation) at the point you want the experiment to start and [**track()**](/server/reference/index.html#tracking) for conversion events you'd like to track in Optimizely. `track()` can work across multiple experiments but should be called after `activate()` has been called for each experiment. </p>
 
-<p>Also in general `track()` is always going to be in a separate server request because it means the user has taken an action. If there's a way to illustrate this somehow in the code example that will help.</p>
