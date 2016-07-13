@@ -73,7 +73,7 @@ code_examples:
   javascript:
     lang: javascript
     request: |
-      var optimizely = require('optimizely-testing-sdk-node');
+      var optimizely = require('optimizely-server-sdk');
 
       // instantiate Optimizely object
       var optimizely = optimizely.createInstance({ datafile: datafile });
@@ -94,7 +94,7 @@ code_examples:
 
 ---
 
-<p>This illustrates the minimal components necessary to run a server-side test.</p> 
+<p>This illustrates the minimal components necessary to run a server-side test.</p>
 
 <p>The SDK can be used to activate experiments and track events in your code. First, you need to [**instantiate**](/server/reference/index.html#initialization) Optimizely. Then you'll want to call [**activate()**](/server/reference/index.html#activation) at the point you want the experiment to start and [**track()**](/server/reference/index.html#tracking) for conversion events you'd like to track in Optimizely. `track()` can work across multiple experiments but should be called after `activate()` has been called for each experiment. </p>
 
