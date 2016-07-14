@@ -15,8 +15,8 @@ Can't find an answer to your question? We're happy to answer your question on <a
 <a href="#howandroidworks">*Q:* How does the SDK work?</a><br>
 <a href="#negativesize">*Q:* Why are there negative values (-1, -2) for width and height in the Visual Editor?</a><br>
 <a href="#matchwrap">*Q:* How do I use `MATCH_PARENT` or `WRAP_CONTENT` for width and height in the Visual Editor?</a><br>
-<a href="#blocking">*Q:* Is `Optimizely#startOptimizely()` a blocking method?</a><br>
-<a href="#startoptimizely">*Q:* Where and when can I call `Optimizely#startOptimizely()`?</a><br>
+<a href="#blocking">*Q:* Is `Optimizely#startOptimizelyWithAPIToken()` a blocking method?</a><br>
+<a href="#startoptimizely">*Q:* Where and when can I call `Optimizely#startOptimizelyWithAPIToken()`?</a><br>
 <a href="#codeblockmemory">*Q:* Should we unregister or nullify OptimizelyCodeBlock with anonymous handlers that have a reference to an Activity after finishing the `OptimizelyCodeBlock#execute()` method call?</a><br>
 <a href="#threadsafety">*Q:* Are LiveVariable evaluations thread-safe?</a><br>
 <a href="#proguard">*Q:* Do I need to include any ProGuard configuration rules to use the Optimizely SDK?</a><br>
@@ -77,12 +77,12 @@ in the width or height fields in the visual editor. We are working on an update 
 *A:* Android uses `-1` for the constant `MATCH_PARENT` and `-2` for `WRAP_CONTENT`. To set the width or height of the view to `WRAP_CONTENT`, enter `-2` in the corresponding field. Similarly, to set the width or height to `MATCH_PARENT`, ENTER `-1` in the corresponding field in the visual editor. We are working on an update to the editor that will better understand these special values.
 
 <a name="blocking"></a>
-##### *Q: Is `Optimizely#startOptimizely()` a blocking method?*
-*A:* Yes, `Optimizely#startOptimizely()` is blocking. It will exit and return `true` if the configuration file was downloaded and parsed, or `false` if it hits the network timeout (or another error occurred). The default timeout is 2.5 seconds and is configurable through the `setNetworkTimeout()` API. Calls to `startOptimizely()` are not synchronized, and are not thread safe.
+##### *Q: Is `Optimizely#startOptimizelyWithAPIToken()` a blocking method?*
+*A:* Yes, `Optimizely#startOptimizelyWithAPIToken()` is blocking. It will exit and return `true` if the configuration file was downloaded and parsed, or `false` if it hits the network timeout (or another error occurred). The default timeout is 2.5 seconds and is configurable through the `setNetworkTimeout()` API. Calls to `startOptimizely()` are not synchronized, and are not thread safe.
 
 <a name="startoptimizely"></a>
-##### *Q: Where and when can I call `Optimizely#startOptimizely()`?*
-*A:* `Optimizely#startOptimizely()` must be called from the UI thread, but may be called as many times as you like. Multiple calls after the first activation call are no-ops. `Optimizely#startOptimizely()` may be called from any UI thread method (such as `onCreate()` in an `Application` or `Activity` subclass).
+##### *Q: Where and when can I call `Optimizely#startOptimizelyWithAPIToken()`?*
+*A:* `Optimizely#startOptimizely()` must be called from the UI thread, but may be called as many times as you like. Multiple calls after the first activation call are no-ops. We recommend using `Optimizely#startOptimizelyWithAPIToken()` in the main launcher activity `onCreate()`. We do not currently support initializing in `Application#onCreate()`.
 
 <a name="codeblockmemory"></a>
 ##### *Q: Should we unregister or nullify OptimizelyCodeBlock with anonymous handlers that have a reference to an Activity after finishing the `OptimizelyCodeBlock#execute()` method call?*
