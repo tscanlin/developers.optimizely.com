@@ -590,7 +590,7 @@ var staticData = window['optimizely'].get('data');
     - `name` (string|null): The page name
     - `apiName` (string)
     - `category` (string): article, cart, category, checkout, home, landing page, pricing, product detail, search results, other
-    - `static conditions` (array)
+    - `staticConditions` (array)
     - `tags` (array)
 
 ### Session
@@ -635,7 +635,6 @@ $("#username").text(visitorProfile.custom.userName);
   - `campaign` (string|null): The campaign the visitor is in
   - `cookies` (object): The visitor's optimizely cookies
   - `currentTimestamp` (number)
-  - `custom` (object)
   - `dcpData` (object): Indicates personalized content delivered via named or unnamed DCP attributes
   - `defaultBehavior` (object): Includes default values for a variety of properties, such as average events per session, most viewed page, average revenue per order last 60 days, etc.
   - `device` (string): The visitor's device (e.g., desktop, laptop, etc.)
@@ -644,14 +643,10 @@ $("#username").text(visitorProfile.custom.userName);
   - `language` (string)
   - `lists` (object)
   - `location` (object): Includes fields for city, continent, country, and region
-  - `platform` (object):
-    - `id` (string)
-    - `version` (string)
   - `queryParams` (array)
   - `referrer` (string|null)
   - `source_type` (string|null)
   - `visitorId` (string|null): The visitor's randomly generated Optimizely ID
-  - `visitorUUID` (string|null): Your unique identifier for a user
 
 ### State
 
@@ -691,7 +686,7 @@ Returns a map of page states, indexed by page id.
   - `isActive` (boolean)
   - `metadata` (object)
   - `name` (string)
-  - `static conditions` (array)
+  - `staticConditions` (array)
   - `tags` (array)
 
 <h4 id="getActivationId" class="subLink">getActivationId()</h4>
