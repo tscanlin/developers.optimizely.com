@@ -694,11 +694,6 @@ Returns a map of page states, indexed by page id.
   - `static conditions` (array)
   - `tags` (array)
 
-<h4 id="isGlobalHoldback" class="subLink">isGlobalHoldback()</h4>
-
-##### *Returns*
-- boolean: whether the visitor is in the global holdback
-
 <h4 id="getActivationId" class="subLink">getActivationId()</h4>
 
 ##### *Returns*
