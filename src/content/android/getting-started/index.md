@@ -167,6 +167,15 @@ Preview mode allows you to force your app into a certain variation for a given e
 
 <img src="/assets/img/mobile/launch-preview.png" alt="Enter Preview Mode" />
 
+### Programmatically Enable Preview Mode
+
+While preview mode can be enabled from the dashboard it can also be enabled from code.  This allows you to preview variations across all of your experiments without needing to connect to the editor.  Preview mode has UI that allows you easily switch variations and view event logs.
+
+```java
+Optimizely.enablePreview();
+Optimizely.startOptimizelyWithAPIToken(getOptimizelyToken(), getApplication());
+```
+
 ### Pre-launch Checklist
 
 Now that you've created an experiment and successfully installed the Optimizely Android SDK, below is a checklist to go through prior to releasing your app to the app store with the SDK:
