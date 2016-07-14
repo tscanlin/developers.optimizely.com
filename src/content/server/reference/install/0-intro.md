@@ -10,8 +10,17 @@ code_examples:
   java:
     lang: java
     request: |
-      compile files('libs/core-api-{VERSION}.jar')
-      compile files('libs/core-httpclient-impl-{VERSION}.jar')
+      repositories {
+        maven {
+          url  "http://optimizely.bintray.com/optimizely"
+        }
+      }
+
+      dependencies {
+        compile 'com.optimizely.ab:core-api:{VERSION}'
+        compile 'com.optimizely.ab:core-httpclient-impl:{VERSION}'
+      }
+
   ruby:
     lang: ruby
     request: |
@@ -27,19 +36,13 @@ The Python SDK is distributed through [PyPi](https://pypi.python.org/pypi?name=o
 </div>
 
 <div class="hidden" data-toggle-section="java-code">
-Currently, packages are supplied directly rather than being made available through a public maven repository. To add the modules to your project, add a `libs` directory under your project root. Drop the provided JARs into that directory and add the lines shown at right to your `build.gradle`.
+The Java SDK is distributed through Bintray. The `core-api` and `httpclient` Bintray packages are [optimizely-sdk-core-api](https://bintray.com/optimizely/optimizely/optimizely-sdk-core-api) and [optimizely-sdk-httpclient](https://bintray.com/optimizely/optimizely/optimizely-sdk-httpclient) respectively. You can find repository information as well as instructions on how to install the dependencies on Bintray. Gradle repository and dependency configurations are shown on the right.
 </div>
 
 <p>
 
 <div class="hidden" data-toggle-section="java-code">
-The supplied `pom` files define the module dependencies.
-</div>
-
-<p>
-
-<div class="hidden" data-toggle-section="java-code">
-`core-api` requires `slf4j-api.jar` and a *supported* JSON parser. We currently integrate with [Jackson](https://github.com/FasterXML/jackson), [GSON](https://github.com/google/gson), [json.org](http://www.json.org/), and [json-simple](https://code.google.com/archive/p/json-simple/); if any of those packages are available at runtime, they will be used by `core-api`. If none of those packages are already provided in your project's classpath, one will need to be added.
+`core-api` requires `org.slf4j:slf4j-api:1.7.16` and a *supported* JSON parser. We currently integrate with [Jackson](https://github.com/FasterXML/jackson), [GSON](https://github.com/google/gson), [json.org](http://www.json.org/), and [json-simple](https://code.google.com/archive/p/json-simple/); if any of those packages are available at runtime, they will be used by `core-api`. If none of those packages are already provided in your project's classpath, one will need to be added.
 </div>
 
 <p>
