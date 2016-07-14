@@ -60,5 +60,3 @@ The gem for the Ruby SDK is distributed through [RubyGems](https://rubygems.org/
 The Node SDK is distributed through [npm](https://www.npmjs.com/package/optimizely-server-sdk). To install, simply run `npm install optimizely-server-sdk --save`.
 </div>
 
-<p>
-

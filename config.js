@@ -78,6 +78,10 @@ var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
 delete MOBILE_NAV_SECTIONS['code-samples'];
 
 var SERVER_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS,{
+  'sdk_reference': {
+    path: 'reference',
+    title: 'SDK reference',
+  },  
   'groups': {
     path: 'groups',
     title: 'Experiment groups',
@@ -91,6 +95,7 @@ var SERVER_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS,{
 });
 delete SERVER_NAV_SECTIONS['faqs'];
 delete SERVER_NAV_SECTIONS['code-samples'];
+delete SERVER_NAV_SECTIONS['reference'];
 
 var paths = {
   // Used by gulp tasks to build / compile pages and assets.
