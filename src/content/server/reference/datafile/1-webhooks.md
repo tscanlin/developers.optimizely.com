@@ -1,7 +1,7 @@
 ---
 template: multi-example
 title: Webhooks
-anchor: datafile
+anchor: webhooks
 code_examples:
   python:
     lang: python
