@@ -46,19 +46,151 @@
 
 <!-- Indenting is weird here because of the <pre> tags -->
 
-<!-- Example Request -->
+<!-- workaround for datafile -->
 {% if object.datafile %}
-<h4>Example</h4>
+<h4>Example datafile</h4>
+<div style="overflow-y:scroll;max-height:570px;">
+<pre>
+{% markdown %}
+```
+{  
+   "experiments":[  
+      {  
+         "status":"Running",
+         "percentageIncluded":10000,
+         "key":"flight-search",
+         "trafficAllocation":[  
+            {  
+               "entityId":"6274840109",
+               "endOfRange":3333
+            },
+            {  
+               "entityId":"6274840110",
+               "endOfRange":6666
+            },
+            {  
+               "entityId":"6274840111",
+               "endOfRange":9999
+            }
+         ],
+         "audienceIds":[  
 
-<div class="text--center" style="font-size:20px;margin-top:25%">
+         ],
+         "variations":[  
+            {  
+               "id":"6274840109",
+               "key":"price"
+            },
+            {  
+               "id":"6274840110",
+               "key":"reviews"
+            },
+            {  
+               "id":"6274840111",
+               "key":"destinations"
+            }
+         ],
+         "forcedVariations":{  
+            "484029343":"reviews"
+         },
+         "id":"6271220072"
+      },
+      {  
+         "status":"Not started",
+         "percentageIncluded":10000,
+         "key":"flight-search-mobile",
+         "trafficAllocation":[  
+            {  
+               "entityId":"6496940704",
+               "endOfRange":3333
+            },
+            {  
+               "entityId":"6496940705",
+               "endOfRange":6666
+            },
+            {  
+               "entityId":"6496940706",
+               "endOfRange":9999
+            }
+         ],
+         "audienceIds":[  
+            "6496940684"
+         ],
+         "variations":[  
+            {  
+               "id":"6496940704",
+               "key":"price"
+            },
+            {  
+               "id":"6496940705",
+               "key":"reviews"
+            },
+            {  
+               "id":"6496940706",
+               "key":"destinations"
+            }
+         ],
+         "forcedVariations":{  
 
-<form action="/data/datafile.html">
-    <button class="button" type="submit"> View Sample Datafile </button>
-</form>
+         },
+         "id":"6511640466"
+      }
+   ],
+   "version":"1",
+   "audiences":[  
+      {  
+         "conditions":"[\"and\", [\"or\", [\"or\", {\"name\": \"device_type\", \"type\": \"custom_dimension\", \"value\": \"iphone\"}, {\"name\": \"device_type\", \"type\": \"custom_dimension\", \"value\": \"android\"}]]]",
+         "id":"6496940684",
+         "name":"device_type"
+      }
+   ],
+   "dimensions":[  
+      {  
+         "id":"6517890962",
+         "key":"device_type",
+         "segmentId":"6514850906"
+      }
+   ],
+   "groups":[  
 
-<!-- <a href="/data/datafile.html" target="_blank">View Sample Datafile</a> -->
+   ],
+   "projectId":"6235521383",
+   "accountId":"1111111111",
+   "events":[  
+      {  
+         "experimentIds":[  
+            "6235740528"
+         ],
+         "id":"6241161110",
+         "key":"flight-purchase"
+      },
+      {  
+         "experimentIds":[  
+            "6249542725"
+         ],
+         "id":"6247001737",
+         "key":"flight-cart"
+      },
+      {  
+         "experimentIds":[  
 
-
+         ],
+         "id":"6247471698",
+         "key":"seat-selected"
+      },
+      {  
+         "experimentIds":[  
+            "6272600257"
+         ],
+         "id":"6253130776",
+         "key":"upgrade-select"
+      }
+   ],
+   "revision":"26"
+}
+```
+{% endmarkdown %}
+</pre>
 </div>
 {% endif %}
 
