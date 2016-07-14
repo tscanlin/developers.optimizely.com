@@ -49,45 +49,46 @@ code_examples:
 <div class="hidden visible" data-toggle-section="python-code">
 <p>First, you'll need to import the Optimizely library into your code as shown.</p>
 
-To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
+<p>To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</p>
 
-<p>
+<p>To construct the `Optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</p>
 
-<div class="hidden visible" data-toggle-section="python-code">
-To construct the `Optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail [below](#configuration).</p>
 
-<p>
+</div>
+
 
 <div class="hidden" data-toggle-section="ruby-code">
 <p>First, you'll need to import the Optimizely library into your code as shown. </p>
 
-To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
+<p>To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</p>
 
-<p>
+<p>To construct the `Project` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</p>
 
-<div class="hidden" data-toggle-section="ruby-code">
-To construct the `Project` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail [below](#configuration).</p>
 
-<p>
+</div>
 
 <div class="hidden" data-toggle-section="java-code">
 <p>First, you'll need to import the Optimizely library into your code as shown.</p>
 
-To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
+<p>To run experiments with Optimizely you'll need to instantiate an `Optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</p>
 
-<p>
+<p>To construct the `Optimizely` object, you'll need to provide a `datafile` String and an `EventHandler` object as arguments to the `Optimizely.builder` function. The `datafile` is a JSON representation of your project and contains all of the information needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section. `eventHandler` in the example to the right is instantiated as the provided asynchronous implementation.</p>
 
-<div class="hidden" data-toggle-section="java-code">
-To construct the `Optimizely` object, you'll need to provide a `datafile` String and an `EventHandler` object as arguments to the `Optimizely.builder` function. The `datafile` is a JSON representation of your project and contains all of the information needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section. `eventHandler` in the example to the right is instantiated as the provided asynchronous implementation.</div>
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail [below](#configuration).</p>
 
-<p>
+</div>
+
 
 <div class="hidden" data-toggle-section="javascript-code">
 <p>First, you'll need to import the Optimizely library into your code as shown.</p>
 
-To run experiments with Optimizely you'll need to instantiate an `optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</div>
+<p>To run experiments with Optimizely you'll need to instantiate an `optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</p>
 
-<p>
+<p>To construct the `optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. In SDK versions `0.0.10` and above, you can optionally pass in a `skipJSONValidation` property as `true` to skip JSON schema validation of the datafile upon `optimizely` instantiation. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</p>
 
-<div class="hidden" data-toggle-section="javascript-code">
-To construct the `optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. In SDK versions `0.0.10` and above, you can optionally pass in a `skipJSONValidation` property as `true` to skip JSON schema validation of the datafile upon `optimizely` instantiation. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</div>
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail [below](#configuration).</p>
+
+</div>
+
