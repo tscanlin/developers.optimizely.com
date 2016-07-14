@@ -10,3 +10,6 @@ Whitelisting provides the ability to force users into specific variations. This 
 To whitelist, select an experiment and edit the **Whitelist** on the right-hand side of the page. Here you can add user IDs and their variation. 
 
 **Please note:** Currently, whitelisting supports a maximum of 10 users. Let us know if you need this increased. 
+
+Force users into variations:
+<img src="../../../assets/img/whitelist.png" style="max-width:75%">
