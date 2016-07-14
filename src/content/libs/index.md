@@ -17,9 +17,9 @@ Want your library listed here? Send an email to [developers@optimizely.com](mail
 ### Community Built
 
 * [Ruby Gem](https://github.com/MartijnSch/optimizely-gem) by [Martijn Scheijbeler](https://github.com/MartijnSch)
-* [PHP](https://github.com/FunnelEnvy/optimizely-php) by [Funel Envy](https://github.com/FunnelEnvy)
-* [Node](https://github.com/funnelenvy/optimizely-node) by [Funel Envy](https://github.com/FunnelEnvy)
-* [Optimizely CLI](https://github.com/funnelenvy/optimizely-cli) by [Funel Envy](https://github.com/FunnelEnvy)
+* [PHP](https://github.com/FunnelEnvy/optimizely-php) by [FunnelEnvy](https://github.com/FunnelEnvy)
+* [Node](https://github.com/funnelenvy/optimizely-node) by [FunnelEnvy](https://github.com/FunnelEnvy)
+* [Optimizely CLI](https://github.com/funnelenvy/optimizely-cli) by [FunnelEnvy](https://github.com/FunnelEnvy)
 * [ROptimizely](https://github.com/kanaku/ROptimizely) by [Kanaku](https://github.com/kanaku)
 
 
