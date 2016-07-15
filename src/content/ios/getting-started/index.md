@@ -10,7 +10,7 @@ The following SDK Install Steps will allow you to install the SDK and run experi
 
 You can download the iOS SDK through Cocoapods, download it manually from GitHub, or install it through Fabric:
 
-[![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/help/html/index.html)
+[![SDK Version](http://img.shields.io/cocoapods/v/Optimizely-iOS-SDK.svg?style=flat)](http://developers.optimizely.com/ios/getting-started/index.html#using-cocoapods)
 
 <a href="https://fabric.io/kits/ios/optimizely"><img src="/assets/img/mobile/fabric_button.png" style="width: 150px; height: 58px;"/></a>
 
