@@ -67,7 +67,7 @@ You can also get inspiration from our existing apps by going to your Optimizely 
 <h3 id="register-your-app">2. Register your app</h3>
 
 If you'd like to develop an app using Optimizely Canvas, register your app through the form
-<a href="http://link.optimizely.com/canvas-registration-form" target="_blank">here</a>. After initial setup, you can
+<a href="http://link.optimizely.com/app-registration-form" target="_blank">here</a>. After initial setup, you can
 iterate on your app indefinitely without depending on the Optimizely team.
 
 While we cannot guarantee it, we aim to complete initial setup within one business day of your request.
@@ -166,7 +166,7 @@ Once you've built your app, send us an email at [developers@optimizely.com](mail
 <h3 id="change-app-config">7. Change your app's configuration (optional)</h3>
 
 If at any time you need to change your app's configuration (such as the display name, the app URL, or the app logo),
-just re-submit the <a href="http://link.optimizely.com/canvas-registration-form" target="_blank">registration form</a>
+just re-submit the <a href="http://link.optimizely.com/app-registration-form" target="_blank">registration form</a>
 with the updated information.
 
 <h2 id="starter-kits-sdks">Starter Kits & Canvas SDKs</h2>
