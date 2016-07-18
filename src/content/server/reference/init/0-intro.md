@@ -88,7 +88,7 @@ code_examples:
 
 <p>To construct the `optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events.</p>
 
-<p>In SDK versions `0.0.10` and above, you can optionally pass in a `skipJSONValidation` property as `true` to skip JSON schema validation of the datafile upon `optimizely` instantiation. This property should only be used if the datafile is being pulled from the REST API or CDN.</p>
+<p>In SDK versions `0.0.10` and above, you can optionally pass in a `skipJSONValidation` property as `true` to skip JSON schema validation of the datafile upon `optimizely` instantiation. Skipping JSON schema validation enhances instantiation performance. The `skipJSONValidation` property should only be used if the datafile is being pulled from the REST API or CDN.</p>
 
 <p>For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</p>
 
