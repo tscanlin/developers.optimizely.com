@@ -206,6 +206,16 @@ Now that you've created an experiment and successfully installed the Optimizely 
 <br  />
 5. Once you've checked all these steps, you're ready to release to the app store!  To learn more about how to use Optimizely's editor and get additional testing ideas, you can check out our articles in [Optiverse](https://help.optimizely.com/hc/en-us/sections/200666084-Mobile-Optimization).
 
+### Programmatically Enable Preview Mode
+
+While preview mode can be enabled from the dashboard it can also be enabled from code.  This allows you to preview variations across all of your experiments without needing to connect to the editor.  Preview mode has UI that allows you easily switch variations and view event logs.
+
+```obj-c
+[Optimizely enablePreview];
+[Optimizely startOptimizelyWithAPIToken:YOUR_API_TOKEN launchOptions:launchOptions];
+```
+
+
 ## Advanced Setup
 
 Once you have run your first few visual editor experiments or tried out Optimizely's SDK, you may find you would like to include programmatic experiments, additional tracking calls, or analytics integrations.  For advanced setup, below are a subset of advanced features we recommend utilizing prior to releasing to the App Store:
