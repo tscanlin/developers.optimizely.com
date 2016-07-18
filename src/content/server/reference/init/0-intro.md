@@ -86,7 +86,11 @@ code_examples:
 
 <p>To run experiments with Optimizely you'll need to instantiate an `optimizely` object in your code. This object represents the state of an Optimizely project and can be used to both [activate experiments](#activation) and [track events](#tracking).</p>
 
-<p>To construct the `optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. In SDK versions `0.0.10` and above, you can optionally pass in a `skipJSONValidation` property as `true` to skip JSON schema validation of the datafile upon `optimizely` instantiation. For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</p>
+<p>To construct the `optimizely` object, you'll need to provide the `datafile` as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events.</p>
+
+<p>In SDK versions `0.0.10` and above, you can optionally pass in a `skipJSONValidation` property as `true` to skip JSON schema validation of the datafile upon `optimizely` instantiation. This property should only be used if the datafile is being pulled from the REST API or CDN.</p>
+
+<p>For more information on the expected format of the datafile and how to get the most up-to-date version, see the [datafile](#datafile) section.</p>
 
 <p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail [below](#configuration).</p>
 
