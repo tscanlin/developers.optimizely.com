@@ -228,9 +228,13 @@ Finally, there are several different places where you can write custom code. Cha
 
 *Note:* Personalization campaigns and Testing experiments can execute in parallel. Be careful assuming any dependencies between them or optimizing the same element in multiple campaigns/experiments.
 
-### Utilities
+### "Get" Modules
 
-In addition to updating the `push` API, Optimizely Personalization also exposes a new function, `window['optimizely'].get()`. This function allows you to access several useful properties and utilities within the context of custom code. Please note that unlike `push`, `get` may only be used after the Optimizely snippet has loaded. While this will always be the case within custom code (except [Project Javascript](https://help.optimizely.com/Set_Up_Optimizely/Project_Settings_JavaScript_and_jQuery_settings#Project_JavaScript)), it should be considered when using `get` within external scripts.
+In addition to updating the `push` API, Optimizely Personalization also exposes a new function, `window['optimizely'].get()`. This function allows you to access several useful properties and utilities within the context of custom code. Please note that unlike `push`, `get` may only be used after the Optimizely snippet has loaded (either in Optimizely custom code, or in your page code AFTER the Optimizely snippet).
+
+*Note:* `optimizely.get` is not available from [Project Javascript](https://help.optimizely.com/hc/en-us/articles/202480860-Project-Settings-JavaScript-jQuery#project_javascript).
+
+### Utilities
 
 For example, if you have [jQuery bundled](https://help.optimizely.com/hc/en-us/articles/202480860-Project-Settings-JavaScript-jQuery#jS) in the Optimizely snippet, you can access it directly by getting `jquery`:
 
