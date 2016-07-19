@@ -186,6 +186,13 @@ var oauth = {
   singlePage: true,
 }
 
+var token = {
+  path: 'token',
+  title: 'Token based',
+  singlePage: true
+}
+
+
 nav.management = {
   label: 'Management',
   sections: [
@@ -196,7 +203,8 @@ nav.management = {
 nav.authentication = {
   label: "Authentication",
   sections: [
-    oauth
+    oauth,
+    token
   ]
 }
 
