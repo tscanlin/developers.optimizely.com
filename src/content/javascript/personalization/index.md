@@ -230,7 +230,7 @@ Finally, there are several different places where you can write custom code. Cha
 
 ### "Get" Modules
 
-In addition to updating the `push` API, Optimizely Personalization also exposes a new function, `window['optimizely'].get()`. This function allows you to access several useful properties and utilities within the context of custom code. Please note that unlike `push`, `get` may only be used after the Optimizely snippet has loaded (either in Optimizely custom code, or in your page code AFTER the Optimizely snippet).
+In addition to updating the `push` API, Optimizely Personalization also exposes a new function, `window['optimizely'].get()`. This function allows you to access several useful properties and utilities within the context of custom code. Please note that unlike `push`, `get` may only be used after the Optimizely snippet has loaded (either in Optimizely custom code, or in your page code *after* the Optimizely snippet).
 
 *Note:* `optimizely.get` is not available from [Project Javascript](https://help.optimizely.com/hc/en-us/articles/202480860-Project-Settings-JavaScript-jQuery#project_javascript).
 
