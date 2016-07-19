@@ -58,6 +58,8 @@ var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
     title: 'Audience Conditions',
   },
 });
+delete REST_NAV_SECTIONS['faqs'];
+delete REST_NAV_SECTIONS['code-samples'];
 
 
 var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
