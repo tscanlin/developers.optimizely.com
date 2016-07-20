@@ -25,5 +25,13 @@ You can fetch the datafile for your Optimizely project in two ways:
 * *Use the Optimizely CDN.*  For example, if the ID of your project is `12345` you can access the file at https://cdn.optimizely.com/json/12345.json.
 * *Use the Optimizely REST API.* For example, if the ID of your project is `12345` you can access the file at https://www.optimizelyapis.com/experiment/v1/projects/12345/json. Please note that as with other requests to the REST API, you will have to [authenticate with an API token](/rest/getting-started).
 
+For example, this authenticated REST API call will return the datafile:
+
+```bash
+curl \
+  -H "Token: abcdefghijklmnopqrstuvwxyz:123456" \
+  "https://www.optimizelyapis.com/experiment/v1/projects/12345/json"
+```
+
 To retrieve the datafile, use the preferred request library of your language.
 
