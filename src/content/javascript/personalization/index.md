@@ -20,10 +20,10 @@ Some legacy API calls like `trackEvent` will automatically trigger a new API cal
 ##### *Usage*
 ```js
 // Legacy format
-window['optimizely'].push(['trackEvent', 'watchedVideo']);
+window.optimizely.push(['trackEvent', 'watchedVideo']);
 
 // New format
-window['optimizely'].push({
+window.optimizely.push({
   type: "event",
   eventName: "watchedVideo",
   tags: { // Additional metadata for targeting (optional)
@@ -48,13 +48,13 @@ without code, but this API call supports tracking other behaviors like watching 
 ##### *Usage*
 ```js
 // Basic tracking
-window['optimizely'].push({
+window.optimizely.push({
   type: "event",
   eventName: "watchedVideo"
 });
 
 // Tracking revenue
-window['optimizely'].push({
+window.optimizely.push({
   type: "event",
   eventName: "purchase",
   tags: {
@@ -63,7 +63,7 @@ window['optimizely'].push({
 });
 
 // Additional metadata
-window['optimizely'].push({
+window.optimizely.push({
   type: "event",
   eventName: "purchase",
   tags: {
@@ -95,16 +95,16 @@ Page information is reset whenever the browser reloads.
 
 ##### *Usage*
 ```js
-window['optimizely'] = window['optimizely'] || [];
+window.optimizely = window.optimizely || [];
 
 // Basic page tracking
-window['optimizely'].push({
+window.optimizely.push({
   type: "page",
   pageName: "checkout_stage_1"
 });
 
 // Page tracking with tags
-window['optimizely'].push({
+window.optimizely.push({
   type: "page",
   pageName: "product_detail",
   tags: {
@@ -133,7 +133,7 @@ There are three ways to capture this context:
 ##### *Usage*
 ```js
 // Tracking the current product
-window['optimizely'].push({
+window.optimizely.push({
   type: "tags",
   tags: {
     category: "Kitchen",
@@ -156,10 +156,10 @@ The `user` method captures attributes of a user and stores them in a profile tha
 
 ##### *Usage*
 ```js
-window['optimizely'] = window['optimizely'] || [];
+window.optimizely = window.optimizely || [];
 
 // Attach extra information to an anonymous visitor
-window['optimizely'].push({
+window.optimizely.push({
   type: "user",
   attributes: {
     frequentFlyerStatus: "Gold",
@@ -168,7 +168,7 @@ window['optimizely'].push({
 });
 
 // To remove an attribute value, set it to null
-window['optimizely'].push({
+window.optimizely.push({
   type: "user",
   attributes: {
     frequentFlyerStatus: null
@@ -203,7 +203,7 @@ $(document).ready(function() {
 });
 
 // Change the background as soon as the body element loads (no flash)
-var utils = window['optimizely'].get('utils');
+var utils = window.optimizely.get('utils');
 utils.waitForElement('body').then(function(){
    $("body").css("background-color", "red");
 });
@@ -230,18 +230,18 @@ Finally, there are several different places where you can write custom code. Cha
 
 ### Utilities
 
-In addition to updating the `push` API, Optimizely Personalization also exposes a new function, `window['optimizely'].get()`. This function allows you to access several useful properties and utilities within the context of custom code. Please note that unlike `push`, `get` may only be used after the Optimizely snippet has loaded. While this will always be the case within custom code, it should be considered when using `get` within external scripts.
+In addition to updating the `push` API, Optimizely Personalization also exposes a new function, `window.optimizely.get()`. This function allows you to access several useful properties and utilities within the context of custom code. Please note that unlike `push`, `get` may only be used after the Optimizely snippet has loaded. While this will always be the case within custom code, it should be considered when using `get` within external scripts.
 
 For example, if you have [jQuery bundled](https://help.optimizely.com/hc/en-us/articles/202480860-Project-Settings-JavaScript-jQuery#jS) in the Optimizely snippet, you can access it directly by getting `jquery`:
 
 ```js
-var $ = window['optimizely'].get('jquery');
+var $ = window.optimizely.get('jquery');
 ```
 
 If no jQuery is bundled into the client, the default return value is `window.jQuery`.
 
 ```js
-var utils = window['optimizely'].get('utils');
+var utils = window.optimizely.get('utils');
 ```
 
 <h4 id="waitForElement" class="subLink">waitForElement</h4>
@@ -257,7 +257,7 @@ An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 ##### *Usage*
 ```js
 // Retrieve the utils library
-var utils = window['optimizely'].get('utils');
+var utils = window.optimizely.get('utils');
 
 // Wait for the footer element to appear in the DOM, then change the color
 utils.waitForElement('.footer').then(function(footerElement){
@@ -283,7 +283,7 @@ A function that can be executed to cancel observation
 ##### *Usage*
 ```js
 // Retrieve the utils library
-var utils = window['optimizely'].get('utils');
+var utils = window.optimizely.get('utils');
 
 // Modify elements displaying product prices whenever they appear on the page
 var cancelProductPriceObserver = utils.observeSelector('.productPrice', function(priceElement) {
@@ -306,7 +306,7 @@ A function that can be executed to cancel polling.
 ##### *Usage*
 ```js
 // Retrieve the utils library
-var utils = window['optimizely'].get('utils');
+var utils = window.optimizely.get('utils');
 
 // Wait until the element we want to modify is in the DOM
 utils.waitForElement('#pre-header-shipping-cont').then(function(headerElement) {
@@ -345,7 +345,7 @@ An [ES6-style Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 ##### *Usage*
 ```js
 // Retrieve the utils library
-var utils = window['optimizely'].get('utils');
+var utils = window.optimizely.get('utils');
 
 // We have infinite scroll enabled on the site. Wait until more than 200 products have been shown
 // to prompt the user to try out our filter by color feature
@@ -442,7 +442,7 @@ Depending on which clauses are included in the specified query object, this API 
 
 ##### *Usage*
 ```js
-var behavior = window['optimizely'].get('behavior');
+var behavior = window.optimizely.get('behavior');
 
 // Return a list of page names, sorted by viewing frequency.
 behavior.query({
@@ -490,7 +490,7 @@ If any of the following are true:
 ##### *Usage*
 ```js
 // Retrieve the dcp library
-var dcp = window['optimizely'].get('dcp');
+var dcp = window.optimizely.get('dcp');
 
 // Specify a content-enabled attribute by ID.
 dcp.getAttributeValue({datasourceId: 123, attributeId: 456});
@@ -526,7 +526,7 @@ If any of the following are true:
 ##### *Usage*
 ```js
 // Retrieve the dcp library
-var dcp = window['optimizely'].get('dcp');
+var dcp = window.optimizely.get('dcp');
 
 // Specify a content-enabled attribute by ID.
 dcp.waitForAttributeValue({datasourceId: 123, attributeId: 456}).then(
@@ -552,7 +552,7 @@ Returns an object exposing static data fields.
 ##### *Usage*
 ```js
 // Retrieve the data object
-var staticData = window['optimizely'].get('data');
+var staticData = window.optimizely.get('data');
 ```
 
 ##### *Returns*
@@ -598,7 +598,7 @@ var staticData = window['optimizely'].get('data');
 ##### *Usage*
 ```js
 // Retrieve the session object
-var sessionData = window['optimizely'].get('session');
+var sessionData = window.optimizely.get('session');
 ```
 
 ##### *Returns*
@@ -611,7 +611,7 @@ var sessionData = window['optimizely'].get('session');
 ##### *Usage*
 ```js
 // Retrieve the visitor ID data object
-var visitorIdData = window['optimizely'].get('visitor_id');
+var visitorIdData = window.optimizely.get('visitor_id');
 ```
 ##### *Returns*
 - `Object`:
@@ -623,7 +623,7 @@ var visitorIdData = window['optimizely'].get('visitor_id');
 ##### *Usage*
 ```js
 // Retrieve the visitor profile
-var visitorProfile = window['optimizely'].get('visitor');
+var visitorProfile = window.optimizely.get('visitor');
 $("#username").text(visitorProfile.custom.userName);
 ```
 
@@ -655,7 +655,7 @@ Returns a module exposing several functions to access information about the curr
 ##### *Usage*
 ```js
 // Access the state module
-var stateModule = window['optimizely'].get('state');
+var stateModule = window.optimizely.get('state');
 
 // Use the state module to access the campaign states
 var campaignStates = stateModule.getCampaignStates();
