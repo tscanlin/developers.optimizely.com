@@ -93,7 +93,6 @@ var SERVER_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS,{
 
 
 });
-delete SERVER_NAV_SECTIONS['faqs'];
 delete SERVER_NAV_SECTIONS['code-samples'];
 delete SERVER_NAV_SECTIONS['reference'];
 
