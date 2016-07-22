@@ -58,6 +58,8 @@ var REST_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
     title: 'Audience Conditions',
   },
 });
+delete REST_NAV_SECTIONS['faqs'];
+delete REST_NAV_SECTIONS['code-samples'];
 
 
 var MOBILE_NAV_SECTIONS = extend({}, BASE_NAV_SECTIONS, {
@@ -183,6 +185,13 @@ var oauth = {
   singlePage: true,
 }
 
+var token = {
+  path: 'token',
+  title: 'Token based',
+  singlePage: true
+}
+
+
 nav.management = {
   label: 'Management',
   sections: [
@@ -193,7 +202,8 @@ nav.management = {
 nav.authentication = {
   label: "Authentication",
   sections: [
-    oauth
+    oauth,
+    token
   ]
 }
 
