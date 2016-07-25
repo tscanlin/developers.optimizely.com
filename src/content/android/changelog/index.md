@@ -11,21 +11,21 @@ May 24, 2016
 *Improved Preview:*
 
 We have added an exciting feature to allow developers/testers to set different variations from the app itself.
-You can also see the events that will be sent to the Optimizely backend. Changing variations while in preview mode is now instantaneous. 
+You can also see the events that will be sent to the Optimizely backend. Changing variations while in preview mode is now instantaneous.
 
-*Optimizely Attributes:* 
+*Optimizely Attributes:*
 
-You can now create Optimizely Attributes for Android in the project dashboard. These attributes can be used to 
+You can now create Optimizely Attributes for Android in the project dashboard. These attributes can be used to
 segment results on the results page and for audience targeting. There are new APIs to get and set the value for attributes.
 
 * You can set an attribute’s value by using either `Optimizely.setValueForAttributeId(String, String, Context)` or `Optimizely.setValueForAttributeApiName(String, String, Context)` before starting Optimizely. Use `Optimizely.setValueForAttributeId(String, String)` or `Optimizely.setValueForAttributeApiName(String, String)` after starting Optimizely.
 * You can get an attribute’s current value by using either `Optimizely.getAttributeValueForAttributeId(String, Context)` or `Optimizely.getAttrtibuteValueForAttributeApiName(String, Context)` before starting Optimizely. Use `Optimizely.getAttributeValueForAttributeId(String)` or `Optimizely.getAttrtibuteValueForAttributeApiName(String, String)` after starting Optimizely.
 * You can get a copy of all attributes by calling `Optimizely.getAttributes()`. This replaces the previous `Optimizely.getDimensions()` call.
-    
+
 * *New Classes:*
-  
+
 * `OptimizelyAttribute.java` - Represents an Optimizely Attribute.
-    
+
 * *registerPlugin* is not deprecated anymore. Due to a compiler change in Android Studio 2.0 we cannot find arbitrary classes that implement OptimizelyPlugin in an app’s Dex file at runtime.  Plugins in development will need to use Optimizely#registerPlugin(OptimizelyPlugin) to add the plugin to the Optimizely Plugin Manager.
 
 *Bug Fixes:*
@@ -38,12 +38,12 @@ segment results on the results page and for audience targeting. There are new AP
 * We are enabling registerPlugin Api so that you can register plugins directly
 * In Android 2.0, in edit mode, Live Variables and Code Blocks are only registered when you navigate to the view that uses them. In the previous versions, Live Variables and Code Blocks were registered on app start
   * If this is inconvenient, Optimizely.registerClassWithOptlyFields(Class…) can be used to register classes with Live Variables and Code Blocks at any point during the app’s execution.
-      
+
 *Deprecated Methods*
 
 * `Optimizely.getDimensions()` is now deprecated.  Please use `Optimizely.getAttributes()` instead.
 * `OptimizelyDimension.java` is now deprecated.  Please use the `OptimizelyAttribute.java` class instead.
-    
+
 *Developer documentation*
 
 In order to enable preview, you can add `Optimizely.enablePreview()` in your code similar to `Optimizely.enableEditor()`. You can only use one of these API calls at a time.
@@ -154,8 +154,8 @@ Read more in-depth descriptions [here](/android/reference/index.html#experiment-
 	- Optimizely SDK automatically disables itself for that session if no running experiments are detected on app start
 
 *Bug Fixes:*
-- Improved preview mode access from URL scheme consistency 
-- Improved visual editor button resizing consistency 
+- Improved preview mode access from URL scheme consistency
+- Improved visual editor button resizing consistency
 - Fixed counting bug affecting custom events when used with UUID
 
 ### 1.2.4
@@ -181,7 +181,7 @@ October 15, 2015
 ### 1.2.2
 October 14, 2015
 
-*New Features* 
+*New Features*
 - Proguard configuration for SDK is now bundled with the SDK
 
 *Bug Fixes*
