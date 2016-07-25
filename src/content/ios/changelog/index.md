@@ -5,6 +5,31 @@ title: "Optimizely iOS SDK Changelog"
 
 # Optimizely iOS SDK Changelog
 
+### 1.6.1
+July 25, 2016
+
+*Bug Fixes:*
+
+* Fixed an error in which default segments would not be sent with events.
+* Fixed a crash when `[Optimizely trackRevenue:withDescription:]` is called in the app, but the downloaded datafile does not have a revenue goal.
+
+### 1.6.0
+July 12, 2016
+
+*New Features:*
+
+* **Enhanced Preview Mode:** Aside from a new look, the enhanced Preview mode allows you to select multiple variations from different experiments and enable them at the same time. A new API also allows you to enable Preview mode programmatically without having to go through the web client. You can also enter Preview mode while in Edit mode by tapping on the Editor icon.
+
+* **New APIs:**
+    * Enter Preview mode programmatically without having to go through the web client:
+    `[Optimizely enablePreview]`
+
+*Bug Fixes:*
+
+* Fixed warning from Optimizely Umbrella Header not importing OptimizelyDimension.h.
+* Optimizely File Manager class is not dependent on a Singleton class anymore. This helps avoid errors in initialization.
+* Views should not be retained when the app is backgrounded. Release the registered views when the app is backgrounded, but re-register the views when the app is foregrounded.
+
 ### 1.5.0
 May 23, 2016
 
