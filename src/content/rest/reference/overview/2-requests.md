@@ -2,7 +2,7 @@
 template: sidebyside
 title: Request Types
 anchor: request-types
-js: |
+curl: |
   // Read one experiment
   GET experiments/123
 
