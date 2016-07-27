@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+
+<head>
+    <style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body,
+  html {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Verdana";
+    color: #002633;
+    font-size: 12px;
+  }
+  body {
+    height: 100%;
+    background: linear-gradient(#99e6ff, #3cf 100%);
+  }
+  article {
+    background: #fff;
+    margin: 40px;
+    padding: 40px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  article > header {
+    border-bottom: 1px solid #002633;
+    padding: 0 0 20px 0;
+    margin: 0 0 7px 0;
+  }
+  article > header p {
+    width: 600px;
+  }
+  footer {
+    border-top: 1px solid #002633;
+    padding: 20px 0 0 0;
+    margin: 7px 0 0 0;
+  }
+  .container {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    display: block;
+  }
+  .container.top {
+    padding: 0 0 7px 0;
+  }
+  .container.bot {
+    padding: 7px 0 0 0;
+  }
+  .required {
+    color: #ad0000;
+    position: absolute;
+    font-size: 8px;
+    left: -10px;
+    top: 1px;
+    text-shadow: 0.5px 0.5px #002633;
+  }
+  dl {
+    float: left;
+    width: 100%;
+  }
+  dt {
+    font-weight: bold;
+    position: relative;
+    width: 200px;
+    color: #004d66;
+    clear: left;
+    float: left;
+    margin: 0 0 7px 3px;
+  }
+  dt.parent {
+    color: #09c;
+    cursor: pointer;
+  }
+  dd {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 0 7px 3px;
+    float: left;
+  }
+  dd.new-block {
+    clear: left;
+    display: block;
+    padding: 0 0 0 17px;
+  }
+  dd:last-child {
+    margin-bottom: 0;
+  }
+  dd p {
+    margin: 0;
+    max-width: 600px;
+  }
+  .index ul {
+    padding: 0;
+  }
+  li {
+    clear: left;
+    overflow: hidden;
+    padding: 7px;
+    border-radius: 3px;
+    position: relative;
+  }
+  li:nth-child(odd) {
+    background: #eee;
+  }
+  li:nth-child(even) {
+    background: #ddd;
+  }
+  h1 {
+    color: #09c;
+    margin: 0 0 7px 0;
+    font-size: 24px;
+  }
+  h2 {
+    color: #09c;
+    line-height: 180%;
+    padding-left: 15px;
+    width: 200px;
+    float: left;
+  }
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #09c;
+    line-height: 140%;
+    padding: 0 0 7px 0;
+  }
+  p {
+    margin: 0 0 7px 0;
+  }
+  a {
+    color: #09c;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<html>
+
+<body>
+    <article>
+        <header>
+            <h1>Android JSON Config File</h1>
+            <p>The configuration file used by the Android SDK</p>
+            <p>Uses&nbsp;<a href="http://json-schema.org/draft-04/schema">http://json-schema.org/draft-04/schema</a>
+            </p>
+            <p>Source:&nbsp;<a href="annotated_v4_schema.json">annotated_v4_schema.json</a>
+            </p>
+        </header><span class="container top">{</span>
+        <dl>
+            <dt>"required":</dt>
+            <dd>[ account_id, code_revision, experiments, goals, segments ]</dd>
+            <dt class="parent">"properties":</dt>
+            <dd class="new-block">
+                <dl>
+                    <dt class="parent"><span title="required" class="required">&#9733;</span>"account_id":</dt>
+                    <dd class="new-block">
+                        <dl>
+                            <dt>"type":</dt>
+                            <dd>
+                                <p>integer</p>
+                            </dd>
+                            <dt>"title":</dt>
+                            <dd>
+                                <p>Account ID</p>
+                            </dd>
+                            <dt>"description":</dt>
+                            <dd>
+                                <p>The numerical project ID</p>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dt class="parent"><span title="required" class="required">&#9733;</span>"code_revision":</dt>
+                    <dd class="new-block">
+                        <dl>
+                            <dt>"type":</dt>
+                            <dd>
+                                <p>integer</p>
+                            </dd>
+                            <dt>"title":</dt>
+                            <dd>
+                                <p>Code Revision</p>
+                            </dd>
+                            <dt>"description":</dt>
+                            <dd>
+                                <p>The version number of this data file. This should be incremented every time the file is edited and uploaded to the CDN</p>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dt class="parent"><span title="required" class="required">&#9733;</span>"experiments":</dt>
+                    <dd class="new-block">
+                        <dl>
+                            <dt>"type":</dt>
+                            <dd>
+                                <p>array</p>
+                            </dd>
+                            <dt>"title":</dt>
+                            <dd>
+                                <p>Experiments</p>
+                            </dd>
+                            <dt>"description":</dt>
+                            <dd>
+                                <p>May be empty. Contains all experiments from the project that are in the running or paused state.</p>
+                            </dd>
+                            <dt class="parent">"items":</dt>
+                            <dd class="new-block">
+                                <dl>
+                                    <dt>"type":</dt>
+                                    <dd>
+                                        <p>object</p>
+                                    </dd>
+                                    <dt>"title":</dt>
+                                    <dd>
+                                        <p>Experiment</p>
+                                    </dd>
+                                    <dt>"description":</dt>
+                                    <dd>
+                                        <p>An experiment is a collection of Variations paired with traffic allocation and targeting conditions. Experiments may be marked as active or paused.</p>
+                                    </dd>
+                                    <dt>"required":</dt>
+                                    <dd>[ active, conditions, description, experiment_id, last_modified, percentage_included, variations ]</dd>
+                                    <dt class="parent">"properties":</dt>
+                                    <dd class="new-block">
+                                        <dl>
+                                            <dt class="parent">"active_variation":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>object</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Active Variation (NOT USED)</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This is not used by the data file exchange format, but is utilized by the SDK</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"active":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>boolean</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Active/Paused</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>When set to true, the experiment is currently running and will be evaluated.</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"conditions":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>array</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Targeting Conditions</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>These targeting conditions are evaluated on a per-client basis to allow experiments to be shown only to people who match this set of conditions. The structure is a set of conditions which are ANDed together.</p>
+                                                    </dd>
+                                                    <dt class="parent">"items":</dt>
+                                                    <dd class="new-block">
+                                                        <dl>
+                                                            <dt>"type":</dt>
+                                                            <dd>[ object, string ]</dd>
+                                                            <dt>"title":</dt>
+                                                            <dd>
+                                                                <p>Condition</p>
+                                                            </dd>
+                                                            <dt>"description":</dt>
+                                                            <dd>
+                                                                <p>A condition is a recursively defined structure that can consist of a list of conditions which are ANDed together, or a match condition which compares a defined value to the state of the user's device. For example: API version &gt;= 17</p>
+                                                            </dd>
+                                                            <dt>"required":</dt>
+                                                            <dd>[ key, match, not, value ]</dd>
+                                                            <dt class="parent">"properties":</dt>
+                                                            <dd class="new-block">
+                                                                <dl>
+                                                                    <dt class="parent">"key":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>string</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Key</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>The id of the device property to examine. For example is_phone</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"match":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>string</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Match Type</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>The operator to use for comparison. Valid values are &lt;, &lt;=, =, !=, &gt;=, &gt;. Not all values are valid for all keys.</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"not":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>boolean</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Not</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Allows the condition to be negated</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"value":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>[ string, boolean, object ]</dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Value</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>The defined value to compare against.</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                </dl>
+                                                            </dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"description":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Experiment Name</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This is the human readable name for the experiment as shown in the dashboard.</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"experiment_id":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Experiment ID</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>Numerical ID which uniquely identifies this experiment.</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"last_modified":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Last Modified Date</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>Contains the last time this experiment was modified. Example: Wed, 04 Mar 2015 19:15:07 GMT</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"percentage_included":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>number</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Traffic Allocation</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This defines the global inclusion percentage. Inclusion goes from 0 to 10000 (basis points). For example, if set to 5000, 50% of all users will be included in the experiment</p>
+                                                    </dd>
+                                                    <dt>"minimum":</dt>
+                                                    <dd><span class="number">0</span>
+                                                    </dd>
+                                                    <dt>"maximum":</dt>
+                                                    <dd><span class="number">10000</span>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"state":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Running State (NOT USED)</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This parameter is used by the SDK to track the current state of the experiment.</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"variations":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>array</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Variations</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This array contains the variations for this experiment. An experiment must have at least one variation</p>
+                                                    </dd>
+                                                    <dt>"minItems":</dt>
+                                                    <dd><span class="number">1</span>
+                                                    </dd>
+                                                    <dt class="parent">"items":</dt>
+                                                    <dd class="new-block">
+                                                        <dl>
+                                                            <dt>"type":</dt>
+                                                            <dd>
+                                                                <p>object</p>
+                                                            </dd>
+                                                            <dt>"title":</dt>
+                                                            <dd>
+                                                                <p>Variation</p>
+                                                            </dd>
+                                                            <dt>"description":</dt>
+                                                            <dd>
+                                                                <p>A variation is a grouping of changes which define the user experience. For example, if the test is around a call to action button, this change might involve a live variable for the button text and a visual change for the button color. Each variation in the test will contain different values for those changes.</p>
+                                                            </dd>
+                                                            <dt>"required":</dt>
+                                                            <dd>[ code_tests, description, id, traffic, variables, variation_id, views ]</dd>
+                                                            <dt class="parent">"properties":</dt>
+                                                            <dd class="new-block">
+                                                                <dl>
+                                                                    <dt class="parent">"assets":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>object</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>NOT USED</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Not used in the current version</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"code_tests":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>array</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Code Blocks</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Defines the code blocks used by this variation. May be empty.</p>
+                                                                            </dd>
+                                                                            <dt class="parent">"items":</dt>
+                                                                            <dd class="new-block">
+                                                                                <dl>
+                                                                                    <dt>"type":</dt>
+                                                                                    <dd>
+                                                                                        <p>object</p>
+                                                                                    </dd>
+                                                                                    <dt>"title":</dt>
+                                                                                    <dd>
+                                                                                        <p>Code Test</p>
+                                                                                    </dd>
+                                                                                    <dt>"description":</dt>
+                                                                                    <dd>
+                                                                                        <p>For each code block included in this variation, define the block to execute when that code block is evaluated.</p>
+                                                                                    </dd>
+                                                                                    <dt>"required":</dt>
+                                                                                    <dd>[ block_key, block_name ]</dd>
+                                                                                    <dt class="parent">"properties":</dt>
+                                                                                    <dd class="new-block">
+                                                                                        <dl>
+                                                                                            <dt class="parent">"block_key":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>string</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Key</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>The name of the individual block to execute. (Selected from the dropdown in the editor)</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                            <dt class="parent">"block_name":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>string</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Name</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>The title of the code block which is evaluated. (Displays as the label for the dropdown in the editor)</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                        </dl>
+                                                                                    </dd>
+                                                                                </dl>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"constraints":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>object</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>NOT USED</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Not used in this version</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"description":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>string</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Variation Name</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>This is the human readable description of the variation (appears as the title of the variation in the editor tab)</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"id":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>integer</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>NOT USED</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>This is no longer used and has no semantic meaning. Use Variation ID for a unique identifier</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"is_paused":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>boolean</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>DEPRECATED use Traffic instead</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>This is no longer used. To pause a variation, set its traffic allocation to 0 instead.</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"traffic":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>number</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Traffic Allocation</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Within users bucketed into the experiment, this parameter defines the percentage of users that should be bucketed into this variation. Defined in basis points from 0 to 10000 so a value of 3300 will bucket 1/3 of the experiment uniques into this variation.</p>
+                                                                            </dd>
+                                                                            <dt>"minimum":</dt>
+                                                                            <dd><span class="number">0</span>
+                                                                            </dd>
+                                                                            <dt>"maximum":</dt>
+                                                                            <dd><span class="number">10000</span>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"type":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>string</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Platform Type</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Specifies the target platform of this variation. Example: android, ios</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"variables":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>array</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Variables</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Value assignments for the live variables which are used in this variation. May be empty</p>
+                                                                            </dd>
+                                                                            <dt class="parent">"items":</dt>
+                                                                            <dd class="new-block">
+                                                                                <dl>
+                                                                                    <dt>"type":</dt>
+                                                                                    <dd>
+                                                                                        <p>object</p>
+                                                                                    </dd>
+                                                                                    <dt>"title":</dt>
+                                                                                    <dd>
+                                                                                        <p>Variable Assignment</p>
+                                                                                    </dd>
+                                                                                    <dt>"description":</dt>
+                                                                                    <dd>
+                                                                                        <p>Binds a Live Variable to a specific value for users who are bucketed into this variation. </p>
+                                                                                    </dd>
+                                                                                    <dt>"required":</dt>
+                                                                                    <dd>[ value, type, variableKey ]</dd>
+                                                                                    <dt class="parent">"properties":</dt>
+                                                                                    <dd class="new-block">
+                                                                                        <dl>
+                                                                                            <dt class="parent">"value":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>[ boolean, integer, null, number, object, string ]</dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Value</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>The value to assign to the Live Variable. This is a polymorphic value, whose type is fixed by the Variable Type field.</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                            <dt class="parent">"type":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>string</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Variable Type</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Defines the type of this variable. Example: string, rect</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                            <dt class="parent">"variableKey":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>string</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Key</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>The name of the Live Variable </p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                        </dl>
+                                                                                    </dd>
+                                                                                </dl>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"variation_id":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>string</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Variation ID</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>Uniquely identifies this variation. Used for backend analytics and datastore lookup.</p>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                    <dt class="parent">"views":</dt>
+                                                                    <dd class="new-block">
+                                                                        <dl>
+                                                                            <dt>"type":</dt>
+                                                                            <dd>
+                                                                                <p>array</p>
+                                                                            </dd>
+                                                                            <dt>"title":</dt>
+                                                                            <dd>
+                                                                                <p>Visual Changes</p>
+                                                                            </dd>
+                                                                            <dt>"description":</dt>
+                                                                            <dd>
+                                                                                <p>This section defines the visual changes made through the mobile editor to various UI elements. May be empty.</p>
+                                                                            </dd>
+                                                                            <dt class="parent">"items":</dt>
+                                                                            <dd class="new-block">
+                                                                                <dl>
+                                                                                    <dt>"type":</dt>
+                                                                                    <dd>
+                                                                                        <p>object</p>
+                                                                                    </dd>
+                                                                                    <dt>"title":</dt>
+                                                                                    <dd>
+                                                                                        <p>Visual Change</p>
+                                                                                    </dd>
+                                                                                    <dt>"description":</dt>
+                                                                                    <dd>
+                                                                                        <p>A visual change describes an edit to a single property of a single UI element.</p>
+                                                                                    </dd>
+                                                                                    <dt>"required":</dt>
+                                                                                    <dd>[ value, key, optimizely_id, type ]</dd>
+                                                                                    <dt class="parent">"properties":</dt>
+                                                                                    <dd class="new-block">
+                                                                                        <dl>
+                                                                                            <dt class="parent">"value":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>[ boolean, integer, null, number, object, string ]</dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Value</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Payload value for the visual change. The property defined by they Key will be set to this value. This is a polymorphic value whose type is defined by the accompanying Value Type field.</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                            <dt class="parent">"key":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>string</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Property Key</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>This is the name of the property on the UI element to edit</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                            <dt class="parent">"optimizely_id":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>string</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Element Selector</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>This selector uniquely identifies an element (or set of elements) to which this visual edit will be applied. Example: TestActivity@content&gt;LinearLayout</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                            <dt class="parent">"type":</dt>
+                                                                                            <dd class="new-block">
+                                                                                                <dl>
+                                                                                                    <dt>"type":</dt>
+                                                                                                    <dd>[ string, null ]</dd>
+                                                                                                    <dt>"title":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>Value Type</p>
+                                                                                                    </dd>
+                                                                                                    <dt>"description":</dt>
+                                                                                                    <dd>
+                                                                                                        <p>This defines the type of the value payload of this visual change</p>
+                                                                                                    </dd>
+                                                                                                </dl>
+                                                                                            </dd>
+                                                                                        </dl>
+                                                                                    </dd>
+                                                                                </dl>
+                                                                            </dd>
+                                                                        </dl>
+                                                                    </dd>
+                                                                </dl>
+                                                            </dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dt class="parent"><span title="required" class="required">&#9733;</span>"goals":</dt>
+                    <dd class="new-block">
+                        <dl>
+                            <dt>"type":</dt>
+                            <dd>
+                                <p>array</p>
+                            </dd>
+                            <dt>"title":</dt>
+                            <dd>
+                                <p>Goals</p>
+                            </dd>
+                            <dt>"description":</dt>
+                            <dd>
+                                <p>Goals (or conversion events) are the way the relative success of a given variation is tracked. Each experiment must have at least one goal in order to be valid</p>
+                            </dd>
+                            <dt>"minItems":</dt>
+                            <dd><span class="number">1</span>
+                            </dd>
+                            <dt class="parent">"items":</dt>
+                            <dd class="new-block">
+                                <dl>
+                                    <dt>"type":</dt>
+                                    <dd>
+                                        <p>object</p>
+                                    </dd>
+                                    <dt>"title":</dt>
+                                    <dd>
+                                        <p>Goal</p>
+                                    </dd>
+                                    <dt>"description":</dt>
+                                    <dd>
+                                        <p>A goal is a tracked event. This event may be programmatic or behavioral. Currently we support programmatic events through the trackEvent() API and view and tap behavioral events which track user interaction with a specific UI element.</p>
+                                    </dd>
+                                    <dt>"required":</dt>
+                                    <dd>[ event, experiment_ids, id, type ]</dd>
+                                    <dt class="parent">"properties":</dt>
+                                    <dd class="new-block">
+                                        <dl>
+                                            <dt class="parent">"element_id":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>UI Element Selector</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>If this goal tracks whether the user sees or touches a UI element, this selector will specify the UI element(s) that should have listeners attached.</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"event":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>[ string, null ]</dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Event Name</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This name identifies the goal to the SDK</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"experiment_ids":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>array</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Linked Experiments</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>Goals can be re-used by multiple experiments. This array defines all the experiments that this goal is bound to.</p>
+                                                    </dd>
+                                                    <dt>"minItems":</dt>
+                                                    <dd><span class="number">1</span>
+                                                    </dd>
+                                                    <dt class="parent">"items":</dt>
+                                                    <dd class="new-block">
+                                                        <dl>
+                                                            <dt>"type":</dt>
+                                                            <dd>
+                                                                <p>string</p>
+                                                            </dd>
+                                                            <dt>"title":</dt>
+                                                            <dd>
+                                                                <p>Experiment ID</p>
+                                                            </dd>
+                                                            <dt>"description":</dt>
+                                                            <dd>
+                                                                <p>the ID of the experiment that references this goal</p>
+                                                            </dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"id":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>integer</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Backend ID</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This is the ID of the goal as used for reporting to the backend</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"revenue_tracking":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>boolean</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>NOT USED</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>Not in use. Use type: REVENUE</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"type":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Goal Type</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>This parameter defines the trigger condition for the event. Valid values include REVENUE, MOBILE_TAP, MOBILE_VIEW, and CUSTOM</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dt class="parent"><span title="required" class="required">&#9733;</span>"segments":</dt>
+                    <dd class="new-block">
+                        <dl>
+                            <dt>"type":</dt>
+                            <dd>
+                                <p>array</p>
+                            </dd>
+                            <dt>"title":</dt>
+                            <dd>
+                                <p>Segments</p>
+                            </dd>
+                            <dt>"description":</dt>
+                            <dd>
+                                <p>Segments are used to slice and dice result information. Segmenting information includes device type, manufacturer, and version. Any segments declared will be sent along with all conversion events.</p>
+                            </dd>
+                            <dt class="parent">"items":</dt>
+                            <dd class="new-block">
+                                <dl>
+                                    <dt>"type":</dt>
+                                    <dd>
+                                        <p>object</p>
+                                    </dd>
+                                    <dt>"title":</dt>
+                                    <dd>
+                                        <p>Segment</p>
+                                    </dd>
+                                    <dt>"description":</dt>
+                                    <dd>
+                                        <p>A segment consists of a key value pair. The SDK must offer support for collecting the necessary information.</p>
+                                    </dd>
+                                    <dt>"required":</dt>
+                                    <dd>[ api_name, segment_id ]</dd>
+                                    <dt class="parent">"properties":</dt>
+                                    <dd class="new-block">
+                                        <dl>
+                                            <dt class="parent">"api_name":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>API Name</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>Name of the device or app API to query. This instructs the SDK to find information and attach the resulting value to conversion events. Example: optimizely_android_device_model</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt class="parent">"segment_id":</dt>
+                                            <dd class="new-block">
+                                                <dl>
+                                                    <dt>"type":</dt>
+                                                    <dd>
+                                                        <p>string</p>
+                                                    </dd>
+                                                    <dt>"title":</dt>
+                                                    <dd>
+                                                        <p>Segment ID</p>
+                                                    </dd>
+                                                    <dt>"description":</dt>
+                                                    <dd>
+                                                        <p>Backend ID for querying.</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </dd>
+        </dl><span class="container bot">}</span>
+        <footer>
+            <p>Built with&nbsp;<a href="https://www.github.com/mattyod/matic/">Matic.js</a>
+            </p>
+        </footer>
+        <script src="js/jquery.js"></script>
+        <script src="js/matic.js"></script>
+    </article>
+</body>
+
+</html>

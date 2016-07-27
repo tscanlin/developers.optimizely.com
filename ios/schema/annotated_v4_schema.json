@@ -1,0 +1,395 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "title": "iOS JSON Config File",
+  "description": "Defines the format of the iOS JSON configuration file",
+  "type": "object",
+  "properties": {
+    "code_revision": {
+      "id": "code_revision",
+      "type": "integer",
+      "title": "Code Revision",
+      "description": "The version number of this data file. This should be incremented every time the file is edited and uploaded to the CDN"
+    },
+    "segments": {
+      "id": "segments",
+      "type": "array",
+      "items": {
+        "id": "segment",
+        "type": "object",
+        "properties": {
+          "api_name": {
+            "id": "api_name",
+            "type": "string",
+            "description": "Name of the device or app API to query. This instructs the SDK to find information and attach the resulting value to conversion events. Example: optimizely_ios_device_model",
+            "title": "API Name"
+          },
+          "segment_id": {
+            "id": "segment_id",
+            "type": "string",
+            "description": "Backend ID for querying.",
+            "title": "Backend ID"
+          }
+        },
+        "title": "Segment",
+        "description": "A segment consists of a key value pair. The SDK must offer support for collecting the necessary information."
+      },
+      "title": "Segments",
+      "description": "Segments are used to slice and dice result information. Segmenting information includes device type, manufacturer, and version. Any segments declared will be sent along with all conversion events."
+    },
+    "experiments": {
+      "id": "experiments",
+      "type": "array",
+      "items": {
+        "id": "experiment",
+        "type": "object",
+        "properties": {
+          "description": {
+            "id": "description",
+            "type": "string",
+            "title": "Experiment Name",
+            "description": "This is the human readable name for the experiment as shown in the dashboard."
+          },
+          "percentage_included": {
+            "id": "percentage_included",
+            "type": "integer",
+            "title": "Traffic Allocation",
+            "description": "This defines the global inclusion percentage. Inclusion goes from 0 to 10000 (basis points). For example, if set to 5000, 50% of all users will be included in the experiment",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "variations": {
+            "id": "variations",
+            "type": "array",
+            "items": {
+              "id": "variation",
+              "type": "object",
+              "properties": {
+                "description": {
+                  "id": "description",
+                  "type": "string",
+                  "title": "Variation Name",
+                  "description": "This is the human readable description of the variation (appears as the title of the variation in the editor tab)"
+                },
+                "views": {
+                  "id": "views",
+                  "type": "object",
+                  "properties": {
+                    "StoryboardViewController>UIView>UIImageView[4]": {
+                      "id": "viewId",
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "id": "propertyKey",
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "id": "type",
+                              "type": "string",
+                              "title": "Value Type",
+                              "description": "Type of the Value payload. Example: NSString"
+                            },
+                            "value": {
+                              "id": "value",
+                              "type": [
+                                "object",
+                                "string",
+                                "boolean",
+                                "number"
+                              ],
+                              "properties": {},
+                              "title": "Value Payload",
+                              "description": "Payload value for the visual change. The property defined by they Key will be set to this value. This is a polymorphic value whose type is defined by the accompanying Value Type field."
+                            }
+                          },
+                          "title": "Property Key",
+                          "description": "The name of the property on the UI element to edit. If the UI element specified by the View Identifier has a corresponding property, it will be set to the payload in Value below"
+                        }
+                      },
+                      "title": "View Identifier",
+                      "description": "This selector uniquely identifies an element to which this visual edit will be applied. Example: StoryboardViewController>UIView>UIImageView[4]"
+                    }
+                  },
+                  "title": "Views",
+                  "description": "This section defines the visual changes made through the mobile editor to various UI elements. May be empty."
+                },
+                "variables": {
+                  "id": "variables",
+                  "type": "object",
+                  "properties": {
+                    "randomVariable": {
+                      "id": "variableKey",
+                      "type": "object",
+                      "properties": {
+                        "subType": {
+                          "id": "subType",
+                          "type": "string",
+                          "title": "Sub Type",
+                          "description": "Used when the Type is not specific enough. For example, the type Number has subtypes i and f for integer and floating point numbers respectively."
+                        },
+                        "type": {
+                          "id": "type",
+                          "type": "string",
+                          "title": "Type",
+                          "description": "Defines the type of this variable. Example: string, rect"
+                        },
+                        "key": {
+                          "id": "key",
+                          "type": "string",
+                          "title": "Variable Key",
+                          "description": "The name of the Live Variable"
+                        },
+                        "value": {
+                          "id": "value",
+                          "type": [
+                            "object",
+                            "string",
+                            "boolean",
+                            "number"
+                          ],
+                          "title": "Value",
+                          "description": "The value to assign to the Live Variable. This is a polymorphic value, whose type is fixed by the Variable Type and Sub Type fields."
+                        }
+                      },
+                      "title": "Variable Key",
+                      "description": "Binds a Live Variable to a specific value for users who are bucketed into this variation."
+                    }
+                  },
+                  "title": "Variables",
+                  "description": "Value assignments for the live variables which are used in this variation. May be empty"
+                },
+                "variation_id": {
+                  "id": "variation_id",
+                  "type": "string",
+                  "title": "Variation ID",
+                  "description": "Uniquely identifies this variation. Used for backend analytics and datastore lookup."
+                },
+                "code_tests": {
+                  "id": "code_tests",
+                  "type": "object",
+                  "properties": {
+                    "foo": {
+                      "id": "blockName",
+                      "type": "object",
+                      "properties": {
+                        "blockKey": {
+                          "id": "blockKey",
+                          "type": "string",
+                          "description": "The name of the individual block to execute. (Selected from the dropdown in the editor)",
+                          "title": "Key"
+                        }
+                      },
+                      "title": "Name",
+                      "description": "The title of the code block which is evaluated. (Displays as the label for the dropdown in the editor)"
+                    }
+                  },
+                  "description": "Defines the code blocks used by this variation. May be empty.",
+                  "title": "Code Blocks"
+                },
+                "traffic": {
+                  "id": "traffic",
+                  "type": "integer",
+                  "title": "Traffic Allocation",
+                  "description": "Within users bucketed into the experiment, this parameter defines the percentage of users that should be bucketed into this variation. Defined in basis points from 0 to 10000 so a value of 3300 will bucket 1/3 of the experiment uniques into this variation.",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "id": {
+                  "id": "id",
+                  "type": "integer",
+                  "title": "NOT USED",
+                  "description": "This is no longer used and has no semantic meaning. Use Variation ID for a unique identifier"
+                },
+                "is_paused": {
+                  "id": "is_paused",
+                  "type": "boolean",
+                  "title": "DEPRECATED use Traffic instead",
+                  "description": "This is no longer used. To pause a variation, set its traffic allocation to 0 instead."
+                },
+                "assets": {
+                  "id": "assets",
+                  "type": "object",
+                  "properties": {},
+                  "title": "NOT USED",
+                  "description": "No longer in use"
+                },
+                "type": {
+                  "id": "type",
+                  "type": "string",
+                  "title": "Platform Type",
+                  "description": "Specifies the target platform of this variation. Example: android, ios"
+                },
+                "constraints": {
+                  "id": "constraints",
+                  "type": "object",
+                  "properties": {},
+                  "title": "NOT USED",
+                  "description": "No longer used"
+                }
+              },
+              "title": "Variation",
+              "description": "A variation is a grouping of changes which define the user experience. For example, if the test is around a call to action button, this change might involve a live variable for the button text and a visual change for the button color. Each variation in the test will contain different values for those changes."
+            },
+            "title": "Variations",
+            "description": "This array contains the variations for this experiment. An experiment must have at least one variation"
+          },
+          "universal_analytics": {
+            "id": "universal_analytics",
+            "type": "boolean",
+            "title": "Universal Analytics Enabled",
+            "description": "If set to true, Universal Analytics integration will be enabled"
+          },
+          "universal_analytics_tracker": {
+            "id": "universal_analytics_tracker",
+            "type": "string",
+            "title": "NOT USED",
+            "description": "No longer used on mobile"
+          },
+          "last_modified": {
+            "id": "last_modified",
+            "type": "string",
+            "title": "Last Modified Date",
+            "description": "Contains the last time this experiment was modified. Example: Wed, 04 Mar 2015 19:15:07 GMT"
+          },
+          "experiment_id": {
+            "id": "experiment_id",
+            "type": "string",
+            "title": "Experiment ID",
+            "description": "Numerical ID which uniquely identifies this experiment. Used to identify this experiment in to the backend"
+          },
+          "active": {
+            "id": "active",
+            "type": "boolean",
+            "title": "Active/Paused",
+            "description": "When set to true, the experiment is currently running and will be evaluated."
+          },
+          "universal_analytics_slot": {
+            "id": "universal_analytics_slot",
+            "type": "integer",
+            "title": "UA: Custom Dimension Assignment",
+            "description": "The dimension number that Optimizely data will be assigned to in Universal Analytics",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "conditions": {
+            "id": "conditions",
+            "type": "array",
+            "items": {
+                "id": "1",
+                "type": ["object", "string"],
+                "properties": {
+                  "not": {
+                    "id": "not",
+                    "type": "boolean",
+                    "title": "Not",
+                    "description": "Allows this condition to be negated."
+                  },
+                  "key": {
+                    "id": "key",
+                    "type": "string",
+                    "title": "Key",
+                    "description": "The id of the device property to examine. For example: device_model"
+                  },
+                  "match": {
+                    "id": "match",
+                    "type": "string",
+                    "title": "Match Type",
+                    "description": "The operator to use for comparison. Valid values are <, <=, =, !=, >=, >. Not all values are valid for all keys."
+                  },
+                  "value": {
+                    "id": "value",
+                    "type": [
+                      "object",
+                      "string",
+                      "boolean",
+                      "number"
+                    ],
+                    "title": "Value",
+                    "description": "This value will be compared against the device value using the Match Type"
+                  }
+                },
+                "title": "Condition",
+                "description": "A condition is a recursively defined structure that can consist of a list of conditions which are ANDed together, or a match condition which compares a defined value to the state of the user's device. For example: device_model=iPad"
+              },
+            "description": "These targeting conditions are evaluated on a per-client basis to allow experiments to be shown only to people who match this set of conditions. The structure is a set of conditions which are ANDed together.",
+            "title": "Targeting Conditions"
+          }
+        },
+        "title": "Experiment",
+        "description": "An experiment is a collection of Variations paired with traffic allocation and targeting conditions. Experiments may be marked as active or paused."
+      },
+      "title": "Experiments",
+      "description": "May be empty. Contains all experiments from the project that are in the running or paused state."
+    },
+    "account_id": {
+      "id": "account_id",
+      "type": "integer",
+      "title": "Account ID",
+      "description": "The numerical project ID"
+    },
+    "goals": {
+      "id": "goals",
+      "type": "array",
+      "items": {
+        "id": "goal",
+        "type": "object",
+        "properties": {
+          "revenue_tracking": {
+            "id": "revenue_tracking",
+            "type": "boolean",
+            "title": "NOT USED",
+            "description": "Not in use. Use type: REVENUE instead"
+          },
+          "experiment_ids": {
+            "id": "experiment_ids",
+            "type": "array",
+            "items": {
+              "id": "experiment_id",
+              "type": "string",
+              "title": "Experiment ID",
+              "description": "the ID of the experiment that references this goal"
+            },
+            "title": "Linked Experiments",
+            "minItems": 1,
+            "description": "Goals can be re-used by multiple experiments. This array defines all the experiments that this goal is bound to."
+          },
+          "event": {
+            "id": "event",
+            "type": ["string", "null"],
+            "description": "This name identifies the goal to the SDK",
+            "title": "Event Name"
+          },
+          "element_id": {
+            "id": "element_id",
+            "type": "string",
+            "description": "If this goal tracks whether the user sees or touches a UI element, this selector will specify the UI element that should have listeners attached.",
+            "title": "UI Element Identifier"
+          },
+          "type": {
+            "id": "type",
+            "type": "string",
+            "title": "Goal Type",
+            "description": "This parameter defines the trigger condition for the event. Valid values include REVENUE, MOBILE_TAP, MOBILE_VIEW, and CUSTOM"
+          },
+          "id": {
+            "id": "id",
+            "type": "integer",
+            "description": "This is the ID of the goal as used for reporting to the backend",
+            "title": "Backend ID"
+          }
+        },
+        "title": "Goal",
+        "description": "A goal is a tracked event. This event may be programmatic or behavioral. Currently we support programmatic events through the trackEvent() API and view and tap behavioral events which track user interaction with a specific UI element."
+      },
+      "description": "Goals (or conversion events) are the way the relative success of a given variation is tracked. Each experiment must have at least one goal in order to be valid",
+      "title": "Goals"
+    }
+  },
+  "required": [
+    "code_revision",
+    "segments",
+    "experiments",
+    "account_id",
+    "goals"
+  ]
+}

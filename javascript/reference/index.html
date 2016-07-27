@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Optimizely Developers</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Optimizely Developer Documentation">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- This should be the first script to make sure redirects work quickly. -->
+    <script src="/assets/js/bundle.js" type="text/javascript"></script>
+
+    <!-- Demandbase -->
+    <script>
+      (function(d,b,a,s,e) {
+        var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+        t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+        fs.parentNode.insertBefore(t, fs);
+      })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+    </script>
+
+    <!-- Heap Analytics -->
+    <script type="text/javascript">
+      if (document.location.hostname != "localhost") {
+        window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+        heap.load("411455962");
+      }
+    </script>
+
+    <!-- Optimizely -->
+    <script src="//cdn.optimizely.com/js/6663270427.js"></script>
+  </head>
+  <body class="javascript reference">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <!-- <symbol id="add" viewBox="-590 386 16 16">
+      <path d="M-575 395v-2h-6v-6h-2v6h-6v2h6v6h2v-6z"/>
+    </symbol>
+    <symbol id="align-center" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM24 14H8c-1.1 0-2-.9-2-2s.9-2 2-2h16c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM24 30H8c-1.1 0-2-.9-2-2s.9-2 2-2h16c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-justify" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 14H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 30H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-left" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM18 14H4c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM18 30H4c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-right" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 14H14c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 30H14c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="archive" viewBox="0 0 32 32">
+      <g><path d="M30 4c0-1.3-.6-2-2-2H4c-1.3 0-2 .6-2 2v4h28V4zM4 10v18c0 1.3.6 2 2 2h20c1.3 0 2.1-.6 2.1-2V10H4z"/><path fill="#fff" d="M18 18v-8h-4v8H8l8 8 8-8z"/></g>
+    </symbol>
+    <symbol id="arrow-left" viewBox="-463 265 32 32">
+      <path d="M-454.8 281l11.3 11.3 4.3-4.2-7.1-7.1 7.1-7.1-4.3-4.2z"/>
+    </symbol>
+    <symbol id="arrow-right" viewBox="-463 265 32 32">
+      <path d="M-439.2 281l-11.3-11.3-4.3 4.2 7.1 7.1-7.1 7.1 4.3 4.2z"/>
+    </symbol>
+    <symbol id="audiences" viewBox="0 0 32 32">
+      <g><path d="M11.5 11.4c0 1.9 1.2 3.6 2.8 4.3.6.2 1.2.4 1.8.4 2.6 0 4.7-2.1 4.7-4.7 0-1.9-1.2-3.6-2.8-4.3-.6-.2-1.2-.4-1.8-.4-2.6.1-4.7 2.1-4.7 4.7zM22.8 11.1c.4.1.7.1 1.1.1 2.6 0 4.7-2.1 4.7-4.7s-2.1-4.7-4.7-4.7c-2.2 0-4.1 1.6-4.5 3.6 2 1.3 3.3 3.3 3.4 5.7zM14.2 16C10.9 16 8 20.4 8 23.7V28.6l.3.1c3.1 1 3.8 1.2 7.6 1.2 4.4 0 7.6-1.5 7.7-1.6l.4-.3v-4.4c0-2.9-1.9-6.4-4.6-7.2-.4-.1-.8-.4-1.2-.4h-4zM8 11.3c.5 0 1-.1 1.5-.3.1-2.2 1.3-4.1 3.1-5.2-.4-2.2-2.3-3.9-4.6-3.9-2.6 0-4.6 2.1-4.6 4.7s2 4.7 4.6 4.7zM6 23.7c0-3.1 2-6.5 4.8-8.1C10 14.5 9.6 13 9.5 12H6c-3.3 0-6 2.3-6 5.6v6.3l.3.1c2.1.7 3.6 1 5.6 1.2v-1.5zM25.9 12h-3.1c0 1-.5 2.5-1.3 3.6.9.5 1.7 1.1 2.4 2.1 1.3 1.7 2.1 3.8 2.1 5.9V25c3.4-.2 5.4-.9 5.6-1h.4v-6.4c0-3.3-2.8-5.6-6.1-5.6z"/></g>
+    </symbol>
+    <symbol id="calendar" viewBox="0 0 32 32">
+      <path d="M22 2V0h-4v2h-6V0H8v2H0v30h30V2h-8zM10 28H4v-6h6v6zm0-8H4v-6h6v6zm8 8h-6v-6h6v6zm0-8h-6v-6h6v6zm0-8H4V6h14v6zm8 16h-6v-6h6v6zm0-8h-6v-6h6v6zm0-8h-6V6h6v6z"/>
+    </symbol>
+    <symbol id="check" viewBox="-595 381 32 32">
+      <path d="M-564.2 389l-4.3-4.3-15.2 15.2-6.1-6.1-4.2 4.3 10.3 10.3"/>
+    </symbol> -->
+    <symbol id="clipboard" viewBox="0 0 32 32">
+      <g><path d="M10 12h12v4H10zM10 20h12v4H10zM18 2V0h-4v2H2v30h28V2H18zm8 26H6V6h4v2h12V6h4v22z"/></g>
+    </symbol>
+    <!-- <symbol id="close" viewBox="-289 381 32 32">
+      <path d="M-261.7 389.8l-4.2-4.2-7.1 7.1-7.1-7.1-4.2 4.2 7.1 7.1-7.1 7.1 4.2 4.2 7.1-7.1 7.1 7.1 4.2-4.2-7.1-7.1z"/>
+    </symbol>
+    <symbol id="code" viewBox="0 0 32 32">
+      <g><path d="M8 25.4c-.4 0-.8-.2-1.1-.5L.3 17c-.4-.5-.4-1.3 0-1.8l6.2-7.9c.5-.7 1.5-.9 2.1-.4.6.5.7 1.4.3 2L3.3 16l5.8 7c.5.6.4 1.5-.2 2-.3.2-.6.4-.9.4zM24 25.4c-.3 0-.7-.1-.9-.3-.6-.5-.7-1.4-.2-2l5.7-7.1-5.5-7c-.5-.6-.4-1.5.3-2 .6-.5 1.5-.4 2 .3l6.1 7.9c.4.5.4 1.3 0 1.8L25 24.9c-.2.3-.6.5-1 .5zM13.7 27.8c-.1 0-.2 0-.3-.1-.7-.2-1.2-.9-1.1-1.7l4.9-20.8c.2-.7 1-1.2 1.8-1 .7.2 1.2.9 1.1 1.7l-4.9 20.8c-.3.7-.9 1.1-1.5 1.1z"/></g>
+    </symbol>
+    <symbol id="collaborators" viewBox="0 0 32 32">
+      <g><circle cx="9" cy="7" r="5"/><circle cx="23" cy="7" r="5"/><path d="M32 32v-.2L28 16c0-1.1-.9-2-2-2h-6c-1.1 0-2 .9-2 2v16h14zM13.9 32l.1-.2V15.9c0-1.1-1-1.9-2.1-1.9h-6c-1.1 0-1.9.8-1.9 1.9L0 31.8l-.1.2h14z"/></g>
+    </symbol>
+    <symbol id="dimensions" viewBox="0 0 32 32">
+      <g><path fill="#fff" d="M17 2L2 8l14.9 6L32 7.9 17 2z"/><path d="M16 30L2 24V10l14 6zM30 12.6v9.8l-10 4.9v-9.8l10-4.9m2-2.7l-14 6v14l14-6v-14z"/><path fill="#fff" d="M30 12.6v9.8l-10 4.9v-9.8l10-4.9"/><path stroke="#000" stroke-width="2" stroke-miterlimit="10" d="M30 8M4 8" fill="none"/><path d="M17 4.1L27.2 8l-10.3 4L6.7 8 17 4.1M17 2L2 8l14.9 6L32 7.9 17 2z"/></g>
+    </symbol>
+    <symbol id="duplicate" viewBox="0 0 32 32">
+      <g><path d="M22 32H2c-1.1 0-2-.9-2-2V9.9c0-1.1.9-2 2-2h20c1.1 0 2 .9 2 2V30c0 1.1-.9 2-2 2zM30 0H10C8.9 0 8 .9 8 2v2h18c1.1 0 2 .8 2 1.9V24h2c1.1 0 2-.8 2-1.9V2c0-1.1-.9-2-2-2z"/><path fill="#fff" d="M18 18h-4v-4h-4v4H6v4h4v4h4v-4h4z"/></g>
+    </symbol>
+    <symbol id="editor-switch" viewBox="0 0 16 16">
+      <path fill="#fff" d="M10.2 7.4v-2c0-1.7-1.4-3-3-3h-.6c-1.6 0-3 1.3-3 3v2c0 1.7 1.4 3 3 3h.6c1.6 0 3-1.3 3-3z"/><path d="M9.9 10.9h-6c-.5 0-.9-.4-.9-.9V2.8c0-.5.4-.9.9-.9h6c.5 0 .9.4.9.9v7.3c-.1.5-.5.8-.9.8zm-5.8-1h5.5V3H4.1v6.9z"/><path fill="#fff" d="M12.3 10.5v-2c0-1.7-1.3-3-3-3h-.6c-1.6 0-3 1.4-3 3v2c0 1.6 1.3 3 3 3h.6c1.6 0 3-1.3 3-3z"/><path d="M12 14.1H6c-.5 0-.9-.4-.9-.9V5.9c0-.5.4-.9.9-.9h6c.5 0 .9.4.9.9v7.3c-.1.5-.5.9-.9.9zM6.2 13h5.5V6.1H6.2V13zM15.2 6.6l-1-.3c.2-.7 0-1.3-.4-1.8-.5-.5-1.3-.6-2-.3l-.4-1c1.1-.5 2.3-.3 3.1.4.7.8 1 1.9.7 3zM13.7 5.3L13.6 8 16 6.8zM3.2 13c-.8 0-1.6-.3-2.2-1-1.1-1.2-1.3-3-.6-4.5l1 .5c-.6 1.1-.4 2.4.4 3.3.6.6 1.4.8 2.3.4l.4 1c-.5.2-.9.3-1.3.3zM1.8 8.9l.3-2.7-2.5 1z"/>
+    </symbol>
+    <symbol id="experiments" viewBox="0 0 32 32">
+      <g><path d="M0 22v10h32V14l-10 6-12-4zM22 12.1l-12-4-10 6v-4L10 4l12 4 10-6.4V6z"/></g>
+    </symbol>
+    <symbol id="external" viewBox="-752 644.1 31 30.9">
+      <g><path d="M-726 644.9c0-.2-.1-.4-.2-.6-.2-.2-.3-.2-.6-.2l-7.6.1c-.3 0-.6.2-.7.5-.1.2-.1.6.1.8l7.6 7.7c.2.2.5.2.8.1.3-.2.5-.4.5-.7l.1-7.7M-740.8 656.8l2.2 2.2 11.1-11.1-2.2-2.2-11.1 11.1"/><path d="M-731.2 658.1v8.8h-17.6v-17.6h8.8v-3.2h-12v24h24v-12z"/></g>
+    </symbol>
+    <symbol id="goal" viewBox="0 0 32 32">
+      <g><path d="M2 .1C3 .1 4 1 4 2v30H0V2C0 1 .9.1 2 .1zM25 6.2c2.4 0 5.5-1.3 6.9-2.3v18.6c-1.4 1-4.6 2.3-6.9 2.3s-4.5-.7-5.9-1.7c-1.4-1-2.8-1.7-5.1-1.7-2.4 0-4.5 1.5-6 2.5V5.3c1.4-1 3.6-2.5 6-2.5s3.7.7 5.1 1.7 3.5 1.7 5.9 1.7z"/></g>
+    </symbol>-->
+    <symbol id="hamburger" viewBox="0 0 32 32">
+      <path d="M28 8H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 18H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 28H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
+    </symbol>
+    <!--<symbol id="history" viewBox="0 0 32 32">
+      <g><path d="M18 2C10.9 2 5.1 7.2 4.2 14H0l6 6 6-6H7.2c.9-5.1 5.4-9 10.8-9 6.1 0 11 4.9 11 11s-4.9 11-11 11c-4 0-7.6-2.2-9.5-5.5l-2.2 2.2C8.8 27.5 13.1 30 18 30c7.7 0 14-6.3 14-14S25.7 2 18 2zM16 8h4v8h-4zM20.9 23.9L24 22l-4-6h-4z"/></g>
+    </symbol>
+    <symbol id="inconclusive" viewBox="0 0 32 32">
+      <circle fill="#fff" cx="16" cy="15.9" r="15.9"/><path d="M16 3c7.1 0 12.9 5.8 12.9 12.9s-5.8 13-12.9 13-13-5.8-13-13S8.8 3 16 3m0-3C7.2 0 0 7.1 0 15.9s7.2 16 16 16S31.9 24.8 31.9 16 24.8 0 16 0zM14 6h4v12h-4zM14 14h10v4H14z"/>
+    </symbol>
+    <symbol id="integrations" viewBox="0 0 32 32">
+      <g><path d="M25.5 9.3c.1.4.2.8.2 1.2.1.8 0 1.8-.1 2.5 2.1 1.7 3.4 4.2 3.4 7 0 5-4 9-9 9s-9-4-9-9c0-4.6 3.4-8.3 7.8-8.9 0-.4-.1-1.1-.4-1.9-.2-.4-.3-.8-.5-1C12.3 9.2 8 14.1 8 20c0 6.6 5.4 12 12 12s12-5.4 12-12c0-4.6-2.6-8.7-6.5-10.7zM12 0C5.4 0 0 5.4 0 12c0 4.4 2.4 8.3 6 10.4-.1-.8-.2-1.6-.2-2 0-.4.1-1.2.2-1.7C4.1 17 3 14.6 3 12c0-5 4-9 9-9s9 4 9 9c0 4.5-3.3 8.3-7.7 8.9 0 .5 0 .9.3 1.5.3.7.4 1 .7 1.3 5.5-1.1 9.6-6 9.6-11.8C24 5.4 18.6 0 12 0z"/></g>
+    </symbol>
+    <symbol id="live-variables" viewBox="0 0 32 32">
+      <g><path d="M30 0h-6c-1.1 0-2 .9-2 2s.9 2 2 2h4v24h-4c-1.1 0-2 .9-2 2s.9 2 2 2h6c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM2 32h6c1.1 0 2-.9 2-2s-.9-2-2-2H4V4h4c1.1 0 2-.9 2-2s-.9-2-2-2H2C.9 0 0 .9 0 2v28c0 1.1.9 2 2 2zM22.2 20.7c-.2 0-.6.1-.7.1-1.1 0-3.1-.5-3.9-3.9l5.8-5.9s1.2-1.2.4-2.3c-.3-.6-1.8-1-2.6-.2l-4.3 4.3C15 8.4 11.1 8 9.7 8S8 9.8 8 10.8c0 1 .9 2.1 2.2 2.2s3.2-.2 4.1 3.2l-5.6 5.3c-.3.3-.5.6-.5 1.1 0 .5.2.8.5 1.1.3.4.8.3 1.3.3s.9 0 1.4-.4l3.8-4.1c1.9 4.2 5.3 4.5 6.7 4.5 0 0 2.1-.1 2.1-2 0-1.2-1-1.3-1.8-1.3z"/></g>
+    </symbol>
+    <symbol id="lock" viewBox="0 0 32 32">
+      <g><path d="M26 12c0-5.5-4.5-10-10-10S6 6.5 6 12c-1.2 0-2 .9-2 2v16c0 1.1.8 2 1.9 2h20c1.1 0 2-.9 2-2V14c.1-1.1-.8-2-1.9-2zm-4.1 0h-13c0-3.9 3.1-7 7-7s7 3.1 7 7h-1z"/><path fill="#fff" d="M20 20c0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.5.8 2.8 2 3.4V26c0 1.1.9 2 2 2s2-.9 2-2v-2.6c1-.7 2-1.9 2-3.4z"/></g>
+    </symbol>
+    <symbol id="loser" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="16"/><path fill="#fff" d="M14 6h4v14h-4zM14 22h4v4h-4z"/>
+    </symbol>
+    <symbol id="paperclip" viewBox="0 0 32 32">
+      <path d="M15.6 32c-4.1 0-8.2-2.4-8.2-7V6.8c0-4.5 2.9-6.8 5.8-6.8S19 2.4 19 6.8v15.8c0 2.6-1.7 3.9-3.4 3.9-.9 0-1.8-.4-2.4-1-.5-.5-1-1.4-1-2.9V8c0-.6.4-1 1-1s1 .4 1 1v14.6c0 1.3.7 1.9 1.4 1.9s1.4-.6 1.4-1.9V6.8C17 3.5 15 2 13.2 2S9.3 3.5 9.3 6.8V25c0 3.4 3.2 5 6.2 5s6.2-1.6 6.2-5V8c0-.6.4-1 1-1s1 .4 1 1v17c.1 4.6-4 7-8.1 7z"/>
+    </symbol>
+    <symbol id="pause" viewBox="0 0 32 32">
+      <g><path d="M6 4h8v24H6zM18 4h8v24h-8z"/></g>
+    </symbol>
+    <symbol id="play" viewBox="0 0 32 32">
+      <path d="M4 4v24l23.9-12z"/>
+    </symbol>
+    <symbol id="projects" viewBox="0 0 32 32">
+      <g><path d="M2 4h4v4H2zM10 4h20v4H10zM2 14h4v4H2zM10 14h20v4H10zM2 24h4v4H2zM10 24h20v4H10z"/></g>
+    </symbol>
+    <symbol id="redo" viewBox="-471 274 16 14">
+      <g><path d="M-455.7 279l-3.7 3.6c-.2.2-.4.2-.6.1-.2-.1-.3-.2-.3-.4v-7.4c0-.2.1-.4.3-.4.2-.1.4 0 .6.1l3.7 3.6c.1.1.2.2.2.4-.1.1-.1.2-.2.4"/><path d="M-465.9 277.8h8.9v1.6h-8.9c-1.7 0-3 1.3-3 3v.4c0 1.6 1.4 3 3 3h1.8c.4 0 .8.3.8.8 0 .4-.4.8-.8.8h-1.8c-2.6 0-4.6-2-4.6-4.5v-.4c-.1-2.7 2-4.7 4.6-4.7"/></g>
+    </symbol>
+    <symbol id="refresh" viewBox="0 0 32 32">
+      <path d="M24.6 9.5l-2.2 2.2c.7 1.2 1.1 2.5 1.1 3.9 0 4.3-3.5 7.8-7.8 7.8s-7.8-3.5-7.8-7.8 3.5-7.8 7.8-7.8h.3V13l4.7-4.7 1.6-1.6L16 .5v4.4h-.3C9.8 4.9 5 9.7 5 15.6c0 5.9 4.8 10.8 10.8 10.8 5.9 0 10.8-4.8 10.8-10.8-.1-2.2-.8-4.4-2-6.1z"/>
+    </symbol>
+    <symbol id="save" viewBox="-472 273 15 16">
+      <g><path d="M-458.9 273.9v6H-470v-6h-1.7v13.4c0 .5.4.9.9.9h12.6c.5 0 .9-.4.9-.9v-11.8l-1.6-1.6"/><path d="M-463 273.9h2.4v4.8h-2.4v-4.8z"/></g>
+    </symbol>-->
+    <symbol id="search-16" viewBox="0 0 16 16">
+       <g><g><path d="M6.21,12.417C2.786,12.417,0,9.632,0,6.209C0,2.785,2.786,0,6.21,0c3.422,0,6.206,2.785,6.206,6.209
+			C12.416,9.632,9.632,12.417,6.21,12.417z M6.21,1C3.337,1,1,3.337,1,6.209s2.337,5.208,5.21,5.208c2.87,0,5.206-2.336,5.206-5.208
+			S9.08,1,6.21,1z"/> <path d="M15.5,16c-0.128,0-0.256-0.049-0.354-0.146l-5.25-5.25c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l5.25,5.25
+			c0.195,0.195,0.195,0.512,0,0.707C15.756,15.951,15.628,16,15.5,16z"/></g></g>
+    </symbol>
+    <!--
+    <symbol id="settings" viewBox="0 0 32 32">
+      <path d="M30.8 13.5l-3.1-.5c-.2-.9-.6-1.8-1-2.6l2-2.5c.4-.5.4-1.3 0-1.8l-1.2-1.4c-.5-.6-1.3-.7-1.8-.3L23 6.1c-1.2-.8-2.5-1.4-4-1.8l-.5-3.1C18.4.5 17.8 0 17.2 0h-1.9c-.7 0-1.3.5-1.4 1.2l-.5 3.1c-1.2.3-2.3.8-3.3 1.4L7.5 3.9c-.5-.4-1.3-.4-1.8.1L4.4 5.3c-.5.5-.5 1.3-.1 1.8l1.8 2.6c-.6 1-1.1 2.1-1.4 3.3l-3.2.5c-.7.1-1.2.7-1.2 1.4v1.9c0 .7.5 1.3 1.2 1.4l3.2.5c.2 1 .6 1.9 1 2.8l-2 2.5c-.4.5-.4 1.3 0 1.8l1.2 1.4c.5.5 1.2.6 1.8.3l2.7-1.7c1.1.8 2.4 1.4 3.8 1.7l.5 3.1c.1.7.7 1.2 1.4 1.2H17c.7 0 1.3-.5 1.4-1.2l.5-3.1c1.2-.3 2.3-.7 3.3-1.4l2.7 1.9c.5.4 1.3.3 1.8-.1l1.3-1.3c.5-.5.5-1.2.1-1.8l-1.9-2.6c.6-1 1.1-2.1 1.4-3.3l3.1-.5c.7-.1 1.2-.7 1.2-1.4v-1.9c.1-.9-.4-1.5-1.1-1.6zm-14.6 8.2c-3.3 0-5.9-2.7-5.9-5.9 0-3.3 2.7-5.9 5.9-5.9 3.3 0 5.9 2.7 5.9 5.9.1 3.3-2.6 5.9-5.9 5.9z"/>
+    </symbol>
+    <symbol id="star" viewBox="0 0 32 32">
+      <path d="M16 2l3.7 10.7h11.1l-8.9 6.7L25.2 30 16 23.7 6.9 30l3.2-10.6-8.8-6.7h11.1z"/>
+    </symbol>
+    <symbol id="sync" viewBox="0 0 32 32">
+      <g><path d="M24.6 9.5l-1.9 1.9c1.9 3.1 1.4 7.3-1.3 10-2 2-4.4 2.7-7.4 2.2v-5l-4.6 4.7-1.6 1.6 6.2 6.3v-4.8c3 .5 6.8-.5 9.3-3 3.7-3.9 4.2-9.8 1.3-13.9zM10.1 9.9C11.7 8.3 14 7.5 16 7.6v5.5l4.7-4.7 1.6-1.6L16 .5v4.4c-3 0-5.6 1-7.8 3.1-3.6 3.6-4.1 9-1.6 13.1l2-2c-1.5-2.9-1-6.7 1.5-9.2z"/></g>
+    </symbol>
+    <symbol id="trash" viewBox="0 0 32 32">
+      <g><path d="M8-.1h14V2H8zM2 2h26v6H2zM4 10h22v22H4z"/></g>
+    </symbol>
+    <symbol id="undo" viewBox="-471 274 16 14">
+      <g><path d="M-470.3 279l3.7 3.6c.2.2.4.2.6.1.2-.1.3-.2.3-.4v-7.4c0-.2-.1-.4-.3-.4-.2-.1-.4 0-.6.1l-3.7 3.6c-.1.1-.2.2-.2.4.1.1.1.2.2.4"/><path d="M-460.1 277.8h-8.9v1.6h8.9c1.7 0 3 1.3 3 3v.4c0 1.6-1.4 3-3 3h-1.8c-.4 0-.8.3-.8.8 0 .4.4.8.8.8h1.8c2.6 0 4.6-2 4.6-4.5v-.4c.1-2.7-2-4.7-4.6-4.7"/></g>
+    </symbol>
+    <symbol id="userlist" viewBox="0 0 32 32">
+      <g><path d="M15.075 6.574c0 2.96-2.398 5.36-5.358 5.36-2.96 0-5.36-2.4-5.36-5.36 0-2.96 2.4-5.36 5.36-5.36 2.96 0 5.358 2.4 5.358 5.36"/><path d="M.57 26.43s-1.63-14.7 8.932-14.7c10.562 0 8.784 14.7 8.784 14.7s-3.22 1.186-8.846 1.186c-5.625 0-8.87-1.187-8.87-1.187"/><path d="M30.642 4.176H17.23c-.373 0-.675-.302-.675-.674v-1.7c0-.373.302-.675.675-.675h13.412c.373 0 .675.302.675.674v1.702c0 .372-.302.674-.675.674"/><path d="M30.642 18.303h-8.84c-.373 0-.675-.303-.675-.674v-1.703c0-.373.302-.674.674-.674h8.842c.373 0 .675.3.675.674v1.702c0 .37-.302.673-.675.673"/><path d="M30.642 11.446H19.515c-.372 0-.674-.303-.674-.675v-1.7c0-.373.303-.675.675-.675h11.127c.373 0 .675.302.675.675v1.7c0 .373-.302.676-.675.676"/><path d="M30.642 25.57h-6.555c-.373 0-.674-.3-.674-.673v-1.7c0-.373.3-.675.674-.675h6.555c.373 0 .675.302.675.675v1.7c0 .373-.302.674-.675.674"/></g>
+    </symbol>
+    <symbol id="variation-settings" viewBox="0 0 32 32">
+      <g><path d="M12 12.6v-.7c-.5-2.1-2-3.8-4-4.5V0H4v7.3c-2.3.8-4 3-4 5.7s1.7 4.8 4 5.7V32h4V18.7c2-.7 3.5-2.5 3.9-4.6V13s.1-.3.1-.4zM6 16c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zM22 21.6v-.7c-.4-2.1-1.9-3.9-3.9-4.6V0h-4v16.3c-2.3.8-4 3-4 5.7s1.7 4.8 4 5.7V32h4v-4.3c2-.7 3.5-2.5 3.9-4.6v-1.5zM16 25c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zM32 9.6v-.7c-.5-2.1-2-3.8-4-4.5V0h-4v4.3c-2 .8-4 3-4 5.7s2 4.8 4 5.7V32h4V15.7c2-.7 3.5-2.5 3.9-4.6V10s.1-.3.1-.4zM26 13c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.4 3-3 3z"/></g>
+    </symbol>
+    <symbol id="winner" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="16"/><path fill="#fff" d="M16.9 21.5l7.8-12.4-3.6-2.3L13.2 19l-3.6-2.3-2.3 3.6 6.8 4.5.4.3.5-.6z"/>
+    </symbol> -->
+</svg>
+
+
+  <header id="header" class="header justify background--super-dark">
+    
+    <div class="link--reverse hidden is-inline-block-on-mobile nav-toggle">
+      <label for="toggle-nav-checkbox">
+        <svg class="icon">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#hamburger"></use>
+        </svg>
+      </label>
+    </div>
+    
+
+    <a class="display--inline-block header-logo-container" href="/">
+      <img src="/assets/img/optimizely-developer-logo.svg" alt="Optimizely Developers">
+    </a>
+
+    <div class="header-links display--inline-block vertical-align--top is-hidden-on-mobile">
+      <div class="position--relative display--inline-block push-double--right">
+        <input type="text" id="site-search" placeholder="Search" class="text-input text-input--small reverse soft-triple--right width--200">
+        <svg class="icon input-icon__right reverse cursor--pointer">
+          <use xlink:href="#search-16"></use>
+        </svg>
+      </div>
+
+      <div class="display--inline-block">
+        <ul class="unstyled nav">
+          <li class="push-double--right"><a href="/overview">Overview</a></li>
+          <li class="position--relative push-double--right">
+            <a href="/rest/introduction" data-collapser>
+              Documentation
+              <span class="arrow-inline--down"></span>
+            </a>
+            <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/javascript/">Web</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/ios/">iOS</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/android/">Android</a>
+                  </li>
+                
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/rest/">REST API</a>
+                  </li>
+                
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/integrations/">Integrations</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/apps/">Apps</a>
+                  </li>
+                
+              
+                
+              
+            </ul>
+          </li>
+          <li class="push-double--right"><a href="http://community.optimizely.com/t5/Developers/bd-p/Developers" target="_blank">Discussion</a></li>
+          <li class="flush"><a href="https://devplatform.typeform.com/to/XrDLzQ">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main" class="main has-nav">
+    <input id="toggle-nav-checkbox" class="hidden" type="checkbox">
+<nav id="nav">
+  <div class="nav-sidebar">
+
+    <div class="soft-double">
+      
+        
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/overview">Overview</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Solutions</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section active" href="/javascript" data-collapser>Web</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible">
+                    
+                      <li>
+                        <a class="section" href="/javascript/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section active" href="/javascript/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/code-samples/index.html">Code Samples</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/personalization/index.html">Personalization</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/ios" data-collapser>iOS</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/ios/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/faqs/index.html">FAQs</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/guide/index.html">Tutorial</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/changelog/index.html">Changelog</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/articles/index.html">Articles</a>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                      <li>
+                        <a class="section" href="/ios/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/android" data-collapser>Android</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/android/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/faqs/index.html">FAQs</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/guide/index.html">Tutorial</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/changelog/index.html">Changelog</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/articles/index.html">Articles</a>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                      <li>
+                        <a class="section" href="/android/help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Management</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/rest" data-collapser>REST API</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/rest/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/conditions/index.html">Audience Conditions</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Authentication</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/oauth">OAuth 2.0</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/token">Token based</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Data Services</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/events" data-collapser>Event Access</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/events/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/events/api/index.html">Event API</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/events/export/index.html">Data Export</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/customer-profiles">Customer Profiles</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/results">Experiment Results</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Add Ons</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/integrations">Integrations</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/apps">Apps</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/extensions">Extensions</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Community</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/libs">Libraries</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+    </div>
+  </div>
+</nav>
+
+
+    <div id="content" class="content soft-double max-width--reading">
+      <h1 id="optimizely-js-api-reference">Optimizely JS API Reference</h1>
+<p>Below is a full reference for the JavaScript API, including the <a href="#the-data-object">Data Object</a> and <a href="#api-function-calls">API Function Calls</a>.</p>
+<h2 id="the-data-object">The Data Object</h2>
+<p>The <code>window[&#39;optimizely&#39;].data</code> object contains read-only information about the current user and the running experiments.</p>
+<p><a name="custom-tags-data"></a></p>
+<h3 id="custom-tags">Custom Tags</h3>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.customTags
+</code></pre>
+<p>This is an object that contains all the key-value pairs you&#39;ve sent to Optimizely using the <a href="#custom-tag">custom tag function</a>.</p>
+<h3 id="experiments">Experiments</h3>
+<h4 id="the-experiments-object">The Experiments Object</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.experiments
+</code></pre>
+<p>This is an object with information about all the experiments for this project file. The keys of <code>window[&#39;optimizely&#39;].data.experiments</code> are the experiment ids, which can be found in the diagnostic report for your experiment.</p>
+<h4 id="experiment-code">Experiment Code</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.experiments[experimentId].code
+</code></pre>
+<p>This contains the experiment&#39;s global JavaScript code, if any.</p>
+<h4 id="experiment-manual-mode">Experiment Manual Mode</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.experiments[experimentId].manual
+</code></pre>
+<p>This is a boolean indicating whether the experiment is a manual experiment or not.</p>
+<h4 id="experiment-name">Experiment Name</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.experiments[experimentId].name
+</code></pre>
+<p>This is the experiment&#39;s name.</p>
+<h4 id="experiment-section-ids">Experiment Section Ids</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.experiments[experimentId].section_ids
+</code></pre>
+<p>This contains the section ids for the experiment, if it is a multivariate experiment.</p>
+<h4 id="experiment-variation-ids">Experiment Variation Ids</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.experiments[experimentId].variation_ids
+</code></pre>
+<p>This is an array of variation ids for the variations of this experiment.</p>
+<h3 id="sections">Sections</h3>
+<h4 id="the-sections-object">The Sections Object</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.sections
+</code></pre>
+<p>This object contains information about all the project file&#39;s sections, indexed by their section id. The section ids can be found in the diagnostic report. Only <a href="https://www.optimizely.com/resources/multivariate-test-vs-ab-test">multivariate experiments</a> contain sections.</p>
+<h4 id="section-name">Section Name</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.sections[variationId].name
+</code></pre>
+<p>This contains the section&#39;s name.</p>
+<h4 id="section-variation-ids">Section Variation Ids</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.sections[variationId].variation_ids
+</code></pre>
+<p>This is an array containing the variation ids for this section.</p>
+<h3 id="state">State</h3>
+<h4 id="the-state-object">The State Object</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.state
+</code></pre>
+<p>This object contains information about the current state of Optimizely, such as the active variations and the visitor&#39;s bucket map.</p>
+<h4 id="active-experiments">Active Experiments</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.state.activeExperiments
+</code></pre>
+<p>This is an array of experiment ids for all the active experiments.</p>
+<h4 id="redirect-experiment">Redirect Experiment</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.state.redirectExperiment
+</code></pre>
+<p>This is an object that is defined when a redirect variation ran on the previous page. If no Optimizely redirect occurred this object is <code>undefined</code>. When a redirect variation did occur the object contains:</p>
+<ul>
+<li>The <code>experimentId</code> of the redirect experiment</li>
+<li>The <code>variationId</code> of the redirect variation a user is bucketed in</li>
+<li>The original <code>referrer</code> value from the previous page</li>
+</ul>
+<h4 id="variation-map">Variation Map</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.state.variationMap
+</code></pre>
+<p>This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation indexes for those experiments.</p>
+<h4 id="variation-ids-map">Variation Ids Map</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.state.variationIdsMap
+</code></pre>
+<p>This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation ids for those experiments.</p>
+<h4 id="variation-names-map">Variation Names Map</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.state.variationNamesMap
+</code></pre>
+<p>This is a hash table whose keys are the experiment ids of experiments running for the visitor (including inactive experiments for which the user has been bucketed), and whose values are the variation names for those experiments.</p>
+<h3 id="variations">Variations</h3>
+<h4 id="the-variation-object">The Variation Object</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.variations
+</code></pre>
+<p>This is an object with information about all the project file&#39;s variations, indexed by their variation id. The variation ids can be found in the diagnostic report.</p>
+<h4 id="variation-name">Variation Name</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.variations[variationId].name
+</code></pre>
+<p>This contains the variation&#39;s name.</p>
+<h4 id="variation-map">Variation Map</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.variations[variationId].code
+</code></pre>
+<p>This contains the variation&#39;s JavaScript code..</p>
+<h3 id="visitor">Visitor</h3>
+<h4 id="the-visitor-object">The Visitor Object</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.visitor
+</code></pre>
+<p>This contains helpful information about the visitor to Optimizely.</p>
+<h4 id="visitor-audiences">Visitor Audiences</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.audiences
+</code></pre>
+<p>This is an object with audienceId as the key, and a boolean representing whether the visitor is in the audience (true if the visitor is in the audience) as the value. Not all audiences will be listed, in particular those audiences which are not used in any condition and are not enabled for segmentation.</p>
+<h4 id="visitor-browser">Visitor Browser</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.visitor.browser
+</code></pre>
+<p>This is a string containing information about the browser type that the visitor is using. Options include &quot;Firefox&quot;, &quot;Google Chrome&quot;, &quot;Internet Explorer&quot;, &quot;Opera&quot;, and &quot;Safari&quot;. If Optimizely does not recognize the browser, this will be an empty string.</p>
+<h4 id="visitor-dimension-values">Visitor Dimension Values</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.visitor.dimensions
+</code></pre>
+<p>An object with dimensionId as the key, and a string for the dimension value (if any) as the value. If a visitor has no value for a dimension, it will not appear in this object.</p>
+<h4 id="visitor-location">Visitor Location</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.visitor.location
+window[&#39;optimizely&#39;].data.visitor.location.city
+window[&#39;optimizely&#39;].data.visitor.location.region
+window[&#39;optimizely&#39;].data.visitor.location.country
+</code></pre>
+<p>For Enterprise customers only, this is an object containing information about the visitor&#39;s location. You will need to include an Audience with geo-targeting enabled or an Audience with segmentation turned on with geo-targeting enabled for this API call to return location values. Specifically, this object contains the names of the visitor&#39;s city, region, and country, if detected.</p>
+<p>Region can also be a territory, such as Canadian province, Indian state, or German state. For US states and Canadian provinces, the string will be the standard two-letter abbreviation of the state, e.g. &quot;NH&quot; for New Hampshire, &quot;DC&quot; for the District of Columbia, and &quot;ON&quot; for Ontario. In some cases, the region string could refer to different places. For example, &quot;MN&quot; could be Minnesota, the US state, or Manipur, the Indian state. The region information should be used in conjunction with the country information, in order to be sure the region is for the correct country.</p>
+<p>The country value is a two-letter abbreviation of the visitor&#39;s country, if one is detected. For example, &quot;US&quot; is the United States, &quot;CA&quot; is Canada, &quot;MX&quot; is Mexico, &quot;DE&quot; is Germany, &quot;JP&quot; is Japan, &quot;GB&quot; is Great Britain, and &quot;RU&quot; is Russia.</p>
+<h4 id="visitor-referrer">Visitor Referrer</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.visitor.referrer
+</code></pre>
+<p>This is a string listing the visitor&#39;s referring URL, if any. This is functionally equivalent to document.referer.</p>
+<h4 id="visitor-os">Visitor OS</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.visitor.os
+</code></pre>
+<p>This is a string listing the visitor&#39;s operating system. If the operating system is unknown, this string is the empty string.</p>
+<h4 id="visitor-third-party-data">Visitor Third Party Data</h4>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.thirdParty
+</code></pre>
+<p>This object contains information about the visitor sourced from third-party integrations. The content of this object depends on which integrations you have enabled in Optimizely. For example, if you have enabled the <a target="_blank" href="http://optimizely.com/partners/technology/demandbase">Demandbase integration</a> you can access Demandbase&#39;s visitor attributes as follows:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.thirdParty.demandbase.company_name
+window[&#39;optimizely&#39;].data.thirdParty.demandbase.industry
+window[&#39;optimizely&#39;].data.thirdParty.demandbase.sub_industry
+...
+</code></pre>
+<p>More generally, to access the third-party attribute <code>attributeID</code> from an integration <code>integrationID</code>, use the format below:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].data.thirdParty.integrationID.attributeID
+</code></pre>
+<p>Since third-party data is not guaranteed to be present on every page view, ensure that your code correctly handles reference errors.  For example, to access the <code>industry</code> field from the Demandbase integration, we recommend the code below:</p>
+<pre><code class="lang-javascript">var demandbase = window[&#39;optimizely&#39;].data.thirdParty.demandbase || {};
+var industry = demandbase.industry || &#39;&#39;;
+if (industry) {
+  // do something
+}
+</code></pre>
+<p>For more information on how to enable third-party integrations and what visitor attributes you have access to, see <a target="_blank" href="http://help.optimizely.com/hc/en-us/articles/203729580">Introduction to Optimizely Integrations</a>.</p>
+<h2 id="api-function-calls">API Function Calls</h2>
+<p>Before ever making an Optimizely function call you should use the following asynchronous instantiation line. The purpose of this line is to ensure that the Optimizely code has already been loaded or, if it has not been loaded, to queue the function calls in a JavaScript array. This is similar to Google Analytics&#39; asynchronous function calls. The following is the code you should use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+</code></pre>
+<p>Optimizely function calls can be made using JavaScript or a query parameter, <code>optimizely_function_name=value</code>. The JavaScript API is used when the function should be called as part of your application, such as when activating a manual activation mode experiment. The query parameters are used most often for testing and debugging purposes. A common example is to opt a visitor out of Optimizely tracking by loading the URL with the query parameter <code>optimizely_opt_out=true</code>. The URL might look like this:</p>
+<pre><code class="lang-text">http://www.example.com/page.html?optimizely_opt_out=true
+</code></pre>
+<p><a name="activate"></a></p>
+<h3 id="activate">Activate</h3>
+<p>Activate manual activation mode experiments. When you call &quot;activate&quot;, all experiments that have manual activation mode configured are run if the visitor meets the experiment&#39;s targeting conditions.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;activate&quot;]);
+</code></pre>
+<p>You can activate an experiment setup with any activation type by including the <code>experimentID</code> in the activation call. The visitor must still meet all experiment targeting conditions.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;activate&quot;, experimentId]);
+</code></pre>
+<h3 id="activate-sitecatalyst">Activate SiteCatalyst</h3>
+<p>Integrate with SiteCatalyst. You must call &quot;activateSiteCatalyst&quot; after the &quot;s_code.js&quot; file has loaded.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push(&quot;activateSiteCatalyst&quot;);
+</code></pre>
+<p>The <code>sVariable</code> parameter contains all of the tracking tags to be sent to SiteCatalyst for a given visitor. Some sites use custom SiteCatalyst implementations with special <code>sVariable</code>s. If you wish to specify an <code>sVariable</code>, use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;activateSiteCatalyst&quot;, {&quot;sVariable&quot;: mySVar}]);
+</code></pre>
+<p>The <code>sVariable</code> parameter is optional. By default, Optimizely will use the variable &quot;s&quot; as the SiteCatalyst variable. <a href="https://help.optimizely.com/hc/en-us/articles/200039985">Learn More</a>.</p>
+<p><a name="audiences"></a></p>
+<h3 id="audiences">Audiences</h3>
+<p>Manually assign visitors to audiences. Optimizely will assign users to an audience when they match that audience&#39;s conditions, but you can use these calls to override the built-in behavior. This is especially useful for audiences created through our <a href="{{site.paths.rest}}#audiences">REST API</a>, which don&#39;t have conditions and require manual assignment.</p>
+<p>To add a visitor to an audience, use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&#39;addToAudience&#39;, audienceId]);
+</code></pre>
+<p>To remove a visitor from an audience, use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&#39;removeFromAudience&#39;, audienceId]);
+</code></pre>
+<p>If the audience has segmentation enabled, this will not impact any past conversions, and visitors you remove will still count towards the audience&#39;s unique visitor count if their visit was already logged.</p>
+<p>To remove a visitor from all audiences, use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&#39;removeFromAllAudiences&#39;]);
+</code></pre>
+<p><a name="bucket-visitor"></a></p>
+<h3 id="bucket-visitor">Bucket Visitor</h3>
+<p>Assign a visitor to a specific variation, thus overriding Optimizely&#39;s random assignment mechanism. You must call &quot;bucketVisitor&quot; prior to loading the Optimizely snippet. It&#39;s also important to note that bucketing a visitor via the API will add the user as a visitor to the experiment regardless of whether or not they match any of the <a href="https://help.optimizely.com/hc/en-us/articles/200039685">targeting conditions</a> for the experiment. The <code>experimentId</code> and <code>variationId</code>s can be found in an experiment&#39;s <a href="https://help.optimizely.com/hc/en-us/articles/200039745">Diagnostic Report</a>.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;bucketVisitor&quot;, experimentId, variationId]);
+</code></pre>
+<p>To prevent a pageview event from being fired when this call is made, set the third parameter to true.</p>
+<pre><code class="lang-javascript">var doNotSendPageviewTracking = true;
+window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;bucketVisitor&quot;, experimentId, variationId, doNotSendPageviewTracking]);
+</code></pre>
+<p>Other ways to call this API:</p>
+<pre><code class="lang-javascript">// Multivariate experiments should bucket for each section:
+window[&#39;optimizely&#39;].push([&quot;bucketVisitor&quot;, experimentId, variationIdOfSection1]);
+window[&#39;optimizely&#39;].push([&quot;bucketVisitor&quot;, experimentId, variationIdOfSection2]);
+
+// You can also use the variation index:
+window[&#39;optimizely&#39;].push([&quot;bucketVisitor&quot;, experimentId, variationIndex]);
+</code></pre>
+<p>The <code>variationIndex</code> is a 0-based index of the variation in the editor (0 being the original page, 1 being the first variation, and so on).</p>
+<p><a name="custom-tag"></a></p>
+<h3 id="custom-tag">Custom Tag</h3>
+<p>You can use custom tags to target based on information you have about a visitor. You must call &quot;customTag&quot; prior to loading the Optimizely snippet.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;customTag&quot;, tagKey, tagValue]);
+</code></pre>
+<p>You can also set multiple tags simultaneously:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&quot;customTag&quot;, {
+  firstKey: firstValue,
+  secondKey: secondValue
+}]);
+</code></pre>
+<p>If you set multiple values for the same tag key, the last value set before the Optimizely snippet loads will be used. You can check what values are actually set by checking the <a href="#custom-tags-data">custom tags field on the data object</a> after the Optimizely snippet loads.</p>
+<p>Note that for targeting purposes, values are all compared as strings.</p>
+<h3 id="delay-pageview-tracking">Delay Pageview Tracking</h3>
+<p>Delay pageview tracking by a specified number of milliseconds.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;delayPageviewTracking&quot;, 1000]);
+</code></pre>
+<p><a name="dimensions"></a></p>
+<h3 id="dimensions">Dimensions</h3>
+<p>Dimensions have replaced <a href="#segments">Visitor Segments added through the API</a>. You can assign dimension values to your visitors through this API, and those values will be available for segmentation on the results page or targeting with an audience.</p>
+<p>To set a dimension value for a visitor:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&#39;setDimensionValue&#39;, dimensionId, &#39;value&#39;]);
+</code></pre>
+<p>&#39;value&#39; will be coerced to a string, and limited to 20 characters (encoded).</p>
+<p>To delete an existing value, remove the value argument or supply <code>null</code>. Deleting a value will prevent Optimizely from counting future conversions toward that dimension value. It will not impact any past conversions, and visitors you remove will still count towards that value&#39;s unique visitor count if their visit was already logged.</p>
+<h3 id="disable">Disable</h3>
+<p>Disable Optimizely entirely. You must call &quot;disable&quot; prior to loading the Optimizely snippet.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;disable&quot;]);
+</code></pre>
+<p>You can also disable just Optimizely tracking calls from being made:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&quot;disable&quot;, &quot;tracking&quot;]);
+</code></pre>
+<h3 id="log">Log</h3>
+<p>Tell Optimizely to output its log to the browser&#39;s console log.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;log&quot;]);
+</code></pre>
+<p>You can also do this by using the query parameter <code>optimizely_log=true</code>.</p>
+<h3 id="set-cookie-expiration">Set Cookie Expiration</h3>
+<p>Specify the number of days before the Optimizely visitor cookies will be set to expire. You must call &quot;setCookieExpiration&quot; prior to loading the Optimizely snippet. The minimum number of days that can be set is 90 (approximately 3 months). For more information on how Optimizely uses cookies, visit our <a href="https://help.optimizely.com/hc/en-us/articles/200040335">Learning Center</a>.</p>
+<p>Note: Some Optimizely cookies are re-set every time a visitor comes to the site, which means the expiration period set with this API call will be used each time the cookie is set.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;setCookieExpiration&quot;, 365]);
+</code></pre>
+<p>In the example above, the Optimizely visitor cookies will expire in 1 year.</p>
+<h3 id="set-cookie-domain">Set Cookie Domain</h3>
+<p>Instruct Optimizely to set its cookies on a specific subdomain instead of the default domain. You must call &quot;setCookieDomain&quot; prior to loading the Optimizely snippet. By default, Optimizely sets its cookies on the domain, in order to work across subdomains.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;setCookieDomain&quot;, &quot;www.example.com&quot;]);
+</code></pre>
+<p>In this example, the cookies Optimizely sets will be available only on &quot;.www.example.com&quot;, (&quot;www.example.com&quot; and all of its subdomains), rather than on &quot;.example.com&quot;, which is the default.</p>
+<h3 id="skip-pageview-tracking">Skip Pageview Tracking</h3>
+<p>Skip pageview tracking.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window.optimizely.push([&quot;skipPageTracking&quot;]);
+</code></pre>
+<h3 id="third-party-cookie-opt-out">Third Party Cookie Opt Out</h3>
+<p>Disable Optimizely&#39;s 3rd party cookies. You must call &quot;optOutThirdPartyCookies&quot; prior to loading the Optimizely snippet. This will prevent cross-domain visitor bucketing and measurement. For more information on Optimizely&#39;s use of cookies, please see our <a href="https://help.optimizely.com/hc/en-us/articles/200040335">Knowledge Base</a>.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;optOutThirdPartyCookies&quot;]);
+</code></pre>
+<h3 id="track-element">Track Element</h3>
+<p>Track clicks on elements matching &quot;selector&quot; with the event &quot;eventName&quot;. You can call bindTrackElement before or after the Optimizely JavaScript snippet:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;bindTrackElement&quot;, &quot;selector&quot;,
+   &quot;eventName&quot;]);
+</code></pre>
+<p>or from within variation code or global JavaScript:</p>
+<pre><code class="lang-javascript">optimizely.push([&quot;bindTrackElement&quot;, &quot;selector&quot;, &quot;eventName&quot;]);
+</code></pre>
+<h3 id="track-event">Track Event</h3>
+<h4 id="basic-tracking">Basic Tracking</h4>
+<p>Track custom events in Optimizely. The event &quot;eventName&quot; will be tracked and associated with the current visitor.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;trackEvent&quot;, &quot;eventName&quot;]);
+</code></pre>
+<h4 id="revenue-tracking">Revenue Tracking</h4>
+<p>Track revenue-generating events. The event &quot;eventName&quot; will be tracked and associated with a revenue of <code>valueInCents</code>.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;trackEvent&quot;, &quot;eventName&quot;, {&quot;revenue&quot;: valueInCents}]);
+</code></pre>
+<p><code>valueInCents</code> should be an integer equal to 100 times the value in dollars (or another currency if you prefer). For example, if you wish to track a purchase of $23.95, you would call:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&quot;trackEvent&quot;, &quot;purchase&quot;, {&quot;revenue&quot;: 2395}]);
+</code></pre>
+<h3 id="universal-user-id-beta-a-name-uuid-a-">Universal User ID (Beta)<a name="uuid"></a></h3>
+<p>Set a unique identifier (defined by you) to be used by Optimizely for bucketing and tracking identifiable users (e.g. logged in users) across different different devices and/or platforms. Once set, Optimizely will bucket visitors in all new and future experiments using the UUID to ensure that visitors will see the same variation across devices (e.g. Android phone to tablet). You can ensure this behavior and ensure consistent counting and bucketing across devices by using our Audiences feature to target users with a UUID. We store this identifier in a cookie and continue to use it until a new one is set.</p>
+<p>Optimizely will track unique visitors in experiment results using this ID; we count an anonymous ID and a UUID as two distinct visitors, and if the the UUID is set, we disregard the anonymous ID when counting experiment traffic and goals. Note that UUID-based counting will apply to all visitors in that project, not just visitors to experiments that target UUID. <em>We recommend that you use UUID only on projects where all experiments are targeted to visitors with UUIDs, because counting discrepancies can occur if a visitor goes from anonymous to UUID and back to anonymous over the course of a session.</em></p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;setUserId&quot;, myHashedEmail]);
+</code></pre>
+<p><em>This is a beta feature, and is subject to change.</em> To learn more, visit our <a href="https://help.optimizely.com/hc/en-us/articles/203626830">Help Center</a>. For support, please visit <a href="http://www.optiverse.com/">Optiverse</a> or contact your Customer Success Manager.</p>
+<div class="attention attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
+
+<h3 id="visitor-opt-out">Visitor Opt Out</h3>
+<p>Opt a visitor out of Optimizely tracking. For example, you may want to opt visitors out of Optimizely tracking as part of your site&#39;s broader opt-out preferences.</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&quot;optOut&quot;]);
+</code></pre>
+<p>You can also do this by using the query parameter <code>optimizely_opt_out=true</code>.</p>
+<p><a name="segments"></a></p>
+<h3 id="visitor-segments">Visitor Segments</h3>
+<div class="attention attention--warning push--bottom">Visitor Segments assigned through the API have been deprecated and replaced by <a href="#dimensions">Dimensions</a>. For backwards compatibility, these API calls will continue to work for existing segments, but you should transition your code to use dimensions instead. <a href="{{site.paths.rest}}#audiences">Learn more</a>.</div>
+
+<p>Accounts with segmentation enabled can add visitors to visitor segments through the API. To do so, first navigate to the dashboard page. Then find your visitor segment&#39;s API identifier by clicking through the information in the visitor segment dialog. The API identifier is automatically generated when you first create the visitor segment, but can be changed later.</p>
+<p>To add a visitor to a segment, use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;] = window[&#39;optimizely&#39;] || [];
+window[&#39;optimizely&#39;].push([&#39;addToSegment&#39;, &#39;apiIdentifier&#39;, &#39;optionalSegmentValue&#39;]);
+</code></pre>
+<p>To remove a visitor from a segment, use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&#39;removeFromSegment&#39;, &#39;apiIdentifier&#39;]);
+</code></pre>
+<p>Removing a visitor will prevent Optimizely from counting future conversions toward that segment. It will not impact any past conversions, and visitors you remove will still count towards the segment&#39;s unique visitor count if their visit was already logged.</p>
+<p>To remove a visitor from all segments, use:</p>
+<pre><code class="lang-javascript">window[&#39;optimizely&#39;].push([&#39;removeFromAllSegments&#39;]);
+</code></pre>
+
+    </div>
+  </main>
+
+  <footer class="footer cf soft--ends soft-double--sides">
+    <div class="float--left">
+      <a href="https://www.optimizely.com">
+        <img class="display--inline-block vertical-align--bottom" src="/assets/img/optimizely_logo_footer.svg">
+      </a>
+      <span class="soft--left">&copy; 2016 Optimizely</span>
+      <a class="soft--left is-hidden-on-mobile" href="https://www.optimizely.com/terms/">Terms of Service</a>
+      <a class="soft--left" href="https://www.optimizely.com/privacy/">Privacy Policy</a>
+    </div>
+    <div class="float--right is-hidden-on-mobile" style="margin-top: 2px;">
+       <a class="soft--left" href="https://www.optimizely.com/">Optimizely.com</a>
+       <a class="soft--left" href="https://blog.optimizely.com/">Blog</a>
+       <a class="soft--left" href="https://help.optimizely.com/">Help</a>
+       <a class="soft--left" href="https://community.optimizely.com/">Community</a>
+       <a class="soft--left" href="https://www.optimizely.com/jobs/">Jobs</a>
+    </div>
+  </footer>
+
+
+    <!-- JQUERY -->
+    <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-13208639-14', 'optimizely.com');
+      ga('send', 'pageview');
+    </script>
+
+    
+  </body>
+</html>
+

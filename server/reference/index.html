@@ -1,0 +1,3377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Optimizely Developers</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Optimizely Developer Documentation">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- This should be the first script to make sure redirects work quickly. -->
+    <script src="/assets/js/bundle.js" type="text/javascript"></script>
+
+    <!-- Demandbase -->
+    <script>
+      (function(d,b,a,s,e) {
+        var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+        t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+        fs.parentNode.insertBefore(t, fs);
+      })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+    </script>
+
+    <!-- Heap Analytics -->
+    <script type="text/javascript">
+      if (document.location.hostname != "localhost") {
+        window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+        heap.load("411455962");
+      }
+    </script>
+
+    <!-- Optimizely -->
+    <script src="//cdn.optimizely.com/js/6663270427.js"></script>
+  </head>
+  <body class="server reference">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <!-- <symbol id="add" viewBox="-590 386 16 16">
+      <path d="M-575 395v-2h-6v-6h-2v6h-6v2h6v6h2v-6z"/>
+    </symbol>
+    <symbol id="align-center" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM24 14H8c-1.1 0-2-.9-2-2s.9-2 2-2h16c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM24 30H8c-1.1 0-2-.9-2-2s.9-2 2-2h16c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-justify" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 14H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 30H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-left" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM18 14H4c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM18 30H4c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-right" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 14H14c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 30H14c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="archive" viewBox="0 0 32 32">
+      <g><path d="M30 4c0-1.3-.6-2-2-2H4c-1.3 0-2 .6-2 2v4h28V4zM4 10v18c0 1.3.6 2 2 2h20c1.3 0 2.1-.6 2.1-2V10H4z"/><path fill="#fff" d="M18 18v-8h-4v8H8l8 8 8-8z"/></g>
+    </symbol>
+    <symbol id="arrow-left" viewBox="-463 265 32 32">
+      <path d="M-454.8 281l11.3 11.3 4.3-4.2-7.1-7.1 7.1-7.1-4.3-4.2z"/>
+    </symbol>
+    <symbol id="arrow-right" viewBox="-463 265 32 32">
+      <path d="M-439.2 281l-11.3-11.3-4.3 4.2 7.1 7.1-7.1 7.1 4.3 4.2z"/>
+    </symbol>
+    <symbol id="audiences" viewBox="0 0 32 32">
+      <g><path d="M11.5 11.4c0 1.9 1.2 3.6 2.8 4.3.6.2 1.2.4 1.8.4 2.6 0 4.7-2.1 4.7-4.7 0-1.9-1.2-3.6-2.8-4.3-.6-.2-1.2-.4-1.8-.4-2.6.1-4.7 2.1-4.7 4.7zM22.8 11.1c.4.1.7.1 1.1.1 2.6 0 4.7-2.1 4.7-4.7s-2.1-4.7-4.7-4.7c-2.2 0-4.1 1.6-4.5 3.6 2 1.3 3.3 3.3 3.4 5.7zM14.2 16C10.9 16 8 20.4 8 23.7V28.6l.3.1c3.1 1 3.8 1.2 7.6 1.2 4.4 0 7.6-1.5 7.7-1.6l.4-.3v-4.4c0-2.9-1.9-6.4-4.6-7.2-.4-.1-.8-.4-1.2-.4h-4zM8 11.3c.5 0 1-.1 1.5-.3.1-2.2 1.3-4.1 3.1-5.2-.4-2.2-2.3-3.9-4.6-3.9-2.6 0-4.6 2.1-4.6 4.7s2 4.7 4.6 4.7zM6 23.7c0-3.1 2-6.5 4.8-8.1C10 14.5 9.6 13 9.5 12H6c-3.3 0-6 2.3-6 5.6v6.3l.3.1c2.1.7 3.6 1 5.6 1.2v-1.5zM25.9 12h-3.1c0 1-.5 2.5-1.3 3.6.9.5 1.7 1.1 2.4 2.1 1.3 1.7 2.1 3.8 2.1 5.9V25c3.4-.2 5.4-.9 5.6-1h.4v-6.4c0-3.3-2.8-5.6-6.1-5.6z"/></g>
+    </symbol>
+    <symbol id="calendar" viewBox="0 0 32 32">
+      <path d="M22 2V0h-4v2h-6V0H8v2H0v30h30V2h-8zM10 28H4v-6h6v6zm0-8H4v-6h6v6zm8 8h-6v-6h6v6zm0-8h-6v-6h6v6zm0-8H4V6h14v6zm8 16h-6v-6h6v6zm0-8h-6v-6h6v6zm0-8h-6V6h6v6z"/>
+    </symbol>
+    <symbol id="check" viewBox="-595 381 32 32">
+      <path d="M-564.2 389l-4.3-4.3-15.2 15.2-6.1-6.1-4.2 4.3 10.3 10.3"/>
+    </symbol> -->
+    <symbol id="clipboard" viewBox="0 0 32 32">
+      <g><path d="M10 12h12v4H10zM10 20h12v4H10zM18 2V0h-4v2H2v30h28V2H18zm8 26H6V6h4v2h12V6h4v22z"/></g>
+    </symbol>
+    <!-- <symbol id="close" viewBox="-289 381 32 32">
+      <path d="M-261.7 389.8l-4.2-4.2-7.1 7.1-7.1-7.1-4.2 4.2 7.1 7.1-7.1 7.1 4.2 4.2 7.1-7.1 7.1 7.1 4.2-4.2-7.1-7.1z"/>
+    </symbol>
+    <symbol id="code" viewBox="0 0 32 32">
+      <g><path d="M8 25.4c-.4 0-.8-.2-1.1-.5L.3 17c-.4-.5-.4-1.3 0-1.8l6.2-7.9c.5-.7 1.5-.9 2.1-.4.6.5.7 1.4.3 2L3.3 16l5.8 7c.5.6.4 1.5-.2 2-.3.2-.6.4-.9.4zM24 25.4c-.3 0-.7-.1-.9-.3-.6-.5-.7-1.4-.2-2l5.7-7.1-5.5-7c-.5-.6-.4-1.5.3-2 .6-.5 1.5-.4 2 .3l6.1 7.9c.4.5.4 1.3 0 1.8L25 24.9c-.2.3-.6.5-1 .5zM13.7 27.8c-.1 0-.2 0-.3-.1-.7-.2-1.2-.9-1.1-1.7l4.9-20.8c.2-.7 1-1.2 1.8-1 .7.2 1.2.9 1.1 1.7l-4.9 20.8c-.3.7-.9 1.1-1.5 1.1z"/></g>
+    </symbol>
+    <symbol id="collaborators" viewBox="0 0 32 32">
+      <g><circle cx="9" cy="7" r="5"/><circle cx="23" cy="7" r="5"/><path d="M32 32v-.2L28 16c0-1.1-.9-2-2-2h-6c-1.1 0-2 .9-2 2v16h14zM13.9 32l.1-.2V15.9c0-1.1-1-1.9-2.1-1.9h-6c-1.1 0-1.9.8-1.9 1.9L0 31.8l-.1.2h14z"/></g>
+    </symbol>
+    <symbol id="dimensions" viewBox="0 0 32 32">
+      <g><path fill="#fff" d="M17 2L2 8l14.9 6L32 7.9 17 2z"/><path d="M16 30L2 24V10l14 6zM30 12.6v9.8l-10 4.9v-9.8l10-4.9m2-2.7l-14 6v14l14-6v-14z"/><path fill="#fff" d="M30 12.6v9.8l-10 4.9v-9.8l10-4.9"/><path stroke="#000" stroke-width="2" stroke-miterlimit="10" d="M30 8M4 8" fill="none"/><path d="M17 4.1L27.2 8l-10.3 4L6.7 8 17 4.1M17 2L2 8l14.9 6L32 7.9 17 2z"/></g>
+    </symbol>
+    <symbol id="duplicate" viewBox="0 0 32 32">
+      <g><path d="M22 32H2c-1.1 0-2-.9-2-2V9.9c0-1.1.9-2 2-2h20c1.1 0 2 .9 2 2V30c0 1.1-.9 2-2 2zM30 0H10C8.9 0 8 .9 8 2v2h18c1.1 0 2 .8 2 1.9V24h2c1.1 0 2-.8 2-1.9V2c0-1.1-.9-2-2-2z"/><path fill="#fff" d="M18 18h-4v-4h-4v4H6v4h4v4h4v-4h4z"/></g>
+    </symbol>
+    <symbol id="editor-switch" viewBox="0 0 16 16">
+      <path fill="#fff" d="M10.2 7.4v-2c0-1.7-1.4-3-3-3h-.6c-1.6 0-3 1.3-3 3v2c0 1.7 1.4 3 3 3h.6c1.6 0 3-1.3 3-3z"/><path d="M9.9 10.9h-6c-.5 0-.9-.4-.9-.9V2.8c0-.5.4-.9.9-.9h6c.5 0 .9.4.9.9v7.3c-.1.5-.5.8-.9.8zm-5.8-1h5.5V3H4.1v6.9z"/><path fill="#fff" d="M12.3 10.5v-2c0-1.7-1.3-3-3-3h-.6c-1.6 0-3 1.4-3 3v2c0 1.6 1.3 3 3 3h.6c1.6 0 3-1.3 3-3z"/><path d="M12 14.1H6c-.5 0-.9-.4-.9-.9V5.9c0-.5.4-.9.9-.9h6c.5 0 .9.4.9.9v7.3c-.1.5-.5.9-.9.9zM6.2 13h5.5V6.1H6.2V13zM15.2 6.6l-1-.3c.2-.7 0-1.3-.4-1.8-.5-.5-1.3-.6-2-.3l-.4-1c1.1-.5 2.3-.3 3.1.4.7.8 1 1.9.7 3zM13.7 5.3L13.6 8 16 6.8zM3.2 13c-.8 0-1.6-.3-2.2-1-1.1-1.2-1.3-3-.6-4.5l1 .5c-.6 1.1-.4 2.4.4 3.3.6.6 1.4.8 2.3.4l.4 1c-.5.2-.9.3-1.3.3zM1.8 8.9l.3-2.7-2.5 1z"/>
+    </symbol>
+    <symbol id="experiments" viewBox="0 0 32 32">
+      <g><path d="M0 22v10h32V14l-10 6-12-4zM22 12.1l-12-4-10 6v-4L10 4l12 4 10-6.4V6z"/></g>
+    </symbol>
+    <symbol id="external" viewBox="-752 644.1 31 30.9">
+      <g><path d="M-726 644.9c0-.2-.1-.4-.2-.6-.2-.2-.3-.2-.6-.2l-7.6.1c-.3 0-.6.2-.7.5-.1.2-.1.6.1.8l7.6 7.7c.2.2.5.2.8.1.3-.2.5-.4.5-.7l.1-7.7M-740.8 656.8l2.2 2.2 11.1-11.1-2.2-2.2-11.1 11.1"/><path d="M-731.2 658.1v8.8h-17.6v-17.6h8.8v-3.2h-12v24h24v-12z"/></g>
+    </symbol>
+    <symbol id="goal" viewBox="0 0 32 32">
+      <g><path d="M2 .1C3 .1 4 1 4 2v30H0V2C0 1 .9.1 2 .1zM25 6.2c2.4 0 5.5-1.3 6.9-2.3v18.6c-1.4 1-4.6 2.3-6.9 2.3s-4.5-.7-5.9-1.7c-1.4-1-2.8-1.7-5.1-1.7-2.4 0-4.5 1.5-6 2.5V5.3c1.4-1 3.6-2.5 6-2.5s3.7.7 5.1 1.7 3.5 1.7 5.9 1.7z"/></g>
+    </symbol>-->
+    <symbol id="hamburger" viewBox="0 0 32 32">
+      <path d="M28 8H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 18H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 28H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
+    </symbol>
+    <!--<symbol id="history" viewBox="0 0 32 32">
+      <g><path d="M18 2C10.9 2 5.1 7.2 4.2 14H0l6 6 6-6H7.2c.9-5.1 5.4-9 10.8-9 6.1 0 11 4.9 11 11s-4.9 11-11 11c-4 0-7.6-2.2-9.5-5.5l-2.2 2.2C8.8 27.5 13.1 30 18 30c7.7 0 14-6.3 14-14S25.7 2 18 2zM16 8h4v8h-4zM20.9 23.9L24 22l-4-6h-4z"/></g>
+    </symbol>
+    <symbol id="inconclusive" viewBox="0 0 32 32">
+      <circle fill="#fff" cx="16" cy="15.9" r="15.9"/><path d="M16 3c7.1 0 12.9 5.8 12.9 12.9s-5.8 13-12.9 13-13-5.8-13-13S8.8 3 16 3m0-3C7.2 0 0 7.1 0 15.9s7.2 16 16 16S31.9 24.8 31.9 16 24.8 0 16 0zM14 6h4v12h-4zM14 14h10v4H14z"/>
+    </symbol>
+    <symbol id="integrations" viewBox="0 0 32 32">
+      <g><path d="M25.5 9.3c.1.4.2.8.2 1.2.1.8 0 1.8-.1 2.5 2.1 1.7 3.4 4.2 3.4 7 0 5-4 9-9 9s-9-4-9-9c0-4.6 3.4-8.3 7.8-8.9 0-.4-.1-1.1-.4-1.9-.2-.4-.3-.8-.5-1C12.3 9.2 8 14.1 8 20c0 6.6 5.4 12 12 12s12-5.4 12-12c0-4.6-2.6-8.7-6.5-10.7zM12 0C5.4 0 0 5.4 0 12c0 4.4 2.4 8.3 6 10.4-.1-.8-.2-1.6-.2-2 0-.4.1-1.2.2-1.7C4.1 17 3 14.6 3 12c0-5 4-9 9-9s9 4 9 9c0 4.5-3.3 8.3-7.7 8.9 0 .5 0 .9.3 1.5.3.7.4 1 .7 1.3 5.5-1.1 9.6-6 9.6-11.8C24 5.4 18.6 0 12 0z"/></g>
+    </symbol>
+    <symbol id="live-variables" viewBox="0 0 32 32">
+      <g><path d="M30 0h-6c-1.1 0-2 .9-2 2s.9 2 2 2h4v24h-4c-1.1 0-2 .9-2 2s.9 2 2 2h6c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM2 32h6c1.1 0 2-.9 2-2s-.9-2-2-2H4V4h4c1.1 0 2-.9 2-2s-.9-2-2-2H2C.9 0 0 .9 0 2v28c0 1.1.9 2 2 2zM22.2 20.7c-.2 0-.6.1-.7.1-1.1 0-3.1-.5-3.9-3.9l5.8-5.9s1.2-1.2.4-2.3c-.3-.6-1.8-1-2.6-.2l-4.3 4.3C15 8.4 11.1 8 9.7 8S8 9.8 8 10.8c0 1 .9 2.1 2.2 2.2s3.2-.2 4.1 3.2l-5.6 5.3c-.3.3-.5.6-.5 1.1 0 .5.2.8.5 1.1.3.4.8.3 1.3.3s.9 0 1.4-.4l3.8-4.1c1.9 4.2 5.3 4.5 6.7 4.5 0 0 2.1-.1 2.1-2 0-1.2-1-1.3-1.8-1.3z"/></g>
+    </symbol>
+    <symbol id="lock" viewBox="0 0 32 32">
+      <g><path d="M26 12c0-5.5-4.5-10-10-10S6 6.5 6 12c-1.2 0-2 .9-2 2v16c0 1.1.8 2 1.9 2h20c1.1 0 2-.9 2-2V14c.1-1.1-.8-2-1.9-2zm-4.1 0h-13c0-3.9 3.1-7 7-7s7 3.1 7 7h-1z"/><path fill="#fff" d="M20 20c0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.5.8 2.8 2 3.4V26c0 1.1.9 2 2 2s2-.9 2-2v-2.6c1-.7 2-1.9 2-3.4z"/></g>
+    </symbol>
+    <symbol id="loser" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="16"/><path fill="#fff" d="M14 6h4v14h-4zM14 22h4v4h-4z"/>
+    </symbol>
+    <symbol id="paperclip" viewBox="0 0 32 32">
+      <path d="M15.6 32c-4.1 0-8.2-2.4-8.2-7V6.8c0-4.5 2.9-6.8 5.8-6.8S19 2.4 19 6.8v15.8c0 2.6-1.7 3.9-3.4 3.9-.9 0-1.8-.4-2.4-1-.5-.5-1-1.4-1-2.9V8c0-.6.4-1 1-1s1 .4 1 1v14.6c0 1.3.7 1.9 1.4 1.9s1.4-.6 1.4-1.9V6.8C17 3.5 15 2 13.2 2S9.3 3.5 9.3 6.8V25c0 3.4 3.2 5 6.2 5s6.2-1.6 6.2-5V8c0-.6.4-1 1-1s1 .4 1 1v17c.1 4.6-4 7-8.1 7z"/>
+    </symbol>
+    <symbol id="pause" viewBox="0 0 32 32">
+      <g><path d="M6 4h8v24H6zM18 4h8v24h-8z"/></g>
+    </symbol>
+    <symbol id="play" viewBox="0 0 32 32">
+      <path d="M4 4v24l23.9-12z"/>
+    </symbol>
+    <symbol id="projects" viewBox="0 0 32 32">
+      <g><path d="M2 4h4v4H2zM10 4h20v4H10zM2 14h4v4H2zM10 14h20v4H10zM2 24h4v4H2zM10 24h20v4H10z"/></g>
+    </symbol>
+    <symbol id="redo" viewBox="-471 274 16 14">
+      <g><path d="M-455.7 279l-3.7 3.6c-.2.2-.4.2-.6.1-.2-.1-.3-.2-.3-.4v-7.4c0-.2.1-.4.3-.4.2-.1.4 0 .6.1l3.7 3.6c.1.1.2.2.2.4-.1.1-.1.2-.2.4"/><path d="M-465.9 277.8h8.9v1.6h-8.9c-1.7 0-3 1.3-3 3v.4c0 1.6 1.4 3 3 3h1.8c.4 0 .8.3.8.8 0 .4-.4.8-.8.8h-1.8c-2.6 0-4.6-2-4.6-4.5v-.4c-.1-2.7 2-4.7 4.6-4.7"/></g>
+    </symbol>
+    <symbol id="refresh" viewBox="0 0 32 32">
+      <path d="M24.6 9.5l-2.2 2.2c.7 1.2 1.1 2.5 1.1 3.9 0 4.3-3.5 7.8-7.8 7.8s-7.8-3.5-7.8-7.8 3.5-7.8 7.8-7.8h.3V13l4.7-4.7 1.6-1.6L16 .5v4.4h-.3C9.8 4.9 5 9.7 5 15.6c0 5.9 4.8 10.8 10.8 10.8 5.9 0 10.8-4.8 10.8-10.8-.1-2.2-.8-4.4-2-6.1z"/>
+    </symbol>
+    <symbol id="save" viewBox="-472 273 15 16">
+      <g><path d="M-458.9 273.9v6H-470v-6h-1.7v13.4c0 .5.4.9.9.9h12.6c.5 0 .9-.4.9-.9v-11.8l-1.6-1.6"/><path d="M-463 273.9h2.4v4.8h-2.4v-4.8z"/></g>
+    </symbol>-->
+    <symbol id="search-16" viewBox="0 0 16 16">
+       <g><g><path d="M6.21,12.417C2.786,12.417,0,9.632,0,6.209C0,2.785,2.786,0,6.21,0c3.422,0,6.206,2.785,6.206,6.209
+			C12.416,9.632,9.632,12.417,6.21,12.417z M6.21,1C3.337,1,1,3.337,1,6.209s2.337,5.208,5.21,5.208c2.87,0,5.206-2.336,5.206-5.208
+			S9.08,1,6.21,1z"/> <path d="M15.5,16c-0.128,0-0.256-0.049-0.354-0.146l-5.25-5.25c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l5.25,5.25
+			c0.195,0.195,0.195,0.512,0,0.707C15.756,15.951,15.628,16,15.5,16z"/></g></g>
+    </symbol>
+    <!--
+    <symbol id="settings" viewBox="0 0 32 32">
+      <path d="M30.8 13.5l-3.1-.5c-.2-.9-.6-1.8-1-2.6l2-2.5c.4-.5.4-1.3 0-1.8l-1.2-1.4c-.5-.6-1.3-.7-1.8-.3L23 6.1c-1.2-.8-2.5-1.4-4-1.8l-.5-3.1C18.4.5 17.8 0 17.2 0h-1.9c-.7 0-1.3.5-1.4 1.2l-.5 3.1c-1.2.3-2.3.8-3.3 1.4L7.5 3.9c-.5-.4-1.3-.4-1.8.1L4.4 5.3c-.5.5-.5 1.3-.1 1.8l1.8 2.6c-.6 1-1.1 2.1-1.4 3.3l-3.2.5c-.7.1-1.2.7-1.2 1.4v1.9c0 .7.5 1.3 1.2 1.4l3.2.5c.2 1 .6 1.9 1 2.8l-2 2.5c-.4.5-.4 1.3 0 1.8l1.2 1.4c.5.5 1.2.6 1.8.3l2.7-1.7c1.1.8 2.4 1.4 3.8 1.7l.5 3.1c.1.7.7 1.2 1.4 1.2H17c.7 0 1.3-.5 1.4-1.2l.5-3.1c1.2-.3 2.3-.7 3.3-1.4l2.7 1.9c.5.4 1.3.3 1.8-.1l1.3-1.3c.5-.5.5-1.2.1-1.8l-1.9-2.6c.6-1 1.1-2.1 1.4-3.3l3.1-.5c.7-.1 1.2-.7 1.2-1.4v-1.9c.1-.9-.4-1.5-1.1-1.6zm-14.6 8.2c-3.3 0-5.9-2.7-5.9-5.9 0-3.3 2.7-5.9 5.9-5.9 3.3 0 5.9 2.7 5.9 5.9.1 3.3-2.6 5.9-5.9 5.9z"/>
+    </symbol>
+    <symbol id="star" viewBox="0 0 32 32">
+      <path d="M16 2l3.7 10.7h11.1l-8.9 6.7L25.2 30 16 23.7 6.9 30l3.2-10.6-8.8-6.7h11.1z"/>
+    </symbol>
+    <symbol id="sync" viewBox="0 0 32 32">
+      <g><path d="M24.6 9.5l-1.9 1.9c1.9 3.1 1.4 7.3-1.3 10-2 2-4.4 2.7-7.4 2.2v-5l-4.6 4.7-1.6 1.6 6.2 6.3v-4.8c3 .5 6.8-.5 9.3-3 3.7-3.9 4.2-9.8 1.3-13.9zM10.1 9.9C11.7 8.3 14 7.5 16 7.6v5.5l4.7-4.7 1.6-1.6L16 .5v4.4c-3 0-5.6 1-7.8 3.1-3.6 3.6-4.1 9-1.6 13.1l2-2c-1.5-2.9-1-6.7 1.5-9.2z"/></g>
+    </symbol>
+    <symbol id="trash" viewBox="0 0 32 32">
+      <g><path d="M8-.1h14V2H8zM2 2h26v6H2zM4 10h22v22H4z"/></g>
+    </symbol>
+    <symbol id="undo" viewBox="-471 274 16 14">
+      <g><path d="M-470.3 279l3.7 3.6c.2.2.4.2.6.1.2-.1.3-.2.3-.4v-7.4c0-.2-.1-.4-.3-.4-.2-.1-.4 0-.6.1l-3.7 3.6c-.1.1-.2.2-.2.4.1.1.1.2.2.4"/><path d="M-460.1 277.8h-8.9v1.6h8.9c1.7 0 3 1.3 3 3v.4c0 1.6-1.4 3-3 3h-1.8c-.4 0-.8.3-.8.8 0 .4.4.8.8.8h1.8c2.6 0 4.6-2 4.6-4.5v-.4c.1-2.7-2-4.7-4.6-4.7"/></g>
+    </symbol>
+    <symbol id="userlist" viewBox="0 0 32 32">
+      <g><path d="M15.075 6.574c0 2.96-2.398 5.36-5.358 5.36-2.96 0-5.36-2.4-5.36-5.36 0-2.96 2.4-5.36 5.36-5.36 2.96 0 5.358 2.4 5.358 5.36"/><path d="M.57 26.43s-1.63-14.7 8.932-14.7c10.562 0 8.784 14.7 8.784 14.7s-3.22 1.186-8.846 1.186c-5.625 0-8.87-1.187-8.87-1.187"/><path d="M30.642 4.176H17.23c-.373 0-.675-.302-.675-.674v-1.7c0-.373.302-.675.675-.675h13.412c.373 0 .675.302.675.674v1.702c0 .372-.302.674-.675.674"/><path d="M30.642 18.303h-8.84c-.373 0-.675-.303-.675-.674v-1.703c0-.373.302-.674.674-.674h8.842c.373 0 .675.3.675.674v1.702c0 .37-.302.673-.675.673"/><path d="M30.642 11.446H19.515c-.372 0-.674-.303-.674-.675v-1.7c0-.373.303-.675.675-.675h11.127c.373 0 .675.302.675.675v1.7c0 .373-.302.676-.675.676"/><path d="M30.642 25.57h-6.555c-.373 0-.674-.3-.674-.673v-1.7c0-.373.3-.675.674-.675h6.555c.373 0 .675.302.675.675v1.7c0 .373-.302.674-.675.674"/></g>
+    </symbol>
+    <symbol id="variation-settings" viewBox="0 0 32 32">
+      <g><path d="M12 12.6v-.7c-.5-2.1-2-3.8-4-4.5V0H4v7.3c-2.3.8-4 3-4 5.7s1.7 4.8 4 5.7V32h4V18.7c2-.7 3.5-2.5 3.9-4.6V13s.1-.3.1-.4zM6 16c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zM22 21.6v-.7c-.4-2.1-1.9-3.9-3.9-4.6V0h-4v16.3c-2.3.8-4 3-4 5.7s1.7 4.8 4 5.7V32h4v-4.3c2-.7 3.5-2.5 3.9-4.6v-1.5zM16 25c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zM32 9.6v-.7c-.5-2.1-2-3.8-4-4.5V0h-4v4.3c-2 .8-4 3-4 5.7s2 4.8 4 5.7V32h4V15.7c2-.7 3.5-2.5 3.9-4.6V10s.1-.3.1-.4zM26 13c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.4 3-3 3z"/></g>
+    </symbol>
+    <symbol id="winner" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="16"/><path fill="#fff" d="M16.9 21.5l7.8-12.4-3.6-2.3L13.2 19l-3.6-2.3-2.3 3.6 6.8 4.5.4.3.5-.6z"/>
+    </symbol> -->
+</svg>
+
+
+  <header id="header" class="header justify background--super-dark">
+    
+    <div class="link--reverse hidden is-inline-block-on-mobile nav-toggle">
+      <label for="toggle-nav-checkbox">
+        <svg class="icon">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#hamburger"></use>
+        </svg>
+      </label>
+    </div>
+    
+
+    <a class="display--inline-block header-logo-container" href="/">
+      <img src="/assets/img/optimizely-developer-logo.svg" alt="Optimizely Developers">
+    </a>
+
+    <div class="header-links display--inline-block vertical-align--top is-hidden-on-mobile">
+      <div class="position--relative display--inline-block push-double--right">
+        <input type="text" id="site-search" placeholder="Search" class="text-input text-input--small reverse soft-triple--right width--200">
+        <svg class="icon input-icon__right reverse cursor--pointer">
+          <use xlink:href="#search-16"></use>
+        </svg>
+      </div>
+
+      <div class="display--inline-block">
+        <ul class="unstyled nav">
+          <li class="push-double--right"><a href="/overview">Overview</a></li>
+          <li class="position--relative push-double--right">
+            <a href="/rest/introduction" data-collapser>
+              Documentation
+              <span class="arrow-inline--down"></span>
+            </a>
+            <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/javascript/">Web</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/ios/">iOS</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/android/">Android</a>
+                  </li>
+                
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/rest/">REST API</a>
+                  </li>
+                
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/integrations/">Integrations</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/apps/">Apps</a>
+                  </li>
+                
+              
+                
+              
+            </ul>
+          </li>
+          <li class="push-double--right"><a href="http://community.optimizely.com/t5/Developers/bd-p/Developers" target="_blank">Discussion</a></li>
+          <li class="flush"><a href="https://devplatform.typeform.com/to/XrDLzQ">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main" class="main has-nav">
+    <input id="toggle-nav-checkbox" class="hidden" type="checkbox">
+<nav id="nav">
+  <div class="nav-sidebar">
+
+    <div class="soft-double">
+      
+        
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/overview">Overview</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Solutions</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/javascript" data-collapser>Web</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/javascript/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/code-samples/index.html">Code Samples</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/personalization/index.html">Personalization</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/ios" data-collapser>iOS</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/ios/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/faqs/index.html">FAQs</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/guide/index.html">Tutorial</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/changelog/index.html">Changelog</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/articles/index.html">Articles</a>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                      <li>
+                        <a class="section" href="/ios/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/android" data-collapser>Android</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/android/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/faqs/index.html">FAQs</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/guide/index.html">Tutorial</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/changelog/index.html">Changelog</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/articles/index.html">Articles</a>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                      <li>
+                        <a class="section" href="/android/help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section active" href="/server" data-collapser>Server</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible">
+                    
+                      <li>
+                        <a class="section" href="/server/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/server/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/server/faqs/index.html">FAQs</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section active" href="/server/reference/index.html">SDK reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/server/groups/index.html">Experiment groups</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/server/whitelist/index.html">User whitelisting</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Management</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/rest" data-collapser>REST API</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/rest/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/conditions/index.html">Audience Conditions</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Authentication</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/oauth">OAuth 2.0</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/token">Token based</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Data Services</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/events" data-collapser>Event Access</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/events/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/events/api/index.html">Event API</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/events/export/index.html">Data Export</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/customer-profiles">Customer Profiles</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/results">Experiment Results</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Add Ons</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/integrations">Integrations</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/apps">Apps</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/extensions">Extensions</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Community</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/libs">Libraries</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+    </div>
+  </div>
+</nav>
+
+
+    <div id="content" class="content">
+      <!-- Toggles for interactive mode -->
+
+
+
+  <div class="js-toggle-container toggle-container--fixed soft-double--sides soft--ends background--brand-darker">
+    <ul class="nav unstyled">
+      <li class="z-index--2">
+        <a class="button button--small button--plain reverse background--brand" href="#"
+          data-toggle-trigger="python-code"
+          data-toggle-trigger-class="background--brand"
+          data-toggle-trigger-prop="lang">Python</a>
+      </li>
+      <li class="z-index--2">
+        <a class="button button--small button--plain reverse" href="#"
+          data-toggle-trigger="java-code"
+          data-toggle-trigger-class="background--brand"
+          data-toggle-trigger-prop="lang">Java</a>
+      </li>
+      <li class="z-index--2">
+        <a class="button button--small button--plain reverse" href="#"
+          data-toggle-trigger="ruby-code"
+          data-toggle-trigger-class="background--brand"
+          data-toggle-trigger-prop="lang">Ruby</a>
+      </li>
+      <li class="z-index--2">
+        <a class="button button--small button--plain reverse" href="#"
+          data-toggle-trigger="javascript-code"
+          data-toggle-trigger-class="background--brand"
+          data-toggle-trigger-prop="lang">Node</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="overview">Overview</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>This page is a full reference for Optimizely&#39;s server-side SDKs. Read on to learn how to install one of our SDKs and run experiments in your code!</p>
+<p>If you&#39;d like a quick introduction to server-side testing, refer to the <a href="/server/getting-started">getting started guide</a>.</p>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro">
+
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="installation">SDK installation</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <div class="hidden" data-toggle-section="python-code">
+The Python SDK is distributed through <a href="https://pypi.python.org/pypi?name=optimizely-sdk&amp;:action=display">PyPi</a>. To install, simply use <code>pip</code> or add <code>optimizely-sdk</code> to your <code>requirements.txt</code>.
+</div>
+
+<div class="hidden" data-toggle-section="java-code">
+The Java SDK is distributed through Bintray. The <code>core-api</code> and <code>httpclient</code> Bintray packages are <a href="https://bintray.com/optimizely/optimizely/optimizely-sdk-core-api">optimizely-sdk-core-api</a> and <a href="https://bintray.com/optimizely/optimizely/optimizely-sdk-httpclient">optimizely-sdk-httpclient</a> respectively. You can find repository information as well as instructions on how to install the dependencies on Bintray. Gradle repository and dependency configurations are shown on the right.
+</div>
+
+<p>
+
+<div class="hidden" data-toggle-section="java-code">
+<code>core-api</code> requires <code>org.slf4j:slf4j-api:1.7.16</code> and a <em>supported</em> JSON parser. We currently integrate with <a href="https://github.com/FasterXML/jackson">Jackson</a>, <a href="https://github.com/google/gson">GSON</a>, <a href="http://www.json.org/">json.org</a>, and <a href="https://code.google.com/archive/p/json-simple/">json-simple</a>; if any of those packages are available at runtime, they will be used by <code>core-api</code>. If none of those packages are already provided in your project&#39;s classpath, one will need to be added.
+</div>
+
+<p>
+
+<div class="hidden" data-toggle-section="java-code">
+<code>core-httpclient-impl</code> requires <code>org.apache.httpcomponents:httpclient:4.5.2</code> and provides an asynchronous event dispatcher which is described in the <a href="#initialization">Initialization</a> section. This library isn&#39;t required and you may provide a custom <code>EventHandler</code> implementation which uses a different networking stack.
+</div>
+
+<p>
+
+<div class="hidden" data-toggle-section="ruby-code">
+The gem for the Ruby SDK is distributed through <a href="https://rubygems.org/gems/optimizely-sdk">RubyGems</a>. To install, simply use <code>gem</code> or bundler to install the gem <code>optimizely-sdk</code>.
+</div>
+
+<p>
+
+<div class="hidden" data-toggle-section="javascript-code">
+The Node SDK is distributed through <a href="https://www.npmjs.com/package/optimizely-server-sdk">npm</a>. To install, simply run <code>npm install optimizely-server-sdk --save</code>.
+</div>
+
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">pip install optimizely-sdk
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">repositories {
+  maven {
+    url  &quot;http://optimizely.bintray.com/optimizely&quot;
+  }
+}
+
+dependencies {
+  compile &#39;com.optimizely.ab:core-api:{VERSION}&#39;
+  compile &#39;com.optimizely.ab:core-httpclient-impl:{VERSION}&#39;
+}
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">gem install optimizely-sdk
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">npm install optimizely-server-sdk --save
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="basic">Basic usage</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>This illustrates the minimal components necessary to run a server-side test.</p>
+
+<p>The SDK can be used to activate experiments and track events in your code. First, you need to <a href="/server/reference/index.html#initialization"><strong>instantiate</strong></a> Optimizely. Then you&#39;ll want to call <a href="/server/reference/index.html#activation"><strong>activate()</strong></a> at the point you want the experiment to start and <a href="/server/reference/index.html#tracking"><strong>track()</strong></a> for conversion events you&#39;d like to track in Optimizely. <code>track()</code> can work across multiple experiments but should be called after <code>activate()</code> has been called for each experiment. </p>
+
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">import optimizely
+
+# instantiate Optimizely object
+optimizely = optimizely.Optimizely(datafile)
+
+# activate user in the experiment
+variation = optimizely.activate(experiment_key, user_id)
+
+if variation == &#39;variation_a&#39;:
+  # execute code for variation A
+elif variation == &#39;variation_b&#39;:
+  # execute code for variation B
+else:
+  # execute default code
+
+# track conversion event
+optimizely.track(event_key, user_id)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">import com.optimizely.ab.Optimizely;
+
+// instantiate Optimizely object
+Optimizely optimizely = Optimizely.builder(datafile).build();
+
+// activate user in the experiment
+Variation variation = optimizely.activate(experimentKey, userId);
+
+if (variation != null) {
+    if (variation.is(&quot;variation_a&quot;)) {
+        // execute code for variation A
+    } else if (variation.is(&quot;variation_b&quot;)) {
+        // execute code for variation B
+    }
+} else {
+    // execute default code
+}
+
+// track conversion event
+optimizely.track(eventKey, userId);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">require &quot;optimizely&quot;
+
+# instantiate Project object
+project = Optimizely::Project.new(datafile)
+
+# activate user in the experiment
+variation = project.activate(experiment_key, user_id)
+
+if variation == &#39;variation_a&#39;
+  # execute code for variation A
+elsif variation == &#39;variation_b&#39;
+  # execute code for variation B
+else
+  # execute default code
+end
+
+# track conversion event
+project.track(event_key, user_id)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">var optimizely = require(&#39;optimizely-server-sdk&#39;);
+
+// instantiate Optimizely object
+var optimizely = optimizely.createInstance({ datafile: datafile });
+
+// activate user in the experiment
+var variation = optimizely.activate(experimentKey, userId);
+
+if (variation === &#39;variation_a&#39;) {
+  // execute code for variation A
+} else if (variation === &#39;variation_b&#39;) {
+  // execute code for variation B
+} else {
+  // execute default code
+}
+
+// track conversion event
+optimizely.track(eventKey, userId);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="datafile">Datafile</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>The datafile compactly represents all of the &quot;instructions&quot; needed to activate experiments in your code and send conversion events back to Optimizely. The SDKs work by reading from a datafile in JSON format which represents the experiments you&#39;ve set up for the project. For example, the datafile at right represents the project from the <a href="/server/getting-started">Getting started</a> guide.</p>
+<p>Unless you are building your own SDK, there shouldn&#39;t be any need to interact with the datafile directly.</p>
+<div class="attention attention--warning push--bottom"><em>Please note:</em> The format of the datafile is still not finalized and subject to change.</div>
+
+<p>You can fetch the datafile for your Optimizely project in two ways:</p>
+<ul>
+<li><em>Use the Optimizely CDN.</em>  For example, if the ID of your project is <code>12345</code> you can access the file at <a href="https://cdn.optimizely.com/json/12345.json">https://cdn.optimizely.com/json/12345.json</a>.</li>
+<li><em>Use the Optimizely REST API.</em> For example, if the ID of your project is <code>12345</code> you can access the file at <a href="https://www.optimizelyapis.com/experiment/v1/projects/12345/json">https://www.optimizelyapis.com/experiment/v1/projects/12345/json</a>. Please note that as with other requests to the REST API, you will have to <a href="/rest/getting-started">authenticate with an API token</a>.</li>
+</ul>
+<p>For example, this authenticated REST API call will return the datafile:</p>
+<pre><code class="lang-bash">curl \
+  -H &quot;Token: abcdefghijklmnopqrstuvwxyz:123456&quot; \
+  &quot;https://www.optimizelyapis.com/experiment/v1/projects/12345/json&quot;
+</code></pre>
+<p>To retrieve the datafile, use the preferred request library of your language.</p>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+<h4>Example datafile</h4>
+<div style="overflow-y:scroll;max-height:570px;">
+<pre>
+<pre><code>{  
+   &quot;experiments&quot;:[  
+      {  
+         &quot;status&quot;:&quot;Running&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6274840109&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840110&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840111&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6274840109&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840110&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840111&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+            &quot;484029343&quot;:&quot;reviews&quot;
+         },
+         &quot;id&quot;:&quot;6271220072&quot;
+      },
+      {  
+         &quot;status&quot;:&quot;Not started&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search-mobile&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6496940704&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940705&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940706&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+            &quot;6496940684&quot;
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6496940704&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940705&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940706&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+
+         },
+         &quot;id&quot;:&quot;6511640466&quot;
+      }
+   ],
+   &quot;version&quot;:&quot;1&quot;,
+   &quot;audiences&quot;:[  
+      {  
+         &quot;conditions&quot;:&quot;[\&quot;and\&quot;, [\&quot;or\&quot;, [\&quot;or\&quot;, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;iphone\&quot;}, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;android\&quot;}]]]&quot;,
+         &quot;id&quot;:&quot;6496940684&quot;,
+         &quot;name&quot;:&quot;device_type&quot;
+      }
+   ],
+   &quot;dimensions&quot;:[  
+      {  
+         &quot;id&quot;:&quot;6517890962&quot;,
+         &quot;key&quot;:&quot;device_type&quot;,
+         &quot;segmentId&quot;:&quot;6514850906&quot;
+      }
+   ],
+   &quot;groups&quot;:[  
+
+   ],
+   &quot;projectId&quot;:&quot;6235521383&quot;,
+   &quot;accountId&quot;:&quot;1111111111&quot;,
+   &quot;events&quot;:[  
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6235740528&quot;
+         ],
+         &quot;id&quot;:&quot;6241161110&quot;,
+         &quot;key&quot;:&quot;flight-purchase&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6249542725&quot;
+         ],
+         &quot;id&quot;:&quot;6247001737&quot;,
+         &quot;key&quot;:&quot;flight-cart&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+
+         ],
+         &quot;id&quot;:&quot;6247471698&quot;,
+         &quot;key&quot;:&quot;seat-selected&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6272600257&quot;
+         ],
+         &quot;id&quot;:&quot;6253130776&quot;,
+         &quot;key&quot;:&quot;upgrade-select&quot;
+      }
+   ],
+   &quot;revision&quot;:&quot;26&quot;
+}
+</code></pre>
+</pre>
+</div>
+
+
+
+
+<!-- Example Request -->
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+<h4>Example datafile</h4>
+<div style="overflow-y:scroll;max-height:570px;">
+<pre>
+<pre><code>{  
+   &quot;experiments&quot;:[  
+      {  
+         &quot;status&quot;:&quot;Running&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6274840109&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840110&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840111&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6274840109&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840110&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840111&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+            &quot;484029343&quot;:&quot;reviews&quot;
+         },
+         &quot;id&quot;:&quot;6271220072&quot;
+      },
+      {  
+         &quot;status&quot;:&quot;Not started&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search-mobile&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6496940704&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940705&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940706&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+            &quot;6496940684&quot;
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6496940704&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940705&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940706&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+
+         },
+         &quot;id&quot;:&quot;6511640466&quot;
+      }
+   ],
+   &quot;version&quot;:&quot;1&quot;,
+   &quot;audiences&quot;:[  
+      {  
+         &quot;conditions&quot;:&quot;[\&quot;and\&quot;, [\&quot;or\&quot;, [\&quot;or\&quot;, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;iphone\&quot;}, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;android\&quot;}]]]&quot;,
+         &quot;id&quot;:&quot;6496940684&quot;,
+         &quot;name&quot;:&quot;device_type&quot;
+      }
+   ],
+   &quot;dimensions&quot;:[  
+      {  
+         &quot;id&quot;:&quot;6517890962&quot;,
+         &quot;key&quot;:&quot;device_type&quot;,
+         &quot;segmentId&quot;:&quot;6514850906&quot;
+      }
+   ],
+   &quot;groups&quot;:[  
+
+   ],
+   &quot;projectId&quot;:&quot;6235521383&quot;,
+   &quot;accountId&quot;:&quot;1111111111&quot;,
+   &quot;events&quot;:[  
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6235740528&quot;
+         ],
+         &quot;id&quot;:&quot;6241161110&quot;,
+         &quot;key&quot;:&quot;flight-purchase&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6249542725&quot;
+         ],
+         &quot;id&quot;:&quot;6247001737&quot;,
+         &quot;key&quot;:&quot;flight-cart&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+
+         ],
+         &quot;id&quot;:&quot;6247471698&quot;,
+         &quot;key&quot;:&quot;seat-selected&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6272600257&quot;
+         ],
+         &quot;id&quot;:&quot;6253130776&quot;,
+         &quot;key&quot;:&quot;upgrade-select&quot;
+      }
+   ],
+   &quot;revision&quot;:&quot;26&quot;
+}
+</code></pre>
+</pre>
+</div>
+
+
+
+
+<!-- Example Request -->
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+<h4>Example datafile</h4>
+<div style="overflow-y:scroll;max-height:570px;">
+<pre>
+<pre><code>{  
+   &quot;experiments&quot;:[  
+      {  
+         &quot;status&quot;:&quot;Running&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6274840109&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840110&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840111&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6274840109&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840110&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840111&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+            &quot;484029343&quot;:&quot;reviews&quot;
+         },
+         &quot;id&quot;:&quot;6271220072&quot;
+      },
+      {  
+         &quot;status&quot;:&quot;Not started&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search-mobile&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6496940704&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940705&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940706&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+            &quot;6496940684&quot;
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6496940704&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940705&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940706&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+
+         },
+         &quot;id&quot;:&quot;6511640466&quot;
+      }
+   ],
+   &quot;version&quot;:&quot;1&quot;,
+   &quot;audiences&quot;:[  
+      {  
+         &quot;conditions&quot;:&quot;[\&quot;and\&quot;, [\&quot;or\&quot;, [\&quot;or\&quot;, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;iphone\&quot;}, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;android\&quot;}]]]&quot;,
+         &quot;id&quot;:&quot;6496940684&quot;,
+         &quot;name&quot;:&quot;device_type&quot;
+      }
+   ],
+   &quot;dimensions&quot;:[  
+      {  
+         &quot;id&quot;:&quot;6517890962&quot;,
+         &quot;key&quot;:&quot;device_type&quot;,
+         &quot;segmentId&quot;:&quot;6514850906&quot;
+      }
+   ],
+   &quot;groups&quot;:[  
+
+   ],
+   &quot;projectId&quot;:&quot;6235521383&quot;,
+   &quot;accountId&quot;:&quot;1111111111&quot;,
+   &quot;events&quot;:[  
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6235740528&quot;
+         ],
+         &quot;id&quot;:&quot;6241161110&quot;,
+         &quot;key&quot;:&quot;flight-purchase&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6249542725&quot;
+         ],
+         &quot;id&quot;:&quot;6247001737&quot;,
+         &quot;key&quot;:&quot;flight-cart&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+
+         ],
+         &quot;id&quot;:&quot;6247471698&quot;,
+         &quot;key&quot;:&quot;seat-selected&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6272600257&quot;
+         ],
+         &quot;id&quot;:&quot;6253130776&quot;,
+         &quot;key&quot;:&quot;upgrade-select&quot;
+      }
+   ],
+   &quot;revision&quot;:&quot;26&quot;
+}
+</code></pre>
+</pre>
+</div>
+
+
+
+
+<!-- Example Request -->
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+<h4>Example datafile</h4>
+<div style="overflow-y:scroll;max-height:570px;">
+<pre>
+<pre><code>{  
+   &quot;experiments&quot;:[  
+      {  
+         &quot;status&quot;:&quot;Running&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6274840109&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840110&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6274840111&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6274840109&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840110&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6274840111&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+            &quot;484029343&quot;:&quot;reviews&quot;
+         },
+         &quot;id&quot;:&quot;6271220072&quot;
+      },
+      {  
+         &quot;status&quot;:&quot;Not started&quot;,
+         &quot;percentageIncluded&quot;:10000,
+         &quot;key&quot;:&quot;flight-search-mobile&quot;,
+         &quot;trafficAllocation&quot;:[  
+            {  
+               &quot;entityId&quot;:&quot;6496940704&quot;,
+               &quot;endOfRange&quot;:3333
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940705&quot;,
+               &quot;endOfRange&quot;:6666
+            },
+            {  
+               &quot;entityId&quot;:&quot;6496940706&quot;,
+               &quot;endOfRange&quot;:9999
+            }
+         ],
+         &quot;audienceIds&quot;:[  
+            &quot;6496940684&quot;
+         ],
+         &quot;variations&quot;:[  
+            {  
+               &quot;id&quot;:&quot;6496940704&quot;,
+               &quot;key&quot;:&quot;price&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940705&quot;,
+               &quot;key&quot;:&quot;reviews&quot;
+            },
+            {  
+               &quot;id&quot;:&quot;6496940706&quot;,
+               &quot;key&quot;:&quot;destinations&quot;
+            }
+         ],
+         &quot;forcedVariations&quot;:{  
+
+         },
+         &quot;id&quot;:&quot;6511640466&quot;
+      }
+   ],
+   &quot;version&quot;:&quot;1&quot;,
+   &quot;audiences&quot;:[  
+      {  
+         &quot;conditions&quot;:&quot;[\&quot;and\&quot;, [\&quot;or\&quot;, [\&quot;or\&quot;, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;iphone\&quot;}, {\&quot;name\&quot;: \&quot;device_type\&quot;, \&quot;type\&quot;: \&quot;custom_dimension\&quot;, \&quot;value\&quot;: \&quot;android\&quot;}]]]&quot;,
+         &quot;id&quot;:&quot;6496940684&quot;,
+         &quot;name&quot;:&quot;device_type&quot;
+      }
+   ],
+   &quot;dimensions&quot;:[  
+      {  
+         &quot;id&quot;:&quot;6517890962&quot;,
+         &quot;key&quot;:&quot;device_type&quot;,
+         &quot;segmentId&quot;:&quot;6514850906&quot;
+      }
+   ],
+   &quot;groups&quot;:[  
+
+   ],
+   &quot;projectId&quot;:&quot;6235521383&quot;,
+   &quot;accountId&quot;:&quot;1111111111&quot;,
+   &quot;events&quot;:[  
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6235740528&quot;
+         ],
+         &quot;id&quot;:&quot;6241161110&quot;,
+         &quot;key&quot;:&quot;flight-purchase&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6249542725&quot;
+         ],
+         &quot;id&quot;:&quot;6247001737&quot;,
+         &quot;key&quot;:&quot;flight-cart&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+
+         ],
+         &quot;id&quot;:&quot;6247471698&quot;,
+         &quot;key&quot;:&quot;seat-selected&quot;
+      },
+      {  
+         &quot;experimentIds&quot;:[  
+            &quot;6272600257&quot;
+         ],
+         &quot;id&quot;:&quot;6253130776&quot;,
+         &quot;key&quot;:&quot;upgrade-select&quot;
+      }
+   ],
+   &quot;revision&quot;:&quot;26&quot;
+}
+</code></pre>
+</pre>
+</div>
+
+
+
+
+<!-- Example Request -->
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h3 id="webhooks">
+              Webhooks
+              
+            </h3>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>We recommend configuring webhooks to maintain the most up-to-date version of the datafile for a project. Your supplied endpoint will be sent a POST request whenever the respective project is modified. Anytime the datafile is updated, you must re-instantiate the Optimizely object for the changes to take affect. </p>
+<p>You can setup a webhook by navigating to Settings &gt; Webhooks and add the URL the webhook service should ping.</p>
+<p>The webhook payload structure is defined on the right. For now, we have one event type: <code>project.datafile_updated</code> </p>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">{  
+  &quot;project_id&quot;:1234,
+  &quot;timestamp&quot;:1468447113,
+  &quot;event&quot;:&quot;project.datafile_updated&quot;,
+  &quot;data&quot;:{
+    &quot;revision&quot;:1,
+    &quot;origin_url&quot;:&quot;https://optimizely.s3.amazonaws.com/json/1234.json&quot;,
+    &quot;cdn_url&quot;:&quot;https://cdn.optimizely.com/json/1234.json&quot;
+  }
+}
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">{  
+  &quot;project_id&quot;:1234,
+  &quot;timestamp&quot;:1468447113,
+  &quot;event&quot;:&quot;project.datafile_updated&quot;,
+  &quot;data&quot;:{
+    &quot;revision&quot;:1,
+    &quot;origin_url&quot;:&quot;https://optimizely.s3.amazonaws.com/json/1234.json&quot;,
+    &quot;cdn_url&quot;:&quot;https://cdn.optimizely.com/json/1234.json&quot;
+  }
+}
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">{  
+  &quot;project_id&quot;:1234,
+  &quot;timestamp&quot;:1468447113,
+  &quot;event&quot;:&quot;project.datafile_updated&quot;,
+  &quot;data&quot;:{
+    &quot;revision&quot;:1,
+    &quot;origin_url&quot;:&quot;https://optimizely.s3.amazonaws.com/json/1234.json&quot;,
+    &quot;cdn_url&quot;:&quot;https://cdn.optimizely.com/json/1234.json&quot;
+  }
+}
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">{  
+  &quot;project_id&quot;:1234,
+  &quot;timestamp&quot;:1468447113,
+  &quot;event&quot;:&quot;project.datafile_updated&quot;,
+  &quot;data&quot;:{
+    &quot;revision&quot;:1,
+    &quot;origin_url&quot;:&quot;https://optimizely.s3.amazonaws.com/json/1234.json&quot;,
+    &quot;cdn_url&quot;:&quot;https://cdn.optimizely.com/json/1234.json&quot;
+  }
+}
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="initialization">Initialization</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <div class="hidden visible" data-toggle-section="python-code">
+<p>First, you&#39;ll need to import the Optimizely library into your code as shown.</p>
+
+<p>To run experiments with Optimizely you&#39;ll need to instantiate an <code>Optimizely</code> object in your code. This object represents the state of an Optimizely project and can be used to both <a href="#activation">activate experiments</a> and <a href="#tracking">track events</a>.</p>
+
+<p>To construct the <code>Optimizely</code> object, you&#39;ll need to provide the <code>datafile</code> as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the <a href="#datafile">datafile</a> section.</p>
+
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail <a href="#configuration">below</a>.</p>
+
+</div>
+
+
+<div class="hidden" data-toggle-section="ruby-code">
+<p>First, you&#39;ll need to import the Optimizely library into your code as shown. </p>
+
+<p>To run experiments with Optimizely you&#39;ll need to instantiate an <code>Optimizely</code> object in your code. This object represents the state of an Optimizely project and can be used to both <a href="#activation">activate experiments</a> and <a href="#tracking">track events</a>.</p>
+
+<p>To construct the <code>Project</code> object, you&#39;ll need to provide the <code>datafile</code> as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the <a href="#datafile">datafile</a> section.</p>
+
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail <a href="#configuration">below</a>.</p>
+
+</div>
+
+<div class="hidden" data-toggle-section="java-code">
+<p>First, you&#39;ll need to import the Optimizely library into your code as shown.</p>
+
+<p>To run experiments with Optimizely you&#39;ll need to instantiate an <code>Optimizely</code> object in your code. This object represents the state of an Optimizely project and can be used to both <a href="#activation">activate experiments</a> and <a href="#tracking">track events</a>.</p>
+
+<p>To construct the <code>Optimizely</code> object, you&#39;ll need to provide a <code>datafile</code> String and an <code>EventHandler</code> object as arguments to the <code>Optimizely.builder</code> function. The <code>datafile</code> is a JSON representation of your project and contains all of the information needed to activate experiments and track events. For more information on the expected format of the datafile and how to get the most up-to-date version, see the <a href="#datafile">datafile</a> section. <code>eventHandler</code> in the example to the right is instantiated as the provided asynchronous implementation.</p>
+
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail <a href="#configuration">below</a>.</p>
+
+</div>
+
+
+<div class="hidden" data-toggle-section="javascript-code">
+<p>First, you&#39;ll need to import the Optimizely library into your code as shown.</p>
+
+<p>To run experiments with Optimizely you&#39;ll need to instantiate an <code>optimizely</code> object in your code. This object represents the state of an Optimizely project and can be used to both <a href="#activation">activate experiments</a> and <a href="#tracking">track events</a>.</p>
+
+<p>To construct the <code>optimizely</code> object, you&#39;ll need to provide the <code>datafile</code> as an argument representing the JSON configuration of your project. The datafile contains all the instructions needed to activate experiments and track events.</p>
+
+<p>In SDK versions <code>0.0.10</code> and above, you can optionally pass in a <code>skipJSONValidation</code> property as <code>true</code> to skip JSON schema validation of the datafile upon <code>optimizely</code> instantiation. Skipping JSON schema validation enhances instantiation performance. The <code>skipJSONValidation</code> property should only be used if the datafile is being pulled from the REST API or CDN.</p>
+
+<p>For more information on the expected format of the datafile and how to get the most up-to-date version, see the <a href="#datafile">datafile</a> section.</p>
+
+<p>You can customize the behavior of the SDK by configuring parameters to the Optimizely constructor. This is explained in detail <a href="#configuration">below</a>.</p>
+
+</div>
+
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">import optimizely
+
+optimizely = optimizely.Optimizely(datafile)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">import com.optimizely.ab.Optimizely;
+import com.optimizely.ab.event.AsyncEventHandler;
+
+String datafile = &quot;{}&quot;;
+// Creates an async event handler with a max buffer of 20,000 events
+// and a single dispatcher thread
+EventHandler eventHandler = new AsyncEventHandler(20000, 1);
+Optimizely optimizely = Optimizely.builder(datafile, eventHandler)
+    .build();
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">require &quot;optimizely&quot;
+
+optimizely = Optimizely::Project.new(datafile)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">var optimizely = require(&#39;optimizely-server-sdk&#39;);
+
+// or ES6
+import optimizely from &#39;optimizely-server-sdk&#39;
+
+var datafile = {};
+var optimizely = optimizely.createInstance({ datafile: datafile });
+
+// to skip JSON schema validation for the datafile (SDK versions 0.0.10 and above)
+var optimizely = optimizely.createInstance({
+  datafile: datafile,
+  skipJSONValidation: true
+});
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="activation">Experiment activation</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>Use the <code>activate</code> function to run an experiment in your code.</p>
+<p>The <code>activate</code> call will conditionally activate an experiment for a user based on the provided experiment key and a randomized hash of the provided user ID. If the user satisfies audience conditions for the experiment and the experiment is valid and running, the function returns the variation the user is bucketed in. Otherwise, <code>activate</code> returns <code>None</code> or <code>null</code>. Make sure that your code adequately deals with the case when the experiment is not activated i.e. execute the default variation.</p>
+<div class="attention attention--warning push--bottom"><em>Please note:</em> in cases where an experiment is activated for a user, the SDK will log an event to Optimizely servers to record that the user was bucketed.</div>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">experiment_key = &#39;my_experiment&#39;
+user_id = &#39;user123&#39;
+
+# Conditionally activate an experiment for the provided user
+variation = optimizely.activate(experiment_key, user_id)
+
+if variation == &#39;variation_a&#39;:
+  # execute code for variation A
+elif variation == &#39;variation_b&#39;:
+  # execute code for variation B
+else:
+  # execute default code
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">String experimentKey = &quot;my_experiment&quot;;
+String userId = &quot;user123&quot;;
+
+// Conditionally activate an experiment for the provided user
+Variation variation = optimizely.activate(experimentKey, userId);
+
+if (variation != null) {
+    if (variation.is(&quot;variation_a&quot;)) {
+        // execute code for variation A
+    } else if (variation.is(&quot;variation_b&quot;)) {
+        // execute code for variation B
+    }
+} else {
+    // execute default code
+}
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">experiment_key = &#39;my_experiment&#39;
+user_id = &#39;user123&#39;
+
+# Conditionally activate an experiment for the provided user
+variation = project.activate(experiment_key, user_id)
+
+if variation == &#39;variation_a&#39;
+  # execute code for variation A
+elsif variation == &#39;variation_b&#39;
+  # execute code for variation B
+else
+  # execute default code
+end
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">var experimentKey = &#39;my_experiment&#39;;
+var userId = &#39;user123&#39;;
+
+// Conditionally activate an experiment for the provided user
+var variation = optimizely.activate(experimentKey, userId);
+
+if (variation === &#39;variation_a&#39;) {
+  // execute code for variation A
+} else if (variation === &#39;variation_b&#39;) {
+  // execute code for variation B
+} else {
+  // execute default code
+}
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h3 id="targeting">
+              User attributes
+              
+            </h3>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>If you&#39;d like to be able to segment your experiments based on attributes of your users, you should include the optional <code>attributes</code> argument to the <code>activate</code> function call. Optimizely will include these attributes when logging the experiment so you can segment them on the Optimizely results page.</p>
+<p>Passing attributes will also allow you to target your experiments to a particular audience you&#39;ve defined in Optimizely. If the provided experiment is targeted to an audience, Optimizely will evaluate whether the user falls in an audience that is associated with the experiment before bucketing.</p>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">experiment_key = &#39;my_targeted_experiment&#39;
+user_id = &#39;user123&#39;
+attributes = {&#39;device&#39;: &#39;iPhone&#39;, &#39;ad_source&#39;: &#39;my_campaign&#39;}
+
+# Conditionally activate an experiment for the provided user
+variation = optimizely.activate(experiment_key, user_id, attributes)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">String experimentKey = &quot;my_experiment&quot;;
+String userId = &quot;user123&quot;;
+
+Map&lt;String, String&gt; attributes = new HashMap&lt;String, String&gt;();
+attributes.put(&quot;DEVICE&quot;, &quot;iPhone&quot;);
+attributes.put(&quot;AD_SOURCE&quot;, &quot;my_campaign&quot;);
+
+// Conditionally activate a experiment for the provided user
+Variation variation = optimizely.activate(experimentKey, userId, attributes);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">experiment_key = &#39;my_experiment&#39;
+user_id = &#39;user123&#39;
+attributes = {&#39;DEVICE&#39; =&gt; &#39;iPhone&#39;, &#39;AD_SOURCE&#39; =&gt; &#39;my_campaign&#39;}
+
+# Conditionally activate an experiment for the provided user
+variation = optimizely.activate(experiment_key, user_id, attributes)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">var experimentKey = &#39;my_experiment&#39;;
+var userId = &#39;user123&#39;;
+var attributes = { &#39;device&#39;: &#39;iphone&#39;, &#39;ad_source&#39;: &#39;my_campaign&#39; };
+
+// Conditionally activate an experiment for the provided user
+var variation = optimizely.activate(experimentKey, userId, attributes);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h3 id="variation">
+              Get variation
+              
+            </h3>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <div class="hidden" data-toggle-section="java-code">
+  If you&#39;ve already called <code>activate</code> and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use <code>getVariation</code> as shown in the code shown at right.
+</div>
+
+<div class="hidden" data-toggle-section="javascript-code">
+  If you&#39;ve already called <code>activate</code> and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use <code>getVariation</code> as shown in the code shown at right.
+</div>
+
+<div class="hidden" data-toggle-section="ruby-code">
+  If you&#39;ve already called <code>activate</code> and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use <code>get_variation</code> as shown in the code shown at right.
+</div>
+
+<div class="hidden" data-toggle-section="python-code">
+  If you&#39;ve already called <code>activate</code> and would like to retrieve the current variation assignment for a given experiment and user, without sending a duplicate network request to Optimizely, you can use <code>get_variation</code> as shown in the code shown at right.
+</div>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">experiment_key = &#39;my_experiment&#39;
+user_id = &#39;user123&#39;
+
+# Get the active variation for the provided user
+variation = optimizely.get_variation(experiment_key, user_id)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">String experimentKey = &quot;my_experiment&quot;;
+String userId = &quot;user123&quot;;
+
+// Get the active variation for the provided user
+Variation variation = optimizely.getVariation(experimentKey, userId);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">experiment_key = &#39;my_experiment&#39;
+user_id = &#39;user123&#39;
+
+# Get the active variation for the provided user
+variation = optimizely.get_variation(experiment_key, user_id)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">var experimentKey = &#39;my_experiment&#39;;
+var userId = &#39;user123&#39;;
+
+// Get the active variation for the provided user
+var variation = optimizely.getVariation(experimentKey, userId);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="tracking">Event tracking</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>You can easily track Optimizely goals from your code as shown in the example to the right. Note that you don&#39;t need to pass the assigned experiments or variations; Optimizely will drop any conversion events for users that are not part of an experiment that includes the goal.</p>
+<div class="attention attention--warning push--bottom"><em>Please note:</em> users must be activated into an experiment before calling <code>track()</code> to register a conversion event on results page.
+</div>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">event_key = &#39;booking_complete&#39;
+user_id = &#39;user123&#39;
+
+# Track a conversion event for the provided user
+optimizely.track(event_key, user_id)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">eventKey = &quot;booking_complete&quot;;
+userId = &quot;user123&quot;;
+
+// Track a conversion event for the provided user
+optimizely.track(eventKey, userId);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">event_key = &#39;booking_complete&#39;
+user_id = &#39;user123&#39;
+
+# Track a conversion event for the provided user
+optimizely.track(event_key, user_id)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">var eventKey = &#39;booking_complete&#39;;
+var userId = &#39;user123&#39;;
+
+// Track a conversion event for the provided user
+optimizely.track(eventKey, userId);
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h3 id="webtracking">
+              Tracking on the web
+              
+            </h3>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <p>If you&#39;d like to track events on the web, client-side (via JavaScript) instead of on the server, you can use the JavaScript SDK. This SDK is available via <a href="https://www.npmjs.com/package/optimizely-client-sdk">npm</a>.</p>
+<p>Instructions for using the SDK:</p>
+<ol>
+<li><p><code>npm install optimizely-client-sdk --save</code></p>
+</li>
+<li><p>Require the module via <code>var optimizely = require(&#39;optimizely-client-sdk&#39;);</code></p>
+</li>
+<li><p>This SDK exposes the same APIs as the rest of the SDKs. You need to create an instance of the <code>Optimizely</code> object and pass it the datafile:
+<code>optimizelyInstance = optimizely.createInstance({
+datafile: datafile
+});</code></p>
+<p>Note: you can pass the datafile from your backend to the frontend (i.e. append it to window like <code>window.datafile</code>) or you can manually send an HTTP request from your web frontend code to grab it from the CDN and parse it as a JSON object to pass it to the <code>optimizely</code> constructor.</p>
+</li>
+<li><p>Once you have an instance of <code>optimizely</code> you can call the <code>track</code> method as such: <code>optimizelyInstance.track(eventKey, userId, attributes, eventValue)</code></p>
+</li>
+</ol>
+
+
+          <!-- Arguments -->
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container">
+
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+        
+            <!-- Row -->
+  <section class="sidebyside">
+    <div class="grid">
+      <!-- Left column -->
+      <div class="grid__cell width--1-2 explanation intro">
+        <div class="soft-double--sides">
+          <!-- Title -->
+          
+            <h2 id="configuration">Custom configuration</h2>
+          
+
+          <!-- Endpoint -->
+          
+
+          <!-- Description -->
+          <div class="hidden visible" data-toggle-section="python-code">
+  You can optionally provide a number of parameters to the <code>Optimizely</code> constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
+
+<div class="hidden visible" data-toggle-section="java-code">
+  You can optionally provide a number of parameters to the <code>Optimizely</code> constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
+
+<div class="hidden visible" data-toggle-section="ruby-code">
+  You can optionally provide a number of parameters to the <code>Project</code> constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
+
+<div class="hidden visible" data-toggle-section="javascript-code">
+  You can optionally provide a number of parameters to the <code>optimizely</code> constructor to configure how the SDK behaves. See below for a full list of options that you can configure. If you plan on writing your own event dispatching, logging, or error handling, or would like to edit the default behavior provided by our SDKs, refer to the reference implementations in the SDK source code for examples.
+</div>
+
+          <!-- Arguments -->
+          
+            <h4>Definitions</h4>
+            <table class="table">
+            
+              <tr><td align="left"><b>Event dispatcher</b></td><td class="desc">
+                <p>  You can optionally change how the SDK dispatches events to Optimizely, by providing a request handling function that takes a URL and query parameters as arguments. You should provide your own event dispatcher if you have particular networking requirements on your servers that aren&#39;t met by our default dispatcher.</p>
+
+              </td></tr>
+            
+              <tr><td align="left"><b>Logger</b></td><td class="desc">
+                <p>  You can provide a logging method that logs messages when certain events occur in the SDK. You can write your own logger if you would like to customize things like message formatting or minimum logging levels. For the Java SDK, we require the use of an <a href="http://www.slf4j.org">SLF4J</a> implementation.</p>
+
+              </td></tr>
+            
+              <tr><td align="left"><b>Error handler</b></td><td class="desc">
+                <p>  You should override Optimizely&#39;s error handling if you would like to take custom actions when exceptions are raised. If you are using the SDK in production then you will want to handle exceptions elegantly.</p>
+
+              </td></tr>
+            
+            </table>
+          
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="grid__cell width--1-2 code-container intro empty">
+
+        
+          <div class="hidden visible" data-toggle-section="python-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-python">from .error_handler import NoOpErrorHandler as error_handler
+from .logger import NoOpLogger as logger
+from .event_dispatcher import EventDispatcher as event_dispatcher
+
+optimizely = optimizely.Optimizely(datafile,
+                                   event_dispatcher=event_dispatcher,
+                                   logger=logger,
+                                   error_handler=error_handler)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="java-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-java">import com.optimizely.ab.Optimizely;
+import com.optimizely.ab.event.AsyncEventHandler;
+
+String datafile = &quot;{}&quot;;
+// Creates an async event handler with a max buffer of 20,000 events
+// and a single dispatcher thread
+EventHandler eventHandler = new AsyncEventHandler(20000, 1);
+// Creates an error handler that throws exceptions on errors
+ErrorHandler errorHandler = new RaiseExceptionErrorHandler();
+Optimizely optimizely = Optimizely.builder(datafile, eventHandler)
+    .withErrorHandler(errorHandler);
+    .build();
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="ruby-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-ruby">require_relative &#39;optimizely/event_dispatcher&#39;
+require_relative &#39;optimizely/logger&#39;
+require_relative &#39;optimizely/error_handler&#39;
+
+optimizely = Optimizely::Project.new(datafile,
+                                     EventDispatcher.new,
+                                     NoOpLogger.new,
+                                     NoOpErrorHandler.new)
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+          <div class="hidden" data-toggle-section="javascript-code">
+
+<!-- Indenting is weird here because of the <pre> tags -->
+
+<!-- workaround for datafile -->
+
+
+
+
+<!-- Example Request -->
+
+<h4>Example Code</h4>
+
+<pre>
+<pre><code class="lang-javascript">var defaultLogger = require(&#39;optimizely-server-sdk/lib/plugins/logger&#39;);
+var defaultErrorHandler = require(&#39;optimizely-server-sdk/lib/plugins/error_handler&#39;);
+var defaultEventDispatcher = require(&#39;optimizely-server-sdk/lib/plugins/event_dispatcher&#39;);
+
+optimizely = optimizely.createInstance({
+  datafile: datafile,
+  errorHandler: defaultErrorHandler,
+  eventDispatcher: defaultEventDispatcher,
+  logger: defaultLogger.createLogger(),
+});
+</code></pre>
+
+</pre>
+
+
+<!-- Example Response -->
+
+
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+        
+      
+
+    </div>
+  </main>
+
+  <footer class="footer cf soft--ends soft-double--sides">
+    <div class="float--left">
+      <a href="https://www.optimizely.com">
+        <img class="display--inline-block vertical-align--bottom" src="/assets/img/optimizely_logo_footer.svg">
+      </a>
+      <span class="soft--left">&copy; 2016 Optimizely</span>
+      <a class="soft--left is-hidden-on-mobile" href="https://www.optimizely.com/terms/">Terms of Service</a>
+      <a class="soft--left" href="https://www.optimizely.com/privacy/">Privacy Policy</a>
+    </div>
+    <div class="float--right is-hidden-on-mobile" style="margin-top: 2px;">
+       <a class="soft--left" href="https://www.optimizely.com/">Optimizely.com</a>
+       <a class="soft--left" href="https://blog.optimizely.com/">Blog</a>
+       <a class="soft--left" href="https://help.optimizely.com/">Help</a>
+       <a class="soft--left" href="https://community.optimizely.com/">Community</a>
+       <a class="soft--left" href="https://www.optimizely.com/jobs/">Jobs</a>
+    </div>
+  </footer>
+
+
+    <!-- JQUERY -->
+    <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-13208639-14', 'optimizely.com');
+      ga('send', 'pageview');
+    </script>
+
+      
+    <!-- Intercom Livechat -->
+    <script>
+      window.intercomSettings = {
+      app_id: "yl0ks87b"
+    };
+    </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/yl0ks87b';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+
+
+  </body>
+</html>
+

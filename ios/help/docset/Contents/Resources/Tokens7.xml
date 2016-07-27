@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/OptimizelyExperimentDataState.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/OptimizelyExperimentDataState</TokenIdentifier>
+			<Abstract type="html">Type describing the current state of the experiment</Abstract>
+			<DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+            
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyExperimentDataStateDisabled</TokenIdentifier>
+            <Abstract type="html">Experiment is not running on the Optimizely dashboard. Try starting the experiment on https://www.optimizely.com</Abstract>
+            <Declaration>OptimizelyExperimentDataStateDisabled</Declaration>
+            
+            <DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+            
+            <NodeRef refid="7"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyExperimentDataStatePending</TokenIdentifier>
+            <Abstract type="html">Experiment is pending activation. Usually this means that you can now manually activate it through [Optimizely activateManualExperiment:]</Abstract>
+            <Declaration>OptimizelyExperimentDataStatePending</Declaration>
+            
+            <DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+            
+            <NodeRef refid="7"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyExperimentDataStateRunning</TokenIdentifier>
+            <Abstract type="html">Experiment is running</Abstract>
+            <Declaration>OptimizelyExperimentDataStateRunning</Declaration>
+            
+            <DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+            
+            <NodeRef refid="7"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/OptimizelyExperimentDataStateDeactivated</TokenIdentifier>
+            <Abstract type="html">Experiment has been deactivated
+This can happen if
+(a) not all of its assets are downloaded by the time our block time runs out, or
+(b) another experiment has already been activated that makes a conflicting change
+(c) targeting criteria for this experiment has not been met
+     </Abstract>
+            <Declaration>OptimizelyExperimentDataStateDeactivated</Declaration>
+            
+            <DeclaredIn>OptimizelyExperimentData.h</DeclaredIn>
+            
+            <NodeRef refid="7"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

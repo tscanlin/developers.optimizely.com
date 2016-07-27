@@ -1,0 +1,958 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>OptimizelyPlugin Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Optimizely </a></h1>
+				<a id="developerHome" href="../index.html">Optimizely</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">OptimizelyPlugin Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/pluginId">&nbsp;&nbsp;&nbsp;&nbsp;pluginId</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/dimensionNames">&nbsp;&nbsp;&nbsp;&nbsp;- dimensionNames</option>
+	
+	<option value="//api/name/evaluateCodeBlockForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- evaluateCodeBlockForKey:</option>
+	
+	<option value="//api/name/evaluateDimension:withCondition:">&nbsp;&nbsp;&nbsp;&nbsp;- evaluateDimension:withCondition:</option>
+	
+	<option value="//api/name/evaluateLiveVariableOfType:forKey:defaultValue:">&nbsp;&nbsp;&nbsp;&nbsp;- evaluateLiveVariableOfType:forKey:defaultValue:</option>
+	
+	<option value="//api/name/getCodeBlocks">&nbsp;&nbsp;&nbsp;&nbsp;- getCodeBlocks</option>
+	
+	<option value="//api/name/getDependencies">&nbsp;&nbsp;&nbsp;&nbsp;- getDependencies</option>
+	
+	<option value="//api/name/getLiveVariables">&nbsp;&nbsp;&nbsp;&nbsp;- getLiveVariables</option>
+	
+	<option value="//api/name/processTouchEvent:">&nbsp;&nbsp;&nbsp;&nbsp;- processTouchEvent:</option>
+	
+	<option value="//api/name/shouldHandleTouchEvents">&nbsp;&nbsp;&nbsp;&nbsp;- shouldHandleTouchEvents</option>
+	
+	<option value="//api/name/startWithOptimizely:withConfig:">&nbsp;&nbsp;&nbsp;&nbsp;- startWithOptimizely:withConfig:</option>
+	
+	<option value="//api/name/stop">&nbsp;&nbsp;&nbsp;&nbsp;- stop</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pluginId">pluginId</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dimensionNames">dimensionNames</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/evaluateCodeBlockForKey:">evaluateCodeBlockForKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/evaluateDimension:withCondition:">evaluateDimension:withCondition:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/evaluateLiveVariableOfType:forKey:defaultValue:">evaluateLiveVariableOfType:forKey:defaultValue:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getCodeBlocks">getCodeBlocks</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getDependencies">getDependencies</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getLiveVariables">getLiveVariables</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/processTouchEvent:">processTouchEvent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldHandleTouchEvents">shouldHandleTouchEvents</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startWithOptimizely:withConfig:">startWithOptimizely:withConfig:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stop">stop</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="OptimizelyPlugin Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">OptimizelyPlugin Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">OptimizelyPlugin.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This protocol must be implemented by classes which wish to integrate with <a href="../Classes/Optimizely.html">Optimizely</a>
+via the Plugin System. For more information on creating a plugin see our documentation:</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pluginId">&nbsp;&nbsp;pluginId</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getDependencies">&ndash;&nbsp;getDependencies</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shouldHandleTouchEvents">&ndash;&nbsp;shouldHandleTouchEvents</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startWithOptimizely:withConfig:">&ndash;&nbsp;startWithOptimizely:withConfig:</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stop">&ndash;&nbsp;stop</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getLiveVariables">&ndash;&nbsp;getLiveVariables</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getCodeBlocks">&ndash;&nbsp;getCodeBlocks</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/evaluateLiveVariableOfType:forKey:defaultValue:">&ndash;&nbsp;evaluateLiveVariableOfType:forKey:defaultValue:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/evaluateCodeBlockForKey:">&ndash;&nbsp;evaluateCodeBlockForKey:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/processTouchEvent:">&ndash;&nbsp;processTouchEvent:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dimensionNames">&ndash;&nbsp;dimensionNames</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/evaluateDimension:withCondition:">&ndash;&nbsp;evaluateDimension:withCondition:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/pluginId" title="pluginId"></a>
+	<h3 class="subsubtitle method-title">pluginId</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Each plugin must have a unique identifier. The bundle name of the plugin is usually
+sufficient. For example: &lsquo;com.optimizely.crashreporting&rsquo;
+This property will be queried after the plugin initialization but before start is called.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *pluginId</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/dimensionNames" title="dimensionNames"></a>
+	<h3 class="subsubtitle method-title">dimensionNames</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Declare the dimension names that this plugin handles.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSSet *)dimensionNames</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>nil or a NSSet of dimension names</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/evaluateCodeBlockForKey:" title="evaluateCodeBlockForKey:"></a>
+	<h3 class="subsubtitle method-title">evaluateCodeBlockForKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Evaluate the given code block and return the name of the branch that should
+be executed. Nil may be returned if the plugin does not care.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)evaluateCodeBlockForKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the name of the code block</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the name of the branch to execute.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/evaluateDimension:withCondition:" title="evaluateDimension:withCondition:"></a>
+	<h3 class="subsubtitle method-title">evaluateDimension:withCondition:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Evaluate a dimension name against it&rsquo;s condition.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)evaluateDimension:(NSString *)<em>dimensionName</em> withCondition:(NSDictionary *)<em>condition</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>dimensionName</em></dt>
+			<dd><p>name of the condition to evaluate.  Useful for switching on the different dimension names supported
+by this plugin.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>condition</em></dt>
+			<dd><p>NSDictionary containing key value pairs used by the <a href="../Classes/Optimizely.html">Optimizely</a> dimension evaluator, i.e.:
+{ &ldquo;name: "skymosity.currentTemperature&rdquo;, &ldquo;value&rdquo;: &ldquo;10:60&rdquo;, &ldquo;match_type&rdquo;: &ldquo;range&rdquo;, &ldquo;content_type&rdquo; : &ldquo;third_party_dimension&rdquo; }</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true if the condition passes for the given dimension name and false if it doesn&rsquo;t.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/evaluateLiveVariableOfType:forKey:defaultValue:" title="evaluateLiveVariableOfType:forKey:defaultValue:"></a>
+	<h3 class="subsubtitle method-title">evaluateLiveVariableOfType:forKey:defaultValue:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Evaluate the given live variable and return the value. The value must be
+of the type denoted by cls. The default value should be returned if the plugin
+does not care</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)evaluateLiveVariableOfType:(Class)<em>cls</em> forKey:(NSString *)<em>key</em> defaultValue:(id)<em>defaultValue</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cls</em></dt>
+			<dd><p>the class of the expected type</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the name of the live variable</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>defaultValue</em></dt>
+			<dd><p>the default value for the live variable</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the calculated value for the live variable</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getCodeBlocks" title="getCodeBlocks"></a>
+	<h3 class="subsubtitle method-title">getCodeBlocks</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Declare all CodeBlock keys that this plugin wishes to modify. This selector
+will be queried after start has been called. May return nil if this plugin
+does not modify code blocks.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSSet *)getCodeBlocks</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a set of strings which correspond to the CodeBlock key names.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getDependencies" title="getDependencies"></a>
+	<h3 class="subsubtitle method-title">getDependencies</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Declare all dependencies on other plugins here. This selector will be queried
+before start is called, but after initialization.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSSet *)getDependencies</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a list of plugin identifiers</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getLiveVariables" title="getLiveVariables"></a>
+	<h3 class="subsubtitle method-title">getLiveVariables</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Declare all LiveVariable keys that this plugin wishes to modify. This selector
+will be queried after start has been called. May return nil if this plugin
+does not modify live variables.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSSet *)getLiveVariables</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a set of strings which correspond to the LiveVariable key names.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/processTouchEvent:" title="processTouchEvent:"></a>
+	<h3 class="subsubtitle method-title">processTouchEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If <a href="#//api/name/shouldHandleTouchEvents">shouldHandleTouchEvents</a> returns true, touch events will be passed to the plugin.
+This selector will be queried after start has been called.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)processTouchEvent:(UIEvent *)<em>event</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>event</em></dt>
+			<dd><p>The event that the plugin will process</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shouldHandleTouchEvents" title="shouldHandleTouchEvents"></a>
+	<h3 class="subsubtitle method-title">shouldHandleTouchEvents</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true if this plugin should receive and handle touch events. This selector
+will be queried after start has been called.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)shouldHandleTouchEvents</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true if this plugin should receive and handle touch events. This selector
+will be queried after start has been called.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startWithOptimizely:withConfig:" title="startWithOptimizely:withConfig:"></a>
+	<h3 class="subsubtitle method-title">startWithOptimizely:withConfig:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialize the plugin and start any listeners or threads.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)startWithOptimizely:(Optimizely *)<em>optimizely</em> withConfig:(NSDictionary *)<em>config</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>optimizely</em></dt>
+			<dd><p>A reference to the <a href="../Classes/Optimizely.html">Optimizely</a> singleton so that services can be accessed</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>config</em></dt>
+			<dd><p>The config object for this plugin from the data file</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true if the plugin was started successfully, false otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stop" title="stop"></a>
+	<h3 class="subsubtitle method-title">stop</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Stop the extension and clean up any objects that are owned by the extension.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)stop</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">OptimizelyPlugin.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+                    
+                    
+
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2016 Optimizely. All rights reserved. (Last updated: 2016-05-23)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

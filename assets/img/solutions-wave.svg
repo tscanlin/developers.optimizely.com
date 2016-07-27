@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="638px" height="341px" viewBox="0 0 638 341" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 33</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="649" height="346"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-33" sketch:type="MSArtboardGroup">
+            <g id="Imported-Layers-Copy-7-+-Imported-Layers-Copy-8-+-Imported-Layers-Copy-Copy" sketch:type="MSLayerGroup" transform="translate(-11.000000, -5.000000)">
+                <mask id="mask-2" sketch:name="Mask" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <g id="Imported-Layers-Copy-7-+-Imported-Layers-Copy-8-+-Imported-Layers-Copy" mask="url(#mask-2)" opacity="0.400000006">
+                    <g transform="translate(-21.975528, 365.654508) rotate(-18.000000) translate(21.975528, -365.654508) translate(-951.975528, 216.154508)">
+                        <g id="Imported-Layers-Copy-7" stroke="none" stroke-width="1" fill-rule="evenodd" sketch:type="MSLayerGroup" transform="translate(1.000000, 6.000000)">
+                            <path d="M0.243,281.7 C138.862,281.553 191.359,205.63 248.356,205.63 C305.354,205.63 351.476,263.895 425.348,263.895 C499.219,263.895 527.342,78.314 639.837,78.314 C752.331,78.314 785.33,205.63 852.826,205.63 C920.323,205.63 968.32,94.738 1070.315,94.738 C1172.31,94.738 1229.307,166.735 1301.304,166.735 C1373.3,166.735 1415.298,0.095 1491.794,0.095 C1544.729,0.095 1588.226,50.684 1610,81.849 C1619.692,95.72 1724.282,281.7 1724.282,281.7" id="Stroke-2" stroke="#0095E7" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                        </g>
+                        <path d="M83,282.605 C221.619,282.458 324.116,206.535 381.113,206.535 C438.111,206.535 484.233,264.8 558.104,264.8 C631.976,264.8 660.1,79.219 772.594,79.219 C885.088,79.219 918.087,206.535 985.583,206.535 C1053.08,206.535 1101.077,95.643 1203.072,95.643 C1305.067,95.643 1362.064,167.64 1434.061,167.64 C1506.057,167.64 1548.055,1 1624.551,1 C1674.907,1 1716.723,46.78 1739.421,78.068 C1751.205,94.311 1858.037,294.375 1858.037,294.375" id="Imported-Layers-Copy-8" stroke="#20ACC1" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                        <path d="M13,282.605 C151.619,282.458 254.116,206.535 311.113,206.535 C368.111,206.535 414.233,264.8 488.104,264.8 C561.976,264.8 590.1,79.219 702.594,79.219 C815.088,79.219 848.087,206.535 915.583,206.535 C983.08,206.535 1031.077,95.643 1133.072,95.643 C1235.067,95.643 1292.064,167.64 1364.061,167.64 C1436.057,167.64 1478.055,1 1554.551,1 C1604.907,1 1646.723,46.78 1669.421,78.068 C1681.205,94.311 1788.037,294.375 1788.037,294.375" id="Imported-Layers" stroke="#0B9D76" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Optimizely Developers</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Optimizely Developer Documentation">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- This should be the first script to make sure redirects work quickly. -->
+    <script src="/assets/js/bundle.js" type="text/javascript"></script>
+
+    <!-- Demandbase -->
+    <script>
+      (function(d,b,a,s,e) {
+        var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+        t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+        fs.parentNode.insertBefore(t, fs);
+      })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+    </script>
+
+    <!-- Heap Analytics -->
+    <script type="text/javascript">
+      if (document.location.hostname != "localhost") {
+        window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+        heap.load("411455962");
+      }
+    </script>
+
+    <!-- Optimizely -->
+    <script src="//cdn.optimizely.com/js/6663270427.js"></script>
+  </head>
+  <body class="android reference">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <!-- <symbol id="add" viewBox="-590 386 16 16">
+      <path d="M-575 395v-2h-6v-6h-2v6h-6v2h6v6h2v-6z"/>
+    </symbol>
+    <symbol id="align-center" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM24 14H8c-1.1 0-2-.9-2-2s.9-2 2-2h16c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM24 30H8c-1.1 0-2-.9-2-2s.9-2 2-2h16c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-justify" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 14H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 30H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-left" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM18 14H4c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM18 30H4c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="align-right" viewBox="0 0 32 32">
+      <g><path d="M28 6H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 14H14c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zM28 22H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 30H14c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2z"/></g>
+    </symbol>
+    <symbol id="archive" viewBox="0 0 32 32">
+      <g><path d="M30 4c0-1.3-.6-2-2-2H4c-1.3 0-2 .6-2 2v4h28V4zM4 10v18c0 1.3.6 2 2 2h20c1.3 0 2.1-.6 2.1-2V10H4z"/><path fill="#fff" d="M18 18v-8h-4v8H8l8 8 8-8z"/></g>
+    </symbol>
+    <symbol id="arrow-left" viewBox="-463 265 32 32">
+      <path d="M-454.8 281l11.3 11.3 4.3-4.2-7.1-7.1 7.1-7.1-4.3-4.2z"/>
+    </symbol>
+    <symbol id="arrow-right" viewBox="-463 265 32 32">
+      <path d="M-439.2 281l-11.3-11.3-4.3 4.2 7.1 7.1-7.1 7.1 4.3 4.2z"/>
+    </symbol>
+    <symbol id="audiences" viewBox="0 0 32 32">
+      <g><path d="M11.5 11.4c0 1.9 1.2 3.6 2.8 4.3.6.2 1.2.4 1.8.4 2.6 0 4.7-2.1 4.7-4.7 0-1.9-1.2-3.6-2.8-4.3-.6-.2-1.2-.4-1.8-.4-2.6.1-4.7 2.1-4.7 4.7zM22.8 11.1c.4.1.7.1 1.1.1 2.6 0 4.7-2.1 4.7-4.7s-2.1-4.7-4.7-4.7c-2.2 0-4.1 1.6-4.5 3.6 2 1.3 3.3 3.3 3.4 5.7zM14.2 16C10.9 16 8 20.4 8 23.7V28.6l.3.1c3.1 1 3.8 1.2 7.6 1.2 4.4 0 7.6-1.5 7.7-1.6l.4-.3v-4.4c0-2.9-1.9-6.4-4.6-7.2-.4-.1-.8-.4-1.2-.4h-4zM8 11.3c.5 0 1-.1 1.5-.3.1-2.2 1.3-4.1 3.1-5.2-.4-2.2-2.3-3.9-4.6-3.9-2.6 0-4.6 2.1-4.6 4.7s2 4.7 4.6 4.7zM6 23.7c0-3.1 2-6.5 4.8-8.1C10 14.5 9.6 13 9.5 12H6c-3.3 0-6 2.3-6 5.6v6.3l.3.1c2.1.7 3.6 1 5.6 1.2v-1.5zM25.9 12h-3.1c0 1-.5 2.5-1.3 3.6.9.5 1.7 1.1 2.4 2.1 1.3 1.7 2.1 3.8 2.1 5.9V25c3.4-.2 5.4-.9 5.6-1h.4v-6.4c0-3.3-2.8-5.6-6.1-5.6z"/></g>
+    </symbol>
+    <symbol id="calendar" viewBox="0 0 32 32">
+      <path d="M22 2V0h-4v2h-6V0H8v2H0v30h30V2h-8zM10 28H4v-6h6v6zm0-8H4v-6h6v6zm8 8h-6v-6h6v6zm0-8h-6v-6h6v6zm0-8H4V6h14v6zm8 16h-6v-6h6v6zm0-8h-6v-6h6v6zm0-8h-6V6h6v6z"/>
+    </symbol>
+    <symbol id="check" viewBox="-595 381 32 32">
+      <path d="M-564.2 389l-4.3-4.3-15.2 15.2-6.1-6.1-4.2 4.3 10.3 10.3"/>
+    </symbol> -->
+    <symbol id="clipboard" viewBox="0 0 32 32">
+      <g><path d="M10 12h12v4H10zM10 20h12v4H10zM18 2V0h-4v2H2v30h28V2H18zm8 26H6V6h4v2h12V6h4v22z"/></g>
+    </symbol>
+    <!-- <symbol id="close" viewBox="-289 381 32 32">
+      <path d="M-261.7 389.8l-4.2-4.2-7.1 7.1-7.1-7.1-4.2 4.2 7.1 7.1-7.1 7.1 4.2 4.2 7.1-7.1 7.1 7.1 4.2-4.2-7.1-7.1z"/>
+    </symbol>
+    <symbol id="code" viewBox="0 0 32 32">
+      <g><path d="M8 25.4c-.4 0-.8-.2-1.1-.5L.3 17c-.4-.5-.4-1.3 0-1.8l6.2-7.9c.5-.7 1.5-.9 2.1-.4.6.5.7 1.4.3 2L3.3 16l5.8 7c.5.6.4 1.5-.2 2-.3.2-.6.4-.9.4zM24 25.4c-.3 0-.7-.1-.9-.3-.6-.5-.7-1.4-.2-2l5.7-7.1-5.5-7c-.5-.6-.4-1.5.3-2 .6-.5 1.5-.4 2 .3l6.1 7.9c.4.5.4 1.3 0 1.8L25 24.9c-.2.3-.6.5-1 .5zM13.7 27.8c-.1 0-.2 0-.3-.1-.7-.2-1.2-.9-1.1-1.7l4.9-20.8c.2-.7 1-1.2 1.8-1 .7.2 1.2.9 1.1 1.7l-4.9 20.8c-.3.7-.9 1.1-1.5 1.1z"/></g>
+    </symbol>
+    <symbol id="collaborators" viewBox="0 0 32 32">
+      <g><circle cx="9" cy="7" r="5"/><circle cx="23" cy="7" r="5"/><path d="M32 32v-.2L28 16c0-1.1-.9-2-2-2h-6c-1.1 0-2 .9-2 2v16h14zM13.9 32l.1-.2V15.9c0-1.1-1-1.9-2.1-1.9h-6c-1.1 0-1.9.8-1.9 1.9L0 31.8l-.1.2h14z"/></g>
+    </symbol>
+    <symbol id="dimensions" viewBox="0 0 32 32">
+      <g><path fill="#fff" d="M17 2L2 8l14.9 6L32 7.9 17 2z"/><path d="M16 30L2 24V10l14 6zM30 12.6v9.8l-10 4.9v-9.8l10-4.9m2-2.7l-14 6v14l14-6v-14z"/><path fill="#fff" d="M30 12.6v9.8l-10 4.9v-9.8l10-4.9"/><path stroke="#000" stroke-width="2" stroke-miterlimit="10" d="M30 8M4 8" fill="none"/><path d="M17 4.1L27.2 8l-10.3 4L6.7 8 17 4.1M17 2L2 8l14.9 6L32 7.9 17 2z"/></g>
+    </symbol>
+    <symbol id="duplicate" viewBox="0 0 32 32">
+      <g><path d="M22 32H2c-1.1 0-2-.9-2-2V9.9c0-1.1.9-2 2-2h20c1.1 0 2 .9 2 2V30c0 1.1-.9 2-2 2zM30 0H10C8.9 0 8 .9 8 2v2h18c1.1 0 2 .8 2 1.9V24h2c1.1 0 2-.8 2-1.9V2c0-1.1-.9-2-2-2z"/><path fill="#fff" d="M18 18h-4v-4h-4v4H6v4h4v4h4v-4h4z"/></g>
+    </symbol>
+    <symbol id="editor-switch" viewBox="0 0 16 16">
+      <path fill="#fff" d="M10.2 7.4v-2c0-1.7-1.4-3-3-3h-.6c-1.6 0-3 1.3-3 3v2c0 1.7 1.4 3 3 3h.6c1.6 0 3-1.3 3-3z"/><path d="M9.9 10.9h-6c-.5 0-.9-.4-.9-.9V2.8c0-.5.4-.9.9-.9h6c.5 0 .9.4.9.9v7.3c-.1.5-.5.8-.9.8zm-5.8-1h5.5V3H4.1v6.9z"/><path fill="#fff" d="M12.3 10.5v-2c0-1.7-1.3-3-3-3h-.6c-1.6 0-3 1.4-3 3v2c0 1.6 1.3 3 3 3h.6c1.6 0 3-1.3 3-3z"/><path d="M12 14.1H6c-.5 0-.9-.4-.9-.9V5.9c0-.5.4-.9.9-.9h6c.5 0 .9.4.9.9v7.3c-.1.5-.5.9-.9.9zM6.2 13h5.5V6.1H6.2V13zM15.2 6.6l-1-.3c.2-.7 0-1.3-.4-1.8-.5-.5-1.3-.6-2-.3l-.4-1c1.1-.5 2.3-.3 3.1.4.7.8 1 1.9.7 3zM13.7 5.3L13.6 8 16 6.8zM3.2 13c-.8 0-1.6-.3-2.2-1-1.1-1.2-1.3-3-.6-4.5l1 .5c-.6 1.1-.4 2.4.4 3.3.6.6 1.4.8 2.3.4l.4 1c-.5.2-.9.3-1.3.3zM1.8 8.9l.3-2.7-2.5 1z"/>
+    </symbol>
+    <symbol id="experiments" viewBox="0 0 32 32">
+      <g><path d="M0 22v10h32V14l-10 6-12-4zM22 12.1l-12-4-10 6v-4L10 4l12 4 10-6.4V6z"/></g>
+    </symbol>
+    <symbol id="external" viewBox="-752 644.1 31 30.9">
+      <g><path d="M-726 644.9c0-.2-.1-.4-.2-.6-.2-.2-.3-.2-.6-.2l-7.6.1c-.3 0-.6.2-.7.5-.1.2-.1.6.1.8l7.6 7.7c.2.2.5.2.8.1.3-.2.5-.4.5-.7l.1-7.7M-740.8 656.8l2.2 2.2 11.1-11.1-2.2-2.2-11.1 11.1"/><path d="M-731.2 658.1v8.8h-17.6v-17.6h8.8v-3.2h-12v24h24v-12z"/></g>
+    </symbol>
+    <symbol id="goal" viewBox="0 0 32 32">
+      <g><path d="M2 .1C3 .1 4 1 4 2v30H0V2C0 1 .9.1 2 .1zM25 6.2c2.4 0 5.5-1.3 6.9-2.3v18.6c-1.4 1-4.6 2.3-6.9 2.3s-4.5-.7-5.9-1.7c-1.4-1-2.8-1.7-5.1-1.7-2.4 0-4.5 1.5-6 2.5V5.3c1.4-1 3.6-2.5 6-2.5s3.7.7 5.1 1.7 3.5 1.7 5.9 1.7z"/></g>
+    </symbol>-->
+    <symbol id="hamburger" viewBox="0 0 32 32">
+      <path d="M28 8H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 18H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2zM28 28H4c-1.1 0-2-.9-2-2s.9-2 2-2h24c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
+    </symbol>
+    <!--<symbol id="history" viewBox="0 0 32 32">
+      <g><path d="M18 2C10.9 2 5.1 7.2 4.2 14H0l6 6 6-6H7.2c.9-5.1 5.4-9 10.8-9 6.1 0 11 4.9 11 11s-4.9 11-11 11c-4 0-7.6-2.2-9.5-5.5l-2.2 2.2C8.8 27.5 13.1 30 18 30c7.7 0 14-6.3 14-14S25.7 2 18 2zM16 8h4v8h-4zM20.9 23.9L24 22l-4-6h-4z"/></g>
+    </symbol>
+    <symbol id="inconclusive" viewBox="0 0 32 32">
+      <circle fill="#fff" cx="16" cy="15.9" r="15.9"/><path d="M16 3c7.1 0 12.9 5.8 12.9 12.9s-5.8 13-12.9 13-13-5.8-13-13S8.8 3 16 3m0-3C7.2 0 0 7.1 0 15.9s7.2 16 16 16S31.9 24.8 31.9 16 24.8 0 16 0zM14 6h4v12h-4zM14 14h10v4H14z"/>
+    </symbol>
+    <symbol id="integrations" viewBox="0 0 32 32">
+      <g><path d="M25.5 9.3c.1.4.2.8.2 1.2.1.8 0 1.8-.1 2.5 2.1 1.7 3.4 4.2 3.4 7 0 5-4 9-9 9s-9-4-9-9c0-4.6 3.4-8.3 7.8-8.9 0-.4-.1-1.1-.4-1.9-.2-.4-.3-.8-.5-1C12.3 9.2 8 14.1 8 20c0 6.6 5.4 12 12 12s12-5.4 12-12c0-4.6-2.6-8.7-6.5-10.7zM12 0C5.4 0 0 5.4 0 12c0 4.4 2.4 8.3 6 10.4-.1-.8-.2-1.6-.2-2 0-.4.1-1.2.2-1.7C4.1 17 3 14.6 3 12c0-5 4-9 9-9s9 4 9 9c0 4.5-3.3 8.3-7.7 8.9 0 .5 0 .9.3 1.5.3.7.4 1 .7 1.3 5.5-1.1 9.6-6 9.6-11.8C24 5.4 18.6 0 12 0z"/></g>
+    </symbol>
+    <symbol id="live-variables" viewBox="0 0 32 32">
+      <g><path d="M30 0h-6c-1.1 0-2 .9-2 2s.9 2 2 2h4v24h-4c-1.1 0-2 .9-2 2s.9 2 2 2h6c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM2 32h6c1.1 0 2-.9 2-2s-.9-2-2-2H4V4h4c1.1 0 2-.9 2-2s-.9-2-2-2H2C.9 0 0 .9 0 2v28c0 1.1.9 2 2 2zM22.2 20.7c-.2 0-.6.1-.7.1-1.1 0-3.1-.5-3.9-3.9l5.8-5.9s1.2-1.2.4-2.3c-.3-.6-1.8-1-2.6-.2l-4.3 4.3C15 8.4 11.1 8 9.7 8S8 9.8 8 10.8c0 1 .9 2.1 2.2 2.2s3.2-.2 4.1 3.2l-5.6 5.3c-.3.3-.5.6-.5 1.1 0 .5.2.8.5 1.1.3.4.8.3 1.3.3s.9 0 1.4-.4l3.8-4.1c1.9 4.2 5.3 4.5 6.7 4.5 0 0 2.1-.1 2.1-2 0-1.2-1-1.3-1.8-1.3z"/></g>
+    </symbol>
+    <symbol id="lock" viewBox="0 0 32 32">
+      <g><path d="M26 12c0-5.5-4.5-10-10-10S6 6.5 6 12c-1.2 0-2 .9-2 2v16c0 1.1.8 2 1.9 2h20c1.1 0 2-.9 2-2V14c.1-1.1-.8-2-1.9-2zm-4.1 0h-13c0-3.9 3.1-7 7-7s7 3.1 7 7h-1z"/><path fill="#fff" d="M20 20c0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.5.8 2.8 2 3.4V26c0 1.1.9 2 2 2s2-.9 2-2v-2.6c1-.7 2-1.9 2-3.4z"/></g>
+    </symbol>
+    <symbol id="loser" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="16"/><path fill="#fff" d="M14 6h4v14h-4zM14 22h4v4h-4z"/>
+    </symbol>
+    <symbol id="paperclip" viewBox="0 0 32 32">
+      <path d="M15.6 32c-4.1 0-8.2-2.4-8.2-7V6.8c0-4.5 2.9-6.8 5.8-6.8S19 2.4 19 6.8v15.8c0 2.6-1.7 3.9-3.4 3.9-.9 0-1.8-.4-2.4-1-.5-.5-1-1.4-1-2.9V8c0-.6.4-1 1-1s1 .4 1 1v14.6c0 1.3.7 1.9 1.4 1.9s1.4-.6 1.4-1.9V6.8C17 3.5 15 2 13.2 2S9.3 3.5 9.3 6.8V25c0 3.4 3.2 5 6.2 5s6.2-1.6 6.2-5V8c0-.6.4-1 1-1s1 .4 1 1v17c.1 4.6-4 7-8.1 7z"/>
+    </symbol>
+    <symbol id="pause" viewBox="0 0 32 32">
+      <g><path d="M6 4h8v24H6zM18 4h8v24h-8z"/></g>
+    </symbol>
+    <symbol id="play" viewBox="0 0 32 32">
+      <path d="M4 4v24l23.9-12z"/>
+    </symbol>
+    <symbol id="projects" viewBox="0 0 32 32">
+      <g><path d="M2 4h4v4H2zM10 4h20v4H10zM2 14h4v4H2zM10 14h20v4H10zM2 24h4v4H2zM10 24h20v4H10z"/></g>
+    </symbol>
+    <symbol id="redo" viewBox="-471 274 16 14">
+      <g><path d="M-455.7 279l-3.7 3.6c-.2.2-.4.2-.6.1-.2-.1-.3-.2-.3-.4v-7.4c0-.2.1-.4.3-.4.2-.1.4 0 .6.1l3.7 3.6c.1.1.2.2.2.4-.1.1-.1.2-.2.4"/><path d="M-465.9 277.8h8.9v1.6h-8.9c-1.7 0-3 1.3-3 3v.4c0 1.6 1.4 3 3 3h1.8c.4 0 .8.3.8.8 0 .4-.4.8-.8.8h-1.8c-2.6 0-4.6-2-4.6-4.5v-.4c-.1-2.7 2-4.7 4.6-4.7"/></g>
+    </symbol>
+    <symbol id="refresh" viewBox="0 0 32 32">
+      <path d="M24.6 9.5l-2.2 2.2c.7 1.2 1.1 2.5 1.1 3.9 0 4.3-3.5 7.8-7.8 7.8s-7.8-3.5-7.8-7.8 3.5-7.8 7.8-7.8h.3V13l4.7-4.7 1.6-1.6L16 .5v4.4h-.3C9.8 4.9 5 9.7 5 15.6c0 5.9 4.8 10.8 10.8 10.8 5.9 0 10.8-4.8 10.8-10.8-.1-2.2-.8-4.4-2-6.1z"/>
+    </symbol>
+    <symbol id="save" viewBox="-472 273 15 16">
+      <g><path d="M-458.9 273.9v6H-470v-6h-1.7v13.4c0 .5.4.9.9.9h12.6c.5 0 .9-.4.9-.9v-11.8l-1.6-1.6"/><path d="M-463 273.9h2.4v4.8h-2.4v-4.8z"/></g>
+    </symbol>-->
+    <symbol id="search-16" viewBox="0 0 16 16">
+       <g><g><path d="M6.21,12.417C2.786,12.417,0,9.632,0,6.209C0,2.785,2.786,0,6.21,0c3.422,0,6.206,2.785,6.206,6.209
+			C12.416,9.632,9.632,12.417,6.21,12.417z M6.21,1C3.337,1,1,3.337,1,6.209s2.337,5.208,5.21,5.208c2.87,0,5.206-2.336,5.206-5.208
+			S9.08,1,6.21,1z"/> <path d="M15.5,16c-0.128,0-0.256-0.049-0.354-0.146l-5.25-5.25c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l5.25,5.25
+			c0.195,0.195,0.195,0.512,0,0.707C15.756,15.951,15.628,16,15.5,16z"/></g></g>
+    </symbol>
+    <!--
+    <symbol id="settings" viewBox="0 0 32 32">
+      <path d="M30.8 13.5l-3.1-.5c-.2-.9-.6-1.8-1-2.6l2-2.5c.4-.5.4-1.3 0-1.8l-1.2-1.4c-.5-.6-1.3-.7-1.8-.3L23 6.1c-1.2-.8-2.5-1.4-4-1.8l-.5-3.1C18.4.5 17.8 0 17.2 0h-1.9c-.7 0-1.3.5-1.4 1.2l-.5 3.1c-1.2.3-2.3.8-3.3 1.4L7.5 3.9c-.5-.4-1.3-.4-1.8.1L4.4 5.3c-.5.5-.5 1.3-.1 1.8l1.8 2.6c-.6 1-1.1 2.1-1.4 3.3l-3.2.5c-.7.1-1.2.7-1.2 1.4v1.9c0 .7.5 1.3 1.2 1.4l3.2.5c.2 1 .6 1.9 1 2.8l-2 2.5c-.4.5-.4 1.3 0 1.8l1.2 1.4c.5.5 1.2.6 1.8.3l2.7-1.7c1.1.8 2.4 1.4 3.8 1.7l.5 3.1c.1.7.7 1.2 1.4 1.2H17c.7 0 1.3-.5 1.4-1.2l.5-3.1c1.2-.3 2.3-.7 3.3-1.4l2.7 1.9c.5.4 1.3.3 1.8-.1l1.3-1.3c.5-.5.5-1.2.1-1.8l-1.9-2.6c.6-1 1.1-2.1 1.4-3.3l3.1-.5c.7-.1 1.2-.7 1.2-1.4v-1.9c.1-.9-.4-1.5-1.1-1.6zm-14.6 8.2c-3.3 0-5.9-2.7-5.9-5.9 0-3.3 2.7-5.9 5.9-5.9 3.3 0 5.9 2.7 5.9 5.9.1 3.3-2.6 5.9-5.9 5.9z"/>
+    </symbol>
+    <symbol id="star" viewBox="0 0 32 32">
+      <path d="M16 2l3.7 10.7h11.1l-8.9 6.7L25.2 30 16 23.7 6.9 30l3.2-10.6-8.8-6.7h11.1z"/>
+    </symbol>
+    <symbol id="sync" viewBox="0 0 32 32">
+      <g><path d="M24.6 9.5l-1.9 1.9c1.9 3.1 1.4 7.3-1.3 10-2 2-4.4 2.7-7.4 2.2v-5l-4.6 4.7-1.6 1.6 6.2 6.3v-4.8c3 .5 6.8-.5 9.3-3 3.7-3.9 4.2-9.8 1.3-13.9zM10.1 9.9C11.7 8.3 14 7.5 16 7.6v5.5l4.7-4.7 1.6-1.6L16 .5v4.4c-3 0-5.6 1-7.8 3.1-3.6 3.6-4.1 9-1.6 13.1l2-2c-1.5-2.9-1-6.7 1.5-9.2z"/></g>
+    </symbol>
+    <symbol id="trash" viewBox="0 0 32 32">
+      <g><path d="M8-.1h14V2H8zM2 2h26v6H2zM4 10h22v22H4z"/></g>
+    </symbol>
+    <symbol id="undo" viewBox="-471 274 16 14">
+      <g><path d="M-470.3 279l3.7 3.6c.2.2.4.2.6.1.2-.1.3-.2.3-.4v-7.4c0-.2-.1-.4-.3-.4-.2-.1-.4 0-.6.1l-3.7 3.6c-.1.1-.2.2-.2.4.1.1.1.2.2.4"/><path d="M-460.1 277.8h-8.9v1.6h8.9c1.7 0 3 1.3 3 3v.4c0 1.6-1.4 3-3 3h-1.8c-.4 0-.8.3-.8.8 0 .4.4.8.8.8h1.8c2.6 0 4.6-2 4.6-4.5v-.4c.1-2.7-2-4.7-4.6-4.7"/></g>
+    </symbol>
+    <symbol id="userlist" viewBox="0 0 32 32">
+      <g><path d="M15.075 6.574c0 2.96-2.398 5.36-5.358 5.36-2.96 0-5.36-2.4-5.36-5.36 0-2.96 2.4-5.36 5.36-5.36 2.96 0 5.358 2.4 5.358 5.36"/><path d="M.57 26.43s-1.63-14.7 8.932-14.7c10.562 0 8.784 14.7 8.784 14.7s-3.22 1.186-8.846 1.186c-5.625 0-8.87-1.187-8.87-1.187"/><path d="M30.642 4.176H17.23c-.373 0-.675-.302-.675-.674v-1.7c0-.373.302-.675.675-.675h13.412c.373 0 .675.302.675.674v1.702c0 .372-.302.674-.675.674"/><path d="M30.642 18.303h-8.84c-.373 0-.675-.303-.675-.674v-1.703c0-.373.302-.674.674-.674h8.842c.373 0 .675.3.675.674v1.702c0 .37-.302.673-.675.673"/><path d="M30.642 11.446H19.515c-.372 0-.674-.303-.674-.675v-1.7c0-.373.303-.675.675-.675h11.127c.373 0 .675.302.675.675v1.7c0 .373-.302.676-.675.676"/><path d="M30.642 25.57h-6.555c-.373 0-.674-.3-.674-.673v-1.7c0-.373.3-.675.674-.675h6.555c.373 0 .675.302.675.675v1.7c0 .373-.302.674-.675.674"/></g>
+    </symbol>
+    <symbol id="variation-settings" viewBox="0 0 32 32">
+      <g><path d="M12 12.6v-.7c-.5-2.1-2-3.8-4-4.5V0H4v7.3c-2.3.8-4 3-4 5.7s1.7 4.8 4 5.7V32h4V18.7c2-.7 3.5-2.5 3.9-4.6V13s.1-.3.1-.4zM6 16c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zM22 21.6v-.7c-.4-2.1-1.9-3.9-3.9-4.6V0h-4v16.3c-2.3.8-4 3-4 5.7s1.7 4.8 4 5.7V32h4v-4.3c2-.7 3.5-2.5 3.9-4.6v-1.5zM16 25c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zM32 9.6v-.7c-.5-2.1-2-3.8-4-4.5V0h-4v4.3c-2 .8-4 3-4 5.7s2 4.8 4 5.7V32h4V15.7c2-.7 3.5-2.5 3.9-4.6V10s.1-.3.1-.4zM26 13c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.4 3-3 3z"/></g>
+    </symbol>
+    <symbol id="winner" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="16"/><path fill="#fff" d="M16.9 21.5l7.8-12.4-3.6-2.3L13.2 19l-3.6-2.3-2.3 3.6 6.8 4.5.4.3.5-.6z"/>
+    </symbol> -->
+</svg>
+
+
+  <header id="header" class="header justify background--super-dark">
+    
+    <div class="link--reverse hidden is-inline-block-on-mobile nav-toggle">
+      <label for="toggle-nav-checkbox">
+        <svg class="icon">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#hamburger"></use>
+        </svg>
+      </label>
+    </div>
+    
+
+    <a class="display--inline-block header-logo-container" href="/">
+      <img src="/assets/img/optimizely-developer-logo.svg" alt="Optimizely Developers">
+    </a>
+
+    <div class="header-links display--inline-block vertical-align--top is-hidden-on-mobile">
+      <div class="position--relative display--inline-block push-double--right">
+        <input type="text" id="site-search" placeholder="Search" class="text-input text-input--small reverse soft-triple--right width--200">
+        <svg class="icon input-icon__right reverse cursor--pointer">
+          <use xlink:href="#search-16"></use>
+        </svg>
+      </div>
+
+      <div class="display--inline-block">
+        <ul class="unstyled nav">
+          <li class="push-double--right"><a href="/overview">Overview</a></li>
+          <li class="position--relative push-double--right">
+            <a href="/rest/introduction" data-collapser>
+              Documentation
+              <span class="arrow-inline--down"></span>
+            </a>
+            <ul class="unstyled nav nav--stacked dropdown background--super-dark soft--sides collapsible--small is-collapsed" data-auto-close>
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/javascript/">Web</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/ios/">iOS</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/android/">Android</a>
+                  </li>
+                
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/rest/">REST API</a>
+                  </li>
+                
+              
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/integrations/">Integrations</a>
+                  </li>
+                
+              
+                
+                  <li class="push-half">
+                    <a href="/apps/">Apps</a>
+                  </li>
+                
+              
+                
+              
+            </ul>
+          </li>
+          <li class="push-double--right"><a href="http://community.optimizely.com/t5/Developers/bd-p/Developers" target="_blank">Discussion</a></li>
+          <li class="flush"><a href="https://devplatform.typeform.com/to/XrDLzQ">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main" class="main has-nav">
+    <input id="toggle-nav-checkbox" class="hidden" type="checkbox">
+<nav id="nav">
+  <div class="nav-sidebar">
+
+    <div class="soft-double">
+      
+        
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/overview">Overview</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Solutions</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/javascript" data-collapser>Web</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/javascript/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/code-samples/index.html">Code Samples</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/javascript/personalization/index.html">Personalization</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/ios" data-collapser>iOS</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/ios/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/faqs/index.html">FAQs</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/guide/index.html">Tutorial</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/changelog/index.html">Changelog</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/ios/articles/index.html">Articles</a>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                      <li>
+                        <a class="section" href="/ios/help/html/index.html" target="_blank">Apple Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section active" href="/android" data-collapser>Android</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible">
+                    
+                      <li>
+                        <a class="section" href="/android/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section active" href="/android/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/faqs/index.html">FAQs</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/guide/index.html">Tutorial</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/changelog/index.html">Changelog</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/android/articles/index.html">Articles</a>
+                        
+                        
+                          <ul class="unstyled nav nav--stacked">
+                            <!-- Only show sibling data if it exists. -->
+                            
+                          </ul>
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                      <li>
+                        <a class="section" href="/android/help/index.html" target="_blank">Java Docs <img class="display--inline-block" width="12" height="12" src="/assets/img/external-link.png"></a>
+                      </li>
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Management</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/rest" data-collapser>REST API</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/rest/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/getting-started/index.html">Getting started</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/reference/index.html">Reference</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/rest/conditions/index.html">Audience Conditions</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Authentication</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/oauth">OAuth 2.0</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/token">Token based</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Data Services</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/events" data-collapser>Event Access</a>
+
+                  <!-- TOC for single pages -->
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+                      <li>
+                        <a class="section" href="/events/introduction/index.html">Introduction</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/events/api/index.html">Event API</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+                      <li>
+                        <a class="section" href="/events/export/index.html">Data Export</a>
+                        
+                          <ul class="unstyled nav nav--stacked toc"></ul>
+                        
+                        
+                      </li>
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/customer-profiles">Customer Profiles</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/results">Experiment Results</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Add Ons</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/integrations">Integrations</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/apps">Apps</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/extensions">Extensions</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+        
+          
+            <label class="label caps micro muted">Community</label>
+          
+          <ul class="unstyled epsilon push--bottom soft-half--bottom">
+            
+              <!-- Hide if its a hidden section unless its the current path (users go direct to the url) -->
+              
+                <li>
+                  <a class="main-section" href="/libs">Libraries</a>
+
+                  <!-- TOC for single pages -->
+                  
+                    <ul class="unstyled nav nav--stacked epsilon soft--left toc"></ul>
+                  
+
+                  <!-- Sub sections -->
+                  <ul class="unstyled nav nav--stacked epsilon soft--left collapsible is-collapsed">
+                    
+
+                    <!-- Add links to auto generated docs -->
+                    
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        
+      
+    </div>
+  </div>
+</nav>
+
+
+    <div id="content" class="content soft-double max-width--reading">
+      <h1 id="optimizely-android-sdk-reference">Optimizely Android SDK Reference</h1>
+<p>This section provides information on how to customize your SDK installation and code snippets for how to implement Optimizely&#39;s APIs.</p>
+<p>Key things you can do include:</p>
+<ul>
+<li><a href="#programmatically-enable-edit-mode">Programmatically connect to Optimizely&#39;s web editor</a></li>
+<li><a href="#disable-gesture">Disable gesture</a> (The gesture is disabled by default in your live app)</li>
+<li><a href="#disable-visual-editor">Disable the visual editor</a></li>
+<li><a href="#register-live-variables">Register live variables</a></li>
+<li><a href="#code-blocks">Implement code blocks</a></li>
+<li><a href="#goal-tracking">Custom Event and Revenue Tracking</a></li>
+<li><a href="#analytics-integrations">Implement custom and default analytics integrations</a></li>
+</ul>
+<h2 id="connecting-to-optimizely-s-editor">Connecting to Optimizely&#39;s Editor</h2>
+<p>It is highly recommended to use Optimizely&#39;s &#39;O&#39; gesture to connect your app to Optimizely&#39;s editor.  However, there are other options should you choose not to implement Optimizely&#39;s URL scheme.</p>
+<h3 id="programmatically-enable-edit-mode">Programmatically Enable Edit Mode</h3>
+<p>Typically Optimizely&#39;s &#39;O&#39; gesture will put your app into Edit Mode, which will then allow you to connect with Optimizely&#39;s editor.  However, if you choose not to implement the URL scheme in your app or are unable to put the app into &#39;Edit Mode&#39;, prior to <code>startOptimizelyWithAPIToken</code>, you can call <a href="/android/help/reference/com/optimizely/Optimizely.html#enableEditor%28%29">enableEditor</a> in the development version of your app so that you can make changes.</p>
+<pre><code class="lang-java">Optimizely.enableEditor();
+Optimizely.startOptimizelyWithAPIToken(getOptimizelyToken(), getApplication());
+</code></pre>
+<p> <strong>Note that you should always remove the enableEditor call prior to releasing your app to the App store.</strong></p>
+<h3 id="disable-gesture">Disable Gesture</h3>
+<p>By default, Optimizely&#39;s Android SDK disables the gesture if the app is live in the Play store.  However, if you would like to ensure that your end users are not able to put the app into edit mode (e.g. if you have an enterprise app that you release to internal employees), you can call the <a href="/android/help/reference/com/optimizely/Optimizely.html#setEditGestureEnabled%28boolean%29">setEditGestureEnabled</a> method prior to <code>startOptimizelyWithAPIToken</code>.</p>
+<p>An example of how to implement this method can be found below:</p>
+<pre><code class="lang-java">Optimizely.setEditGestureEnabled(false);
+Optimizely.startOptimizelyWithAPIToken(getOptimizelyToken(), getApplication());
+</code></pre>
+<h2 id="visual-editor-configuration">Visual Editor Configuration</h2>
+<p>The Optimizely Visual Editor allows you to modify existing views in your app. The first time you connect your app to Optimizely&#39;s Visual Editor, you can see which views are automatically detected by Optimizely.  Optimizely is able to detect and allows you to modify these views by:</p>
+<ul>
+<li>Dynamically tagging all views with an Optimizely ID</li>
+<li>Optimizely uses swizzling to enable view changes</li>
+</ul>
+<h3 id="tag-your-views">Tag Your Views</h3>
+<p>There are some cases where Optimizely will not be able to detect your views.  For those views, you should give them a unique <code>optimizelyId</code>.  An example of how to do this is below:</p>
+<pre><code class="lang-java">TextView priceTextView = (TextView) rowView.findViewById(R.id.textViewPrice);
+Optimizely.setOptimizelyId(&quot;price_text_label&quot;, priceTextView);
+</code></pre>
+<h3 id="disable-visual-editor">Disable Visual Editor</h3>
+<p>If you decide you want to exclusively use Live Variables and Code Blocks, you can set <a href="/android/help/reference/com/optimizely/Optimizely.html#setVisualExperimentsEnabled%28boolean%29">setVisualExperimentsEnabled</a> to false.</p>
+<p><strong>Note: Disabling the Visual Editor will also disable the ability to track tap goals. If you disable the Visual Editor, you&#39;ll need to rely only on view goals and custom event goals to track conversions.</strong></p>
+<h2 id="register-live-variables">Register Live Variables</h2>
+<p>Live Variables allow you to designate variables in your app that can be assigned values in the Optimizely editor.  These values can be modified by Optimizely&#39;s editor even after you have released your app to the app store.  For example, you might want to create an experiment that tests various values for gravity. Live Variables can be accessed anywhere in your application. These values can be used as feature flags, to modify the behavior of your app, or as a convenient way to update your app with new styling.</p>
+<pre><code class="lang-java">public class MyActivity extends Activity {
+  private static LiveVariable&lt;Float&gt; gravityVariable = Optimizely.floatForKey(&quot;Gravity&quot;, 9.8f /* default value */);
+  private static LiveVariable&lt;Boolean&gt; enableGravityVariable = Optimizely.booleanForKey(&quot;EnableGravity&quot;, true /* default value */);
+
+  private float updateSpeed(float currentSpeed) {
+    if (enableGravityVariable.get()) {
+        return currentSpeed + gravityVariable.get();
+    } else {
+      return currentSpeed;
+    }
+  }
+}
+</code></pre>
+<p>Once a variable is defined, each variation can specify a different value for that variable.</p>
+<p>Optimizely defines different  <code>&lt;type&gt;Variable()</code> functions for all the basic Java types. See the <a href="/android/help/reference/com/optimizely/Optimizely.html">Class Documentation</a> for more information.  In order to access the variable, call <code>Optimizely.&lt;type&gt;Variable</code> and provide the corresponding variable name. Variables are scoped at an application level, thus repeated calls to <code>Optimizely.&lt;type&gt;Variable</code> will return the same value throughout your application.</p>
+<pre><code class="lang-java">import com.optimizely.Optimizely;
+
+public class GameUtils {
+  private static World makeNewWorld() {
+      double gravity = Optimizely.floatVariable(&quot;Gravity&quot;, 9.8).get();
+
+      // Use gravity here...
+  }
+}
+</code></pre>
+<p>You&#39;re now ready to edit your Live Variables using the Optimizely web editor:</p>
+<ol>
+<li>Make sure you have not called <code>Optimizely.setEditGestureEnabled(false)</code>.</li>
+<li>Load your application and draw a large circle to connect in edit mode.</li>
+<li>Navigate to the variables section of the editor.
+<img src="/assets/img/android/editor-variables-add-button.png" alt="Drawing" style="width: 50%;"/></li>
+<li>Click the &quot;Add Variable&quot; button to open a dialog where you can select variables to add to your experiment.</li>
+<li>Once you have added a variable to the experiment, you can select a value for each variation in the variables section of the editor.</li>
+<li>While in edit mode, changes to the variable will be applied on subsequent reads, thereby allowing you to quickly test your variable logic.  However, we recommend that you verify your variable tests in <a href="/android/getting-started/index.html#preview-mode">preview mode</a> prior to going live with the experiment.</li>
+<li>Once you&#39;ve connected your app to the editor, you can later edit live variables without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.</li>
+</ol>
+<h3 id="register-variable-callback">Register Variable Callback</h3>
+<p>By default, in Edit Mode, Optimizely&#39;s editor will apply variable value changes once the screen the variable is defined on is reloaded.  However, there may be times where you want the changed value of the variable to be reflected in your app without the screen being refreshed while you&#39;re making experiment changes.  To do so, you can use the overloaded <code>Optimizely.&lt;type&gt;Variable</code> methods like <code>&quot;stringVariable(String variableKey, String defaultValue, Callback callback)&quot;</code>.</p>
+<p>An example implementation of this can be found below:</p>
+<pre><code class="lang-java">Optimizely.stringVariable(&quot;variableKey&quot;, &quot;defaultValue&quot;, new LiveVariable.Callback&lt;String&gt;() {
+  @Override
+  public void execute(String variableKey, @Nullable String value) {
+    Log.i(&quot;log-tag&quot;, String.format(&quot;The value of Optimizely&#39;s Live Variable: %s is now %s&quot;,
+              variableKey, value));
+    actionButton.setText(value);
+  }
+});
+</code></pre>
+<h2 id="code-blocks">Code Blocks</h2>
+<p>Code Blocks allow developers to create variations that execute different code paths. Code Blocks are declared as static variables and then can be accessed anywhere in your application. For example, one use case might be to test various checkout flows.</p>
+<p><strong>Note: The syntax for Code Blocks was changed in version 1.0+</strong></p>
+<p>First, define your CodeBlock as a static variable, then, add handlers for each of the possible branches in your code:</p>
+<pre><code class="lang-java">private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlock(&quot;CheckoutFlow&quot;)
+        .withBranchNames(&quot;shortCheckout&quot;, &quot;longCheckout&quot;);
+</code></pre>
+<p>The above Code Block will have 3 branches: the &quot;default&quot; branch, and a branch named &quot;shortCheckout&quot; and a branch named &quot;longCheckout&quot;.</p>
+<p>This is what the implementation of that Code Block looks like. Be sure to implement your Code Block branches in the same order as you declare them when initializing the Code Block.</p>
+<pre><code class="lang-java">public class CommerceActivity extends Activity {
+  private static OptimizelyCodeBlock checkoutFlow = Optimizely.codeBlock(&quot;CheckoutFlow&quot;).withBranchNames(&quot;shortCheckout&quot;, &quot;longCheckout&quot;);
+
+  private void checkout() {
+    // This line defines Code Blocks &quot;shortCheckout&quot;, &quot;longCheckout&quot;, and a
+    // default block that is executed in the case that the experiment is
+    // not activated.
+    checkoutFlow.execute(new DefaultCodeBranch() {
+            @Override
+            public void execute() {
+                // This block is executed by default
+                goToDefaultCheckout();
+            }
+        }, new CodeBranch() {
+            @Override
+            public void execute() {
+                // This block is executed when myCheckoutTest -&gt; shortCheckout
+                goToShortCheckout();
+            }
+        }, new CodeBranch() {
+            @Override
+            public void execute() {
+                // This block is executed when myCheckoutTest -&gt; longCheckout
+                goToLongCheckout();
+            }
+        });
+  }
+}
+</code></pre>
+<p>You&#39;re now ready to implement your experiment using the Optimizely web editor:</p>
+<ol>
+<li>Make sure you have not called <code>Optimizely.setEditGestureEnabled(false)</code>.</li>
+<li>Load your application and draw a large circle to connect in edit mode.</li>
+<li>Navigate to the Code Blocks section of the editor.
+<img src="/assets/img/android/editor-codeblocks-add-button.png" alt="Drawing"></li>
+<li>Click the &quot;Add Code Block&quot; button to open a dialog where you can select Code Blocks to add to your experiment.</li>
+<li>Once you have added a Code Block to the experiment, you can select a value for each variation in the Code Blocks section of the editor.</li>
+<li>While in edit mode, changes to the active block will be applied on subsequent executions, thereby allowing you to quickly test your Code Block&#39;s logic.  However, we recommend that you verify your Code Blocks in <a href="/android/getting-started/index.html#preview-mode">preview mode</a> prior to going live with the experiment.</li>
+<li>Once you&#39;ve connected your app to the editor, you can later edit code blocks without connecting a device. However, if you make any changes to your app, make sure to connect it again to allow your changes to sync with the editor.</li>
+</ol>
+<p>For more details, please see the <a href="/android/help/reference/com/optimizely/CodeBlocks/OptimizelyCodeBlock.html">Code Blocks API Reference</a></p>
+<h3 id="register-code-block-callback">Register Code Block Callback</h3>
+<p>By default, in Edit Mode, Optimizely&#39;s editor will apply code block branch changes once the code block is executed again.  However, there may be times where you want the new code block branch to be executed in your app without the screen being refreshed while you&#39;re making experiment changes. To do so, you can use the <code>Optimizely.CodeBlock</code> method <code>setCallback(new OptimizelyCodeBlock.Callback(){...})</code></p>
+<p>An example implementation of this can be found below:</p>
+<pre><code class="lang-java">OptimizelyCodeBlock myCodeBlock = Optimizely.codeBlock(&quot;myCodeBlock&quot;).setCallback(new OptimizelyCodeBlock.Callback() {
+        @Override
+        public void onBranchChange() {
+            // Calling renderViews will allow us to execute the code that wraps our code block
+            renderViews();
+        }
+    }).withBranchNames(&quot;branch1&quot;, &quot;branch2&quot;);
+</code></pre>
+<h3 id="phased-rollouts">Phased Rollouts</h3>
+<p>A common use case for Code Blocks are phased rollouts.  Phased rollouts allow you to release a feature to a subset of users, which will help you mitigate the risk of crashes and help you understand how users will react to your new feature prior to rolling out a new feature to all users.  To learn more about to implement a phased rollout using Optimizely, you can refer to the article in Optiverse <a href="https://help.optimizely.com/hc/en-us/articles/206101447-Phased-rollouts-for-your-iOS-or-Android-App">here</a>.</p>
+<h2 id="custom-targeting">Custom Targeting</h2>
+<h3 id="attributes">Attributes</h3>
+<p>Use attributes to segment your experiment results for more insight. This allows you to drill down into experiment results and discover how certain segments of users are behaving differently. This will allow you to create future experiments targeted to them.</p>
+<p>To set the value for an Attribute use one of these four methods.</p>
+<pre><code class="lang-java">boolean success = Optimizely.setValueForAttributeId(String, String);
+boolean success = Optimizely.setValueForAttributeApiName(String, String);
+boolean success = Optimizely.setValueForAttributeId(String, String, Context);
+boolean success = Optimizely.setValueForAttributeApiName(String, String Context);
+</code></pre>
+<p>Both methods will return a boolean that determines whether the value was successfully set for the Attribute. If the string you passed in for the Attribute Id or the Attribute API Name do not match an Attribute in your project, it will return false. If Optimizely was able to locate the Attribute and set the value, it will return true. If you are using these methods before starting Optimizely, you MUST pass in the current Context. When the latter 2 methods are called before starting Optimziely they will always return true even if the Attribute Id or Attribute API Name do not match an existing Attribute. If you use both <code>setValueForAttributeId(String, String, Context)</code> and <code>setValueForAttributeApiName(String, String, Context)</code> before starting Optimizely for the same attribute, <code>setValueForAttributeId(String, String, Context)</code> will override <code>setValueForAttributeApiName(String, String, Context)</code> when the Attribute is initialized.</p>
+<p>To get the current value of an Attribute use one of these two methods.</p>
+<pre><code class="lang-java">String value = Optimizely.getValueForAttributeId(String);
+String value = Optimizely.getValueForAttributeApiName(String);
+String value = Optimziely.getValueForAttributeId(String, Context);
+String value = Optimizely.getValueForAttributeApiName(String, Context);
+</code></pre>
+<p>Both methods will return an <code>String</code> object whose value is the current value for the associated Attribute. If the Attribute does not exist, it will return <code>null</code>. If you use these methods before starting Optimizely, you MUST passin the current Context. When called before starting Optimizely, they will return the last value you provided through the corresponding <code>setValueForAttributeId(String, String, Context):</code> or <code>setValueForAttributeApiName(String, String, Context)</code> call. But <code>getValueForAttributeId(String, Context)</code> will not be able to return the value for an Attribute whose value you have attempted to set through <code>setValueForAttributeApiName(String, String, Context)</code>. Likewise, <code>getValueForAttributeApiName(String, Context)</code> will not be able to return the value for an Attribute whose value you have attempted to set through <code>setValueForAttributeId(String, String, Context)</code>.</p>
+<p>To get an Array of all the current Attributes, use</p>
+<pre><code class="lang-obj-c">ArrayList&lt;OptimizelyAttribute&gt; *attributes = Optimizely.getAttributes();
+</code></pre>
+<p>This method returns a copy of all attributes that are defined in the data file. If this is called before Optimizely starts, it will return an empty array. If there are no attributes, it will return an empty array. Each attribute will be an index in the ArrayList represented by an instance of the <code>OptimizelyAttribute</code> class.</p>
+<h3 id="custom-tags">Custom Tags</h3>
+<p>Custom Tags allow you to target users based on variables and attributes before Optimizely starts. You will be able to run your experiment and target visitors based on those custom attributes, effectively <strong>only</strong> bucketing those who meet your targeting conditions.
+To create an experiment targeting a Custom Tag, open the Optimizely editor, click on &quot;Options&quot;, followed by &quot;Targeting&quot; and selecting &quot;Custom Tag&quot; within the Optimizely editor.</p>
+<p>For example, to create the Custom Tag <code>&quot;returning_customer&quot;</code> with a value of <code>&quot;true&quot;</code>:</p>
+<pre><code class="lang-java">@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    // more create logic
+    Optimizely.setCustomTag(&quot;returning_customer&quot;, &quot;true&quot;);
+    Optimizely.startOptimizelyWithAPIToken(&quot;&lt;API Token&gt;&quot;, getApplication());
+}
+</code></pre>
+<p>Make sure to call <code>setCustomTag</code> prior to <code>startOptimizelyWithAPIToken</code> and any time custom tag values are expected to change.  To do that you can make the <code>setValue:forCustomTag:</code> call in the following ways:</p>
+<ul>
+<li>Prior to <code>startOptimizelyWithAPIToken</code> so that Optimizely knows all of the targeting conditions prior to experiment activation</li>
+<li><code>setCustomTag</code> can also be called in conjunction with <code>refreshExperiments</code> while the app is still running.  For more details on how this works, you can refer to the section below.</li>
+</ul>
+<p>Please refer to our <a href="/android/help/reference/com/optimizely/Optimizely.html#setCustomTag(java.lang.String, java.lang.String">API Docs</a> for more details.</p>
+<h3 id="experiment-reload">Experiment Reload</h3>
+<p><a href="/android/help/reference/com/optimizely/Optimizely.html#refreshExperiments%28%29">refreshExperiments</a> should be called any time custom tag values are expected to change.  <a href="/android/help/reference/com/optimizely/Optimizely.html#refreshExperiments%28%29">refreshExperiments</a> allows Optimizely to take into account a user&#39;s newly added or changed custom tag values and re-buckets users based on updated targeting.</p>
+<p>For example, here&#39;s a use case where the user logs in, the developer sets a logged in custom tag, and then calls <a href="/android/help/reference/com/optimizely/Optimizely.html#refreshExperiments%28%29">refreshExperiments</a>:</p>
+<pre><code class="lang-java">  private void userDidLogIn(String username) {
+    Optimizely.setCustomTag(&quot;returning_customer&quot;, &quot;true&quot;);
+    Optimizely.refreshExperiments();
+  }
+</code></pre>
+<p><em>Note: <a href="#manual-activation">Manually activated</a> experiments will need to be re-activated after refreshExperments for the new audience conditions to take effect.</em></p>
+<h3 id="universal-user-id-beta-">Universal User ID (Beta)</h3>
+<p>Set a unique (logged-in) identifier to be used by Optimizely for bucketing and tracking. Once set, Optimizely will bucket visitors in all new and future experiments so that visitors will see the same variation across devices (e.g. Android phone to tablet). Note that bucketing only happens upon app foregrounding or cold start. We will store this identifier in local storage and continue to use it until a new one is set.</p>
+<p>Optimizely will also track unique visitors in experiment results using this ID; we will count an anonymous ID and a Universal ID as two distinct visitors, and prefer the Universal ID when counting experiment traffic and goals. UUID will not rebucket users who have seen a certain experiment already. <em>Regardless, make sure to target your experiments to &quot;Has Universal User ID&quot; to ensure consistent counting and bucketing across devices.</em></p>
+<pre><code class="lang-java">Optimizely.setUserId(&quot;userid&quot;);
+</code></pre>
+<p>Always set UUID before your experiment gets activated. For automatic experiments, this means setting UUID before you call start Optimizely. For manual experiments, this means setting UUID before you call activateManualExperiment.</p>
+<p><em>This is a beta feature, and is subject to change.</em> To learn more, visit our <a href="https://help.optimizely.com/hc/en-us/articles/203626830">Help Center</a>, or consult our <a href="/ios/help/html/Classes/Optimizely.html#//api/name/userId">API reference</a>. For support, please visit <a href="http://www.optiverse.com/">Optiverse</a> or contact your Customer Success Manager.</p>
+<div class="attention attention--warning push--bottom">Note: By using this API call, you agree not to pass personally identifiable (PII) information to Optimizely in accordance with our <a href="http://optimizely.com/terms">Terms of Service</a> or your Master Service Agreement. If your login identifier is personally identifiable (such as an email address) you must hash it first before sending to Optimizely.</div>
+
+<h2 id="goal-tracking">Goal Tracking</h2>
+<h3 id="track-event">Track Event</h3>
+<p>Custom goals allow you to track events other than taps and view changes. There are two steps to creating a custom goal. The first step occurs in the web editor. Click &quot;Goals&quot;, then &quot;Create a New Goal&quot;, and select &quot;Custom Goal&quot; from the drop-down. You will be prompted for a string to uniquely identify your custom goal. In order to track this goal, send this same string as a parameter to</p>
+<pre><code class="lang-java">Optimizely.trackEvent(&quot;GoalID&quot;);
+</code></pre>
+<p>For example, if we wanted a goal for users deleting a task with a swipe, we might create a custom goal &quot;User Deleted Task&quot; and then call <code>trackEvent</code> with this string in our event handler as follows:</p>
+<pre><code class="lang-java">private void userDidSwipeTask() {
+    Optimizely.trackEvent(&quot;UserDeletedTask&quot;);
+    //The rest of your handler
+}
+</code></pre>
+<p>As of SDK version 1.1, if you aren&#39;t sure of the exact spelling of your custom goal string, you can trigger custom events in your simulator or connected device, and the strings will appear in the dialog in the order they were triggered.</p>
+<p>For more details and to learn about tap and view goals, refer to the following <a href="https://help.optimizely.com/Track_Conversion_Goals/Mobile_Goals%3A_Measure_the_success_of_your_experiment">guide</a> from our Knowledge Base.</p>
+<h3 id="revenue-tracking">Revenue Tracking</h3>
+<p>The Revenue goal allows you to track purchases made by your users. There are two steps to adding the revenue goal to your experiment. The first step occurs in the web editor. Click &quot;Goals&quot;, then &quot;Add a Saved Goal&quot;, hover over the &quot;Total Revenue&quot; goal, and click the &quot;Add&quot; button. In order to track this goal, use the revenue API by passing an integer number of cents:</p>
+<pre><code class="lang-java">private void userCompletedPurchase() {
+    Optimizely.trackRevenue(price * 100));
+    //The rest of your handler
+}
+</code></pre>
+<h2 id="analytics-integrations">Analytics Integrations</h2>
+<p>Optimizely offers a number of configurable 3rd party analytics integrations in order to easily tag your analytics data with Optimizely experiments. Each integration is available as a separate package.</p>
+<p>Currently, we support the following frameworks in our Android SDK.  Detailed integration instructions can be found if you follow the respective link:</p>
+<ul>
+<li><a href="https://help.optimizely.com/hc/en-us/articles/204963198">Amplitude</a></li>
+<li><a href="https://help.optimizely.com/hc/en-us/articles/209645787">Localytics</a></li>
+<li><a href="#mixpanel">Mixpanel</a></li>
+<li><a href="https://help.optimizely.com/hc/en-us/articles/204628347">Universal Analytics</a></li>
+</ul>
+<p>For basic configuration instructions, you can scroll down to the 3rd party analytics tool to find code that needs to be added to the app.  For all integrations, Optimizely should be initialized <em>after</em> your third party analytics tool is initialized in your code.  Once you have followed the configuration instructions below, you can enable the integration through your Optimizely Project Dashboard.</p>
+<p><img src="/assets/img/android/Localytics_Integration.png" alt="Drawing" style="width: 50%;"/></p>
+<h3 id="amplitude">Amplitude</h3>
+<p>Gradle dependency:</p>
+<pre><code class="lang-groovy">dependencies {
+    compile(&#39;com.optimizely:amplitudeintegration:+@aar&#39;)
+}
+</code></pre>
+<h3 id="localytics">Localytics</h3>
+<p>Gradle dependency:</p>
+<pre><code class="lang-groovy">dependencies {
+    compile(‘com.optimizely.localyticsintegration:+@aar’)
+}
+</code></pre>
+<h3 id="mixpanel">Mixpanel</h3>
+<p>Gradle dependency:</p>
+<pre><code class="lang-groovy">dependencies {
+    compile(&#39;com.optimizely:mixpanelintegration:+@aar&#39;)
+}
+</code></pre>
+<p>Installation:</p>
+<pre><code class="lang-java">MixpanelAPI mixpanelAPI = MixpanelAPI.getInstance(this, &quot;API_TOKEN&quot;);
+Optimizely.startOptimizelyWithAPIToken(&quot;&lt;API Token&gt;&quot;, getApplication());
+</code></pre>
+<h3 id="universal-analytics-google-analytics-">Universal Analytics (Google Analytics)</h3>
+<p>Gradle dependency:</p>
+<pre><code class="lang-groovy">dependencies {
+    compile(&#39;com.optimizely:universalanalyticsintegration:+@aar&#39;)
+}
+</code></pre>
+<p>Installation:</p>
+<pre><code class="lang-java">Tracker tracker = GoogleAnalytics.getInstance(this).newTracker(&quot;TRACKER_ID&quot;);
+OptimizelyUniversalAnalyticsIntegration.setTracker(tracker);
+</code></pre>
+<h3 id="custom-integration">Custom Integration</h3>
+<p>You can also build your own analytics integrations by accessing the experiments and variations active for a given user directly using the <code>Optimizely.getVisitedExperiments()</code> and pass that data to internal or other analytics frameworks.  For more details about this property, you can refer to the <a href="/android/help/reference/com/optimizely/Optimizely.html#getVisitedExperiments(">API documentation</a>).</p>
+<p>When building your own analytics integration, the recommended time to access the <code>Optimizely.getVisitedExperiments()</code> data and send that to the analytics framework is in the method <code>onOptimizelyExperimentViewed(OptimizelyExperimentData experimentState)</code> which can be found when you add the <a href="/android/reference/index.html#adding-an-event-listener">OptimizelyEventListener</a> to Optimizely.</p>
+<h2 id="network-settings">Network Settings</h2>
+<p>There are only two instances when the Optimizely Android SDK uses a network connection: when downloading the config file (which contains all experiment configuration information) and when returning event tracking data.  By default, the config file is automatically downloaded every 2 minutes. Event tracking data is automatically uploaded whenever the user leaves a screen of your application (on every <code>Activity.onPause</code>). The Optimizely Android SDK allows you to customize how often these network calls are made by:</p>
+<ol>
+<li>Customizing the 2 minute interval</li>
+<li>By turning off automatic sending of events and allowing you to sending events manually.</li>
+</ol>
+<p>The first option is to customize the interval for how often you want network calls to be made. To adjust the interval in seconds, you can call <code>Optimizely.setDataFileDownloadInterval(long)</code>. Setting the download interval to 0 or a negative value will completely disable downloading of the data file (Not recommended).
+For example, to set the data file download to 5 minutes (300,000ms):
+<code>Optimizely.setDataFileDownloadInterval(5 * 60 * 1000);</code></p>
+<p>The second option is to turn off the automatic event sends and manually make network calls. Calling <code>Optimizely.setAutomaticEventSending(false);</code> will disable the automatic sending of events. You will need to send events manually using <code>Optimizely.sendEvents()</code> in order to collect experiment results.</p>
+<pre><code class="lang-java">Optimizely.setAutomaticEventSending(false);
+</code></pre>
+<p>To manually send events, in the appropriate function (e.g. where you make other network calls or after a custom event goal is triggered):</p>
+<pre><code class="lang-java">  private void userClickedImportantButton() {
+      Optimizely.trackEvent(&quot;ImportantButtonClicked&quot;);
+      Optimizely.sendEvents(); // Manually send the event logs back to the server
+  }
+</code></pre>
+<p>Please refer to the documentation for <a href="/android/help/reference/com/optimizely/Optimizely.html#trackEvent%28String%29">trackEvent</a>, and <a href="/android/help/reference/com/optimizely/Optimizely.html#sendEvents%28%29">sendEvents</a>for more details.</p>
+<h2 id="manual-activation">Manual Activation</h2>
+<h3 id="experiment-activation-modes">Experiment Activation Modes</h3>
+<p>There are two different types of activation modes for Optimizely Mobile experiments.</p>
+<h4 id="automatic-default-">Automatic (Default)</h4>
+<p>By default, Optimizely buckets users and activates the experiment as soon as the app starts and the startOptimizely method is called (either synchronously or asynchronously). Experiments are marked as visited when the end user reaches an element that has been modified in the experiment.</p>
+<h4 id="manual">Manual</h4>
+<p>In manual activation mode, developers can specify, via an in-app API call, at which point they want to activate a given experiment. Manual activation allows you to separate the experiment start (which buckets the users and activates the experiment) from startOptimizely, which loads the datafile and any remote assets, such as images. Manual activation is only available for SDK versions 1.3.0 and above.</p>
+<p><em>Please note that visitors still must meet Audience targeting conditions for a manually activated experiment to be eligible for that experiment.</em> Manual activation does not bypass Audience conditions.</p>
+<p>Toggle between manual and automatic activation mode from the Options &gt; Activation Mode menu in the Editor:</p>
+<p><img src="/assets/img/android/activation_mode.png" alt="Drawing" style="width: 50%;"/></p>
+<h3 id="use-cases">Use Cases</h3>
+<h4 id="use-case-1-set-additional-metadata-for-your-audiences-before-evaluating-targeting-conditions-for-an-unactivated-experiment-">Use Case #1: Set additional metadata for your audiences before evaluating targeting conditions for an unactivated experiment.</h4>
+<p>Bucketing only occurs for your audiences when activateExperiment is called and NOT when startOptimizely is called, and thus any custom tags you set before the experiment starts will be considered for targeting.
+For example, you can mark a user as a “VIP” at one point during a session, then use this tag for an experiment later in the same session.
+With automatic activation mode, you can only target using tags set before the app was started (and thus set in a previous session).</p>
+<h4 id="use-case-2-bucket-only-a-subset-of-users-who-access-less-frequently-used-areas-of-your-app-">Use Case #2: Bucket only a subset of users who access less frequently used areas of your app.</h4>
+<p>Bucketing users when the app loads, which is done in automatic mode, may not be the best choice for experiments involving an experience that not all users visit.
+For example, if you want to test a feature deep in your user experience that only 10% of users visit, you wouldn’t necessarily want to bucket all users when you launch your app (as is done with automatic mode), because this could lead to skewed sampling.
+If you manually activate your experiment only when users reach that experience, you can bucket users at the point where they visit that feature, and run tests on only those users.</p>
+<h4 id="use-case-3-quick-load-assets-for-consistency-">Use Case #3: Quick-load assets for consistency.</h4>
+<p>Remote assets distributed by the Optimizely CDN, such as images you upload to our editor, start loading asynchronously when the app starts. As a result, if any assets fail to load before an experiment is viewed due to slow internet speeds, the user is not showed the variation and is instead shown the control even though that user has been bucketed.
+The variation will be shown to the user the next time he or she opens the app, assuming the assets have loaded before he or she views the experiment, leading to an inconsistent user experience and possibly even skewed results.
+In manual activation mode, you can activate experiments right when you want to show them, giving the user’s device more time to load assets associated with that experiment.</p>
+<h3 id="manual-activation-example">Manual Activation Example</h3>
+<pre><code class="lang-java">// Calling start Optimizely will not activate any manual experiments.
+// Instead you have to activate them manually for users to see your experiment
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+
+...
+
+// You specify when you want to activate each manual experiment.
+// For use case #1 above, this can be useful if you want to wait until you
+// have additional data for a user and then store that data as custom tags.
+// For example, we now know that the user is a VIP user so we set a tag for that
+Optimizely.setCustomTag(&quot;accountType&quot;, &quot;VIP&quot;);
+
+// Activate a manual experiment that takes the custom tag we just set into account
+boolean success = Optimizely.activateManualExperiment(myExperimentId);
+</code></pre>
+<h2 id="debugging-your-experiments">Debugging Your Experiments</h2>
+<h3 id="adding-an-event-listener">Adding an Event Listener</h3>
+<p>Clients can get notifications when various Optimizely events occur in the Optimizely SDK life cycle like start of the SDK or an experiment visited. To do that, client needs to register a callback with Optimizely and override methods which they are interested in.</p>
+<pre><code class="lang-java">  Optimizely.addOptimizelyEventListener(new OptimizelyEventListener() {
+
+    public void onOptimizelyStarted() {
+      Log.i(tag, &quot;Optimizely started.&quot;);
+    }
+
+    public void onOptimizelyFailedToStart(String errorMessage) {
+      Log.i(tag, format(&quot;Optimizely failed to start with message {%s}&quot;, errorMessage));
+    }
+
+    public void onOptimizelyExperimentViewed(OptimizelyExperimentData experimentState) {
+      Log.i(tag, format(&quot;Optimizely experiment {%s} viewed.&quot;, experimentState));
+    }
+
+    public void onOptimizelyEditorEnabled() {
+      Log.i(tag, &quot;Optimizely is ready to connect to the editor.&quot;);
+    }
+
+    public void onOptimizelyDataFileLoaded() {
+      Log.i(tag, &quot;Optimizely experiment data file loaded.&quot;);
+    }
+
+    public void onGoalTriggered(String description,
+                                List&lt;OptimizelyExperimentData&gt; affectedExperiments) {
+      Log.i(tag, format(&quot;Optimizely goal {%s} part of experiments {%s} achieved.&quot;,
+                          description, affectedExperiments));
+    }
+
+    public void onMessage(String source, String messageType, Bundle payload) {
+      Log.i(tag, format(&quot;Optimizely received message %s from %s {%s; %s} .&quot;,
+                          messageType, source, payload));
+    }
+  });
+</code></pre>
+<h3 id="experiment-data-object">Experiment Data Object</h3>
+<p>Optimizely&#39;s Experiment Object will provide information about what part of the experiment life cycle a user is part of.  There are two main functions: <code>getAllExperiments</code> and <code>getVisitedExperiments</code>.  <code>getAllExperiments</code> contains all running, paused, and draft experiments in your Optimizely project.  <code>getVisitedExperiments</code> contains all experiments in your Optimizely project that a user has actually visited. You can also query for the <code>OptimizelyExperimentData</code> associated to a given experimentId by using <code>getExperimentDataById</code>.</p>
+<p>Each experiment is represented as an <code>OptimizelyExperimentData</code> object. For more info on the properties contained there, see the class reference for <a href="/android/help/reference/com/optimizely/integration/OptimizelyExperimentData.html">OptimizelyExperimentData</a>.</p>
+<pre><code class="lang-java">// This will get all your experiments
+Map&lt;String, OptimizelyExperimentData&gt; allExperiments = Optimizely.getAllExperiments();
+
+// This will get all your visited experiments
+Map&lt;String, OptimizelyExperimentData&gt; visitedExperiments = Optimizely.getVisitedExperiments();
+
+// This will get the experiment with the corresponding experimentId
+OptimizelyExperimentData data = Optimizely.getExperimentDataById(&quot;EXPERIMENT_ID&quot;);
+</code></pre>
+<h3 id="audience-information">Audience Information</h3>
+<p>There are a couple utility functions that you can use to help aid in debugging audiences. <code>getAudiences</code> will return a JSONArray of all the audiences associated with your project. Each audience is represented as an JSONObject and you&#39;ll be able extract additional metadata through the following keys: <code>audience_id</code>, <code>conditions</code>, and <code>name</code>. From there you can check whether or not the user currently satisfy a given audience by calling <code>isUserInAudience</code> with a specific audienceId. Keep in mind that both of these methods need to be called after Optimizely is started.</p>
+<p>Here&#39;s an example below:</p>
+<pre><code class="lang-java">// Make sure to call the helper functions after starting Optimizely
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+
+// Gets an array that holds all your project audiences
+JSONArray audiences = Optimizely.getAudiences();
+
+for(int i = 0; i &lt; audiences.length(); i++) {
+    JSONObject audience = audiences.getJSONObject(i);
+    // You can access the metadata associated with each audience
+    // Here we&#39;re just getting each audience&#39;s audienceId
+    String audienceId = audience.getString(&quot;audience_id&quot;);
+
+    // We can then check to see if the user currently satisfies those
+    // audience conditions
+    boolean included = Optimizely.isUserInAudience(audienceId);
+    Log.d(&quot;tag&quot;, &quot;The user &quot; + (included ? &quot;is&quot; : &quot;isn&#39;t&quot;) + &quot; included in this audience:&quot; + audienceId);
+}
+</code></pre>
+<h3 id="forcing-a-variation">Forcing a Variation</h3>
+<p>Sometimes you&#39;ll want to try out your experiment before it goes live and outside of preview mode. You may spend a lot of time re-bucketing yourself in order to get into all the experiment combinations. Now you can opt to force an experiment into a given variation with <code>forceVariation</code>. <em>You must force the variation before calling start Optimizely.</em></p>
+<p>When you force a variation for a given experiment, we&#39;ll reset the app&#39;s userId and try to force that experiment/variation if they are both valid. This should be called before startOptimizely is called and keep in mind that you should only use this for testing your experiments. You should NOT ship this to your customers.</p>
+<p>Here&#39;s an example below:</p>
+<pre><code class="lang-java">// Force the variation and experiment specified by those two ids
+Optimizely.forceVariation(myVariationId, myExperimentId);
+
+// Make sure to call it before start Optimizely is called
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+</code></pre>
+<p>To find a variation&#39;s ID, head to the experiment editor and click on the &quot;Variation Settings&quot; button on the black bar on the far left-hand side of the window.</p>
+<p><strong>Note your experiment must not be paused for forceVariation to take effect.</strong></p>
+<h3 id="programmatically-enable-preview-mode">Programmatically Enable Preview Mode</h3>
+<p>While preview mode can be enabled from the dashboard it can also be enabled from code.  This allows you to preview variations across all of your experiments without needing to connect to the editor.  Preview mode has UI that allows you easily switch variations and view event logs.</p>
+<pre><code class="lang-java">Optimizely.enablePreview();
+Optimizely.startOptimizelyWithAPIToken(getOptimizelyToken(), getApplication());
+</code></pre>
+<h3 id="resetting-qa-state">Resetting QA State</h3>
+<p>Uninstalling the app everytime to QA your builds with Optimizely can be quite tedious. Now you can use <code>resetUserBucketing</code> to clear any variations that the current app user may have already been bucketed into. This will also remove the cached data file. This is useful if you want to insure that you&#39;re treated as a new user each time you start the app. Keep in mind that you must call <code>resetUserBucketing</code> before you start Optimizely.</p>
+<p>Here&#39;s an example below:</p>
+<pre><code class="lang-java">// Reset user bucketing
+Optimizely.resetUserBucketing(context);
+
+// Make sure to call it before start Optimizely is called
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+</code></pre>
+<h3 id="verbose-logging">Verbose Logging</h3>
+<p>Enabling verbose logging allows you to view detailed log output. This will provide more information about experiments and its goals, your Live Variables, Code Blocks, and more.</p>
+<pre><code class="lang-java">// Enable verbose logging
+Optimizely.setVerboseLogging(true);
+
+// Make sure to call it before start Optimizely is called
+Optimizely.startOptimizelyWithAPIToken(myOptimizelyAPIKey, getApplication());
+</code></pre>
+<h2 id="upgrading-to-a-new-sdk">Upgrading to a new SDK</h2>
+<ol>
+<li><p>If you are using Gradle, simply replace the dependency declaration in your <code>build.gradle</code> with a dependency on the new version.</p>
+<p>Here are some examples with Gradle:</p>
+<ul>
+<li><p>If you want to always stay up to date with our newest SDK version, allow Gradle to auto-update the Optimizely SDK:</p>
+<pre><code>compile(&#39;com.optimizely:optimizely:+@aar&#39;) {
+   transitive = true
+}
+</code></pre></li>
+<li><p>If you want to specify when you want to upgrade to monthly SDK feature releases (numbered v X.Y) and automatically upgrade to the newest incremental releases and hotfixes for that release (numbered v X.Y.Z), in this case all releases 1.3 and after and up to 1.5:</p>
+<pre><code>compile(&#39;com.optimizely:optimizely:1.3+@aar&#39;) {
+   transitive = true
+}
+</code></pre></li>
+<li><p>If you want to upgrade to a particular SDK version and stay at that version, in this case version 1.4.2:</p>
+<pre><code>compile(&#39;com.optimizely:optimizely:1.4.2@aar&#39;) {
+ transitive = true
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>Starting with SDK version 1.1, Optimizely&#39;s Android SDK uses a unique URL scheme handler to help you edit and test your experiments.</p>
+<p>If you are upgrading from an SDK version more outdated than 1.1 to version 1.1 or later, please add the following intent filter to the MainActivity entry of your AndroidManifest.xml</p>
+<pre><code class="lang-xml">&lt;activity
+  android:name=&quot;.MainActivity&quot;&gt;
+  &lt;intent-filter&gt;
+    &lt;!-- Existing intent-filters --&gt;
+  &lt;/intent-filter&gt;
+  &lt;intent-filter&gt;
+    &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+    &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+    &lt;data android:scheme=&quot;optly[PROJECT_ID]&quot; /&gt;
+  &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre>
+<p><em>Note:
+The scheme includes a unique identifier.  Be sure to replace [PROJECT_ID] with your project id.</em></p>
+</li>
+</ol>
+<p>If you are using manual integration, please repeat the <a href="/android/getting-started/index.html#manual-installation">Manual Installation Steps</a> for your platform.</p>
+<h2 id="uninstalling-optimizely">Uninstalling Optimizely</h2>
+<p>Simply remove the dependency on Optimizely from your <code>build.gradle</code>. If you installed manually, you need to delete Optimizely.jar from your app.</p>
+
+    </div>
+  </main>
+
+  <footer class="footer cf soft--ends soft-double--sides">
+    <div class="float--left">
+      <a href="https://www.optimizely.com">
+        <img class="display--inline-block vertical-align--bottom" src="/assets/img/optimizely_logo_footer.svg">
+      </a>
+      <span class="soft--left">&copy; 2016 Optimizely</span>
+      <a class="soft--left is-hidden-on-mobile" href="https://www.optimizely.com/terms/">Terms of Service</a>
+      <a class="soft--left" href="https://www.optimizely.com/privacy/">Privacy Policy</a>
+    </div>
+    <div class="float--right is-hidden-on-mobile" style="margin-top: 2px;">
+       <a class="soft--left" href="https://www.optimizely.com/">Optimizely.com</a>
+       <a class="soft--left" href="https://blog.optimizely.com/">Blog</a>
+       <a class="soft--left" href="https://help.optimizely.com/">Help</a>
+       <a class="soft--left" href="https://community.optimizely.com/">Community</a>
+       <a class="soft--left" href="https://www.optimizely.com/jobs/">Jobs</a>
+    </div>
+  </footer>
+
+
+    <!-- JQUERY -->
+    <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-13208639-14', 'optimizely.com');
+      ga('send', 'pageview');
+    </script>
+
+    
+  </body>
+</html>
+

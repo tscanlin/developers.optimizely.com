@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/OptimizelyDimension.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/OptimizelyDimension</TokenIdentifier>
+			<Abstract type="html">This class contains the data associated with a dimension.
+You can choose to access various properties dimension to debug or send offline conversions.</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/set:</TokenIdentifier>
+			<Abstract type="html">The unique identifier for the dimension</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *__attribute ( ( deprecated ( &quot;This property will be removed in SDK 1.6&quot; )</Declaration>
+			
+			
+			<Anchor>//api/name/)</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/OptimizelyDimension/)</TokenIdentifier>
+			<Abstract type="html">The unique identifier for the dimension</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *__attribute ( ( deprecated ( &quot;This property will be removed in SDK 1.6&quot; )</Declaration>
+			
+			
+			<Anchor>//api/name/)</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/OptimizelyDimension/)</TokenIdentifier>
+			<Abstract type="html">The unique identifier for the dimension</Abstract>
+			<DeclaredIn>OptimizelyDimension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSString *__attribute ( ( deprecated ( &quot;This property will be removed in SDK 1.6&quot; )</Declaration>
+			
+			
+			<Anchor>//api/name/)</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
